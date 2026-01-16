@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react"
-import { getChatbotConfig } from "@/components/chatbot"
+import { getChatbotConfig } from "@/app/actions/chatbot"
 
 declare global {
   interface Window {
