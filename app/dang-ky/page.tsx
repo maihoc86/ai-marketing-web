@@ -375,6 +375,96 @@ function RegisterFormContent() {
                   aria-label="Biểu mẫu đăng ký"
                   onKeyDown={handleKeyDown}
                 >
+                  {/* Package Selection Section */}
+                  <div className="space-y-3">
+                    <Label className="text-sm font-medium text-gray-900">
+                      Gói dịch vụ <span className="text-red-600" aria-label="bắt buộc">*</span>
+                    </Label>
+
+                    {/* Selected Package Display */}
+                    {formData.selected_package ? (
+                      <div className="relative">
+                        {packageOptions
+                          .filter((pkg) => pkg.id === formData.selected_package)
+                          .map((selectedPkg) => (
+                            <div
+                              key={selectedPkg.id}
+                              className={`relative rounded-xl border-2 p-4 transition-all ${
+                                selectedPkg.popular
+                                  ? "border-blue-500 bg-gradient-to-br from-blue-50 to-cyan-50"
+                                  : "border-gray-300 bg-gray-50"
+                              }`}
+                            >
+                              {selectedPkg.popular && (
+                                <div className="absolute -top-3 left-4 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                  Phổ biến
+                                </div>
+                              )}
+                              <div className="flex items-start justify-between gap-3">
+                                <div className="flex items-center gap-3 flex-1 min-w-0">
+                                  <div
+                                    className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                                      selectedPkg.popular ? "bg-blue-500" : "bg-gray-600"
+                                    }`}
+                                  >
+                                    <Check className="w-5 h-5 text-white" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 text-base">{selectedPkg.name}</h3>
+                                    <p className="text-sm text-gray-600 mt-0.5">
+                                      {selectedPkg.price} • {selectedPkg.credits}
+                                    </p>
+                                  </div>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={removePackage}
+                                  className="p-2 rounded-lg hover:bg-red-100 text-gray-500 hover:text-red-600 transition-colors flex-shrink-0"
+                                  aria-label="Xóa gói đã chọn"
+                                >
+                                  <X className="w-5 h-5" />
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    ) : (
+                      /* Package Selection Grid */
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        {packageOptions.map((pkg) => (
+                          <button
+                            key={pkg.id}
+                            type="button"
+                            onClick={() => handlePackageSelect(pkg.id)}
+                            className={`relative p-4 rounded-xl border-2 transition-all text-left hover:shadow-md ${
+                              pkg.popular
+                                ? "border-blue-500 bg-gradient-to-br from-blue-50 to-cyan-50 hover:border-blue-600"
+                                : "border-gray-200 bg-white hover:border-blue-300"
+                            }`}
+                          >
+                            {pkg.popular && (
+                              <div className="absolute -top-2 left-3 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                                Phổ biến
+                              </div>
+                            )}
+                            <div className="space-y-2">
+                              <h3 className="font-bold text-gray-900 text-sm">{pkg.name}</h3>
+                              <p className="text-xs text-blue-600 font-semibold">{pkg.price}</p>
+                              <p className="text-xs text-gray-500">{pkg.credits}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    {errors.selected_package && (
+                      <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                        <AlertCircle className="w-4 h-4" aria-hidden="true" />
+                        {errors.selected_package}
+                      </p>
+                    )}
+                  </div>
+
                   <div className="space-y-2">
                     <Label className="text-sm font-medium text-gray-900">Loại hình kinh doanh</Label>
                     <div className="flex items-center gap-6">

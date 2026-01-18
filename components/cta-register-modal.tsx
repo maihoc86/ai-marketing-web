@@ -8,6 +8,7 @@ import { X, CheckCircle2, Loader2, AlertCircle, Send, Sparkles, Gift, Users, Hea
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { api, type ApiError } from "@/lib/api-client"
 
 const STORAGE_KEY = "dxai_cta_modal_dismissed"
 
@@ -182,18 +183,10 @@ export function CtaRegisterModal() {
         customer_need: `Gói: ${formData.selected_package}, Loại hình: ${formData.business_type === "enterprise" ? "Doanh nghiệp" : "Hộ kinh doanh"}, MST: ${formData.tax_code || "N/A"}, Vị trí: ${formData.job_position}`,
       }
 
-      const response = await fetch("https://api-ai-code.dsp.one/api/users/register-company", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(submitData),
-      })
+      // Use secure API client with CSRF protection and rate limiting
+      const data = await api.registerCompany(submitData)
 
-      const data = await response.json()
-
-      if (response.ok) {
+      if (data.success) {
         setIsSubmitted(true)
         localStorage.setItem(STORAGE_KEY, "true")
         setFormData({
@@ -213,8 +206,10 @@ export function CtaRegisterModal() {
         })
       }
     } catch (error) {
+      // Handle API errors with better messages
+      const apiError = error as ApiError
       setErrors({
-        general: "Không thể kết nối đến server, vui lòng thử lại sau",
+        general: apiError.message || "Không thể kết nối đến server, vui lòng thử lại sau",
       })
     } finally {
       setIsLoading(false)

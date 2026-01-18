@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, memo } from "react"
+import Image from "next/image"
 import { Video, Sparkles, PenTool, Calendar, ImageIcon, BarChart3, Workflow } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 
@@ -52,7 +53,7 @@ export function FeaturesSection() {
     },
   ]
 
-  const FeatureCard = ({
+  const FeatureCard = memo(({
     feature,
     index,
   }: {
@@ -88,10 +89,13 @@ export function FeaturesSection() {
         style={{ transitionDelay: `${index * 50}ms` }}
       >
         <div className="relative h-48 rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-gray-50 to-gray-100">
-          <img
+          <Image
             src={feature.image || "/placeholder.svg"}
             alt={t(feature.titleKey)}
+            width={400}
+            height={192}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
           />
           <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
             {t(feature.statsKey)}
@@ -102,7 +106,9 @@ export function FeaturesSection() {
         <p className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
       </div>
     )
-  }
+  })
+
+  FeatureCard.displayName = "FeatureCard"
 
   return (
     <section id="features" className="py-20 bg-[#F8FAFB] relative overflow-hidden">

@@ -22,11 +22,17 @@ export function getRating(metricName: keyof typeof thresholds, value: number): "
   return "poor"
 }
 
+// Google Analytics types
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
 export function sendToAnalytics(metric: PerformanceMetric) {
   // Send to Google Analytics
-  if (typeof window !== "undefined" && "gtag" in window) {
-    const gtag = (window as any).gtag
-    gtag("event", metric.name, {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", metric.name, {
       event_category: "Web Vitals",
       value: Math.round(metric.value),
       event_label: metric.id,
@@ -52,10 +58,10 @@ export function batchDOMOperations(operations: Array<() => void>) {
 }
 
 // Debounced resize handler
-export function debounceRAF(callback: (...args: any[]) => void) {
+export function debounceRAF<T extends unknown[]>(callback: (...args: T) => void) {
   let rafId: number | null = null
 
-  return (...args: any[]) => {
+  return (...args: T) => {
     if (rafId !== null) {
       cancelAnimationFrame(rafId)
     }

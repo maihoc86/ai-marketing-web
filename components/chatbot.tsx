@@ -2,11 +2,8 @@
 import { useEffect } from "react"
 import { getChatbotConfig } from "@/app/actions/chatbot"
 
-declare global {
-  interface Window {
-    CDSChatbot?: any
-  }
-}
+// Type definitions are now in types/cds-chatbot.d.ts
+// Window.CDSChatbot is globally typed
 
 export function Chatbot() {
   useEffect(() => {

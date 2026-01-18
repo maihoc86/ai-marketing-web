@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, memo } from "react"
 import { Check, Sparkles } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 
@@ -114,13 +114,13 @@ const pricingPlans = [
   },
 ]
 
-function BillingToggle({
+const BillingToggle = memo(({
   billing,
   setBilling,
 }: {
   billing: BillingPeriod
   setBilling: (b: BillingPeriod) => void
-}) {
+}) => {
   const { t } = useI18n()
 
   return (
@@ -156,15 +156,17 @@ function BillingToggle({
       </button>
     </div>
   )
-}
+})
 
-function PricingCard({
+BillingToggle.displayName = "BillingToggle"
+
+const PricingCard = memo(({
   plan,
   billing,
 }: {
   plan: (typeof pricingPlans)[0]
   billing: BillingPeriod
-}) {
+}) => {
   const price = plan.price[billing]
   const isContact = price === "Liên hệ"
   const isFeatured = plan.featured
@@ -275,7 +277,9 @@ function PricingCard({
       </div>
     </div>
   )
-}
+})
+
+PricingCard.displayName = "PricingCard"
 
 export function PricingSection() {
   const [billing, setBilling] = useState<BillingPeriod>("monthly")

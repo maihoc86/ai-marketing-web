@@ -47,7 +47,6 @@ export function Footer() {
                 width={140}
                 height={36}
                 className="h-9 w-auto brightness-0 invert"
-                unoptimized
               />
             </div>
             <p className="text-background/60 text-sm leading-relaxed mb-4">{t("footer.description")}</p>

@@ -704,11 +704,16 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
-    const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null
-    if (stored && (stored === "vi" || stored === "en")) {
-      setLocaleState(stored)
+    try {
+      const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null
+      if (stored && (stored === "vi" || stored === "en")) {
+        setLocaleState(stored)
+      }
+    } catch (error) {
+      console.error("Failed to read locale from localStorage:", error)
+    } finally {
+      setIsHydrated(true)
     }
-    setIsHydrated(true)
   }, [])
 
   useEffect(() => {
@@ -719,7 +724,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale)
-    localStorage.setItem(LOCALE_STORAGE_KEY, newLocale)
+    try {
+      localStorage.setItem(LOCALE_STORAGE_KEY, newLocale)
+    } catch (error) {
+      console.error("Failed to save locale to localStorage:", error)
+    }
   }, [])
 
   const t = useCallback(
@@ -736,6 +745,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     },
     [locale],
   )
+
+  // Prevent hydration mismatch by not rendering until client-side hydration is complete
+  if (!isHydrated) {
+    return null
+  }
 
   return <I18nContext.Provider value={{ locale, setLocale, t }}>{children}</I18nContext.Provider>
 }
