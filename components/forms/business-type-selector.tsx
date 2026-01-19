@@ -4,8 +4,8 @@ import { memo } from "react"
 import { Label } from "@/components/ui/label"
 
 interface BusinessTypeSelectorProps {
-  value: "enterprise" | "household"
-  onChange: (value: "enterprise" | "household") => void
+  value: "enterprise" | "household" | "other"
+  onChange: (value: "enterprise" | "household" | "other") => void
   disabled?: boolean
   className?: string
 }
@@ -26,7 +26,7 @@ export const BusinessTypeSelector = memo(({
             name="business_type"
             value="enterprise"
             checked={value === "enterprise"}
-            onChange={(e) => onChange(e.target.value as "enterprise" | "household")}
+            onChange={(e) => onChange(e.target.value as "enterprise" | "household" | "other")}
             disabled={disabled}
             className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
           />
@@ -38,7 +38,7 @@ export const BusinessTypeSelector = memo(({
             name="business_type"
             value="household"
             checked={value === "household"}
-            onChange={(e) => onChange(e.target.value as "enterprise" | "household")}
+            onChange={(e) => onChange(e.target.value as "enterprise" | "household" | "other")}
             disabled={disabled}
             className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
           />

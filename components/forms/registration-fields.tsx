@@ -11,7 +11,7 @@ interface RegistrationFieldsProps {
   errors: RegistrationFormErrors
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
   disabled?: boolean
-  firstInputRef?: RefObject<HTMLInputElement>
+  firstInputRef?: RefObject<HTMLInputElement | null>
   className?: string
 }
 

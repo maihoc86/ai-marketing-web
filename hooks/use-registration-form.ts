@@ -8,14 +8,17 @@ import { api, type ApiError } from "@/lib/api-client"
  */
 export interface RegistrationFormData {
   selected_package: string
-  business_type: "enterprise" | "household"
+  business_type: "enterprise" | "household" | "other"
   tax_code: string
   company_name: string
+  address: string
+  full_name: string
   first_name: string
   last_name: string
   email: string
   phone_number: string
   job_position: string
+  password: string
 }
 
 /**
@@ -25,13 +28,21 @@ export interface RegistrationFormErrors {
   selected_package?: string
   tax_code?: string
   company_name?: string
+  address?: string
+  full_name?: string
   first_name?: string
   last_name?: string
   email?: string
   phone_number?: string
   job_position?: string
+  password?: string
   general?: string
 }
+
+/**
+ * Password Strength Levels
+ */
+export type PasswordStrength = "weak" | "medium" | "strong" | "very_strong"
 
 /**
  * Hook Configuration
@@ -50,14 +61,21 @@ interface UseRegistrationFormReturn {
   errors: RegistrationFormErrors
   isLoading: boolean
   isSubmitted: boolean
+  currentStep: number
+  passwordStrength: PasswordStrength
   setIsSubmitted: (value: boolean) => void
+  setCurrentStep: (step: number) => void
   handleInputChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
   handlePackageSelect: (packageId: string) => void
   removePackage: () => void
-  handleBusinessTypeChange: (type: "enterprise" | "household") => void
+  handleBusinessTypeChange: (type: "enterprise" | "household" | "other") => void
   handleSubmit: (e: React.FormEvent) => Promise<void>
+  handleNextStep: () => boolean
+  handlePrevStep: () => void
   resetForm: () => void
   validateForm: () => boolean
+  validateStep1: () => boolean
+  validateStep2: () => boolean
 }
 
 /**
@@ -77,6 +95,30 @@ function validatePhone(phone: string): boolean {
 }
 
 /**
+ * Password Strength Calculation
+ */
+function calculatePasswordStrength(password: string): PasswordStrength {
+  if (!password) return "weak"
+
+  let score = 0
+
+  // Length checks
+  if (password.length >= 8) score += 1
+  if (password.length >= 12) score += 1
+
+  // Character type checks
+  if (/[a-z]/.test(password)) score += 1
+  if (/[A-Z]/.test(password)) score += 1
+  if (/[0-9]/.test(password)) score += 1
+  if (/[^a-zA-Z0-9]/.test(password)) score += 1
+
+  if (score <= 2) return "weak"
+  if (score <= 4) return "medium"
+  if (score <= 5) return "strong"
+  return "very_strong"
+}
+
+/**
  * Shared Registration Form Hook
  *
  * Consolidates duplicate form logic from:
@@ -88,12 +130,13 @@ function validatePhone(phone: string): boolean {
  * - Validation logic
  * - Submission handling
  * - Error management
+ * - Multi-step form support
  *
  * @param config - Hook configuration options
  * @returns Form state and handlers
  */
 export function useRegistrationForm(config: UseRegistrationFormConfig = {}): UseRegistrationFormReturn {
-  const { initialPackage = "growth", onSuccess, onError } = config
+  const { initialPackage = "starter", onSuccess, onError } = config
 
   // Form State
   const [formData, setFormData] = useState<RegistrationFormData>({
@@ -101,21 +144,28 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
     business_type: "enterprise",
     tax_code: "",
     company_name: "",
+    address: "",
+    full_name: "",
     first_name: "",
     last_name: "",
     email: "",
     phone_number: "",
     job_position: "",
+    password: "",
   })
 
   const [errors, setErrors] = useState<RegistrationFormErrors>({})
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [currentStep, setCurrentStep] = useState(1)
+
+  // Calculate password strength
+  const passwordStrength = calculatePasswordStrength(formData.password)
 
   /**
-   * Validate entire form
+   * Validate Step 1 - Business Information
    */
-  const validateForm = (): boolean => {
+  const validateStep1 = (): boolean => {
     const newErrors: RegistrationFormErrors = {}
 
     // Package validation
@@ -123,14 +173,24 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
       newErrors.selected_package = "Vui lòng chọn gói dùng thử"
     }
 
-    // First name validation
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = "Vui lòng nhập họ và đệm"
+    // Company name validation - only required for business package
+    if (formData.selected_package === "business" && !formData.company_name.trim()) {
+      newErrors.company_name = "Vui lòng nhập tên doanh nghiệp"
     }
 
-    // Last name validation
-    if (!formData.last_name.trim()) {
-      newErrors.last_name = "Vui lòng nhập tên"
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  /**
+   * Validate Step 2 - Contact & Account
+   */
+  const validateStep2 = (): boolean => {
+    const newErrors: RegistrationFormErrors = {}
+
+    // Full name validation
+    if (!formData.full_name.trim()) {
+      newErrors.full_name = "Vui lòng nhập họ và tên"
     }
 
     // Email validation
@@ -149,11 +209,46 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
 
     // Job position validation
     if (!formData.job_position) {
-      newErrors.job_position = "Vui lòng chọn vị trí công việc"
+      newErrors.job_position = "Vui lòng chọn chức vụ"
+    }
+
+    // Password validation
+    if (!formData.password) {
+      newErrors.password = "Vui lòng nhập mật khẩu"
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Mật khẩu phải có ít nhất 8 ký tự"
     }
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
+  }
+
+  /**
+   * Validate entire form
+   */
+  const validateForm = (): boolean => {
+    return validateStep1() && validateStep2()
+  }
+
+  /**
+   * Handle next step
+   */
+  const handleNextStep = (): boolean => {
+    if (currentStep === 1 && validateStep1()) {
+      setCurrentStep(2)
+      return true
+    }
+    return false
+  }
+
+  /**
+   * Handle previous step
+   */
+  const handlePrevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1)
+      setErrors({})
+    }
   }
 
   /**
@@ -189,7 +284,7 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
   /**
    * Handle business type change
    */
-  const handleBusinessTypeChange = (type: "enterprise" | "household") => {
+  const handleBusinessTypeChange = (type: "enterprise" | "household" | "other") => {
     setFormData((prev) => ({ ...prev, business_type: type }))
   }
 
@@ -202,15 +297,19 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
       business_type: "enterprise",
       tax_code: "",
       company_name: "",
+      address: "",
+      full_name: "",
       first_name: "",
       last_name: "",
       email: "",
       phone_number: "",
       job_position: "",
+      password: "",
     })
     setErrors({})
     setIsLoading(false)
     setIsSubmitted(false)
+    setCurrentStep(1)
   }
 
   /**
@@ -219,7 +318,16 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!validateForm()) {
+    // Validate based on package type
+    const isBusinessPackage = formData.selected_package === "business"
+
+    // Validate step 1 for business package
+    if (isBusinessPackage && !validateStep1()) {
+      return
+    }
+
+    // Validate step 2 (contact info) for all packages
+    if (!validateStep2()) {
       return
     }
 
@@ -227,13 +335,24 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
     setErrors({})
 
     try {
-      // Prepare submission data
+      // Get business type label
+      const businessTypeLabels = {
+        enterprise: "Công ty TNHH/CP",
+        household: "Hộ kinh doanh",
+        other: "Tổ chức khác",
+      }
+
+      // Prepare submission data based on package type
+      const customerNeed = isBusinessPackage
+        ? `Gói: ${formData.selected_package}, Loại hình: ${businessTypeLabels[formData.business_type]}, MST: ${formData.tax_code || "N/A"}, Địa chỉ: ${formData.address || "N/A"}, Vị trí: ${formData.job_position}`
+        : `Gói: ${formData.selected_package}, Vị trí: ${formData.job_position}`
+
       const submitData = {
-        name: `${formData.first_name} ${formData.last_name}`.trim(),
+        name: formData.full_name.trim(),
         email: formData.email,
         phone_number: formData.phone_number,
-        company_name: formData.company_name,
-        customer_need: `Gói: ${formData.selected_package}, Loại hình: ${formData.business_type === "enterprise" ? "Doanh nghiệp" : "Hộ kinh doanh"}, MST: ${formData.tax_code || "N/A"}, Vị trí: ${formData.job_position}`,
+        company_name: isBusinessPackage ? formData.company_name : formData.full_name.trim(),
+        customer_need: customerNeed,
       }
 
       // Use secure API client with CSRF protection and rate limiting
@@ -248,11 +367,14 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
           business_type: "enterprise",
           tax_code: "",
           company_name: "",
+          address: "",
+          full_name: "",
           first_name: "",
           last_name: "",
           email: "",
           phone_number: "",
           job_position: "",
+          password: "",
         })
 
         // Call success callback if provided
@@ -278,13 +400,20 @@ export function useRegistrationForm(config: UseRegistrationFormConfig = {}): Use
     errors,
     isLoading,
     isSubmitted,
+    currentStep,
+    passwordStrength,
     setIsSubmitted,
+    setCurrentStep,
     handleInputChange,
     handlePackageSelect,
     removePackage,
     handleBusinessTypeChange,
     handleSubmit,
+    handleNextStep,
+    handlePrevStep,
     resetForm,
     validateForm,
+    validateStep1,
+    validateStep2,
   }
 }
