@@ -1,150 +1,121 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Search, Target, Link2, Settings, TestTube, Rocket } from "lucide-react"
+import { Search, Lightbulb, Puzzle, SlidersHorizontal, ClipboardCheck, Rocket } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
-export function WorkflowTimeline() {
-  const { t, locale } = useI18n()
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
-  const headerRef = useRef<HTMLDivElement>(null)
+// ============================================================
+// TYPES
+// ============================================================
+interface Step {
+  number: string
+  icon: React.ElementType
+  titleKey: string
+  descKey: string
+  color: string
+  bgColor: string
+  lightBg: string
+  borderColor: string
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsHeaderVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
+// ============================================================
+// DATA
+// ============================================================
+const steps: Step[] = [
+  {
+    number: "01",
+    icon: Search,
+    titleKey: "about.workflow.step1.title",
+    descKey: "about.workflow.step1.desc",
+    color: "text-blue-600",
+    bgColor: "bg-blue-600",
+    lightBg: "bg-blue-50",
+    borderColor: "border-blue-200",
+  },
+  {
+    number: "02",
+    icon: Lightbulb,
+    titleKey: "about.workflow.step2.title",
+    descKey: "about.workflow.step2.desc",
+    color: "text-amber-600",
+    bgColor: "bg-amber-600",
+    lightBg: "bg-amber-50",
+    borderColor: "border-amber-200",
+  },
+  {
+    number: "03",
+    icon: Puzzle,
+    titleKey: "about.workflow.step3.title",
+    descKey: "about.workflow.step3.desc",
+    color: "text-purple-600",
+    bgColor: "bg-purple-600",
+    lightBg: "bg-purple-50",
+    borderColor: "border-purple-200",
+  },
+  {
+    number: "04",
+    icon: SlidersHorizontal,
+    titleKey: "about.workflow.step4.title",
+    descKey: "about.workflow.step4.desc",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-600",
+    lightBg: "bg-emerald-50",
+    borderColor: "border-emerald-200",
+  },
+  {
+    number: "05",
+    icon: ClipboardCheck,
+    titleKey: "about.workflow.step5.title",
+    descKey: "about.workflow.step5.desc",
+    color: "text-rose-600",
+    bgColor: "bg-rose-600",
+    lightBg: "bg-rose-50",
+    borderColor: "border-rose-200",
+  },
+  {
+    number: "06",
+    icon: Rocket,
+    titleKey: "about.workflow.step6.title",
+    descKey: "about.workflow.step6.desc",
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-600",
+    lightBg: "bg-indigo-50",
+    borderColor: "border-indigo-200",
+  },
+]
 
-    if (headerRef.current) {
-      observer.observe(headerRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
-  const steps = [
-    {
-      number: "01",
-      icon: Search,
-      title: locale === "vi" ? "Khám phá" : "Discovery",
-      description:
-        locale === "vi"
-          ? "Kiểm tra doanh nghiệp và đánh giá mức độ sẵn sàng AI"
-          : "Business audit and AI readiness assessment",
-      color: "text-blue-600",
-      bgColor: "bg-blue-600",
-      lightBg: "bg-blue-50",
-    },
-    {
-      number: "02",
-      icon: Target,
-      title: locale === "vi" ? "Chiến lược" : "Strategy",
-      description:
-        locale === "vi"
-          ? "Lộ trình AI Marketing tùy chỉnh tập trung vào KPI tăng trưởng"
-          : "Tailored AI Marketing roadmap focused on growth KPIs",
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-600",
-      lightBg: "bg-emerald-50",
-    },
-    {
-      number: "03",
-      icon: Link2,
-      title: locale === "vi" ? "Tích hợp" : "Integration",
-      description:
-        locale === "vi"
-          ? "Kết nối liền mạch DXAI với dữ liệu và công cụ hiện có"
-          : "Seamlessly connecting DXAI with existing data and tools",
-      color: "text-purple-600",
-      bgColor: "bg-purple-600",
-      lightBg: "bg-purple-50",
-    },
-    {
-      number: "04",
-      icon: Settings,
-      title: locale === "vi" ? "Tối ưu hóa" : "Optimization",
-      description:
-        locale === "vi"
-          ? "Tinh chỉnh mô hình để đạt hiệu suất và hiệu quả"
-          : "Model fine-tuning for performance and efficiency",
-      color: "text-amber-600",
-      bgColor: "bg-amber-600",
-      lightBg: "bg-amber-50",
-    },
-    {
-      number: "05",
-      icon: TestTube,
-      title: locale === "vi" ? "Kiểm thử" : "Testing",
-      description:
-        locale === "vi"
-          ? "Đảm bảo chất lượng nghiêm ngặt và theo dõi hiệu suất"
-          : "Rigorous quality assurance and performance tracking",
-      color: "text-rose-600",
-      bgColor: "bg-rose-600",
-      lightBg: "bg-rose-50",
-    },
-    {
-      number: "06",
-      icon: Rocket,
-      title: locale === "vi" ? "Ra mắt" : "Launch",
-      description:
-        locale === "vi"
-          ? "Triển khai toàn diện và giám sát tăng trưởng liên tục"
-          : "Full-scale deployment and continuous growth monitoring",
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-600",
-      lightBg: "bg-indigo-50",
-    },
-  ]
-
+// ============================================================
+// STEP NUMBER COMPONENT
+// ============================================================
+function StepNumber({ number, bgColor, isVisible, index }: {
+  number: string
+  bgColor: string
+  isVisible: boolean
+  index: number
+}) {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div
-          ref={headerRef}
-          className={cn(
-            "text-center mb-16 max-w-3xl mx-auto transition-all duration-700",
-            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
-            <span className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-              {locale === "vi" ? "Phương pháp của chúng tôi" : "Our Methodology"}
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111518] mb-6">
-            {locale === "vi" ? "Quy trình làm việc 6 bước" : "6-Step Process Workflow"}
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            {locale === "vi"
-              ? "Phương pháp tiếp cận có cấu trúc của chúng tôi đảm bảo triển khai thành công và tối ưu hóa liên tục"
-              : "Our structured approach ensures successful implementation and continuous optimization"}
-          </p>
-        </div>
-
-        {/* Timeline Grid */}
-        <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Connecting lines (desktop only) */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-20" />
-
-          {steps.map((step, index) => (
-            <StepCard key={index} step={step} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <div
+      className={cn(
+        "relative z-10 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-500",
+        bgColor,
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+      )}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <span className="text-lg font-black text-white">{number}</span>
+    </div>
   )
 }
 
-function StepCard({ step, index }: { step: any; index: number }) {
+// ============================================================
+// STEP CARD COMPONENT
+// ============================================================
+function StepCard({ step, index }: { step: Step; index: number }) {
+  const { t } = useI18n()
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
+  const Icon = step.icon
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -167,30 +138,163 @@ function StepCard({ step, index }: { step: any; index: number }) {
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
-        isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
+        "group relative bg-white border-2 rounded-2xl p-6 transition-all duration-500",
+        "hover:shadow-xl hover:-translate-y-2",
+        step.borderColor,
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
+      style={{ transitionDelay: `${index * 100 + 150}ms` }}
     >
-      {/* Step Number Badge */}
-      <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-        <span className="text-lg font-black text-white">{step.number}</span>
-      </div>
-
       {/* Icon */}
       <div
-        className={`w-16 h-16 ${step.lightBg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+        className={cn(
+          "w-12 h-12 rounded-xl flex items-center justify-center mb-4",
+          "group-hover:scale-110 transition-transform duration-300",
+          step.lightBg
+        )}
       >
-        <step.icon className={`w-8 h-8 ${step.color}`} />
+        <Icon className={cn("w-6 h-6", step.color)} />
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-bold text-[#111518] mb-3 leading-tight">{step.title}</h3>
-      <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
+      <h3 className="text-lg font-bold text-gray-900 mb-2">
+        {t(step.titleKey)}
+      </h3>
+      <p className="text-sm text-gray-600 leading-relaxed">
+        {t(step.descKey)}
+      </p>
 
-      {/* Bottom accent */}
+      {/* Bottom accent line */}
       <div
-        className={`absolute bottom-0 left-0 right-0 h-1.5 ${step.bgColor} rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
+        className={cn(
+          "absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl",
+          "transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300",
+          step.bgColor
+        )}
       />
     </div>
+  )
+}
+
+// ============================================================
+// MAIN COMPONENT
+// ============================================================
+export function WorkflowTimeline() {
+  const { t } = useI18n()
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
+  const [isTimelineVisible, setIsTimelineVisible] = useState(false)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const timelineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const timelineObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTimelineVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (headerRef.current) {
+      headerObserver.observe(headerRef.current)
+    }
+    if (timelineRef.current) {
+      timelineObserver.observe(timelineRef.current)
+    }
+
+    return () => {
+      headerObserver.disconnect()
+      timelineObserver.disconnect()
+    }
+  }, [])
+
+  return (
+    <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div
+          ref={headerRef}
+          className={cn(
+            "text-center mb-16 max-w-3xl mx-auto transition-all duration-700",
+            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-6">
+            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+            <span className="text-sm font-bold text-blue-700 uppercase tracking-wider">
+              {t("about.workflow.badge")}
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+            {t("about.workflow.title")}
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {t("about.workflow.subtitle")}
+          </p>
+        </div>
+
+        {/* Horizontal Timeline - Desktop */}
+        <div ref={timelineRef} className="hidden lg:block relative mb-12">
+          {/* Timeline Line with Dashes */}
+          <div className="absolute top-7 left-[8%] right-[8%] h-0.5 flex items-center justify-between">
+            <div
+              className={cn(
+                "absolute inset-0 border-t-2 border-dashed border-gray-300 transition-all duration-1000",
+                isTimelineVisible ? "opacity-100" : "opacity-0"
+              )}
+            />
+          </div>
+
+          {/* Step Numbers Row */}
+          <div className="flex justify-between items-center px-[4%] mb-8">
+            {steps.map((step, index) => (
+              <div key={step.number} className="flex flex-col items-center">
+                <StepNumber
+                  number={step.number}
+                  bgColor={step.bgColor}
+                  isVisible={isTimelineVisible}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Cards Row */}
+          <div className="grid grid-cols-6 gap-4">
+            {steps.map((step, index) => (
+              <StepCard key={step.number} step={step} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile/Tablet Grid Layout */}
+        <div className="lg:hidden grid sm:grid-cols-2 gap-6">
+          {steps.map((step, index) => (
+            <div key={step.number} className="relative">
+              {/* Step Number Badge for Mobile */}
+              <div
+                className={cn(
+                  "absolute -top-3 -left-3 z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-md",
+                  step.bgColor
+                )}
+              >
+                <span className="text-sm font-black text-white">{step.number}</span>
+              </div>
+              <StepCard step={step} index={index} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

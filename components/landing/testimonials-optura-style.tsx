@@ -75,14 +75,14 @@ const testimonialsData = {
 const AUTO_SLIDE_INTERVAL = 5000
 
 export function TestimonialsOpturaStyle() {
-  const { locale } = useI18n()
+  const { t, locale } = useI18n()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
-  const testimonials = locale === "vi" ? testimonialsData.vi : testimonialsData.en
+  const testimonials = testimonialsData[locale]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -147,15 +147,13 @@ export function TestimonialsOpturaStyle() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-display-md font-bold text-gray-900 mb-4">
-            {locale === "vi" ? "Khách hàng" : "What our"}{" "}
+            {t("testimonials.title.customers")}{" "}
             <span className="italic text-gradient">
-              {locale === "vi" ? "nói gì" : "customers say"}
+              {t("testimonials.title.say")}
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
-            {locale === "vi"
-              ? "Câu chuyện thành công từ những doanh nghiệp tin dùng"
-              : "Success stories from businesses who trust us"}
+            {t("testimonials.subtitle")}
           </p>
         </div>
 

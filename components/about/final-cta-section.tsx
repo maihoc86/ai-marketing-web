@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
 
 export function FinalCtaSection() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
 
   return (
     <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 relative overflow-hidden">
@@ -28,36 +28,22 @@ export function FinalCtaSection() {
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
           <span className="text-sm font-bold text-white uppercase tracking-wider">
-            {locale === "vi" ? "Bắt đầu ngay hôm nay" : "Get Started Today"}
+            {t("about.finalCta.badge")}
           </span>
         </div>
 
         {/* Main Heading */}
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-          {locale === "vi" ? (
-            <>
-              Sẵn sàng tối ưu hóa{" "}
-              <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-                quy trình marketing
-              </span>{" "}
-              của bạn?
-            </>
-          ) : (
-            <>
-              Ready to streamline your{" "}
-              <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-                marketing workflow
-              </span>
-              ?
-            </>
-          )}
+          {t("about.finalCta.title.prefix")}
+          <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
+            {t("about.finalCta.title.highlight")}
+          </span>
+          {t("about.finalCta.title.suffix")}
         </h2>
 
         {/* Description */}
         <p className="text-lg sm:text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-          {locale === "vi"
-            ? "Tham gia cùng hơn 10,000 doanh nghiệp đang chuyển đổi marketing với AI. Bắt đầu hành trình tự động hóa của bạn ngay hôm nay."
-            : "Join over 10,000 businesses transforming marketing with AI. Start your automation journey today."}
+          {t("about.finalCta.description")}
         </p>
 
         {/* CTA Buttons */}
@@ -68,7 +54,7 @@ export function FinalCtaSection() {
             asChild
           >
             <Link href="/dang-ky" className="flex items-center justify-center gap-2">
-              {locale === "vi" ? "Đặt lịch Demo" : "Schedule a Demo"}
+              {t("about.finalCta.cta.demo")}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
@@ -80,7 +66,7 @@ export function FinalCtaSection() {
             asChild
           >
             <Link href="/dang-ky" className="flex items-center justify-center gap-2">
-              {locale === "vi" ? "Tải Roadmap" : "Download Roadmap"}
+              {t("about.finalCta.cta.roadmap")}
               <Download className="w-5 h-5" />
             </Link>
           </Button>
@@ -97,7 +83,7 @@ export function FinalCtaSection() {
               />
             </svg>
             <span className="text-sm font-semibold">
-              {locale === "vi" ? "Không cần thẻ tín dụng" : "No credit card required"}
+              {t("about.finalCta.trust.noCard")}
             </span>
           </div>
 
@@ -110,7 +96,7 @@ export function FinalCtaSection() {
               />
             </svg>
             <span className="text-sm font-semibold">
-              {locale === "vi" ? "Thiết lập trong 48 giờ" : "48-hour setup"}
+              {t("about.finalCta.trust.setup")}
             </span>
           </div>
 
@@ -123,7 +109,7 @@ export function FinalCtaSection() {
               />
             </svg>
             <span className="text-sm font-semibold">
-              {locale === "vi" ? "Hỗ trợ 24/7" : "24/7 support"}
+              {t("about.finalCta.trust.support")}
             </span>
           </div>
         </div>

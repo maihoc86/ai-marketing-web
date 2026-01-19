@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 import {
   Layers,
   Wallet,
@@ -17,7 +16,6 @@ import {
   Link2,
   Sparkles,
   CheckCircle2,
-  ArrowRight,
 } from "lucide-react"
 import { SiOpenai, SiGoogle, SiMeta } from "react-icons/si"
 import { ClaudeIcon, MistralIcon, DeepSeekIcon } from "@/components/brand-icons"
@@ -25,7 +23,7 @@ import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
 export function ProductEnterprise() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
   const [isHeaderVisible, setIsHeaderVisible] = useState(false)
   const [isWhyDxaiHeaderVisible, setIsWhyDxaiHeaderVisible] = useState(false)
   const [isCoreCapabilitiesVisible, setIsCoreCapabilitiesVisible] = useState(false)
@@ -62,44 +60,32 @@ export function ProductEnterprise() {
   const whyDxaiFeatures = [
     {
       icon: Layers,
-      title: locale === "vi" ? "Tất cả trong một" : "All-in-One Platform",
-      description:
-        locale === "vi"
-          ? "Tích hợp đầy đủ các công cụ marketing AI trong một nền tảng duy nhất"
-          : "Complete AI marketing toolkit integrated in a single platform",
+      titleKey: "about.product.why.allinone.title",
+      descKey: "about.product.why.allinone.desc",
       color: "text-blue-600",
       bgColor: "bg-blue-600",
       lightBg: "bg-blue-50",
     },
     {
       icon: Wallet,
-      title: locale === "vi" ? "Tiết kiệm chi phí" : "Cost Effective",
-      description:
-        locale === "vi"
-          ? "Giảm tới 85% chi phí so với thuê đội ngũ marketing truyền thống"
-          : "Save up to 85% compared to traditional marketing teams",
+      titleKey: "about.product.why.cost.title",
+      descKey: "about.product.why.cost.desc",
       color: "text-emerald-600",
       bgColor: "bg-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
       icon: Share2,
-      title: locale === "vi" ? "Đa nền tảng" : "Multi-Platform",
-      description:
-        locale === "vi"
-          ? "Đăng tự động lên 20+ nền tảng mạng xã hội và marketing"
-          : "Auto-publish to 20+ social and marketing platforms",
+      titleKey: "about.product.why.multiplatform.title",
+      descKey: "about.product.why.multiplatform.desc",
       color: "text-purple-600",
       bgColor: "bg-purple-600",
       lightBg: "bg-purple-50",
     },
     {
       icon: Brain,
-      title: locale === "vi" ? "AI thông minh" : "Intelligent AI",
-      description:
-        locale === "vi"
-          ? "Sử dụng 6 mô hình AI hàng đầu để tối ưu hóa mọi nội dung"
-          : "Leverages 6 leading AI models to optimize every content",
+      titleKey: "about.product.why.ai.title",
+      descKey: "about.product.why.ai.desc",
       color: "text-amber-600",
       bgColor: "bg-amber-600",
       lightBg: "bg-amber-50",
@@ -109,57 +95,57 @@ export function ProductEnterprise() {
   const productFeatures = [
     {
       icon: Video,
-      title: locale === "vi" ? "Sản xuất Video AI" : "AI Video Production",
-      description: locale === "vi" ? "1000+ videos/tháng" : "1000+ videos/month",
+      titleKey: "about.product.feature.video.title",
+      descKey: "about.product.feature.video.desc",
       color: "text-blue-600",
       lightBg: "bg-blue-50",
     },
     {
       icon: ImageIcon,
-      title: locale === "vi" ? "Thiết kế Hình ảnh" : "Image Design",
-      description: locale === "vi" ? "Không giới hạn" : "Unlimited",
+      titleKey: "about.product.feature.image.title",
+      descKey: "about.product.feature.image.desc",
       color: "text-amber-600",
       lightBg: "bg-amber-50",
     },
     {
       icon: FileText,
-      title: locale === "vi" ? "Nội dung Đa kênh" : "Multi-Channel Content",
-      description: locale === "vi" ? "50+ mẫu" : "50+ templates",
+      titleKey: "about.product.feature.content.title",
+      descKey: "about.product.feature.content.desc",
       color: "text-purple-600",
       lightBg: "bg-purple-50",
     },
     {
       icon: Bot,
-      title: locale === "vi" ? "Chatbot Thông minh" : "Smart Chatbot",
-      description: locale === "vi" ? "Tích hợp AI" : "AI-Powered",
+      titleKey: "about.product.feature.chatbot.title",
+      descKey: "about.product.feature.chatbot.desc",
       color: "text-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
       icon: BarChart3,
-      title: locale === "vi" ? "Phân tích Thông minh" : "Smart Analytics",
-      description: locale === "vi" ? "10+ chỉ số" : "10+ metrics",
+      titleKey: "about.product.feature.analytics.title",
+      descKey: "about.product.feature.analytics.desc",
       color: "text-rose-600",
       lightBg: "bg-rose-50",
     },
     {
       icon: Calendar,
-      title: locale === "vi" ? "Lên lịch Tự động" : "Auto Scheduling",
-      description: locale === "vi" ? "24/7 tự động" : "24/7 automation",
+      titleKey: "about.product.feature.schedule.title",
+      descKey: "about.product.feature.schedule.desc",
       color: "text-cyan-600",
       lightBg: "bg-cyan-50",
     },
     {
       icon: TrendingUp,
-      title: locale === "vi" ? "Báo cáo Hiệu suất" : "Performance Reports",
-      description: locale === "vi" ? "Thời gian thực" : "Real-time",
+      titleKey: "about.product.feature.report.title",
+      descKey: "about.product.feature.report.desc",
       color: "text-orange-600",
       lightBg: "bg-orange-50",
     },
     {
       icon: Link2,
-      title: locale === "vi" ? "Tích hợp Liền mạch" : "Seamless Integration",
-      description: locale === "vi" ? "20+ nền tảng" : "20+ platforms",
+      titleKey: "about.product.feature.integration.title",
+      descKey: "about.product.feature.integration.desc",
       color: "text-indigo-600",
       lightBg: "bg-indigo-50",
     },
@@ -188,16 +174,14 @@ export function ProductEnterprise() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">
-              {locale === "vi" ? "Sản phẩm của chúng tôi" : "Our Product"}
+              {t("about.product.badge")}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111518] mb-6">
-            {locale === "vi" ? "DXAI Marketing Platform" : "DXAI Marketing Platform"}
+            {t("about.product.title")}
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            {locale === "vi"
-              ? "Nền tảng marketing AI toàn diện, tự động hóa mọi khía cạnh từ sáng tạo nội dung đến phân phối đa kênh"
-              : "Comprehensive AI marketing platform, automating every aspect from content creation to multi-channel distribution"}
+            {t("about.product.subtitle")}
           </p>
         </div>
 
@@ -211,18 +195,16 @@ export function ProductEnterprise() {
             )}
           >
             <h3 className="text-3xl sm:text-4xl font-bold text-[#111518] mb-4">
-              {locale === "vi" ? "Tại sao chọn DXAI?" : "Why Choose DXAI?"}
+              {t("about.product.why.title")}
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {locale === "vi"
-                ? "Giải pháp AI Marketing toàn diện dành cho doanh nghiệp hiện đại"
-                : "Comprehensive AI Marketing solution for modern businesses"}
+              {t("about.product.why.subtitle")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyDxaiFeatures.map((feature, index) => (
-              <WhyDxaiCard key={index} feature={feature} index={index} />
+              <WhyDxaiCard key={index} feature={feature} index={index} t={t} />
             ))}
           </div>
         </div>
@@ -239,23 +221,21 @@ export function ProductEnterprise() {
               )}
             >
               <h3 className="text-3xl sm:text-4xl font-bold text-[#111518] mb-4">
-                {locale === "vi" ? "Khả năng Cốt lõi" : "Core Capabilities"}
+                {t("about.product.core.title")}
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                {locale === "vi"
-                  ? "8 tính năng chính giúp doanh nghiệp tự động hóa và tối ưu hóa toàn bộ quy trình marketing"
-                  : "8 core features helping businesses automate and optimize the entire marketing workflow"}
+                {t("about.product.core.desc")}
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 {productFeatures.map((feature, index) => (
-                  <FeatureCard key={index} feature={feature} index={index} />
+                  <FeatureCard key={index} feature={feature} index={index} t={t} />
                 ))}
               </div>
             </div>
 
             {/* Right - Enhanced Browser Mockup */}
-            <DashboardMockup locale={locale} isVisible={isCoreCapabilitiesVisible} />
+            <DashboardMockup t={t} isVisible={isCoreCapabilitiesVisible} />
           </div>
         </div>
 
@@ -271,16 +251,14 @@ export function ProductEnterprise() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-md">
               <Brain className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">
-                {locale === "vi" ? "Công nghệ AI" : "AI Technology"}
+                {t("about.product.tech.badge")}
               </span>
             </div>
             <h3 className="text-3xl sm:text-4xl font-bold text-[#111518] mb-4">
-              {locale === "vi" ? "Công nghệ đằng sau DXAI" : "Technology Behind DXAI"}
+              {t("about.product.tech.title")}
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {locale === "vi"
-                ? "Tích hợp 6 mô hình AI hàng đầu thế giới để cung cấp kết quả tối ưu nhất"
-                : "Integrated with 6 world-leading AI models to deliver optimal results"}
+              {t("about.product.tech.subtitle")}
             </p>
           </div>
 
@@ -296,7 +274,16 @@ export function ProductEnterprise() {
 }
 
 // Sub-components
-function WhyDxaiCard({ feature, index }: { feature: any; index: number }) {
+interface WhyDxaiFeature {
+  icon: React.ElementType
+  titleKey: string
+  descKey: string
+  color: string
+  bgColor: string
+  lightBg: string
+}
+
+function WhyDxaiCard({ feature, index, t }: { feature: WhyDxaiFeature; index: number; t: (key: string) => string }) {
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -330,8 +317,8 @@ function WhyDxaiCard({ feature, index }: { feature: any; index: number }) {
       </div>
 
       {/* Content */}
-      <h4 className="text-lg font-bold text-[#111518] mb-3 leading-tight">{feature.title}</h4>
-      <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
+      <h4 className="text-lg font-bold text-[#111518] mb-3 leading-tight">{t(feature.titleKey)}</h4>
+      <p className="text-gray-600 leading-relaxed text-sm">{t(feature.descKey)}</p>
 
       {/* Bottom accent */}
       <div
@@ -341,7 +328,15 @@ function WhyDxaiCard({ feature, index }: { feature: any; index: number }) {
   )
 }
 
-function FeatureCard({ feature, index }: { feature: any; index: number }) {
+interface ProductFeature {
+  icon: React.ElementType
+  titleKey: string
+  descKey: string
+  color: string
+  lightBg: string
+}
+
+function FeatureCard({ feature, index, t }: { feature: ProductFeature; index: number; t: (key: string) => string }) {
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -374,15 +369,15 @@ function FeatureCard({ feature, index }: { feature: any; index: number }) {
           <feature.icon className={`w-5 h-5 ${feature.color}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h5 className="font-bold text-[#111518] text-sm mb-1 leading-tight">{feature.title}</h5>
-          <p className="text-xs text-gray-500 font-medium">{feature.description}</p>
+          <h5 className="font-bold text-[#111518] text-sm mb-1 leading-tight">{t(feature.titleKey)}</h5>
+          <p className="text-xs text-gray-500 font-medium">{t(feature.descKey)}</p>
         </div>
       </div>
     </div>
   )
 }
 
-function DashboardMockup({ locale, isVisible }: { locale: string; isVisible: boolean }) {
+function DashboardMockup({ t, isVisible }: { t: (key: string) => string; isVisible: boolean }) {
   return (
     <div
       className={cn(
@@ -479,7 +474,7 @@ function DashboardMockup({ locale, isVisible }: { locale: string; isVisible: boo
       {/* Floating stat badge */}
       <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-2xl border-2 border-gray-100">
         <p className="text-3xl font-black text-blue-600">10K+</p>
-        <p className="text-sm font-bold text-gray-700">{locale === "vi" ? "Doanh nghiệp" : "Businesses"}</p>
+        <p className="text-sm font-bold text-gray-700">{t("about.product.stat.businesses")}</p>
       </div>
     </div>
   )

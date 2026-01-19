@@ -4,10 +4,10 @@ import { Navbar } from "@/components/landing/navbar"
 import { CtaModalWrapper } from "@/components/cta-modal-wrapper"
 
 // Lazy load below-the-fold sections - OPTURA Style
-const FeaturesLightTheme = dynamic(
-  () => import("@/components/landing/features-light-theme").then((m) => ({ default: m.FeaturesLightTheme })),
+const FeaturesSection = dynamic(
+  () => import("@/components/landing/features-section").then((m) => ({ default: m.FeaturesSection })),
   {
-    loading: () => <div className="h-screen bg-light animate-pulse" />,
+    loading: () => <div className="h-screen bg-white animate-pulse" />,
   },
 )
 const PricingEnterpriseStyle = dynamic(
@@ -50,7 +50,7 @@ export default function LandingPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <HeroLightTheme />
-      <FeaturesLightTheme />
+      <FeaturesSection />
       <PricingEnterpriseStyle />
       <TestimonialsOpturaStyle />
       <RoiSection />

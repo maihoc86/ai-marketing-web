@@ -14,7 +14,7 @@ import {
 } from "@/components/brand-icons"
 
 export function HeroLightTheme() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -34,62 +34,25 @@ export function HeroLightTheme() {
             "flex flex-col gap-8 transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider w-fit shadow-sm">
-              <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              {locale === "vi" ? "LEADING AI MARKETING PLATFORM IN VIETNAM" : "LEADING AI MARKETING PLATFORM IN VIETNAM"}
-            </div>
+            
 
             {/* Main Headline - Value-Driven */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-gray-900">
-              {locale === "vi" ? (
-                <>
-                  TĂNG DOANH THU{" "}
-                  {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                    300%
-                  </span> */}
-                  <br />
-                  VỚI{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                    AI MARKETING THÔNG MINH
-                  </span>
-                </>
-              ) : (
-                <>
-                  BOOST REVENUE{" "}
-                  {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                    300%
-                  </span> */}
-                  <br />
-                  WITH{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                    SMART AI MARKETING
-                  </span>
-                </>
-              )}
+              {t("heroLight.title.line1")}{" "}
+              <br />
+              {t("heroLight.title.line2")}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+                {t("heroLight.title.highlight")}
+              </span>
             </h1>
 
             {/* Subheadline - Specific Value Props */}
             <p className="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
-              {locale === "vi" ? (
-                <>
-                  Hệ thống AI duy nhất tại Việt Nam giúp doanh nghiệp{" "}
-                  <span className="font-bold text-blue-600">tạo nội dung đa kênh</span>,{" "}
-                  <span className="font-bold text-indigo-600">quản lý khách hàng</span> và{" "}
-                  <span className="font-bold text-purple-600">tối ưu quảng cáo tự động</span>.
-                  Từ 1 ý tưởng đến hàng nghìn nội dung viral.
-                </>
-              ) : (
-                <>
-                  Vietnam's only AI system that helps businesses{" "}
-                  <span className="font-bold text-blue-600">create multi-channel content</span>,{" "}
-                  <span className="font-bold text-indigo-600">manage customers</span>, and{" "}
-                  <span className="font-bold text-purple-600">optimize ads automatically</span>.
-                  From 1 idea to thousands of viral content.
-                </>
-              )}
+              {t("heroLight.subtitle.part1")}{" "}
+              <span className="font-bold text-blue-600">{t("heroLight.subtitle.multichannel")}</span>,{" "}
+              <span className="font-bold text-indigo-600">{t("heroLight.subtitle.customers")}</span>{" "}
+              <span className="font-bold text-purple-600">{t("heroLight.subtitle.ads")}</span>.{" "}
+              {t("heroLight.subtitle.part2")}
             </p>
 
             {/* Key Value Props - Quick Stats */}
@@ -101,11 +64,7 @@ export function HeroLightTheme() {
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {locale === "vi" ? (
-                    <><span className="font-bold text-blue-600">1000+ video/tháng</span> tự động</>
-                  ) : (
-                    <><span className="font-bold text-blue-600">1000+ videos/month</span> automated</>
-                  )}
+                  <span className="font-bold text-blue-600">{t("heroLight.stats.videos")}</span> {t("heroLight.stats.videosAuto")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
@@ -115,11 +74,7 @@ export function HeroLightTheme() {
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {locale === "vi" ? (
-                    <>Quản lý <span className="font-bold text-indigo-600">50+ kênh</span> cùng lúc</>
-                  ) : (
-                    <>Manage <span className="font-bold text-indigo-600">50+ channels</span> simultaneously</>
-                  )}
+                  {t("heroLight.stats.channelsManage")} <span className="font-bold text-indigo-600">{t("heroLight.stats.channels")}</span> {t("heroLight.stats.channelsSim")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
@@ -129,11 +84,7 @@ export function HeroLightTheme() {
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {locale === "vi" ? (
-                    <>ROI tăng <span className="font-bold text-purple-600">+285%</span> sau 3 tháng</>
-                  ) : (
-                    <>ROI boost <span className="font-bold text-purple-600">+285%</span> in 3 months</>
-                  )}
+                  {t("heroLight.stats.roiText")} <span className="font-bold text-purple-600">{t("heroLight.stats.roi")}</span> {t("heroLight.stats.roiTime")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
@@ -143,11 +94,7 @@ export function HeroLightTheme() {
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {locale === "vi" ? (
-                    <>Tiết kiệm <span className="font-bold text-amber-600">80% thời gian</span> + 60% chi phí</>
-                  ) : (
-                    <>Save <span className="font-bold text-amber-600">80% time</span> + 60% cost</>
-                  )}
+                  {t("heroLight.stats.saveText")} <span className="font-bold text-amber-600">{t("heroLight.stats.saveTime")}</span> {t("heroLight.stats.saveCost")}
                 </p>
               </div>
             </div>
@@ -157,12 +104,12 @@ export function HeroLightTheme() {
               <div className="flex flex-wrap gap-4">
                 <button className="btn-primary-light flex items-center gap-2 group shadow-lg hover:shadow-xl transition-shadow">
                   <Sparkles className="w-5 h-5" />
-                  {locale === "vi" ? "Dùng Thử 14 Ngày Miễn Phí" : "Try Free for 14 Days"}
+                  {t("heroLight.cta.trial")}
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </button>
                 <button className="btn-secondary-light flex items-center gap-2 group">
                   <Play className="w-5 h-5" />
-                  {locale === "vi" ? "Xem Demo 3 Phút" : "Watch 3-Min Demo"}
+                  {t("heroLight.cta.demo")}
                 </button>
               </div>
               {/* CTA Sub-text */}
@@ -172,7 +119,7 @@ export function HeroLightTheme() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">
-                    {locale === "vi" ? "Không cần thẻ tín dụng" : "No credit card required"}
+                    {t("heroLight.trust.noCard")}
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -180,7 +127,7 @@ export function HeroLightTheme() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">
-                    {locale === "vi" ? "Setup trong 5 phút" : "5-minute setup"}
+                    {t("heroLight.trust.setup")}
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -188,7 +135,7 @@ export function HeroLightTheme() {
                     <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">
-                    {locale === "vi" ? "Bảo mật cấp ngân hàng" : "Bank-level security"}
+                    {t("heroLight.trust.security")}
                   </span>
                 </div>
               </div>
@@ -222,10 +169,10 @@ export function HeroLightTheme() {
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-[10px] text-gray-700 font-mono tracking-widest uppercase font-bold border border-white/30">
-                    {locale === "vi" ? "Trực tiếp" : "Live"}
+                    {t("heroLight.dashboard.live")}
                   </div>
                   <div className="text-[10px] text-gray-600 font-mono tracking-widest uppercase">
-                    {locale === "vi" ? "Dashboard v3.0" : "Dashboard v3.0"}
+                    {t("heroLight.dashboard.version")}
                   </div>
                 </div>
               </div>
@@ -253,7 +200,7 @@ export function HeroLightTheme() {
                     </span>
                   </div>
                   <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-1">
-                    {locale === "vi" ? "Tổng tiếp cận" : "Total Reach"}
+                    {t("heroLight.dashboard.reach")}
                   </p>
                   <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                     1.2M+
@@ -281,7 +228,7 @@ export function HeroLightTheme() {
                     </span>
                   </div>
                   <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-1">
-                    {locale === "vi" ? "Hiệu suất AI" : "AI Efficiency"}
+                    {t("heroLight.dashboard.aiEfficiency")}
                   </p>
                   <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     98.4%
@@ -309,7 +256,7 @@ export function HeroLightTheme() {
                     </span>
                   </div>
                   <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-1">
-                    {locale === "vi" ? "Nội dung tiếng Việt" : "Vietnamese Content"}
+                    {t("heroLight.dashboard.vnContent")}
                   </p>
                   <div className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                     2.5K+
@@ -333,11 +280,11 @@ export function HeroLightTheme() {
                       </svg>
                     </div>
                     <span className="text-xs font-bold text-emerald-600 bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-200">
-                      {locale === "vi" ? "HOẠT ĐỘNG" : "ACTIVE"}
+                      {t("heroLight.dashboard.active")}
                     </span>
                   </div>
                   <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-1">
-                    {locale === "vi" ? "Chiến dịch đang chạy" : "Active Campaigns"}
+                    {t("heroLight.dashboard.campaigns")}
                   </p>
                   <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
                     47
@@ -364,10 +311,10 @@ export function HeroLightTheme() {
       <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm py-12 mt-auto">
         <div className="max-w-7xl mx-auto px-4 text-center mb-8">
           <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em]">
-            {locale === "vi" ? "Công nghệ đằng sau DXAI" : "Technology Behind DXAI"}
+            {t("heroLight.tech.title")}
           </p>
           <p className="text-xs text-gray-500 mt-2">
-            {locale === "vi" ? "Tích hợp với các mô hình AI hàng đầu thế giới" : "Integrated with world's leading AI models"}
+            {t("heroLight.tech.subtitle")}
           </p>
         </div>
         <div className="flex overflow-hidden group relative">

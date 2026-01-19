@@ -446,14 +446,14 @@ Features:
 │  │ [Đăng ký ngay →]          │                     │
 │  └───────────────────────────┘                     │
 │                                                     │
-│  ✓ 10,000+ doanh nghiệp  ✓ SSL  ✓ No card needed  │
+│  ✓ 500+ doanh nghiệp  ✓ SSL  ✓ No card needed  │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
 
 **Content Mapping:**
 - Exact CTA text in Vietnamese/English
-- Trust badges: 10,000+, SSL Secured, No card needed
+- Trust badges: 500+, SSL Secured, No card needed
 - Email capture form
 
 ### 12. Footer
@@ -738,7 +738,7 @@ xl: 1280px  /* Desktops */
 **Content Checklist:**
 - [ ] All 5 FAQs with Vietnamese/English Q&A
 - [ ] CTA text: "Khai phóng sức mạnh AI..."
-- [ ] Trust badges: 10,000+, SSL, No card needed
+- [ ] Trust badges: 500+, SSL, No card needed
 - [ ] Form placeholder: "Nhập email của bạn"
 
 ---

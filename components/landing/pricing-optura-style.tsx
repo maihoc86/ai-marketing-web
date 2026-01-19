@@ -198,7 +198,7 @@ interface PricingCardProps {
 }
 
 function PricingCard({ tier, billingPeriod, formatPrice, index }: PricingCardProps) {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
 
   return (
     <div
@@ -236,8 +236,8 @@ function PricingCard({ tier, billingPeriod, formatPrice, index }: PricingCardPro
       {/* Credits */}
       <div className="text-sm font-semibold text-blue-600 mb-6">
         {tier.credits === -1
-          ? "Không giới hạn Credits"
-          : `${tier.credits.toLocaleString()} Credits/tháng`
+          ? t("pricing.credits.unlimited")
+          : t("pricing.credits.perMonth", { count: tier.credits.toLocaleString() })
         }
       </div>
 
@@ -256,7 +256,7 @@ function PricingCard({ tier, billingPeriod, formatPrice, index }: PricingCardPro
                 {tier.price && formatPrice(tier.price[billingPeriod])}
               </span>
               <span className="text-gray-600">
-                {locale === "vi" ? "VNĐ" : "VND"}
+                {t("pricing.currency")}
               </span>
             </div>
             <div className="text-sm text-gray-600 mt-1">

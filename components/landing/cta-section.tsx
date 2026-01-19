@@ -76,7 +76,7 @@ export function CtaSection() {
         )}
 
         <div className="flex flex-col items-center gap-4">
-          <p className="text-blue-100 text-sm">{t("cta.trusted", { count: "10,000" })}</p>
+          <p className="text-blue-100 text-sm">{t("cta.trusted", { count: "500" })}</p>
           <div className="flex items-center justify-center gap-6 text-sm text-blue-100">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-green-400" />

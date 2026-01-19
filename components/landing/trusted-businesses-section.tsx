@@ -11,8 +11,7 @@ import { cn } from "@/lib/utils"
 interface Industry {
   id: string
   iconComponent: React.ElementType
-  nameVi: string
-  nameEn: string
+  nameKey: string
   logos: string[]
 }
 
@@ -23,8 +22,7 @@ const industries: Industry[] = [
   {
     id: "retail",
     iconComponent: ShoppingBag,
-    nameVi: "Ngành Bán Lẻ",
-    nameEn: "Retail Industry",
+    nameKey: "trusted.industry.retail",
     logos: [
       "Thế Giới Di Động",
       "FPT Shop",
@@ -39,8 +37,7 @@ const industries: Industry[] = [
   {
     id: "ecommerce",
     iconComponent: ShoppingCart,
-    nameVi: "Thương Mại Điện Tử",
-    nameEn: "E-Commerce",
+    nameKey: "trusted.industry.ecommerce",
     logos: [
       "Shopee",
       "Lazada",
@@ -55,8 +52,7 @@ const industries: Industry[] = [
   {
     id: "realestate",
     iconComponent: Building2,
-    nameVi: "Bất Động Sản",
-    nameEn: "Real Estate",
+    nameKey: "trusted.industry.realestate",
     logos: [
       "Vingroup",
       "Novaland",
@@ -71,8 +67,7 @@ const industries: Industry[] = [
   {
     id: "manufacturing",
     iconComponent: Factory,
-    nameVi: "Sản Xuất",
-    nameEn: "Manufacturing",
+    nameKey: "trusted.industry.manufacturing",
     logos: [
       "Vinamilk",
       "Masan",
@@ -130,7 +125,7 @@ function LogoCard({ name, index }: { name: string; index: number }) {
 }
 
 function IndustryColumn({ industry, index }: { industry: Industry; index: number }) {
-  const { locale } = useI18n()
+  const { t } = useI18n()
   const Icon = industry.iconComponent
   const [isVisible, setIsVisible] = useState(false)
   const columnRef = useRef<HTMLDivElement>(null)
@@ -166,7 +161,7 @@ function IndustryColumn({ industry, index }: { industry: Industry; index: number
           <Icon className="w-5 h-5 text-blue-600" />
         </div>
         <h3 className="text-base font-bold text-gray-900">
-          {locale === "vi" ? industry.nameVi : industry.nameEn}
+          {t(industry.nameKey)}
         </h3>
       </div>
 
@@ -289,7 +284,7 @@ function TrustBadge({ icon: Icon, title, description, index }: { icon: React.Ele
 // MAIN COMPONENT
 // ============================================================
 export function TrustedBusinessesSection() {
-  const { locale } = useI18n()
+  const { t } = useI18n()
 
   return (
     <section className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
@@ -303,28 +298,14 @@ export function TrustedBusinessesSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
-            {locale === "vi" ? (
-              <>
-                Được tin dùng bởi hơn{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                  500 doanh nghiệp
-                </span>{" "}
-                toàn quốc
-              </>
-            ) : (
-              <>
-                Trusted by over{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                  500 businesses
-                </span>{" "}
-                nationwide
-              </>
-            )}
+            {t("trusted.title.prefix")}{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              {t("trusted.title.count")}
+            </span>{" "}
+            {t("trusted.title.suffix")}
           </h2>
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            {locale === "vi"
-              ? "Đồng hành cùng các doanh nghiệp hàng đầu và phát triển tại Việt Nam với giải pháp marketing AI."
-              : "Helping Vietnam's leading enterprises and growing businesses scale with AI-driven marketing solutions."}
+            {t("trusted.subtitle")}
           </p>
         </div>
 
@@ -335,60 +316,7 @@ export function TrustedBusinessesSection() {
           ))}
         </div>
 
-        {/* Statistics Section */}
-        <div className="relative my-16 md:my-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-3xl opacity-60" />
-          <div className="relative grid md:grid-cols-3 gap-8 md:gap-12 py-12 md:py-16 px-6">
-            <StatCard
-              number="500+"
-              label={locale === "vi" ? "Doanh nghiệp tin dùng" : "Businesses Trust Us"}
-              index={0}
-            />
-            <StatCard
-              number="63"
-              label={locale === "vi" ? "Tỉnh thành Việt Nam" : "Vietnamese Provinces"}
-              index={1}
-            />
-            <StatCard
-              number="20+"
-              label={locale === "vi" ? "Ngành nghề chính" : "Major Industries"}
-              index={2}
-            />
-          </div>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="grid md:grid-cols-2 gap-6 mt-16">
-          <TrustBadge
-            icon={Shield}
-            title={locale === "vi" ? "SOC 2 Type II Certified" : "SOC 2 Type II Certified"}
-            description={
-              locale === "vi"
-                ? "Tiêu chuẩn bảo mật cấp doanh nghiệp cho dữ liệu của bạn."
-                : "Enterprise-grade security standards for your data."
-            }
-            index={0}
-          />
-          <TrustBadge
-            icon={CheckCircle2}
-            title={locale === "vi" ? "99.9% Uptime SLA" : "99.9% Uptime SLA"}
-            description={
-              locale === "vi"
-                ? "Đảm bảo độ tin cậy nền tảng cho hoạt động 24/7."
-                : "Guaranteed platform reliability for 24/7 operations."
-            }
-            index={1}
-          />
-        </div>
-
-        {/* Footer Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-200 text-center">
-          <p className="text-sm text-gray-500">
-            {locale === "vi"
-              ? "© 2024 DXAI Marketing. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế."
-              : "© 2024 DXAI Marketing. All rights reserved. Professional trust signals for Vietnam and Global markets."}
-          </p>
-        </div>
+        
       </div>
     </section>
   )

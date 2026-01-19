@@ -10,20 +10,16 @@ interface ComparisonRow {
   id: string
   icon: typeof TrendingUp
   iconBg: string
-  criteriaVi: string
-  criteriaEn: string
-  traditionalVi: string
-  traditionalEn: string
-  dxaiVi: string
-  dxaiEn: string
-  savingsVi?: string
-  savingsEn?: string
+  criteriaKey: string
+  traditionalKey: string
+  dxaiKey: string
+  savingsKey?: string
 }
 
 export function WhyChooseOpturaStyle() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const { locale } = useI18n()
+  const { t } = useI18n()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,58 +49,42 @@ export function WhyChooseOpturaStyle() {
       id: "cost",
       icon: TrendingUp,
       iconBg: "bg-blue-100",
-      criteriaVi: "Chi phí",
-      criteriaEn: "Cost",
-      traditionalVi: "~$555 / tháng",
-      traditionalEn: "~$555 / month",
-      dxaiVi: "~$255 / tháng",
-      dxaiEn: "~$255 / month",
-      savingsVi: "Tiết kiệm ~54%",
-      savingsEn: "Save ~54%",
+      criteriaKey: "whyChoose.optura.row1.criteria",
+      traditionalKey: "whyChoose.optura.row1.traditional",
+      dxaiKey: "whyChoose.optura.row1.dxai",
+      savingsKey: "whyChoose.optura.row1.savings",
     },
     {
       id: "video-output",
       icon: Zap,
       iconBg: "bg-blue-100",
-      criteriaVi: "Sản lượng Video",
-      criteriaEn: "Video Output",
-      traditionalVi: "10–15 video/tháng",
-      traditionalEn: "10–15 videos/month",
-      dxaiVi: "~25 video/tháng",
-      dxaiEn: "~25 videos/month",
+      criteriaKey: "whyChoose.optura.row2.criteria",
+      traditionalKey: "whyChoose.optura.row2.traditional",
+      dxaiKey: "whyChoose.optura.row2.dxai",
     },
     {
       id: "time",
       icon: Clock,
       iconBg: "bg-blue-100",
-      criteriaVi: "Thời gian/Video",
-      criteriaEn: "Time per Video",
-      traditionalVi: "1–2 ngày/video",
-      traditionalEn: "1–2 days/video",
-      dxaiVi: "~2 phút/video",
-      dxaiEn: "~2 minutes/video",
+      criteriaKey: "whyChoose.optura.row3.criteria",
+      traditionalKey: "whyChoose.optura.row3.traditional",
+      dxaiKey: "whyChoose.optura.row3.dxai",
     },
     {
       id: "multitask",
       icon: Users,
       iconBg: "bg-blue-100",
-      criteriaVi: "Đa nhiệm",
-      criteriaEn: "Multitasking",
-      traditionalVi: "Công việc đơn lẻ",
-      traditionalEn: "Single task",
-      dxaiVi: "Video + Hình ảnh + Bài viết + Chatbot",
-      dxaiEn: "Video + Images + Articles + Chatbot",
+      criteriaKey: "whyChoose.optura.row4.criteria",
+      traditionalKey: "whyChoose.optura.row4.traditional",
+      dxaiKey: "whyChoose.optura.row4.dxai",
     },
     {
       id: "operation",
       icon: Settings,
       iconBg: "bg-blue-100",
-      criteriaVi: "Vận hành",
-      criteriaEn: "Operation",
-      traditionalVi: "Cần ca làm việc, nghỉ phép, giám sát thủ công",
-      traditionalEn: "Requires shifts, leave, manual oversight",
-      dxaiVi: "Tự động 24/7",
-      dxaiEn: "Automated 24/7",
+      criteriaKey: "whyChoose.optura.row5.criteria",
+      traditionalKey: "whyChoose.optura.row5.traditional",
+      dxaiKey: "whyChoose.optura.row5.dxai",
     },
   ]
 
@@ -118,20 +98,10 @@ export function WhyChooseOpturaStyle() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6">
-            {locale === "vi" ? (
-              <>
-                Why Choose <span className="text-blue-600">DXAI Marketing Platform</span>?
-              </>
-            ) : (
-              <>
-                Why Choose <span className="text-blue-600">DXAI Marketing Platform</span>?
-              </>
-            )}
+            {t("whyChoose.optura.title")} <span className="text-blue-600">{t("whyChoose.optura.brand")}</span>?
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            {locale === "vi"
-              ? "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI"
-              : "Compare traditional marketing workflows vs an AI-powered solution"}
+            {t("whyChoose.optura.subtitle")}
           </p>
 
           {/* Watch Demo Button */}
@@ -140,7 +110,7 @@ export function WhyChooseOpturaStyle() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
               </svg>
-              {locale === "vi" ? "Watch Demo" : "Watch Demo"}
+              {t("whyChoose.optura.watchDemo")}
             </button>
           </Link>
         </div>
@@ -156,7 +126,7 @@ export function WhyChooseOpturaStyle() {
           <div className="grid grid-cols-[300px_1fr_1fr] bg-gradient-to-r from-gray-50 to-white">
             <div className="px-8 py-6 border-r border-gray-200">
               <h3 className="text-base font-bold text-gray-900">
-                {locale === "vi" ? "Tiêu chí so sánh" : "Comparison Criteria"}
+                {t("whyChoose.optura.criteria")}
               </h3>
             </div>
             <div className="px-8 py-6 border-r border-gray-200 bg-red-50/30 relative">
@@ -164,12 +134,12 @@ export function WhyChooseOpturaStyle() {
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 border border-red-200">
                   <XCircle className="w-4 h-4 text-red-600" />
                   <span className="text-xs font-bold text-red-700 uppercase tracking-wider">
-                    {locale === "vi" ? "Phương pháp truyền thống" : "Traditional Editor/Content"}
+                    {t("whyChoose.optura.traditional")}
                   </span>
                 </div>
               </div>
               <p className="text-sm text-gray-600 mt-2">
-                {locale === "vi" ? "Tiếp cận thủ công" : "Manual approach"}
+                {t("whyChoose.optura.traditional.manual")}
               </p>
             </div>
             <div className="px-8 py-6 bg-green-50/30 relative">
@@ -177,15 +147,15 @@ export function WhyChooseOpturaStyle() {
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-600 border border-green-700 shadow-lg">
                   <CheckCircle2 className="w-4 h-4 text-white" />
                   <span className="text-xs font-bold text-white uppercase tracking-wider">
-                    {locale === "vi" ? "LỰA CHỌN TỐT NHẤT" : "BEST CHOICE"}
+                    {t("whyChoose.optura.bestChoice")}
                   </span>
                 </div>
               </div>
               <h3 className="text-base font-bold text-green-700 mt-2">
-                {locale === "vi" ? "Nền tảng DXAI Marketing" : "DXAI Marketing Platform"}
+                {t("whyChoose.optura.dxai")}
               </h3>
               <p className="text-sm text-green-600">
-                {locale === "vi" ? "Giải pháp tự động" : "Automated solution"}
+                {t("whyChoose.optura.dxai.auto")}
               </p>
             </div>
           </div>
@@ -209,25 +179,25 @@ export function WhyChooseOpturaStyle() {
                       <Icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <h4 className="text-base font-bold text-gray-900">
-                      {locale === "vi" ? row.criteriaVi : row.criteriaEn}
+                      {t(row.criteriaKey)}
                     </h4>
                   </div>
 
                   {/* Traditional Method Column */}
                   <div className="px-8 py-6 border-r border-gray-200 bg-red-50/10 flex items-center">
                     <p className="text-base text-gray-700">
-                      {locale === "vi" ? row.traditionalVi : row.traditionalEn}
+                      {t(row.traditionalKey)}
                     </p>
                   </div>
 
                   {/* DXAI Platform Column */}
                   <div className="px-8 py-6 bg-green-50/10 flex items-center justify-between">
                     <p className="text-base font-bold text-gray-900">
-                      {locale === "vi" ? row.dxaiVi : row.dxaiEn}
+                      {t(row.dxaiKey)}
                     </p>
-                    {row.savingsVi && (
+                    {row.savingsKey && (
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-bold">
-                        {locale === "vi" ? row.savingsVi : row.savingsEn}
+                        {t(row.savingsKey)}
                       </span>
                     )}
                   </div>
@@ -256,7 +226,7 @@ export function WhyChooseOpturaStyle() {
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900">
-                    {locale === "vi" ? row.criteriaVi : row.criteriaEn}
+                    {t(row.criteriaKey)}
                   </h4>
                 </div>
 
@@ -265,11 +235,11 @@ export function WhyChooseOpturaStyle() {
                   <div className="flex items-center gap-2 mb-2">
                     <XCircle className="w-4 h-4 text-red-600 shrink-0" />
                     <p className="text-xs font-bold text-red-700 uppercase tracking-wider">
-                      {locale === "vi" ? "Phương pháp truyền thống" : "Traditional Method"}
+                      {t("whyChoose.optura.traditional")}
                     </p>
                   </div>
                   <p className="text-base text-gray-700">
-                    {locale === "vi" ? row.traditionalVi : row.traditionalEn}
+                    {t(row.traditionalKey)}
                   </p>
                 </div>
 
@@ -279,17 +249,17 @@ export function WhyChooseOpturaStyle() {
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-green-600 shrink-0" />
                       <p className="text-xs font-bold text-green-700 uppercase tracking-wider">
-                        {locale === "vi" ? "Nền tảng DXAI" : "DXAI Platform"}
+                        {t("whyChoose.optura.mobilePlatform")}
                       </p>
                     </div>
-                    {row.savingsVi && (
+                    {row.savingsKey && (
                       <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-green-600 text-white text-xs font-bold">
-                        {locale === "vi" ? row.savingsVi : row.savingsEn}
+                        {t(row.savingsKey)}
                       </span>
                     )}
                   </div>
                   <p className="text-base font-bold text-gray-900">
-                    {locale === "vi" ? row.dxaiVi : row.dxaiEn}
+                    {t(row.dxaiKey)}
                   </p>
                 </div>
               </div>
@@ -315,19 +285,17 @@ export function WhyChooseOpturaStyle() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {locale === "vi" ? "Cam kết hiệu quả" : "Performance Guarantee"}
+                  {t("whyChoose.optura.guarantee.title")}
                 </h3>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  {locale === "vi"
-                    ? "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái DXAI. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất."
-                    : "Metrics based on average data from over 500+ businesses that have transitioned to the DXAI ecosystem. 80% cost savings calculated on total personnel and production budget."}
+                  {t("whyChoose.optura.guarantee.desc")}
                 </p>
               </div>
             </div>
 
             <Link href="/dang-ky">
               <button className="w-full px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group">
-                {locale === "vi" ? "Trải nghiệm ngay" : "Try Now"}
+                {t("whyChoose.optura.tryNow")}
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -343,19 +311,17 @@ export function WhyChooseOpturaStyle() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {locale === "vi" ? "Cần tư vấn chuyên sâu?" : "Need Expert Consultation?"}
+                  {t("whyChoose.optura.consult.title")}
                 </h3>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  {locale === "vi"
-                    ? "Đội ngũ chuyên gia của chúng tôi sẵn sàng tư vấn miễn phí để giúp bạn tìm ra giải pháp phù hợp nhất cho doanh nghiệp."
-                    : "Our expert team is ready to provide free consultation to help you find the best solution for your business."}
+                  {t("whyChoose.optura.consult.desc")}
                 </p>
               </div>
             </div>
 
             <Link href="/ve-chung-toi">
               <button className="w-full px-8 py-4 rounded-xl bg-white hover:bg-gray-50 text-blue-600 font-bold border-2 border-blue-600 shadow-md hover:shadow-lg transition-all duration-200">
-                {locale === "vi" ? "Tư vấn giải pháp" : "Consult Solutions"}
+                {t("whyChoose.optura.consultBtn")}
               </button>
             </Link>
           </div>

@@ -1,137 +1,281 @@
 "use client"
 
-import { useEffect, useRef, useState, memo } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { Video, Sparkles, PenTool, Calendar, ImageIcon, BarChart3, Workflow } from "lucide-react"
+import { Video, FileText, Calendar, ImageIcon, BarChart3, Link2, ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
+import { cn } from "@/lib/utils"
 
-export function FeaturesSection() {
+// ============================================================
+// TYPES
+// ============================================================
+interface Feature {
+  id: string
+  icon: React.ElementType
+  iconBg: string
+  iconColor: string
+  badge: string
+  badgeColor: string
+  image: string
+}
+
+// ============================================================
+// DATA
+// ============================================================
+const features: Feature[] = [
+  {
+    id: "video",
+    icon: Video,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+    badge: "1000+",
+    badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
+    image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
+  },
+  {
+    id: "content",
+    icon: FileText,
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-600",
+    badge: "50+",
+    badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
+    image: "/content-writing-ai-tool-with-seo-optimization-and-.jpg",
+  },
+  {
+    id: "schedule",
+    icon: Calendar,
+    iconBg: "bg-indigo-100",
+    iconColor: "text-indigo-600",
+    badge: "24/7",
+    badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
+    image: "/social-media-scheduling-calendar-dashboard-with-mu.jpg",
+  },
+  {
+    id: "image",
+    icon: ImageIcon,
+    iconBg: "bg-pink-100",
+    iconColor: "text-pink-600",
+    badge: "Unlimited",
+    badgeColor: "bg-pink-100 text-pink-700 border-pink-200",
+    image: "/ai-image-generation-tool-with-product-banner-and-a.jpg",
+  },
+  {
+    id: "analytics",
+    icon: BarChart3,
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-600",
+    badge: "10+",
+    badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    image: "/marketing-analytics-dashboard-with-charts-graphs-a.jpg",
+  },
+  {
+    id: "integration",
+    icon: Link2,
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
+    badge: "20+",
+    badgeColor: "bg-orange-100 text-orange-700 border-orange-200",
+    image: "/social-media-multi-platform-publishing-dashboard.jpg",
+  },
+]
+
+// ============================================================
+// FEATURE ROW COMPONENT
+// ============================================================
+interface FeatureRowProps {
+  feature: Feature
+  index: number
+  isVisible: boolean
+}
+
+function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
   const { t } = useI18n()
+  const Icon = feature.icon
+  const isEven = index % 2 === 0
+  const [imageError, setImageError] = useState(false)
 
-  const features = [
-    {
-      titleKey: "features.video.title",
-      descKey: "features.video.desc",
-      statsKey: "features.video.stats",
-      image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
-      icon: Video,
-    },
-    {
-      titleKey: "features.content.title",
-      descKey: "features.content.desc",
-      statsKey: "features.content.stats",
-      image: "/content-writing-ai-tool-with-seo-optimization-and-.jpg",
-      icon: PenTool,
-    },
-    {
-      titleKey: "features.schedule.title",
-      descKey: "features.schedule.desc",
-      statsKey: "features.schedule.stats",
-      image: "/social-media-scheduling-calendar-dashboard-with-mu.jpg",
-      icon: Calendar,
-    },
-    {
-      titleKey: "features.image.title",
-      descKey: "features.image.desc",
-      statsKey: "features.image.stats",
-      image: "/ai-image-generation-tool-with-product-banner-and-a.jpg",
-      icon: ImageIcon,
-    },
-    {
-      titleKey: "features.analytics.title",
-      descKey: "features.analytics.desc",
-      statsKey: "features.analytics.stats",
-      image: "/marketing-analytics-dashboard-with-charts-graphs-a.jpg",
-      icon: BarChart3,
-    },
-    {
-      titleKey: "features.integration.title",
-      descKey: "features.integration.desc",
-      statsKey: "features.integration.stats",
-      image: "/social-media-multi-platform-publishing-dashboard.jpg",
-      icon: Workflow,
-    },
-  ]
-
-  const FeatureCard = memo(({
-    feature,
-    index,
-  }: {
-    feature: (typeof features)[0]
-    index: number
-  }) => {
-    const [isVisible, setIsVisible] = useState(false)
-    const cardRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => setIsVisible(true), index * 100)
-          }
-        },
-        { threshold: 0.1 },
-      )
-
-      if (cardRef.current) {
-        observer.observe(cardRef.current)
-      }
-
-      return () => observer.disconnect()
-    }, [index])
-
-    return (
-      <article
-        ref={cardRef}
-        aria-labelledby={`feature-${index}-title`}
-        aria-describedby={`feature-${index}-desc`}
-        className={`bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-        style={{ transitionDelay: `${index * 50}ms` }}
+  const imageContent = (
+    <div
+      className={cn(
+        "relative rounded-2xl overflow-hidden shadow-xl group",
+        "transition-all duration-700 ease-out",
+        isVisible
+          ? "opacity-100 translate-x-0"
+          : isEven
+            ? "opacity-0 -translate-x-16"
+            : "opacity-0 translate-x-16"
+      )}
+    >
+      {/* Badge */}
+      <div
+        className={cn(
+          "absolute top-4 right-4 z-10",
+          "px-3 py-1.5 rounded-full text-sm font-semibold border",
+          "bg-white/90 backdrop-blur-sm shadow-sm",
+          feature.badgeColor
+        )}
       >
-        <div className="relative h-48 rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-gray-50 to-gray-100">
+        {feature.badge}
+      </div>
+
+      {/* Image with placeholder fallback */}
+      <div className="aspect-[4/3] relative bg-gradient-to-br from-gray-100 to-gray-200">
+        {!imageError ? (
           <Image
-            src={feature.image || "/placeholder.svg"}
-            alt={t(feature.titleKey)}
-            width={400}
-            height={192}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
+            src={feature.image}
+            alt={t(`features.${feature.id}.title`)}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            onError={() => setImageError(true)}
           />
-          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium" aria-label={`Statistics: ${t(feature.statsKey)}`}>
-            {t(feature.statsKey)}
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Icon className="w-16 h-16 text-gray-300" />
           </div>
-        </div>
+        )}
+      </div>
+    </div>
+  )
 
-        <h3 id={`feature-${index}-title`} className="text-lg font-semibold mb-3 text-gray-900">{t(feature.titleKey)}</h3>
-        <p id={`feature-${index}-desc`} className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
-      </article>
-    )
-  })
+  const contentBlock = (
+    <div
+      className={cn(
+        "flex flex-col justify-center",
+        "transition-all duration-700 ease-out delay-200",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      )}
+    >
+      {/* Icon */}
+      <div
+        className={cn(
+          "w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
+          feature.iconBg
+        )}
+      >
+        <Icon className={cn("w-6 h-6", feature.iconColor)} />
+      </div>
 
-  FeatureCard.displayName = "FeatureCard"
+      {/* Title */}
+      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+        {t(`features.${feature.id}.title`)}
+      </h3>
+
+      {/* Description */}
+      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+        {t(`features.${feature.id}.desc`)}
+      </p>
+
+      {/* Highlight Stat */}
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-2 h-2 rounded-full bg-blue-600" />
+        <span className="text-gray-700 font-medium">
+          {t(`features.${feature.id}.stats`)}
+        </span>
+      </div>
+
+      {/* CTA Link */}
+      <a
+        href={`#${feature.id}`}
+        className={cn(
+          "inline-flex items-center gap-2 font-semibold",
+          feature.iconColor,
+          "hover:gap-3 transition-all duration-300"
+        )}
+      >
+        {t("features.learnMore")}
+        <ArrowRight className="w-4 h-4" />
+      </a>
+    </div>
+  )
 
   return (
-    <section id="features" aria-labelledby="features-heading" className="py-20 bg-[#F8FAFB] relative overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 border border-blue-200 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" aria-hidden="true" />
-            <span className="text-xs font-medium text-blue-700">{t("features.badge")}</span>
-          </div>
+    <div
+      className={cn(
+        "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center",
+        "py-16 lg:py-24",
+        index !== 0 && "border-t border-gray-100"
+      )}
+    >
+      {/* Zigzag: alternate order based on index */}
+      {isEven ? (
+        <>
+          <div className="order-1">{imageContent}</div>
+          <div className="order-2">{contentBlock}</div>
+        </>
+      ) : (
+        <>
+          <div className="order-2 lg:order-1">{contentBlock}</div>
+          <div className="order-1 lg:order-2">{imageContent}</div>
+        </>
+      )}
+    </div>
+  )
+}
 
-          <h2 id="features-heading" className="text-4xl md:text-5xl text-gray-900 mb-4 font-extrabold text-balance mt-4">
-            {t("features.title")}
+// ============================================================
+// MAIN COMPONENT
+// ============================================================
+export function FeaturesSection() {
+  const { t } = useI18n()
+  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set())
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+
+    featureRefs.current.forEach((ref, index) => {
+      if (!ref) return
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisibleFeatures((prev) => new Set([...prev, index]))
+              observer.disconnect()
+            }
+          })
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -100px 0px" }
+      )
+
+      observer.observe(ref)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach((obs) => obs.disconnect())
+  }, [])
+
+  return (
+    <section id="features" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              {t("features.title")}
+            </span>{" "}
+            <span className="text-gray-900">{t("features.titleHighlight")}</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">{t("features.subtitle")}</p>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            {t("features.subtitle")}
+          </p>
         </div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {/* Feature Rows - Zigzag Layout */}
+        <div className="max-w-6xl mx-auto">
           {features.map((feature, index) => (
-            <FeatureCard key={feature.titleKey} feature={feature} index={index} />
+            <div
+              key={feature.id}
+              ref={(el) => {
+                featureRefs.current[index] = el
+              }}
+            >
+              <FeatureRow
+                feature={feature}
+                index={index}
+                isVisible={visibleFeatures.has(index)}
+              />
+            </div>
           ))}
         </div>
       </div>

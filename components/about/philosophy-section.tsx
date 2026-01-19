@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
 export function PhilosophySection() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
   const [isHeaderVisible, setIsHeaderVisible] = useState(false)
   const headerRef = useRef<HTMLDivElement>(null)
 
@@ -30,42 +30,32 @@ export function PhilosophySection() {
   const benefits = [
     {
       icon: Rocket,
-      title: locale === "vi" ? "Triển khai nhanh" : "Rapid Deployment",
-      description:
-        locale === "vi"
-          ? "Hệ thống sẵn sàng vận hành chỉ trong 48 giờ"
-          : "System ready to operate in just 48 hours",
+      titleKey: "about.philosophy.benefit1.title",
+      descKey: "about.philosophy.benefit1.desc",
       color: "text-blue-600",
       bgColor: "bg-blue-600",
       lightBg: "bg-blue-50",
     },
     {
       icon: Settings,
-      title: locale === "vi" ? "Tùy chỉnh linh hoạt" : "Flexible Customization",
-      description:
-        locale === "vi"
-          ? "Module hóa các tính năng phù hợp từng ngành nghề"
-          : "Modular features tailored for each industry",
+      titleKey: "about.philosophy.benefit2.title",
+      descKey: "about.philosophy.benefit2.desc",
       color: "text-emerald-600",
       bgColor: "bg-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
       icon: Shield,
-      title: locale === "vi" ? "Bảo mật tối đa" : "Maximum Security",
-      description:
-        locale === "vi" ? "Tiêu chuẩn bảo mật ISO/IEC 27001" : "ISO/IEC 27001 security standards",
+      titleKey: "about.philosophy.benefit3.title",
+      descKey: "about.philosophy.benefit3.desc",
       color: "text-amber-600",
       bgColor: "bg-amber-600",
       lightBg: "bg-amber-50",
     },
     {
       icon: TrendingUp,
-      title: locale === "vi" ? "Tối ưu ROI" : "Optimized ROI",
-      description:
-        locale === "vi"
-          ? "Giảm 40% chi phí vận hành, tăng 25% tỷ lệ chuyển đổi"
-          : "40% reduced costs, 25% increased conversion",
+      titleKey: "about.philosophy.benefit4.title",
+      descKey: "about.philosophy.benefit4.desc",
       color: "text-rose-600",
       bgColor: "bg-rose-600",
       lightBg: "bg-rose-50",
@@ -84,19 +74,17 @@ export function PhilosophySection() {
           )}
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111518] mb-6">
-            {locale === "vi" ? "Triết lý AI-First của chúng tôi" : "Our AI-First Philosophy"}
+            {t("about.philosophy.title")}
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            {locale === "vi"
-              ? "Tiên Phong CDS không chỉ là một công cụ, mà là bộ não số hóa giúp doanh nghiệp nâng cao năng lực cạnh tranh và hiệu quả vận hành tối đa thông qua tự động hóa thông minh."
-              : "Tiên Phong CDS is not just a tool, but a digital brain that helps businesses enhance competitiveness and maximize operational efficiency through intelligent automation."}
+            {t("about.philosophy.description")}
           </p>
         </div>
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
-            <BenefitCard key={index} benefit={benefit} index={index} />
+            <BenefitCard key={index} benefit={benefit} index={index} t={t} />
           ))}
         </div>
       </div>
@@ -104,7 +92,16 @@ export function PhilosophySection() {
   )
 }
 
-function BenefitCard({ benefit, index }: { benefit: any; index: number }) {
+interface BenefitItem {
+  icon: React.ElementType
+  titleKey: string
+  descKey: string
+  color: string
+  bgColor: string
+  lightBg: string
+}
+
+function BenefitCard({ benefit, index, t }: { benefit: BenefitItem; index: number; t: (key: string) => string }) {
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -141,8 +138,8 @@ function BenefitCard({ benefit, index }: { benefit: any; index: number }) {
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-bold text-[#111518] mb-3">{benefit.title}</h3>
-      <p className="text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
+      <h3 className="text-xl font-bold text-[#111518] mb-3">{t(benefit.titleKey)}</h3>
+      <p className="text-gray-600 leading-relaxed text-sm">{t(benefit.descKey)}</p>
 
       {/* Hover accent line */}
       <div

@@ -9,7 +9,7 @@ import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
 export function HeroProfessional() {
-  const { locale } = useI18n()
+  const { t } = useI18n()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -43,36 +43,22 @@ export function HeroProfessional() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-full mb-6 hover:shadow-lg transition-shadow">
               <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
               <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">
-                {locale === "vi" ? "Về Chúng Tôi" : "About Us"}
+                {t("about.hero.badge")}
               </span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-[1.1]">
-              {locale === "vi" ? (
-                <>
-                  Nền tảng{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient">
-                    DXAI Marketing
-                  </span>{" "}
-                  Tiên Phong
-                </>
-              ) : (
-                <>
-                  Pioneering{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient">
-                    DXAI Marketing
-                  </span>{" "}
-                  Platform
-                </>
-              )}
+              {t("about.hero.title.prefix")}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient">
+                {t("about.hero.title.brand")}
+              </span>{" "}
+              {t("about.hero.title.suffix")}
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
-              {locale === "vi"
-                ? "Chúng tôi định nghĩa lại cách doanh nghiệp vận hành với triết lý AI-First, thúc đẩy chuyển đổi số toàn diện và tối ưu hóa hiệu suất Marketing tự động."
-                : "We redefine how businesses operate with an AI-First philosophy, driving comprehensive digital transformation and optimizing automated marketing performance."}
+              {t("about.hero.desc")}
             </p>
 
             {/* CTA Buttons */}
@@ -83,7 +69,7 @@ export function HeroProfessional() {
                 asChild
               >
                 <Link href="/dang-ky" className="flex items-center justify-center gap-2">
-                  {locale === "vi" ? "Liên hệ ngay" : "Contact Now"}
+                  {t("about.hero.cta.contact")}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -95,7 +81,7 @@ export function HeroProfessional() {
                 asChild
               >
                 <Link href="#philosophy" className="flex items-center justify-center gap-2">
-                  {locale === "vi" ? "Tìm hiểu thêm" : "Learn More"}
+                  {t("about.hero.cta.learn")}
                   <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </Link>
               </Button>
@@ -111,7 +97,7 @@ export function HeroProfessional() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group">
               <Image
                 src="/professional-team-meeting-in-modern-office-with-la.jpg"
-                alt={locale === "vi" ? "Đội ngũ chuyên nghiệp Tiên Phong CDS" : "Professional Tiên Phong CDS Team"}
+                alt={t("about.hero.image.alt")}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 priority
@@ -135,12 +121,12 @@ export function HeroProfessional() {
                 99.9%
               </p>
               <p className="text-sm font-semibold text-gray-700">
-                {locale === "vi" ? "Thời gian hoạt động" : "Uptime"}
+                {t("about.hero.stat.uptime")}
               </p>
               <div className="mt-2 flex items-center gap-1">
                 <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                 <span className="text-xs text-gray-500 font-medium">
-                  {locale === "vi" ? "Hoạt động tốt" : "All systems operational"}
+                  {t("about.hero.stat.operational")}
                 </span>
               </div>
             </div>
@@ -151,7 +137,7 @@ export function HeroProfessional() {
                 500+
               </p>
               <p className="text-xs font-semibold text-gray-700">
-                {locale === "vi" ? "Doanh nghiệp" : "Businesses"}
+                {t("about.hero.stat.businesses")}
               </p>
             </div>
           </div>

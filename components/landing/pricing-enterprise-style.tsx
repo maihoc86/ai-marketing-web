@@ -131,35 +131,35 @@ interface ComparisonFeature {
 const comparisonFeatures: ComparisonFeature[] = [
   {
     name: "Global LLM Orchestration",
-    nameKey: "pricing.comparison.feature1",
+    nameKey: "pricing.enterprise.comparison.feature1",
     startup: true,
     growth: true,
     enterprise: true,
   },
   {
     name: "Localized Content Gen (40+ Languages)",
-    nameKey: "pricing.comparison.feature2",
+    nameKey: "pricing.enterprise.comparison.feature2",
     startup: false,
     growth: true,
     enterprise: true,
   },
   {
     name: "Predictive Performance Analytics",
-    nameKey: "pricing.comparison.feature3",
+    nameKey: "pricing.enterprise.comparison.feature3",
     startup: "Basic",
     growth: "Advanced",
     enterprise: "Full Real-time",
   },
   {
     name: "Security & API Limits",
-    nameKey: "pricing.comparison.feature4",
+    nameKey: "pricing.enterprise.comparison.feature4",
     startup: "10k requests/mo",
     growth: "500k requests/mo",
     enterprise: "Unlimited",
   },
   {
     name: "Deployment Type",
-    nameKey: "pricing.comparison.feature5",
+    nameKey: "pricing.enterprise.comparison.feature5",
     startup: "SaaS",
     growth: "SaaS",
     enterprise: "Hybrid / On-Prem",
@@ -212,20 +212,10 @@ export function PricingEnterpriseStyle() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            {locale === "vi" ? (
-              <>
-                Bảng giá <span className="text-blue-600">dành cho Doanh nghiệp</span>
-              </>
-            ) : (
-              <>
-                Enterprise-Ready <span className="text-blue-600">Plans</span>
-              </>
-            )}
+            {t("pricing.enterprise.title")} <span className="text-blue-600">{t("pricing.enterprise.titleHighlight")}</span>
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            {locale === "vi"
-              ? "Giá minh bạch, có thể mở rộng cho mọi giai đoạn chuyển đổi AI của bạn. Không có phí ẩn."
-              : "Transparent, scalable pricing for every stage of your AI transformation journey. No hidden fees."}
+            {t("pricing.enterprise.subtitle.full")}
           </p>
 
           {/* Billing Period Toggle */}
@@ -239,7 +229,7 @@ export function PricingEnterpriseStyle() {
                   : "text-gray-600 hover:text-gray-900"
               )}
             >
-              {locale === "vi" ? "Theo tháng" : "Monthly"}
+              {t("pricing.enterprise.billing.monthly")}
             </button>
             <button
               onClick={() => setBillingPeriod("yearly")}
@@ -250,7 +240,7 @@ export function PricingEnterpriseStyle() {
                   : "text-gray-600 hover:text-gray-900"
               )}
             >
-              {locale === "vi" ? "Theo năm" : "Yearly"}
+              {t("pricing.enterprise.billing.yearly")}
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
                 -15%
               </span>
@@ -274,23 +264,19 @@ export function PricingEnterpriseStyle() {
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                    {locale === "vi" ? "Phổ biến nhất" : "Most Popular"}
+                    {t("pricing.popular")}
                   </span>
                 </div>
               )}
 
               {/* Plan Name */}
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                {locale === "vi" ? (plan.name === "Startup" ? "Khởi nghiệp" : plan.name === "Growth" ? "Tăng trưởng" : "Doanh nghiệp") : plan.name}
+                {t(`pricing.enterprise.${plan.name.toLowerCase()}.name`)}
               </h3>
 
               {/* Description */}
               <p className="text-gray-600 text-sm mb-6 min-h-[40px]">
-                {locale === "vi" ?
-                  (plan.name === "Startup" ? "Dành cho doanh nghiệp nhỏ xây dựng hiện diện marketing" :
-                   plan.name === "Growth" ? "Dành cho agency và SME mở rộng sản xuất nội dung" :
-                   "Dành cho chuỗi bán lẻ và giải pháp doanh nghiệp tùy chỉnh")
-                  : plan.description}
+                {t(`pricing.enterprise.${plan.name.toLowerCase()}.description`)}
               </p>
 
               {/* Price */}
@@ -298,14 +284,14 @@ export function PricingEnterpriseStyle() {
                 {billingPeriod === "yearly" && plan.priceVND !== "custom" && (
                   <div className="mb-2">
                     <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-                      {locale === "vi" ? "Tiết kiệm 15%" : "Save 15%"}
+                      {t("pricing.enterprise.save15")}
                     </span>
                   </div>
                 )}
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl md:text-5xl font-bold text-gray-900">
                     {plan.priceVND === "custom" ? (
-                      locale === "vi" ? "Liên hệ" : "Custom"
+                      t("pricing.enterprise.custom")
                     ) : (
                       <>
                         {locale === "vi" ? (
@@ -328,30 +314,10 @@ export function PricingEnterpriseStyle() {
                   </span>
                   {plan.priceVND !== "custom" && (
                     <span className="text-gray-600 text-base">
-                      {billingPeriod === "monthly"
-                        ? (locale === "vi" ? "/tháng" : "/mo")
-                        : (locale === "vi" ? "/năm" : "/yr")
-                      }
+                      {t(`pricing.enterprise.per${billingPeriod === "monthly" ? "Month" : "Year"}`)}
                     </span>
                   )}
                 </div>
-                {plan.priceVND !== "custom" && (
-                  <>
-                    {billingPeriod === "monthly" && locale === "vi" && (
-                      <p className="text-xs text-gray-500 mt-1">
-                        ≈ ${plan.priceUSD} USD/tháng
-                      </p>
-                    )}
-                    {billingPeriod === "yearly" && (
-                      <p className="text-xs text-gray-500 mt-1">
-                        {locale === "vi"
-                          ? `≈ ${new Intl.NumberFormat("vi-VN").format(Math.round((calculateYearlyPrice(plan.priceVND) as number) / 12)).slice(0, -4)}K VNĐ/tháng`
-                          : `≈ $${Math.round((calculateYearlyPrice(plan.priceUSD) as number) / 12)}/mo`
-                        }
-                      </p>
-                    )}
-                  </>
-                )}
               </div>
 
               {/* CTA Button */}
@@ -364,25 +330,19 @@ export function PricingEnterpriseStyle() {
                       : "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700",
                   )}
                 >
-                  {locale === "vi" ?
-                    (plan.name === "Startup" ? "Dùng thử miễn phí" :
-                     plan.name === "Growth" ? "Bắt đầu ngay" :
-                     "Liên hệ Sales")
-                    : plan.ctaText}
+                  {t(`pricing.enterprise.${plan.name.toLowerCase()}.cta`)}
                 </Button>
               </Link>
 
               {/* Features List */}
               <ul className="mt-8 space-y-4">
-                {plan.features.map((feature, idx) => (
+                {plan.featuresKeys.map((featureKey, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div className="shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
                       <Check className="w-3 h-3 text-blue-600" />
                     </div>
                     <span className="text-gray-700 text-sm leading-relaxed">
-                      {locale === "vi" ?
-                        pricingPlans[index].features[idx]
-                        : feature}
+                      {t(featureKey)}
                     </span>
                   </li>
                 ))}
@@ -394,23 +354,23 @@ export function PricingEnterpriseStyle() {
         {/* Feature Comparison Table */}
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">
-            {locale === "vi" ? "So sánh chi tiết tính năng" : "Detailed Feature Comparison"}
+            {t("pricing.enterprise.comparison.title")}
           </h3>
 
           <div className="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden">
             {/* Table Header */}
             <div className="grid grid-cols-4 gap-4 bg-gray-50 p-6 font-semibold text-gray-900 border-b border-gray-200">
               <div className="col-span-1">
-                {locale === "vi" ? "TÍNH NĂNG" : "FEATURES"}
+                {t("pricing.enterprise.comparison.features")}
               </div>
               <div className="text-center">
-                {locale === "vi" ? "Khởi nghiệp" : "Startup"}
+                {t("pricing.enterprise.startup.name")}
               </div>
               <div className="text-center">
-                {locale === "vi" ? "Tăng trưởng" : "Growth"}
+                {t("pricing.enterprise.growth.name")}
               </div>
               <div className="text-center">
-                {locale === "vi" ? "Doanh nghiệp" : "Enterprise"}
+                {t("pricing.enterprise.enterprise.name")}
               </div>
             </div>
 
@@ -425,13 +385,7 @@ export function PricingEnterpriseStyle() {
                   )}
                 >
                   <div className="col-span-1 font-medium text-gray-900 text-sm">
-                    {locale === "vi" ?
-                      (feature.name === "Global LLM Orchestration" ? "Điều phối LLM toàn cầu" :
-                       feature.name === "Localized Content Gen (40+ Languages)" ? "Tạo nội dung đa ngôn ngữ (40+ ngôn ngữ)" :
-                       feature.name === "Predictive Performance Analytics" ? "Phân tích hiệu suất dự đoán" :
-                       feature.name === "Security & API Limits" ? "Bảo mật & Giới hạn API" :
-                       "Loại triển khai")
-                      : feature.name}
+                    {t(feature.nameKey)}
                   </div>
                   <div className="text-center flex items-center justify-center">
                     {renderComparisonValue(feature.startup)}
@@ -448,19 +402,7 @@ export function PricingEnterpriseStyle() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">
-            {locale === "vi"
-              ? "Cần tư vấn thêm về gói phù hợp với doanh nghiệp của bạn?"
-              : "Need help choosing the right plan for your business?"}
-          </p>
-          <Link href="/dang-ky?package=enterprise">
-            <Button className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700 px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">
-              {locale === "vi" ? "Liên hệ chuyên gia tư vấn" : "Talk to an Expert"}
-            </Button>
-          </Link>
-        </div>
+        
       </div>
     </section>
   )

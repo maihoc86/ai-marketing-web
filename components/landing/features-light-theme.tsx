@@ -8,11 +8,9 @@ import { cn } from "@/lib/utils"
 
 interface Feature {
   icon: React.ElementType
-  titleVi: string
-  titleEn: string
-  descVi: string
-  descEn: string
-  statLabel: string
+  titleKey: string
+  descKey: string
+  statLabelKey: string
   statValue: string
   iconBg: string
   image: string
@@ -21,66 +19,54 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: Video,
-    titleVi: "Sản xuất Video tự động",
-    titleEn: "Auto Video Production",
-    descVi: "Biến ý tưởng thành video viral trong vài giây. AI tự động tạo script, lồng tiếng và chỉnh sửa chuyên nghiệp.",
-    descEn: "Turn ideas into viral videos in seconds. AI automatically creates scripts, voiceover, and professional editing.",
-    statLabel: "Videos/tháng",
+    titleKey: "features.video.title",
+    descKey: "features.video.desc",
+    statLabelKey: "features.video.stats",
     statValue: "1000+",
     iconBg: "from-blue-500 to-blue-600",
     image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
   },
   {
     icon: FileText,
-    titleVi: "Content đa kênh",
-    titleEn: "Multi-channel Content",
-    descVi: "Tạo nội dung SEO-optimized cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
-    descEn: "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
-    statLabel: "Templates",
+    titleKey: "features.content.title",
+    descKey: "features.content.desc",
+    statLabelKey: "features.content.stats",
     statValue: "50+",
     iconBg: "from-cyan-500 to-cyan-600",
     image: "/content-writing-ai-tool-with-seo-optimization-and-.jpg",
   },
   {
     icon: Calendar,
-    titleVi: "Lên lịch thông minh",
-    titleEn: "Smart Scheduling",
-    descVi: "Tự động đăng vào golden hours. AI phân tích thời điểm tối ưu cho từng nền tảng.",
-    descEn: "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
-    statLabel: "Automation",
+    titleKey: "features.schedule.title",
+    descKey: "features.schedule.desc",
+    statLabelKey: "features.schedule.stats",
     statValue: "24/7",
     iconBg: "from-indigo-500 to-indigo-600",
     image: "/social-media-scheduling-calendar-dashboard-with-mu.jpg",
   },
   {
     icon: ImageIcon,
-    titleVi: "Thiết kế hình ảnh AI",
-    titleEn: "AI Image Design",
-    descVi: "Tạo banner, thumbnail và ad creative chuyên nghiệp. Chỉnh sửa nhanh với AI.",
-    descEn: "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
-    statLabel: "Designs",
+    titleKey: "features.image.title",
+    descKey: "features.image.desc",
+    statLabelKey: "features.image.stats",
     statValue: "Unlimited",
     iconBg: "from-purple-500 to-purple-600",
     image: "/ai-image-generation-tool-with-product-banner-and-a.jpg",
   },
   {
     icon: BarChart3,
-    titleVi: "Phân tích thông minh",
-    titleEn: "Smart Analytics",
-    descVi: "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất chiến dịch real-time.",
-    descEn: "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
-    statLabel: "Metrics",
+    titleKey: "features.analytics.title",
+    descKey: "features.analytics.desc",
+    statLabelKey: "features.analytics.stats",
     statValue: "10+",
     iconBg: "from-green-500 to-green-600",
     image: "/marketing-analytics-dashboard-with-charts-graphs-a.jpg",
   },
   {
     icon: Link2,
-    titleVi: "Tích hợp liền mạch",
-    titleEn: "Seamless Integration",
-    descVi: "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
-    descEn: "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
-    statLabel: "Platforms",
+    titleKey: "features.integration.title",
+    descKey: "features.integration.desc",
+    statLabelKey: "features.integration.stats",
     statValue: "20+",
     iconBg: "from-orange-500 to-orange-600",
     image: "/social-media-multi-platform-publishing-dashboard.jpg",
@@ -88,7 +74,7 @@ const features: Feature[] = [
 ]
 
 export function FeaturesLightTheme() {
-  const { locale } = useI18n()
+  const { t } = useI18n()
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -132,26 +118,13 @@ export function FeaturesLightTheme() {
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
-            {locale === "vi" ? (
-              <>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  Tính năng
-                </span>{" "}
-                vượt trội
-              </>
-            ) : (
-              <>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  Features
-                </span>{" "}
-                that Excel
-              </>
-            )}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+              {t("features.title")}
+            </span>{" "}
+            {t("features.titleHighlight")}
           </h2>
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            {locale === "vi"
-              ? "Mọi công cụ bạn cần để tự động hóa marketing và tăng trưởng doanh nghiệp"
-              : "Everything you need to automate your marketing and grow your business"}
+            {t("features.subtitle")}
           </p>
         </div>
 
@@ -163,7 +136,7 @@ export function FeaturesLightTheme() {
               feature={feature}
               index={index}
               isVisible={isVisible}
-              locale={locale}
+              t={t}
             />
           ))}
         </div>
@@ -176,10 +149,10 @@ interface FeatureCardProps {
   feature: Feature
   index: number
   isVisible: boolean
-  locale: string
+  t: (key: string, params?: Record<string, string | number>) => string
 }
 
-function FeatureCard({ feature, index, isVisible, locale }: FeatureCardProps) {
+function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
   const Icon = feature.icon
   const [isHovered, setIsHovered] = useState(false)
 
@@ -201,7 +174,7 @@ function FeatureCard({ feature, index, isVisible, locale }: FeatureCardProps) {
       <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
         <Image
           src={feature.image}
-          alt={locale === "vi" ? feature.titleVi : feature.titleEn}
+          alt={t(feature.titleKey)}
           fill
           className={cn(
             "object-cover transition-transform duration-500",
@@ -242,12 +215,12 @@ function FeatureCard({ feature, index, isVisible, locale }: FeatureCardProps) {
 
         {/* Title */}
         <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight">
-          {locale === "vi" ? feature.titleVi : feature.titleEn}
+          {t(feature.titleKey)}
         </h3>
 
         {/* Description */}
         <p className="text-sm text-gray-600 leading-relaxed mb-4">
-          {locale === "vi" ? feature.descVi : feature.descEn}
+          {t(feature.descKey)}
         </p>
 
         {/* Bottom stat label */}
@@ -257,7 +230,7 @@ function FeatureCard({ feature, index, isVisible, locale }: FeatureCardProps) {
             "transition-all duration-300",
             isHovered && "animate-pulse"
           )} />
-          <span>{feature.statLabel}</span>
+          <span>{t(feature.statLabelKey)}</span>
         </div>
       </div>
 
