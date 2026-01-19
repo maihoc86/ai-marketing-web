@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { lazyLoadWithIdle } from "@/lib/performance"
+import { chatbotLogger } from "@/lib/logger"
 
 export function LazyChatbot() {
   const [shouldLoad, setShouldLoad] = useState(false)
@@ -48,7 +49,7 @@ export function LazyChatbot() {
         const container = document.createElement("div")
         document.body.appendChild(container)
       })
-      .catch((err) => console.error("Failed to load chatbot:", err))
+      .catch((err) => chatbotLogger.error("Failed to load chatbot:", err))
   }, [shouldLoad])
 
   return null

@@ -1,6 +1,7 @@
 "use client"
 import { useEffect } from "react"
 import { getChatbotConfig } from "@/app/actions/chatbot"
+import { chatbotLogger } from "@/lib/logger"
 
 // Type definitions are now in types/cds-chatbot.d.ts
 // Window.CDSChatbot is globally typed
@@ -15,7 +16,7 @@ export function Chatbot() {
       if (window.CDSChatbot) {
         try {
           const config = await getChatbotConfig()
-          console.log("[v0] CDS Chatbot config retrieved:", {
+          chatbotLogger.log("CDS Chatbot config retrieved:", {
             botId: config.botId,
             modelId: config.modelId,
             apiKeyPresent: !!config.apiKey,
@@ -23,7 +24,7 @@ export function Chatbot() {
           })
 
           if (config.apiKey) {
-            console.log("[v0] CDS Chatbot SDK loaded, initializing...")
+            chatbotLogger.log("CDS Chatbot SDK loaded, initializing...")
             const result = window.CDSChatbot.init({
               botId: config.botId,
               modelId: config.modelId,
@@ -34,34 +35,34 @@ export function Chatbot() {
               await result
             }
 
-            console.log("[v0] CDS Chatbot initialization completed")
+            chatbotLogger.log("CDS Chatbot initialization completed")
 
             if (window.CDSChatbot.container) {
-              console.log("[v0] Found CDSChatbot container, appending to body")
+              chatbotLogger.log("Found CDSChatbot container, appending to body")
               if (!document.body.contains(window.CDSChatbot.container)) {
                 document.body.appendChild(window.CDSChatbot.container)
-                console.log("[v0] Container appended to DOM")
+                chatbotLogger.log("Container appended to DOM")
               } else {
-                console.log("[v0] Container already in DOM")
+                chatbotLogger.log("Container already in DOM")
               }
             } else {
-              console.log("[v0] No container found on CDSChatbot object")
+              chatbotLogger.log("No container found on CDSChatbot object")
             }
 
             if (window.CDSChatbot.iframe) {
-              console.log("[v0] iframe exists:", window.CDSChatbot.iframe)
+              chatbotLogger.log("iframe exists:", window.CDSChatbot.iframe)
             }
           } else {
-            console.error("[v0] CDS Chatbot API key is missing")
+            chatbotLogger.error("CDS Chatbot API key is missing")
           }
         } catch (error) {
-          console.error("[v0] Failed to initialize CDS chatbot:", error)
+          chatbotLogger.error("Failed to initialize CDS chatbot:", error)
         }
       }
     }
 
     script.onerror = () => {
-      console.error("[v0] Failed to load CDS Chatbot SDK script")
+      chatbotLogger.error("Failed to load CDS Chatbot SDK script")
     }
 
     document.body.appendChild(script)

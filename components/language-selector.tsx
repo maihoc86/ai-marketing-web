@@ -5,9 +5,9 @@ import { ChevronDown } from "lucide-react"
 import { useI18n, type Locale } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
-const languages: { code: Locale; label: string; flag: string; shortLabel: string }[] = [
-  { code: "vi", label: "Tiếng Việt", flag: "🇻🇳", shortLabel: "VI" },
-  { code: "en", label: "English", flag: "🇺🇸", shortLabel: "EN" },
+const languages: { code: Locale; label: string; countryCode: string; shortLabel: string }[] = [
+  { code: "vi", label: "Tiếng Việt", countryCode: "VN", shortLabel: "VI" },
+  { code: "en", label: "English", countryCode: "US", shortLabel: "EN" },
 ]
 
 interface LanguageSelectorProps {
@@ -78,8 +78,8 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span className="text-base leading-none" aria-hidden="true">
-          {currentLang.flag}
+        <span className="text-xs font-bold text-gray-500 leading-none" aria-hidden="true">
+          {currentLang.countryCode}
         </span>
         <span>{currentLang.shortLabel}</span>
         <ChevronDown
@@ -114,8 +114,8 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
               role="option"
               aria-selected={locale === lang.code}
             >
-              <span className="text-lg leading-none" aria-hidden="true">
-                {lang.flag}
+              <span className="text-xs font-bold text-gray-400 leading-none w-6" aria-hidden="true">
+                {lang.countryCode}
               </span>
               <span className="flex-1 text-left">{lang.label}</span>
               {locale === lang.code && (

@@ -1,31 +1,25 @@
 import dynamic from "next/dynamic"
-import { HeroSection } from "@/components/landing/hero-section"
+import { HeroLightTheme } from "@/components/landing/hero-light-theme"
 import { Navbar } from "@/components/landing/navbar"
 import { CtaModalWrapper } from "@/components/cta-modal-wrapper"
 
-// Lazy load below-the-fold sections
-const WhyChooseSection = dynamic(
-  () => import("@/components/landing/why-choose-section").then((m) => ({ default: m.WhyChooseSection })),
+// Lazy load below-the-fold sections - OPTURA Style
+const FeaturesLightTheme = dynamic(
+  () => import("@/components/landing/features-light-theme").then((m) => ({ default: m.FeaturesLightTheme })),
   {
-    loading: () => <div className="h-screen" />,
+    loading: () => <div className="h-screen bg-light animate-pulse" />,
   },
 )
-const FeaturesSection = dynamic(
-  () => import("@/components/landing/features-section").then((m) => ({ default: m.FeaturesSection })),
+const PricingEnterpriseStyle = dynamic(
+  () => import("@/components/landing/pricing-enterprise-style").then((m) => ({ default: m.PricingEnterpriseStyle })),
   {
-    loading: () => <div className="h-screen" />,
+    loading: () => <div className="h-screen bg-white animate-pulse" />,
   },
 )
-const PricingSection = dynamic(
-  () => import("@/components/landing/pricing-section").then((m) => ({ default: m.PricingSection })),
+const TestimonialsOpturaStyle = dynamic(
+  () => import("@/components/landing/testimonials-optura-style").then((m) => ({ default: m.TestimonialsOpturaStyle })),
   {
-    loading: () => <div className="h-screen" />,
-  },
-)
-const TestimonialsSection = dynamic(
-  () => import("@/components/landing/testimonials-section").then((m) => ({ default: m.TestimonialsSection })),
-  {
-    loading: () => <div className="h-screen" />,
+    loading: () => <div className="h-screen bg-gradient-optura animate-pulse" />,
   },
 )
 const RoiSection = dynamic(() => import("@/components/landing/roi-section").then((m) => ({ default: m.RoiSection })), {
@@ -38,9 +32,12 @@ const TrustedBusinessesSection = dynamic(
     loading: () => <div className="h-64" />,
   },
 )
-const FaqSection = dynamic(() => import("@/components/landing/faq-section").then((m) => ({ default: m.FaqSection })), {
-  loading: () => <div className="h-screen" />,
-})
+const FaqOpturaStyle = dynamic(
+  () => import("@/components/landing/faq-optura-style").then((m) => ({ default: m.FaqOpturaStyle })),
+  {
+    loading: () => <div className="h-screen bg-gradient-optura-subtle animate-pulse" />,
+  },
+)
 const CtaSection = dynamic(() => import("@/components/landing/cta-section").then((m) => ({ default: m.CtaSection })), {
   loading: () => <div className="h-screen" />,
 })
@@ -52,14 +49,13 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
-      <WhyChooseSection />
-      <FeaturesSection />
-      <PricingSection />
-      <TestimonialsSection />
+      <HeroLightTheme />
+      <FeaturesLightTheme />
+      <PricingEnterpriseStyle />
+      <TestimonialsOpturaStyle />
       <RoiSection />
       <TrustedBusinessesSection />
-      <FaqSection />
+      <FaqOpturaStyle />
       <CtaSection />
       <Footer />
       <CtaModalWrapper />

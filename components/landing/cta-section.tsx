@@ -20,7 +20,7 @@ export function CtaSection() {
   }
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden font-sans">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

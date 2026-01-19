@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Điều Khoản Sử Dụng | DSP.ONE - AI Marketing OS",
+  title: "Điều Khoản Sử Dụng | DSP.ONE - DXAI Marketing Platform",
   description:
     "Điều khoản sử dụng dịch vụ DSP.ONE - Nền tảng AI Marketing tự động hóa toàn diện cho doanh nghiệp Việt Nam.",
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect, Suspense } from "react"
+import { useRef, useEffect, Suspense } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
@@ -9,30 +9,7 @@ import { ArrowLeft, Send, CheckCircle2, Sparkles, Check, Loader2, AlertCircle, X
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
-interface FormData {
-  selected_package: string
-  business_type: "enterprise" | "household"
-  tax_code: string
-  company_name: string
-  first_name: string
-  last_name: string
-  email: string
-  phone_number: string
-  job_position: string
-}
-
-interface FormErrors {
-  selected_package?: string
-  tax_code?: string
-  company_name?: string
-  first_name?: string
-  last_name?: string
-  email?: string
-  phone_number?: string
-  job_position?: string
-  general?: string
-}
+import { useRegistrationForm } from "@/hooks/use-registration-form"
 
 const packageOptions = [
   { id: "startup", name: "Startup", price: "3.5tr/tháng", credits: "3,500 credits" },
@@ -54,165 +31,41 @@ const jobPositions = [
 
 function RegisterFormContent() {
   const searchParams = useSearchParams()
-  const packageFromUrl = searchParams.get("package") || ""
+  const packageFromUrl = searchParams.get("package") || "growth"
 
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [formData, setFormData] = useState<FormData>({
-    selected_package: packageFromUrl,
-    business_type: "enterprise",
-    tax_code: "",
-    company_name: "",
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    job_position: "",
-  })
-  const [errors, setErrors] = useState<FormErrors>({})
   const mainHeadingRef = useRef<HTMLHeadingElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
-  const [liveMessage, setLiveMessage] = useState("")
 
-  useEffect(() => {
-    if (packageFromUrl) {
-      setFormData((prev) => ({ ...prev, selected_package: packageFromUrl }))
-    }
-  }, [packageFromUrl])
+  // Use shared registration form hook
+  const {
+    formData,
+    errors,
+    isLoading,
+    isSubmitted,
+    setIsSubmitted,
+    handleInputChange,
+    handlePackageSelect,
+    removePackage,
+    handleBusinessTypeChange,
+    handleSubmit,
+  } = useRegistrationForm({
+    initialPackage: packageFromUrl,
+    onSuccess: () => {
+      // Additional success handling if needed
+    },
+    onError: (error) => {
+      // Additional error handling if needed
+    },
+  })
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const validatePhone = (phone: string): boolean => {
-    const phoneRegex = /^0\d{9}$/
-    return phoneRegex.test(phone.replace(/\s/g, ""))
-  }
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
-
-    if (!formData.selected_package) {
-      newErrors.selected_package = "Vui lòng chọn gói dùng thử"
-    }
-
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = "Vui lòng nhập họ và đệm"
-    }
-
-    if (!formData.last_name.trim()) {
-      newErrors.last_name = "Vui lòng nhập tên"
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Vui lòng nhập email"
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Email không hợp lệ"
-    }
-
-    if (!formData.phone_number.trim()) {
-      newErrors.phone_number = "Vui lòng nhập số điện thoại"
-    } else if (!validatePhone(formData.phone_number)) {
-      newErrors.phone_number = "Số điện thoại không hợp lệ (10 chữ số, bắt đầu bằng 0)"
-    }
-
-    if (!formData.job_position) {
-      newErrors.job_position = "Vui lòng chọn vị trí công việc"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }))
-    }
-  }
-
-  const handlePackageSelect = (packageId: string) => {
-    setFormData((prev) => ({ ...prev, selected_package: packageId }))
-    if (errors.selected_package) {
-      setErrors((prev) => ({ ...prev, selected_package: undefined }))
-    }
-  }
-
-  const removePackage = () => {
-    setFormData((prev) => ({ ...prev, selected_package: "" }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (!validateForm()) {
-      setLiveMessage("Vui lòng kiểm tra và sửa các lỗi trong biểu mẫu")
-      return
-    }
-
-    setIsLoading(true)
-    setErrors({})
-    setLiveMessage("Đang gửi đăng ký...")
-
-    try {
-      const submitData = {
-        name: `${formData.first_name} ${formData.last_name}`.trim(),
-        email: formData.email,
-        phone_number: formData.phone_number,
-        company_name: formData.company_name,
-        customer_need: `Gói: ${formData.selected_package}, Loại hình: ${formData.business_type === "enterprise" ? "Doanh nghiệp" : "Hộ kinh doanh"}, MST: ${formData.tax_code || "N/A"}, Vị trí: ${formData.job_position}`,
-      }
-
-      const response = await fetch("https://api-ai-code.dsp.one/api/users/register-company", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(submitData),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setIsSubmitted(true)
-        setLiveMessage("Đăng ký thành công! Cảm ơn bạn đã quan tâm đến AI Marketing OS.")
-        setFormData({
-          selected_package: "",
-          business_type: "enterprise",
-          tax_code: "",
-          company_name: "",
-          first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          job_position: "",
-        })
-      } else {
-        setErrors({
-          general: data.message || "Có lỗi xảy ra, vui lòng thử lại",
-        })
-        setLiveMessage(`Lỗi: ${data.message || "Có lỗi xảy ra, vui lòng thử lại"}`)
-      }
-    } catch (error) {
-      setErrors({
-        general: "Không thể kết nối đến server, vui lòng thử lại sau",
-      })
-      setLiveMessage("Lỗi: Không thể kết nối đến server, vui lòng thử lại sau")
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
+  // Focus heading on success
   useEffect(() => {
     if (isSubmitted && mainHeadingRef.current) {
       mainHeadingRef.current.focus()
     }
   }, [isSubmitted])
 
+  // Handle Escape key to dismiss success message
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape" && isSubmitted) {
       setIsSubmitted(false)
@@ -244,7 +97,7 @@ function RegisterFormContent() {
             Đăng ký thành công!
           </h1>
           <p className="text-gray-600 mb-8 text-lg">
-            Cảm ơn bạn đã quan tâm đến AI Marketing OS. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
+            Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
           </p>
           <div className="flex gap-4 justify-center">
             <Button
@@ -474,7 +327,7 @@ function RegisterFormContent() {
                           name="business_type"
                           value="enterprise"
                           checked={formData.business_type === "enterprise"}
-                          onChange={handleInputChange}
+                          onChange={() => handleBusinessTypeChange("enterprise")}
                           className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                         />
                         <span className="text-gray-700">Doanh nghiệp</span>
@@ -485,7 +338,7 @@ function RegisterFormContent() {
                           name="business_type"
                           value="household"
                           checked={formData.business_type === "household"}
-                          onChange={handleInputChange}
+                          onChange={() => handleBusinessTypeChange("household")}
                           className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                         />
                         <span className="text-gray-700">Hộ kinh doanh</span>
@@ -737,10 +590,6 @@ function RegisterFormContent() {
           </div>
         </div>
       </main>
-
-      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
-        {liveMessage}
-      </div>
     </div>
   )
 }

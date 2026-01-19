@@ -1,3 +1,5 @@
+import { performanceLogger } from "./logger"
+
 export interface PerformanceMetric {
   name: string
   value: number
@@ -43,7 +45,7 @@ export function sendToAnalytics(metric: PerformanceMetric) {
 
   // Log to console in development
   if (process.env.NODE_ENV === "development") {
-    console.log("[Performance]", metric.name, {
+    performanceLogger.log(metric.name, {
       value: metric.value,
       rating: metric.rating,
     })
@@ -109,7 +111,7 @@ export function checkPerformanceBudget() {
     Object.entries(metrics).forEach(([name, value]) => {
       const budgetValue = budget[name as keyof typeof budget]
       if (value > budgetValue) {
-        console.warn(`Performance budget exceeded for ${name}:`, {
+        performanceLogger.warn(`Performance budget exceeded for ${name}:`, {
           actual: value,
           budget: budgetValue,
         })

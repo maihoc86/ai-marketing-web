@@ -1,99 +1,285 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
+import { ShoppingBag, ShoppingCart, Building2, Factory, Shield, CheckCircle2 } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
-import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 // ============================================================
 // TYPES
 // ============================================================
-interface Business {
-  name: string
-  logo: string
-}
-
-interface BusinessCategory {
+interface Industry {
   id: string
-  titleKey: string
-  businesses: Business[]
+  iconComponent: React.ElementType
+  nameVi: string
+  nameEn: string
+  logos: string[]
 }
 
 // ============================================================
-// DATA - Mock business logos by category
+// DATA - Industries with placeholder logos
 // ============================================================
-const businessCategories: BusinessCategory[] = [
+const industries: Industry[] = [
   {
     id: "retail",
-    titleKey: "trustedBusinesses.category.retail",
-    businesses: [
-      { name: "Thế Giới Di Động", logo: "/mobile-world-logo.png" },
-      { name: "FPT Shop", logo: "/fpt-shop-logo.jpg" },
-      { name: "Điện Máy Xanh", logo: "/dien-may-xanh-logo.jpg" },
-      { name: "Bách Hóa Xanh", logo: "/bach-hoa-xanh-logo.jpg" },
+    iconComponent: ShoppingBag,
+    nameVi: "Ngành Bán Lẻ",
+    nameEn: "Retail Industry",
+    logos: [
+      "Thế Giới Di Động",
+      "FPT Shop",
+      "Điện Máy Xanh",
+      "Bách Hóa Xanh",
+      "Phúc Long",
+      "Highland Coffee",
+      "Circle K",
+      "7-Eleven",
     ],
   },
   {
-    id: "commerce",
-    titleKey: "trustedBusinesses.category.commerce",
-    businesses: [
-      { name: "Shopee", logo: "/generic-e-commerce-logo.png" },
-      { name: "Lazada", logo: "/generic-online-shopping-logo.png" },
-      { name: "Tiki", logo: "/tiki-logo.jpg" },
-      { name: "Sendo", logo: "/sendo-logo.jpg" },
+    id: "ecommerce",
+    iconComponent: ShoppingCart,
+    nameVi: "Thương Mại Điện Tử",
+    nameEn: "E-Commerce",
+    logos: [
+      "Shopee",
+      "Lazada",
+      "Tiki",
+      "Sendo",
+      "Shopee Food",
+      "Grab Mart",
+      "BeeCost",
+      "FPT Online",
     ],
   },
   {
     id: "realestate",
-    titleKey: "trustedBusinesses.category.realestate",
-    businesses: [
-      { name: "Vingroup", logo: "/vingroup-logo.png" },
-      { name: "Novaland", logo: "/novaland-logo.jpg" },
-      { name: "Hưng Thịnh", logo: "/hung-thinh-corp-logo.jpg" },
-      { name: "Đất Xanh", logo: "/dat-xanh-group-logo.jpg" },
+    iconComponent: Building2,
+    nameVi: "Bất Động Sản",
+    nameEn: "Real Estate",
+    logos: [
+      "Vingroup",
+      "Novaland",
+      "Vinhomes",
+      "Hưng Thịnh",
+      "Đất Xanh",
+      "Hòa Bình",
+      "Phú Mỹ Hưng",
+      "CapitaLand",
     ],
   },
   {
     id: "manufacturing",
-    titleKey: "trustedBusinesses.category.manufacturing",
-    businesses: [
-      { name: "Vinamilk", logo: "/vinamilk-logo.jpg" },
-      { name: "Masan", logo: "/masan-group-logo.jpg" },
-      { name: "Hòa Phát", logo: "/hoa-phat-group-logo.jpg" },
-      { name: "TH True Milk", logo: "/th-true-milk-logo.jpg" },
+    iconComponent: Factory,
+    nameVi: "Sản Xuất",
+    nameEn: "Manufacturing",
+    logos: [
+      "Vinamilk",
+      "Masan",
+      "Hòa Phát",
+      "TH True Milk",
+      "Acecook",
+      "Biti's",
+      "Kinh Đô",
+      "Tân Hiệp Phát",
     ],
   },
 ]
 
 // ============================================================
-// BUSINESS CARD COMPONENT
+// COMPONENTS
 // ============================================================
-function BusinessCard({ category }: { category: BusinessCategory }) {
-  const { t } = useI18n()
+function LogoCard({ name, index }: { name: string; index: number }) {
+  const [isVisible, setIsVisible] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), index * 50)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [index])
 
   return (
-    <div className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md">
-      {/* Category Badge */}
-      <div className="mb-5">
-        <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700">
-          {t(category.titleKey)}
-        </span>
+    <div
+      ref={cardRef}
+      className={cn(
+        "flex items-center justify-center h-20 rounded-lg",
+        "bg-gray-50 border border-gray-200",
+        "transition-all duration-300",
+        "hover:-translate-y-1 hover:shadow-lg hover:border-blue-300 hover:bg-white",
+        "cursor-pointer group",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      )}
+    >
+      <span className="text-sm font-medium text-gray-400 group-hover:text-gray-600 transition-colors text-center px-2">
+        {name}
+      </span>
+    </div>
+  )
+}
+
+function IndustryColumn({ industry, index }: { industry: Industry; index: number }) {
+  const { locale } = useI18n()
+  const Icon = industry.iconComponent
+  const [isVisible, setIsVisible] = useState(false)
+  const columnRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), index * 100)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (columnRef.current) {
+      observer.observe(columnRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [index])
+
+  return (
+    <div
+      ref={columnRef}
+      className={cn(
+        "flex flex-col items-center transition-all duration-700",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      )}
+    >
+      {/* Industry Header */}
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+          <Icon className="w-5 h-5 text-blue-600" />
+        </div>
+        <h3 className="text-base font-bold text-gray-900">
+          {locale === "vi" ? industry.nameVi : industry.nameEn}
+        </h3>
       </div>
 
-      {/* Logo Grid */}
-      <div className="grid grid-cols-2 gap-4">
-        {category.businesses.map((business) => (
-          <div
-            key={business.name}
-            className="flex h-14 items-center justify-center rounded-lg bg-gray-50 p-2 transition-all duration-300"
-          >
-            <Image
-              src={business.logo || "/placeholder.svg"}
-              alt={business.name}
-              width={100}
-              height={40}
-              className="h-8 w-auto max-w-[100px] object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-            />
-          </div>
+      {/* Logo Grid 2x4 */}
+      <div className="grid grid-cols-2 gap-3 w-full">
+        {industry.logos.map((logo, idx) => (
+          <LogoCard key={`${industry.id}-${idx}`} name={logo} index={idx} />
         ))}
+      </div>
+    </div>
+  )
+}
+
+function StatCard({ number, label, index }: { number: string; label: string; index: number }) {
+  const [isVisible, setIsVisible] = useState(false)
+  const [displayNumber, setDisplayNumber] = useState("0")
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), index * 100)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [index])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    const target = parseInt(number.replace(/[^0-9]/g, ""))
+    if (isNaN(target)) {
+      setDisplayNumber(number)
+      return
+    }
+
+    let current = 0
+    const increment = target / 50
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        clearInterval(timer)
+        setDisplayNumber(number)
+      } else {
+        const suffix = number.includes("+") ? "+" : ""
+        setDisplayNumber(Math.floor(current).toLocaleString() + suffix)
+      }
+    }, 30)
+
+    return () => clearInterval(timer)
+  }, [isVisible, number])
+
+  return (
+    <div
+      ref={cardRef}
+      className={cn(
+        "text-center transition-all duration-700",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      )}
+    >
+      <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
+        {displayNumber}
+      </p>
+      <p className="text-base font-semibold text-gray-700">{label}</p>
+    </div>
+  )
+}
+
+function TrustBadge({ icon: Icon, title, description, index }: { icon: React.ElementType; title: string; description: string; index: number }) {
+  const [isVisible, setIsVisible] = useState(false)
+  const badgeRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), index * 150)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (badgeRef.current) {
+      observer.observe(badgeRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [index])
+
+  return (
+    <div
+      ref={badgeRef}
+      className={cn(
+        "flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200",
+        "shadow-sm hover:shadow-lg transition-all duration-300",
+        "hover:border-blue-300 hover:-translate-y-1",
+        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+      )}
+    >
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+        <Icon className="w-5 h-5 text-white" />
+      </div>
+      <div>
+        <h4 className="font-bold text-gray-900 mb-1">{title}</h4>
+        <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
     </div>
   )
@@ -103,42 +289,105 @@ function BusinessCard({ category }: { category: BusinessCategory }) {
 // MAIN COMPONENT
 // ============================================================
 export function TrustedBusinessesSection() {
-  const { t } = useI18n()
+  const { locale } = useI18n()
 
   return (
-    <section className="bg-gray-50/50 py-20 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-          <h2 className="mb-4 text-3xl font-extrabold text-primary text-balance tracking-tight text-gray-900 md:text-4xl">
-            {t("trustedBusinesses.title")}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
+            {locale === "vi" ? (
+              <>
+                Được tin dùng bởi hơn{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                  500 doanh nghiệp
+                </span>{" "}
+                toàn quốc
+              </>
+            ) : (
+              <>
+                Trusted by over{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                  500 businesses
+                </span>{" "}
+                nationwide
+              </>
+            )}
           </h2>
-          <p className="text-lg text-gray-600">{t("trustedBusinesses.subtitle")}</p>
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            {locale === "vi"
+              ? "Đồng hành cùng các doanh nghiệp hàng đầu và phát triển tại Việt Nam với giải pháp marketing AI."
+              : "Helping Vietnam's leading enterprises and growing businesses scale with AI-driven marketing solutions."}
+          </p>
         </div>
 
-        {/* Business Categories Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {businessCategories.map((category) => (
-            <BusinessCard key={category.id} category={category} />
+        {/* Industry Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-16">
+          {industries.map((industry, index) => (
+            <IndustryColumn key={industry.id} industry={industry} index={index} />
           ))}
         </div>
 
-        {/* Stats Line */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-gray-200 pt-10 md:gap-12">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">12,000+</div>
-            <div className="mt-1 text-sm text-gray-600">{t("trustedBusinesses.stats.businesses")}</div>
+        {/* Statistics Section */}
+        <div className="relative my-16 md:my-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-3xl opacity-60" />
+          <div className="relative grid md:grid-cols-3 gap-8 md:gap-12 py-12 md:py-16 px-6">
+            <StatCard
+              number="500+"
+              label={locale === "vi" ? "Doanh nghiệp tin dùng" : "Businesses Trust Us"}
+              index={0}
+            />
+            <StatCard
+              number="63"
+              label={locale === "vi" ? "Tỉnh thành Việt Nam" : "Vietnamese Provinces"}
+              index={1}
+            />
+            <StatCard
+              number="20+"
+              label={locale === "vi" ? "Ngành nghề chính" : "Major Industries"}
+              index={2}
+            />
           </div>
-          <div className="h-10 w-px bg-gray-200" />
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">63</div>
-            <div className="mt-1 text-sm text-gray-600">{t("trustedBusinesses.stats.provinces")}</div>
-          </div>
-          <div className="h-10 w-px bg-gray-200" />
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">20+</div>
-            <div className="mt-1 text-sm text-gray-600">{t("trustedBusinesses.stats.industries")}</div>
-          </div>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="grid md:grid-cols-2 gap-6 mt-16">
+          <TrustBadge
+            icon={Shield}
+            title={locale === "vi" ? "SOC 2 Type II Certified" : "SOC 2 Type II Certified"}
+            description={
+              locale === "vi"
+                ? "Tiêu chuẩn bảo mật cấp doanh nghiệp cho dữ liệu của bạn."
+                : "Enterprise-grade security standards for your data."
+            }
+            index={0}
+          />
+          <TrustBadge
+            icon={CheckCircle2}
+            title={locale === "vi" ? "99.9% Uptime SLA" : "99.9% Uptime SLA"}
+            description={
+              locale === "vi"
+                ? "Đảm bảo độ tin cậy nền tảng cho hoạt động 24/7."
+                : "Guaranteed platform reliability for 24/7 operations."
+            }
+            index={1}
+          />
+        </div>
+
+        {/* Footer Copyright */}
+        <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+          <p className="text-sm text-gray-500">
+            {locale === "vi"
+              ? "© 2024 DXAI Marketing. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế."
+              : "© 2024 DXAI Marketing. All rights reserved. Professional trust signals for Vietnam and Global markets."}
+          </p>
         </div>
       </div>
     </section>

@@ -302,3 +302,471 @@
       scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1));
   }
 }
+
+/* ============================================
+   OPTURA-STYLE UI ENHANCEMENTS
+   ============================================ */
+
+/* Professional font family - Inter only */
+@layer utilities {
+  .font-serif {
+    font-family: "Inter", "Inter Fallback", system-ui, sans-serif;
+  }
+
+  /* Display text sizes (large headings) */
+  .text-display-xl {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-display-lg {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .text-display-md {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Gradient backgrounds - Blue theme to match brand */
+  .bg-gradient-optura {
+    background: linear-gradient(
+      135deg,
+      #eff6ff 0%,      /* blue-50 */
+      #dbeafe 25%,     /* blue-100 */
+      #e0f2fe 50%,     /* cyan-100 */
+      #f0f9ff 100%     /* sky-50 */
+    );
+  }
+
+  .bg-gradient-optura-subtle {
+    background: linear-gradient(
+      180deg,
+      #f0f9ff 0%,
+      #ffffff 50%,
+      #eff6ff 100%
+    );
+  }
+
+  /* Glassmorphism effects */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.08);
+  }
+
+  .glass-card-strong {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 48px rgba(59, 130, 246, 0.12);
+  }
+
+  /* Gradient text effects */
+  .text-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Soft shadows with blue tint */
+  .shadow-optura-sm {
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+  }
+
+  .shadow-optura {
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+  }
+
+  .shadow-optura-lg {
+    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.15);
+  }
+
+  /* Gradient avatars/badges */
+  .avatar-gradient-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  }
+
+  .avatar-gradient-cyan {
+    background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+  }
+
+  /* Floating labels */
+  .floating-label {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Dot pattern background */
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/* ============================================
+   LIGHT THEME REDESIGN - ENTERPRISE STYLING
+   ============================================ */
+
+/* Enhanced color palette for light theme */
+@layer utilities {
+  /* Primary Colors - Professional Blue */
+  .text-primary-light {
+    color: #0066CC;
+  }
+
+  .bg-primary-light {
+    background-color: #0066CC;
+  }
+
+  .bg-primary-hover {
+    background-color: #0052A3;
+  }
+
+  .text-electric-blue {
+    color: #007AFF;
+  }
+
+  /* Background & Surface Colors */
+  .bg-light {
+    background-color: #F8FAFC;
+  }
+
+  .bg-surface-white {
+    background-color: #FFFFFF;
+  }
+
+  .bg-zebra-stripe {
+    background-color: #F1F5F9;
+  }
+
+  /* Text Colors */
+  .text-main {
+    color: #0F172A;
+  }
+
+  .text-secondary {
+    color: #64748B;
+  }
+
+  .text-body {
+    color: #475569;
+  }
+
+  /* Border Colors */
+  .border-light {
+    border-color: #E2E8F0;
+  }
+
+  .border-glass {
+    border-color: rgba(226, 232, 240, 0.8);
+  }
+}
+
+/* Enhanced Glassmorphism Cards - Light Theme */
+@layer components {
+  .light-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .light-card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .light-card-hover:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  }
+
+  .dashboard-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  }
+
+  .glassmorphism-nav {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  }
+}
+
+/* Enhanced Shadows - Subtle Professional */
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .shadow-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 20px rgba(0, 102, 204, 0.15);
+  }
+
+  .shadow-depth {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+  }
+}
+
+/* Gradient Backgrounds - Light Theme Mesh */
+@layer utilities {
+  .light-mesh {
+    background-color: #F8FAFC;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(0, 122, 255, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 122, 255, 0.03) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(0, 122, 255, 0.02) 0px, transparent 50%);
+  }
+
+  .hero-gradient-light {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+  }
+
+  .gradient-blue-subtle {
+    background: linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 100%);
+  }
+}
+
+/* Button Styles - Enterprise Grade */
+@layer components {
+  .btn-primary-light {
+    background: #0066CC;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(0, 102, 204, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary-light:hover {
+    background: #0052A3;
+    box-shadow: 0 0 24px rgba(0, 102, 204, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary-light {
+    background: white;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary-light:hover {
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+  }
+}
+
+/* Badge & Pill Styles */
+@layer components {
+  .badge-primary-light {
+    background: rgba(0, 102, 204, 0.1);
+    border: 1px solid rgba(0, 102, 204, 0.2);
+    color: #0066CC;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .badge-success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #16a34a;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+  }
+
+  .badge-glow {
+    box-shadow: 0 0 12px rgba(0, 102, 204, 0.3);
+  }
+}
+
+/* Node Pulse Animation for Integration Diagrams */
+@keyframes node-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 102, 204, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
+  }
+}
+
+@layer utilities {
+  .node-pulse {
+    animation: node-pulse 2s infinite;
+  }
+}
+
+/* Scrolling Marquee Animation */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-scroll {
+    animation: scroll-marquee 40s linear infinite;
+  }
+}
+
+/* ============================================
+   OPTURA-STYLE ANIMATIONS
+   ============================================ */
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Fade up animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade down animation */
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-down {
+    animation: fade-down 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  /* Animation delays for staggered effects */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}

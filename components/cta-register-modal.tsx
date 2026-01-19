@@ -4,67 +4,42 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { X, CheckCircle2, Loader2, AlertCircle, Send, Sparkles, Gift, Users, Headphones } from "lucide-react"
+import { X, CheckCircle2, Loader2, Send, Sparkles, Gift, Users, Headphones } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { api, type ApiError } from "@/lib/api-client"
+import { BusinessTypeSelector } from "@/components/forms/business-type-selector"
+import { PackageSelector } from "@/components/forms/package-selector"
+import { RegistrationFields } from "@/components/forms/registration-fields"
+import { useRegistrationForm } from "@/hooks/use-registration-form"
 
 const STORAGE_KEY = "dxai_cta_modal_dismissed"
 
-interface FormData {
-  selected_package: string
-  business_type: "enterprise" | "household"
-  tax_code: string
-  company_name: string
-  first_name: string
-  last_name: string
-  email: string
-  phone_number: string
-  job_position: string
-}
-
-interface FormErrors {
-  selected_package?: string
-  tax_code?: string
-  company_name?: string
-  first_name?: string
-  last_name?: string
-  email?: string
-  phone_number?: string
-  job_position?: string
-  general?: string
-}
-
-const jobPositions = [
-  { id: "", label: "Chọn vị trí công việc" },
-  { id: "ceo", label: "CEO / Giám đốc" },
-  { id: "marketing_director", label: "Giám đốc Marketing" },
-  { id: "marketing_manager", label: "Marketing Manager" },
-  { id: "content_manager", label: "Content Manager" },
-  { id: "social_media_manager", label: "Social Media Manager" },
-  { id: "designer", label: "Designer" },
-  { id: "developer", label: "Developer" },
-  { id: "other", label: "Khác" },
-]
-
 export function CtaRegisterModal() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [formData, setFormData] = useState<FormData>({
-    selected_package: "growth",
-    business_type: "enterprise",
-    tax_code: "",
-    company_name: "",
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    job_position: "",
-  })
-  const [errors, setErrors] = useState<FormErrors>({})
   const firstInputRef = useRef<HTMLInputElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+
+  // Use shared registration form hook
+  const {
+    formData,
+    errors,
+    isLoading,
+    isSubmitted,
+    setIsSubmitted,
+    handleInputChange,
+    handlePackageSelect,
+    handleBusinessTypeChange,
+    handleSubmit,
+  } = useRegistrationForm({
+    initialPackage: "growth",
+    onSuccess: () => {
+      // Store dismissed state on success
+      localStorage.setItem(STORAGE_KEY, "true")
+    },
+    onError: () => {
+      // Additional error handling if needed
+    },
+  })
 
   // Check localStorage and show modal after delay for first-time visitors
   useEffect(() => {
@@ -109,111 +84,54 @@ export function CtaRegisterModal() {
     return () => window.removeEventListener("keydown", handleEsc)
   }, [isOpen])
 
+  // Focus trap
+  useEffect(() => {
+    if (!isOpen || !modalRef.current) return
+
+    // Save previous focus
+    previousFocusRef.current = document.activeElement as HTMLElement
+
+    // Get all focusable elements
+    const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+
+    if (focusableElements.length === 0) return
+
+    const firstElement = focusableElements[0]
+    const lastElement = focusableElements[focusableElements.length - 1]
+
+    // Handle Tab key
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstElement) {
+          e.preventDefault()
+          lastElement.focus()
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastElement) {
+          e.preventDefault()
+          firstElement.focus()
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleTab)
+
+    return () => {
+      document.removeEventListener("keydown", handleTab)
+      // Restore previous focus
+      previousFocusRef.current?.focus()
+    }
+  }, [isOpen])
+
   const handleClose = () => {
     localStorage.setItem(STORAGE_KEY, "true")
     setIsOpen(false)
-  }
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const validatePhone = (phone: string): boolean => {
-    const phoneRegex = /^0\d{9}$/
-    return phoneRegex.test(phone.replace(/\s/g, ""))
-  }
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
-
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = "Vui lòng nhập họ và đệm"
-    }
-
-    if (!formData.last_name.trim()) {
-      newErrors.last_name = "Vui lòng nhập tên"
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Vui lòng nhập email"
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Email không hợp lệ"
-    }
-
-    if (!formData.phone_number.trim()) {
-      newErrors.phone_number = "Vui lòng nhập số điện thoại"
-    } else if (!validatePhone(formData.phone_number)) {
-      newErrors.phone_number = "Số điện thoại không hợp lệ (10 chữ số, bắt đầu bằng 0)"
-    }
-
-    if (!formData.job_position) {
-      newErrors.job_position = "Vui lòng chọn vị trí công việc"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }))
-    }
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (!validateForm()) {
-      return
-    }
-
-    setIsLoading(true)
-    setErrors({})
-
-    try {
-      const submitData = {
-        name: `${formData.first_name} ${formData.last_name}`.trim(),
-        email: formData.email,
-        phone_number: formData.phone_number,
-        company_name: formData.company_name,
-        customer_need: `Gói: ${formData.selected_package}, Loại hình: ${formData.business_type === "enterprise" ? "Doanh nghiệp" : "Hộ kinh doanh"}, MST: ${formData.tax_code || "N/A"}, Vị trí: ${formData.job_position}`,
-      }
-
-      // Use secure API client with CSRF protection and rate limiting
-      const data = await api.registerCompany(submitData)
-
-      if (data.success) {
-        setIsSubmitted(true)
-        localStorage.setItem(STORAGE_KEY, "true")
-        setFormData({
-          selected_package: "growth",
-          business_type: "enterprise",
-          tax_code: "",
-          company_name: "",
-          first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          job_position: "",
-        })
-      } else {
-        setErrors({
-          general: data.message || "Có lỗi xảy ra, vui lòng thử lại",
-        })
-      }
-    } catch (error) {
-      // Handle API errors with better messages
-      const apiError = error as ApiError
-      setErrors({
-        general: apiError.message || "Không thể kết nối đến server, vui lòng thử lại sau",
-      })
-    } finally {
-      setIsLoading(false)
-    }
   }
 
   if (!isOpen) return null
@@ -237,7 +155,7 @@ export function CtaRegisterModal() {
               Đăng ký thành công!
             </h2>
             <p className="text-gray-600 mb-6">
-              Cảm ơn bạn đã quan tâm đến AI Marketing OS. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
+              Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
             </p>
             <Button onClick={handleClose} className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700">
               Đóng
@@ -257,8 +175,10 @@ export function CtaRegisterModal() {
       aria-labelledby="modal-title"
     >
       <div
+        ref={modalRef}
         className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
+        tabIndex={-1}
       >
         <div className="grid lg:grid-cols-[400px_1fr]">
           {/* Left column - Branding */}
@@ -288,7 +208,7 @@ export function CtaRegisterModal() {
                   <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Gift className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
-                  <span className="text-white/90 text-sm">Demo miễn phí AI Marketing OS</span>
+                  <span className="text-white/90 text-sm">Demo miễn phí DXAI Marketing Platform</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -348,208 +268,29 @@ export function CtaRegisterModal() {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-              {/* Business type */}
-              <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-900">Loại hình kinh doanh</Label>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="business_type"
-                      value="enterprise"
-                      checked={formData.business_type === "enterprise"}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span className="text-gray-700 text-sm">Doanh nghiệp</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="business_type"
-                      value="household"
-                      checked={formData.business_type === "household"}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span className="text-gray-700 text-sm">Hộ kinh doanh</span>
-                  </label>
-                </div>
-              </div>
+              {/* Package Selection */}
+              <PackageSelector
+                value={formData.selected_package}
+                onChange={handlePackageSelect}
+                disabled={isLoading}
+                error={errors.selected_package}
+              />
 
-              {/* Tax code & Company name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_tax_code" className="text-sm font-medium text-gray-900">
-                    Mã số thuế
-                  </Label>
-                  <Input
-                    ref={firstInputRef}
-                    id="modal_tax_code"
-                    name="tax_code"
-                    value={formData.tax_code}
-                    onChange={handleInputChange}
-                    placeholder="Nhập mã số thuế"
-                    className="h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_company_name" className="text-sm font-medium text-gray-900">
-                    Tên công ty
-                  </Label>
-                  <Input
-                    id="modal_company_name"
-                    name="company_name"
-                    value={formData.company_name}
-                    onChange={handleInputChange}
-                    placeholder="Nhập tên công ty"
-                    className="h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
-                  />
-                </div>
-              </div>
+              {/* Business Type */}
+              <BusinessTypeSelector
+                value={formData.business_type}
+                onChange={handleBusinessTypeChange}
+                disabled={isLoading}
+              />
 
-              {/* First name & Last name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_first_name" className="text-sm font-medium text-gray-900">
-                    Họ và đệm <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="modal_first_name"
-                    name="first_name"
-                    value={formData.first_name}
-                    onChange={handleInputChange}
-                    placeholder="Nhập họ và đệm"
-                    required
-                    aria-invalid={errors.first_name ? "true" : "false"}
-                    className={`h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 ${
-                      errors.first_name ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.first_name && (
-                    <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                      <AlertCircle className="w-3 h-3" />
-                      {errors.first_name}
-                    </p>
-                  )}
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_last_name" className="text-sm font-medium text-gray-900">
-                    Tên <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="modal_last_name"
-                    name="last_name"
-                    value={formData.last_name}
-                    onChange={handleInputChange}
-                    placeholder="Nhập tên"
-                    required
-                    aria-invalid={errors.last_name ? "true" : "false"}
-                    className={`h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 ${
-                      errors.last_name ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.last_name && (
-                    <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                      <AlertCircle className="w-3 h-3" />
-                      {errors.last_name}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Email & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_email" className="text-sm font-medium text-gray-900">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="modal_email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Nhập email"
-                    required
-                    inputMode="email"
-                    aria-invalid={errors.email ? "true" : "false"}
-                    className={`h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 ${
-                      errors.email ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.email && (
-                    <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                      <AlertCircle className="w-3 h-3" />
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="modal_phone_number" className="text-sm font-medium text-gray-900">
-                    Số điện thoại <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="modal_phone_number"
-                    name="phone_number"
-                    type="tel"
-                    value={formData.phone_number}
-                    onChange={handleInputChange}
-                    placeholder="Nhập số điện thoại"
-                    required
-                    inputMode="tel"
-                    aria-invalid={errors.phone_number ? "true" : "false"}
-                    className={`h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 ${
-                      errors.phone_number ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.phone_number && (
-                    <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                      <AlertCircle className="w-3 h-3" />
-                      {errors.phone_number}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Job position */}
-              <div className="space-y-1.5">
-                <Label htmlFor="modal_job_position" className="text-sm font-medium text-gray-900">
-                  Vị trí công việc <span className="text-red-500">*</span>
-                </Label>
-                <select
-                  id="modal_job_position"
-                  name="job_position"
-                  value={formData.job_position}
-                  onChange={handleInputChange}
-                  aria-invalid={errors.job_position ? "true" : "false"}
-                  className={`w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm bg-white transition-colors ${
-                    errors.job_position ? "border-red-500" : ""
-                  } ${!formData.job_position ? "text-gray-400" : "text-gray-900"}`}
-                >
-                  {jobPositions.map((position) => (
-                    <option key={position.id} value={position.id} disabled={position.id === ""}>
-                      {position.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.job_position && (
-                  <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                    <AlertCircle className="w-3 h-3" />
-                    {errors.job_position}
-                  </p>
-                )}
-              </div>
-
-              {/* General error */}
-              {errors.general && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
-                  <p className="text-sm text-red-600 flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                    {errors.general}
-                  </p>
-                </div>
-              )}
+              {/* Registration Fields */}
+              <RegistrationFields
+                formData={formData}
+                errors={errors}
+                onChange={handleInputChange}
+                disabled={isLoading}
+                firstInputRef={firstInputRef}
+              />
 
               {/* Submit button */}
               <Button

@@ -29,11 +29,17 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Hero Section
     "hero.badge": "Nền tảng AI Marketing #1 Việt Nam",
+    "hero.title": "Nền tảng AI Marketing",
+    "hero.titleHighlight": "tự động hóa",
     "hero.title.line1": "NỀN TẢNG AI MARKETING",
     "hero.title.line2": "CHO MỌI DOANH NGHIỆP",
     "hero.subtitle": "Tự động hóa quy trình Marketing từ ý tưởng đến xuất bản nội dung, tiết kiệm 80% thời gian.",
     "hero.cta.trial": "Dùng thử miễn phí",
     "hero.cta.demo": "Xem Demo",
+    "hero.dashboard.title": "AI Marketing Dashboard",
+    "hero.dashboard.subtitle": "Quản lý toàn bộ chiến dịch marketing từ một nền tảng",
+    "hero.stats.videos": "Video/tháng",
+    "hero.stats.savings": "Tiết kiệm",
 
     // Process Section
     "process.badge": "Quy trình tự động",
@@ -53,41 +59,61 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Features Section
     "features.badge": "Tại sao chọn AI Marketing?",
-    "features.title": "Nhanh chóng, An toàn & Không giới hạn",
-    "features.subtitle":
-      "Tự động hóa quy trình marketing từ ý tưởng đến xuất bản, được tin dùng bởi hàng nghìn doanh nghiệp Việt Nam.",
+    "features.title": "Tính năng",
+    "features.titleHighlight": "vượt trội",
+    "features.subtitle": "Mọi công cụ bạn cần để tự động hóa marketing",
     "features.video.title": "Sản xuất Video Tự động",
+    "features.video.description":
+      "Biến ý tưởng thành video viral trong vài giây. AI tự động tạo script, voiceover, và editing chuyên nghiệp.",
     "features.video.desc":
       "Biến ý tưởng thành video viral trong vài giây. AI tự động tạo script, voiceover, và editing chuyên nghiệp.",
     "features.video.stats": "1000+ videos/tháng",
     "features.content.title": "Content Đa kênh",
+    "features.content.description":
+      "Tạo nội dung chuẩn SEO cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
     "features.content.desc":
       "Tạo nội dung chuẩn SEO cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
     "features.content.stats": "50+ templates",
     "features.schedule.title": "Lên lịch Thông minh",
+    "features.schedule.description": "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
     "features.schedule.desc": "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
     "features.schedule.stats": "24/7 tự động",
+    "features.design.title": "Thiết kế Hình ảnh AI",
+    "features.design.description": "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.title": "Thiết kế Hình ảnh AI",
     "features.image.desc": "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.stats": "Không giới hạn",
     "features.analytics.title": "Phân tích Thông minh",
+    "features.analytics.description":
+      "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất campaign real-time.",
     "features.analytics.desc":
       "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất campaign real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Tích hợp Liền mạch",
+    "features.integration.description": "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
     "features.integration.desc": "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
     "features.integration.stats": "20+ platforms",
 
     // Pricing Section
     "pricing.title": "Bảng giá",
+    "pricing.titleHighlight": "linh hoạt",
     "pricing.subtitle": "Chọn gói phù hợp với nhu cầu của bạn",
     "pricing.billing.monthly": "Hàng tháng",
     "pricing.billing.quarterly": "Hàng quý",
     "pricing.billing.yearly": "Hàng năm",
     "pricing.billing.discount": "Tiết kiệm 15%",
+    "pricing.cta": "Bắt đầu ngay",
     "pricing.cta.start": "Bắt đầu ngay",
     "pricing.cta.contact": "Liên hệ tư vấn",
-    "pricing.popular": "Phổ biến",
+    "pricing.popular": "Phổ biến nhất",
+    "pricing.credits": "credits",
+    "pricing.per.monthly": "tháng",
+    "pricing.per.quarterly": "quý",
+    "pricing.per.yearly": "năm",
+    "pricing.guarantee": "Dùng thử 14 ngày miễn phí. Không cần thẻ tín dụng.",
+    "pricing.features.ssl": "Bảo mật SSL",
+    "pricing.features.support": "Hỗ trợ 24/7",
+    "pricing.features.cancel": "Hủy bất kỳ lúc nào",
     "pricing.features.included": "Tính năng bao gồm:",
     "pricing.benefits": "Quyền lợi:",
     "pricing.month": "tháng",
@@ -111,8 +137,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.traditional": "Truyền thống",
     "roi.traditional.title": "Tuyển Editor/Content",
     "roi.traditional.subtitle": "Phương pháp truyền thống",
-    "roi.aiSystem": "AI Marketing OS",
-    "roi.ai.title": "Hệ thống AI Marketing OS",
+    "roi.aiSystem": "DXAI Marketing Platform",
+    "roi.ai.title": "Hệ thống DXAI Marketing Platform",
     "roi.ai.subtitle": "Giải pháp thông minh",
     "roi.best": "Khuyên dùng",
     "roi.bestMobile": "Tốt nhất",
@@ -124,7 +150,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.operation": "Vận hành",
     "roi.save": "Tiết kiệm",
     "roi.times": "Gấp {x} lần",
-    "roi.cta.text": "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với AI Marketing OS",
+    "roi.cta.text": "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với DXAI Marketing Platform",
     "roi.cta.button": "Bắt đầu ngay",
     "roi.cost.traditional": "~15.000.000đ",
     "roi.cost.ai": "6.900.000đ",
@@ -141,7 +167,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.note": "*Converted at ~27,000 VND = 1 USD (approx.)",
 
     // Why Choose Section
-    "whyChoose.title": "Tại sao nên chọn AI Marketing OS?",
+    "whyChoose.title": "Tại sao nên chọn DXAI Marketing Platform?",
     "whyChoose.subtitle": "Trang bị AI cho toàn công ty chỉ từ",
     "whyChoose.price": "500,000đ/người/tháng",
     "whyChoose.aiModels.title": "Chỉ 1 tài khoản – sử dụng nhiều công cụ AI",
@@ -160,7 +186,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Cấp phát, Thu hồi, Báo cáo, Ngân sách",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
-    "whyChoose.mockup.title": "AI Marketing OS",
+    "whyChoose.mockup.title": "DXAI Marketing Platform",
     "whyChoose.mockup.subtitle": "Dashboard Overview",
     "whyChoose.mockup.videos": "Videos/tháng",
     "whyChoose.mockup.accuracy": "Độ chính xác",
@@ -180,25 +206,28 @@ const translations: Record<Locale, Record<string, string>> = {
     "testimonials.view": "Xem testimonial {n}",
 
     // FAQ Section
-    "faq.title": "Câu hỏi thường gặp",
-    "faq.subtitle": "Giải đáp mọi thắc mắc của bạn",
+    "faq.title": "Câu hỏi",
+    "faq.titleHighlight": "thường gặp",
+    "faq.subtitle": "Tìm câu trả lời cho những câu hỏi phổ biến nhất",
+    "faq.stillHaveQuestions": "Vẫn còn câu hỏi?",
+    "faq.contactUs": "Liên hệ với chúng tôi",
     "faq.notFound": "Không tìm thấy câu trả lời bạn cần?",
     "faq.contact": "Liên hệ với chúng tôi",
-    "faq.q1": "AI Marketing OS là gì?",
+    "faq.q1": "DXAI Marketing Platform là gì?",
     "faq.a1":
-      "AI Marketing OS là nền tảng hợp nhất nhiều công cụ AI hàng đầu như tạo Video, viết Content, thiết kế hình ảnh... vào một hệ thống duy nhất. Doanh nghiệp chỉ cần cấp một tài khoản cho mỗi nhân viên để sử dụng linh hoạt nhiều công cụ AI, thay vì mua và quản lý từng tài khoản riêng lẻ.",
-    "faq.q2": "AI Marketing OS hỗ trợ những gì cho doanh nghiệp?",
+      "DXAI Marketing Platform là nền tảng hợp nhất nhiều công cụ AI hàng đầu như tạo Video, viết Content, thiết kế hình ảnh... vào một hệ thống duy nhất. Doanh nghiệp chỉ cần cấp một tài khoản cho mỗi nhân viên để sử dụng linh hoạt nhiều công cụ AI, thay vì mua và quản lý từng tài khoản riêng lẻ.",
+    "faq.q2": "DXAI Marketing Platform hỗ trợ những gì cho doanh nghiệp?",
     "faq.a2":
       "Tiết kiệm chi phí & thời gian: Mua một lần – sử dụng cho toàn đội ngũ. Quản lý tập trung: Cấp phát, thu hồi, điều chỉnh định mức AI cho nhân viên chỉ với vài thao tác. Báo cáo chi tiết: Lãnh đạo dễ dàng theo dõi và đánh giá mức độ ứng dụng AI trong doanh nghiệp.",
-    "faq.q3": "Có được sử dụng AI Marketing OS miễn phí không?",
+    "faq.q3": "Có được sử dụng DXAI Marketing Platform miễn phí không?",
     "faq.a3":
-      "Có. AI Marketing OS cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
-    "faq.q4": "AI Marketing OS có đáp ứng sử dụng trên điện thoại không?",
+      "Có. DXAI Marketing Platform cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
+    "faq.q4": "DXAI Marketing Platform có đáp ứng sử dụng trên điện thoại không?",
     "faq.a4":
-      "Có. AI Marketing OS hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
-    "faq.q5": "AI Marketing OS có cập nhật các công cụ AI mới nhất không?",
+      "Có. DXAI Marketing Platform hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
+    "faq.q5": "DXAI Marketing Platform có cập nhật các công cụ AI mới nhất không?",
     "faq.a5":
-      "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, AI Marketing OS sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
+      "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, DXAI Marketing Platform sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
 
     // CTA Section
     "cta.title": "Khai phóng sức mạnh AI cho doanh nghiệp của bạn",
@@ -233,7 +262,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.breadcrumb.home": "Trang chủ",
     "about.hero.breadcrumb.about": "Về chúng tôi",
     "about.hero.title": "Về chúng tôi",
-    "about.hero.subtitle": "Tiên Phong CDS & DXAI – AI Marketing OS",
+    "about.hero.subtitle": "Tiên Phong CDS & DXAI – DXAI Marketing Platform",
     "about.hero.description":
       "Đối tác chuyển đổi số Marketing đa kênh hàng đầu, tự động hóa quy trình từ ý tưởng đến xuất bản nội dung.",
     "about.cta.trial": "Dùng thử miễn phí",
@@ -291,7 +320,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Product Section
     "about.product.badge": "SẢN PHẨM",
-    "about.product.title": "DXAI - AI Marketing OS",
+    "about.product.title": "DXAI - DXAI Marketing Platform",
     "about.product.subtitle":
       "Nền tảng AI Marketing toàn diện, tự động hóa quy trình từ ý tưởng đến xuất bản nội dung đa nền tảng.",
     "about.product.why.title": "Tại sao chọn DXAI?",
@@ -323,7 +352,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Modal CTA
     "modal.cta.title": "ĐỪNG BỎ LỠ!",
-    "modal.cta.benefit1": "Demo miễn phí AI Marketing OS",
+    "modal.cta.benefit1": "Demo miễn phí DXAI Marketing Platform",
     "modal.cta.benefit2": "Báo giá cá nhân hóa theo quy mô doanh nghiệp",
     "modal.cta.benefit3": "Tư vấn 1:1 bởi chuyên gia Marketing",
     "modal.cta.trust": "Doanh nghiệp đã tin chọn",
@@ -366,11 +395,17 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Hero Section
     "hero.badge": "#1 AI Marketing Platform in Vietnam",
+    "hero.title": "AI Marketing Platform",
+    "hero.titleHighlight": "automated",
     "hero.title.line1": "AI MARKETING PLATFORM",
     "hero.title.line2": "FOR EVERY BUSINESS",
     "hero.subtitle": "Automate Marketing workflow from idea to content publishing, save 80% of time.",
     "hero.cta.trial": "Start Free Trial",
     "hero.cta.demo": "Watch Demo",
+    "hero.dashboard.title": "AI Marketing Dashboard",
+    "hero.dashboard.subtitle": "Manage all your marketing campaigns from one platform",
+    "hero.stats.videos": "Videos/month",
+    "hero.stats.savings": "Savings",
 
     // Process Section
     "process.badge": "Automated Workflow",
@@ -390,41 +425,61 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Features Section
     "features.badge": "Why choose AI Marketing?",
-    "features.title": "Fast, Secure & Unlimited",
-    "features.subtitle":
-      "Automate marketing workflow from idea to publishing, trusted by thousands of Vietnamese businesses.",
+    "features.title": "Features",
+    "features.titleHighlight": "overview",
+    "features.subtitle": "Everything you need to automate your marketing",
     "features.video.title": "Auto Video Production",
+    "features.video.description":
+      "Turn ideas into viral videos in seconds. AI automatically creates scripts, voiceover, and professional editing.",
     "features.video.desc":
       "Turn ideas into viral videos in seconds. AI automatically creates scripts, voiceover, and professional editing.",
     "features.video.stats": "1000+ videos/month",
     "features.content.title": "Multi-channel Content",
+    "features.content.description":
+      "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
     "features.content.desc":
       "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
     "features.content.stats": "50+ templates",
     "features.schedule.title": "Smart Scheduling",
+    "features.schedule.description": "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
     "features.schedule.desc": "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
     "features.schedule.stats": "24/7 automatic",
+    "features.design.title": "AI Image Design",
+    "features.design.description": "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.title": "AI Image Design",
     "features.image.desc": "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.stats": "Unlimited",
     "features.analytics.title": "Smart Analytics",
+    "features.analytics.description":
+      "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
     "features.analytics.desc":
       "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Seamless Integration",
+    "features.integration.description": "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
     "features.integration.desc": "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
     "features.integration.stats": "20+ platforms",
 
     // Pricing Section
-    "pricing.title": "Pricing Plans",
+    "pricing.title": "Pricing",
+    "pricing.titleHighlight": "plans",
     "pricing.subtitle": "Choose the plan that fits your needs",
     "pricing.billing.monthly": "Monthly",
     "pricing.billing.quarterly": "Quarterly",
     "pricing.billing.yearly": "Yearly",
     "pricing.billing.discount": "Save 15%",
+    "pricing.cta": "Get Started",
     "pricing.cta.start": "Get Started",
     "pricing.cta.contact": "Contact Sales",
-    "pricing.popular": "Popular",
+    "pricing.popular": "Most Popular",
+    "pricing.credits": "credits",
+    "pricing.per.monthly": "month",
+    "pricing.per.quarterly": "quarter",
+    "pricing.per.yearly": "year",
+    "pricing.guarantee": "14-day free trial. No credit card required.",
+    "pricing.features.ssl": "SSL Security",
+    "pricing.features.support": "24/7 Support",
+    "pricing.features.cancel": "Cancel anytime",
     "pricing.features.included": "Features included:",
     "pricing.benefits": "Benefits:",
     "pricing.month": "month",
@@ -443,13 +498,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.subtitle": "For retail chains or systems requiring customization",
 
     // ROI Section
-    "roi.title": "Why Choose AI Marketing OS?",
+    "roi.title": "Why Choose DXAI Marketing Platform?",
     "roi.subtitle": "Compare traditional marketing workflows vs an AI-powered solution",
     "roi.traditional": "Traditional",
     "roi.traditional.title": "Traditional Editor/Content",
     "roi.traditional.subtitle": "Manual approach",
-    "roi.aiSystem": "AI Marketing OS",
-    "roi.ai.title": "AI Marketing OS",
+    "roi.aiSystem": "DXAI Marketing Platform",
+    "roi.ai.title": "DXAI Marketing Platform",
     "roi.ai.subtitle": "Automated solution",
     "roi.best": "BEST CHOICE",
     "roi.bestMobile": "Best",
@@ -461,7 +516,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.operation": "Operation",
     "roi.save": "Save",
     "roi.times": "{x}x faster",
-    "roi.cta.text": "Save costs and increase productivity 10x with AI Marketing OS",
+    "roi.cta.text": "Save costs and increase productivity 10x with DXAI Marketing Platform",
     "roi.cta.button": "Watch Demo",
     "roi.cost.traditional": "~$555 / month",
     "roi.cost.ai": "~$255 / month",
@@ -478,7 +533,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.note": "* Converted at ~27,000 VND = 1 USD (approx.)",
 
     // Why Choose Section
-    "whyChoose.title": "Why Choose AI Marketing OS?",
+    "whyChoose.title": "Why Choose DXAI Marketing Platform?",
     "whyChoose.subtitle": "Equip AI for your entire company starting from",
     "whyChoose.price": "$500/user/month",
     "whyChoose.aiModels.title": "One account – use multiple AI tools",
@@ -497,7 +552,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Allocation, Revocation, Reporting, Budget",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
-    "whyChoose.mockup.title": "AI Marketing OS",
+    "whyChoose.mockup.title": "DXAI Marketing Platform",
     "whyChoose.mockup.subtitle": "Dashboard Overview",
     "whyChoose.mockup.videos": "Videos/month",
     "whyChoose.mockup.accuracy": "Accuracy",
@@ -517,25 +572,28 @@ const translations: Record<Locale, Record<string, string>> = {
     "testimonials.view": "View testimonial {n}",
 
     // FAQ Section
-    "faq.title": "Frequently Asked Questions",
-    "faq.subtitle": "Answers to your questions",
+    "faq.title": "Frequently Asked",
+    "faq.titleHighlight": "Questions",
+    "faq.subtitle": "Find answers to the most common questions",
+    "faq.stillHaveQuestions": "Still have questions?",
+    "faq.contactUs": "Contact us",
     "faq.notFound": "Can't find the answer you need?",
     "faq.contact": "Contact us",
-    "faq.q1": "What is AI Marketing OS?",
+    "faq.q1": "What is DXAI Marketing Platform?",
     "faq.a1":
-      "AI Marketing OS is a platform that unifies leading AI tools like Video creation, Content writing, Image design... into a single system. Businesses only need to provide one account per employee to flexibly use multiple AI tools, instead of buying and managing separate accounts.",
-    "faq.q2": "What does AI Marketing OS support for businesses?",
+      "DXAI Marketing Platform is a platform that unifies leading AI tools like Video creation, Content writing, Image design... into a single system. Businesses only need to provide one account per employee to flexibly use multiple AI tools, instead of buying and managing separate accounts.",
+    "faq.q2": "What does DXAI Marketing Platform support for businesses?",
     "faq.a2":
       "Save costs & time: Buy once - use for the entire team. Centralized management: Allocate, revoke, adjust AI quotas for employees with just a few operations. Detailed reports: Leaders can easily track and evaluate AI adoption levels in the business.",
-    "faq.q3": "Can I use AI Marketing OS for free?",
+    "faq.q3": "Can I use DXAI Marketing Platform for free?",
     "faq.a3":
-      "Yes. AI Marketing OS offers a 7-day free trial with full features. Customers can upgrade to paid plans for more Credits and access to all advanced AI tools.",
-    "faq.q4": "Does AI Marketing OS work on mobile phones?",
+      "Yes. DXAI Marketing Platform offers a 7-day free trial with full features. Customers can upgrade to paid plans for more Credits and access to all advanced AI tools.",
+    "faq.q4": "Does DXAI Marketing Platform work on mobile phones?",
     "faq.a4":
-      "Yes. AI Marketing OS fully supports iOS and Android. The interface is optimized for mobile experience, allowing staff to use AI anytime, anywhere.",
-    "faq.q5": "Does AI Marketing OS update with the latest AI tools?",
+      "Yes. DXAI Marketing Platform fully supports iOS and Android. The interface is optimized for mobile experience, allowing staff to use AI anytime, anywhere.",
+    "faq.q5": "Does DXAI Marketing Platform update with the latest AI tools?",
     "faq.a5":
-      "We constantly strive to review and integrate the most advanced AI tools, with priority on balancing customer benefits and cost efficiency. When new tools emerge, AI Marketing OS will evaluate and consider updates to help customers maximize value from AI.",
+      "We constantly strive to review and integrate the most advanced AI tools, with priority on balancing customer benefits and cost efficiency. When new tools emerge, DXAI Marketing Platform will evaluate and consider updates to help customers maximize value from AI.",
 
     // CTA Section
     "cta.title": "Unleash AI Power for Your Business",
@@ -570,7 +628,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.breadcrumb.home": "Home",
     "about.hero.breadcrumb.about": "About Us",
     "about.hero.title": "About Us",
-    "about.hero.subtitle": "Tien Phong CDS & DXAI – AI Marketing OS",
+    "about.hero.subtitle": "Tien Phong CDS & DXAI – DXAI Marketing Platform",
     "about.hero.description":
       "Multi-channel Digital Marketing Transformation Partner, automating workflow from idea to content publishing.",
     "about.cta.trial": "Start Free Trial",
@@ -627,7 +685,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Product Section
     "about.product.badge": "PRODUCT",
-    "about.product.title": "DXAI - AI Marketing OS",
+    "about.product.title": "DXAI - DXAI Marketing Platform",
     "about.product.subtitle":
       "Comprehensive AI Marketing platform, automating workflow from idea to multi-platform content publishing.",
     "about.product.why.title": "Why choose DXAI?",
@@ -659,7 +717,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Modal CTA
     "modal.cta.title": "DON'T MISS OUT!",
-    "modal.cta.benefit1": "Free AI Marketing OS Demo",
+    "modal.cta.benefit1": "Free DXAI Marketing Platform Demo",
     "modal.cta.benefit2": "Personalized pricing based on your business scale",
     "modal.cta.benefit3": "1:1 consultation with Marketing experts",
     "modal.cta.trust": "Businesses have trusted us",
@@ -680,7 +738,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "common.required": "Required",
 
     // Trusted Businesses Section
-    "trustedBusinesses.title": "Trusted by over 12,000 businesses nationwide",
+    "trustedBusinesses.title": "Trusted by over 500 businesses nationwide",
     "trustedBusinesses.subtitle": "Chosen by businesses across various industries",
     "trustedBusinesses.category.retail": "Retail Industry",
     "trustedBusinesses.category.commerce": "E-Commerce Industry",

@@ -8,20 +8,24 @@ import { LazyAnalytics } from "@/components/lazy-analytics"
 import { WebVitals } from "@/components/web-vitals"
 import { ErrorBoundary } from "@/components/error-boundary"
 import { I18nProvider } from "@/lib/i18n"
+import { organizationSchema, softwareApplicationSchema, websiteSchema } from "@/lib/structured-data"
 import "./globals.css"
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   preload: true,
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
-  title: "AI Marketing OS - Giải pháp Marketing Tự động cho Doanh nghiệp | Tiên Phong CDS",
+  title: "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp | Tiên Phong CDS",
   description:
-    "Nền tảng AI Marketing tích hợp ChatGPT, Gemini, Claude, Grok. Sản xuất 150 Video/tháng, 2.500 bài viết SEO tự động. Tiết kiệm 40% chi phí nhân sự Marketing.",
+    "Nền tảng DXAI Marketing tích hợp ChatGPT, Gemini, Claude, Grok. Sản xuất 150 Video/tháng, 2.500 bài viết SEO tự động. Tiết kiệm 40% chi phí nhân sự Marketing.",
   keywords: [
+    "DXAI",
+    "DXAI Marketing Platform",
     "AI Marketing",
     "Video Marketing tự động",
     "Content Marketing AI",
@@ -37,27 +41,37 @@ export const metadata: Metadata = {
   authors: [{ name: "Tiên Phong CDS" }],
   creator: "Tiên Phong CDS",
   publisher: "Tiên Phong CDS",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "vi_VN",
     url: "https://dsp.one",
-    siteName: "AI Marketing OS",
-    title: "AI Marketing OS - Giải pháp Marketing Tự động cho Doanh nghiệp",
+    siteName: "DXAI Marketing Platform",
+    title: "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp",
     description:
-      "Nền tảng AI Marketing tích hợp đa công cụ AI. Sản xuất Video & Content tự động, tiết kiệm 40% chi phí.",
+      "Nền tảng DXAI Marketing tích hợp đa công cụ AI. Sản xuất Video & Content tự động, tiết kiệm 40% chi phí.",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI Marketing OS - Nền tảng AI Marketing cho Doanh nghiệp",
+        alt: "DXAI Marketing Platform - Nền tảng AI Marketing cho Doanh nghiệp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Marketing OS - Giải pháp Marketing Tự động",
+    title: "DXAI Marketing Platform - Giải pháp Marketing Tự động",
     description: "Sản xuất Video & Content Marketing tự động với AI. Tiết kiệm 40% chi phí nhân sự.",
     images: ["/images/og-image.png"],
   },
@@ -128,13 +142,43 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+
+        {/* Structured Data - JSON-LD for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareApplicationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {/* Skip to main content link for keyboard navigation */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Skip to main content
+        </a>
+
         <ErrorBoundary>
           <I18nProvider>
             <LazyAnalytics />
             <WebVitals />
-            {children}
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
             <LazyChatbot />
           </I18nProvider>
           <Analytics />

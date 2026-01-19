@@ -16,6 +16,11 @@ import {
   Sparkles,
 } from "lucide-react"
 import { SiOpenai, SiGoogle, SiMeta } from "react-icons/si"
+import {
+  ClaudeIcon,
+  MistralIcon,
+  DeepSeekIcon,
+} from "@/components/brand-icons"
 import { useI18n } from "@/lib/i18n"
 
 export function ProductSection() {
@@ -66,10 +71,10 @@ export function ProductSection() {
   const aiModels = [
     { name: "OpenAI GPT-4", icon: SiOpenai, color: "#000000" },
     { name: "Google Gemini", icon: SiGoogle, color: "#4285F4" },
-    { name: "Anthropic Claude", icon: () => <span className="text-lg font-bold">C</span>, color: "#D97706" },
+    { name: "Anthropic Claude", icon: ClaudeIcon, color: "#D97706" },
     { name: "Meta Llama", icon: SiMeta, color: "#0668E1" },
-    { name: "Mistral AI", icon: () => <span className="text-lg font-bold">M</span>, color: "#FF7000" },
-    { name: "DeepSeek", icon: () => <span className="text-lg font-bold">D</span>, color: "#4F46E5" },
+    { name: "Mistral AI", icon: MistralIcon, color: "#FF7000" },
+    { name: "DeepSeek", icon: DeepSeekIcon, color: "#4F46E5" },
   ]
 
   return (
@@ -143,7 +148,7 @@ export function ProductSection() {
                   </div>
                   <div className="flex-1 flex justify-center">
                     <div className="px-4 py-1 bg-white rounded-md text-xs text-gray-500 border border-gray-200">
-                      app.dxai.vn
+                      ai.dsp.one
                     </div>
                   </div>
                 </div>
@@ -159,7 +164,7 @@ export function ProductSection() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">DXAI Dashboard</p>
-                          <p className="text-xs text-gray-500">AI Marketing OS</p>
+                          <p className="text-xs text-gray-500">DXAI Marketing Platform</p>
                         </div>
                       </div>
                     </div>

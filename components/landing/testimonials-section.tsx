@@ -10,7 +10,7 @@ const testimonialsData = {
     {
       id: 1,
       content:
-        "AI Marketing OS được xây dựng từ những vấn đề thực tế mà chúng tôi và nhiều doanh nghiệp Việt gặp phải khi dùng AI rời rạc. Nền tảng giúp gom mọi công cụ AI vào một chỗ, dễ dùng và chi phí hợp lý cho doanh nghiệp.",
+        "DXAI Marketing Platform được xây dựng từ những vấn đề thực tế mà chúng tôi và nhiều doanh nghiệp Việt gặp phải khi dùng AI rời rạc. Nền tảng giúp gom mọi công cụ AI vào một chỗ, dễ dùng và chi phí hợp lý cho doanh nghiệp.",
       author: "Anh Nguyễn Văn Minh",
       role: "Tổng Giám đốc",
       company: "Tiên Phong CDS",
@@ -28,7 +28,7 @@ const testimonialsData = {
     {
       id: 3,
       content:
-        "AI Marketing OS giúp chúng tôi quản lý marketing và việc sử dụng AI của đội ngũ trên cùng một hệ thống. Mọi thứ rõ ràng hơn, dễ theo dõi và kiểm soát tốt hơn so với trước đây.",
+        "DXAI Marketing Platform giúp chúng tôi quản lý marketing và việc sử dụng AI của đội ngũ trên cùng một hệ thống. Mọi thứ rõ ràng hơn, dễ theo dõi và kiểm soát tốt hơn so với trước đây.",
       author: "Anh Lê Hoàng Nam",
       role: "Giám đốc",
       company: "Công ty XYZ",
@@ -39,7 +39,7 @@ const testimonialsData = {
     {
       id: 1,
       content:
-        "AI Marketing OS was built from real problems that we and many Vietnamese businesses face when using fragmented AI tools. The platform helps consolidate all AI tools in one place, easy to use and cost-effective for businesses.",
+        "DXAI Marketing Platform was built from real problems that we and many Vietnamese businesses face when using fragmented AI tools. The platform helps consolidate all AI tools in one place, easy to use and cost-effective for businesses.",
       author: "Mr. Nguyen Van Minh",
       role: "CEO",
       company: "Tien Phong CDS",
@@ -57,7 +57,7 @@ const testimonialsData = {
     {
       id: 3,
       content:
-        "AI Marketing OS helps us manage marketing and our team's AI usage on the same system. Everything is clearer, easier to track and control better than before.",
+        "DXAI Marketing Platform helps us manage marketing and our team's AI usage on the same system. Everything is clearer, easier to track and control better than before.",
       author: "Mr. Le Hoang Nam",
       role: "Director",
       company: "XYZ Company",

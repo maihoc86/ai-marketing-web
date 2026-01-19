@@ -1,4 +1,4 @@
-# CLAUDE.MD - AI Marketing OS Project Documentation
+# CLAUDE.MD - DXAI Marketing Platform Project Documentation
 
 > **Project Guide for AI Assistants and Developers**
 > Last Updated: 2026-01-16
@@ -30,7 +30,7 @@
 
 ## 📊 PROJECT OVERVIEW
 
-**AI Marketing OS** is a comprehensive AI-powered marketing automation platform that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
+**DXAI Marketing Platform** is a comprehensive AI-powered marketing automation platform that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
 
 ### Key Features
 - **Video Production**: AI-powered automated video creation (1000+ videos/month)
@@ -542,7 +542,7 @@ export function Component() {
       <p>{t("pricing.subtitle")}</p>
 
       {/* With parameters */}
-      <p>{t("cta.trusted", { count: "12,000" })}</p>
+      <p>{t("cta.trusted", { count: "500" })}</p>
 
       {/* Language switcher */}
       <button onClick={() => setLocale(locale === "vi" ? "en" : "vi")}>

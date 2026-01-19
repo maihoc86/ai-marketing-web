@@ -30,20 +30,18 @@ export function Navbar() {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 sm:pt-4">
-      <div className="mx-auto max-w-6xl">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4">
+      <div className="mx-auto max-w-7xl">
         <nav
           className={cn(
             "flex items-center justify-between",
-            "bg-white/95 backdrop-blur-md",
-            "border border-gray-200/70",
+            "bg-white/80 backdrop-blur-md",
+            "border border-gray-200/50",
             "rounded-full",
-            "px-4 sm:px-6 py-2.5",
-            "h-16 sm:h-[68px]",
+            "px-6 sm:px-8 py-3",
+            "h-14 sm:h-16",
             "transition-all duration-300 ease-out",
-            isScrolled
-              ? "shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-gray-200/90"
-              : "shadow-[0_2px_12px_rgba(0,0,0,0.04)]",
+            isScrolled && "shadow-lg shadow-gray-900/5 bg-white/90",
           )}
           aria-label="Main navigation"
         >
@@ -51,39 +49,42 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
-            aria-label="AI Marketing OS - Home"
+            aria-label="DXAI Marketing Platform - Home"
           >
             <Image
               src="https://tienphongcds.com/_next/image?url=https%3A%2F%2Fmedia.newweb.vn%2Ffile%2FdoMFbzZ4q&w=256&q=75"
               alt="DXAI Logo"
-              width={120}
-              height={32}
-              className="h-8 w-auto"
+              width={110}
+              height={30}
+              className="h-7 w-auto"
               priority
             />
           </Link>
 
-          {/* Navigation Links - CENTER */}
-          <ul className="hidden lg:flex items-center justify-center gap-1 xl:gap-2" role="list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "relative px-4 py-2 text-[15px] font-medium text-gray-600",
-                    "hover:text-gray-900 transition-colors duration-200",
-                    "rounded-full hover:bg-gray-50",
-                    "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Navigation Links - CENTER (absolute centering) */}
+          <div className="absolute left-1/2 -translate-x-1/2 hidden lg:block">
+            <ul className="flex items-center gap-1" role="list">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "relative px-4 py-2 text-[14px] font-medium text-gray-600",
+                      "hover:text-gray-900 transition-colors duration-200",
+                      "rounded-lg hover:bg-gray-50",
+                      "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Actions - RIGHT */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Language Selector */}
             <LanguageSelector variant="pill" />
 
             {/* Login link */}
@@ -92,9 +93,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "text-[15px] font-medium text-gray-600 hover:text-gray-900",
-                "px-4 py-2 rounded-full",
-                "hover:bg-gray-50 transition-all duration-200",
+                "text-[14px] font-medium text-gray-600 hover:text-gray-900",
+                "px-4 py-2 rounded-lg",
+                "hover:bg-gray-50 transition-colors duration-200",
                 "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
               )}
               aria-label={t("nav.login")}
@@ -106,17 +107,16 @@ export function Navbar() {
               size="sm"
               className={cn(
                 "bg-blue-600 hover:bg-blue-700 text-white",
-                "text-[15px] font-semibold",
-                "px-5 py-2.5 h-11",
-                "rounded-full",
-                "shadow-sm hover:shadow-lg hover:shadow-blue-500/20",
+                "text-[14px] font-semibold",
+                "px-5 py-2 h-10",
+                "rounded-lg",
+                "shadow-sm hover:shadow-md",
                 "transition-all duration-200",
                 "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
               )}
               asChild
             >
-              <Link href="/dang-ky" className="flex items-center gap-2" aria-label={t("nav.trialFree")}>
-                <Sparkles className="w-4 h-4" aria-hidden="true" />
+              <Link href="/dang-ky" aria-label={t("nav.trialFree")}>
                 <span>{t("nav.trialFree")}</span>
               </Link>
             </Button>
@@ -130,8 +130,7 @@ export function Navbar() {
                 "bg-blue-600 hover:bg-blue-700 text-white",
                 "text-[13px] sm:text-[14px] font-semibold",
                 "px-3 sm:px-4 py-2 h-10",
-                "rounded-full",
-                "shadow-sm",
+                "rounded-lg shadow-sm",
                 "min-h-[44px] min-w-[44px] touch-manipulation",
               )}
               asChild
@@ -146,7 +145,7 @@ export function Navbar() {
             <button
               className={cn(
                 "p-2.5 text-gray-600 hover:text-gray-900",
-                "hover:bg-gray-100 rounded-full",
+                "hover:bg-gray-50 rounded-lg",
                 "transition-colors duration-200",
                 "min-h-[44px] min-w-[44px]",
                 "flex items-center justify-center touch-manipulation",
@@ -165,27 +164,28 @@ export function Navbar() {
         <div
           id="mobile-menu"
           className={cn(
-            "lg:hidden mt-2",
-            "bg-white border border-gray-200/70",
-            "rounded-2xl shadow-xl",
+            "lg:hidden mt-3",
+            "bg-white/95 backdrop-blur-md",
+            "border border-gray-200/50",
+            "rounded-2xl shadow-lg shadow-gray-900/5",
             "transition-all duration-300 ease-out overflow-hidden",
             isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none",
           )}
           aria-hidden={!isOpen}
         >
-          <nav className="px-5 py-4" aria-label="Mobile navigation">
+          <nav className="px-4 py-4" aria-label="Mobile navigation">
             {/* Nav Links */}
-            <ul className="space-y-1" role="list">
+            <ul className="space-y-0.5" role="list">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className={cn(
-                      "block py-3 px-3 rounded-xl",
-                      "text-[15px] font-medium text-gray-700",
-                      "hover:text-blue-600 hover:bg-blue-50",
+                      "block py-2.5 px-3 rounded-lg",
+                      "text-[14px] font-medium text-gray-600",
+                      "hover:text-gray-900 hover:bg-gray-50",
                       "transition-colors duration-200",
-                      "min-h-[48px] flex items-center touch-manipulation",
+                      "min-h-[44px] flex items-center touch-manipulation",
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -198,9 +198,9 @@ export function Navbar() {
             {/* Divider */}
             <div className="my-3 border-t border-gray-100" />
 
-            {/* Language Selector Row */}
+            {/* Language Selector */}
             <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[14px] text-gray-500 font-medium">Language</span>
+              <span className="text-[14px] text-gray-500 font-medium">Ngôn ngữ</span>
               <LanguageSelector variant="pill" />
             </div>
 
@@ -208,17 +208,17 @@ export function Navbar() {
             <div className="my-3 border-t border-gray-100" />
 
             {/* Actions */}
-            <div className="space-y-2 pt-1">
+            <div className="space-y-2">
               <a
                 href="https://admin.dsp.one"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "block py-3 text-center",
-                  "text-[15px] font-medium text-gray-700",
-                  "bg-gray-100 hover:bg-gray-200 rounded-xl",
+                  "block py-2.5 text-center",
+                  "text-[14px] font-medium text-gray-600",
+                  "bg-gray-50 hover:bg-gray-100 rounded-lg",
                   "transition-colors duration-200",
-                  "min-h-[48px] flex items-center justify-center touch-manipulation",
+                  "min-h-[44px] flex items-center justify-center touch-manipulation",
                 )}
                 onClick={() => setIsOpen(false)}
                 aria-label={t("nav.login")}
@@ -228,10 +228,11 @@ export function Navbar() {
 
               <Button
                 className={cn(
-                  "w-full h-12 rounded-xl",
+                  "w-full h-11 rounded-lg",
                   "bg-blue-600 hover:bg-blue-700 text-white",
-                  "text-[15px] font-semibold",
-                  "min-h-[48px] touch-manipulation",
+                  "text-[14px] font-semibold",
+                  "shadow-sm hover:shadow-md",
+                  "min-h-[44px] touch-manipulation",
                 )}
                 asChild
               >
@@ -240,7 +241,6 @@ export function Navbar() {
                   className="flex items-center justify-center gap-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Sparkles className="w-4 h-4" aria-hidden="true" />
                   <span>{t("nav.trialFree")}</span>
                 </Link>
               </Button>

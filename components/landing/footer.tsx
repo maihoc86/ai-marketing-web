@@ -35,7 +35,7 @@ export function Footer() {
   ]
 
   return (
-    <footer id="contact" className="bg-foreground text-background py-16 border-t border-background/10">
+    <footer id="contact" className="bg-foreground text-background py-16 border-t border-background/10 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}

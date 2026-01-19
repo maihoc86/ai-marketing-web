@@ -81,8 +81,10 @@ export function FeaturesSection() {
     }, [index])
 
     return (
-      <div
+      <article
         ref={cardRef}
+        aria-labelledby={`feature-${index}-title`}
+        aria-describedby={`feature-${index}-desc`}
         className={`bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
@@ -97,30 +99,30 @@ export function FeaturesSection() {
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             loading="lazy"
           />
-          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
+          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium" aria-label={`Statistics: ${t(feature.statsKey)}`}>
             {t(feature.statsKey)}
           </div>
         </div>
 
-        <h3 className="text-lg font-semibold mb-3 text-gray-900">{t(feature.titleKey)}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
-      </div>
+        <h3 id={`feature-${index}-title`} className="text-lg font-semibold mb-3 text-gray-900">{t(feature.titleKey)}</h3>
+        <p id={`feature-${index}-desc`} className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
+      </article>
     )
   })
 
   FeatureCard.displayName = "FeatureCard"
 
   return (
-    <section id="features" className="py-20 bg-[#F8FAFB] relative overflow-hidden">
+    <section id="features" aria-labelledby="features-heading" className="py-20 bg-[#F8FAFB] relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 border border-blue-200 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" aria-hidden="true" />
             <span className="text-xs font-medium text-blue-700">{t("features.badge")}</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl text-gray-900 mb-4 font-extrabold text-primary text-balance mt-4">
+          <h2 id="features-heading" className="text-4xl md:text-5xl text-gray-900 mb-4 font-extrabold text-balance mt-4">
             {t("features.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">{t("features.subtitle")}</p>

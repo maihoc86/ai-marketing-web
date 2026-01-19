@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowLeft, Shield, Lock, Eye, Database, Globe, Mail } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Chính Sách Bảo Mật | DSP.ONE - AI Marketing OS",
+  title: "Chính Sách Bảo Mật | DSP.ONE - DXAI Marketing Platform",
   description: "Chính sách bảo mật của DSP.ONE - Cam kết bảo vệ dữ liệu và quyền riêng tư của người dùng.",
 }
 
