@@ -1,8 +1,8 @@
 # CLAUDE.MD - DXAI Marketing Platform Project Documentation
 
 > **Project Guide for AI Assistants and Developers**
-> Last Updated: 2026-01-16
-> Version: 1.0.0
+> Last Updated: 2026-01-20
+> Version: 2.0.0
 
 ---
 
@@ -153,7 +153,109 @@ ai-marketing-fe/
 
 ---
 
-## 🏗 ARCHITECTURE PATTERNS
+## 🏗 ARCHITECTURE
+
+> **Full Architecture Documentation**: See [ARCHITECTURE.md](./ARCHITECTURE.md) for comprehensive architecture details, code examples, and migration guide.
+
+### Pragmatic Clean Architecture
+
+DXAI uses a **Pragmatic Clean Architecture** - a hybrid approach optimized for Next.js that combines Clean Architecture layers with DDD concepts.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        PRESENTATION                              │
+│   (Next.js Pages, React Components, Hooks)                       │
+├─────────────────────────────────────────────────────────────────┤
+│                        APPLICATION                                │
+│   (Use Cases, Services, DTOs, Mappers)                           │
+├─────────────────────────────────────────────────────────────────┤
+│                          DOMAIN                                   │
+│   (Entities, Value Objects, Domain Services, Interfaces)         │
+├─────────────────────────────────────────────────────────────────┤
+│                       INFRASTRUCTURE                              │
+│   (API Clients, Storage, External Services, Repositories)        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Layer Responsibilities
+
+| Layer | Purpose | Example Files |
+|-------|---------|---------------|
+| **Domain** | Business logic, entities, validation | `campaign.ts`, `email.ts` (value object) |
+| **Application** | Use cases, orchestration, DTOs | `create-campaign.ts`, `user-mapper.ts` |
+| **Infrastructure** | External systems, API clients | `dxai-api-client.ts`, `api-campaign-repository.ts` |
+| **Presentation** | UI, pages, components | `page.tsx`, `CampaignList.tsx` |
+
+### Dependency Rule
+
+```
+Presentation → Application → Domain ← Infrastructure
+```
+
+- **Domain** is the center - no dependencies on outer layers
+- **Application** depends only on Domain
+- **Infrastructure** implements Domain interfaces
+- **Presentation** orchestrates Application services
+
+### Key Design Patterns
+
+1. **Repository Pattern**: Abstract data access, enable testing with mocks
+2. **Use Case Pattern**: One class = one business operation
+3. **DTO Pattern**: Decouple internal models from external representation
+4. **Mapper Pattern**: Transform data between layers
+5. **Value Object Pattern**: Immutable objects for validation (Email, PhoneNumber)
+
+### Folder Structure (Target)
+
+```
+ai-marketing-fe/
+├── app/                        # Next.js App Router (Presentation)
+│   ├── (marketing)/            # Landing pages
+│   ├── (auth)/                 # Auth pages
+│   ├── (dashboard)/            # Dashboard (future)
+│   └── api/                    # API routes
+│
+├── src/                        # Core application code
+│   ├── domain/                 # Business entities & rules
+│   │   ├── entities/
+│   │   ├── value-objects/
+│   │   ├── interfaces/
+│   │   └── services/
+│   │
+│   ├── application/            # Use cases & orchestration
+│   │   ├── use-cases/
+│   │   ├── services/
+│   │   ├── dto/
+│   │   └── mappers/
+│   │
+│   ├── infrastructure/         # External integrations
+│   │   ├── api/
+│   │   ├── repositories/
+│   │   └── storage/
+│   │
+│   └── shared/                 # Cross-cutting concerns
+│       ├── types/
+│       ├── utils/
+│       ├── constants/
+│       └── errors/
+│
+├── components/                 # React components
+│   ├── ui/                     # Base UI (shadcn)
+│   ├── features/               # Feature-specific
+│   └── providers/              # Context providers
+│
+├── hooks/                      # Custom React hooks
+└── lib/                        # Library configs (i18n, etc.)
+```
+
+### When to Use Each Layer
+
+- **Domain**: Defining business rules, validation logic, core concepts
+- **Application**: Orchestrating workflows, transforming data between layers
+- **Infrastructure**: Interacting with external systems (API, storage, analytics)
+- **Presentation**: Displaying data, handling user interaction
+
+---
 
 ### Next.js App Router Patterns
 
@@ -1694,6 +1796,15 @@ export function Accordion({ items }: AccordionProps) {
 ---
 
 ## 📝 CHANGE LOG
+
+### Version 2.0.0 (2026-01-20)
+- **NEW**: Pragmatic Clean Architecture recommendation
+- **NEW**: ARCHITECTURE.md with comprehensive architecture documentation
+- **NEW**: Layer definitions (Domain, Application, Infrastructure, Presentation)
+- **NEW**: Design patterns guide (Repository, Use Case, DTO, Mapper, Value Object)
+- **NEW**: Folder structure for scalable architecture
+- **NEW**: Migration guide from current structure
+- **UPDATED**: Architecture section with new patterns
 
 ### Version 1.0.0 (2026-01-16)
 - Initial CLAUDE.md documentation
