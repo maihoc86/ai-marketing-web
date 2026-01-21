@@ -157,7 +157,7 @@ export function CtaRegisterModal() {
             <p className="text-gray-600 mb-6">
               Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
             </p>
-            <Button onClick={handleClose} className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700">
+            <Button onClick={handleClose} className="w-full h-12 rounded-xl bg-[#ff7900] hover:bg-[#e56b00]">
               Đóng
             </Button>
           </div>
@@ -182,7 +182,7 @@ export function CtaRegisterModal() {
       >
         <div className="grid lg:grid-cols-[400px_1fr]">
           {/* Left column - Branding */}
-          <div className="hidden lg:flex flex-col justify-between p-8 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 text-white relative overflow-hidden">
+          <div className="hidden lg:flex flex-col justify-between p-8 bg-gradient-to-br from-[#008bff] via-[#22b5f8] to-[#5fffec] text-white relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-400/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
@@ -257,7 +257,7 @@ export function CtaRegisterModal() {
 
             {/* Form header */}
             <div className="mb-6 pr-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs font-medium mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#22b5f8]/10 text-[#008bff] text-xs font-medium mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
                 Chỉ 10s – Nhận demo toàn bộ tính năng
               </div>
@@ -296,7 +296,7 @@ export function CtaRegisterModal() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-12 text-base font-semibold rounded-xl bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 transition-all duration-200"
+                className="w-full h-12 text-base font-semibold rounded-xl bg-[#ff7900] hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/25 hover:shadow-xl hover:shadow-[#ff7900]/30 transition-all duration-200"
                 disabled={isLoading}
                 aria-label={isLoading ? "Đang gửi đăng ký" : "Nhận báo giá & Demo miễn phí"}
               >
@@ -316,11 +316,11 @@ export function CtaRegisterModal() {
               {/* Terms */}
               <p className="text-xs text-gray-500 text-center leading-relaxed pt-2">
                 Bằng việc đăng ký, bạn đồng ý với{" "}
-                <Link href="/dieu-khoan" className="text-blue-600 hover:underline">
+                <Link href="/dieu-khoan" className="text-[#22b5f8] hover:underline">
                   Điều khoản sử dụng
                 </Link>{" "}
                 và{" "}
-                <Link href="/chinh-sach-bao-mat" className="text-blue-600 hover:underline">
+                <Link href="/chinh-sach-bao-mat" className="text-[#22b5f8] hover:underline">
                   Chính sách bảo mật
                 </Link>
               </p>

@@ -32,9 +32,9 @@ export function WhyChooseEnterprise() {
       icon: Brain,
       titleKey: "about.whyChoose.expertise1.title",
       descKey: "about.whyChoose.expertise1.desc",
-      color: "text-blue-600",
-      bgColor: "bg-blue-600",
-      lightBg: "bg-blue-50",
+      color: "text-[#22b5f8]",
+      bgColor: "bg-[#22b5f8]",
+      lightBg: "bg-[#22b5f8]/5",
     },
     {
       icon: Headphones,
@@ -73,8 +73,8 @@ export function WhyChooseEnterprise() {
             isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
-            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/10 rounded-full mb-6">
+            <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
               {t("about.whyChoose.badge")}
             </span>
           </div>

@@ -112,7 +112,7 @@ function LogoCard({ name, index }: { name: string; index: number }) {
         "flex items-center justify-center h-20 rounded-lg",
         "bg-gray-50 border border-gray-200",
         "transition-all duration-300",
-        "hover:-translate-y-1 hover:shadow-lg hover:border-blue-300 hover:bg-white",
+        "hover:-translate-y-1 hover:shadow-lg hover:border-[#22b5f8]/50 hover:bg-white",
         "cursor-pointer group",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       )}
@@ -157,8 +157,8 @@ function IndustryColumn({ industry, index }: { industry: Industry; index: number
     >
       {/* Industry Header */}
       <div className="flex items-center gap-2 mb-6">
-        <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
-          <Icon className="w-5 h-5 text-blue-600" />
+        <div className="w-8 h-8 rounded-lg bg-[#22b5f8]/10 flex items-center justify-center">
+          <Icon className="w-5 h-5 text-[#22b5f8]" />
         </div>
         <h3 className="text-base font-bold text-gray-900">
           {t(industry.nameKey)}
@@ -230,7 +230,7 @@ function StatCard({ number, label, index }: { number: string; label: string; ind
         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
       )}
     >
-      <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
+      <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff] mb-2">
         {displayNumber}
       </p>
       <p className="text-base font-semibold text-gray-700">{label}</p>
@@ -265,11 +265,11 @@ function TrustBadge({ icon: Icon, title, description, index }: { icon: React.Ele
       className={cn(
         "flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200",
         "shadow-sm hover:shadow-lg transition-all duration-300",
-        "hover:border-blue-300 hover:-translate-y-1",
+        "hover:border-[#22b5f8]/50 hover:-translate-y-1",
         isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
       )}
     >
-      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#22b5f8] to-[#008bff] flex items-center justify-center shadow-lg">
         <Icon className="w-5 h-5 text-white" />
       </div>
       <div>
@@ -290,8 +290,8 @@ export function TrustedBusinessesSection() {
     <section className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#5fffec]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -299,7 +299,7 @@ export function TrustedBusinessesSection() {
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
             {t("trusted.title.prefix")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
               {t("trusted.title.count")}
             </span>{" "}
             {t("trusted.title.suffix")}

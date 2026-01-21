@@ -106,7 +106,7 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
           text-base font-medium h-12 px-8 rounded-full
           bg-white border border-gray-200
           transition-all duration-200
-          ${isHovered ? "border-blue-400 bg-blue-50 scale-[1.02] shadow-lg shadow-blue-200/50" : ""}
+          ${isHovered ? "border-[#22b5f8] bg-[#22b5f8]/5 scale-[1.02] shadow-lg shadow-[#22b5f8]/20" : ""}
           active:scale-[0.98] active:shadow-md
           ${className}
         `}
@@ -116,14 +116,14 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
             <span
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
-                background: "linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1))",
+                background: "linear-gradient(135deg, rgba(34, 181, 248, 0.15), rgba(0, 139, 255, 0.1))",
                 animation: "demoButtonPulse 3s ease-in-out infinite",
               }}
             />
             <span
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
-                background: "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05))",
+                background: "linear-gradient(135deg, rgba(34, 181, 248, 0.1), rgba(0, 139, 255, 0.05))",
                 animation: "demoButtonPulse 3s ease-in-out infinite 1.5s",
               }}
             />
@@ -131,7 +131,7 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
         )}
 
         <span
-          className="relative flex items-center justify-center w-6 h-6 rounded-full bg-blue-100"
+          className="relative flex items-center justify-center w-6 h-6 rounded-full bg-[#22b5f8]/10"
           style={
             shouldAnimate
               ? {
@@ -140,7 +140,7 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
               : undefined
           }
         >
-          <Play className="w-3.5 h-3.5 text-blue-600 ml-0.5" fill="currentColor" />
+          <Play className="w-3.5 h-3.5 text-[#22b5f8] ml-0.5" fill="currentColor" />
         </span>
 
         <span className="relative">Xem Demo</span>

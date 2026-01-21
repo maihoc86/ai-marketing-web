@@ -21,21 +21,21 @@ export function CtaSection() {
 
   return (
     <section className="relative py-24 overflow-hidden font-sans">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700" />
+      <div className="absolute inset-0 bg-[#1c1c1c]" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5" />
-        <div className="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5" />
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-white/20" />
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full bg-white/15" />
-        <div className="absolute bottom-1/4 right-1/4 w-5 h-5 rounded-full bg-white/10" />
-        <div className="absolute top-1/2 left-[15%] w-2 h-2 rounded-full bg-white/25" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-white/20" />
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#ff7900]/10" />
+        <div className="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-[#22b5f8]/10" />
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-[#5fffec]/30" />
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full bg-[#22b5f8]/20" />
+        <div className="absolute bottom-1/4 right-1/4 w-5 h-5 rounded-full bg-[#ff7900]/15" />
+        <div className="absolute top-1/2 left-[15%] w-2 h-2 rounded-full bg-[#5fffec]/25" />
+        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-[#008bff]/20" />
 
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, #5fffec 1px, transparent 1px)`,
             backgroundSize: "24px 24px",
           }}
         />
@@ -44,7 +44,7 @@ export function CtaSection() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-balance">{t("cta.title")}</h2>
 
-        <p className="text-lg md:text-xl text-blue-100 mb-10">{t("cta.subtitle")}</p>
+        <p className="text-lg md:text-xl text-gray-300 mb-10">{t("cta.subtitle")}</p>
 
         {!isSubmitted ? (
           <form onSubmit={handleSubmit} className="max-w-xl mx-auto mb-8">
@@ -60,7 +60,7 @@ export function CtaSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="h-14 px-8 rounded-full bg-white text-blue-600 hover:bg-blue-50 font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02]"
+                className="h-14 px-8 rounded-full bg-[#ff7900] text-white hover:bg-[#e56b00] font-semibold text-base shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all duration-200 hover:scale-[1.02]"
               >
                 {t("cta.button")}
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -68,22 +68,22 @@ export function CtaSection() {
             </div>
           </form>
         ) : (
-          <div className="max-w-xl mx-auto mb-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-3" />
+          <div className="max-w-xl mx-auto mb-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-[#5fffec]/20">
+            <CheckCircle2 className="w-12 h-12 text-[#5fffec] mx-auto mb-3" />
             <p className="text-white font-medium text-lg">{t("cta.thankYou")}</p>
-            <p className="text-blue-100 text-sm mt-1">{t("cta.thankYouSub")}</p>
+            <p className="text-gray-300 text-sm mt-1">{t("cta.thankYouSub")}</p>
           </div>
         )}
 
         <div className="flex flex-col items-center gap-4">
-          <p className="text-blue-100 text-sm">{t("cta.trusted", { count: "500" })}</p>
-          <div className="flex items-center justify-center gap-6 text-sm text-blue-100">
+          <p className="text-gray-400 text-sm">{t("cta.trusted", { count: "500" })}</p>
+          <div className="flex items-center justify-center gap-6 text-sm text-gray-300">
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-green-400" />
+              <Shield className="w-4 h-4 text-[#5fffec]" />
               <span>{t("cta.ssl")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-green-400" />
+              <CreditCard className="w-4 h-4 text-[#5fffec]" />
               <span>{t("cta.noCard")}</span>
             </div>
           </div>

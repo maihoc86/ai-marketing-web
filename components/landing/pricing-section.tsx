@@ -124,11 +124,11 @@ const BillingToggle = memo(({
   const { t } = useI18n()
 
   return (
-    <div className="flex items-center justify-center gap-1 mb-14 bg-gray-100 rounded-full p-1.5 max-w-md mx-auto">
+    <div className="flex items-center justify-center gap-1 mb-14 bg-white border border-[#e0e0e0] rounded-full p-1.5 max-w-md mx-auto">
       <button
         onClick={() => setBilling("monthly")}
         className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200 ${
-          billing === "monthly" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
+          billing === "monthly" ? "bg-[#22b5f8] text-white shadow-sm" : "text-[#666666] hover:text-[#1c1c1c]"
         }`}
       >
         {t("pricing.billing.monthly")}
@@ -137,7 +137,7 @@ const BillingToggle = memo(({
       <button
         onClick={() => setBilling("quarterly")}
         className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200 ${
-          billing === "quarterly" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
+          billing === "quarterly" ? "bg-[#22b5f8] text-white shadow-sm" : "text-[#666666] hover:text-[#1c1c1c]"
         }`}
       >
         {t("pricing.billing.quarterly")}
@@ -146,11 +146,11 @@ const BillingToggle = memo(({
       <button
         onClick={() => setBilling("yearly")}
         className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200 flex items-center gap-2 ${
-          billing === "yearly" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
+          billing === "yearly" ? "bg-[#22b5f8] text-white shadow-sm" : "text-[#666666] hover:text-[#1c1c1c]"
         }`}
       >
         {t("pricing.billing.yearly")}
-        <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">
+        <span className="bg-[#ff7900]/10 text-[#ff7900] text-xs px-2 py-0.5 rounded-full font-medium">
           {t("pricing.billing.discount")}
         </span>
       </button>
@@ -196,7 +196,7 @@ const PricingCard = memo(({
         {/* ==================== HEADER ZONE (fixed height) ==================== */}
         <div className="min-h-[60px] mb-2">
           <h3 className={`text-2xl font-bold mb-1 ${isFeatured ? "text-white" : "text-gray-900"}`}>{plan.name}</h3>
-          <p className={`text-sm ${isFeatured ? "text-blue-100" : "text-gray-500"}`}>{plan.subtitle}</p>
+          <p className={`text-sm ${isFeatured ? "text-gray-300" : "text-gray-500"}`}>{plan.subtitle}</p>
         </div>
 
         {/* ==================== PRICE ZONE (FIXED HEIGHT - ANTI LAYOUT SHIFT) ==================== */}
@@ -225,7 +225,7 @@ const PricingCard = memo(({
           {/* Credits - fixed height line */}
           <div
             className={`h-[24px] flex items-center text-sm font-semibold mt-2 ${
-              isFeatured ? "text-blue-100" : "text-blue-600"
+              isFeatured ? "text-gray-300" : "text-blue-600"
             }`}
           >
             {plan.credits}
@@ -297,7 +297,7 @@ export function PricingSection() {
   }
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-gray-50">
+    <section id="pricing" className="py-20 md:py-28 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
@@ -321,14 +321,14 @@ export function PricingSection() {
                 key={plan.id}
                 className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   isFeatured
-                    ? "bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 text-white shadow-2xl scale-[1.02] md:-mt-4 md:mb-4"
-                    : "bg-white border border-gray-200 hover:border-blue-200 hover:shadow-xl"
+                    ? "bg-gradient-to-br from-[#1c1c1c] via-[#1c1c1c] to-[#2a2a2a] text-white shadow-2xl scale-[1.02] md:-mt-4 md:mb-4 ring-2 ring-[#ff7900]/30"
+                    : "bg-white border border-gray-200 hover:border-[#22b5f8]/50 hover:shadow-xl"
                 }`}
               >
                 {/* Popular Badge */}
                 {plan.badgeKey && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-400 to-orange-400 text-white shadow-lg">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold bg-[#ff7900] text-white shadow-lg shadow-[#ff7900]/30">
                       <Sparkles className="w-4 h-4" />
                       {t(plan.badgeKey)}
                     </span>
@@ -340,7 +340,7 @@ export function PricingSection() {
                   <h3 className={`text-xl font-bold mb-1 ${isFeatured ? "text-white" : "text-gray-900"}`}>
                     {t(plan.nameKey)}
                   </h3>
-                  <p className={`text-sm ${isFeatured ? "text-blue-100" : "text-gray-500"}`}>{t(plan.subtitleKey)}</p>
+                  <p className={`text-sm ${isFeatured ? "text-gray-300" : "text-gray-500"}`}>{t(plan.subtitleKey)}</p>
                 </div>
 
                 {/* Price Zone - Fixed height for no layout shift */}
@@ -350,12 +350,12 @@ export function PricingSection() {
                       {displayPrice}
                     </span>
                     {!isContact && (
-                      <span className={`text-base ml-2 ${isFeatured ? "text-blue-100" : "text-gray-500"}`}>
+                      <span className={`text-base ml-2 ${isFeatured ? "text-gray-300" : "text-gray-500"}`}>
                         VNĐ
                       </span>
                     )}
                   </div>
-                  <div className={`h-[24px] text-sm mt-2 ${isFeatured ? "text-blue-100" : "text-gray-600"}`}>
+                  <div className={`h-[24px] text-sm mt-2 ${isFeatured ? "text-[#22b5f8]" : "text-gray-600"}`}>
                     {plan.creditsKey ? `${plan.credits} / ${t(plan.creditsKey)}` : plan.credits}
                   </div>
                 </div>
@@ -363,10 +363,10 @@ export function PricingSection() {
                 {/* CTA Button */}
                 <Link
                   href={`/dang-ky?package=${plan.id}`}
-                  className={`block w-full py-3.5 px-6 rounded-xl font-semibold text-center transition-all duration-200 mb-8 ${
+                  className={`block w-full py-3.5 px-6 rounded-full font-semibold text-center transition-all duration-200 mb-8 ${
                     isFeatured
-                      ? "bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl"
-                      : "bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg"
+                      ? "bg-[#ff7900] text-white hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 hover:shadow-xl"
+                      : "bg-[#ff7900] text-white hover:bg-[#e56b00] shadow-md shadow-[#ff7900]/20 hover:shadow-lg"
                   }`}
                 >
                   {t(plan.ctaKey)} →
@@ -376,7 +376,7 @@ export function PricingSection() {
                 <div>
                   <p
                     className={`text-xs font-semibold uppercase tracking-wider mb-4 ${
-                      isFeatured ? "text-blue-200" : "text-gray-400"
+                      isFeatured ? "text-gray-400" : "text-gray-400"
                     }`}
                   >
                     {t("pricing.features.included")}
@@ -385,9 +385,9 @@ export function PricingSection() {
                     {features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <Check
-                          className={`w-5 h-5 mt-0.5 flex-shrink-0 ${isFeatured ? "text-blue-200" : "text-blue-600"}`}
+                          className={`w-5 h-5 mt-0.5 shrink-0 ${isFeatured ? "text-[#5fffec]" : "text-[#22b5f8]"}`}
                         />
-                        <span className={`text-sm leading-relaxed ${isFeatured ? "text-blue-50" : "text-gray-600"}`}>
+                        <span className={`text-sm leading-relaxed ${isFeatured ? "text-gray-300" : "text-gray-600"}`}>
                           {feature}
                         </span>
                       </li>

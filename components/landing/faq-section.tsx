@@ -5,7 +5,7 @@ import { ChevronDown, HelpCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/lib/i18n"
 
-const badgeColors = ["bg-blue-600", "bg-blue-500", "bg-blue-700", "bg-blue-400", "bg-blue-800"]
+const badgeColors = ["bg-[#ff7900]", "bg-[#22b5f8]", "bg-[#008bff]", "bg-[#5fffec]", "bg-[#e56b00]"]
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -20,18 +20,18 @@ export function FaqSection() {
   ]
 
   return (
-    <section id="faq" className="py-20 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(37,99,235,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <section id="faq" className="py-20 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,181,248,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/25">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5fffec] to-[#008bff] flex items-center justify-center shadow-lg shadow-[#22b5f8]/25">
               <HelpCircle className="w-6 h-6 text-white" />
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3">
-            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#5fffec] to-[#008bff] bg-clip-text text-transparent">
               {t("faq.title")}
             </span>
           </h2>
@@ -45,8 +45,8 @@ export function FaqSection() {
               className={cn(
                 "rounded-xl border bg-white transition-all duration-300 overflow-hidden group",
                 openIndex === idx
-                  ? "border-l-[3px] border-l-blue-600 border-t-gray-200 border-r-gray-200 border-b-gray-200 shadow-lg shadow-blue-500/5"
-                  : "border-gray-200 hover:border-blue-200 hover:shadow-md hover:shadow-gray-100",
+                  ? "border-l-[3px] border-l-[#ff7900] border-t-gray-200 border-r-gray-200 border-b-gray-200 shadow-lg shadow-[#ff7900]/5"
+                  : "border-gray-200 hover:border-[#22b5f8]/50 hover:shadow-md hover:shadow-gray-100",
                 idx % 2 === 1 && openIndex !== idx && "bg-gray-50/50",
               )}
             >
@@ -54,7 +54,7 @@ export function FaqSection() {
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 className={cn(
                   "w-full flex items-center gap-4 p-5 text-left transition-colors duration-200",
-                  openIndex !== idx && "group-hover:bg-blue-50/50",
+                  openIndex !== idx && "group-hover:bg-[#22b5f8]/5",
                 )}
               >
                 <div
@@ -72,7 +72,7 @@ export function FaqSection() {
                 <ChevronDown
                   className={cn(
                     "w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300",
-                    openIndex === idx && "rotate-180 text-blue-600",
+                    openIndex === idx && "rotate-180 text-[#ff7900]",
                   )}
                 />
               </button>
@@ -99,7 +99,7 @@ export function FaqSection() {
           <p className="text-muted-foreground mb-4">{t("faq.notFound")}</p>
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 text-[#22b5f8] font-medium hover:text-[#008bff] transition-colors"
           >
             {t("faq.contact")}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

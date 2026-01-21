@@ -26,10 +26,10 @@ const features: Feature[] = [
   {
     id: "video",
     icon: Video,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
+    iconBg: "bg-[#22b5f8]/10",
+    iconColor: "text-[#22b5f8]",
     badge: "1000+",
-    badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
+    badgeColor: "bg-[#22b5f8]/10 text-[#008bff] border-[#22b5f8]/30",
     image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
   },
   {
@@ -167,7 +167,7 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
 
       {/* Highlight Stat */}
       <div className="flex items-center gap-2 mb-6">
-        <div className="w-2 h-2 rounded-full bg-blue-600" />
+        <div className="w-2 h-2 rounded-full bg-[#ff7900]" />
         <span className="text-gray-700 font-medium">
           {t(`features.${feature.id}.stats`)}
         </span>
@@ -251,7 +251,7 @@ export function FeaturesSection() {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
               {t("features.title")}
             </span>{" "}
             <span className="text-gray-900">{t("features.titleHighlight")}</span>

@@ -9,7 +9,7 @@ export function FinalCtaSection() {
   const { t } = useI18n()
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-[#008bff] via-[#22b5f8] to-[#5fffec] relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -35,14 +35,14 @@ export function FinalCtaSection() {
         {/* Main Heading */}
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
           {t("about.finalCta.title.prefix")}
-          <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white/90 to-[#5fffec] bg-clip-text text-transparent">
             {t("about.finalCta.title.highlight")}
           </span>
           {t("about.finalCta.title.suffix")}
         </h2>
 
         {/* Description */}
-        <p className="text-lg sm:text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
           {t("about.finalCta.description")}
         </p>
 
@@ -50,7 +50,7 @@ export function FinalCtaSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             size="lg"
-            className="bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-6 rounded-xl text-base shadow-xl hover:shadow-2xl transition-all"
+            className="bg-white text-[#ff7900] hover:bg-gray-50 font-bold px-8 py-6 rounded-xl text-base shadow-xl hover:shadow-2xl transition-all"
             asChild
           >
             <Link href="/dang-ky" className="flex items-center justify-center gap-2">
@@ -73,7 +73,7 @@ export function FinalCtaSection() {
         </div>
 
         {/* Trust indicators */}
-        <div className="flex flex-wrap items-center justify-center gap-8 mt-12 text-blue-100">
+        <div className="flex flex-wrap items-center justify-center gap-8 mt-12 text-white/80">
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path

@@ -39,9 +39,9 @@ export function ProcessFlow() {
   return (
     <div className="mt-20 md:mt-28">
       <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 border border-blue-200 backdrop-blur-sm">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-          <span className="text-xs font-medium text-blue-700">{t("process.badge")}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#22b5f8]/10 border border-[#22b5f8]/30 backdrop-blur-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#22b5f8]" />
+          <span className="text-xs font-medium text-[#008bff]">{t("process.badge")}</span>
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export function ProcessFlow() {
                   }}
                 >
                   <Lightbulb
-                    className="w-5 h-5 text-blue-600 transition-all duration-300"
+                    className="w-5 h-5 text-[#22b5f8] transition-all duration-300"
                     style={{ filter: "drop-shadow(0 0 8px rgba(37, 99, 235, 0.5))" }}
                   />
                 </div>
@@ -171,7 +171,7 @@ export function ProcessFlow() {
                     />
                   </div>
                   <Cpu
-                    className="w-5 h-5 text-blue-500 relative z-10"
+                    className="w-5 h-5 text-[#22b5f8] relative z-10"
                     style={{ filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))" }}
                   />
                 </div>
@@ -254,7 +254,7 @@ export function ProcessFlow() {
                     background: "linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.1))",
                   }}
                 >
-                  <ImageIcon className="w-4 h-4 text-blue-500" />
+                  <ImageIcon className="w-4 h-4 text-[#22b5f8]" />
                   <span className="text-xs font-medium text-gray-700">{t("process.step3.image")}</span>
                 </div>
                 <div

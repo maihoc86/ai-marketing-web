@@ -17,14 +17,14 @@ export function HeroContent() {
       {/* Left Column - Text Content */}
       <div className="text-center lg:text-left order-2 lg:order-1">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-200 mb-6 animate-fade-in">
-          <Rocket className="w-4 h-4 text-blue-600" />
-          <span className="text-sm font-semibold text-blue-700">{t("hero.badge")}</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
+          <Rocket className="w-4 h-4 text-[#22b5f8]" />
+          <span className="text-sm font-semibold text-[#008bff]">{t("hero.badge")}</span>
         </div>
 
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6 text-balance">
-          <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#5fffec] to-[#008bff] bg-clip-text text-transparent">
             {t("hero.title.line1")}
           </span>{" "}
           <br className="hidden sm:block" />
@@ -45,7 +45,7 @@ export function HeroContent() {
         <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-6">
           <Button
             size="lg"
-            className="text-base h-14 px-8 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg shadow-blue-600/30 gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5"
+            className="text-base h-14 px-8 rounded-full bg-[#ff7900] hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-[#ff7900]/40 hover:-translate-y-0.5"
             asChild
           >
             <Link href="/dang-ky">

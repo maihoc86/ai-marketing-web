@@ -47,12 +47,12 @@ function RegisterFormContent() {
   if (isSubmitted) {
     return (
       <div
-        className="min-h-screen bg-gradient-to-b from-white to-blue-50 flex items-center justify-center p-4"
+        className="min-h-screen bg-gradient-to-b from-white to-[#f5f5f5] flex items-center justify-center p-4"
         onKeyDown={handleKeyDown}
       >
         <a
           href="#success-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#22b5f8] focus:text-white focus:rounded-lg"
         >
           Chuyển đến nội dung chính
         </a>
@@ -114,7 +114,7 @@ export default function RegisterPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#22b5f8]" />
         </div>
       }
     >

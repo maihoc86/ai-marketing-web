@@ -40,11 +40,11 @@ export function RegistrationForm({
 
       <div className="flex flex-col lg:flex-row min-h-screen pt-24">
         {/* Left Side: Trust & Value Proposition (40%) */}
-        <div className="w-full lg:w-[40%] bg-blue-50 p-8 lg:p-12 xl:p-16 flex flex-col justify-between border-r border-gray-100">
+        <div className="w-full lg:w-[40%] bg-[#f5f5f5] p-8 lg:p-12 xl:p-16 flex flex-col justify-between border-r border-gray-100">
           <div className="flex flex-col gap-8">
             {/* Hero Section */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-sm font-semibold rounded-full">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#ff7900] text-white text-sm font-semibold rounded-full">
                 <Star className="w-4 h-4" aria-hidden="true" />
                 Bắt đầu 14 ngày dùng thử miễn phí
               </div>
@@ -62,8 +62,8 @@ export function RegistrationForm({
               {["Tư vấn chuyên gia 1-1", "Demo sản phẩm trực tiếp", "Nhận các ưu đãi đặc biệt dành cho SMBs"].map(
                 (benefit, index) => (
                   <div key={index} className="flex gap-x-3 items-center">
-                    <div className="bg-blue-100 p-1.5 rounded-full">
-                      <Check className="w-4 h-4 text-blue-600" aria-hidden="true" />
+                    <div className="bg-[#22b5f8]/10 p-1.5 rounded-full">
+                      <Check className="w-4 h-4 text-[#22b5f8]" aria-hidden="true" />
                     </div>
                     <p className="text-base font-medium text-gray-900">{benefit}</p>
                   </div>
@@ -85,7 +85,7 @@ export function RegistrationForm({
                     }}
                   />
                 ))}
-                <div className="size-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">
+                <div className="size-10 rounded-full border-2 border-white bg-[#22b5f8]/10 flex items-center justify-center text-xs font-bold text-[#22b5f8]">
                   +2k
                 </div>
               </div>
@@ -119,8 +119,8 @@ export function RegistrationForm({
                 <label
                   className={`relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition-all ${
                     formData.selected_package === "starter"
-                      ? "border-blue-600 bg-blue-50"
-                      : "border-gray-200 hover:border-blue-300"
+                      ? "border-[#22b5f8] bg-[#22b5f8]/10"
+                      : "border-gray-200 hover:border-[#22b5f8]/50"
                   }`}
                 >
                   <input
@@ -132,9 +132,9 @@ export function RegistrationForm({
                     className="sr-only"
                   />
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm font-bold uppercase text-blue-600">Starter</span>
+                    <span className="text-sm font-bold uppercase text-[#22b5f8]">Starter</span>
                     {formData.selected_package === "starter" && (
-                      <Check className="w-5 h-5 text-blue-600" aria-hidden="true" />
+                      <Check className="w-5 h-5 text-[#22b5f8]" aria-hidden="true" />
                     )}
                   </div>
                   <p className="text-lg font-bold text-gray-900 mb-1">Dành cho cá nhân</p>
@@ -144,8 +144,8 @@ export function RegistrationForm({
                 <label
                   className={`relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition-all ${
                     formData.selected_package === "business"
-                      ? "border-blue-600 bg-blue-50"
-                      : "border-gray-200 hover:border-blue-300"
+                      ? "border-[#22b5f8] bg-[#22b5f8]/10"
+                      : "border-gray-200 hover:border-[#22b5f8]/50"
                   }`}
                 >
                   <input
@@ -159,7 +159,7 @@ export function RegistrationForm({
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-sm font-bold uppercase text-gray-500">Business</span>
                     {formData.selected_package === "business" && (
-                      <Check className="w-5 h-5 text-blue-600" aria-hidden="true" />
+                      <Check className="w-5 h-5 text-[#22b5f8]" aria-hidden="true" />
                     )}
                   </div>
                   <p className="text-lg font-bold text-gray-900 mb-1">Dành cho tổ chức</p>
@@ -190,7 +190,7 @@ export function RegistrationForm({
                         value={formData.company_name}
                         onChange={onInputChange}
                         placeholder="Nhập tên chính thức"
-                        className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${
+                        className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
                           errors.company_name ? "border-red-500" : "border-gray-200"
                         }`}
                       />
@@ -213,7 +213,7 @@ export function RegistrationForm({
                         value={formData.tax_code}
                         onChange={onInputChange}
                         placeholder="Ví dụ: 0101234567"
-                        className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                        className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -229,7 +229,7 @@ export function RegistrationForm({
                           value="enterprise"
                           checked={formData.business_type === "enterprise"}
                           onChange={() => onBusinessTypeChange("enterprise")}
-                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
                         <span className="text-sm text-gray-700">Công ty TNHH/CP</span>
                       </label>
@@ -240,7 +240,7 @@ export function RegistrationForm({
                           value="household"
                           checked={formData.business_type === "household"}
                           onChange={() => onBusinessTypeChange("household")}
-                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
                         <span className="text-sm text-gray-700">Hộ kinh doanh</span>
                       </label>
@@ -251,7 +251,7 @@ export function RegistrationForm({
                           value="other"
                           checked={formData.business_type === "other"}
                           onChange={() => onBusinessTypeChange("other")}
-                          className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
                         <span className="text-sm text-gray-700">Tổ chức khác</span>
                       </label>
@@ -270,7 +270,7 @@ export function RegistrationForm({
                       value={formData.address}
                       onChange={onInputChange}
                       placeholder="Số nhà, tên đường, Quận/Huyện, Tỉnh/Thành phố"
-                      className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                      className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all"
                     />
                   </div>
 
@@ -293,7 +293,7 @@ export function RegistrationForm({
                       value={formData.full_name}
                       onChange={onInputChange}
                       placeholder="Nguyễn Văn A"
-                      className={`w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${
+                      className={`w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
                         errors.full_name ? "border-red-500" : "border-gray-200"
                       }`}
                     />
@@ -320,7 +320,7 @@ export function RegistrationForm({
                     value={formData.email}
                     onChange={onInputChange}
                     placeholder="name@company.com"
-                    className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${
+                    className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
                       errors.email ? "border-red-500" : "border-gray-200"
                     }`}
                   />
@@ -350,7 +350,7 @@ export function RegistrationForm({
                       value={formData.phone_number}
                       onChange={onInputChange}
                       placeholder="912 345 678"
-                      className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${
+                      className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
                         errors.phone_number ? "border-red-500" : "border-gray-200"
                       }`}
                     />
@@ -372,7 +372,7 @@ export function RegistrationForm({
                     name="job_position"
                     value={formData.job_position}
                     onChange={onInputChange}
-                    className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${
+                    className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
                       errors.job_position ? "border-red-500" : "border-gray-200"
                     } ${!formData.job_position ? "text-gray-400" : "text-gray-900"}`}
                   >
@@ -406,7 +406,7 @@ export function RegistrationForm({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-14 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20"
+                  className="w-full h-14 bg-[#ff7900] text-white font-bold rounded-lg hover:bg-[#e56b00] disabled:bg-[#ff7900]/50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#ff7900]/30"
                 >
                   {isLoading ? (
                     <>
@@ -421,11 +421,11 @@ export function RegistrationForm({
 
               <p className="text-center text-xs text-gray-500">
                 Bằng cách đăng ký, bạn đồng ý với{" "}
-                <Link href="/dieu-khoan" className="text-blue-600 hover:underline">
+                <Link href="/dieu-khoan" className="text-[#22b5f8] hover:underline">
                   Điều khoản dịch vụ
                 </Link>{" "}
                 và{" "}
-                <Link href="/chinh-sach-bao-mat" className="text-blue-600 hover:underline">
+                <Link href="/chinh-sach-bao-mat" className="text-[#22b5f8] hover:underline">
                   Chính sách bảo mật
                 </Link>{" "}
                 của chúng tôi.

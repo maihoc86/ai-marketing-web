@@ -32,9 +32,9 @@ export function PhilosophySection() {
       icon: Rocket,
       titleKey: "about.philosophy.benefit1.title",
       descKey: "about.philosophy.benefit1.desc",
-      color: "text-blue-600",
-      bgColor: "bg-blue-600",
-      lightBg: "bg-blue-50",
+      color: "text-[#22b5f8]",
+      bgColor: "bg-[#22b5f8]",
+      lightBg: "bg-[#22b5f8]/5",
     },
     {
       icon: Settings,

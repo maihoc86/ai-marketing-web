@@ -85,7 +85,7 @@ function AnimatedCounter({ target, suffix = "", prefix = "" }: { target: string;
 // ============================================================
 const MetricCard = memo(({ label, value, growth, badge, badgeColor = "bg-emerald-500", delay = 0 }: MetricCardProps) => (
   <div
-    className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+    className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-[#22b5f8]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#22b5f8]/10"
     style={{
       animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
       opacity: 0
@@ -196,7 +196,7 @@ export function DashboardMockup() {
       )}
     >
       {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-60" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-[#22b5f8]/20 via-[#5fffec]/20 to-[#008bff]/20 rounded-3xl blur-2xl opacity-60" />
 
       {/* Main dashboard container */}
       <div className="relative bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl overflow-hidden">
@@ -238,7 +238,7 @@ export function DashboardMockup() {
               label={t("hero.dashboard.aiEfficiency")}
               value="98.4"
               badge="AI"
-              badgeColor="bg-blue-500"
+              badgeColor="bg-[#22b5f8]"
               delay={300}
             />
             <MetricCard
@@ -265,10 +265,10 @@ export function DashboardMockup() {
               <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
             </div>
             <div className="space-y-2">
-              <RegionBar label={t("hero.dashboard.region.vietnam")} percentage={87} color="bg-blue-500" delay={600} />
-              <RegionBar label={t("hero.dashboard.region.sea")} percentage={62} color="bg-blue-400" delay={700} />
-              <RegionBar label={t("hero.dashboard.region.latam")} percentage={45} color="bg-blue-300/70" delay={800} />
-              <RegionBar label={t("hero.dashboard.region.apac")} percentage={58} color="bg-cyan-400/70" delay={900} />
+              <RegionBar label={t("hero.dashboard.region.vietnam")} percentage={87} color="bg-[#22b5f8]" delay={600} />
+              <RegionBar label={t("hero.dashboard.region.sea")} percentage={62} color="bg-[#22b5f8]/80" delay={700} />
+              <RegionBar label={t("hero.dashboard.region.latam")} percentage={45} color="bg-[#22b5f8]/60" delay={800} />
+              <RegionBar label={t("hero.dashboard.region.apac")} percentage={58} color="bg-[#5fffec]/80" delay={900} />
             </div>
           </div>
 
@@ -287,7 +287,7 @@ export function DashboardMockup() {
               {platforms.map((platform, index) => (
                 <div
                   key={platform.name}
-                  className="p-1.5 rounded-md bg-slate-800/50 border border-slate-700/30 hover:border-blue-500/30 transition-all duration-200 hover:scale-110"
+                  className="p-1.5 rounded-md bg-slate-800/50 border border-slate-700/30 hover:border-[#22b5f8]/30 transition-all duration-200 hover:scale-110"
                   style={{
                     animation: `fadeInUp 0.3s ease-out ${1500 + index * 100}ms forwards`,
                     opacity: 0

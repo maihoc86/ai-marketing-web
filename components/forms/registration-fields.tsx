@@ -39,7 +39,7 @@ export const RegistrationFields = memo(({
             onChange={onChange}
             disabled={disabled}
             placeholder="Nhập mã số thuế"
-            className="h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+            className="h-11 rounded-xl border-gray-200 focus:border-[#22b5f8] focus:ring-[#22b5f8]/20"
           />
           {errors.tax_code && (
             <p role="alert" className="text-sm text-red-600 flex items-center gap-1.5">
@@ -60,7 +60,7 @@ export const RegistrationFields = memo(({
             onChange={onChange}
             disabled={disabled}
             placeholder="Nhập tên công ty"
-            className="h-11 rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+            className="h-11 rounded-xl border-gray-200 focus:border-[#22b5f8] focus:ring-[#22b5f8]/20"
           />
           {errors.company_name && (
             <p role="alert" className="text-sm text-red-600 flex items-center gap-1.5">
@@ -86,7 +86,7 @@ export const RegistrationFields = memo(({
             placeholder="Nguyễn Văn"
             className={`h-11 rounded-xl ${
               errors.first_name ? "border-red-500" : "border-gray-200"
-            } focus:border-blue-500 focus:ring-blue-500/20`}
+            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
             aria-invalid={!!errors.first_name}
             aria-describedby={errors.first_name ? "first_name-error" : undefined}
           />
@@ -111,7 +111,7 @@ export const RegistrationFields = memo(({
             placeholder="An"
             className={`h-11 rounded-xl ${
               errors.last_name ? "border-red-500" : "border-gray-200"
-            } focus:border-blue-500 focus:ring-blue-500/20`}
+            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
             aria-invalid={!!errors.last_name}
             aria-describedby={errors.last_name ? "last_name-error" : undefined}
           />
@@ -139,7 +139,7 @@ export const RegistrationFields = memo(({
           placeholder="vd: nguyenvanan@company.com"
           className={`h-11 rounded-xl ${
             errors.email ? "border-red-500" : "border-gray-200"
-          } focus:border-blue-500 focus:ring-blue-500/20`}
+          } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
@@ -167,7 +167,7 @@ export const RegistrationFields = memo(({
             placeholder="0912345678"
             className={`h-11 rounded-xl ${
               errors.phone_number ? "border-red-500" : "border-gray-200"
-            } focus:border-blue-500 focus:ring-blue-500/20`}
+            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
             aria-invalid={!!errors.phone_number}
             aria-describedby={errors.phone_number ? "phone_number-error" : undefined}
           />
@@ -191,7 +191,7 @@ export const RegistrationFields = memo(({
             disabled={disabled}
             className={`w-full h-11 rounded-xl px-3 border ${
               errors.job_position ? "border-red-500" : "border-gray-200"
-            } focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none bg-white text-gray-900`}
+            } focus:border-[#22b5f8] focus:ring-2 focus:ring-[#22b5f8]/20 focus:outline-none bg-white text-gray-900`}
             aria-invalid={!!errors.job_position}
             aria-describedby={errors.job_position ? "job_position-error" : undefined}
           >

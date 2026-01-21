@@ -23,11 +23,11 @@ interface UserAvatarProps {
 // ============================================================
 const UserAvatar = memo(({ index }: UserAvatarProps) => {
   const colors = [
-    "bg-blue-500",
+    "bg-[#ff7900]",
+    "bg-[#22b5f8]",
+    "bg-[#5fffec]",
+    "bg-[#008bff]",
     "bg-emerald-500",
-    "bg-purple-500",
-    "bg-orange-500",
-    "bg-pink-500",
   ]
   const initials = ["T", "M", "H", "L", "N"]
 
@@ -57,7 +57,7 @@ const TrustBadge = memo(({ icon, text, variant = "default" }: TrustBadgeProps) =
     className={cn(
       "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105",
       variant === "highlight"
-        ? "bg-blue-100 text-blue-700 border border-blue-200"
+        ? "bg-[#22b5f8]/10 text-[#008bff] border border-[#22b5f8]/30"
         : "bg-gray-100 text-gray-700 border border-gray-200"
     )}
   >
@@ -84,7 +84,7 @@ export function UserSocialProof() {
           ))}
         </div>
         <div
-          className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold text-blue-600 bg-blue-100 border-2 border-white shadow-sm"
+          className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold text-[#ff7900] bg-[#ff7900]/10 border-2 border-white shadow-sm"
           style={{ marginLeft: "-8px" }}
         >
           +12K
@@ -119,7 +119,7 @@ export function SecurityBadges() {
         variant="highlight"
       />
       <TrustBadge
-        icon={<Lock className="w-3.5 h-3.5 text-blue-600" />}
+        icon={<Lock className="w-3.5 h-3.5 text-[#22b5f8]" />}
         text={t("hero.trust.iso")}
         variant="highlight"
       />
@@ -154,7 +154,7 @@ export function PerformanceBadges() {
         variant="highlight"
       />
       <TrustBadge
-        icon={<Users className="w-3.5 h-3.5 text-blue-600" />}
+        icon={<Users className="w-3.5 h-3.5 text-[#22b5f8]" />}
         text={t("hero.trust.rating")}
       />
     </div>
@@ -174,11 +174,11 @@ export function CTATrustSignals() {
         {t("hero.trust.noCard")}
       </span>
       <span className="flex items-center gap-1.5">
-        <Clock className="w-4 h-4 text-blue-500" />
+        <Clock className="w-4 h-4 text-[#22b5f8]" />
         {t("hero.trust.setup")}
       </span>
       <span className="flex items-center gap-1.5">
-        <Shield className="w-4 h-4 text-purple-500" />
+        <Shield className="w-4 h-4 text-[#ff7900]" />
         {t("hero.trust.security")}
       </span>
     </div>
@@ -203,7 +203,7 @@ export function ValuePropositions() {
       {props.map((prop, index) => (
         <div
           key={index}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/70 hover:border-blue-300 hover:shadow-md transition-all duration-200"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/70 hover:border-[#22b5f8]/50 hover:shadow-md transition-all duration-200"
         >
           <span className="text-lg">{prop.icon}</span>
           <span className="text-sm font-medium text-gray-700">{prop.text}</span>

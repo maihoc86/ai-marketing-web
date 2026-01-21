@@ -28,10 +28,10 @@ const steps: Step[] = [
     icon: Search,
     titleKey: "about.workflow.step1.title",
     descKey: "about.workflow.step1.desc",
-    color: "text-blue-600",
-    bgColor: "bg-blue-600",
-    lightBg: "bg-blue-50",
-    borderColor: "border-blue-200",
+    color: "text-[#22b5f8]",
+    bgColor: "bg-[#22b5f8]",
+    lightBg: "bg-[#22b5f8]/5",
+    borderColor: "border-[#22b5f8]/30",
   },
   {
     number: "02",
@@ -229,9 +229,9 @@ export function WorkflowTimeline() {
             isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-6">
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-            <span className="text-sm font-bold text-blue-700 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/5 border border-[#22b5f8]/30 rounded-full mb-6">
+            <div className="w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
+            <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
               {t("about.workflow.badge")}
             </span>
           </div>

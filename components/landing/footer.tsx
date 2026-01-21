@@ -35,28 +35,28 @@ export function Footer() {
   ]
 
   return (
-    <footer id="contact" className="bg-foreground text-background py-16 border-t border-background/10 font-sans">
+    <footer id="contact" className="bg-[#1c1c1c] text-white py-16 border-t border-white/10 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="https://tienphongcds.com/_next/image?url=https%3A%2F%2Fmedia.newweb.vn%2Ffile%2FdoMFbzZ4q&w=256&q=75"
-                alt="Tiên Phong CDS"
+                src="/logo.jpg"
+                alt="UNIKSMART"
                 width={140}
                 height={36}
-                className="h-9 w-auto brightness-0 invert"
+                className="h-9 w-auto"
               />
             </div>
-            <p className="text-background/60 text-sm leading-relaxed mb-4">{t("footer.description")}</p>
+            <p className="text-white/60 text-sm leading-relaxed mb-4">{t("footer.description")}</p>
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-9 h-9 rounded-full bg-background/10 flex items-center justify-center hover:bg-blue-500 transition-colors"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#ff7900] transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -67,11 +67,11 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="text-background font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.product")}</h4>
+            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.product")}</h4>
             <ul className="space-y-2">
               {productLinks.map((link) => (
                 <li key={link.labelKey}>
-                  <Link href={link.href} className="text-background/60 hover:text-blue-400 text-sm transition-colors">
+                  <Link href={link.href} className="text-white/60 hover:text-[#22b5f8] text-sm transition-colors">
                     {t(link.labelKey)}
                   </Link>
                 </li>
@@ -81,11 +81,11 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-background font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.support")}</h4>
+            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.support")}</h4>
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.labelKey}>
-                  <Link href={link.href} className="text-background/60 hover:text-blue-400 text-sm transition-colors">
+                  <Link href={link.href} className="text-white/60 hover:text-[#22b5f8] text-sm transition-colors">
                     {t(link.labelKey)}
                   </Link>
                 </li>
@@ -95,21 +95,21 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-background font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.contact")}</h4>
+            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">{t("footer.contact")}</h4>
             <ul className="space-y-3">
               {contactInfo.map((item, idx) => (
                 <li key={idx}>
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="flex items-start gap-2 text-background/60 text-sm hover:text-blue-400 transition-colors"
+                      className="flex items-start gap-2 text-white/60 text-sm hover:text-[#22b5f8] transition-colors"
                     >
-                      <item.icon className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <item.icon className="w-4 h-4 mt-0.5 shrink-0" />
                       <span>{item.text}</span>
                     </a>
                   ) : (
-                    <div className="flex items-start gap-2 text-background/60 text-sm">
-                      <item.icon className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                    <div className="flex items-start gap-2 text-white/60 text-sm">
+                      <item.icon className="w-4 h-4 mt-0.5 shrink-0" />
                       <span>{item.text}</span>
                     </div>
                   )}
@@ -120,13 +120,13 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/40 text-sm">{t("footer.copyright", { year: new Date().getFullYear() })}</p>
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/40 text-sm">{t("footer.copyright", { year: new Date().getFullYear() })}</p>
           <div className="flex gap-6 text-sm">
-            <Link href="#" className="text-background/40 hover:text-blue-400 transition-colors">
+            <Link href="#" className="text-white/40 hover:text-[#22b5f8] transition-colors">
               {t("footer.terms")}
             </Link>
-            <Link href="#" className="text-background/40 hover:text-blue-400 transition-colors">
+            <Link href="#" className="text-white/40 hover:text-[#22b5f8] transition-colors">
               {t("footer.privacy")}
             </Link>
           </div>

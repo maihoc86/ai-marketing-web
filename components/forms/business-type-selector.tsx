@@ -28,7 +28,7 @@ export const BusinessTypeSelector = memo(({
             checked={value === "enterprise"}
             onChange={(e) => onChange(e.target.value as "enterprise" | "household" | "other")}
             disabled={disabled}
-            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+            className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8] accent-[#22b5f8]"
           />
           <span className="text-gray-700 text-sm">Doanh nghiệp</span>
         </label>
@@ -40,7 +40,7 @@ export const BusinessTypeSelector = memo(({
             checked={value === "household"}
             onChange={(e) => onChange(e.target.value as "enterprise" | "household" | "other")}
             disabled={disabled}
-            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+            className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8] accent-[#22b5f8]"
           />
           <span className="text-gray-700 text-sm">Hộ kinh doanh</span>
         </label>

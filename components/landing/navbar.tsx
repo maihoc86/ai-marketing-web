@@ -35,25 +35,25 @@ export function Navbar() {
         <nav
           className={cn(
             "flex items-center justify-between",
-            "bg-white/80 backdrop-blur-md",
-            "border border-gray-200/50",
+            "bg-white",
+            "border border-[#e0e0e0]",
             "rounded-full",
             "px-6 sm:px-8 py-3",
             "h-14 sm:h-16",
             "transition-all duration-300 ease-out",
-            isScrolled && "shadow-lg shadow-gray-900/5 bg-white/90",
+            isScrolled && "shadow-lg shadow-black/10",
           )}
           aria-label="Main navigation"
         >
           {/* Logo - LEFT */}
           <Link
             href="/"
-            className="flex items-center flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
-            aria-label="DXAI Marketing Platform - Home"
+            className="flex items-center shrink-0 focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white rounded-lg"
+            aria-label="UNIKSMART - Home"
           >
             <Image
-              src="https://tienphongcds.com/_next/image?url=https%3A%2F%2Fmedia.newweb.vn%2Ffile%2FdoMFbzZ4q&w=256&q=75"
-              alt="DXAI Logo"
+              src="/logo.jpg"
+              alt="UNIKSMART Logo"
               width={110}
               height={30}
               className="h-7 w-auto"
@@ -69,10 +69,10 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "relative px-4 py-2 text-[14px] font-medium text-gray-600",
-                      "hover:text-gray-900 transition-colors duration-200",
-                      "rounded-lg hover:bg-gray-50",
-                      "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                      "relative px-4 py-2 text-[14px] font-medium text-[#1c1c1c]",
+                      "hover:text-[#ff7900] transition-colors duration-200",
+                      "rounded-lg hover:bg-[#f5f5f5]",
+                      "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
                     )}
                   >
                     {link.label}
@@ -93,10 +93,10 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "text-[14px] font-medium text-gray-600 hover:text-gray-900",
+                "text-[14px] font-medium text-[#1c1c1c] hover:text-[#ff7900]",
                 "px-4 py-2 rounded-lg",
-                "hover:bg-gray-50 transition-colors duration-200",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                "hover:bg-[#f5f5f5] transition-colors duration-200",
+                "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
               )}
               aria-label={t("nav.login")}
             >
@@ -106,13 +106,13 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-blue-600 hover:bg-blue-700 text-white",
+                "bg-[#ff7900] hover:bg-[#e56b00] text-white",
                 "text-[14px] font-semibold",
                 "px-5 py-2 h-10",
-                "rounded-lg",
-                "shadow-sm hover:shadow-md",
+                "rounded-full",
+                "shadow-sm hover:shadow-lg shadow-[#ff7900]/30",
                 "transition-all duration-200",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                "focus:outline-none focus:ring-2 focus:ring-[#ff7900] focus:ring-offset-2 focus:ring-offset-white",
               )}
               asChild
             >
@@ -127,10 +127,10 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-blue-600 hover:bg-blue-700 text-white",
+                "bg-[#ff7900] hover:bg-[#e56b00] text-white",
                 "text-[13px] sm:text-[14px] font-semibold",
                 "px-3 sm:px-4 py-2 h-10",
-                "rounded-lg shadow-sm",
+                "rounded-full shadow-sm shadow-[#ff7900]/30",
                 "min-h-[44px] min-w-[44px] touch-manipulation",
               )}
               asChild
@@ -144,12 +144,12 @@ export function Navbar() {
             {/* Hamburger button */}
             <button
               className={cn(
-                "p-2.5 text-gray-600 hover:text-gray-900",
-                "hover:bg-gray-50 rounded-lg",
+                "p-2.5 text-[#1c1c1c] hover:text-[#ff7900]",
+                "hover:bg-[#f5f5f5] rounded-lg",
                 "transition-colors duration-200",
                 "min-h-[44px] min-w-[44px]",
                 "flex items-center justify-center touch-manipulation",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
               )}
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -166,8 +166,8 @@ export function Navbar() {
           className={cn(
             "lg:hidden mt-3",
             "bg-white/95 backdrop-blur-md",
-            "border border-gray-200/50",
-            "rounded-2xl shadow-lg shadow-gray-900/5",
+            "border border-[#e0e0e0]",
+            "rounded-2xl shadow-lg shadow-black/10",
             "transition-all duration-300 ease-out overflow-hidden",
             isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none",
           )}
@@ -182,8 +182,8 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "block py-2.5 px-3 rounded-lg",
-                      "text-[14px] font-medium text-gray-600",
-                      "hover:text-gray-900 hover:bg-gray-50",
+                      "text-[14px] font-medium text-[#1c1c1c]",
+                      "hover:text-[#ff7900] hover:bg-[#f5f5f5]",
                       "transition-colors duration-200",
                       "min-h-[44px] flex items-center touch-manipulation",
                     )}
@@ -196,16 +196,16 @@ export function Navbar() {
             </ul>
 
             {/* Divider */}
-            <div className="my-3 border-t border-gray-100" />
+            <div className="my-3 border-t border-[#e0e0e0]" />
 
             {/* Language Selector */}
             <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[14px] text-gray-500 font-medium">Ngôn ngữ</span>
+              <span className="text-[14px] text-[#666666] font-medium">Ngôn ngữ</span>
               <LanguageSelector variant="pill" />
             </div>
 
             {/* Divider */}
-            <div className="my-3 border-t border-gray-100" />
+            <div className="my-3 border-t border-[#e0e0e0]" />
 
             {/* Actions */}
             <div className="space-y-2">
@@ -215,8 +215,8 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className={cn(
                   "block py-2.5 text-center",
-                  "text-[14px] font-medium text-gray-600",
-                  "bg-gray-50 hover:bg-gray-100 rounded-lg",
+                  "text-[14px] font-medium text-[#1c1c1c]",
+                  "bg-[#f5f5f5] hover:bg-[#e0e0e0] rounded-lg",
                   "transition-colors duration-200",
                   "min-h-[44px] flex items-center justify-center touch-manipulation",
                 )}
@@ -228,10 +228,10 @@ export function Navbar() {
 
               <Button
                 className={cn(
-                  "w-full h-11 rounded-lg",
-                  "bg-blue-600 hover:bg-blue-700 text-white",
+                  "w-full h-11 rounded-full",
+                  "bg-[#ff7900] hover:bg-[#e56b00] text-white",
                   "text-[14px] font-semibold",
-                  "shadow-sm hover:shadow-md",
+                  "shadow-sm hover:shadow-lg shadow-[#ff7900]/30",
                   "min-h-[44px] touch-manipulation",
                 )}
                 asChild

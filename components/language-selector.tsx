@@ -58,32 +58,32 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           "flex items-center gap-1.5 transition-all duration-200",
-          "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+          "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
           variant === "pill" && [
             "px-3 py-2 rounded-full",
-            "bg-gray-100 hover:bg-gray-200",
-            "text-[14px] font-medium text-gray-700",
+            "bg-[#f5f5f5] hover:bg-[#e0e0e0]",
+            "text-[14px] font-medium text-[#1c1c1c]",
           ],
           variant === "compact" && [
             "px-2 py-1.5 rounded-full",
-            "text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100",
+            "text-sm text-[#1c1c1c] hover:text-[#ff7900] hover:bg-[#f5f5f5]",
           ],
           variant === "default" && [
             "px-3 py-2 rounded-lg",
-            "text-sm font-medium text-gray-700 hover:text-gray-900",
-            "bg-gray-50 hover:bg-gray-100 border border-gray-200",
+            "text-sm font-medium text-[#1c1c1c] hover:text-[#ff7900]",
+            "bg-[#f5f5f5] hover:bg-[#e0e0e0] border border-[#e0e0e0]",
           ],
         )}
         aria-label="Select language"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span className="text-xs font-bold text-gray-500 leading-none" aria-hidden="true">
+        <span className="text-xs font-bold text-[#666666] leading-none" aria-hidden="true">
           {currentLang.countryCode}
         </span>
         <span>{currentLang.shortLabel}</span>
         <ChevronDown
-          className={cn("w-3.5 h-3.5 text-gray-500 transition-transform duration-200", isOpen && "rotate-180")}
+          className={cn("w-3.5 h-3.5 text-[#666666] transition-transform duration-200", isOpen && "rotate-180")}
           aria-hidden="true"
         />
       </button>
@@ -108,8 +108,8 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
               className={cn(
                 "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg",
                 "text-[14px] transition-colors duration-150",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset",
-                locale === lang.code ? "bg-blue-50 text-blue-700 font-medium" : "text-gray-700 hover:bg-gray-50",
+                "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-inset",
+                locale === lang.code ? "bg-[#22b5f8]/10 text-[#008bff] font-medium" : "text-gray-700 hover:bg-gray-50",
               )}
               role="option"
               aria-selected={locale === lang.code}
@@ -120,7 +120,7 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
               <span className="flex-1 text-left">{lang.label}</span>
               {locale === lang.code && (
                 <svg
-                  className="w-4 h-4 text-blue-600"
+                  className="w-4 h-4 text-[#22b5f8]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

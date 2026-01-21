@@ -70,22 +70,22 @@ export function RoiSection() {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-100/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-[#5fffec]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff7900]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-900 text-xs font-bold uppercase tracking-wider mb-6">
-            <Sparkles className="w-4 h-4 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 text-[#008bff] text-xs font-bold uppercase tracking-wider mb-6">
+            <Sparkles className="w-4 h-4 text-[#22b5f8]" />
             {t("roi.badge")}
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight px-4">
             {t("roi.title.why")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
               {t("roi.title.brand")}
             </span>{" "}
             {t("roi.title.excels")}
@@ -95,7 +95,7 @@ export function RoiSection() {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all group"
+            className="inline-flex items-center justify-center gap-2 bg-[#ff7900] hover:bg-[#e56b00] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all group"
           >
             <Play className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" />
             {t("roi.watchDemo")}
@@ -271,14 +271,14 @@ export function RoiSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all group min-h-[56px]"
+                className="inline-flex items-center justify-center gap-2 bg-[#ff7900] hover:bg-[#e56b00] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all group min-h-[56px]"
               >
                 {t("roi.cta.start")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="/ve-chung-toi"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-gray-400 transition-all min-h-[56px]"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-[#22b5f8]/50 transition-all min-h-[56px]"
               >
                 {t("roi.cta.learn")}
               </a>
