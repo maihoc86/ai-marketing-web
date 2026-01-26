@@ -98,10 +98,10 @@
      ============================================ */
 
   /* Primary Colors */
-  --color-primary: #ff7900;
-  --color-primary-hover: #e56b00;
-  --color-secondary: #22b5f8;
-  --color-secondary-hover: #1a9fd8;
+  --color-secondary: #ff7900;
+  --color-secondary-hover: #e56b00;
+  --color-primary: #22b5f8;
+  --color-primary-hover: #1a9fd8;
 
   /* Legacy naming (for compatibility) */
   --color-primary-orange: #ff7900;

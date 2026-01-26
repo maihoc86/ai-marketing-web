@@ -352,7 +352,6 @@ export function RegistrationForm({
                       )}
                       className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all"
                     />
-                    <div className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all" />
                   </div>
 
                   {/* Divider */}
