@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, Star, Loader2, AlertCircle, CheckCircle } from "lucide-react";
 import { Navbar } from "@/components/landing/navbar";
@@ -32,7 +33,58 @@ export function RegistrationForm({
   onBusinessTypeChange,
   onSubmit,
 }: RegistrationFormProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const language = locale === "vi" ? "vi" : "en";
+
+  const [activityFields, setActivityFields] = useState<
+    Array<{ id: string; name: string; description: string }>
+  >([]);
+  const [isLoadingFields, setIsLoadingFields] = useState(true);
+
+  // Fetch activity fields from API
+  useEffect(() => {
+    const fetchActivityFields = async () => {
+      try {
+        const response = await fetch(
+          `https://api-ai-code.dsp.one/graphql?language_code=${language}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              query: `{
+                activityFields(page: 1, perPage: 20, status: "active", language_code: "${language}") {
+                  data {
+                    id
+                    name
+                    description
+                  }
+                }
+              }`,
+            }),
+          },
+        );
+
+        const result = await response.json();
+        if (result.data?.activityFields?.data) {
+          setActivityFields(result.data.activityFields.data);
+        }
+      } catch (error) {
+        console.error("Error fetching activity fields:", error);
+        // Fallback to default options if API fails
+        setActivityFields([
+          { id: "enterprise", name: "Công ty TNHH/CP", description: "" },
+          { id: "household", name: "Hộ kinh doanh", description: "" },
+          { id: "other", name: "Tổ chức khác", description: "" },
+        ]);
+      } finally {
+        setIsLoadingFields(false);
+      }
+    };
+
+    fetchActivityFields();
+  }, [language]);
 
   const jobPositions = [
     { id: "", labelKey: "registration.form.contact.jobPositionPlaceholder" },
@@ -290,47 +342,40 @@ export function RegistrationForm({
                     <label className="text-sm font-semibold text-gray-900">
                       {t("registration.form.company.type")}
                     </label>
-                    <div className="flex flex-wrap gap-4 mt-1">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="business_type"
-                          value="enterprise"
-                          checked={formData.business_type === "enterprise"}
-                          onChange={() => onBusinessTypeChange("enterprise")}
-                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
-                        />
-                        <span className="text-sm text-gray-700">
-                          {t("registration.form.company.typeEnterprise")}
-                        </span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="business_type"
-                          value="household"
-                          checked={formData.business_type === "household"}
-                          onChange={() => onBusinessTypeChange("household")}
-                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
-                        />
-                        <span className="text-sm text-gray-700">
-                          {t("registration.form.company.typeHousehold")}
-                        </span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="business_type"
-                          value="other"
-                          checked={formData.business_type === "other"}
-                          onChange={() => onBusinessTypeChange("other")}
-                          className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
-                        />
-                        <span className="text-sm text-gray-700">
-                          {t("registration.form.company.typeOther")}
-                        </span>
-                      </label>
-                    </div>
+                    {isLoadingFields ? (
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Đang tải...
+                      </div>
+                    ) : (
+                      <div className="flex flex-wrap gap-4 mt-1">
+                        {activityFields.map((field) => (
+                          <label
+                            key={field.id}
+                            className="flex items-center gap-2 cursor-pointer"
+                          >
+                            <input
+                              type="radio"
+                              name="business_type"
+                              value={field.id}
+                              checked={formData.business_type === field.id}
+                              onChange={() =>
+                                onBusinessTypeChange(
+                                  field.id as
+                                    | "enterprise"
+                                    | "household"
+                                    | "other",
+                                )
+                              }
+                              className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
+                            />
+                            <span className="text-sm text-gray-700">
+                              {field.name}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Address */}
