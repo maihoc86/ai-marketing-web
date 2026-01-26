@@ -106,13 +106,13 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-[#ff7900] hover:bg-[#e56b00] text-white",
+                "bg-[#22b5f8] hover:bg-[#1a9fd8] text-white",
                 "text-[14px] font-semibold",
                 "px-5 py-2 h-10",
                 "rounded-full",
-                "shadow-sm hover:shadow-lg shadow-[#ff7900]/30",
+                "shadow-sm hover:shadow-lg shadow-[#22b5f8]/30",
                 "transition-all duration-200",
-                "focus:outline-none focus:ring-2 focus:ring-[#ff7900] focus:ring-offset-2 focus:ring-offset-white",
+                "focus:outline-none focus:ring-2 focus:ring-[#1a9fd8] focus:ring-offset-2 focus:ring-offset-white",
               )}
               asChild
             >
