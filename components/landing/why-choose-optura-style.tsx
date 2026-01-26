@@ -1,48 +1,56 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { TrendingUp, Zap, Clock, Users, Settings, CheckCircle2, XCircle } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { useI18n } from "@/lib/i18n"
-import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
+import {
+  TrendingUp,
+  Zap,
+  Clock,
+  Users,
+  Settings,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
+import Link from "next/link";
 
 interface ComparisonRow {
-  id: string
-  icon: typeof TrendingUp
-  iconBg: string
-  criteriaKey: string
-  traditionalKey: string
-  dxaiKey: string
-  savingsKey?: string
+  id: string;
+  icon: typeof TrendingUp;
+  iconBg: string;
+  criteriaKey: string;
+  traditionalKey: string;
+  dxaiKey: string;
+  savingsKey?: string;
 }
 
 export function WhyChooseOpturaStyle() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const { t } = useI18n()
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       {
         threshold: 0.1,
-      }
-    )
+      },
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const comparisonRows: ComparisonRow[] = [
     {
@@ -86,10 +94,13 @@ export function WhyChooseOpturaStyle() {
       traditionalKey: "whyChoose.optura.row5.traditional",
       dxaiKey: "whyChoose.optura.row5.dxai",
     },
-  ]
+  ];
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden font-sans">
+    <section
+      ref={sectionRef}
+      className="py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden font-sans"
+    >
       {/* Subtle background decoration */}
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-indigo-100 rounded-full blur-3xl opacity-20" />
@@ -98,7 +109,9 @@ export function WhyChooseOpturaStyle() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6">
-            {t("whyChoose.optura.title")} <span className="text-blue-600">{t("whyChoose.optura.brand")}</span>?
+            {t("whyChoose.optura.title")}{" "}
+            <span className="text-blue-600">{t("whyChoose.optura.brand")}</span>
+            ?
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             {t("whyChoose.optura.subtitle")}
@@ -119,11 +132,11 @@ export function WhyChooseOpturaStyle() {
         <div
           className={cn(
             "hidden md:block rounded-3xl border-2 border-gray-200 overflow-hidden shadow-xl mb-12 bg-white transition-all duration-700",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
           {/* Table Header */}
-          <div className="grid grid-cols-[300px_1fr_1fr] bg-gradient-to-r from-gray-50 to-white">
+          <div className="grid grid-cols-[300px_1fr_1fr] bg-linear-to-r from-gray-50 to-white">
             <div className="px-8 py-6 border-r border-gray-200">
               <h3 className="text-base font-bold text-gray-900">
                 {t("whyChoose.optura.criteria")}
@@ -163,19 +176,24 @@ export function WhyChooseOpturaStyle() {
           {/* Table Body */}
           <div className="divide-y divide-gray-200">
             {comparisonRows.map((row, index) => {
-              const Icon = row.icon
+              const Icon = row.icon;
               return (
                 <div
                   key={row.id}
                   className={cn(
                     "grid grid-cols-[300px_1fr_1fr] transition-all duration-200 hover:bg-gray-50",
-                    isVisible && "animate-fade-up"
+                    isVisible && "animate-fade-up",
                   )}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Criteria Column */}
                   <div className="px-8 py-6 border-r border-gray-200 flex items-center gap-4">
-                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center shrink-0", row.iconBg)}>
+                    <div
+                      className={cn(
+                        "w-12 h-12 rounded-xl flex items-center justify-center shrink-0",
+                        row.iconBg,
+                      )}
+                    >
                       <Icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <h4 className="text-base font-bold text-gray-900">
@@ -202,7 +220,7 @@ export function WhyChooseOpturaStyle() {
                     )}
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -210,19 +228,26 @@ export function WhyChooseOpturaStyle() {
         {/* Mobile Version - Stacked Cards */}
         <div className="md:hidden space-y-6 mb-12">
           {comparisonRows.map((row, index) => {
-            const Icon = row.icon
+            const Icon = row.icon;
             return (
               <div
                 key={row.id}
                 className={cn(
                   "rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg bg-white transition-all duration-700",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8",
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Criteria Header */}
-                <div className="px-6 py-4 bg-gradient-to-r from-gray-50 to-white border-b-2 border-gray-200 flex items-center gap-3">
-                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center shrink-0", row.iconBg)}>
+                <div className="px-6 py-4 bg-linear-to-r from-gray-50 to-white border-b-2 border-gray-200 flex items-center gap-3">
+                  <div
+                    className={cn(
+                      "w-12 h-12 rounded-xl flex items-center justify-center shrink-0",
+                      row.iconBg,
+                    )}
+                  >
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900">
@@ -263,7 +288,7 @@ export function WhyChooseOpturaStyle() {
                   </p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
 
@@ -271,16 +296,24 @@ export function WhyChooseOpturaStyle() {
         <div
           className={cn(
             "grid md:grid-cols-2 gap-8 transition-all duration-700",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
           style={{ animationDelay: "600ms" }}
         >
           {/* Left: Trust Signal */}
-          <div className="rounded-3xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
+          <div className="rounded-3xl border-2 border-blue-200 bg-linear-to-br from-blue-50 to-indigo-50 p-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div>
@@ -296,8 +329,18 @@ export function WhyChooseOpturaStyle() {
             <Link href="/dang-ky">
               <button className="w-full px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group">
                 {t("whyChoose.optura.tryNow")}
-                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
                 </svg>
               </button>
             </Link>
@@ -328,5 +371,5 @@ export function WhyChooseOpturaStyle() {
         </div>
       </div>
     </section>
-  )
+  );
 }

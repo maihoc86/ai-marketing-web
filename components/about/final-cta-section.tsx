@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { ArrowRight, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
+import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export function FinalCtaSection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#008bff] via-[#22b5f8] to-[#5fffec] relative overflow-hidden">
+    <section className="py-24 bg-linear-to-br from-[#008bff] via-[#22b5f8] to-[#5fffec] relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -35,7 +35,7 @@ export function FinalCtaSection() {
         {/* Main Heading */}
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
           {t("about.finalCta.title.prefix")}
-          <span className="bg-gradient-to-r from-white/90 to-[#5fffec] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-white/90 to-[#5fffec] bg-clip-text text-transparent">
             {t("about.finalCta.title.highlight")}
           </span>
           {t("about.finalCta.title.suffix")}
@@ -53,7 +53,10 @@ export function FinalCtaSection() {
             className="bg-white text-[#ff7900] hover:bg-gray-50 font-bold px-8 py-6 rounded-xl text-base shadow-xl hover:shadow-2xl transition-all"
             asChild
           >
-            <Link href="/dang-ky" className="flex items-center justify-center gap-2">
+            <Link
+              href="/dang-ky"
+              className="flex items-center justify-center gap-2"
+            >
               {t("about.finalCta.cta.demo")}
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -65,7 +68,10 @@ export function FinalCtaSection() {
             className="border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl text-base transition-all bg-transparent backdrop-blur-sm"
             asChild
           >
-            <Link href="/dang-ky" className="flex items-center justify-center gap-2">
+            <Link
+              href="/dang-ky"
+              className="flex items-center justify-center gap-2"
+            >
               {t("about.finalCta.cta.roadmap")}
               <Download className="w-5 h-5" />
             </Link>
@@ -115,5 +121,5 @@ export function FinalCtaSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

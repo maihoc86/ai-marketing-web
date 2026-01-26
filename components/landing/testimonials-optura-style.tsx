@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useCallback, useEffect, useRef } from "react"
-import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { useI18n } from "@/lib/i18n"
+import { useState, useCallback, useEffect, useRef } from "react";
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 const testimonialsData = {
   vi: [
@@ -70,67 +70,69 @@ const testimonialsData = {
       rating: 5,
     },
   ],
-}
+};
 
-const AUTO_SLIDE_INTERVAL = 5000
+const AUTO_SLIDE_INTERVAL = 5000;
 
 export function TestimonialsOpturaStyle() {
-  const { t, locale } = useI18n()
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const timerRef = useRef<NodeJS.Timeout | undefined>(undefined)
+  const { t, locale } = useI18n();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const testimonials = testimonialsData[locale]
+  const testimonials = testimonialsData[locale];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       {
         threshold: 0.1,
-      }
-    )
+      },
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }, [testimonials.length])
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  }, [testimonials.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }, [testimonials.length])
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
+  }, [testimonials.length]);
 
   const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index)
-  }, [])
+    setCurrentIndex(index);
+  }, []);
 
   // Auto-play carousel
   useEffect(() => {
     if (!isPaused) {
-      timerRef.current = setInterval(nextSlide, AUTO_SLIDE_INTERVAL)
+      timerRef.current = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
     }
 
     return () => {
       if (timerRef.current) {
-        clearInterval(timerRef.current)
+        clearInterval(timerRef.current);
       }
-    }
-  }, [isPaused, nextSlide])
+    };
+  }, [isPaused, nextSlide]);
 
   return (
     <section
@@ -143,7 +145,7 @@ export function TestimonialsOpturaStyle() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-200 rounded-full blur-3xl opacity-20" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="container mx-auto relative">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-display-md font-bold text-gray-900 mb-4">
@@ -158,7 +160,7 @@ export function TestimonialsOpturaStyle() {
         </div>
 
         {/* Testimonials carousel */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative">
           {/* Main testimonial card */}
           <div
             className={`glass-card-strong rounded-3xl p-8 md:p-12 relative overflow-hidden ${
@@ -174,20 +176,23 @@ export function TestimonialsOpturaStyle() {
               {/* Rating stars */}
               <div className="flex gap-1">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                  />
                 ))}
               </div>
 
               {/* Testimonial content */}
               <blockquote className="text-lg md:text-xl text-gray-800 leading-relaxed">
-                "{testimonials[currentIndex].content}"
+                &quot;{testimonials[currentIndex].content}&quot;
               </blockquote>
 
               {/* Author info */}
               <div className="flex items-center gap-4 pt-4">
                 {/* Avatar */}
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 p-1">
+                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-blue-500 to-cyan-500 p-1">
                     <div className="w-full h-full rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden">
                       {/* Placeholder for avatar - can add Image component here */}
                       <div className="avatar-gradient-blue w-full h-full flex items-center justify-center text-2xl font-bold text-white">
@@ -203,7 +208,8 @@ export function TestimonialsOpturaStyle() {
                     {testimonials[currentIndex].author}
                   </div>
                   <div className="text-gray-600">
-                    {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
+                    {testimonials[currentIndex].role} •{" "}
+                    {testimonials[currentIndex].company}
                   </div>
                 </div>
               </div>
@@ -235,7 +241,9 @@ export function TestimonialsOpturaStyle() {
                 onClick={() => goToSlide(index)}
                 className={cn(
                   "h-2 rounded-full transition-all",
-                  currentIndex === index ? "w-8 bg-gradient-to-r from-blue-600 to-cyan-600" : "w-2 bg-gray-300"
+                  currentIndex === index
+                    ? "w-8 bg-linear-to-r from-blue-600 to-cyan-600"
+                    : "w-2 bg-gray-300",
                 )}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -244,5 +252,5 @@ export function TestimonialsOpturaStyle() {
         </div>
       </div>
     </section>
-  )
+  );
 }

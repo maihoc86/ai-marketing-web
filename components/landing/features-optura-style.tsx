@@ -1,16 +1,23 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Video, FileText, Calendar, Image as ImageIcon, BarChart3, Link2 } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
+import { useEffect, useRef, useState } from "react";
+import {
+  Video,
+  FileText,
+  Calendar,
+  Image as ImageIcon,
+  BarChart3,
+  Link2,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 interface Feature {
-  icon: React.ElementType
-  titleKey: string
-  descriptionKey: string
-  statLabel: string
-  statValue: string
-  gradient: string
+  icon: React.ElementType;
+  titleKey: string;
+  descriptionKey: string;
+  statLabel: string;
+  statValue: string;
+  gradient: string;
 }
 
 const features: Feature[] = [
@@ -62,43 +69,46 @@ const features: Feature[] = [
     statValue: "20+",
     gradient: "from-cyan-500 to-blue-600",
   },
-]
+];
 
 export function FeaturesOpturaStyle() {
-  const { t } = useI18n()
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const { t } = useI18n();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       {
         threshold: 0.1,
-      }
-    )
+      },
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-gradient-optura-subtle relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 md:py-32 bg-gradient-optura-subtle relative overflow-hidden"
+    >
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-10" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-200 rounded-full blur-3xl opacity-10" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-serif text-display-md font-bold text-gray-900 mb-4">
@@ -108,12 +118,13 @@ export function FeaturesOpturaStyle() {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
-            {t("features.subtitle") || "Mọi công cụ bạn cần để tự động hóa marketing"}
+            {t("features.subtitle") ||
+              "Mọi công cụ bạn cần để tự động hóa marketing"}
           </p>
         </div>
 
         {/* Features grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 container mx-auto">
           {features.map((feature, index) => (
             <FeatureCard
               key={feature.titleKey}
@@ -125,18 +136,18 @@ export function FeaturesOpturaStyle() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 interface FeatureCardProps {
-  feature: Feature
-  index: number
-  isVisible: boolean
+  feature: Feature;
+  index: number;
+  isVisible: boolean;
 }
 
 function FeatureCard({ feature, index, isVisible }: FeatureCardProps) {
-  const { t } = useI18n()
-  const Icon = feature.icon
+  const { t } = useI18n();
+  const Icon = feature.icon;
 
   return (
     <div
@@ -149,7 +160,9 @@ function FeatureCard({ feature, index, isVisible }: FeatureCardProps) {
     >
       {/* Icon with gradient background */}
       <div className="relative mb-6">
-        <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-optura group-hover:scale-110 transition-transform duration-300`}>
+        <div
+          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br ${feature.gradient} shadow-optura group-hover:scale-110 transition-transform duration-300`}
+        >
           <Icon className="w-8 h-8 text-white" />
         </div>
 
@@ -172,9 +185,9 @@ function FeatureCard({ feature, index, isVisible }: FeatureCardProps) {
 
       {/* Bottom stat label */}
       <div className="flex items-center gap-2 text-sm text-gray-600">
-        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
+        <div className="w-2 h-2 rounded-full bg-linear-to-r from-blue-500 to-cyan-500" />
         <span className="font-medium">{feature.statLabel}</span>
       </div>
     </div>
-  )
+  );
 }

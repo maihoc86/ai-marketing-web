@@ -1,16 +1,23 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  type ReactNode,
+} from "react";
 
 // ============================================================
 // TYPES
 // ============================================================
-export type Locale = "vi" | "en"
+export type Locale = "vi" | "en";
 
 interface I18nContextType {
-  locale: Locale
-  setLocale: (locale: Locale) => void
-  t: (key: string, params?: Record<string, string | number>) => string
+  locale: Locale;
+  setLocale: (locale: Locale) => void;
+  t: (key: string, params?: Record<string, string | number>) => string;
 }
 
 // ============================================================
@@ -33,12 +40,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.titleHighlight": "tự động hóa",
     "hero.title.line1": "TĂNG DOANH THU 300%",
     "hero.title.line2": "VỚI AI MARKETING THÔNG MINH",
-    "hero.subtitle": "Hệ thống AI duy nhất tại Việt Nam giúp doanh nghiệp tạo nội dung đa kênh, quản lý khách hàng và tối ưu quảng cáo tự động. Từ 1 ý tưởng đến hàng nghìn nội dung viral.",
+    "hero.subtitle":
+      "Hệ thống AI duy nhất tại Việt Nam giúp doanh nghiệp tạo nội dung đa kênh, quản lý khách hàng và tối ưu quảng cáo tự động. Từ 1 ý tưởng đến hàng nghìn nội dung viral.",
     "hero.cta.trial": "Dùng Thử 14 Ngày Miễn Phí",
     "hero.cta.trial.sub": "Không cần thẻ tín dụng • Setup trong 5 phút",
     "hero.cta.demo": "Xem Demo 3 Phút",
     "hero.dashboard.title": "AI Marketing Dashboard",
-    "hero.dashboard.subtitle": "Quản lý toàn bộ chiến dịch marketing từ một nền tảng",
+    "hero.dashboard.subtitle":
+      "Quản lý toàn bộ chiến dịch marketing từ một nền tảng",
     "hero.stats.videos": "Video/tháng",
     "hero.stats.savings": "Tiết kiệm",
     "hero.valueProp.videos": "Tạo 1000+ video/tháng tự động",
@@ -71,11 +80,15 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.dashboard.region.sea": "Đông Nam Á",
     "hero.dashboard.region.latam": "LATAM",
     "hero.dashboard.region.apac": "APAC",
-    "hero.dashboard.activity.contentGen": "Hoàn thành tạo nội dung - 25 bài viết đã tạo",
+    "hero.dashboard.activity.contentGen":
+      "Hoàn thành tạo nội dung - 25 bài viết đã tạo",
     "hero.dashboard.activity.vnSync": "Đồng bộ thị trường Việt Nam - Vừa xong",
-    "hero.dashboard.activity.fbOptimized": "Chiến dịch Facebook đã tự động tối ưu",
-    "hero.dashboard.activity.tiktokBatch": "Batch Video TikTok: 12 video sẵn sàng",
-    "hero.dashboard.activity.aiAnalysis": "Phân tích AI: Hashtags trending đã cập nhật",
+    "hero.dashboard.activity.fbOptimized":
+      "Chiến dịch Facebook đã tự động tối ưu",
+    "hero.dashboard.activity.tiktokBatch":
+      "Batch Video TikTok: 12 video sẵn sàng",
+    "hero.dashboard.activity.aiAnalysis":
+      "Phân tích AI: Hashtags trending đã cập nhật",
     "hero.dashboard.platforms": "20+ nền tảng đã kết nối",
 
     // Process Section
@@ -112,13 +125,17 @@ const translations: Record<Locale, Record<string, string>> = {
       "Tạo nội dung chuẩn SEO cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
     "features.content.stats": "50+ templates",
     "features.schedule.title": "Lên lịch Thông minh",
-    "features.schedule.description": "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
-    "features.schedule.desc": "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
+    "features.schedule.description":
+      "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
+    "features.schedule.desc":
+      "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
     "features.schedule.stats": "24/7 tự động",
     "features.design.title": "Thiết kế Hình ảnh AI",
-    "features.design.description": "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
+    "features.design.description":
+      "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.title": "Thiết kế Hình ảnh AI",
-    "features.image.desc": "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
+    "features.image.desc":
+      "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.stats": "Không giới hạn",
     "features.analytics.title": "Phân tích Thông minh",
     "features.analytics.description":
@@ -127,8 +144,10 @@ const translations: Record<Locale, Record<string, string>> = {
       "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất campaign real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Tích hợp Liền mạch",
-    "features.integration.description": "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
-    "features.integration.desc": "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
+    "features.integration.description":
+      "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
+    "features.integration.desc":
+      "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
     "features.integration.stats": "20+ platforms",
     "features.learnMore": "Tìm hiểu thêm",
 
@@ -161,30 +180,37 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.trusted": "Được tin dùng bởi hơn 350,000 doanh nghiệp",
     "pricing.startup.name": "Startup",
     "pricing.startup.desc": "Trải nghiệm & Kênh nhỏ",
-    "pricing.startup.subtitle": "Dành cho doanh nghiệp nhỏ muốn xây kênh tần suất thấp",
+    "pricing.startup.subtitle":
+      "Dành cho doanh nghiệp nhỏ muốn xây kênh tần suất thấp",
     "pricing.growth.name": "Growth",
     "pricing.growth.desc": "Tăng tốc - Best Seller",
-    "pricing.growth.subtitle": "Dành cho Agency hoặc SME muốn phủ nội dung video hàng ngày",
+    "pricing.growth.subtitle":
+      "Dành cho Agency hoặc SME muốn phủ nội dung video hàng ngày",
     "pricing.enterprise.name": "Enterprise",
     "pricing.enterprise.desc": "Tập đoàn",
-    "pricing.enterprise.subtitle": "Dành cho chuỗi bán lẻ hoặc hệ thống cần Custom",
+    "pricing.enterprise.subtitle":
+      "Dành cho chuỗi bán lẻ hoặc hệ thống cần Custom",
     "pricing.currency": "VNĐ",
     "pricing.credits.unlimited": "Không giới hạn Credits",
     "pricing.credits.perMonth": "{count} Credits/tháng",
     "pricing.enterprise.title": "Bảng giá",
     "pricing.enterprise.titleHighlight": "dành cho Doanh nghiệp",
-    "pricing.enterprise.subtitle.full": "Giá minh bạch, có thể mở rộng cho mọi giai đoạn chuyển đổi AI của bạn. Không có phí ẩn.",
+    "pricing.enterprise.subtitle.full":
+      "Giá minh bạch, có thể mở rộng cho mọi giai đoạn chuyển đổi AI của bạn. Không có phí ẩn.",
     "pricing.enterprise.billing.monthly": "Theo tháng",
     "pricing.enterprise.billing.yearly": "Theo năm",
     "pricing.enterprise.save15": "Tiết kiệm 15%",
     "pricing.enterprise.startup.name": "Khởi nghiệp",
-    "pricing.enterprise.startup.description": "Dành cho doanh nghiệp nhỏ xây dựng hiện diện marketing",
+    "pricing.enterprise.startup.description":
+      "Dành cho doanh nghiệp nhỏ xây dựng hiện diện marketing",
     "pricing.enterprise.startup.cta": "Dùng thử miễn phí",
     "pricing.enterprise.growth.name": "Tăng trưởng",
-    "pricing.enterprise.growth.description": "Dành cho agency và SME mở rộng sản xuất nội dung",
+    "pricing.enterprise.growth.description":
+      "Dành cho agency và SME mở rộng sản xuất nội dung",
     "pricing.enterprise.growth.cta": "Bắt đầu ngay",
     "pricing.enterprise.enterprise.name": "Doanh nghiệp",
-    "pricing.enterprise.enterprise.description": "Dành cho chuỗi bán lẻ và giải pháp doanh nghiệp tùy chỉnh",
+    "pricing.enterprise.enterprise.description":
+      "Dành cho chuỗi bán lẻ và giải pháp doanh nghiệp tùy chỉnh",
     "pricing.enterprise.enterprise.cta": "Liên hệ Sales",
     "pricing.enterprise.custom": "Liên hệ",
     "pricing.enterprise.perMonth": "/tháng",
@@ -192,15 +218,18 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.comparison.title": "So sánh chi tiết tính năng",
     "pricing.enterprise.comparison.features": "TÍNH NĂNG",
     "pricing.enterprise.comparison.feature1": "Điều phối LLM toàn cầu",
-    "pricing.enterprise.comparison.feature2": "Tạo nội dung đa ngôn ngữ (40+ ngôn ngữ)",
+    "pricing.enterprise.comparison.feature2":
+      "Tạo nội dung đa ngôn ngữ (40+ ngôn ngữ)",
     "pricing.enterprise.comparison.feature3": "Phân tích hiệu suất dự đoán",
     "pricing.enterprise.comparison.feature4": "Bảo mật & Giới hạn API",
     "pricing.enterprise.comparison.feature5": "Loại triển khai",
-    "pricing.enterprise.cta.help": "Cần tư vấn thêm về gói phù hợp với doanh nghiệp của bạn?",
+    "pricing.enterprise.cta.help":
+      "Cần tư vấn thêm về gói phù hợp với doanh nghiệp của bạn?",
     "pricing.enterprise.cta.expert": "Liên hệ chuyên gia tư vấn",
     "pricing.enterprise.startup.feature1": "Tối đa 10 Video AI/tháng",
     "pricing.enterprise.startup.feature2": "1,500 bài viết nội dung/tháng",
-    "pricing.enterprise.startup.feature3": "Đăng đa kênh (Facebook, Instagram, TikTok)",
+    "pricing.enterprise.startup.feature3":
+      "Đăng đa kênh (Facebook, Instagram, TikTok)",
     "pricing.enterprise.startup.feature4": "50+ mẫu nội dung",
     "pricing.enterprise.startup.feature5": "Lên lịch tự động",
     "pricing.enterprise.startup.feature6": "Phân tích cơ bản",
@@ -217,20 +246,24 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.enterprise.feature1": "Tất cả tính năng Growth",
     "pricing.enterprise.enterprise.feature2": "Video & Nội dung không giới hạn",
     "pricing.enterprise.enterprise.feature3": "Server chuyên dụng",
-    "pricing.enterprise.enterprise.feature4": "Mô hình AI tùy chỉnh (fine-tuned)",
+    "pricing.enterprise.enterprise.feature4":
+      "Mô hình AI tùy chỉnh (fine-tuned)",
     "pricing.enterprise.enterprise.feature5": "API Access tích hợp hệ thống",
     "pricing.enterprise.enterprise.feature6": "Account Manager chuyên trách",
     "pricing.enterprise.enterprise.feature7": "SLA 99.9% uptime",
     "pricing.enterprise.enterprise.feature8": "Hỗ trợ 24/7 Hotline/Chat",
     "pricing.enterprise.enterprise.feature9": "Onboarding & Training cho team",
-    "pricing.enterprise.enterprise.feature10": "Giải pháp White-label (tùy chọn)",
+    "pricing.enterprise.enterprise.feature10":
+      "Giải pháp White-label (tùy chọn)",
 
     // ROI Section
     "roi.badge": "SO SÁNH HIỆU QUẢ",
     "roi.title.why": "Tại sao",
     "roi.title.brand": "DXAI Marketing",
     "roi.title.excels": "vượt trội?",
-    "roi.subtitle.full": "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI. Tiết kiệm chi phí, tăng hiệu suất gấp 100 lần.",
+    "roi.title.full": "Tại sao {brand} vượt trội?",
+    "roi.subtitle.full":
+      "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI. Tiết kiệm chi phí, tăng hiệu suất gấp 100 lần.",
     "roi.watchDemo": "Xem Video Demo",
     "roi.header.criteria": "Tiêu chí",
     "roi.header.traditional": "Marketing Truyền thống",
@@ -242,7 +275,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.cta.ready": "Sẵn sàng chuyển đổi số và tăng trưởng với AI Marketing?",
     "roi.cta.start": "Bắt đầu ngay",
     "roi.cta.learn": "Tìm hiểu thêm",
-    "roi.disclaimer": "* Số liệu dựa trên khảo sát 500+ doanh nghiệp Việt Nam sử dụng DXAI Marketing Platform",
+    "roi.disclaimer":
+      "* Số liệu dựa trên khảo sát 500+ doanh nghiệp Việt Nam sử dụng DXAI Marketing Platform",
     "roi.title": "Tại sao bạn nên chọn chúng tôi?",
     "roi.subtitle": "So sánh hiệu quả giữa Nhân sự truyền thống và Hệ thống AI",
     "roi.traditional": "Truyền thống",
@@ -261,7 +295,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.operation": "Vận hành",
     "roi.save": "Tiết kiệm",
     "roi.times": "Gấp {x} lần",
-    "roi.cta.text": "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với DXAI Marketing Platform",
+    "roi.cta.text":
+      "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với DXAI Marketing Platform",
     "roi.cta.button": "Bắt đầu ngay",
     "roi.cost.traditional": "~15.000.000đ",
     "roi.cost.ai": "6.900.000đ",
@@ -320,7 +355,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.mobile.title": "Hỗ trợ tốt trên cả Web và Mobile",
     "whyChoose.mobile.description":
       "Ứng dụng di động tiện lợi, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi. Giao diện thân thiện, dễ sử dụng trên mọi thiết bị từ máy tính để bàn đến điện thoại di động.",
-    "whyChoose.tools.aiModels": "GPT 5.1, Gemini 2.5 Pro, DeepSeek-R1, Claude 4.7",
+    "whyChoose.tools.aiModels":
+      "GPT 5.1, Gemini 2.5 Pro, DeepSeek-R1, Claude 4.7",
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Cấp phát, Thu hồi, Báo cáo, Ngân sách",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
@@ -344,12 +380,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "testimonials.view": "Xem testimonial {n}",
     "testimonials.title.customers": "Khách hàng",
     "testimonials.title.say": "nói gì",
-    "testimonials.subtitle": "Câu chuyện thành công từ những doanh nghiệp tin dùng",
+    "testimonials.subtitle":
+      "Câu chuyện thành công từ những doanh nghiệp tin dùng",
 
     // Why Choose Section (Optura Style)
     "whyChoose.optura.title": "Why Choose",
     "whyChoose.optura.brand": "DXAI Marketing Platform",
-    "whyChoose.optura.subtitle": "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI",
+    "whyChoose.optura.subtitle":
+      "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI",
     "whyChoose.optura.criteria": "Tiêu chí so sánh",
     "whyChoose.optura.traditional": "Phương pháp truyền thống",
     "whyChoose.optura.traditional.manual": "Tiếp cận thủ công",
@@ -357,10 +395,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.dxai": "Nền tảng DXAI Marketing",
     "whyChoose.optura.dxai.auto": "Giải pháp tự động",
     "whyChoose.optura.guarantee.title": "Cam kết hiệu quả",
-    "whyChoose.optura.guarantee.desc": "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái DXAI. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất.",
+    "whyChoose.optura.guarantee.desc":
+      "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái DXAI. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất.",
     "whyChoose.optura.tryNow": "Trải nghiệm ngay",
     "whyChoose.optura.consult.title": "Cần tư vấn chuyên sâu?",
-    "whyChoose.optura.consult.desc": "Đội ngũ chuyên gia của chúng tôi sẵn sàng tư vấn miễn phí để giúp bạn tìm ra giải pháp phù hợp nhất cho doanh nghiệp.",
+    "whyChoose.optura.consult.desc":
+      "Đội ngũ chuyên gia của chúng tôi sẵn sàng tư vấn miễn phí để giúp bạn tìm ra giải pháp phù hợp nhất cho doanh nghiệp.",
     "whyChoose.optura.consultBtn": "Tư vấn giải pháp",
     "whyChoose.optura.watchDemo": "Watch Demo",
     "whyChoose.optura.mobilePlatform": "Nền tảng DXAI",
@@ -379,22 +419,27 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.row4.traditional": "Công việc đơn lẻ",
     "whyChoose.optura.row4.dxai": "Video + Hình ảnh + Bài viết + Chatbot",
     "whyChoose.optura.row5.criteria": "Vận hành",
-    "whyChoose.optura.row5.traditional": "Cần ca làm việc, nghỉ phép, giám sát thủ công",
+    "whyChoose.optura.row5.traditional":
+      "Cần ca làm việc, nghỉ phép, giám sát thủ công",
     "whyChoose.optura.row5.dxai": "Tự động 24/7",
 
     // Trusted Businesses Section
     "trusted.title.prefix": "Được tin dùng bởi hơn",
     "trusted.title.count": "500 doanh nghiệp",
     "trusted.title.suffix": "toàn quốc",
-    "trusted.subtitle": "Đồng hành cùng các doanh nghiệp hàng đầu và phát triển tại Việt Nam với giải pháp marketing AI.",
+    "trusted.subtitle":
+      "Đồng hành cùng các doanh nghiệp hàng đầu và phát triển tại Việt Nam với giải pháp marketing AI.",
     "trusted.stats.businesses": "Doanh nghiệp tin dùng",
     "trusted.stats.provinces": "Tỉnh thành Việt Nam",
     "trusted.stats.industries": "Ngành nghề chính",
     "trusted.badge.soc2.title": "SOC 2 Type II Certified",
-    "trusted.badge.soc2.desc": "Tiêu chuẩn bảo mật cấp doanh nghiệp cho dữ liệu của bạn.",
+    "trusted.badge.soc2.desc":
+      "Tiêu chuẩn bảo mật cấp doanh nghiệp cho dữ liệu của bạn.",
     "trusted.badge.uptime.title": "99.9% Uptime SLA",
-    "trusted.badge.uptime.desc": "Đảm bảo độ tin cậy nền tảng cho hoạt động 24/7.",
-    "trusted.copyright": "© 2024 DXAI Marketing. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế.",
+    "trusted.badge.uptime.desc":
+      "Đảm bảo độ tin cậy nền tảng cho hoạt động 24/7.",
+    "trusted.copyright":
+      "© 2024 DXAI Marketing. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế.",
     "trusted.industry.retail": "Ngành Bán Lẻ",
     "trusted.industry.ecommerce": "Thương Mại Điện Tử",
     "trusted.industry.realestate": "Bất Động Sản",
@@ -417,10 +462,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "faq.q3": "Có được sử dụng DXAI Marketing Platform miễn phí không?",
     "faq.a3":
       "Có. DXAI Marketing Platform cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
-    "faq.q4": "DXAI Marketing Platform có đáp ứng sử dụng trên điện thoại không?",
+    "faq.q4":
+      "DXAI Marketing Platform có đáp ứng sử dụng trên điện thoại không?",
     "faq.a4":
       "Có. DXAI Marketing Platform hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
-    "faq.q5": "DXAI Marketing Platform có cập nhật các công cụ AI mới nhất không?",
+    "faq.q5":
+      "DXAI Marketing Platform có cập nhật các công cụ AI mới nhất không?",
     "faq.a5":
       "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, DXAI Marketing Platform sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
 
@@ -464,7 +511,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.subtitle": "Tiên Phong CDS & DXAI – DXAI Marketing Platform",
     "about.hero.description":
       "Đối tác chuyển đổi số Marketing đa kênh hàng đầu, tự động hóa quy trình từ ý tưởng đến xuất bản nội dung.",
-    "about.hero.desc": "Chúng tôi định nghĩa lại cách doanh nghiệp vận hành với triết lý AI-First, thúc đẩy chuyển đổi số toàn diện và tối ưu hóa hiệu suất Marketing tự động.",
+    "about.hero.desc":
+      "Chúng tôi định nghĩa lại cách doanh nghiệp vận hành với triết lý AI-First, thúc đẩy chuyển đổi số toàn diện và tối ưu hóa hiệu suất Marketing tự động.",
     "about.hero.cta.contact": "Liên hệ ngay",
     "about.hero.cta.learn": "Tìm hiểu thêm",
     "about.hero.image.alt": "Đội ngũ chuyên nghiệp Tiên Phong CDS",
@@ -476,7 +524,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Company Section
     "about.company.title": "Tiên Phong CDS",
-    "about.company.subtitle": "Đối tác chuyển đổi số đa kênh cho doanh nghiệp Việt",
+    "about.company.subtitle":
+      "Đối tác chuyển đổi số đa kênh cho doanh nghiệp Việt",
     "about.company.desc1":
       "Công ty Cổ phần Tiên Phong CDS là đơn vị tiên phong trong lĩnh vực chuyển đổi số Marketing tại Việt Nam. Chúng tôi chuyên cung cấp các giải pháp AI Marketing toàn diện, giúp doanh nghiệp tối ưu hóa quy trình marketing và gia tăng hiệu quả kinh doanh.",
     "about.company.desc2":
@@ -492,13 +541,17 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.why.subtitle":
       "Chúng tôi tin rằng kinh nghiệm, kỹ năng và sự tận tâm là những yếu tố quan trọng nhất cho sự thành công của dự án.",
     "about.why.expertise.title": "Chuyên môn AI Marketing",
-    "about.why.expertise.desc": "Kinh nghiệm triển khai nội dung và quảng cáo đa kênh với công nghệ AI tiên tiến nhất.",
+    "about.why.expertise.desc":
+      "Kinh nghiệm triển khai nội dung và quảng cáo đa kênh với công nghệ AI tiên tiến nhất.",
     "about.why.optimize.title": "Tối ưu & đo lường",
-    "about.why.optimize.desc": "Báo cáo chi tiết, KPI rõ ràng, và cải tiến liên tục dựa trên dữ liệu thực tế.",
+    "about.why.optimize.desc":
+      "Báo cáo chi tiết, KPI rõ ràng, và cải tiến liên tục dựa trên dữ liệu thực tế.",
     "about.why.speed.title": "Tốc độ triển khai",
-    "about.why.speed.desc": "Quy trình rõ ràng, sprint nhanh, bàn giao đúng tiến độ cam kết.",
+    "about.why.speed.desc":
+      "Quy trình rõ ràng, sprint nhanh, bàn giao đúng tiến độ cam kết.",
     "about.why.support.title": "Hỗ trợ tận tâm",
-    "about.why.support.desc": "Đồng hành dài hạn, training chuyên sâu, onboarding chu đáo cho đội ngũ.",
+    "about.why.support.desc":
+      "Đồng hành dài hạn, training chuyên sâu, onboarding chu đáo cho đội ngũ.",
 
     // About Process
     "about.process.title": "Quy trình",
@@ -530,17 +583,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.subtitle":
       "Nền tảng marketing AI toàn diện, tự động hóa mọi khía cạnh từ sáng tạo nội dung đến phân phối đa kênh",
     "about.product.why.title": "Tại sao chọn DXAI?",
-    "about.product.why.subtitle": "Giải pháp AI Marketing toàn diện dành cho doanh nghiệp hiện đại",
+    "about.product.why.subtitle":
+      "Giải pháp AI Marketing toàn diện dành cho doanh nghiệp hiện đại",
     "about.product.why.allinone.title": "Tất cả trong một",
-    "about.product.why.allinone.desc": "Tích hợp đầy đủ các công cụ marketing AI trong một nền tảng duy nhất",
+    "about.product.why.allinone.desc":
+      "Tích hợp đầy đủ các công cụ marketing AI trong một nền tảng duy nhất",
     "about.product.why.cost.title": "Tiết kiệm chi phí",
-    "about.product.why.cost.desc": "Giảm tới 85% chi phí so với thuê đội ngũ marketing truyền thống",
+    "about.product.why.cost.desc":
+      "Giảm tới 85% chi phí so với thuê đội ngũ marketing truyền thống",
     "about.product.why.multiplatform.title": "Đa nền tảng",
-    "about.product.why.multiplatform.desc": "Đăng tự động lên 20+ nền tảng mạng xã hội và marketing",
+    "about.product.why.multiplatform.desc":
+      "Đăng tự động lên 20+ nền tảng mạng xã hội và marketing",
     "about.product.why.ai.title": "AI thông minh",
-    "about.product.why.ai.desc": "Sử dụng 6 mô hình AI hàng đầu để tối ưu hóa mọi nội dung",
+    "about.product.why.ai.desc":
+      "Sử dụng 6 mô hình AI hàng đầu để tối ưu hóa mọi nội dung",
     "about.product.core.title": "Khả năng Cốt lõi",
-    "about.product.core.desc": "8 tính năng chính giúp doanh nghiệp tự động hóa và tối ưu hóa toàn bộ quy trình marketing",
+    "about.product.core.desc":
+      "8 tính năng chính giúp doanh nghiệp tự động hóa và tối ưu hóa toàn bộ quy trình marketing",
     "about.product.feature.video.title": "Sản xuất Video AI",
     "about.product.feature.video.desc": "1000+ videos/tháng",
     "about.product.feature.image.title": "Thiết kế Hình ảnh",
@@ -559,7 +618,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.feature.integration.desc": "20+ nền tảng",
     "about.product.tech.badge": "Công nghệ AI",
     "about.product.tech.title": "Công nghệ đằng sau DXAI",
-    "about.product.tech.subtitle": "Tích hợp 6 mô hình AI hàng đầu thế giới để cung cấp kết quả tối ưu nhất",
+    "about.product.tech.subtitle":
+      "Tích hợp 6 mô hình AI hàng đầu thế giới để cung cấp kết quả tối ưu nhất",
     "about.product.stat.businesses": "Doanh nghiệp",
     "about.product.capabilities.title": "Khả năng của DXAI",
     "about.product.capabilities.video": "Sản xuất Video tự động",
@@ -579,52 +639,69 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Philosophy Section
     "about.philosophy.title": "Triết lý AI-First của chúng tôi",
-    "about.philosophy.description": "Tiên Phong CDS không chỉ là một công cụ, mà là bộ não số hóa giúp doanh nghiệp nâng cao năng lực cạnh tranh và hiệu quả vận hành tối đa thông qua tự động hóa thông minh.",
+    "about.philosophy.description":
+      "Tiên Phong CDS không chỉ là một công cụ, mà là bộ não số hóa giúp doanh nghiệp nâng cao năng lực cạnh tranh và hiệu quả vận hành tối đa thông qua tự động hóa thông minh.",
     "about.philosophy.benefit1.title": "Triển khai nhanh",
-    "about.philosophy.benefit1.desc": "Hệ thống sẵn sàng vận hành chỉ trong 48 giờ",
+    "about.philosophy.benefit1.desc":
+      "Hệ thống sẵn sàng vận hành chỉ trong 48 giờ",
     "about.philosophy.benefit2.title": "Tùy chỉnh linh hoạt",
-    "about.philosophy.benefit2.desc": "Module hóa các tính năng phù hợp từng ngành nghề",
+    "about.philosophy.benefit2.desc":
+      "Module hóa các tính năng phù hợp từng ngành nghề",
     "about.philosophy.benefit3.title": "Bảo mật tối đa",
     "about.philosophy.benefit3.desc": "Tiêu chuẩn bảo mật ISO/IEC 27001",
     "about.philosophy.benefit4.title": "Tối ưu ROI",
-    "about.philosophy.benefit4.desc": "Giảm 40% chi phí vận hành, tăng 25% tỷ lệ chuyển đổi",
+    "about.philosophy.benefit4.desc":
+      "Giảm 40% chi phí vận hành, tăng 25% tỷ lệ chuyển đổi",
 
     // About Workflow Section
     "about.workflow.badge": "Phương pháp của chúng tôi",
     "about.workflow.title": "Quy trình làm việc 6 bước",
-    "about.workflow.subtitle": "Phương pháp tiếp cận có cấu trúc của chúng tôi đảm bảo triển khai thành công và tối ưu hóa liên tục",
+    "about.workflow.subtitle":
+      "Phương pháp tiếp cận có cấu trúc của chúng tôi đảm bảo triển khai thành công và tối ưu hóa liên tục",
     "about.workflow.step1.title": "Khám phá",
-    "about.workflow.step1.desc": "Kiểm tra doanh nghiệp và đánh giá mức độ sẵn sàng AI",
+    "about.workflow.step1.desc":
+      "Kiểm tra doanh nghiệp và đánh giá mức độ sẵn sàng AI",
     "about.workflow.step2.title": "Chiến lược",
-    "about.workflow.step2.desc": "Lộ trình AI Marketing tùy chỉnh tập trung vào KPI tăng trưởng",
+    "about.workflow.step2.desc":
+      "Lộ trình AI Marketing tùy chỉnh tập trung vào KPI tăng trưởng",
     "about.workflow.step3.title": "Tích hợp",
-    "about.workflow.step3.desc": "Kết nối liền mạch DXAI với dữ liệu và công cụ hiện có",
+    "about.workflow.step3.desc":
+      "Kết nối liền mạch DXAI với dữ liệu và công cụ hiện có",
     "about.workflow.step4.title": "Tối ưu hóa",
-    "about.workflow.step4.desc": "Tinh chỉnh mô hình để đạt hiệu suất và hiệu quả",
+    "about.workflow.step4.desc":
+      "Tinh chỉnh mô hình để đạt hiệu suất và hiệu quả",
     "about.workflow.step5.title": "Kiểm thử",
-    "about.workflow.step5.desc": "Đảm bảo chất lượng nghiêm ngặt và theo dõi hiệu suất",
+    "about.workflow.step5.desc":
+      "Đảm bảo chất lượng nghiêm ngặt và theo dõi hiệu suất",
     "about.workflow.step6.title": "Ra mắt",
-    "about.workflow.step6.desc": "Triển khai toàn diện và giám sát tăng trưởng liên tục",
+    "about.workflow.step6.desc":
+      "Triển khai toàn diện và giám sát tăng trưởng liên tục",
 
     // About Why Choose Section
     "about.whyChoose.badge": "Tại sao chọn chúng tôi",
     "about.whyChoose.title": "Tại sao chọn chúng tôi",
-    "about.whyChoose.subtitle": "Chúng tôi kết hợp chuyên môn marketing sâu rộng với cơ sở hạ tầng AI hiện đại để thúc đẩy tăng trưởng doanh nghiệp.",
+    "about.whyChoose.subtitle":
+      "Chúng tôi kết hợp chuyên môn marketing sâu rộng với cơ sở hạ tầng AI hiện đại để thúc đẩy tăng trưởng doanh nghiệp.",
     "about.whyChoose.expertise1.title": "Chuyên môn AI",
-    "about.whyChoose.expertise1.desc": "Tận dụng khả năng sản phẩm DXAI để đạt hiệu quả marketing xuất sắc",
+    "about.whyChoose.expertise1.desc":
+      "Tận dụng khả năng sản phẩm DXAI để đạt hiệu quả marketing xuất sắc",
     "about.whyChoose.expertise2.title": "Hỗ trợ Doanh nghiệp",
-    "about.whyChoose.expertise2.desc": "Độ tin cậy 24/7 chuyên dụng cho hoạt động cấp doanh nghiệp",
+    "about.whyChoose.expertise2.desc":
+      "Độ tin cậy 24/7 chuyên dụng cho hoạt động cấp doanh nghiệp",
     "about.whyChoose.expertise3.title": "Cơ sở hạ tầng Mở rộng",
-    "about.whyChoose.expertise3.desc": "Kiến trúc mạnh mẽ được xây dựng để phát triển cùng nhu cầu kinh doanh",
+    "about.whyChoose.expertise3.desc":
+      "Kiến trúc mạnh mẽ được xây dựng để phát triển cùng nhu cầu kinh doanh",
     "about.whyChoose.expertise4.title": "Kết quả Dựa trên Dữ liệu",
-    "about.whyChoose.expertise4.desc": "Tối ưu hiệu suất thông qua tinh chỉnh mô hình AI tiên tiến",
+    "about.whyChoose.expertise4.desc":
+      "Tối ưu hiệu suất thông qua tinh chỉnh mô hình AI tiên tiến",
 
     // About Final CTA Section
     "about.finalCta.badge": "Bắt đầu ngay hôm nay",
     "about.finalCta.title.prefix": "Sẵn sàng tối ưu hóa ",
     "about.finalCta.title.highlight": "quy trình marketing",
     "about.finalCta.title.suffix": " của bạn?",
-    "about.finalCta.description": "Tham gia cùng hơn 500 doanh nghiệp đang chuyển đổi marketing với AI. Bắt đầu hành trình tự động hóa của bạn ngay hôm nay.",
+    "about.finalCta.description":
+      "Tham gia cùng hơn 500 doanh nghiệp đang chuyển đổi marketing với AI. Bắt đầu hành trình tự động hóa của bạn ngay hôm nay.",
     "about.finalCta.cta.demo": "Đặt lịch Demo",
     "about.finalCta.cta.roadmap": "Tải Roadmap",
     "about.finalCta.trust.noCard": "Không cần thẻ tín dụng",
@@ -654,8 +731,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "common.required": "Bắt buộc",
 
     // Trusted Businesses Section
-    "trustedBusinesses.title": "Hơn 12.000 doanh nghiệp tin dùng trên khắp cả nước",
-    "trustedBusinesses.subtitle": "Được lựa chọn bởi doanh nghiệp ở nhiều lĩnh vực khác nhau",
+    "trustedBusinesses.title":
+      "Hơn 12.000 doanh nghiệp tin dùng trên khắp cả nước",
+    "trustedBusinesses.subtitle":
+      "Được lựa chọn bởi doanh nghiệp ở nhiều lĩnh vực khác nhau",
     "trustedBusinesses.category.retail": "Ngành bán lẻ",
     "trustedBusinesses.category.commerce": "Ngành thương mại",
     "trustedBusinesses.category.realestate": "Ngành bất động sản",
@@ -669,7 +748,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.title.line1": "TĂNG DOANH THU",
     "heroLight.title.line2": "VỚI",
     "heroLight.title.highlight": "AI MARKETING THÔNG MINH",
-    "heroLight.subtitle.part1": "Hệ thống AI duy nhất tại Việt Nam giúp doanh nghiệp",
+    "heroLight.subtitle.part1":
+      "Hệ thống AI duy nhất tại Việt Nam giúp doanh nghiệp",
     "heroLight.subtitle.multichannel": "tạo nội dung đa kênh",
     "heroLight.subtitle.customers": "quản lý khách hàng",
     "heroLight.subtitle.ads": "tối ưu quảng cáo tự động",
@@ -716,12 +796,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.titleHighlight": "automated",
     "hero.title.line1": "BOOST REVENUE 300%",
     "hero.title.line2": "WITH SMART AI MARKETING",
-    "hero.subtitle": "The only AI system in Vietnam helping businesses create multi-channel content, manage customers and auto-optimize ads. From 1 idea to thousands of viral content.",
+    "hero.subtitle":
+      "The only AI system in Vietnam helping businesses create multi-channel content, manage customers and auto-optimize ads. From 1 idea to thousands of viral content.",
     "hero.cta.trial": "Start 14-Day Free Trial",
     "hero.cta.trial.sub": "No credit card required • Setup in 5 minutes",
     "hero.cta.demo": "Watch 3-Min Demo",
     "hero.dashboard.title": "AI Marketing Dashboard",
-    "hero.dashboard.subtitle": "Manage all your marketing campaigns from one platform",
+    "hero.dashboard.subtitle":
+      "Manage all your marketing campaigns from one platform",
     "hero.stats.videos": "Videos/month",
     "hero.stats.savings": "Savings",
     "hero.valueProp.videos": "Create 1000+ videos/month automatically",
@@ -754,11 +836,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.dashboard.region.sea": "SEA Region",
     "hero.dashboard.region.latam": "LATAM",
     "hero.dashboard.region.apac": "APAC",
-    "hero.dashboard.activity.contentGen": "Content Generation Complete - 25 posts created",
+    "hero.dashboard.activity.contentGen":
+      "Content Generation Complete - 25 posts created",
     "hero.dashboard.activity.vnSync": "Vietnamese Market Sync - Just now",
     "hero.dashboard.activity.fbOptimized": "Facebook Campaign Auto-optimized",
-    "hero.dashboard.activity.tiktokBatch": "TikTok Video Batch: 12 videos ready",
-    "hero.dashboard.activity.aiAnalysis": "AI Analysis: Trending hashtags updated",
+    "hero.dashboard.activity.tiktokBatch":
+      "TikTok Video Batch: 12 videos ready",
+    "hero.dashboard.activity.aiAnalysis":
+      "AI Analysis: Trending hashtags updated",
     "hero.dashboard.platforms": "20+ platforms connected",
 
     // Process Section
@@ -795,13 +880,17 @@ const translations: Record<Locale, Record<string, string>> = {
       "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
     "features.content.stats": "50+ templates",
     "features.schedule.title": "Smart Scheduling",
-    "features.schedule.description": "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
-    "features.schedule.desc": "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
+    "features.schedule.description":
+      "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
+    "features.schedule.desc":
+      "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
     "features.schedule.stats": "24/7 automatic",
     "features.design.title": "AI Image Design",
-    "features.design.description": "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
+    "features.design.description":
+      "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.title": "AI Image Design",
-    "features.image.desc": "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
+    "features.image.desc":
+      "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.stats": "Unlimited",
     "features.analytics.title": "Smart Analytics",
     "features.analytics.description":
@@ -810,8 +899,10 @@ const translations: Record<Locale, Record<string, string>> = {
       "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Seamless Integration",
-    "features.integration.description": "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
-    "features.integration.desc": "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
+    "features.integration.description":
+      "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
+    "features.integration.desc":
+      "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
     "features.integration.stats": "20+ platforms",
     "features.learnMore": "Learn more",
 
@@ -844,30 +935,37 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.trusted": "Trusted by 350,000+ businesses",
     "pricing.startup.name": "Startup",
     "pricing.startup.desc": "Experience & Small Channels",
-    "pricing.startup.subtitle": "For small businesses looking to build low-frequency channels",
+    "pricing.startup.subtitle":
+      "For small businesses looking to build low-frequency channels",
     "pricing.growth.name": "Growth",
     "pricing.growth.desc": "Accelerate - Best Seller",
-    "pricing.growth.subtitle": "For Agencies or SMEs wanting daily video content coverage",
+    "pricing.growth.subtitle":
+      "For Agencies or SMEs wanting daily video content coverage",
     "pricing.enterprise.name": "Enterprise",
     "pricing.enterprise.desc": "Corporation",
-    "pricing.enterprise.subtitle": "For retail chains or systems requiring customization",
+    "pricing.enterprise.subtitle":
+      "For retail chains or systems requiring customization",
     "pricing.currency": "VND",
     "pricing.credits.unlimited": "Unlimited Credits",
     "pricing.credits.perMonth": "{count} Credits/month",
     "pricing.enterprise.title": "Enterprise-Ready",
     "pricing.enterprise.titleHighlight": "Plans",
-    "pricing.enterprise.subtitle.full": "Transparent, scalable pricing for every stage of your AI transformation journey. No hidden fees.",
+    "pricing.enterprise.subtitle.full":
+      "Transparent, scalable pricing for every stage of your AI transformation journey. No hidden fees.",
     "pricing.enterprise.billing.monthly": "Monthly",
     "pricing.enterprise.billing.yearly": "Yearly",
     "pricing.enterprise.save15": "Save 15%",
     "pricing.enterprise.startup.name": "Startup",
-    "pricing.enterprise.startup.description": "For small businesses building marketing presence",
+    "pricing.enterprise.startup.description":
+      "For small businesses building marketing presence",
     "pricing.enterprise.startup.cta": "Start Free Trial",
     "pricing.enterprise.growth.name": "Growth",
-    "pricing.enterprise.growth.description": "For agencies and SMEs scaling content production",
+    "pricing.enterprise.growth.description":
+      "For agencies and SMEs scaling content production",
     "pricing.enterprise.growth.cta": "Get Started",
     "pricing.enterprise.enterprise.name": "Enterprise",
-    "pricing.enterprise.enterprise.description": "For retail chains and custom enterprise solutions",
+    "pricing.enterprise.enterprise.description":
+      "For retail chains and custom enterprise solutions",
     "pricing.enterprise.enterprise.cta": "Contact Sales",
     "pricing.enterprise.custom": "Custom",
     "pricing.enterprise.perMonth": "/mo",
@@ -875,15 +973,19 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.comparison.title": "Detailed Feature Comparison",
     "pricing.enterprise.comparison.features": "FEATURES",
     "pricing.enterprise.comparison.feature1": "Global LLM Orchestration",
-    "pricing.enterprise.comparison.feature2": "Localized Content Gen (40+ Languages)",
-    "pricing.enterprise.comparison.feature3": "Predictive Performance Analytics",
+    "pricing.enterprise.comparison.feature2":
+      "Localized Content Gen (40+ Languages)",
+    "pricing.enterprise.comparison.feature3":
+      "Predictive Performance Analytics",
     "pricing.enterprise.comparison.feature4": "Security & API Limits",
     "pricing.enterprise.comparison.feature5": "Deployment Type",
-    "pricing.enterprise.cta.help": "Need help choosing the right plan for your business?",
+    "pricing.enterprise.cta.help":
+      "Need help choosing the right plan for your business?",
     "pricing.enterprise.cta.expert": "Talk to an Expert",
     "pricing.enterprise.startup.feature1": "Up to 10 AI Videos/month",
     "pricing.enterprise.startup.feature2": "1,500 content posts/month",
-    "pricing.enterprise.startup.feature3": "Multi-channel publishing (Facebook, Instagram, TikTok)",
+    "pricing.enterprise.startup.feature3":
+      "Multi-channel publishing (Facebook, Instagram, TikTok)",
     "pricing.enterprise.startup.feature4": "50+ content templates",
     "pricing.enterprise.startup.feature5": "Auto-scheduling",
     "pricing.enterprise.startup.feature6": "Basic analytics",
@@ -900,17 +1002,28 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.enterprise.feature1": "All Growth features",
     "pricing.enterprise.enterprise.feature2": "Unlimited Videos & Content",
     "pricing.enterprise.enterprise.feature3": "Dedicated Server",
-    "pricing.enterprise.enterprise.feature4": "Custom AI Models (brand fine-tuned)",
-    "pricing.enterprise.enterprise.feature5": "API Access for system integration",
+    "pricing.enterprise.enterprise.feature4":
+      "Custom AI Models (brand fine-tuned)",
+    "pricing.enterprise.enterprise.feature5":
+      "API Access for system integration",
     "pricing.enterprise.enterprise.feature6": "Dedicated Account Manager",
     "pricing.enterprise.enterprise.feature7": "99.9% SLA uptime guarantee",
     "pricing.enterprise.enterprise.feature8": "24/7 Hotline/Chat support",
     "pricing.enterprise.enterprise.feature9": "Team onboarding & training",
-    "pricing.enterprise.enterprise.feature10": "White-label solution (optional)",
+    "pricing.enterprise.enterprise.feature10":
+      "White-label solution (optional)",
 
     // ROI Section
+    "roi.badge": "EFFICIENCY COMPARISON",
+    "roi.title.brand": "DXAI Marketing",
     "roi.title": "Why Choose DXAI Marketing Platform?",
-    "roi.subtitle": "Compare traditional marketing workflows vs an AI-powered solution",
+    "roi.title.full": "Why {brand} excels?",
+    "roi.subtitle.full":
+      "Compare traditional marketing workflows vs an AI-powered solution. Save time, reduce costs, and boost productivity exponentially.",
+    "roi.watchDemo": "Watch Demo Video",
+    "roi.header.criteria": "Criteria",
+    "roi.subtitle":
+      "Compare traditional marketing workflows vs an AI-powered solution",
     "roi.traditional": "Traditional",
     "roi.traditional.title": "Traditional Editor/Content",
     "roi.traditional.subtitle": "Manual approach",
@@ -927,7 +1040,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.operation": "Operation",
     "roi.save": "Save",
     "roi.times": "{x}x faster",
-    "roi.cta.text": "Save costs and increase productivity 10x with DXAI Marketing Platform",
+    "roi.cta.text":
+      "Save costs and increase productivity 10x with DXAI Marketing Platform",
     "roi.cta.button": "Watch Demo",
     "roi.cost.traditional": "~$555 / month",
     "roi.cost.ai": "~$255 / month",
@@ -978,7 +1092,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.cta.ready": "Ready to Transform with AI Marketing?",
     "roi.cta.start": "Get Started",
     "roi.cta.learn": "Learn More",
-    "roi.disclaimer": "* Data based on survey of 500+ Vietnamese businesses using DXAI Marketing Platform",
+    "roi.disclaimer":
+      "* Data based on survey of 500+ Vietnamese businesses using DXAI Marketing Platform",
 
     // Why Choose Section
     "whyChoose.title": "Why Choose DXAI Marketing Platform?",
@@ -996,7 +1111,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.mobile.title": "Supports both Web and Mobile",
     "whyChoose.mobile.description":
       "Convenient mobile application, allowing staff to use AI anytime, anywhere. User-friendly interface on all devices from desktop computers to mobile phones.",
-    "whyChoose.tools.aiModels": "GPT 5.1, Gemini 2.5 Pro, DeepSeek-R1, Claude 4.7",
+    "whyChoose.tools.aiModels":
+      "GPT 5.1, Gemini 2.5 Pro, DeepSeek-R1, Claude 4.7",
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Allocation, Revocation, Reporting, Budget",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
@@ -1025,7 +1141,8 @@ const translations: Record<Locale, Record<string, string>> = {
     // Why Choose Section (Optura Style)
     "whyChoose.optura.title": "Why Choose",
     "whyChoose.optura.brand": "DXAI Marketing Platform",
-    "whyChoose.optura.subtitle": "Compare traditional marketing workflows vs AI-powered automation solution",
+    "whyChoose.optura.subtitle":
+      "Compare traditional marketing workflows vs AI-powered automation solution",
     "whyChoose.optura.criteria": "Comparison Criteria",
     "whyChoose.optura.traditional": "Traditional Method",
     "whyChoose.optura.traditional.manual": "Manual Approach",
@@ -1033,10 +1150,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.dxai": "DXAI Marketing Platform",
     "whyChoose.optura.dxai.auto": "Automated Solution",
     "whyChoose.optura.guarantee.title": "Guaranteed Results",
-    "whyChoose.optura.guarantee.desc": "Metrics based on average data from 500+ businesses that have transitioned to the DXAI ecosystem. 80% cost savings calculated on total staffing and production budget.",
+    "whyChoose.optura.guarantee.desc":
+      "Metrics based on average data from 500+ businesses that have transitioned to the DXAI ecosystem. 80% cost savings calculated on total staffing and production budget.",
     "whyChoose.optura.tryNow": "Try Now",
     "whyChoose.optura.consult.title": "Need Expert Consultation?",
-    "whyChoose.optura.consult.desc": "Our team of experts is ready to provide free consultation to help you find the best solution for your business.",
+    "whyChoose.optura.consult.desc":
+      "Our team of experts is ready to provide free consultation to help you find the best solution for your business.",
     "whyChoose.optura.consultBtn": "Get Consultation",
     "whyChoose.optura.watchDemo": "Watch Demo",
     "whyChoose.optura.mobilePlatform": "DXAI Platform",
@@ -1055,22 +1174,27 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.row4.traditional": "Single task",
     "whyChoose.optura.row4.dxai": "Video + Images + Articles + Chatbot",
     "whyChoose.optura.row5.criteria": "Operation",
-    "whyChoose.optura.row5.traditional": "Requires shifts, leave, manual oversight",
+    "whyChoose.optura.row5.traditional":
+      "Requires shifts, leave, manual oversight",
     "whyChoose.optura.row5.dxai": "Automated 24/7",
 
     // Trusted Businesses Section
     "trusted.title.prefix": "Trusted by over",
     "trusted.title.count": "500 businesses",
     "trusted.title.suffix": "nationwide",
-    "trusted.subtitle": "Partnering with leading and growing businesses in Vietnam with AI marketing solutions.",
+    "trusted.subtitle":
+      "Partnering with leading and growing businesses in Vietnam with AI marketing solutions.",
     "trusted.stats.businesses": "Businesses Trust Us",
     "trusted.stats.provinces": "Vietnamese Provinces",
     "trusted.stats.industries": "Main Industries",
     "trusted.badge.soc2.title": "SOC 2 Type II Certified",
-    "trusted.badge.soc2.desc": "Enterprise-grade security standards for your data.",
+    "trusted.badge.soc2.desc":
+      "Enterprise-grade security standards for your data.",
     "trusted.badge.uptime.title": "99.9% Uptime SLA",
-    "trusted.badge.uptime.desc": "Platform reliability guaranteed for 24/7 operations.",
-    "trusted.copyright": "© 2024 DXAI Marketing. All rights reserved. Professional trust signals for Vietnam and International markets.",
+    "trusted.badge.uptime.desc":
+      "Platform reliability guaranteed for 24/7 operations.",
+    "trusted.copyright":
+      "© 2024 DXAI Marketing. All rights reserved. Professional trust signals for Vietnam and International markets.",
     "trusted.industry.retail": "Retail Industry",
     "trusted.industry.ecommerce": "E-Commerce",
     "trusted.industry.realestate": "Real Estate",
@@ -1140,7 +1264,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.subtitle": "Tien Phong CDS & DXAI – DXAI Marketing Platform",
     "about.hero.description":
       "Multi-channel Digital Marketing Transformation Partner, automating workflow from idea to content publishing.",
-    "about.hero.desc": "We redefine how businesses operate with an AI-First philosophy, driving comprehensive digital transformation and optimizing automated marketing performance.",
+    "about.hero.desc":
+      "We redefine how businesses operate with an AI-First philosophy, driving comprehensive digital transformation and optimizing automated marketing performance.",
     "about.hero.cta.contact": "Contact Now",
     "about.hero.cta.learn": "Learn More",
     "about.hero.image.alt": "Professional Tien Phong CDS Team",
@@ -1152,7 +1277,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Company Section
     "about.company.title": "Tien Phong CDS",
-    "about.company.subtitle": "Multi-channel digital transformation partner for Vietnamese businesses",
+    "about.company.subtitle":
+      "Multi-channel digital transformation partner for Vietnamese businesses",
     "about.company.desc1":
       "Tien Phong CDS is a pioneer in the field of Digital Marketing Transformation in Vietnam. We specialize in providing comprehensive AI Marketing solutions, helping businesses optimize marketing processes and increase business efficiency.",
     "about.company.desc2":
@@ -1171,11 +1297,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.why.expertise.desc":
       "Experience in deploying content and multi-channel advertising with the most advanced AI technology.",
     "about.why.optimize.title": "Optimize & Measure",
-    "about.why.optimize.desc": "Detailed reports, clear KPIs, and continuous improvement based on real data.",
+    "about.why.optimize.desc":
+      "Detailed reports, clear KPIs, and continuous improvement based on real data.",
     "about.why.speed.title": "Deployment Speed",
-    "about.why.speed.desc": "Clear process, fast sprints, on-time delivery as committed.",
+    "about.why.speed.desc":
+      "Clear process, fast sprints, on-time delivery as committed.",
     "about.why.support.title": "Dedicated Support",
-    "about.why.support.desc": "Long-term partnership, in-depth training, thorough onboarding for your team.",
+    "about.why.support.desc":
+      "Long-term partnership, in-depth training, thorough onboarding for your team.",
 
     // About Process
     "about.process.title": "Process",
@@ -1189,7 +1318,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.process.planning.desc":
       "Detailed planning with timeline, deliverables and clear milestones. Ensure all parties understand goals.",
     "about.process.design.title": "Design",
-    "about.process.design.desc": "Optimal UI/UX design, create wireframes and prototypes to confirm direction.",
+    "about.process.design.desc":
+      "Optimal UI/UX design, create wireframes and prototypes to confirm direction.",
     "about.process.development.title": "Development",
     "about.process.development.desc":
       "Development with modern technologies, optimized performance, security and scalability.",
@@ -1197,7 +1327,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.process.testing.desc":
       "Comprehensive testing of functionality, security, performance. Ensure bug-free product before launch.",
     "about.process.launch.title": "Launch",
-    "about.process.launch.desc": "Deploy to production, closely monitor and support customer team in usage.",
+    "about.process.launch.desc":
+      "Deploy to production, closely monitor and support customer team in usage.",
 
     // About Product Section
     "about.product.badge": "Our Product",
@@ -1205,17 +1336,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.subtitle":
       "Comprehensive AI marketing platform, automating every aspect from content creation to multi-channel distribution",
     "about.product.why.title": "Why Choose DXAI?",
-    "about.product.why.subtitle": "Comprehensive AI Marketing solution for modern businesses",
+    "about.product.why.subtitle":
+      "Comprehensive AI Marketing solution for modern businesses",
     "about.product.why.allinone.title": "All-in-One Platform",
-    "about.product.why.allinone.desc": "Complete AI marketing toolkit integrated in a single platform",
+    "about.product.why.allinone.desc":
+      "Complete AI marketing toolkit integrated in a single platform",
     "about.product.why.cost.title": "Cost Effective",
-    "about.product.why.cost.desc": "Save up to 85% compared to traditional marketing teams",
+    "about.product.why.cost.desc":
+      "Save up to 85% compared to traditional marketing teams",
     "about.product.why.multiplatform.title": "Multi-Platform",
-    "about.product.why.multiplatform.desc": "Auto-publish to 20+ social and marketing platforms",
+    "about.product.why.multiplatform.desc":
+      "Auto-publish to 20+ social and marketing platforms",
     "about.product.why.ai.title": "Intelligent AI",
-    "about.product.why.ai.desc": "Leverages 6 leading AI models to optimize every content",
+    "about.product.why.ai.desc":
+      "Leverages 6 leading AI models to optimize every content",
     "about.product.core.title": "Core Capabilities",
-    "about.product.core.desc": "8 core features helping businesses automate and optimize the entire marketing workflow",
+    "about.product.core.desc":
+      "8 core features helping businesses automate and optimize the entire marketing workflow",
     "about.product.feature.video.title": "AI Video Production",
     "about.product.feature.video.desc": "1000+ videos/month",
     "about.product.feature.image.title": "Image Design",
@@ -1234,7 +1371,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.feature.integration.desc": "20+ platforms",
     "about.product.tech.badge": "AI Technology",
     "about.product.tech.title": "Technology Behind DXAI",
-    "about.product.tech.subtitle": "Integrated with 6 world-leading AI models to deliver optimal results",
+    "about.product.tech.subtitle":
+      "Integrated with 6 world-leading AI models to deliver optimal results",
     "about.product.stat.businesses": "Businesses",
     "about.product.capabilities.title": "DXAI Capabilities",
     "about.product.capabilities.video": "Auto Video Production",
@@ -1254,52 +1392,68 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Philosophy Section
     "about.philosophy.title": "Our AI-First Philosophy",
-    "about.philosophy.description": "Tiên Phong CDS is not just a tool, but a digital brain that helps businesses enhance competitiveness and maximize operational efficiency through intelligent automation.",
+    "about.philosophy.description":
+      "Tiên Phong CDS is not just a tool, but a digital brain that helps businesses enhance competitiveness and maximize operational efficiency through intelligent automation.",
     "about.philosophy.benefit1.title": "Rapid Deployment",
-    "about.philosophy.benefit1.desc": "System ready to operate in just 48 hours",
+    "about.philosophy.benefit1.desc":
+      "System ready to operate in just 48 hours",
     "about.philosophy.benefit2.title": "Flexible Customization",
-    "about.philosophy.benefit2.desc": "Modular features tailored for each industry",
+    "about.philosophy.benefit2.desc":
+      "Modular features tailored for each industry",
     "about.philosophy.benefit3.title": "Maximum Security",
     "about.philosophy.benefit3.desc": "ISO/IEC 27001 security standards",
     "about.philosophy.benefit4.title": "Optimized ROI",
-    "about.philosophy.benefit4.desc": "40% reduced costs, 25% increased conversion",
+    "about.philosophy.benefit4.desc":
+      "40% reduced costs, 25% increased conversion",
 
     // About Workflow Section
     "about.workflow.badge": "Our Methodology",
     "about.workflow.title": "6-Step Process Workflow",
-    "about.workflow.subtitle": "Our structured approach ensures successful implementation and continuous optimization",
+    "about.workflow.subtitle":
+      "Our structured approach ensures successful implementation and continuous optimization",
     "about.workflow.step1.title": "Discovery",
     "about.workflow.step1.desc": "Business audit and AI readiness assessment",
     "about.workflow.step2.title": "Strategy",
-    "about.workflow.step2.desc": "Tailored AI Marketing roadmap focused on growth KPIs",
+    "about.workflow.step2.desc":
+      "Tailored AI Marketing roadmap focused on growth KPIs",
     "about.workflow.step3.title": "Integration",
-    "about.workflow.step3.desc": "Seamlessly connecting DXAI with existing data and tools",
+    "about.workflow.step3.desc":
+      "Seamlessly connecting DXAI with existing data and tools",
     "about.workflow.step4.title": "Optimization",
-    "about.workflow.step4.desc": "Model fine-tuning for performance and efficiency",
+    "about.workflow.step4.desc":
+      "Model fine-tuning for performance and efficiency",
     "about.workflow.step5.title": "Testing",
-    "about.workflow.step5.desc": "Rigorous quality assurance and performance tracking",
+    "about.workflow.step5.desc":
+      "Rigorous quality assurance and performance tracking",
     "about.workflow.step6.title": "Launch",
-    "about.workflow.step6.desc": "Full-scale deployment and continuous growth monitoring",
+    "about.workflow.step6.desc":
+      "Full-scale deployment and continuous growth monitoring",
 
     // About Why Choose Section
     "about.whyChoose.badge": "Why Choose Us",
     "about.whyChoose.title": "Why Choose Us",
-    "about.whyChoose.subtitle": "We combine deep marketing expertise with state-of-the-art AI infrastructure to drive enterprise growth.",
+    "about.whyChoose.subtitle":
+      "We combine deep marketing expertise with state-of-the-art AI infrastructure to drive enterprise growth.",
     "about.whyChoose.expertise1.title": "AI Expertise",
-    "about.whyChoose.expertise1.desc": "Leveraging DXAI product capabilities for marketing excellence",
+    "about.whyChoose.expertise1.desc":
+      "Leveraging DXAI product capabilities for marketing excellence",
     "about.whyChoose.expertise2.title": "Enterprise Support",
-    "about.whyChoose.expertise2.desc": "Dedicated 24/7 reliability for enterprise-grade operations",
+    "about.whyChoose.expertise2.desc":
+      "Dedicated 24/7 reliability for enterprise-grade operations",
     "about.whyChoose.expertise3.title": "Scalable Infrastructure",
-    "about.whyChoose.expertise3.desc": "Robust architecture built to grow with your business needs",
+    "about.whyChoose.expertise3.desc":
+      "Robust architecture built to grow with your business needs",
     "about.whyChoose.expertise4.title": "Data-Driven Results",
-    "about.whyChoose.expertise4.desc": "Optimizing performance through advanced AI model fine-tuning",
+    "about.whyChoose.expertise4.desc":
+      "Optimizing performance through advanced AI model fine-tuning",
 
     // About Final CTA Section
     "about.finalCta.badge": "Get Started Today",
     "about.finalCta.title.prefix": "Ready to streamline your ",
     "about.finalCta.title.highlight": "marketing workflow",
     "about.finalCta.title.suffix": "?",
-    "about.finalCta.description": "Join over 500 businesses transforming marketing with AI. Start your automation journey today.",
+    "about.finalCta.description":
+      "Join over 500 businesses transforming marketing with AI. Start your automation journey today.",
     "about.finalCta.cta.demo": "Schedule a Demo",
     "about.finalCta.cta.roadmap": "Download Roadmap",
     "about.finalCta.trust.noCard": "No credit card required",
@@ -1330,7 +1484,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Trusted Businesses Section
     "trustedBusinesses.title": "Trusted by over 500 businesses nationwide",
-    "trustedBusinesses.subtitle": "Chosen by businesses across various industries",
+    "trustedBusinesses.subtitle":
+      "Chosen by businesses across various industries",
     "trustedBusinesses.category.retail": "Retail Industry",
     "trustedBusinesses.category.commerce": "E-Commerce Industry",
     "trustedBusinesses.category.realestate": "Real Estate Industry",
@@ -1344,7 +1499,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.title.line1": "BOOST REVENUE",
     "heroLight.title.line2": "WITH",
     "heroLight.title.highlight": "SMART AI MARKETING",
-    "heroLight.subtitle.part1": "Vietnam's only AI system that helps businesses",
+    "heroLight.subtitle.part1":
+      "Vietnam's only AI system that helps businesses",
     "heroLight.subtitle.multichannel": "create multi-channel content",
     "heroLight.subtitle.customers": "manage customers",
     "heroLight.subtitle.ads": "optimize ads automatically",
@@ -1375,74 +1531,81 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.tech.title": "Technology Behind DXAI",
     "heroLight.tech.subtitle": "Integrated with world's leading AI models",
   },
-}
+};
 
 // ============================================================
 // CONTEXT
 // ============================================================
-const I18nContext = createContext<I18nContextType | undefined>(undefined)
+const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-const LOCALE_STORAGE_KEY = "dxai_locale"
+const LOCALE_STORAGE_KEY = "dxai_locale";
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("vi")
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [locale, setLocaleState] = useState<Locale>("vi");
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null
+      const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null;
       if (stored && (stored === "vi" || stored === "en")) {
-        setLocaleState(stored)
+        setLocaleState(stored);
       }
     } catch (error) {
-      console.error("Failed to read locale from localStorage:", error)
+      console.error("Failed to read locale from localStorage:", error);
     } finally {
-      setIsHydrated(true)
+      setIsHydrated(true);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (isHydrated) {
-      document.documentElement.lang = locale
+      document.documentElement.lang = locale;
     }
-  }, [locale, isHydrated])
+  }, [locale, isHydrated]);
 
   const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale)
+    setLocaleState(newLocale);
     try {
-      localStorage.setItem(LOCALE_STORAGE_KEY, newLocale)
+      localStorage.setItem(LOCALE_STORAGE_KEY, newLocale);
     } catch (error) {
-      console.error("Failed to save locale to localStorage:", error)
+      console.error("Failed to save locale to localStorage:", error);
     }
-  }, [])
+  }, []);
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
-      let text = translations[locale][key] || translations.vi[key] || key
+      let text = translations[locale][key] || translations.vi[key] || key;
 
       if (params) {
         Object.entries(params).forEach(([paramKey, value]) => {
-          text = text.replace(new RegExp(`\\{${paramKey}\\}`, "g"), String(value))
-        })
+          text = text.replace(
+            new RegExp(`\\{${paramKey}\\}`, "g"),
+            String(value),
+          );
+        });
       }
 
-      return text
+      return text;
     },
     [locale],
-  )
+  );
 
   // Prevent hydration mismatch by not rendering until client-side hydration is complete
   if (!isHydrated) {
-    return null
+    return null;
   }
 
-  return <I18nContext.Provider value={{ locale, setLocale, t }}>{children}</I18nContext.Provider>
+  return (
+    <I18nContext.Provider value={{ locale, setLocale, t }}>
+      {children}
+    </I18nContext.Provider>
+  );
 }
 
 export function useI18n() {
-  const context = useContext(I18nContext)
+  const context = useContext(I18nContext);
   if (!context) {
-    throw new Error("useI18n must be used within an I18nProvider")
+    throw new Error("useI18n must be used within an I18nProvider");
   }
-  return context
+  return context;
 }

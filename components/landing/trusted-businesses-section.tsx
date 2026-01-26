@@ -1,18 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { ShoppingBag, ShoppingCart, Building2, Factory, Shield, CheckCircle2 } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useEffect, useRef, useState } from "react";
+import {
+  ShoppingBag,
+  ShoppingCart,
+  Building2,
+  Factory,
+  Shield,
+  CheckCircle2,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // TYPES
 // ============================================================
 interface Industry {
-  id: string
-  iconComponent: React.ElementType
-  nameKey: string
-  logos: string[]
+  id: string;
+  iconComponent: React.ElementType;
+  nameKey: string;
+  logos: string[];
 }
 
 // ============================================================
@@ -79,31 +86,31 @@ const industries: Industry[] = [
       "Tân Hiệp Phát",
     ],
   },
-]
+];
 
 // ============================================================
 // COMPONENTS
 // ============================================================
 function LogoCard({ name, index }: { name: string; index: number }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 50)
+          setTimeout(() => setIsVisible(true), index * 50);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (cardRef.current) {
-      observer.observe(cardRef.current)
+      observer.observe(cardRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
@@ -114,45 +121,51 @@ function LogoCard({ name, index }: { name: string; index: number }) {
         "transition-all duration-300",
         "hover:-translate-y-1 hover:shadow-lg hover:border-[#22b5f8]/50 hover:bg-white",
         "cursor-pointer group",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
       )}
     >
       <span className="text-sm font-medium text-gray-400 group-hover:text-gray-600 transition-colors text-center px-2">
         {name}
       </span>
     </div>
-  )
+  );
 }
 
-function IndustryColumn({ industry, index }: { industry: Industry; index: number }) {
-  const { t } = useI18n()
-  const Icon = industry.iconComponent
-  const [isVisible, setIsVisible] = useState(false)
-  const columnRef = useRef<HTMLDivElement>(null)
+function IndustryColumn({
+  industry,
+  index,
+}: {
+  industry: Industry;
+  index: number;
+}) {
+  const { t } = useI18n();
+  const Icon = industry.iconComponent;
+  const [isVisible, setIsVisible] = useState(false);
+  const columnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 100)
+          setTimeout(() => setIsVisible(true), index * 100);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (columnRef.current) {
-      observer.observe(columnRef.current)
+      observer.observe(columnRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
       ref={columnRef}
       className={cn(
         "flex flex-col items-center transition-all duration-700",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
       {/* Industry Header */}
@@ -172,92 +185,110 @@ function IndustryColumn({ industry, index }: { industry: Industry; index: number
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-function StatCard({ number, label, index }: { number: string; label: string; index: number }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [displayNumber, setDisplayNumber] = useState("0")
-  const cardRef = useRef<HTMLDivElement>(null)
+function StatCard({
+  number,
+  label,
+  index,
+}: {
+  number: string;
+  label: string;
+  index: number;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [displayNumber, setDisplayNumber] = useState("0");
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 100)
+          setTimeout(() => setIsVisible(true), index * 100);
         }
       },
-      { threshold: 0.3 }
-    )
+      { threshold: 0.3 },
+    );
 
     if (cardRef.current) {
-      observer.observe(cardRef.current)
+      observer.observe(cardRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   useEffect(() => {
-    if (!isVisible) return
+    if (!isVisible) return;
 
-    const target = parseInt(number.replace(/[^0-9]/g, ""))
+    const target = parseInt(number.replace(/[^0-9]/g, ""));
     if (isNaN(target)) {
-      setDisplayNumber(number)
-      return
+      setDisplayNumber(number);
+      return;
     }
 
-    let current = 0
-    const increment = target / 50
+    let current = 0;
+    const increment = target / 50;
     const timer = setInterval(() => {
-      current += increment
+      current += increment;
       if (current >= target) {
-        clearInterval(timer)
-        setDisplayNumber(number)
+        clearInterval(timer);
+        setDisplayNumber(number);
       } else {
-        const suffix = number.includes("+") ? "+" : ""
-        setDisplayNumber(Math.floor(current).toLocaleString() + suffix)
+        const suffix = number.includes("+") ? "+" : "";
+        setDisplayNumber(Math.floor(current).toLocaleString() + suffix);
       }
-    }, 30)
+    }, 30);
 
-    return () => clearInterval(timer)
-  }, [isVisible, number])
+    return () => clearInterval(timer);
+  }, [isVisible, number]);
 
   return (
     <div
       ref={cardRef}
       className={cn(
         "text-center transition-all duration-700",
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
       )}
     >
-      <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff] mb-2">
+      <p className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff] mb-2">
         {displayNumber}
       </p>
       <p className="text-base font-semibold text-gray-700">{label}</p>
     </div>
-  )
+  );
 }
 
-function TrustBadge({ icon: Icon, title, description, index }: { icon: React.ElementType; title: string; description: string; index: number }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const badgeRef = useRef<HTMLDivElement>(null)
+function TrustBadge({
+  icon: Icon,
+  title,
+  description,
+  index,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  index: number;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const badgeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 150)
+          setTimeout(() => setIsVisible(true), index * 150);
         }
       },
-      { threshold: 0.3 }
-    )
+      { threshold: 0.3 },
+    );
 
     if (badgeRef.current) {
-      observer.observe(badgeRef.current)
+      observer.observe(badgeRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
@@ -266,10 +297,10 @@ function TrustBadge({ icon: Icon, title, description, index }: { icon: React.Ele
         "flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200",
         "shadow-sm hover:shadow-lg transition-all duration-300",
         "hover:border-[#22b5f8]/50 hover:-translate-y-1",
-        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4",
       )}
     >
-      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#22b5f8] to-[#008bff] flex items-center justify-center shadow-lg">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-linear-to-br from-[#22b5f8] to-[#008bff] flex items-center justify-center shadow-lg">
         <Icon className="w-5 h-5 text-white" />
       </div>
       <div>
@@ -277,14 +308,14 @@ function TrustBadge({ icon: Icon, title, description, index }: { icon: React.Ele
         <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
     </div>
-  )
+  );
 }
 
 // ============================================================
 // MAIN COMPONENT
 // ============================================================
 export function TrustedBusinessesSection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <section className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
@@ -294,12 +325,12 @@ export function TrustedBusinessesSection() {
         <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#5fffec]/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative container mx-auto">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
             {t("trusted.title.prefix")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff]">
               {t("trusted.title.count")}
             </span>{" "}
             {t("trusted.title.suffix")}
@@ -312,12 +343,14 @@ export function TrustedBusinessesSection() {
         {/* Industry Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-16">
           {industries.map((industry, index) => (
-            <IndustryColumn key={industry.id} industry={industry} index={index} />
+            <IndustryColumn
+              key={industry.id}
+              industry={industry}
+              index={index}
+            />
           ))}
         </div>
-
-        
       </div>
     </section>
-  )
+  );
 }

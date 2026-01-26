@@ -1,22 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Search, Lightbulb, Puzzle, SlidersHorizontal, ClipboardCheck, Rocket } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect, useRef } from "react";
+import {
+  Search,
+  Lightbulb,
+  Puzzle,
+  SlidersHorizontal,
+  ClipboardCheck,
+  Rocket,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // TYPES
 // ============================================================
 interface Step {
-  number: string
-  icon: React.ElementType
-  titleKey: string
-  descKey: string
-  color: string
-  bgColor: string
-  lightBg: string
-  borderColor: string
+  number: string;
+  icon: React.ElementType;
+  titleKey: string;
+  descKey: string;
+  color: string;
+  bgColor: string;
+  lightBg: string;
+  borderColor: string;
 }
 
 // ============================================================
@@ -83,56 +90,61 @@ const steps: Step[] = [
     lightBg: "bg-indigo-50",
     borderColor: "border-indigo-200",
   },
-]
+];
 
 // ============================================================
 // STEP NUMBER COMPONENT
 // ============================================================
-function StepNumber({ number, bgColor, isVisible, index }: {
-  number: string
-  bgColor: string
-  isVisible: boolean
-  index: number
+function StepNumber({
+  number,
+  bgColor,
+  isVisible,
+  index,
+}: {
+  number: string;
+  bgColor: string;
+  isVisible: boolean;
+  index: number;
 }) {
   return (
     <div
       className={cn(
         "relative z-10 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-500",
         bgColor,
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75",
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <span className="text-lg font-black text-white">{number}</span>
     </div>
-  )
+  );
 }
 
 // ============================================================
 // STEP CARD COMPONENT
 // ============================================================
 function StepCard({ step, index }: { step: Step; index: number }) {
-  const { t } = useI18n()
-  const [isVisible, setIsVisible] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
-  const Icon = step.icon
+  const { t } = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const Icon = step.icon;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 100)
+          setTimeout(() => setIsVisible(true), index * 100);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (cardRef.current) {
-      observer.observe(cardRef.current)
+      observer.observe(cardRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
@@ -141,7 +153,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
         "group relative bg-white border-2 rounded-2xl p-6 transition-all duration-500",
         "hover:shadow-xl hover:-translate-y-2",
         step.borderColor,
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
       style={{ transitionDelay: `${index * 100 + 150}ms` }}
     >
@@ -150,7 +162,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
         className={cn(
           "w-12 h-12 rounded-xl flex items-center justify-center mb-4",
           "group-hover:scale-110 transition-transform duration-300",
-          step.lightBg
+          step.lightBg,
         )}
       >
         <Icon className={cn("w-6 h-6", step.color)} />
@@ -160,73 +172,73 @@ function StepCard({ step, index }: { step: Step; index: number }) {
       <h3 className="text-lg font-bold text-gray-900 mb-2">
         {t(step.titleKey)}
       </h3>
-      <p className="text-sm text-gray-600 leading-relaxed">
-        {t(step.descKey)}
-      </p>
+      <p className="text-sm text-gray-600 leading-relaxed">{t(step.descKey)}</p>
 
       {/* Bottom accent line */}
       <div
         className={cn(
           "absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl",
           "transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300",
-          step.bgColor
+          step.bgColor,
         )}
       />
     </div>
-  )
+  );
 }
 
 // ============================================================
 // MAIN COMPONENT
 // ============================================================
 export function WorkflowTimeline() {
-  const { t } = useI18n()
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
-  const [isTimelineVisible, setIsTimelineVisible] = useState(false)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const timelineRef = useRef<HTMLDivElement>(null)
+  const { t } = useI18n();
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const [isTimelineVisible, setIsTimelineVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsHeaderVisible(true)
+          setIsHeaderVisible(true);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     const timelineObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsTimelineVisible(true)
+          setIsTimelineVisible(true);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (headerRef.current) {
-      headerObserver.observe(headerRef.current)
+      headerObserver.observe(headerRef.current);
     }
     if (timelineRef.current) {
-      timelineObserver.observe(timelineRef.current)
+      timelineObserver.observe(timelineRef.current);
     }
 
     return () => {
-      headerObserver.disconnect()
-      timelineObserver.disconnect()
-    }
-  }, [])
+      headerObserver.disconnect();
+      timelineObserver.disconnect();
+    };
+  }, []);
 
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div
           ref={headerRef}
           className={cn(
             "text-center mb-16 max-w-3xl mx-auto transition-all duration-700",
-            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            isHeaderVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8",
           )}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/5 border border-[#22b5f8]/30 rounded-full mb-6">
@@ -250,7 +262,7 @@ export function WorkflowTimeline() {
             <div
               className={cn(
                 "absolute inset-0 border-t-2 border-dashed border-gray-300 transition-all duration-1000",
-                isTimelineVisible ? "opacity-100" : "opacity-0"
+                isTimelineVisible ? "opacity-100" : "opacity-0",
               )}
             />
           </div>
@@ -285,10 +297,12 @@ export function WorkflowTimeline() {
               <div
                 className={cn(
                   "absolute -top-3 -left-3 z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-md",
-                  step.bgColor
+                  step.bgColor,
                 )}
               >
-                <span className="text-sm font-black text-white">{step.number}</span>
+                <span className="text-sm font-black text-white">
+                  {step.number}
+                </span>
               </div>
               <StepCard step={step} index={index} />
             </div>
@@ -296,5 +310,5 @@ export function WorkflowTimeline() {
         </div>
       </div>
     </section>
-  )
+  );
 }

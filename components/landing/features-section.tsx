@@ -1,22 +1,30 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import { Video, FileText, Calendar, ImageIcon, BarChart3, Link2, ArrowRight } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import {
+  Video,
+  FileText,
+  Calendar,
+  ImageIcon,
+  BarChart3,
+  Link2,
+  ArrowRight,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // TYPES
 // ============================================================
 interface Feature {
-  id: string
-  icon: React.ElementType
-  iconBg: string
-  iconColor: string
-  badge: string
-  badgeColor: string
-  image: string
+  id: string;
+  icon: React.ElementType;
+  iconBg: string;
+  iconColor: string;
+  badge: string;
+  badgeColor: string;
+  image: string;
 }
 
 // ============================================================
@@ -77,22 +85,22 @@ const features: Feature[] = [
     badgeColor: "bg-orange-100 text-orange-700 border-orange-200",
     image: "/social-media-multi-platform-publishing-dashboard.jpg",
   },
-]
+];
 
 // ============================================================
 // FEATURE ROW COMPONENT
 // ============================================================
 interface FeatureRowProps {
-  feature: Feature
-  index: number
-  isVisible: boolean
+  feature: Feature;
+  index: number;
+  isVisible: boolean;
 }
 
 function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
-  const { t } = useI18n()
-  const Icon = feature.icon
-  const isEven = index % 2 === 0
-  const [imageError, setImageError] = useState(false)
+  const { t } = useI18n();
+  const Icon = feature.icon;
+  const isEven = index % 2 === 0;
+  const [imageError, setImageError] = useState(false);
 
   const imageContent = (
     <div
@@ -103,7 +111,7 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
           ? "opacity-100 translate-x-0"
           : isEven
             ? "opacity-0 -translate-x-16"
-            : "opacity-0 translate-x-16"
+            : "opacity-0 translate-x-16",
       )}
     >
       {/* Badge */}
@@ -112,14 +120,14 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
           "absolute top-4 right-4 z-10",
           "px-3 py-1.5 rounded-full text-sm font-semibold border",
           "bg-white/90 backdrop-blur-sm shadow-sm",
-          feature.badgeColor
+          feature.badgeColor,
         )}
       >
         {feature.badge}
       </div>
 
       {/* Image with placeholder fallback */}
-      <div className="aspect-[4/3] relative bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="aspect-[4/3] relative bg-linear-to-br from-gray-100 to-gray-200">
         {!imageError ? (
           <Image
             src={feature.image}
@@ -135,21 +143,21 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
         )}
       </div>
     </div>
-  )
+  );
 
   const contentBlock = (
     <div
       className={cn(
         "flex flex-col justify-center",
         "transition-all duration-700 ease-out delay-200",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
       {/* Icon */}
       <div
         className={cn(
           "w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
-          feature.iconBg
+          feature.iconBg,
         )}
       >
         <Icon className={cn("w-6 h-6", feature.iconColor)} />
@@ -179,21 +187,21 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
         className={cn(
           "inline-flex items-center gap-2 font-semibold",
           feature.iconColor,
-          "hover:gap-3 transition-all duration-300"
+          "hover:gap-3 transition-all duration-300",
         )}
       >
         {t("features.learnMore")}
         <ArrowRight className="w-4 h-4" />
       </a>
     </div>
-  )
+  );
 
   return (
     <div
       className={cn(
         "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center",
         "py-16 lg:py-24",
-        index !== 0 && "border-t border-gray-100"
+        index !== 0 && "border-t border-gray-100",
       )}
     >
       {/* Zigzag: alternate order based on index */}
@@ -209,52 +217,56 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
         </>
       )}
     </div>
-  )
+  );
 }
 
 // ============================================================
 // MAIN COMPONENT
 // ============================================================
 export function FeaturesSection() {
-  const { t } = useI18n()
-  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set())
-  const featureRefs = useRef<(HTMLDivElement | null)[]>([])
+  const { t } = useI18n();
+  const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(
+    new Set(),
+  );
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = []
+    const observers: IntersectionObserver[] = [];
 
     featureRefs.current.forEach((ref, index) => {
-      if (!ref) return
+      if (!ref) return;
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              setVisibleFeatures((prev) => new Set([...prev, index]))
-              observer.disconnect()
+              setVisibleFeatures((prev) => new Set([...prev, index]));
+              observer.disconnect();
             }
-          })
+          });
         },
-        { threshold: 0.2, rootMargin: "0px 0px -100px 0px" }
-      )
+        { threshold: 0.2, rootMargin: "0px 0px -100px 0px" },
+      );
 
-      observer.observe(ref)
-      observers.push(observer)
-    })
+      observer.observe(ref);
+      observers.push(observer);
+    });
 
-    return () => observers.forEach((obs) => obs.disconnect())
-  }, [])
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   return (
     <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff]">
               {t("features.title")}
             </span>{" "}
-            <span className="text-gray-900">{t("features.titleHighlight")}</span>
+            <span className="text-gray-900">
+              {t("features.titleHighlight")}
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {t("features.subtitle")}
@@ -262,12 +274,12 @@ export function FeaturesSection() {
         </div>
 
         {/* Feature Rows - Zigzag Layout */}
-        <div className="max-w-6xl mx-auto">
+        <div className="">
           {features.map((feature, index) => (
             <div
               key={feature.id}
               ref={(el) => {
-                featureRefs.current[index] = el
+                featureRefs.current[index] = el;
               }}
             >
               <FeatureRow
@@ -280,5 +292,5 @@ export function FeaturesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

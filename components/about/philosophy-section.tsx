@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Rocket, Settings, Shield, TrendingUp } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect, useRef } from "react";
+import { Rocket, Settings, Shield, TrendingUp } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export function PhilosophySection() {
-  const { t } = useI18n()
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const { t } = useI18n();
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsHeaderVisible(true)
+          setIsHeaderVisible(true);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (headerRef.current) {
-      observer.observe(headerRef.current)
+      observer.observe(headerRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const benefits = [
     {
@@ -60,17 +60,19 @@ export function PhilosophySection() {
       bgColor: "bg-rose-600",
       lightBg: "bg-rose-50",
     },
-  ]
+  ];
 
   return (
     <section id="philosophy" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div
           ref={headerRef}
           className={cn(
             "text-center mb-16 max-w-3xl mx-auto transition-all duration-700",
-            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            isHeaderVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8",
           )}
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111518] mb-6">
@@ -89,45 +91,53 @@ export function PhilosophySection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 interface BenefitItem {
-  icon: React.ElementType
-  titleKey: string
-  descKey: string
-  color: string
-  bgColor: string
-  lightBg: string
+  icon: React.ElementType;
+  titleKey: string;
+  descKey: string;
+  color: string;
+  bgColor: string;
+  lightBg: string;
 }
 
-function BenefitCard({ benefit, index, t }: { benefit: BenefitItem; index: number; t: (key: string) => string }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+function BenefitCard({
+  benefit,
+  index,
+  t,
+}: {
+  benefit: BenefitItem;
+  index: number;
+  t: (key: string) => string;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 100)
+          setTimeout(() => setIsVisible(true), index * 100);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (cardRef.current) {
-      observer.observe(cardRef.current)
+      observer.observe(cardRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
       ref={cardRef}
       className={cn(
         "group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
       {/* Icon with gradient background */}
@@ -138,13 +148,17 @@ function BenefitCard({ benefit, index, t }: { benefit: BenefitItem; index: numbe
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-bold text-[#111518] mb-3">{t(benefit.titleKey)}</h3>
-      <p className="text-gray-600 leading-relaxed text-sm">{t(benefit.descKey)}</p>
+      <h3 className="text-xl font-bold text-[#111518] mb-3">
+        {t(benefit.titleKey)}
+      </h3>
+      <p className="text-gray-600 leading-relaxed text-sm">
+        {t(benefit.descKey)}
+      </p>
 
       {/* Hover accent line */}
       <div
         className={`absolute bottom-0 left-0 right-0 h-1 ${benefit.bgColor} rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
       />
     </div>
-  )
+  );
 }

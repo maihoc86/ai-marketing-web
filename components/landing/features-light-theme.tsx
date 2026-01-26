@@ -1,19 +1,26 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Video, FileText, Calendar, Image as ImageIcon, BarChart3, Link2 } from "lucide-react"
-import Image from "next/image"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useEffect, useRef, useState } from "react";
+import {
+  Video,
+  FileText,
+  Calendar,
+  Image as ImageIcon,
+  BarChart3,
+  Link2,
+} from "lucide-react";
+import Image from "next/image";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 interface Feature {
-  icon: React.ElementType
-  titleKey: string
-  descKey: string
-  statLabelKey: string
-  statValue: string
-  iconBg: string
-  image: string
+  icon: React.ElementType;
+  titleKey: string;
+  descKey: string;
+  statLabelKey: string;
+  statValue: string;
+  iconBg: string;
+  image: string;
 }
 
 const features: Feature[] = [
@@ -71,35 +78,35 @@ const features: Feature[] = [
     iconBg: "from-orange-500 to-orange-600",
     image: "/social-media-multi-platform-publishing-dashboard.jpg",
   },
-]
+];
 
 export function FeaturesLightTheme() {
-  const { t } = useI18n()
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const { t } = useI18n();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       {
         threshold: 0.1,
-      }
-    )
+      },
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <section
@@ -114,11 +121,11 @@ export function FeaturesLightTheme() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-100/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative container mx-auto">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600">
               {t("features.title")}
             </span>{" "}
             {t("features.titleHighlight")}
@@ -142,19 +149,19 @@ export function FeaturesLightTheme() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 interface FeatureCardProps {
-  feature: Feature
-  index: number
-  isVisible: boolean
-  t: (key: string, params?: Record<string, string | number>) => string
+  feature: Feature;
+  index: number;
+  isVisible: boolean;
+  t: (key: string, params?: Record<string, string | number>) => string;
 }
 
 function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
-  const Icon = feature.icon
-  const [isHovered, setIsHovered] = useState(false)
+  const Icon = feature.icon;
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
@@ -162,7 +169,7 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
         "group relative rounded-2xl bg-white border border-gray-200 overflow-hidden",
         "hover:border-blue-300 hover:shadow-xl transition-all duration-300",
         "cursor-pointer",
-        isVisible ? "animate-fade-up opacity-100" : "opacity-0"
+        isVisible ? "animate-fade-up opacity-100" : "opacity-0",
       )}
       style={{
         animationDelay: isVisible ? `${index * 100}ms` : "0ms",
@@ -171,14 +178,14 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Section */}
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="relative h-48 overflow-hidden bg-linear-to-br from-gray-100 to-gray-200">
         <Image
           src={feature.image}
           alt={t(feature.titleKey)}
           fill
           className={cn(
             "object-cover transition-transform duration-500",
-            isHovered && "scale-110"
+            isHovered && "scale-110",
           )}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
@@ -186,13 +193,17 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
 
         {/* Stat badge on image */}
         <div className="absolute top-4 right-4">
-          <div className={cn(
-            "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full",
-            "bg-white/95 backdrop-blur-sm border border-white/50 shadow-lg",
-            "transition-all duration-300",
-            isHovered && "scale-110"
-          )}>
-            <span className="text-xs font-bold text-blue-600">{feature.statValue}</span>
+          <div
+            className={cn(
+              "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full",
+              "bg-white/95 backdrop-blur-sm border border-white/50 shadow-lg",
+              "transition-all duration-300",
+              isHovered && "scale-110",
+            )}
+          >
+            <span className="text-xs font-bold text-blue-600">
+              {feature.statValue}
+            </span>
           </div>
         </div>
       </div>
@@ -201,14 +212,16 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
       <div className="p-6">
         {/* Icon with gradient background */}
         <div className="mb-4">
-          <div className={cn(
-            "inline-flex items-center justify-center",
-            "w-12 h-12 rounded-xl",
-            `bg-gradient-to-br ${feature.iconBg}`,
-            "shadow-lg",
-            "transition-all duration-300",
-            isHovered && "scale-110 shadow-xl"
-          )}>
+          <div
+            className={cn(
+              "inline-flex items-center justify-center",
+              "w-12 h-12 rounded-xl",
+              `bg-linear-to-br ${feature.iconBg}`,
+              "shadow-lg",
+              "transition-all duration-300",
+              isHovered && "scale-110 shadow-xl",
+            )}
+          >
             <Icon className="w-6 h-6 text-white" />
           </div>
         </div>
@@ -225,21 +238,25 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
 
         {/* Bottom stat label */}
         <div className="flex items-center gap-2 text-xs font-medium text-gray-500">
-          <div className={cn(
-            "w-2 h-2 rounded-full bg-blue-500",
-            "transition-all duration-300",
-            isHovered && "animate-pulse"
-          )} />
+          <div
+            className={cn(
+              "w-2 h-2 rounded-full bg-blue-500",
+              "transition-all duration-300",
+              isHovered && "animate-pulse",
+            )}
+          />
           <span>{t(feature.statLabelKey)}</span>
         </div>
       </div>
 
       {/* Hover effect overlay */}
-      <div className={cn(
-        "absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent opacity-0",
-        "transition-opacity duration-300 pointer-events-none",
-        isHovered && "opacity-100"
-      )} />
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent opacity-0",
+          "transition-opacity duration-300 pointer-events-none",
+          isHovered && "opacity-100",
+        )}
+      />
     </div>
-  )
+  );
 }

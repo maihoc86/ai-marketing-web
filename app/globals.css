@@ -4,6 +4,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Override container to always have padding */
+@layer utilities {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
 :root {
   /* ============================================
      UNIKSMART BRAND COLORS - LIGHT THEME
@@ -327,16 +349,32 @@
 @keyframes enter {
   from {
     opacity: var(--tw-enter-opacity, 1);
-    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0)
-      scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1));
+    transform: translate3d(
+        var(--tw-enter-translate-x, 0),
+        var(--tw-enter-translate-y, 0),
+        0
+      )
+      scale3d(
+        var(--tw-enter-scale, 1),
+        var(--tw-enter-scale, 1),
+        var(--tw-enter-scale, 1)
+      );
   }
 }
 
 @keyframes exit {
   to {
     opacity: var(--tw-exit-opacity, 1);
-    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0)
-      scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1));
+    transform: translate3d(
+        var(--tw-exit-translate-x, 0),
+        var(--tw-exit-translate-y, 0),
+        0
+      )
+      scale3d(
+        var(--tw-exit-scale, 1),
+        var(--tw-exit-scale, 1),
+        var(--tw-exit-scale, 1)
+      );
   }
 }
 
@@ -373,20 +411,15 @@
   .bg-gradient-optura {
     background: linear-gradient(
       135deg,
-      #eff6ff 0%,      /* blue-50 */
-      #dbeafe 25%,     /* blue-100 */
-      #e0f2fe 50%,     /* cyan-100 */
-      #f0f9ff 100%     /* sky-50 */
+      #eff6ff 0%,
+      /* blue-50 */ #dbeafe 25%,
+      /* blue-100 */ #e0f2fe 50%,
+      /* cyan-100 */ #f0f9ff 100% /* sky-50 */
     );
   }
 
   .bg-gradient-optura-subtle {
-    background: linear-gradient(
-      180deg,
-      #f0f9ff 0%,
-      #ffffff 50%,
-      #eff6ff 100%
-    );
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 50%, #eff6ff 100%);
   }
 
   /* Glassmorphism effects */
@@ -454,7 +487,11 @@
 
   /* Dot pattern background */
   .bg-dot-pattern {
-    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.15) 1px,
+      transparent 1px
+    );
     background-size: 24px 24px;
   }
 }
@@ -467,41 +504,41 @@
 @layer utilities {
   /* Primary Colors - Professional Blue */
   .text-primary-light {
-    color: #0066CC;
+    color: #0066cc;
   }
 
   .bg-primary-light {
-    background-color: #0066CC;
+    background-color: #0066cc;
   }
 
   .bg-primary-hover {
-    background-color: #0052A3;
+    background-color: #0052a3;
   }
 
   .text-electric-blue {
-    color: #007AFF;
+    color: #007aff;
   }
 
   /* Background & Surface Colors */
   .bg-light {
-    background-color: #F8FAFC;
+    background-color: #f8fafc;
   }
 
   .bg-surface-white {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 
   .bg-zebra-stripe {
-    background-color: #F1F5F9;
+    background-color: #f1f5f9;
   }
 
   /* Text Colors */
   .text-main {
-    color: #0F172A;
+    color: #0f172a;
   }
 
   .text-secondary {
-    color: #64748B;
+    color: #64748b;
   }
 
   .text-body {
@@ -510,7 +547,7 @@
 
   /* Border Colors */
   .border-light {
-    border-color: #E2E8F0;
+    border-color: #e2e8f0;
   }
 
   .border-glass {
@@ -521,9 +558,11 @@
 /* Enhanced Glassmorphism Cards - Light Theme */
 @layer components {
   .light-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 
   .light-card-hover {
@@ -531,8 +570,10 @@
   }
 
   .light-card-hover:hover {
-    border-color: #CBD5E1;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    border-color: #cbd5e1;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.05),
+      0 4px 6px -2px rgba(0, 0, 0, 0.025);
   }
 
   .dashboard-glass {
@@ -540,7 +581,9 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(226, 232, 240, 0.8);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.05),
+      0 10px 10px -5px rgba(0, 0, 0, 0.02);
   }
 
   .glassmorphism-nav {
@@ -554,15 +597,21 @@
 /* Enhanced Shadows - Subtle Professional */
 @layer utilities {
   .shadow-soft {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 
   .shadow-card {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.05),
+      0 4px 6px -2px rgba(0, 0, 0, 0.025);
   }
 
   .shadow-card-hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.08),
+      0 10px 10px -5px rgba(0, 0, 0, 0.03);
   }
 
   .shadow-glow-primary {
@@ -574,14 +623,16 @@
   }
 
   .shadow-depth {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.05),
+      0 10px 10px -5px rgba(0, 0, 0, 0.01);
   }
 }
 
 /* Gradient Backgrounds - Light Theme Mesh */
 @layer utilities {
   .light-mesh {
-    background-color: #F8FAFC;
+    background-color: #f8fafc;
     background-image:
       radial-gradient(at 0% 0%, rgba(0, 122, 255, 0.05) 0px, transparent 50%),
       radial-gradient(at 100% 0%, rgba(0, 122, 255, 0.03) 0px, transparent 50%),
@@ -589,11 +640,11 @@
   }
 
   .hero-gradient-light {
-    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
   }
 
   .gradient-blue-subtle {
-    background: linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
   }
 }
 
@@ -633,7 +684,7 @@
 
   .btn-secondary-light {
     background: white;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #e2e8f0;
     color: #475569;
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
@@ -642,8 +693,8 @@
   }
 
   .btn-secondary-light:hover {
-    background: #F8FAFC;
-    border-color: #CBD5E1;
+    background: #f8fafc;
+    border-color: #cbd5e1;
   }
 }
 
@@ -662,7 +713,11 @@
   }
 
   .badge-brand-gradient {
-    background: linear-gradient(90deg, rgba(95, 255, 236, 0.15), rgba(0, 139, 255, 0.15));
+    background: linear-gradient(
+      90deg,
+      rgba(95, 255, 236, 0.15),
+      rgba(0, 139, 255, 0.15)
+    );
     border: 1px solid rgba(34, 181, 248, 0.3);
     color: #22b5f8;
     padding: 0.375rem 0.75rem;
@@ -732,7 +787,8 @@
 
 /* Floating animation for decorative elements */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -741,7 +797,8 @@
 }
 
 @keyframes float-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   33% {
@@ -754,7 +811,8 @@
 
 /* Pulse glow animation */
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
@@ -887,7 +945,8 @@
 
 /* Dashboard glow pulse - UNIKSMART Brand */
 @keyframes dashboardGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 40px rgba(34, 181, 248, 0.15);
   }
   50% {
@@ -897,7 +956,8 @@
 
 /* Live indicator pulse */
 @keyframes livePulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }

@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { LanguageSelector } from "@/components/language-selector"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { LanguageSelector } from "@/components/language-selector";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { t } = useI18n()
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useI18n();
 
   const navLinks = [
     { href: "/#features", label: t("nav.features") },
     { href: "/#pricing", label: t("nav.pricing") },
     { href: "/ve-chung-toi", label: t("nav.about") },
     { href: "/#faq", label: t("nav.faq") },
-  ]
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4">
-      <div className="mx-auto max-w-7xl">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-4 ">
+      <div className="container mx-auto">
         <nav
           className={cn(
             "flex items-center justify-between",
@@ -156,7 +156,11 @@ export function Navbar() {
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
-              {isOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
+              {isOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
             </button>
           </div>
         </nav>
@@ -169,7 +173,9 @@ export function Navbar() {
             "border border-[#e0e0e0]",
             "rounded-2xl shadow-lg shadow-black/10",
             "transition-all duration-300 ease-out overflow-hidden",
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none",
+            isOpen
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0 pointer-events-none",
           )}
           aria-hidden={!isOpen}
         >
@@ -200,7 +206,9 @@ export function Navbar() {
 
             {/* Language Selector */}
             <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[14px] text-[#666666] font-medium">Ngôn ngữ</span>
+              <span className="text-[14px] text-[#666666] font-medium">
+                Ngôn ngữ
+              </span>
               <LanguageSelector variant="pill" />
             </div>
 
@@ -249,5 +257,5 @@ export function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }

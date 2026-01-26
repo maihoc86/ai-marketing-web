@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import {
   Sparkles,
   Target,
@@ -15,12 +15,12 @@ import {
   TestTube,
   Rocket,
   CheckCircle2,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export function CompanySection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   const whyChooseUs = [
     {
@@ -51,7 +51,7 @@ export function CompanySection() {
       color: "text-rose-600",
       bgColor: "bg-rose-100",
     },
-  ]
+  ];
 
   const processSteps = [
     {
@@ -84,14 +84,14 @@ export function CompanySection() {
       titleKey: "about.process.launch.title",
       descKey: "about.process.launch.desc",
     },
-  ]
+  ];
 
   const companyHighlights = [
     "about.company.highlight1",
     "about.company.highlight2",
     "about.company.highlight3",
     "about.company.highlight4",
-  ]
+  ];
 
   return (
     <section id="company" className="py-20 bg-white">
@@ -99,14 +99,18 @@ export function CompanySection() {
         {/* About Company */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{t("about.company.title")}</h2>
-            <p className="text-lg text-gray-500">{t("about.company.subtitle")}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              {t("about.company.title")}
+            </h2>
+            <p className="text-lg text-gray-500">
+              {t("about.company.subtitle")}
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Image */}
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-blue-50">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-linear-to-br from-blue-100 to-blue-50">
                 <Image
                   src="/professional-team-meeting-in-modern-office-with-la.jpg"
                   alt="Đội ngũ Tiên Phong CDS"
@@ -119,8 +123,12 @@ export function CompanySection() {
 
             {/* Right - Content */}
             <div>
-              <p className="text-gray-600 leading-relaxed mb-6">{t("about.company.desc1")}</p>
-              <p className="text-gray-600 leading-relaxed mb-8">{t("about.company.desc2")}</p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {t("about.company.desc1")}
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                {t("about.company.desc2")}
+              </p>
 
               {/* Bullet points */}
               <ul className="space-y-3 mb-8">
@@ -149,8 +157,12 @@ export function CompanySection() {
         {/* Why Choose Us */}
         <div className="mb-24">
           <div className="text-center mb-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{t("about.why.title")}</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">{t("about.why.subtitle")}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              {t("about.why.title")}
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              {t("about.why.subtitle")}
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 mt-12">
@@ -166,8 +178,12 @@ export function CompanySection() {
                   <item.icon className={`w-6 h-6 ${item.color}`} />
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{t(item.titleKey)}</h3>
-                <p className="text-gray-600 leading-relaxed">{t(item.descKey)}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  {t(item.titleKey)}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {t(item.descKey)}
+                </p>
               </div>
             ))}
           </div>
@@ -175,26 +191,33 @@ export function CompanySection() {
 
         {/* Process */}
         <div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">{t("about.process.title")}</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">
+            {t("about.process.title")}
+          </h2>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column - Description + Image */}
             <div>
-              <p className="text-gray-600 leading-relaxed mb-6">{t("about.process.description")}</p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {t("about.process.description")}
+              </p>
 
               <Button
                 variant="outline"
                 className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8]/5 font-medium px-5 py-4 rounded-xl mb-8 bg-transparent"
                 asChild
               >
-                <Link href="https://tienphongcds.com/vi/blog" className="flex items-center gap-2">
+                <Link
+                  href="https://tienphongcds.com/vi/blog"
+                  className="flex items-center gap-2"
+                >
                   {t("about.process.cta")}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
 
               {/* Process illustration image */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-50 to-gray-100">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-linear-to-br from-blue-50 to-gray-100">
                 <Image
                   src="/team-collaboration-workflow-with-gears-and-process.jpg"
                   alt="Quy trình làm việc"
@@ -219,8 +242,12 @@ export function CompanySection() {
 
                     {/* Content */}
                     <div className="flex-1 pb-2">
-                      <h4 className="text-lg font-bold text-gray-900 mb-2">{t(step.titleKey)}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{t(step.descKey)}</p>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        {t(step.titleKey)}
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {t(step.descKey)}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -230,5 +257,5 @@ export function CompanySection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

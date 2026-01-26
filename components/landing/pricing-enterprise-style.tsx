@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Check, X } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { Check, X } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 interface PricingPlan {
-  name: string
-  nameKey: string
-  priceUSD: number | "custom"
-  priceVND: number | "custom"
-  description: string
-  descriptionKey: string
-  popular?: boolean
-  features: string[]
-  featuresKeys: string[]
-  ctaText: string
-  ctaKey: string
+  name: string;
+  nameKey: string;
+  priceUSD: number | "custom";
+  priceVND: number | "custom";
+  description: string;
+  descriptionKey: string;
+  popular?: boolean;
+  features: string[];
+  featuresKeys: string[];
+  ctaText: string;
+  ctaKey: string;
 }
 
 const pricingPlans: PricingPlan[] = [
@@ -117,15 +117,15 @@ const pricingPlans: PricingPlan[] = [
     ctaText: "Contact Sales",
     ctaKey: "pricing.enterprise.enterprise.cta",
   },
-]
+];
 
 // Feature comparison data
 interface ComparisonFeature {
-  name: string
-  nameKey: string
-  startup: string | boolean
-  growth: string | boolean
-  enterprise: string | boolean
+  name: string;
+  nameKey: string;
+  startup: string | boolean;
+  growth: string | boolean;
+  enterprise: string | boolean;
 }
 
 const comparisonFeatures: ComparisonFeature[] = [
@@ -164,29 +164,34 @@ const comparisonFeatures: ComparisonFeature[] = [
     growth: "SaaS",
     enterprise: "Hybrid / On-Prem",
   },
-]
+];
 
 export function PricingEnterpriseStyle() {
-  const { t, locale } = useI18n()
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly")
+  const { t, locale } = useI18n();
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
+    "monthly",
+  );
 
   // Calculate discounted yearly price (15% discount)
   const calculateYearlyPrice = (monthlyPrice: number | "custom") => {
-    if (monthlyPrice === "custom") return "custom"
-    return Math.round(monthlyPrice * 12 * 0.85) // 15% discount
-  }
+    if (monthlyPrice === "custom") return "custom";
+    return Math.round(monthlyPrice * 12 * 0.85); // 15% discount
+  };
 
-  const formatPrice = (priceVND: number | "custom", priceUSD: number | "custom") => {
+  const formatPrice = (
+    priceVND: number | "custom",
+    priceUSD: number | "custom",
+  ) => {
     if (priceVND === "custom") {
-      return locale === "vi" ? "Liên hệ" : "Custom"
+      return locale === "vi" ? "Liên hệ" : "Custom";
     }
 
     if (locale === "vi") {
-      return `${new Intl.NumberFormat("vi-VN").format(priceVND as number)} VNĐ`
+      return `${new Intl.NumberFormat("vi-VN").format(priceVND as number)} VNĐ`;
     } else {
-      return `$${new Intl.NumberFormat("en-US").format(priceUSD as number)}`
+      return `$${new Intl.NumberFormat("en-US").format(priceUSD as number)}`;
     }
-  }
+  };
 
   const renderComparisonValue = (value: string | boolean) => {
     if (typeof value === "boolean") {
@@ -194,10 +199,10 @@ export function PricingEnterpriseStyle() {
         <Check className="w-5 h-5 text-green-600 mx-auto" />
       ) : (
         <X className="w-5 h-5 text-gray-300 mx-auto" />
-      )
+      );
     }
-    return <span className="text-sm font-medium text-gray-700">{value}</span>
-  }
+    return <span className="text-sm font-medium text-gray-700">{value}</span>;
+  };
 
   return (
     <section
@@ -208,11 +213,14 @@ export function PricingEnterpriseStyle() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-40" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-50 rounded-full blur-3xl opacity-40" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            {t("pricing.enterprise.title")} <span className="text-blue-600">{t("pricing.enterprise.titleHighlight")}</span>
+            {t("pricing.enterprise.title")}{" "}
+            <span className="text-blue-600">
+              {t("pricing.enterprise.titleHighlight")}
+            </span>
           </h2>
           <p className="text-lg text-gray-600 mb-8">
             {t("pricing.enterprise.subtitle.full")}
@@ -226,7 +234,7 @@ export function PricingEnterpriseStyle() {
                 "px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200",
                 billingPeriod === "monthly"
                   ? "bg-white text-gray-900 shadow-md"
-                  : "text-gray-600 hover:text-gray-900"
+                  : "text-gray-600 hover:text-gray-900",
               )}
             >
               {t("pricing.enterprise.billing.monthly")}
@@ -237,7 +245,7 @@ export function PricingEnterpriseStyle() {
                 "px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 relative",
                 billingPeriod === "yearly"
                   ? "bg-white text-gray-900 shadow-md"
-                  : "text-gray-600 hover:text-gray-900"
+                  : "text-gray-600 hover:text-gray-900",
               )}
             >
               {t("pricing.enterprise.billing.yearly")}
@@ -297,24 +305,34 @@ export function PricingEnterpriseStyle() {
                         {locale === "vi" ? (
                           billingPeriod === "monthly" ? (
                             <>
-                              {new Intl.NumberFormat("vi-VN").format(plan.priceVND as number).slice(0, -4)}
+                              {new Intl.NumberFormat("vi-VN")
+                                .format(plan.priceVND as number)
+                                .slice(0, -4)}
                               <span className="text-2xl text-gray-600">K</span>
                             </>
                           ) : (
                             <>
-                              {new Intl.NumberFormat("vi-VN").format(calculateYearlyPrice(plan.priceVND) as number).slice(0, -4)}
+                              {new Intl.NumberFormat("vi-VN")
+                                .format(
+                                  calculateYearlyPrice(plan.priceVND) as number,
+                                )
+                                .slice(0, -4)}
                               <span className="text-2xl text-gray-600">K</span>
                             </>
                           )
+                        ) : billingPeriod === "monthly" ? (
+                          `$${plan.priceUSD}`
                         ) : (
-                          billingPeriod === "monthly" ? `$${plan.priceUSD}` : `$${calculateYearlyPrice(plan.priceUSD)}`
+                          `$${calculateYearlyPrice(plan.priceUSD)}`
                         )}
                       </>
                     )}
                   </span>
                   {plan.priceVND !== "custom" && (
                     <span className="text-gray-600 text-base">
-                      {t(`pricing.enterprise.per${billingPeriod === "monthly" ? "Month" : "Year"}`)}
+                      {t(
+                        `pricing.enterprise.per${billingPeriod === "monthly" ? "Month" : "Year"}`,
+                      )}
                     </span>
                   )}
                 </div>
@@ -352,7 +370,7 @@ export function PricingEnterpriseStyle() {
         </div>
 
         {/* Feature Comparison Table */}
-        <div className="max-w-6xl mx-auto">
+        <div>
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">
             {t("pricing.enterprise.comparison.title")}
           </h3>
@@ -401,9 +419,7 @@ export function PricingEnterpriseStyle() {
             </div>
           </div>
         </div>
-
-        
       </div>
     </section>
-  )
+  );
 }

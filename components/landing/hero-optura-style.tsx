@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Sparkles, Play, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
-import { YouTubeModal } from "@/components/youtube-modal"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Sparkles, Play, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
+import { YouTubeModal } from "@/components/youtube-modal";
 
 export function HeroOpturaStyle() {
-  const { t } = useI18n()
-  const [showVideoModal, setShowVideoModal] = useState(false)
+  const { t } = useI18n();
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
     <>
@@ -25,7 +25,7 @@ export function HeroOpturaStyle() {
 
         {/* Content container */}
         <div className="relative container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-24">
-          <div className="max-w-7xl mx-auto">
+          <div className="container mx-auto">
             {/* Floating badge */}
             <div className="flex justify-center mb-8 animate-fade-down">
               <div className="floating-label inline-flex items-center gap-2 px-5 py-2.5 rounded-full">
@@ -88,26 +88,26 @@ export function HeroOpturaStyle() {
         videoId="dQw4w9WgXcQ"
       />
     </>
-  )
+  );
 }
 
 // Dashboard mockup card with glassmorphism
 function DashboardMockupCard() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   // Set this to true when you have a real dashboard screenshot
-  const hasRealScreenshot = false
-  const screenshotPath = "/images/dashboard-screenshot.png" // Update this path
+  const hasRealScreenshot = false;
+  const screenshotPath = "/images/dashboard-screenshot.png"; // Update this path
 
   return (
-    <div className="relative max-w-6xl mx-auto animate-scale-in animation-delay-400">
+    <div className="relative container mx-auto max-w-6xl animate-scale-in animation-delay-400">
       {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-[3rem] opacity-20 blur-2xl" />
+      <div className="absolute -inset-4 bg-linear-to-r from-blue-400 to-cyan-400 rounded-[3rem] opacity-20 blur-2xl" />
 
       {/* Main card */}
       <div className="relative glass-card-strong rounded-[2.5rem] p-3 md:p-6">
         {/* Dashboard image */}
-        <div className="relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div className="relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-linear-to-br from-blue-50 to-cyan-50">
           {hasRealScreenshot ? (
             // Real dashboard screenshot
             <Image
@@ -123,14 +123,15 @@ function DashboardMockupCard() {
             <>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center px-6">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-4 shadow-optura">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-linear-to-br from-blue-500 to-cyan-500 mb-4 shadow-optura">
                     <Sparkles className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                     {t("hero.dashboard.title") || "AI Marketing Dashboard"}
                   </h3>
                   <p className="text-gray-600 max-w-md mx-auto">
-                    {t("hero.dashboard.subtitle") || "Quản lý toàn bộ chiến dịch marketing từ một nền tảng"}
+                    {t("hero.dashboard.subtitle") ||
+                      "Quản lý toàn bộ chiến dịch marketing từ một nền tảng"}
                   </p>
                 </div>
               </div>
@@ -162,19 +163,39 @@ function DashboardMockupCard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Floating brand icons with animation
 function FloatingBrandIcons() {
   const brands = [
     { name: "ChatGPT", icon: "🤖", position: "top-20 left-[5%]", delay: "0s" },
-    { name: "Gemini", icon: "✨", position: "top-40 right-[8%]", delay: "0.5s" },
-    { name: "Claude", icon: "🧠", position: "bottom-32 left-[10%]", delay: "1s" },
-    { name: "Meta AI", icon: "🎯", position: "bottom-20 right-[12%]", delay: "1.5s" },
+    {
+      name: "Gemini",
+      icon: "✨",
+      position: "top-40 right-[8%]",
+      delay: "0.5s",
+    },
+    {
+      name: "Claude",
+      icon: "🧠",
+      position: "bottom-32 left-[10%]",
+      delay: "1s",
+    },
+    {
+      name: "Meta AI",
+      icon: "🎯",
+      position: "bottom-20 right-[12%]",
+      delay: "1.5s",
+    },
     { name: "HubSpot", icon: "📊", position: "top-1/3 left-[2%]", delay: "2s" },
-    { name: "Canva", icon: "🎨", position: "top-1/2 right-[5%]", delay: "2.5s" },
-  ]
+    {
+      name: "Canva",
+      icon: "🎨",
+      position: "top-1/2 right-[5%]",
+      delay: "2.5s",
+    },
+  ];
 
   return (
     <div className="absolute inset-0 pointer-events-none hidden lg:block">
@@ -192,5 +213,5 @@ function FloatingBrandIcons() {
         </div>
       ))}
     </div>
-  )
+  );
 }

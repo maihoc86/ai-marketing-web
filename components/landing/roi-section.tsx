@@ -1,15 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { TrendingUp, Clock, Zap, Users, Settings, Sparkles, Play, ArrowRight } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import YouTubeModal from "@/components/youtube-modal"
+import { useState } from "react";
+import {
+  TrendingUp,
+  Clock,
+  Zap,
+  Users,
+  Settings,
+  Sparkles,
+  Play,
+  ArrowRight,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import YouTubeModal from "@/components/youtube-modal";
 
 export function RoiSection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Helper function to render title with highlighted brand name
+  const renderTitle = () => {
+    const brandName = t("roi.title.brand");
+    const fullTitle = t("roi.title.full", { brand: brandName });
 
+    // Split text by brand name and render with highlight
+    const parts = fullTitle.split(brandName);
+
+    return (
+      <>
+        {parts[0]}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
+          {brandName}
+        </span>
+        {parts[1]}
+      </>
+    );
+  };
   const comparisonData = [
     {
       criteriaKey: "roi.row1.criteria",
@@ -61,7 +87,7 @@ export function RoiSection() {
       icon: Settings,
       iconBg: "from-indigo-500 to-indigo-600",
     },
-  ]
+  ];
 
   return (
     <section
@@ -71,24 +97,20 @@ export function RoiSection() {
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 -left-20 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-[#5fffec]/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff7900]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -right-20 size-125 bg-[#5fffec]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-150 bg-[#ff7900]/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 text-[#008bff] text-xs font-bold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 text-[#008bff] text-xs font-bold uppercase tracking-wider mb-6">
             <Sparkles className="w-4 h-4 text-[#22b5f8]" />
             {t("roi.badge")}
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight px-4">
-            {t("roi.title.why")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
-              {t("roi.title.brand")}
-            </span>{" "}
-            {t("roi.title.excels")}
+            {renderTitle()}
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8 px-4">
             {t("roi.subtitle.full")}
@@ -97,31 +119,44 @@ export function RoiSection() {
             onClick={() => setIsModalOpen(true)}
             className="inline-flex items-center justify-center gap-2 bg-[#ff7900] hover:bg-[#e56b00] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all group"
           >
-            <Play className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" />
+            <Play
+              className="w-5 h-5 group-hover:scale-110 transition-transform"
+              fill="currentColor"
+            />
             {t("roi.watchDemo")}
           </button>
         </div>
 
         {/* Comparison Table - Enhanced Modern Design */}
-        <div className="max-w-6xl mx-auto">
+        <div>
           {/* Desktop View - 3 Column Grid */}
           <div className="hidden lg:block">
             {/* Table Header */}
             <div className="grid grid-cols-[280px_1fr_1fr] gap-4 mb-4">
               {/* Criteria Column Header */}
-              <div className="flex items-center justify-center p-5 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
+              <div className="flex items-center justify-center p-5 rounded-2xl bg-linear-to-br from-gray-50 to-gray-100 border border-gray-200">
                 <span className="text-sm font-bold text-gray-700 uppercase tracking-wider">
                   {t("roi.header.criteria")}
                 </span>
               </div>
 
               {/* Traditional Method Header */}
-              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-red-50 via-orange-50 to-red-50 border border-red-200 overflow-hidden">
+              <div className="relative p-5 rounded-2xl bg-linear-to-br from-red-50 via-orange-50 to-red-50 border border-red-200 overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-red-200/30 rounded-full blur-2xl" />
                 <div className="relative flex flex-col items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-5 h-5 text-red-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </div>
                   <h3 className="text-base font-bold text-gray-900">
@@ -134,16 +169,26 @@ export function RoiSection() {
               </div>
 
               {/* DXAI AI Header */}
-              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 border border-green-300 overflow-hidden">
-                <div className="absolute -top-1 -right-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5 shadow-lg">
+              <div className="relative p-5 rounded-2xl bg-linear-to-br from-green-50 via-emerald-50 to-green-50 border border-green-300 overflow-hidden">
+                <div className="absolute -top-1 -right-1 bg-linear-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5 shadow-lg">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{t("roi.header.recommended")}</span>
                 </div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-green-200/30 rounded-full blur-2xl" />
                 <div className="relative flex flex-col items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <h3 className="text-base font-bold text-gray-900">
@@ -165,7 +210,9 @@ export function RoiSection() {
                 >
                   {/* Criteria Cell */}
                   <div className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${row.iconBg} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                    <div
+                      className={`w-10 h-10 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-lg flex-shrink-0`}
+                    >
                       <row.icon className="w-5 h-5 text-white" />
                     </div>
                     <span className="font-semibold text-gray-900 text-sm">
@@ -174,30 +221,34 @@ export function RoiSection() {
                   </div>
 
                   {/* Traditional Value */}
-                  <div className="p-5 rounded-2xl bg-gradient-to-br from-red-50/50 to-orange-50/30 border border-red-100 hover:border-red-200 transition-all">
+                  <div className="p-5 rounded-2xl bg-linear-to-br from-red-50/50 to-orange-50/30 border border-red-100 hover:border-red-200 transition-all">
                     <div className="text-center">
                       <p className="text-base font-semibold text-gray-700 mb-1">
                         {t(row.traditionalKey)}
                       </p>
-                      <p className="text-xs text-gray-500">{t(row.traditionalDescKey)}</p>
+                      <p className="text-xs text-gray-500">
+                        {t(row.traditionalDescKey)}
+                      </p>
                     </div>
                   </div>
 
                   {/* AI Value */}
-                  <div className="p-5 rounded-2xl bg-gradient-to-br from-green-50/50 to-emerald-50/30 border border-green-200 hover:border-green-300 transition-all relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-400/0 via-green-400/5 to-green-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <div className="p-5 rounded-2xl bg-linear-to-br from-green-50/50 to-emerald-50/30 border border-green-200 hover:border-green-300 transition-all relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-linear-to-r from-green-400/0 via-green-400/5 to-green-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                     <div className="relative text-center">
                       <div className="flex items-center justify-center gap-2 mb-1">
                         <p className="text-base font-bold text-green-700">
                           {t(row.aiKey)}
                         </p>
                         {row.savingsKey && (
-                          <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md">
+                          <span className="bg-linear-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md">
                             {t(row.savingsKey)}
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-green-600 font-medium">{t(row.aiDescKey)}</p>
+                      <p className="text-xs text-green-600 font-medium">
+                        {t(row.aiDescKey)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -213,8 +264,10 @@ export function RoiSection() {
                 className="rounded-2xl bg-white border border-gray-200 shadow-lg overflow-hidden"
               >
                 {/* Criteria Header */}
-                <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-                  <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${row.iconBg} flex items-center justify-center shadow-md flex-shrink-0`}>
+                <div className="flex items-center gap-3 p-4 bg-linear-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+                  <div
+                    className={`w-9 h-9 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-md flex-shrink-0`}
+                  >
                     <row.icon className="w-4 h-4 text-white" />
                   </div>
                   <span className="font-bold text-gray-900 text-sm">
@@ -225,7 +278,7 @@ export function RoiSection() {
                 {/* Comparison Values */}
                 <div className="grid grid-cols-2 divide-x divide-gray-200">
                   {/* Traditional */}
-                  <div className="p-4 bg-gradient-to-br from-red-50/50 to-orange-50/30">
+                  <div className="p-4 bg-linear-to-br from-red-50/50 to-orange-50/30">
                     <div className="text-center">
                       <p className="text-xs text-gray-600 mb-1 font-medium uppercase tracking-wider">
                         {t("roi.mobile.traditional")}
@@ -233,15 +286,17 @@ export function RoiSection() {
                       <p className="text-sm font-semibold text-gray-700 mb-0.5">
                         {t(row.traditionalKey)}
                       </p>
-                      <p className="text-xs text-gray-500">{t(row.traditionalDescKey)}</p>
+                      <p className="text-xs text-gray-500">
+                        {t(row.traditionalDescKey)}
+                      </p>
                     </div>
                   </div>
 
                   {/* AI */}
-                  <div className="p-4 bg-gradient-to-br from-green-50/50 to-emerald-50/30 relative">
+                  <div className="p-4 bg-linear-to-br from-green-50/50 to-emerald-50/30 relative">
                     {row.savingsKey && (
                       <div className="absolute top-2 right-2">
-                        <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">
+                        <span className="bg-linear-to-r from-green-500 to-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">
                           {t(row.savingsKey)}
                         </span>
                       </div>
@@ -253,7 +308,9 @@ export function RoiSection() {
                       <p className="text-sm font-bold text-green-700 mb-0.5">
                         {t(row.aiKey)}
                       </p>
-                      <p className="text-xs text-green-600 font-medium">{t(row.aiDescKey)}</p>
+                      <p className="text-xs text-green-600 font-medium">
+                        {t(row.aiDescKey)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -283,14 +340,16 @@ export function RoiSection() {
                 {t("roi.cta.learn")}
               </a>
             </div>
-            <p className="text-xs text-gray-500 mt-6">
-              {t("roi.disclaimer")}
-            </p>
+            <p className="text-xs text-gray-500 mt-6">{t("roi.disclaimer")}</p>
           </div>
         </div>
       </div>
 
-      <YouTubeModal videoId="R5RuHV_JrMM" isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <YouTubeModal
+        videoId="R5RuHV_JrMM"
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
-  )
+  );
 }

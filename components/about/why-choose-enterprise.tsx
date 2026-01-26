@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Brain, Headphones, Cloud, BarChart3 } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect, useRef } from "react";
+import { Brain, Headphones, Cloud, BarChart3 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export function WhyChooseEnterprise() {
-  const { t } = useI18n()
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const { t } = useI18n();
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsHeaderVisible(true)
+          setIsHeaderVisible(true);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (headerRef.current) {
-      observer.observe(headerRef.current)
+      observer.observe(headerRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const expertise = [
     {
@@ -60,17 +60,19 @@ export function WhyChooseEnterprise() {
       bgColor: "bg-orange-600",
       lightBg: "bg-orange-50",
     },
-  ]
+  ];
 
   return (
     <section className="py-24 bg-[#f5f7f8]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div
           ref={headerRef}
           className={cn(
             "text-center mb-16 max-w-3xl mx-auto transition-all duration-700",
-            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            isHeaderVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8",
           )}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/10 rounded-full mb-6">
@@ -94,45 +96,53 @@ export function WhyChooseEnterprise() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 interface ExpertiseItem {
-  icon: React.ElementType
-  titleKey: string
-  descKey: string
-  color: string
-  bgColor: string
-  lightBg: string
+  icon: React.ElementType;
+  titleKey: string;
+  descKey: string;
+  color: string;
+  bgColor: string;
+  lightBg: string;
 }
 
-function ExpertiseCard({ item, index, t }: { item: ExpertiseItem; index: number; t: (key: string) => string }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+function ExpertiseCard({
+  item,
+  index,
+  t,
+}: {
+  item: ExpertiseItem;
+  index: number;
+  t: (key: string) => string;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 150)
+          setTimeout(() => setIsVisible(true), index * 150);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (cardRef.current) {
-      observer.observe(cardRef.current)
+      observer.observe(cardRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [index])
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <div
       ref={cardRef}
       className={cn(
         "group relative bg-white rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
       )}
     >
       {/* Icon circle with gradient */}
@@ -148,7 +158,9 @@ function ExpertiseCard({ item, index, t }: { item: ExpertiseItem; index: number;
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-bold text-[#111518] mb-3 leading-tight">{t(item.titleKey)}</h3>
+      <h3 className="text-xl font-bold text-[#111518] mb-3 leading-tight">
+        {t(item.titleKey)}
+      </h3>
       <p className="text-gray-600 leading-relaxed text-sm">{t(item.descKey)}</p>
 
       {/* Bottom accent bar */}
@@ -156,5 +168,5 @@ function ExpertiseCard({ item, index, t }: { item: ExpertiseItem; index: number;
         className={`absolute bottom-0 left-0 right-0 h-1.5 ${item.bgColor} rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
       />
     </div>
-  )
+  );
 }

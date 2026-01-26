@@ -1,30 +1,36 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Rocket, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { DemoButton } from "@/components/youtube-modal"
-import { useI18n } from "@/lib/i18n"
-import { DashboardMockup } from "./dashboard-mockup"
-import { TechShowcase } from "./tech-showcase"
-import { UserSocialProof, CTATrustSignals, ValuePropositions } from "./trust-signals"
+import Link from "next/link";
+import { Rocket, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DemoButton } from "@/components/youtube-modal";
+import { useI18n } from "@/lib/i18n";
+import { DashboardMockup } from "./dashboard-mockup";
+import { TechShowcase } from "./tech-showcase";
+import {
+  UserSocialProof,
+  CTATrustSignals,
+  ValuePropositions,
+} from "./trust-signals";
 
 export function HeroContent() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       {/* Left Column - Text Content */}
       <div className="text-center lg:text-left order-2 lg:order-1">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
           <Rocket className="w-4 h-4 text-[#22b5f8]" />
-          <span className="text-sm font-semibold text-[#008bff]">{t("hero.badge")}</span>
+          <span className="text-sm font-semibold text-[#008bff]">
+            {t("hero.badge")}
+          </span>
         </div>
 
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6 text-balance">
-          <span className="bg-gradient-to-r from-[#5fffec] to-[#008bff] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#5fffec] to-[#008bff] bg-clip-text text-transparent">
             {t("hero.title.line1")}
           </span>{" "}
           <br className="hidden sm:block" />
@@ -70,7 +76,7 @@ export function HeroContent() {
         <DashboardMockup />
       </div>
     </div>
-  )
+  );
 }
 
 // ============================================================
@@ -81,5 +87,5 @@ export function HeroBottom() {
     <div className="mt-16 md:mt-24">
       <TechShowcase />
     </div>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useCallback, useEffect, useRef } from "react"
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { useI18n } from "@/lib/i18n"
+import { useState, useCallback, useEffect, useRef } from "react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 const testimonialsData = {
   vi: [
@@ -64,20 +64,25 @@ const testimonialsData = {
       avatar: "/professional-asian-man-business-director-portrait.jpg",
     },
   ],
-}
+};
 
-const ANIMATION_DURATION = 400
-const AUTO_SLIDE_INTERVAL = 5000
-const RESUME_DELAY = 7000
+const ANIMATION_DURATION = 400;
+const AUTO_SLIDE_INTERVAL = 5000;
+const RESUME_DELAY = 7000;
 
 interface TestimonialCardProps {
-  testimonial: (typeof testimonialsData.vi)[0]
-  isActive: boolean
-  onClick?: () => void
-  isClickable?: boolean
+  testimonial: (typeof testimonialsData.vi)[0];
+  isActive: boolean;
+  onClick?: () => void;
+  isClickable?: boolean;
 }
 
-function TestimonialCard({ testimonial, isActive, onClick, isClickable }: TestimonialCardProps) {
+function TestimonialCard({
+  testimonial,
+  isActive,
+  onClick,
+  isClickable,
+}: TestimonialCardProps) {
   return (
     <div
       onClick={isClickable ? onClick : undefined}
@@ -86,7 +91,9 @@ function TestimonialCard({ testimonial, isActive, onClick, isClickable }: Testim
         "w-full",
         "min-h-[320px] md:min-h-[340px]",
         "transition-all duration-400 ease-out",
-        isActive ? "shadow-2xl scale-100 opacity-100" : "shadow-lg scale-95 opacity-50 hover:opacity-70",
+        isActive
+          ? "shadow-2xl scale-100 opacity-100"
+          : "shadow-lg scale-95 opacity-50 hover:opacity-70",
         isClickable && "cursor-pointer",
       )}
     >
@@ -108,7 +115,7 @@ function TestimonialCard({ testimonial, isActive, onClick, isClickable }: Testim
           "{testimonial.content}"
         </blockquote>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6" />
+        <div className="h-px bg-linear-to-r from-transparent via-gray-200 to-transparent mb-6" />
 
         <div className="flex items-center gap-4 h-14">
           <div
@@ -125,7 +132,9 @@ function TestimonialCard({ testimonial, isActive, onClick, isClickable }: Testim
             />
           </div>
           <div className="min-w-0">
-            <div className="font-semibold text-gray-900 text-sm md:text-base truncate">{testimonial.author}</div>
+            <div className="font-semibold text-gray-900 text-sm md:text-base truncate">
+              {testimonial.author}
+            </div>
             <div className="text-gray-500 text-xs md:text-sm truncate">
               {testimonial.role}, {testimonial.company}
             </div>
@@ -133,137 +142,142 @@ function TestimonialCard({ testimonial, isActive, onClick, isClickable }: Testim
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
-  const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
-  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const { t, locale } = useI18n()
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const { t, locale } = useI18n();
 
-  const testimonials = testimonialsData[locale] || testimonialsData.vi
+  const testimonials = testimonialsData[locale] || testimonialsData.vi;
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mediaQuery.matches)
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
 
     const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches)
-    }
+      setPrefersReducedMotion(e.matches);
+    };
 
-    mediaQuery.addEventListener("change", handleChange)
-    return () => mediaQuery.removeEventListener("change", handleChange)
-  }, [])
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const getVisibleIndices = useCallback(() => {
-    const total = testimonials.length
-    const left = (activeIndex - 1 + total) % total
-    const right = (activeIndex + 1) % total
-    return { left, center: activeIndex, right }
-  }, [activeIndex, testimonials.length])
+    const total = testimonials.length;
+    const left = (activeIndex - 1 + total) % total;
+    const right = (activeIndex + 1) % total;
+    return { left, center: activeIndex, right };
+  }, [activeIndex, testimonials.length]);
 
-  const { left: leftIndex, right: rightIndex } = getVisibleIndices()
+  const { left: leftIndex, right: rightIndex } = getVisibleIndices();
 
   const navigateTo = useCallback(
     (newIndex: number) => {
-      if (isAnimating) return
+      if (isAnimating) return;
 
-      setIsAnimating(true)
-      setActiveIndex(newIndex)
+      setIsAnimating(true);
+      setActiveIndex(newIndex);
 
       setTimeout(() => {
-        setIsAnimating(false)
-      }, ANIMATION_DURATION)
+        setIsAnimating(false);
+      }, ANIMATION_DURATION);
     },
     [isAnimating],
-  )
+  );
 
   const nextTestimonial = useCallback(() => {
-    navigateTo((activeIndex + 1) % testimonials.length)
-  }, [activeIndex, navigateTo, testimonials.length])
+    navigateTo((activeIndex + 1) % testimonials.length);
+  }, [activeIndex, navigateTo, testimonials.length]);
 
   const prevTestimonial = useCallback(() => {
-    navigateTo((activeIndex - 1 + testimonials.length) % testimonials.length)
-  }, [activeIndex, navigateTo, testimonials.length])
+    navigateTo((activeIndex - 1 + testimonials.length) % testimonials.length);
+  }, [activeIndex, navigateTo, testimonials.length]);
 
   const pauseAutoSlide = useCallback(() => {
-    setIsPaused(true)
+    setIsPaused(true);
 
     if (resumeTimeoutRef.current) {
-      clearTimeout(resumeTimeoutRef.current)
+      clearTimeout(resumeTimeoutRef.current);
     }
 
     resumeTimeoutRef.current = setTimeout(() => {
-      setIsPaused(false)
-    }, RESUME_DELAY)
-  }, [])
+      setIsPaused(false);
+    }, RESUME_DELAY);
+  }, []);
 
   const handleUserInteraction = useCallback(() => {
-    pauseAutoSlide()
-  }, [pauseAutoSlide])
+    pauseAutoSlide();
+  }, [pauseAutoSlide]);
 
   useEffect(() => {
-    if (prefersReducedMotion || testimonials.length <= 1 || isPaused || isAnimating) {
-      return
+    if (
+      prefersReducedMotion ||
+      testimonials.length <= 1 ||
+      isPaused ||
+      isAnimating
+    ) {
+      return;
     }
 
     autoSlideRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length)
-    }, AUTO_SLIDE_INTERVAL)
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, AUTO_SLIDE_INTERVAL);
 
     return () => {
       if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current)
+        clearInterval(autoSlideRef.current);
       }
-    }
-  }, [prefersReducedMotion, isPaused, isAnimating, testimonials.length])
+    };
+  }, [prefersReducedMotion, isPaused, isAnimating, testimonials.length]);
 
   useEffect(() => {
     return () => {
       if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current)
+        clearInterval(autoSlideRef.current);
       }
       if (resumeTimeoutRef.current) {
-        clearTimeout(resumeTimeoutRef.current)
+        clearTimeout(resumeTimeoutRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const handlePrev = useCallback(() => {
-    handleUserInteraction()
-    prevTestimonial()
-  }, [handleUserInteraction, prevTestimonial])
+    handleUserInteraction();
+    prevTestimonial();
+  }, [handleUserInteraction, prevTestimonial]);
 
   const handleNext = useCallback(() => {
-    handleUserInteraction()
-    nextTestimonial()
-  }, [handleUserInteraction, nextTestimonial])
+    handleUserInteraction();
+    nextTestimonial();
+  }, [handleUserInteraction, nextTestimonial]);
 
   const handleDotClick = useCallback(
     (idx: number) => {
-      handleUserInteraction()
-      navigateTo(idx)
+      handleUserInteraction();
+      navigateTo(idx);
     },
     [handleUserInteraction, navigateTo],
-  )
+  );
 
   const handleLeftCardClick = useCallback(() => {
-    handleUserInteraction()
-    prevTestimonial()
-  }, [handleUserInteraction, prevTestimonial])
+    handleUserInteraction();
+    prevTestimonial();
+  }, [handleUserInteraction, prevTestimonial]);
 
   const handleRightCardClick = useCallback(() => {
-    handleUserInteraction()
-    nextTestimonial()
-  }, [handleUserInteraction, nextTestimonial])
+    handleUserInteraction();
+    nextTestimonial();
+  }, [handleUserInteraction, nextTestimonial]);
 
   return (
     <section className="py-24 md:py-32 bg-gray-50/50 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 font-extrabold text-primary text-balance">
@@ -276,18 +290,23 @@ export function TestimonialsSection() {
           onMouseEnter={pauseAutoSlide}
           onMouseLeave={() => {
             if (resumeTimeoutRef.current) {
-              clearTimeout(resumeTimeoutRef.current)
+              clearTimeout(resumeTimeoutRef.current);
             }
             resumeTimeoutRef.current = setTimeout(() => {
-              setIsPaused(false)
-            }, RESUME_DELAY)
+              setIsPaused(false);
+            }, RESUME_DELAY);
           }}
           onTouchStart={pauseAutoSlide}
         >
           {/* Desktop: 3 cards */}
           <div className="hidden lg:block">
             <div className="relative h-[380px] overflow-visible">
-              <div className={cn("grid grid-cols-3 gap-6 items-center", isAnimating && "pointer-events-none")}>
+              <div
+                className={cn(
+                  "grid grid-cols-3 gap-6 items-center",
+                  isAnimating && "pointer-events-none",
+                )}
+              >
                 <div className="transition-all duration-400 ease-out">
                   <TestimonialCard
                     testimonial={testimonials[leftIndex]}
@@ -298,7 +317,10 @@ export function TestimonialsSection() {
                 </div>
 
                 <div className="transition-all duration-400 ease-out z-10">
-                  <TestimonialCard testimonial={testimonials[activeIndex]} isActive={true} />
+                  <TestimonialCard
+                    testimonial={testimonials[activeIndex]}
+                    isActive={true}
+                  />
                 </div>
 
                 <div className="transition-all duration-400 ease-out">
@@ -322,7 +344,10 @@ export function TestimonialsSection() {
                   isAnimating && "pointer-events-none",
                 )}
               >
-                <TestimonialCard testimonial={testimonials[activeIndex]} isActive={true} />
+                <TestimonialCard
+                  testimonial={testimonials[activeIndex]}
+                  isActive={true}
+                />
               </div>
             </div>
           </div>
@@ -371,7 +396,9 @@ export function TestimonialsSection() {
               aria-label={t("testimonials.view", { n: idx + 1 })}
               className={cn(
                 "h-2.5 rounded-full transition-all duration-300",
-                idx === activeIndex ? "w-8 bg-[#22b5f8]" : "w-2.5 bg-gray-300 hover:bg-gray-400",
+                idx === activeIndex
+                  ? "w-8 bg-[#22b5f8]"
+                  : "w-2.5 bg-gray-300 hover:bg-gray-400",
                 isAnimating && "cursor-not-allowed",
               )}
             />
@@ -379,5 +406,5 @@ export function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,119 +1,148 @@
-"use client"
+"use client";
 
-import { memo, useEffect, useState } from "react"
-import { useI18n } from "@/lib/i18n"
-import { Check, Zap, TrendingUp, ArrowUp } from "lucide-react"
+import { memo, useEffect, useState } from "react";
+import { useI18n } from "@/lib/i18n";
+import { Check, Zap, TrendingUp, ArrowUp } from "lucide-react";
 import {
   SiFacebook,
   SiInstagram,
   SiTiktok,
   SiYoutube,
   SiLinkedin,
-} from "react-icons/si"
-import { cn } from "@/lib/utils"
+} from "react-icons/si";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // TYPES
 // ============================================================
 interface MetricCardProps {
-  label: string
-  value: string
-  growth?: string
-  badge?: string
-  badgeColor?: string
-  delay?: number
+  label: string;
+  value: string;
+  growth?: string;
+  badge?: string;
+  badgeColor?: string;
+  delay?: number;
 }
 
 interface ActivityItemProps {
-  icon: "check" | "zap"
-  text: string
-  delay: number
+  icon: "check" | "zap";
+  text: string;
+  delay: number;
 }
 
 interface RegionBarProps {
-  label: string
-  percentage: number
-  color: string
-  delay: number
+  label: string;
+  percentage: number;
+  color: string;
+  delay: number;
 }
 
 // ============================================================
 // ANIMATED NUMBER COUNTER
 // ============================================================
-function AnimatedCounter({ target, suffix = "", prefix = "" }: { target: string; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(0)
-  const numericValue = parseFloat(target.replace(/[^0-9.]/g, ""))
+function AnimatedCounter({
+  target,
+  suffix = "",
+  prefix = "",
+}: {
+  target: string;
+  suffix?: string;
+  prefix?: string;
+}) {
+  const [count, setCount] = useState(0);
+  const numericValue = parseFloat(target.replace(/[^0-9.]/g, ""));
 
   useEffect(() => {
-    const duration = 2000
-    const steps = 60
-    const stepValue = numericValue / steps
-    let current = 0
+    const duration = 2000;
+    const steps = 60;
+    const stepValue = numericValue / steps;
+    let current = 0;
 
     const timer = setInterval(() => {
-      current += stepValue
+      current += stepValue;
       if (current >= numericValue) {
-        setCount(numericValue)
-        clearInterval(timer)
+        setCount(numericValue);
+        clearInterval(timer);
       } else {
-        setCount(current)
+        setCount(current);
       }
-    }, duration / steps)
+    }, duration / steps);
 
-    return () => clearInterval(timer)
-  }, [numericValue])
+    return () => clearInterval(timer);
+  }, [numericValue]);
 
   const formatNumber = (num: number) => {
     if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + "M"
+      return (num / 1000000).toFixed(1) + "M";
     }
     if (num >= 1000) {
-      return (num / 1000).toFixed(1) + "K"
+      return (num / 1000).toFixed(1) + "K";
     }
-    return num.toFixed(num % 1 === 0 ? 0 : 1)
-  }
+    return num.toFixed(num % 1 === 0 ? 0 : 1);
+  };
 
   return (
     <span>
-      {prefix}{formatNumber(count)}{suffix}
+      {prefix}
+      {formatNumber(count)}
+      {suffix}
     </span>
-  )
+  );
 }
 
 // ============================================================
 // METRIC CARD COMPONENT
 // ============================================================
-const MetricCard = memo(({ label, value, growth, badge, badgeColor = "bg-emerald-500", delay = 0 }: MetricCardProps) => (
-  <div
-    className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-[#22b5f8]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#22b5f8]/10"
-    style={{
-      animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
-      opacity: 0
-    }}
-  >
-    <div className="flex items-center justify-between mb-1">
-      <span className="text-[10px] text-slate-400 uppercase tracking-wider font-medium">{label}</span>
-      {badge && (
-        <span className={cn("text-[8px] px-1.5 py-0.5 rounded-full text-white font-medium", badgeColor)}>
-          {badge}
+const MetricCard = memo(
+  ({
+    label,
+    value,
+    growth,
+    badge,
+    badgeColor = "bg-emerald-500",
+    delay = 0,
+  }: MetricCardProps) => (
+    <div
+      className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-[#22b5f8]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#22b5f8]/10"
+      style={{
+        animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
+        opacity: 0,
+      }}
+    >
+      <div className="flex items-center justify-between mb-1">
+        <span className="text-[10px] text-slate-400 uppercase tracking-wider font-medium">
+          {label}
         </span>
-      )}
-    </div>
-    <div className="flex items-end gap-2">
-      <span className="text-xl font-bold text-white">
-        <AnimatedCounter target={value} suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""} />
-      </span>
-      {growth && (
-        <span className="text-[10px] text-emerald-400 flex items-center gap-0.5 mb-1">
-          <ArrowUp className="w-2.5 h-2.5" />
-          {growth}
+        {badge && (
+          <span
+            className={cn(
+              "text-[8px] px-1.5 py-0.5 rounded-full text-white font-medium",
+              badgeColor,
+            )}
+          >
+            {badge}
+          </span>
+        )}
+      </div>
+      <div className="flex items-end gap-2">
+        <span className="text-xl font-bold text-white">
+          <AnimatedCounter
+            target={value}
+            suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""}
+          />
         </span>
-      )}
+        {growth && (
+          <span className="text-[10px] text-emerald-400 flex items-center gap-0.5 mb-1">
+            <ArrowUp className="w-2.5 h-2.5" />
+            {growth}
+          </span>
+        )}
+      </div>
     </div>
-  </div>
-))
+  ),
+);
 
-MetricCard.displayName = "MetricCard"
+MetricCard.displayName = "MetricCard";
 
 // ============================================================
 // ACTIVITY ITEM COMPONENT
@@ -124,7 +153,7 @@ const ActivityItem = memo(({ icon, text, delay }: ActivityItemProps) => (
     style={{
       animation: `slideInRight 0.4s ease-out ${delay}ms forwards`,
       opacity: 0,
-      transform: "translateX(20px)"
+      transform: "translateX(20px)",
     }}
   >
     {icon === "check" ? (
@@ -134,36 +163,43 @@ const ActivityItem = memo(({ icon, text, delay }: ActivityItemProps) => (
     )}
     <span className="text-slate-300 truncate">{text}</span>
   </div>
-))
+));
 
-ActivityItem.displayName = "ActivityItem"
+ActivityItem.displayName = "ActivityItem";
 
 // ============================================================
 // REGION BAR COMPONENT
 // ============================================================
-const RegionBar = memo(({ label, percentage, color, delay }: RegionBarProps) => {
-  const [width, setWidth] = useState(0)
+const RegionBar = memo(
+  ({ label, percentage, color, delay }: RegionBarProps) => {
+    const [width, setWidth] = useState(0);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setWidth(percentage), delay)
-    return () => clearTimeout(timer)
-  }, [percentage, delay])
+    useEffect(() => {
+      const timer = setTimeout(() => setWidth(percentage), delay);
+      return () => clearTimeout(timer);
+    }, [percentage, delay]);
 
-  return (
-    <div className="flex items-center gap-2">
-      <span className="text-[9px] text-slate-400 w-16 truncate">{label}</span>
-      <div className="flex-1 h-4 bg-slate-700/50 rounded-sm overflow-hidden">
-        <div
-          className={cn("h-full rounded-sm transition-all duration-1000 ease-out", color)}
-          style={{ width: `${width}%` }}
-        />
+    return (
+      <div className="flex items-center gap-2">
+        <span className="text-[9px] text-slate-400 w-16 truncate">{label}</span>
+        <div className="flex-1 h-4 bg-slate-700/50 rounded-sm overflow-hidden">
+          <div
+            className={cn(
+              "h-full rounded-sm transition-all duration-1000 ease-out",
+              color,
+            )}
+            style={{ width: `${width}%` }}
+          />
+        </div>
+        <span className="text-[9px] text-slate-400 w-8 text-right">
+          {percentage}%
+        </span>
       </div>
-      <span className="text-[9px] text-slate-400 w-8 text-right">{percentage}%</span>
-    </div>
-  )
-})
+    );
+  },
+);
 
-RegionBar.displayName = "RegionBar"
+RegionBar.displayName = "RegionBar";
 
 // ============================================================
 // PLATFORM ICONS
@@ -174,29 +210,29 @@ const platforms = [
   { Icon: SiTiktok, color: "#ffffff", name: "TikTok" },
   { Icon: SiYoutube, color: "#FF0000", name: "YouTube" },
   { Icon: SiLinkedin, color: "#0A66C2", name: "LinkedIn" },
-]
+];
 
 // ============================================================
 // MAIN DASHBOARD COMPONENT
 // ============================================================
 export function DashboardMockup() {
-  const { t } = useI18n()
-  const [isVisible, setIsVisible] = useState(false)
+  const { t } = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
       className={cn(
         "relative w-full max-w-lg mx-auto transition-all duration-700",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
       {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-[#22b5f8]/20 via-[#5fffec]/20 to-[#008bff]/20 rounded-3xl blur-2xl opacity-60" />
+      <div className="absolute -inset-4 bg-linear-to-r from-[#22b5f8]/20 via-[#5fffec]/20 to-[#008bff]/20 rounded-3xl blur-2xl opacity-60" />
 
       {/* Main dashboard container */}
       <div className="relative bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl overflow-hidden">
@@ -209,7 +245,9 @@ export function DashboardMockup() {
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
               <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
             </div>
-            <span className="text-xs font-semibold text-slate-300 ml-2">{t("hero.dashboard.version")}</span>
+            <span className="text-xs font-semibold text-slate-300 ml-2">
+              {t("hero.dashboard.version")}
+            </span>
           </div>
 
           {/* Live indicator */}
@@ -265,20 +303,60 @@ export function DashboardMockup() {
               <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
             </div>
             <div className="space-y-2">
-              <RegionBar label={t("hero.dashboard.region.vietnam")} percentage={87} color="bg-[#22b5f8]" delay={600} />
-              <RegionBar label={t("hero.dashboard.region.sea")} percentage={62} color="bg-[#22b5f8]/80" delay={700} />
-              <RegionBar label={t("hero.dashboard.region.latam")} percentage={45} color="bg-[#22b5f8]/60" delay={800} />
-              <RegionBar label={t("hero.dashboard.region.apac")} percentage={58} color="bg-[#5fffec]/80" delay={900} />
+              <RegionBar
+                label={t("hero.dashboard.region.vietnam")}
+                percentage={87}
+                color="bg-[#22b5f8]"
+                delay={600}
+              />
+              <RegionBar
+                label={t("hero.dashboard.region.sea")}
+                percentage={62}
+                color="bg-[#22b5f8]/80"
+                delay={700}
+              />
+              <RegionBar
+                label={t("hero.dashboard.region.latam")}
+                percentage={45}
+                color="bg-[#22b5f8]/60"
+                delay={800}
+              />
+              <RegionBar
+                label={t("hero.dashboard.region.apac")}
+                percentage={58}
+                color="bg-[#5fffec]/80"
+                delay={900}
+              />
             </div>
           </div>
 
           {/* Activity Feed */}
           <div className="space-y-1.5">
-            <ActivityItem icon="check" text={t("hero.dashboard.activity.contentGen")} delay={1000} />
-            <ActivityItem icon="check" text={t("hero.dashboard.activity.vnSync")} delay={1100} />
-            <ActivityItem icon="check" text={t("hero.dashboard.activity.fbOptimized")} delay={1200} />
-            <ActivityItem icon="check" text={t("hero.dashboard.activity.tiktokBatch")} delay={1300} />
-            <ActivityItem icon="zap" text={t("hero.dashboard.activity.aiAnalysis")} delay={1400} />
+            <ActivityItem
+              icon="check"
+              text={t("hero.dashboard.activity.contentGen")}
+              delay={1000}
+            />
+            <ActivityItem
+              icon="check"
+              text={t("hero.dashboard.activity.vnSync")}
+              delay={1100}
+            />
+            <ActivityItem
+              icon="check"
+              text={t("hero.dashboard.activity.fbOptimized")}
+              delay={1200}
+            />
+            <ActivityItem
+              icon="check"
+              text={t("hero.dashboard.activity.tiktokBatch")}
+              delay={1300}
+            />
+            <ActivityItem
+              icon="zap"
+              text={t("hero.dashboard.activity.aiAnalysis")}
+              delay={1400}
+            />
           </div>
 
           {/* Platform Integration Bar */}
@@ -290,7 +368,7 @@ export function DashboardMockup() {
                   className="p-1.5 rounded-md bg-slate-800/50 border border-slate-700/30 hover:border-[#22b5f8]/30 transition-all duration-200 hover:scale-110"
                   style={{
                     animation: `fadeInUp 0.3s ease-out ${1500 + index * 100}ms forwards`,
-                    opacity: 0
+                    opacity: 0,
                   }}
                 >
                   <platform.Icon
@@ -304,7 +382,7 @@ export function DashboardMockup() {
               className="text-[9px] text-slate-500"
               style={{
                 animation: `fadeInUp 0.3s ease-out 2000ms forwards`,
-                opacity: 0
+                opacity: 0,
               }}
             >
               {t("hero.dashboard.platforms")}
@@ -347,5 +425,5 @@ export function DashboardMockup() {
         }
       `}</style>
     </div>
-  )
+  );
 }

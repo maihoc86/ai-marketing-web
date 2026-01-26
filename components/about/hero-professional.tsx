@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Play } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export function HeroProfessional() {
-  const { t } = useI18n()
-  const [isVisible, setIsVisible] = useState(false)
+  const { t } = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
@@ -35,12 +35,16 @@ export function HeroProfessional() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className={cn(
-            "transition-all duration-700",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
+          <div
+            className={cn(
+              "transition-all duration-700",
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8",
+            )}
+          >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-[#22b5f8]/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-[#22b5f8]/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
               <div className="w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
               <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
                 {t("about.hero.badge")}
@@ -50,7 +54,7 @@ export function HeroProfessional() {
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-[1.1]">
               {t("about.hero.title.prefix")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] via-[#22b5f8] to-[#008bff] animate-gradient">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] via-[#22b5f8] to-[#008bff] animate-gradient">
                 {t("about.hero.title.brand")}
               </span>{" "}
               {t("about.hero.title.suffix")}
@@ -68,7 +72,10 @@ export function HeroProfessional() {
                 className="bg-[#ff7900] hover:bg-[#e56b00] text-white font-bold px-8 py-6 rounded-full text-base shadow-lg hover:shadow-xl transition-all group"
                 asChild
               >
-                <Link href="/dang-ky" className="flex items-center justify-center gap-2">
+                <Link
+                  href="/dang-ky"
+                  className="flex items-center justify-center gap-2"
+                >
                   {t("about.hero.cta.contact")}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -80,7 +87,10 @@ export function HeroProfessional() {
                 className="border-2 border-gray-300 text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 font-semibold px-8 py-6 rounded-full text-base transition-all bg-white group"
                 asChild
               >
-                <Link href="#philosophy" className="flex items-center justify-center gap-2">
+                <Link
+                  href="#philosophy"
+                  className="flex items-center justify-center gap-2"
+                >
                   {t("about.hero.cta.learn")}
                   <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </Link>
@@ -89,10 +99,14 @@ export function HeroProfessional() {
           </div>
 
           {/* Right Column - Professional Image */}
-          <div className={cn(
-            "relative transition-all duration-700 delay-300",
-            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
-          )}>
+          <div
+            className={cn(
+              "relative transition-all duration-700 delay-300",
+              isVisible
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-8 scale-95",
+            )}
+          >
             {/* Main image container */}
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group">
               <Image
@@ -112,12 +126,12 @@ export function HeroProfessional() {
             </div>
 
             {/* Decorative accents with animation */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#22b5f8] to-[#008bff] rounded-2xl -z-10 animate-float" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#5fffec] to-[#22b5f8] rounded-2xl -z-10 animate-float delay-200" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-linear-to-br from-[#22b5f8] to-[#008bff] rounded-2xl -z-10 animate-float" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-linear-to-br from-[#5fffec] to-[#22b5f8] rounded-2xl -z-10 animate-float delay-200" />
 
             {/* Floating stat card with enhanced animation */}
             <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-xl border border-gray-200 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
-              <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff] mb-1">
+              <p className="text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff] mb-1">
                 99.9%
               </p>
               <p className="text-sm font-semibold text-gray-700">
@@ -133,7 +147,7 @@ export function HeroProfessional() {
 
             {/* Additional floating stats */}
             <div className="absolute top-8 right-8 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-gray-200 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
-              <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 mb-1">
+              <p className="text-2xl font-black text-transparent bg-clip-text bg-linear-to-r from-green-600 to-emerald-600 mb-1">
                 500+
               </p>
               <p className="text-xs font-semibold text-gray-700">
@@ -146,7 +160,8 @@ export function HeroProfessional() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px);
           }
           50% {
@@ -163,7 +178,8 @@ export function HeroProfessional() {
         }
 
         @keyframes gradient {
-          0%, 100% {
+          0%,
+          100% {
             background-position: 0% 50%;
           }
           50% {
@@ -177,5 +193,5 @@ export function HeroProfessional() {
         }
       `}</style>
     </section>
-  )
+  );
 }

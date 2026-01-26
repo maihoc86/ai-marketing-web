@@ -1,16 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect, memo } from "react"
-import { Sparkles, Play, Check, Zap, TrendingUp, ArrowUp, Rocket, CreditCard, Clock, Shield } from "lucide-react"
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useEffect, memo } from "react";
+import {
+  Sparkles,
+  Play,
+  Check,
+  Zap,
+  TrendingUp,
+  ArrowUp,
+  Rocket,
+  CreditCard,
+  Clock,
+  Shield,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import {
   SiFacebook,
   SiInstagram,
   SiTiktok,
   SiYoutube,
   SiLinkedin,
-} from "react-icons/si"
+} from "react-icons/si";
 import {
   OpenAIIcon,
   GeminiIcon,
@@ -18,134 +29,183 @@ import {
   DeepSeekIcon,
   MetaIcon,
   MistralIcon,
-} from "@/components/brand-icons"
-import Link from "next/link"
+} from "@/components/brand-icons";
+import Link from "next/link";
 
 // ============================================================
 // ANIMATED COUNTER COMPONENT
 // ============================================================
-function AnimatedCounter({ target, suffix = "" }: { target: string; suffix?: string }) {
-  const [count, setCount] = useState(0)
-  const numericValue = parseFloat(target.replace(/[^0-9.]/g, ""))
+function AnimatedCounter({
+  target,
+  suffix = "",
+}: {
+  target: string;
+  suffix?: string;
+}) {
+  const [count, setCount] = useState(0);
+  const numericValue = parseFloat(target.replace(/[^0-9.]/g, ""));
 
   useEffect(() => {
-    const duration = 2000
-    const steps = 60
-    const stepValue = numericValue / steps
-    let current = 0
+    const duration = 2000;
+    const steps = 60;
+    const stepValue = numericValue / steps;
+    let current = 0;
 
     const timer = setInterval(() => {
-      current += stepValue
+      current += stepValue;
       if (current >= numericValue) {
-        setCount(numericValue)
-        clearInterval(timer)
+        setCount(numericValue);
+        clearInterval(timer);
       } else {
-        setCount(current)
+        setCount(current);
       }
-    }, duration / steps)
+    }, duration / steps);
 
-    return () => clearInterval(timer)
-  }, [numericValue])
+    return () => clearInterval(timer);
+  }, [numericValue]);
 
   const formatNumber = (num: number) => {
     if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + "M"
+      return (num / 1000000).toFixed(1) + "M";
     }
     if (num >= 1000) {
-      return (num / 1000).toFixed(1) + "K"
+      return (num / 1000).toFixed(1) + "K";
     }
-    return num.toFixed(num % 1 === 0 ? 0 : 1)
-  }
+    return num.toFixed(num % 1 === 0 ? 0 : 1);
+  };
 
-  return <span>{formatNumber(count)}{suffix}</span>
+  return (
+    <span>
+      {formatNumber(count)}
+      {suffix}
+    </span>
+  );
 }
 
 // ============================================================
 // DASHBOARD METRIC CARD
 // ============================================================
 interface MetricCardProps {
-  label: string
-  value: string
-  growth?: string
-  badge?: string
-  badgeColor?: string
-  delay?: number
+  label: string;
+  value: string;
+  growth?: string;
+  badge?: string;
+  badgeColor?: string;
+  delay?: number;
 }
 
-const MetricCard = memo(({ label, value, growth, badge, badgeColor = "bg-emerald-500", delay = 0 }: MetricCardProps) => (
-  <div
-    className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
-    style={{
-      animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
-      opacity: 0
-    }}
-  >
-    <div className="flex items-center justify-between mb-2">
-      <span className="text-[11px] text-slate-400 uppercase tracking-wider font-medium">{label}</span>
-      {badge && (
-        <span className={cn("text-[9px] px-2 py-0.5 rounded-full text-white font-bold", badgeColor)}>
-          {badge}
+const MetricCard = memo(
+  ({
+    label,
+    value,
+    growth,
+    badge,
+    badgeColor = "bg-emerald-500",
+    delay = 0,
+  }: MetricCardProps) => (
+    <div
+      className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+      style={{
+        animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
+        opacity: 0,
+      }}
+    >
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-[11px] text-slate-400 uppercase tracking-wider font-medium">
+          {label}
         </span>
-      )}
-    </div>
-    <div className="flex items-end gap-2">
-      <span className="text-2xl font-bold text-white">
-        <AnimatedCounter target={value} suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""} />
-      </span>
-      {growth && (
-        <span className="text-[11px] text-emerald-400 flex items-center gap-0.5 mb-1 font-semibold">
-          <ArrowUp className="w-3 h-3" />
-          {growth}
+        {badge && (
+          <span
+            className={cn(
+              "text-[9px] px-2 py-0.5 rounded-full text-white font-bold",
+              badgeColor,
+            )}
+          >
+            {badge}
+          </span>
+        )}
+      </div>
+      <div className="flex items-end gap-2">
+        <span className="text-2xl font-bold text-white">
+          <AnimatedCounter
+            target={value}
+            suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""}
+          />
         </span>
-      )}
+        {growth && (
+          <span className="text-[11px] text-emerald-400 flex items-center gap-0.5 mb-1 font-semibold">
+            <ArrowUp className="w-3 h-3" />
+            {growth}
+          </span>
+        )}
+      </div>
     </div>
-  </div>
-))
+  ),
+);
 
-MetricCard.displayName = "MetricCard"
+MetricCard.displayName = "MetricCard";
 
 // ============================================================
 // LIGHT THEME METRIC CARD
 // ============================================================
-const MetricCardLight = memo(({ label, value, growth, badge, badgeColor = "bg-emerald-500", delay = 0 }: MetricCardProps) => (
-  <div
-    className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md"
-    style={{
-      animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
-      opacity: 0
-    }}
-  >
-    <div className="flex items-center justify-between mb-2">
-      <span className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">{label}</span>
-      {badge && (
-        <span className={cn("text-[9px] px-2 py-0.5 rounded-full text-white font-bold", badgeColor)}>
-          {badge}
+const MetricCardLight = memo(
+  ({
+    label,
+    value,
+    growth,
+    badge,
+    badgeColor = "bg-emerald-500",
+    delay = 0,
+  }: MetricCardProps) => (
+    <div
+      className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md"
+      style={{
+        animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
+        opacity: 0,
+      }}
+    >
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
+          {label}
         </span>
-      )}
-    </div>
-    <div className="flex items-end gap-2">
-      <span className="text-2xl font-bold text-gray-900">
-        <AnimatedCounter target={value} suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""} />
-      </span>
-      {growth && (
-        <span className="text-[11px] text-emerald-600 flex items-center gap-0.5 mb-1 font-semibold">
-          <ArrowUp className="w-3 h-3" />
-          {growth}
+        {badge && (
+          <span
+            className={cn(
+              "text-[9px] px-2 py-0.5 rounded-full text-white font-bold",
+              badgeColor,
+            )}
+          >
+            {badge}
+          </span>
+        )}
+      </div>
+      <div className="flex items-end gap-2">
+        <span className="text-2xl font-bold text-gray-900">
+          <AnimatedCounter
+            target={value}
+            suffix={value.includes("%") ? "%" : value.includes("+") ? "+" : ""}
+          />
         </span>
-      )}
+        {growth && (
+          <span className="text-[11px] text-emerald-600 flex items-center gap-0.5 mb-1 font-semibold">
+            <ArrowUp className="w-3 h-3" />
+            {growth}
+          </span>
+        )}
+      </div>
     </div>
-  </div>
-))
+  ),
+);
 
-MetricCardLight.displayName = "MetricCardLight"
+MetricCardLight.displayName = "MetricCardLight";
 
 // ============================================================
 // ACTIVITY ITEM
 // ============================================================
 interface ActivityItemProps {
-  icon: "check" | "zap"
-  text: string
-  delay: number
+  icon: "check" | "zap";
+  text: string;
+  delay: number;
 }
 
 const ActivityItem = memo(({ icon, text, delay }: ActivityItemProps) => (
@@ -154,7 +214,7 @@ const ActivityItem = memo(({ icon, text, delay }: ActivityItemProps) => (
     style={{
       animation: `slideInRight 0.4s ease-out ${delay}ms forwards`,
       opacity: 0,
-      transform: "translateX(20px)"
+      transform: "translateX(20px)",
     }}
   >
     {icon === "check" ? (
@@ -164,9 +224,9 @@ const ActivityItem = memo(({ icon, text, delay }: ActivityItemProps) => (
     )}
     <span className="text-slate-300 truncate">{text}</span>
   </div>
-))
+));
 
-ActivityItem.displayName = "ActivityItem"
+ActivityItem.displayName = "ActivityItem";
 
 // ============================================================
 // LIGHT THEME ACTIVITY ITEM
@@ -177,7 +237,7 @@ const ActivityItemLight = memo(({ icon, text, delay }: ActivityItemProps) => (
     style={{
       animation: `slideInRight 0.4s ease-out ${delay}ms forwards`,
       opacity: 0,
-      transform: "translateX(20px)"
+      transform: "translateX(20px)",
     }}
   >
     {icon === "check" ? (
@@ -187,70 +247,88 @@ const ActivityItemLight = memo(({ icon, text, delay }: ActivityItemProps) => (
     )}
     <span className="text-gray-700 truncate">{text}</span>
   </div>
-))
+));
 
-ActivityItemLight.displayName = "ActivityItemLight"
+ActivityItemLight.displayName = "ActivityItemLight";
 
 // ============================================================
 // REGION BAR
 // ============================================================
 interface RegionBarProps {
-  label: string
-  percentage: number
-  color: string
-  delay: number
+  label: string;
+  percentage: number;
+  color: string;
+  delay: number;
 }
 
-const RegionBar = memo(({ label, percentage, color, delay }: RegionBarProps) => {
-  const [width, setWidth] = useState(0)
+const RegionBar = memo(
+  ({ label, percentage, color, delay }: RegionBarProps) => {
+    const [width, setWidth] = useState(0);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setWidth(percentage), delay)
-    return () => clearTimeout(timer)
-  }, [percentage, delay])
+    useEffect(() => {
+      const timer = setTimeout(() => setWidth(percentage), delay);
+      return () => clearTimeout(timer);
+    }, [percentage, delay]);
 
-  return (
-    <div className="flex items-center gap-3">
-      <span className="text-[10px] text-slate-400 w-20 truncate font-medium">{label}</span>
-      <div className="flex-1 h-5 bg-slate-700/50 rounded overflow-hidden">
-        <div
-          className={cn("h-full rounded transition-all duration-1000 ease-out", color)}
-          style={{ width: `${width}%` }}
-        />
+    return (
+      <div className="flex items-center gap-3">
+        <span className="text-[10px] text-slate-400 w-20 truncate font-medium">
+          {label}
+        </span>
+        <div className="flex-1 h-5 bg-slate-700/50 rounded overflow-hidden">
+          <div
+            className={cn(
+              "h-full rounded transition-all duration-1000 ease-out",
+              color,
+            )}
+            style={{ width: `${width}%` }}
+          />
+        </div>
+        <span className="text-[10px] text-slate-400 w-10 text-right font-semibold">
+          {percentage}%
+        </span>
       </div>
-      <span className="text-[10px] text-slate-400 w-10 text-right font-semibold">{percentage}%</span>
-    </div>
-  )
-})
+    );
+  },
+);
 
-RegionBar.displayName = "RegionBar"
+RegionBar.displayName = "RegionBar";
 
 // ============================================================
 // LIGHT THEME REGION BAR
 // ============================================================
-const RegionBarLight = memo(({ label, percentage, color, delay }: RegionBarProps) => {
-  const [width, setWidth] = useState(0)
+const RegionBarLight = memo(
+  ({ label, percentage, color, delay }: RegionBarProps) => {
+    const [width, setWidth] = useState(0);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setWidth(percentage), delay)
-    return () => clearTimeout(timer)
-  }, [percentage, delay])
+    useEffect(() => {
+      const timer = setTimeout(() => setWidth(percentage), delay);
+      return () => clearTimeout(timer);
+    }, [percentage, delay]);
 
-  return (
-    <div className="flex items-center gap-3">
-      <span className="text-[10px] text-gray-600 w-20 truncate font-medium">{label}</span>
-      <div className="flex-1 h-5 bg-gray-200 rounded overflow-hidden">
-        <div
-          className={cn("h-full rounded transition-all duration-1000 ease-out", color)}
-          style={{ width: `${width}%` }}
-        />
+    return (
+      <div className="flex items-center gap-3">
+        <span className="text-[10px] text-gray-600 w-20 truncate font-medium">
+          {label}
+        </span>
+        <div className="flex-1 h-5 bg-gray-200 rounded overflow-hidden">
+          <div
+            className={cn(
+              "h-full rounded transition-all duration-1000 ease-out",
+              color,
+            )}
+            style={{ width: `${width}%` }}
+          />
+        </div>
+        <span className="text-[10px] text-gray-600 w-10 text-right font-semibold">
+          {percentage}%
+        </span>
       </div>
-      <span className="text-[10px] text-gray-600 w-10 text-right font-semibold">{percentage}%</span>
-    </div>
-  )
-})
+    );
+  },
+);
 
-RegionBarLight.displayName = "RegionBarLight"
+RegionBarLight.displayName = "RegionBarLight";
 
 // ============================================================
 // PLATFORM ICONS
@@ -261,44 +339,55 @@ const platforms = [
   { Icon: SiTiktok, color: "#ffffff", name: "TikTok" },
   { Icon: SiYoutube, color: "#FF0000", name: "YouTube" },
   { Icon: SiLinkedin, color: "#0A66C2", name: "LinkedIn" },
-]
+];
 
 // ============================================================
 // MAIN HERO COMPONENT
 // ============================================================
 export function HeroLightTheme() {
-  const { t } = useI18n()
-  const [isVisible, setIsVisible] = useState(false)
+  const { t } = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <section className="relative hero-gradient-light overflow-hidden min-h-screen flex flex-col justify-center py-16 md:py-24 font-sans">
       {/* Decorative Background Elements */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100/60 rounded-full blur-[100px] opacity-70 mix-blend-multiply" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-100/60 rounded-full blur-[100px] opacity-70 mix-blend-multiply" aria-hidden="true" />
+      <div
+        className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100/60 rounded-full blur-[100px] opacity-70 mix-blend-multiply"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-100/60 rounded-full blur-[100px] opacity-70 mix-blend-multiply"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
-          <div className={cn(
-            "flex flex-col gap-6 transition-all duration-700",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
+          <div
+            className={cn(
+              "flex flex-col gap-6 transition-all duration-700",
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8",
+            )}
+          >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-200 w-fit">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-blue-100 to-blue-50 border border-blue-200 w-fit">
               <Rocket className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-700">{t("hero.badge")}</span>
+              <span className="text-sm font-semibold text-blue-700">
+                {t("hero.badge")}
+              </span>
             </div>
 
             {/* Main Headline - Value-Driven */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-gray-900">
-              {t("heroLight.title.line1")}{" "}
-              <br />
+              {t("heroLight.title.line1")} <br />
               {t("heroLight.title.line2")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600">
                 {t("heroLight.title.highlight")}
               </span>
             </h1>
@@ -312,42 +401,89 @@ export function HeroLightTheme() {
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div className="flex items-start gap-2">
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  <span className="font-bold text-blue-600">{t("heroLight.stats.videos")}</span> {t("heroLight.stats.videosAuto")}
+                  <span className="font-bold text-blue-600">
+                    {t("heroLight.stats.videos")}
+                  </span>{" "}
+                  {t("heroLight.stats.videosAuto")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {t("heroLight.stats.channelsManage")} <span className="font-bold text-indigo-600">{t("heroLight.stats.channels")}</span> {t("heroLight.stats.channelsSim")}
+                  {t("heroLight.stats.channelsManage")}{" "}
+                  <span className="font-bold text-indigo-600">
+                    {t("heroLight.stats.channels")}
+                  </span>{" "}
+                  {t("heroLight.stats.channelsSim")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {t("heroLight.stats.roiText")} <span className="font-bold text-purple-600">{t("heroLight.stats.roi")}</span> {t("heroLight.stats.roiTime")}
+                  {t("heroLight.stats.roiText")}{" "}
+                  <span className="font-bold text-purple-600">
+                    {t("heroLight.stats.roi")}
+                  </span>{" "}
+                  {t("heroLight.stats.roiTime")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <p className="text-sm text-gray-700">
-                  {t("heroLight.stats.saveText")} <span className="font-bold text-amber-600">{t("heroLight.stats.saveTime")}</span> {t("heroLight.stats.saveCost")}
+                  {t("heroLight.stats.saveText")}{" "}
+                  <span className="font-bold text-amber-600">
+                    {t("heroLight.stats.saveTime")}
+                  </span>{" "}
+                  {t("heroLight.stats.saveCost")}
                 </p>
               </div>
             </div>
@@ -361,7 +497,9 @@ export function HeroLightTheme() {
                 >
                   <Sparkles className="w-5 h-5" />
                   {t("hero.cta.trial")}
-                  <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  <span className="ml-1 transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
                 </Link>
                 <button className="btn-secondary-light flex items-center gap-2 group rounded-full px-6 py-3">
                   <Play className="w-5 h-5" />
@@ -381,7 +519,9 @@ export function HeroLightTheme() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4 text-purple-500" />
-                  <span className="font-medium">{t("hero.trust.security")}</span>
+                  <span className="font-medium">
+                    {t("hero.trust.security")}
+                  </span>
                 </span>
               </div>
             </div>
@@ -394,9 +534,18 @@ export function HeroLightTheme() {
                     key={index}
                     className={cn(
                       "w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 border-white shadow-sm",
-                      ["bg-blue-500", "bg-emerald-500", "bg-purple-500", "bg-orange-500", "bg-pink-500"][index]
+                      [
+                        "bg-blue-500",
+                        "bg-emerald-500",
+                        "bg-purple-500",
+                        "bg-orange-500",
+                        "bg-pink-500",
+                      ][index],
                     )}
-                    style={{ marginLeft: index > 0 ? "-10px" : "0", zIndex: 5 - index }}
+                    style={{
+                      marginLeft: index > 0 ? "-10px" : "0",
+                      zIndex: 5 - index,
+                    }}
                   >
                     {initial}
                   </div>
@@ -409,19 +558,27 @@ export function HeroLightTheme() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-900">{t("hero.trust.users")}</span>
-                <span className="text-xs text-gray-500">{t("hero.trust.provinces")}</span>
+                <span className="text-sm font-semibold text-gray-900">
+                  {t("hero.trust.users")}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {t("hero.trust.provinces")}
+                </span>
               </div>
             </div>
           </div>
 
           {/* Right Column - LIGHT DASHBOARD MOCKUP */}
-          <div className={cn(
-            "relative transition-all duration-700 delay-300",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
+          <div
+            className={cn(
+              "relative transition-all duration-700 delay-300",
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8",
+            )}
+          >
             {/* Glow effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-200/40 via-indigo-200/40 to-purple-200/40 rounded-3xl blur-2xl opacity-70" />
+            <div className="absolute -inset-4 bg-linear-to-r from-blue-200/40 via-indigo-200/40 to-purple-200/40 rounded-3xl blur-2xl opacity-70" />
 
             {/* Main dashboard container - LIGHT THEME */}
             <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl border border-gray-200/80 shadow-xl overflow-hidden">
@@ -434,7 +591,9 @@ export function HeroLightTheme() {
                     <div className="w-3 h-3 rounded-full bg-yellow-400" />
                     <div className="w-3 h-3 rounded-full bg-green-400" />
                   </div>
-                  <span className="text-xs font-semibold text-gray-600 ml-2">{t("hero.dashboard.version")}</span>
+                  <span className="text-xs font-semibold text-gray-600 ml-2">
+                    {t("hero.dashboard.version")}
+                  </span>
                 </div>
 
                 {/* Live indicator */}
@@ -490,10 +649,30 @@ export function HeroLightTheme() {
                     <TrendingUp className="w-4 h-4 text-emerald-500" />
                   </div>
                   <div className="space-y-3">
-                    <RegionBarLight label={t("hero.dashboard.region.vietnam")} percentage={87} color="bg-blue-500" delay={600} />
-                    <RegionBarLight label={t("hero.dashboard.region.sea")} percentage={62} color="bg-blue-400" delay={700} />
-                    <RegionBarLight label={t("hero.dashboard.region.latam")} percentage={45} color="bg-indigo-400" delay={800} />
-                    <RegionBarLight label={t("hero.dashboard.region.apac")} percentage={58} color="bg-cyan-500" delay={900} />
+                    <RegionBarLight
+                      label={t("hero.dashboard.region.vietnam")}
+                      percentage={87}
+                      color="bg-blue-500"
+                      delay={600}
+                    />
+                    <RegionBarLight
+                      label={t("hero.dashboard.region.sea")}
+                      percentage={62}
+                      color="bg-blue-400"
+                      delay={700}
+                    />
+                    <RegionBarLight
+                      label={t("hero.dashboard.region.latam")}
+                      percentage={45}
+                      color="bg-indigo-400"
+                      delay={800}
+                    />
+                    <RegionBarLight
+                      label={t("hero.dashboard.region.apac")}
+                      percentage={58}
+                      color="bg-cyan-500"
+                      delay={900}
+                    />
                   </div>
                 </div>
                 {/* Platform Integration Bar */}
@@ -505,12 +684,17 @@ export function HeroLightTheme() {
                         className="p-2 rounded-lg bg-gray-50 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200 hover:scale-110"
                         style={{
                           animation: `fadeInUp 0.3s ease-out ${1500 + index * 100}ms forwards`,
-                          opacity: 0
+                          opacity: 0,
                         }}
                       >
                         <platform.Icon
                           className="w-4 h-4"
-                          style={{ color: platform.name === "TikTok" ? "#000000" : platform.color }}
+                          style={{
+                            color:
+                              platform.name === "TikTok"
+                                ? "#000000"
+                                : platform.color,
+                          }}
                         />
                       </div>
                     ))}
@@ -519,7 +703,7 @@ export function HeroLightTheme() {
                     className="text-[10px] text-gray-500 font-medium"
                     style={{
                       animation: `fadeInUp 0.3s ease-out 2000ms forwards`,
-                      opacity: 0
+                      opacity: 0,
                     }}
                   >
                     {t("hero.dashboard.platforms")}
@@ -533,7 +717,7 @@ export function HeroLightTheme() {
 
       {/* Technology Behind DXAI - AI Models Marquee */}
       <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm py-12 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-8">
+        <div className="container mx-auto text-center mb-8">
           <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em]">
             {t("heroLight.tech.title")}
           </p>
@@ -542,8 +726,14 @@ export function HeroLightTheme() {
           </p>
         </div>
         <div className="flex overflow-hidden group relative">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" aria-hidden="true" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          <div
+            className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-white to-transparent z-10 pointer-events-none"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+            aria-hidden="true"
+          />
           <div className="flex animate-scroll gap-16 items-center whitespace-nowrap px-10">
             {/* Duplicate content for seamless loop */}
             {[...Array(2)].map((_, setIndex) => (
@@ -656,5 +846,5 @@ export function HeroLightTheme() {
         }
       `}</style>
     </section>
-  )
+  );
 }
