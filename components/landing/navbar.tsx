@@ -127,7 +127,7 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-[#ff7900] hover:bg-[#e56b00] text-white",
+                "bg-[#22b5f8] hover:bg-[#1a9fd8] text-white",
                 "text-[13px] sm:text-[14px] font-semibold",
                 "px-3 sm:px-4 py-2 h-10",
                 "rounded-full shadow-sm shadow-[#ff7900]/30",
@@ -144,7 +144,7 @@ export function Navbar() {
             {/* Hamburger button */}
             <button
               className={cn(
-                "p-2.5 text-[#1c1c1c] hover:text-[#ff7900]",
+                "p-2.5 text-[#1c1c1c] hover:text-[#1a9fd8]",
                 "hover:bg-[#f5f5f5] rounded-lg",
                 "transition-colors duration-200",
                 "min-h-[44px] min-w-[44px]",
