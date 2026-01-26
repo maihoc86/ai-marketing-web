@@ -1,55 +1,66 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { ChevronDown } from "lucide-react"
-import { useI18n, type Locale } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
+import { useI18n, type Locale } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
-const languages: { code: Locale; label: string; countryCode: string; shortLabel: string }[] = [
+const languages: {
+  code: Locale;
+  label: string;
+  countryCode: string;
+  shortLabel: string;
+}[] = [
   { code: "vi", label: "Tiếng Việt", countryCode: "VN", shortLabel: "VI" },
   { code: "en", label: "English", countryCode: "US", shortLabel: "EN" },
-]
+];
 
 interface LanguageSelectorProps {
-  className?: string
-  variant?: "default" | "compact" | "pill"
+  className?: string;
+  variant?: "default" | "compact" | "pill";
 }
 
-export function LanguageSelector({ className, variant = "default" }: LanguageSelectorProps) {
-  const { locale, setLocale } = useI18n()
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+export function LanguageSelector({
+  className,
+  variant = "default",
+}: LanguageSelectorProps) {
+  const { locale, setLocale } = useI18n();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLang = languages.find((l) => l.code === locale) || languages[0]
+  const currentLang = languages.find((l) => l.code === locale) || languages[0];
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Close on escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
-  }, [])
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
 
   const handleSelect = (code: Locale) => {
-    setLocale(code)
-    setIsOpen(false)
-  }
+    setLocale(code);
+    setIsOpen(false);
+  };
 
   return (
     <div ref={dropdownRef} className={cn("relative", className)}>
@@ -78,12 +89,18 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span className="text-xs font-bold text-[#666666] leading-none" aria-hidden="true">
+        <span
+          className="text-xs font-bold text-[#666666] leading-none"
+          aria-hidden="true"
+        >
           {currentLang.countryCode}
         </span>
         <span>{currentLang.shortLabel}</span>
         <ChevronDown
-          className={cn("w-3.5 h-3.5 text-[#666666] transition-transform duration-200", isOpen && "rotate-180")}
+          className={cn(
+            "w-3.5 h-3.5 text-[#666666] transition-transform duration-200",
+            isOpen && "rotate-180",
+          )}
           aria-hidden="true"
         />
       </button>
@@ -95,12 +112,14 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
           "rounded-xl bg-white border border-gray-200",
           "shadow-lg shadow-gray-200/50",
           "transition-all duration-200 origin-top-right z-50",
-          isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none",
+          isOpen
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 -translate-y-2 pointer-events-none",
         )}
         role="listbox"
         aria-label="Available languages"
       >
-        <div className="p-1.5">
+        <div className="p-1.5 space-y-0.5">
           {languages.map((lang) => (
             <button
               key={lang.code}
@@ -109,15 +128,22 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
                 "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg",
                 "text-[14px] transition-colors duration-150",
                 "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-inset",
-                locale === lang.code ? "bg-[#22b5f8]/10 text-[#008bff] font-medium" : "text-gray-700 hover:bg-gray-50",
+                locale === lang.code
+                  ? "bg-[#22b5f8]/10 text-[#008bff] font-medium"
+                  : "text-gray-700 hover:bg-gray-50",
               )}
               role="option"
               aria-selected={locale === lang.code}
             >
-              <span className="text-xs font-bold text-gray-400 leading-none w-6" aria-hidden="true">
+              <span
+                className="text-xs font-bold text-gray-400 leading-none w-6"
+                aria-hidden="true"
+              >
                 {lang.countryCode}
               </span>
-              <span className="flex-1 text-left">{lang.label}</span>
+              <span className="flex-1 text-left whitespace-nowrap">
+                {lang.label}
+              </span>
               {locale === lang.code && (
                 <svg
                   className="w-4 h-4 text-[#22b5f8]"
@@ -126,7 +152,12 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               )}
             </button>
@@ -134,5 +165,5 @@ export function LanguageSelector({ className, variant = "default" }: LanguageSel
         </div>
       </div>
     </div>
-  )
+  );
 }
