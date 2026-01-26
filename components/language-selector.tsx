@@ -11,8 +11,8 @@ const languages: {
   countryCode: string;
   shortLabel: string;
 }[] = [
-  { code: "vi", label: "Tiếng Việt", countryCode: "VN", shortLabel: "VI" },
   { code: "en", label: "English", countryCode: "US", shortLabel: "EN" },
+  { code: "vi", label: "Tiếng Việt", countryCode: "VN", shortLabel: "VI" },
 ];
 
 interface LanguageSelectorProps {
