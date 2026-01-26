@@ -14,6 +14,7 @@ import {
   Shield,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { YouTubeModal } from "@/components/youtube-modal";
 import { cn } from "@/lib/utils";
 import {
   SiFacebook,
@@ -407,6 +408,7 @@ const aiModels = [
 export function HeroLightTheme() {
   const { t } = useI18n();
   const [isVisible] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative hero-gradient-light overflow-hidden min-h-screen flex flex-col justify-center py-16 md:py-24 font-sans">
@@ -557,7 +559,10 @@ export function HeroLightTheme() {
                     →
                   </span>
                 </Link>
-                <button className="btn-secondary-light flex items-center gap-2 group rounded-full px-6 py-3">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="btn-secondary-light flex items-center gap-2 group rounded-full px-6 py-3"
+                >
                   <Play className="w-5 h-5" />
                   {t("hero.cta.demo")}
                 </button>
@@ -862,6 +867,13 @@ export function HeroLightTheme() {
           }
         }
       `}</style>
+
+      {/* YouTube Modal */}
+      <YouTubeModal
+        videoId="R5RuHV_JrMM"
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

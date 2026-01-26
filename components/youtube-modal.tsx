@@ -1,34 +1,34 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useCallback } from "react"
-import { X, Play } from "lucide-react"
+import { useState, useEffect, useCallback } from "react";
+import { X, Play } from "lucide-react";
 
 interface YouTubeModalProps {
-  videoId: string
-  isOpen: boolean
-  onClose: () => void
+  videoId: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export function YouTubeModal({ videoId, isOpen, onClose }: YouTubeModalProps) {
   // Handle ESC key press
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
-    }
+      if (e.key === "Escape") onClose();
+    };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEsc)
+      document.addEventListener("keydown", handleEsc);
       // Prevent body scroll
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEsc)
-      document.body.style.overflow = ""
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div
@@ -64,36 +64,40 @@ export function YouTubeModal({ videoId, isOpen, onClose }: YouTubeModalProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default YouTubeModal
+export default YouTubeModal;
 
 interface DemoButtonProps {
-  className?: string
+  className?: string;
 }
 
 export function DemoButton({ className = "" }: DemoButtonProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    return false;
+  });
 
-  const openModal = useCallback(() => setIsModalOpen(true), [])
-  const closeModal = useCallback(() => setIsModalOpen(false), [])
+  const openModal = useCallback(() => setIsModalOpen(true), []);
+  const closeModal = useCallback(() => setIsModalOpen(false), []);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mediaQuery.matches)
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches)
-    }
+      setPrefersReducedMotion(e.matches);
+    };
 
-    mediaQuery.addEventListener("change", handleChange)
-    return () => mediaQuery.removeEventListener("change", handleChange)
-  }, [])
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
-  const shouldAnimate = !prefersReducedMotion && !isHovered
+  const shouldAnimate = !prefersReducedMotion && !isHovered;
 
   return (
     <>
@@ -116,14 +120,16 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
             <span
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
-                background: "linear-gradient(135deg, rgba(34, 181, 248, 0.15), rgba(0, 139, 255, 0.1))",
+                background:
+                  "linear-gradient(135deg, rgba(34, 181, 248, 0.15), rgba(0, 139, 255, 0.1))",
                 animation: "demoButtonPulse 3s ease-in-out infinite",
               }}
             />
             <span
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
-                background: "linear-gradient(135deg, rgba(34, 181, 248, 0.1), rgba(0, 139, 255, 0.05))",
+                background:
+                  "linear-gradient(135deg, rgba(34, 181, 248, 0.1), rgba(0, 139, 255, 0.05))",
                 animation: "demoButtonPulse 3s ease-in-out infinite 1.5s",
               }}
             />
@@ -140,17 +146,25 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
               : undefined
           }
         >
-          <Play className="w-3.5 h-3.5 text-[#22b5f8] ml-0.5" fill="currentColor" />
+          <Play
+            className="w-3.5 h-3.5 text-[#22b5f8] ml-0.5"
+            fill="currentColor"
+          />
         </span>
 
         <span className="relative">Xem Demo</span>
       </button>
 
-      <YouTubeModal videoId="R5RuHV_JrMM" isOpen={isModalOpen} onClose={closeModal} />
+      <YouTubeModal
+        videoId="R5RuHV_JrMM"
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
 
       <style jsx>{`
         @keyframes demoButtonPulse {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
             opacity: 0;
           }
@@ -161,7 +175,8 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
         }
 
         @keyframes demoIconPulse {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
           }
           50% {
@@ -171,18 +186,20 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
 
         @media (prefers-reduced-motion: reduce) {
           @keyframes demoButtonPulse {
-            0%, 100% {
+            0%,
+            100% {
               transform: scale(1);
               opacity: 0;
             }
           }
           @keyframes demoIconPulse {
-            0%, 100% {
+            0%,
+            100% {
               transform: scale(1);
             }
           }
         }
       `}</style>
     </>
-  )
+  );
 }
