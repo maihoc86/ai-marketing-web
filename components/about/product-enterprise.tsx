@@ -163,7 +163,7 @@ export function ProductEnterprise() {
   ];
 
   const aiModels = [
-    { name: "OpenAI GPT-4", icon: SiOpenai, color: "#000000" },
+    { name: "OpenAI GPT-5.2", icon: SiOpenai, color: "#000000" },
     { name: "Google Gemini", icon: SiGoogle, color: "#4285F4" },
     { name: "Anthropic Claude", icon: ClaudeIcon, color: "#D97706" },
     { name: "Meta Llama", icon: SiMeta, color: "#0668E1" },

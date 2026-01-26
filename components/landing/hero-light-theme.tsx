@@ -348,7 +348,7 @@ const aiModels = [
   {
     Icon: OpenAIIcon,
     name: "OpenAI",
-    model: "GPT-4",
+    model: "GPT-5.2",
     color: "#10A37F",
     bgGradient: "from-gray-50 to-white",
     borderColor: "border-gray-200",
@@ -357,7 +357,7 @@ const aiModels = [
   {
     Icon: GeminiIcon,
     name: "Google",
-    model: "Gemini 2.0",
+    model: "Gemini 3.0",
     color: "#4285F4",
     bgGradient: "from-blue-50 to-white",
     borderColor: "border-blue-100",
@@ -366,7 +366,7 @@ const aiModels = [
   {
     Icon: ClaudeIcon,
     name: "Anthropic",
-    model: "Claude 3.7",
+    model: "Claude 4.5",
     color: "#CC785C",
     bgGradient: "from-amber-50 to-white",
     borderColor: "border-amber-100",
