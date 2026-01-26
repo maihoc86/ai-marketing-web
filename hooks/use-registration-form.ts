@@ -59,6 +59,7 @@ interface UseRegistrationFormConfig {
 interface UseRegistrationFormReturn {
   formData: RegistrationFormData;
   errors: RegistrationFormErrors;
+  successMessage: string;
   isLoading: boolean;
   isSubmitted: boolean;
   currentStep: number;
@@ -163,6 +164,7 @@ export function useRegistrationForm(
   });
 
   const [errors, setErrors] = useState<RegistrationFormErrors>({});
+  const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
@@ -223,10 +225,8 @@ export function useRegistrationForm(
       newErrors.job_position = "Vui lòng chọn chức vụ";
     }
 
-    // Password validation
-    if (!formData.password) {
-      newErrors.password = "Vui lòng nhập mật khẩu";
-    } else if (formData.password.length < 8) {
+    // Password validation (optional - only validate if provided)
+    if (formData.password && formData.password.length < 8) {
       newErrors.password = "Mật khẩu phải có ít nhất 8 ký tự";
     }
 
@@ -271,9 +271,12 @@ export function useRegistrationForm(
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear error for this field
+    // Clear error and success message for this field
     if (errors[name as keyof RegistrationFormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+    if (successMessage) {
+      setSuccessMessage("");
     }
   };
 
@@ -348,6 +351,7 @@ export function useRegistrationForm(
 
     setIsLoading(true);
     setErrors({});
+    setSuccessMessage("");
 
     try {
       // Get business type label
@@ -381,6 +385,8 @@ export function useRegistrationForm(
       const data = await api.registerCompany(submitData);
 
       if (data.success) {
+        // Set success message
+        setSuccessMessage(data.message || "Đăng ký thành công!");
         setIsSubmitted(true);
 
         // Reset form after successful submission
@@ -422,6 +428,7 @@ export function useRegistrationForm(
   return {
     formData,
     errors,
+    successMessage,
     isLoading,
     isSubmitted,
     currentStep,

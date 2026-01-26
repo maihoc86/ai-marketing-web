@@ -1,24 +1,25 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useRef, useEffect, Suspense } from "react"
-import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-import { CheckCircle2, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useRegistrationForm } from "@/hooks/use-registration-form"
-import { RegistrationForm } from "./registration-form"
+import type React from "react";
+import { useRef, useEffect, Suspense } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useRegistrationForm } from "@/hooks/use-registration-form";
+import { RegistrationForm } from "./registration-form";
 
 function RegisterFormContent() {
-  const searchParams = useSearchParams()
-  const packageFromUrl = searchParams.get("package") || "starter"
+  const searchParams = useSearchParams();
+  const packageFromUrl = searchParams.get("package") || "starter";
 
-  const mainHeadingRef = useRef<HTMLHeadingElement>(null)
+  const mainHeadingRef = useRef<HTMLHeadingElement>(null);
 
   // Use shared registration form hook
   const {
     formData,
     errors,
+    successMessage,
     isLoading,
     isSubmitted,
     setIsSubmitted,
@@ -28,21 +29,21 @@ function RegisterFormContent() {
     handleSubmit,
   } = useRegistrationForm({
     initialPackage: packageFromUrl,
-  })
+  });
 
   // Focus heading on success
   useEffect(() => {
     if (isSubmitted && mainHeadingRef.current) {
-      mainHeadingRef.current.focus()
+      mainHeadingRef.current.focus();
     }
-  }, [isSubmitted])
+  }, [isSubmitted]);
 
   // Handle Escape key to dismiss success message
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape" && isSubmitted) {
-      setIsSubmitted(false)
+      setIsSubmitted(false);
     }
-  }
+  };
 
   if (isSubmitted) {
     return (
@@ -63,50 +64,77 @@ function RegisterFormContent() {
             role="img"
             aria-label="Biểu tượng thành công"
           >
-            <CheckCircle2 className="w-12 h-12 text-green-600" aria-hidden="true" />
+            <CheckCircle2
+              className="w-12 h-12 text-green-600"
+              aria-hidden="true"
+            />
           </div>
-          <h1 ref={mainHeadingRef} tabIndex={-1} className="text-3xl font-bold text-gray-900 mb-3 focus:outline-none">
+          <h1
+            ref={mainHeadingRef}
+            tabIndex={-1}
+            className="text-3xl font-bold text-gray-900 mb-3 focus:outline-none"
+          >
             Đăng ký thành công!
           </h1>
           <p className="text-gray-600 mb-8 text-lg">
-            Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24
-            giờ.
+            Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của
+            chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
           </p>
-          <div className="flex gap-4 justify-center">
+
+          {/* Primary CTA */}
+          <div className="mb-6">
             <Button
               asChild
               size="lg"
-              className="rounded-full px-8 min-h-[48px] min-w-[48px]"
+              className="rounded-full px-12 min-h-[56px] bg-[#22b5f8] hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
+              aria-label="Đăng nhập vào hệ thống"
+            >
+              <a
+                href="https://admin-ai-code.dsp.one"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Đăng nhập ngay
+              </a>
+            </Button>
+          </div>
+
+          {/* Secondary Actions */}
+          <div className="flex flex-col items-center gap-3">
+            <button
+              onClick={() => setIsSubmitted(false)}
+              className="text-sm text-gray-600 hover:text-[#22b5f8] font-medium"
+              aria-label="Đăng ký thêm một người khác"
+            >
+              Đăng ký thêm một tài khoản
+            </button>
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="text-gray-500 hover:text-gray-700 hover:bg-transparent text-xs"
               aria-label="Quay lại trang chủ"
             >
               <Link href="/">Quay lại trang chủ</Link>
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full px-8 bg-transparent min-h-[48px] min-w-[48px]"
-              onClick={() => setIsSubmitted(false)}
-              aria-label="Đăng ký thêm một người khác"
-            >
-              Đăng ký thêm
-            </Button>
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <RegistrationForm
       formData={formData}
       errors={errors}
+      successMessage={successMessage}
       isLoading={isLoading}
       onInputChange={handleInputChange}
       onPackageSelect={handlePackageSelect}
       onBusinessTypeChange={handleBusinessTypeChange}
       onSubmit={handleSubmit}
     />
-  )
+  );
 }
 
 export default function RegisterPage() {
@@ -120,5 +148,5 @@ export default function RegisterPage() {
     >
       <RegisterFormContent />
     </Suspense>
-  )
+  );
 }

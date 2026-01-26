@@ -1,18 +1,24 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Check, Star, Loader2, AlertCircle, CheckCircle } from "lucide-react"
-import { Navbar } from "@/components/landing/navbar"
-import type { RegistrationFormData, RegistrationFormErrors } from "@/hooks/use-registration-form"
+import Link from "next/link";
+import { Check, Star, Loader2, AlertCircle, CheckCircle } from "lucide-react";
+import { Navbar } from "@/components/landing/navbar";
+import type {
+  RegistrationFormData,
+  RegistrationFormErrors,
+} from "@/hooks/use-registration-form";
 
 interface RegistrationFormProps {
-  formData: RegistrationFormData
-  errors: RegistrationFormErrors
-  isLoading: boolean
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
-  onPackageSelect: (packageId: string) => void
-  onBusinessTypeChange: (type: "enterprise" | "household" | "other") => void
-  onSubmit: (e: React.FormEvent) => Promise<void>
+  formData: RegistrationFormData;
+  errors: RegistrationFormErrors;
+  successMessage: string;
+  isLoading: boolean;
+  onInputChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => void;
+  onPackageSelect: (packageId: string) => void;
+  onBusinessTypeChange: (type: "enterprise" | "household" | "other") => void;
+  onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 
 const jobPositions = [
@@ -22,11 +28,12 @@ const jobPositions = [
   { id: "marketing_manager", label: "Marketing Manager" },
   { id: "growth_hacker", label: "Growth Hacker" },
   { id: "other", label: "Khác" },
-]
+];
 
 export function RegistrationForm({
   formData,
   errors,
+  successMessage,
   isLoading,
   onInputChange,
   onPackageSelect,
@@ -52,23 +59,30 @@ export function RegistrationForm({
                 Nâng tầm Marketing doanh nghiệp với AI
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Hơn 2,500+ doanh nghiệp đã chuyển đổi số thành công cùng DXAI. Tham gia ngay hôm nay để nhận các ưu đãi
-                độc quyền.
+                Hơn 2,500+ doanh nghiệp đã chuyển đổi số thành công cùng DXAI.
+                Tham gia ngay hôm nay để nhận các ưu đãi độc quyền.
               </p>
             </div>
 
             {/* Benefits Checklist */}
             <div className="flex flex-col gap-4">
-              {["Tư vấn chuyên gia 1-1", "Demo sản phẩm trực tiếp", "Nhận các ưu đãi đặc biệt dành cho SMBs"].map(
-                (benefit, index) => (
-                  <div key={index} className="flex gap-x-3 items-center">
-                    <div className="bg-[#22b5f8]/10 p-1.5 rounded-full">
-                      <Check className="w-4 h-4 text-[#22b5f8]" aria-hidden="true" />
-                    </div>
-                    <p className="text-base font-medium text-gray-900">{benefit}</p>
+              {[
+                "Tư vấn chuyên gia 1-1",
+                "Demo sản phẩm trực tiếp",
+                "Nhận các ưu đãi đặc biệt dành cho SMBs",
+              ].map((benefit, index) => (
+                <div key={index} className="flex gap-x-3 items-center">
+                  <div className="bg-[#22b5f8]/10 p-1.5 rounded-full">
+                    <Check
+                      className="w-4 h-4 text-[#22b5f8]"
+                      aria-hidden="true"
+                    />
                   </div>
-                )
-              )}
+                  <p className="text-base font-medium text-gray-900">
+                    {benefit}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -92,14 +106,21 @@ export function RegistrationForm({
               <div>
                 <div className="flex text-yellow-500">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" aria-hidden="true" />
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-current"
+                      aria-hidden="true"
+                    />
                   ))}
                 </div>
-                <p className="text-xs font-semibold text-gray-500">4.9/5 dựa trên đánh giá người dùng</p>
+                <p className="text-xs font-semibold text-gray-500">
+                  4.9/5 dựa trên đánh giá người dùng
+                </p>
               </div>
             </div>
             <p className="text-sm italic text-gray-600">
-              &quot;DXAI giúp chúng tôi tối ưu hóa quy trình làm việc và tăng 30% tỷ lệ chuyển đổi trong 3 tháng đầu.&quot;
+              &quot;DXAI giúp chúng tôi tối ưu hóa quy trình làm việc và tăng
+              30% tỷ lệ chuyển đổi trong 3 tháng đầu.&quot;
             </p>
           </div>
         </div>
@@ -109,8 +130,12 @@ export function RegistrationForm({
           <div className="max-w-[640px] mx-auto w-full">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Đăng ký dùng thử miễn phí</h2>
-              <p className="text-gray-500">Điền thông tin để bắt đầu trải nghiệm DXAI</p>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Đăng ký dùng thử miễn phí
+              </h2>
+              <p className="text-gray-500">
+                Điền thông tin để bắt đầu trải nghiệm DXAI
+              </p>
             </div>
 
             <form onSubmit={onSubmit} className="space-y-6">
@@ -132,13 +157,22 @@ export function RegistrationForm({
                     className="sr-only"
                   />
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm font-bold uppercase text-[#22b5f8]">Starter</span>
+                    <span className="text-sm font-bold uppercase text-[#22b5f8]">
+                      Starter
+                    </span>
                     {formData.selected_package === "starter" && (
-                      <Check className="w-5 h-5 text-[#22b5f8]" aria-hidden="true" />
+                      <Check
+                        className="w-5 h-5 text-[#22b5f8]"
+                        aria-hidden="true"
+                      />
                     )}
                   </div>
-                  <p className="text-lg font-bold text-gray-900 mb-1">Dành cho cá nhân</p>
-                  <p className="text-xs text-gray-500">Miễn phí trải nghiệm đầy đủ tính năng trong 14 ngày.</p>
+                  <p className="text-lg font-bold text-gray-900 mb-1">
+                    Dành cho cá nhân
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Miễn phí trải nghiệm đầy đủ tính năng trong 14 ngày.
+                  </p>
                 </label>
 
                 <label
@@ -157,18 +191,30 @@ export function RegistrationForm({
                     className="sr-only"
                   />
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm font-bold uppercase text-gray-500">Business</span>
+                    <span className="text-sm font-bold uppercase text-gray-500">
+                      Business
+                    </span>
                     {formData.selected_package === "business" && (
-                      <Check className="w-5 h-5 text-[#22b5f8]" aria-hidden="true" />
+                      <Check
+                        className="w-5 h-5 text-[#22b5f8]"
+                        aria-hidden="true"
+                      />
                     )}
                   </div>
-                  <p className="text-lg font-bold text-gray-900 mb-1">Dành cho tổ chức</p>
-                  <p className="text-xs text-gray-500">Giải pháp tùy chỉnh với quản trị viên và phân quyền.</p>
+                  <p className="text-lg font-bold text-gray-900 mb-1">
+                    Dành cho tổ chức
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Giải pháp tùy chỉnh với quản trị viên và phân quyền.
+                  </p>
                 </label>
               </div>
 
               {errors.selected_package && (
-                <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                <p
+                  role="alert"
+                  className="text-sm text-red-600 flex items-center gap-1"
+                >
                   <AlertCircle className="w-4 h-4" aria-hidden="true" />
                   {errors.selected_package}
                 </p>
@@ -180,8 +226,12 @@ export function RegistrationForm({
                   {/* Company Info */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="company_name" className="text-sm font-semibold text-gray-900">
-                        Tên doanh nghiệp / Tổ chức <span className="text-red-500">*</span>
+                      <label
+                        htmlFor="company_name"
+                        className="text-sm font-semibold text-gray-900"
+                      >
+                        Tên doanh nghiệp / Tổ chức{" "}
+                        <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="company_name"
@@ -191,11 +241,16 @@ export function RegistrationForm({
                         onChange={onInputChange}
                         placeholder="Nhập tên chính thức"
                         className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
-                          errors.company_name ? "border-red-500" : "border-gray-200"
+                          errors.company_name
+                            ? "border-red-500"
+                            : "border-gray-200"
                         }`}
                       />
                       {errors.company_name && (
-                        <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                        <p
+                          role="alert"
+                          className="text-sm text-red-600 flex items-center gap-1"
+                        >
                           <AlertCircle className="w-4 h-4" aria-hidden="true" />
                           {errors.company_name}
                         </p>
@@ -203,7 +258,10 @@ export function RegistrationForm({
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="tax_code" className="text-sm font-semibold text-gray-900">
+                      <label
+                        htmlFor="tax_code"
+                        className="text-sm font-semibold text-gray-900"
+                      >
                         Mã số thuế (MST)
                       </label>
                       <input
@@ -220,7 +278,9 @@ export function RegistrationForm({
 
                   {/* Business Type */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-gray-900">Loại hình doanh nghiệp</label>
+                    <label className="text-sm font-semibold text-gray-900">
+                      Loại hình doanh nghiệp
+                    </label>
                     <div className="flex flex-wrap gap-4 mt-1">
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
@@ -231,7 +291,9 @@ export function RegistrationForm({
                           onChange={() => onBusinessTypeChange("enterprise")}
                           className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
-                        <span className="text-sm text-gray-700">Công ty TNHH/CP</span>
+                        <span className="text-sm text-gray-700">
+                          Công ty TNHH/CP
+                        </span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
@@ -242,7 +304,9 @@ export function RegistrationForm({
                           onChange={() => onBusinessTypeChange("household")}
                           className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
-                        <span className="text-sm text-gray-700">Hộ kinh doanh</span>
+                        <span className="text-sm text-gray-700">
+                          Hộ kinh doanh
+                        </span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
@@ -253,14 +317,19 @@ export function RegistrationForm({
                           onChange={() => onBusinessTypeChange("other")}
                           className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
                         />
-                        <span className="text-sm text-gray-700">Tổ chức khác</span>
+                        <span className="text-sm text-gray-700">
+                          Tổ chức khác
+                        </span>
                       </label>
                     </div>
                   </div>
 
                   {/* Address */}
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="address" className="text-sm font-semibold text-gray-900">
+                    <label
+                      htmlFor="address"
+                      className="text-sm font-semibold text-gray-900"
+                    >
                       Địa chỉ văn phòng
                     </label>
                     <input
@@ -282,7 +351,10 @@ export function RegistrationForm({
               {/* Contact Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="full_name" className="text-sm font-semibold text-gray-900">
+                  <label
+                    htmlFor="full_name"
+                    className="text-sm font-semibold text-gray-900"
+                  >
                     Họ và tên <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
@@ -302,7 +374,10 @@ export function RegistrationForm({
                     )}
                   </div>
                   {errors.full_name && (
-                    <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                    <p
+                      role="alert"
+                      className="text-sm text-red-600 flex items-center gap-1"
+                    >
                       <AlertCircle className="w-4 h-4" aria-hidden="true" />
                       {errors.full_name}
                     </p>
@@ -310,7 +385,10 @@ export function RegistrationForm({
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-semibold text-gray-900">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-semibold text-gray-900"
+                  >
                     Email công việc <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -325,7 +403,10 @@ export function RegistrationForm({
                     }`}
                   />
                   {errors.email && (
-                    <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                    <p
+                      role="alert"
+                      className="text-sm text-red-600 flex items-center gap-1"
+                    >
                       <AlertCircle className="w-4 h-4" aria-hidden="true" />
                       {errors.email}
                     </p>
@@ -336,7 +417,10 @@ export function RegistrationForm({
               {/* Phone & Job Position */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="phone_number" className="text-sm font-semibold text-gray-900">
+                  <label
+                    htmlFor="phone_number"
+                    className="text-sm font-semibold text-gray-900"
+                  >
                     Số điện thoại <span className="text-red-500">*</span>
                   </label>
                   <div className="flex">
@@ -351,12 +435,17 @@ export function RegistrationForm({
                       onChange={onInputChange}
                       placeholder="912 345 678"
                       className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${
-                        errors.phone_number ? "border-red-500" : "border-gray-200"
+                        errors.phone_number
+                          ? "border-red-500"
+                          : "border-gray-200"
                       }`}
                     />
                   </div>
                   {errors.phone_number && (
-                    <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                    <p
+                      role="alert"
+                      className="text-sm text-red-600 flex items-center gap-1"
+                    >
                       <AlertCircle className="w-4 h-4" aria-hidden="true" />
                       {errors.phone_number}
                     </p>
@@ -364,7 +453,10 @@ export function RegistrationForm({
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="job_position" className="text-sm font-semibold text-gray-900">
+                  <label
+                    htmlFor="job_position"
+                    className="text-sm font-semibold text-gray-900"
+                  >
                     Chức vụ <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -377,13 +469,20 @@ export function RegistrationForm({
                     } ${!formData.job_position ? "text-gray-400" : "text-gray-900"}`}
                   >
                     {jobPositions.map((position) => (
-                      <option key={position.id} value={position.id} disabled={position.id === ""}>
+                      <option
+                        key={position.id}
+                        value={position.id}
+                        disabled={position.id === ""}
+                      >
                         {position.label}
                       </option>
                     ))}
                   </select>
                   {errors.job_position && (
-                    <p role="alert" className="text-sm text-red-600 flex items-center gap-1">
+                    <p
+                      role="alert"
+                      className="text-sm text-red-600 flex items-center gap-1"
+                    >
                       <AlertCircle className="w-4 h-4" aria-hidden="true" />
                       {errors.job_position}
                     </p>
@@ -391,9 +490,25 @@ export function RegistrationForm({
                 </div>
               </div>
 
+              {/* Success Message */}
+              {successMessage && (
+                <div
+                  className="p-4 bg-green-50 border border-green-200 rounded-xl"
+                  role="alert"
+                >
+                  <p className="text-sm text-green-600 flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5" aria-hidden="true" />
+                    {successMessage}
+                  </p>
+                </div>
+              )}
+
               {/* General Error */}
               {errors.general && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-xl" role="alert">
+                <div
+                  className="p-4 bg-red-50 border border-red-200 rounded-xl"
+                  role="alert"
+                >
                   <p className="text-sm text-red-600 flex items-center gap-2">
                     <AlertCircle className="w-5 h-5" aria-hidden="true" />
                     {errors.general}
@@ -410,7 +525,10 @@ export function RegistrationForm({
                 >
                   {isLoading ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                      <Loader2
+                        className="w-5 h-5 animate-spin"
+                        aria-hidden="true"
+                      />
                       Đang xử lý...
                     </>
                   ) : (
@@ -419,13 +537,31 @@ export function RegistrationForm({
                 </button>
               </div>
 
+              <p className="text-center text-sm text-gray-600">
+                Đã có tài khoản?{" "}
+                <a
+                  href="https://admin-ai-code.dsp.one"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#22b5f8] font-semibold hover:underline"
+                >
+                  Đăng nhập ngay
+                </a>
+              </p>
+
               <p className="text-center text-xs text-gray-500">
                 Bằng cách đăng ký, bạn đồng ý với{" "}
-                <Link href="/dieu-khoan" className="text-[#22b5f8] hover:underline">
+                <Link
+                  href="/dieu-khoan"
+                  className="text-[#22b5f8] hover:underline"
+                >
                   Điều khoản dịch vụ
                 </Link>{" "}
                 và{" "}
-                <Link href="/chinh-sach-bao-mat" className="text-[#22b5f8] hover:underline">
+                <Link
+                  href="/chinh-sach-bao-mat"
+                  className="text-[#22b5f8] hover:underline"
+                >
                   Chính sách bảo mật
                 </Link>{" "}
                 của chúng tôi.
@@ -435,5 +571,5 @@ export function RegistrationForm({
         </div>
       </div>
     </div>
-  )
+  );
 }
