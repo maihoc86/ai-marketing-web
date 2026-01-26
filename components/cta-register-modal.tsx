@@ -226,7 +226,7 @@ export function CtaRegisterModal() {
               {/* Benefits list */}
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5">
                     <Gift className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
@@ -234,7 +234,7 @@ export function CtaRegisterModal() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5">
                     <Sparkles className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
@@ -242,7 +242,7 @@ export function CtaRegisterModal() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5">
                     <Headphones className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">

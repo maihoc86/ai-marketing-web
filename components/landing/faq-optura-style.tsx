@@ -113,7 +113,7 @@ export function FaqOpturaStyle() {
                   {/* Number badge */}
                   <div
                     className={cn(
-                      "flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm transition-all",
+                      "shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm transition-all",
                       isOpen
                         ? "bg-linear-to-br from-blue-500 to-cyan-500 text-white shadow-optura"
                         : "bg-blue-100 text-blue-600 group-hover:bg-blue-200",
@@ -139,7 +139,7 @@ export function FaqOpturaStyle() {
                   {/* Chevron */}
                   <div
                     className={cn(
-                      "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all",
+                      "shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all",
                       isOpen
                         ? "bg-blue-100 rotate-180"
                         : "bg-gray-100 group-hover:bg-blue-50",

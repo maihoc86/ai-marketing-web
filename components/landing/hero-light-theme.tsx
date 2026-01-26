@@ -346,11 +346,7 @@ const platforms = [
 // ============================================================
 export function HeroLightTheme() {
   const { t } = useI18n();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const [isVisible] = useState(true);
 
   return (
     <section className="relative hero-gradient-light overflow-hidden min-h-screen flex flex-col justify-center py-16 md:py-24 font-sans">
@@ -400,7 +396,7 @@ export function HeroLightTheme() {
             {/* Key Value Props - Quick Stats */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div className="flex items-start gap-2">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -421,7 +417,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -443,7 +439,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -465,7 +461,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -731,7 +727,7 @@ export function HeroLightTheme() {
             aria-hidden="true"
           />
           <div
-            className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+            className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-white to-transparent z-10 pointer-events-none"
             aria-hidden="true"
           />
           <div className="flex animate-scroll gap-16 items-center whitespace-nowrap px-10">
@@ -740,79 +736,79 @@ export function HeroLightTheme() {
               <div key={setIndex} className="flex gap-16 items-center">
                 {/* OpenAI GPT-4 */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-gray-300 group-hover/item:shadow-md transition-all">
-                    <OpenAIIcon className="w-6 h-6 text-gray-900" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-gray-50 to-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm group-hover/item:border-gray-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <OpenAIIcon className="w-7 h-7 text-[#10A37F]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-gray-900 transition-colors">
+                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#10A37F] transition-colors">
                       OpenAI
                     </p>
-                    <p className="text-xs text-gray-500">GPT-4</p>
+                    <p className="text-xs text-gray-500">GPT-4o</p>
                   </div>
                 </div>
 
                 {/* Google Gemini */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-blue-300 group-hover/item:shadow-md transition-all">
-                    <GeminiIcon className="w-6 h-6 text-[#4285F4]" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-blue-50 to-white rounded-xl flex items-center justify-center border border-blue-100 shadow-sm group-hover/item:border-blue-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <GeminiIcon className="w-7 h-7 text-[#4285F4]" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#4285F4] transition-colors">
                       Google
                     </p>
-                    <p className="text-xs text-gray-500">Gemini</p>
+                    <p className="text-xs text-gray-500">Gemini 2.0</p>
                   </div>
                 </div>
 
                 {/* Anthropic Claude */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-amber-300 group-hover/item:shadow-md transition-all">
-                    <ClaudeIcon className="w-6 h-6 text-[#D97706]" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-amber-50 to-white rounded-xl flex items-center justify-center border border-amber-100 shadow-sm group-hover/item:border-amber-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <ClaudeIcon className="w-7 h-7 text-[#CC785C]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#D97706] transition-colors">
+                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#CC785C] transition-colors">
                       Anthropic
                     </p>
-                    <p className="text-xs text-gray-500">Claude</p>
+                    <p className="text-xs text-gray-500">Claude 3.7</p>
                   </div>
                 </div>
 
                 {/* Meta Llama */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-blue-300 group-hover/item:shadow-md transition-all">
-                    <MetaIcon className="w-6 h-6 text-[#0668E1]" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-blue-50 to-white rounded-xl flex items-center justify-center border border-blue-100 shadow-sm group-hover/item:border-blue-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <MetaIcon className="w-7 h-7 text-[#0668E1]" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#0668E1] transition-colors">
                       Meta
                     </p>
-                    <p className="text-xs text-gray-500">Llama</p>
+                    <p className="text-xs text-gray-500">Llama 4</p>
                   </div>
                 </div>
 
                 {/* Mistral AI */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-orange-300 group-hover/item:shadow-md transition-all">
-                    <MistralIcon className="w-6 h-6 text-[#FF7000]" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-orange-50 to-white rounded-xl flex items-center justify-center border border-orange-100 shadow-sm group-hover/item:border-orange-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <MistralIcon className="w-7 h-7 text-[#FF7000]" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#FF7000] transition-colors">
-                      Mistral AI
+                      Mistral
                     </p>
-                    <p className="text-xs text-gray-500">Mistral</p>
+                    <p className="text-xs text-gray-500">Large</p>
                   </div>
                 </div>
 
                 {/* DeepSeek */}
                 <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200 group-hover/item:border-indigo-300 group-hover/item:shadow-md transition-all">
-                    <DeepSeekIcon className="w-6 h-6 text-[#4F46E5]" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-indigo-50 to-white rounded-xl flex items-center justify-center border border-indigo-100 shadow-sm group-hover/item:border-indigo-400 group-hover/item:shadow-lg transition-all duration-300">
+                    <DeepSeekIcon className="w-7 h-7 text-[#4F46E5]" />
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#4F46E5] transition-colors">
                       DeepSeek
                     </p>
-                    <p className="text-xs text-gray-500">DeepSeek</p>
+                    <p className="text-xs text-gray-500">V3</p>
                   </div>
                 </div>
               </div>

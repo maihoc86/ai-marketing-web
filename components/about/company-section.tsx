@@ -134,7 +134,7 @@ export function CompanySection() {
               <ul className="space-y-3 mb-8">
                 {companyHighlights.map((key, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#22b5f8] mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#22b5f8] mt-0.5 shrink-0" />
                     <span className="text-gray-700">{t(key)}</span>
                   </li>
                 ))}
@@ -236,7 +236,7 @@ export function CompanySection() {
                 {processSteps.map((step, index) => (
                   <div key={index} className="relative flex gap-6">
                     {/* Icon circle */}
-                    <div className="relative z-10 w-12 h-12 bg-white border-2 border-[#22b5f8]/30 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <div className="relative z-10 w-12 h-12 bg-white border-2 border-[#22b5f8]/30 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
                       <step.icon className="w-5 h-5 text-[#22b5f8]" />
                     </div>
 

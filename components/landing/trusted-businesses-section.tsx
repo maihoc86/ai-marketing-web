@@ -300,7 +300,7 @@ function TrustBadge({
         isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4",
       )}
     >
-      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-linear-to-br from-[#22b5f8] to-[#008bff] flex items-center justify-center shadow-lg">
+      <div className="shrink-0 w-10 h-10 rounded-full bg-linear-to-br from-[#22b5f8] to-[#008bff] flex items-center justify-center shadow-lg">
         <Icon className="w-5 h-5 text-white" />
       </div>
       <div>

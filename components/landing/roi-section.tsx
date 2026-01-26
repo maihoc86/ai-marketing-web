@@ -211,7 +211,7 @@ export function RoiSection() {
                   {/* Criteria Cell */}
                   <div className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                     <div
-                      className={`w-10 h-10 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-lg flex-shrink-0`}
+                      className={`w-10 h-10 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-lg shrink-0`}
                     >
                       <row.icon className="w-5 h-5 text-white" />
                     </div>
@@ -266,7 +266,7 @@ export function RoiSection() {
                 {/* Criteria Header */}
                 <div className="flex items-center gap-3 p-4 bg-linear-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                   <div
-                    className={`w-9 h-9 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-md flex-shrink-0`}
+                    className={`w-9 h-9 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-md shrink-0`}
                   >
                     <row.icon className="w-4 h-4 text-white" />
                   </div>

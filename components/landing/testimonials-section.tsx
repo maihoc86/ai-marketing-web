@@ -87,7 +87,7 @@ function TestimonialCard({
     <div
       onClick={isClickable ? onClick : undefined}
       className={cn(
-        "bg-white rounded-3xl p-6 md:p-8 relative flex-shrink-0",
+        "bg-white rounded-3xl p-6 md:p-8 relative shrink-0",
         "w-full",
         "min-h-[320px] md:min-h-[340px]",
         "transition-all duration-400 ease-out",
@@ -120,7 +120,7 @@ function TestimonialCard({
         <div className="flex items-center gap-4 h-14">
           <div
             className={cn(
-              "rounded-full overflow-hidden border-2 flex-shrink-0 transition-all duration-400",
+              "rounded-full overflow-hidden border-2 shrink-0 transition-all duration-400",
               "w-12 h-12",
               isActive ? "border-[#22b5f8]/30" : "border-gray-200",
             )}

@@ -290,7 +290,7 @@ const PricingCard = memo(
             {plan?.features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <div
-                  className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                  className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
                     isFeatured ? "bg-blue-500/50" : "bg-blue-100"
                   }`}
                 >
