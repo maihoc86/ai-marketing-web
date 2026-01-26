@@ -125,7 +125,7 @@ export function ProductSection() {
           </p>
         </div>
 
-        {/* Why DXAI */}
+        {/* Why Uniksmart */}
         <div className="mb-20">
           <div className="text-center mb-4">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -210,10 +210,10 @@ export function ProductSection() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">
-                            DXAI Dashboard
+                            Uniksmart Dashboard
                           </p>
                           <p className="text-xs text-gray-500">
-                            DXAI Marketing Platform
+                            Uniksmart
                           </p>
                         </div>
                       </div>

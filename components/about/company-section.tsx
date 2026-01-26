@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import {
   Sparkles,
   Target,
@@ -113,7 +113,7 @@ export function CompanySection() {
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-linear-to-br from-blue-100 to-blue-50">
                 <Image
                   src="/professional-team-meeting-in-modern-office-with-la.jpg"
-                  alt="Đội ngũ Tiên Phong CDS"
+                  alt="Đội ngũ Uniksmart"
                   fill
                   className="object-cover"
                 />
@@ -145,10 +145,10 @@ export function CompanySection() {
                 className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8] hover:text-white font-semibold px-6 py-5 rounded-xl transition-all bg-transparent"
                 asChild
               >
-                <Link href="/dang-ky" className="flex items-center gap-2">
+                <LocaleLink href="/dang-ky" className="flex items-center gap-2">
                   {t("about.company.cta")}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </LocaleLink>
               </Button>
             </div>
           </div>
@@ -207,13 +207,13 @@ export function CompanySection() {
                 className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8]/5 font-medium px-5 py-4 rounded-xl mb-8 bg-transparent"
                 asChild
               >
-                <Link
+                <LocaleLink
                   href="https://tienphongcds.com/vi/blog"
                   className="flex items-center gap-2"
                 >
                   {t("about.process.cta")}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </LocaleLink>
               </Button>
 
               {/* Process illustration image */}

@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 const languages: {
   code: Locale;
   label: string;
-  countryCode: string;
+  flag: string;
   shortLabel: string;
 }[] = [
-  { code: "en", label: "English", countryCode: "US", shortLabel: "EN" },
-  { code: "vi", label: "Tiếng Việt", countryCode: "VN", shortLabel: "VI" },
+  { code: "en", label: "English", flag: "🇺🇸", shortLabel: "EN" },
+  { code: "vi", label: "Tiếng Việt", flag: "🇻🇳", shortLabel: "VI" },
 ];
 
 interface LanguageSelectorProps {
@@ -89,11 +89,8 @@ export function LanguageSelector({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span
-          className="text-xs font-bold text-[#666666] leading-none"
-          aria-hidden="true"
-        >
-          {currentLang.countryCode}
+        <span className="text-base leading-none" aria-hidden="true">
+          {currentLang.flag}
         </span>
         <span>{currentLang.shortLabel}</span>
         <ChevronDown
@@ -135,11 +132,8 @@ export function LanguageSelector({
               role="option"
               aria-selected={locale === lang.code}
             >
-              <span
-                className="text-xs font-bold text-gray-400 leading-none w-6"
-                aria-hidden="true"
-              >
-                {lang.countryCode}
+              <span className="text-lg leading-none" aria-hidden="true">
+                {lang.flag}
               </span>
               <span className="flex-1 text-left whitespace-nowrap">
                 {lang.label}

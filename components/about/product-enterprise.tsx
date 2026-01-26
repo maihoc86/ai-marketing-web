@@ -198,7 +198,7 @@ export function ProductEnterprise() {
           </p>
         </div>
 
-        {/* Why DXAI - 4 Cards */}
+        {/* Why Uniksmart - 4 Cards */}
         <div className="mb-24">
           <div
             ref={whyDxaiHeaderRef}
@@ -261,7 +261,7 @@ export function ProductEnterprise() {
           </div>
         </div>
 
-        {/* Technology Behind DXAI */}
+        {/* Technology Behind Uniksmart */}
         <div className="bg-linear-to-br from-gray-50 to-[#22b5f8]/5 border-2 border-gray-100 rounded-3xl p-8 sm:p-12">
           <div
             ref={technologyHeaderRef}
@@ -484,7 +484,7 @@ function DashboardMockup({
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">
-                    DXAI Dashboard
+                    Uniksmart Dashboard
                   </p>
                   <p className="text-xs text-gray-500">Marketing Platform</p>
                 </div>

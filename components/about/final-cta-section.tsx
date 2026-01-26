@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
@@ -53,13 +53,13 @@ export function FinalCtaSection() {
             className="bg-white text-[#ff7900] hover:bg-gray-50 font-bold px-8 py-6 rounded-xl text-base shadow-xl hover:shadow-2xl transition-all"
             asChild
           >
-            <Link
+            <LocaleLink
               href="/dang-ky"
               className="flex items-center justify-center gap-2"
             >
               {t("about.finalCta.cta.demo")}
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </LocaleLink>
           </Button>
 
           <Button
@@ -68,13 +68,13 @@ export function FinalCtaSection() {
             className="border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl text-base transition-all bg-transparent backdrop-blur-sm"
             asChild
           >
-            <Link
+            <LocaleLink
               href="/dang-ky"
               className="flex items-center justify-center gap-2"
             >
               {t("about.finalCta.cta.roadmap")}
               <Download className="w-5 h-5" />
-            </Link>
+            </LocaleLink>
           </Button>
         </div>
 

@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
 import {
   X,
@@ -170,7 +170,7 @@ export function CtaRegisterModal() {
               Đăng ký thành công!
             </h2>
             <p className="text-gray-600 mb-6">
-              Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của
+              Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của
               chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
             </p>
             <Button
@@ -211,7 +211,7 @@ export function CtaRegisterModal() {
               <div className="mb-8">
                 <Image
                   src="https://tienphongcds.com/_next/image?url=https%3A%2F%2Fmedia.newweb.vn%2Ffile%2FdoMFbzZ4q&w=256&q=75"
-                  alt="Tiên Phong CDS"
+                  alt="Uniksmart"
                   width={140}
                   height={36}
                   className="h-9 w-auto brightness-0 invert"
@@ -230,7 +230,7 @@ export function CtaRegisterModal() {
                     <Gift className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
-                    Demo miễn phí DXAI Marketing Platform
+                    Demo miễn phí Uniksmart
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -270,7 +270,7 @@ export function CtaRegisterModal() {
             {/* Bottom trust line */}
             <div className="relative z-10 mt-6 pt-4 border-t border-white/20">
               <p className="text-white/70 text-sm">
-                Powered by Tiên Phong CDS & DXAI
+                Powered by Uniksmart
               </p>
             </div>
           </div>
@@ -351,19 +351,19 @@ export function CtaRegisterModal() {
               {/* Terms */}
               <p className="text-xs text-gray-500 text-center leading-relaxed pt-2">
                 Bằng việc đăng ký, bạn đồng ý với{" "}
-                <Link
+                <LocaleLink
                   href="/dieu-khoan"
                   className="text-[#22b5f8] hover:underline"
                 >
                   Điều khoản sử dụng
-                </Link>{" "}
+                </LocaleLink>{" "}
                 và{" "}
-                <Link
+                <LocaleLink
                   href="/chinh-sach-bao-mat"
                   className="text-[#22b5f8] hover:underline"
                 >
                   Chính sách bảo mật
-                </Link>
+                </LocaleLink>
               </p>
             </form>
           </div>

@@ -5,17 +5,17 @@
 
 /**
  * Organization Schema
- * Provides information about Tiên Phong CDS company
+ * Provides information about Uniksmart company
  */
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Tiên Phong CDS",
-  alternateName: "DXAI Marketing Platform",
+  name: "Uniksmart",
+  alternateName: "Uniksmart",
   url: "https://dsp.one",
   logo: "https://tienphongcds.com/_next/image?url=https%3A%2F%2Fmedia.newweb.vn%2Ffile%2FdoMFbzZ4q&w=256&q=75",
   description:
-    "Nền tảng DXAI Marketing tích hợp ChatGPT, Gemini, Claude, Grok. Sản xuất 150 Video/tháng, 2.500 bài viết SEO tự động. Tiết kiệm 40% chi phí nhân sự Marketing.",
+    "Nền tảng Uniksmart tích hợp ChatGPT, Gemini, Claude, Grok. Sản xuất 150 Video/tháng, 2.500 bài viết SEO tự động. Tiết kiệm 40% chi phí nhân sự Marketing.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Ho Chi Minh City",
@@ -36,12 +36,12 @@ export const organizationSchema = {
 
 /**
  * SoftwareApplication Schema
- * Describes DXAI Marketing Platform as a software product
+ * Describes Uniksmart as a software product
  */
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "DXAI Marketing Platform",
+  name: "Uniksmart",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
@@ -136,7 +136,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "DXAI Marketing Platform",
+  name: "Uniksmart",
   url: "https://dsp.one",
   potentialAction: {
     "@type": "SearchAction",

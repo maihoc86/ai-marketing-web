@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import { Rocket, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DemoButton } from "@/components/youtube-modal";
@@ -21,12 +21,12 @@ export function HeroContent() {
       {/* Left Column - Text Content */}
       <div className="text-center lg:text-left order-2 lg:order-1">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
+        {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
           <Rocket className="w-4 h-4 text-[#22b5f8]" />
           <span className="text-sm font-semibold text-[#008bff]">
             {t("hero.badge")}
           </span>
-        </div>
+        </div> */}
 
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6 text-balance">
@@ -54,10 +54,10 @@ export function HeroContent() {
             className="text-base h-14 px-8 rounded-full bg-[#ff7900] hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-[#ff7900]/40 hover:-translate-y-0.5"
             asChild
           >
-            <Link href="/dang-ky">
+            <LocaleLink href="/dang-ky">
               <Sparkles className="w-5 h-5" />
               {t("hero.cta.trial")}
-            </Link>
+            </LocaleLink>
           </Button>
           <DemoButton />
         </div>

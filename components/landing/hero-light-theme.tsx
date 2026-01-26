@@ -31,7 +31,7 @@ import {
   MetaIcon,
   MistralIcon,
 } from "@/components/brand-icons";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 
 // ============================================================
 // ANIMATED COUNTER COMPONENT
@@ -411,7 +411,7 @@ export function HeroLightTheme() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative hero-gradient-light overflow-hidden min-h-screen flex flex-col justify-center py-16 md:py-24 font-sans">
+    <section className="relative hero-gradient-light overflow-hidden min-h-screen flex flex-col justify-center pt-28 md:pt-32 pb-8 md:pb-12 font-sans">
       {/* Decorative Background Elements */}
       <div
         className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100/60 rounded-full blur-[100px] opacity-70 mix-blend-multiply"
@@ -423,7 +423,7 @@ export function HeroLightTheme() {
       />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-5">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-8">
           {/* Left Column - Content */}
           <div
             className={cn(
@@ -434,12 +434,12 @@ export function HeroLightTheme() {
             )}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-blue-100 to-blue-50 border border-blue-200 w-fit">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-blue-100 to-blue-50 border border-blue-200 w-fit">
               <Rocket className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-semibold text-blue-700">
                 {t("hero.badge")}
               </span>
-            </div>
+            </div> */}
 
             {/* Main Headline - Value-Driven */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-gray-900">
@@ -549,7 +549,7 @@ export function HeroLightTheme() {
             {/* CTA Buttons */}
             <div className="flex flex-col gap-4 pt-2">
               <div className="flex flex-wrap gap-4">
-                <Link
+                <LocaleLink
                   href="/dang-ky"
                   className="bg-[#22b5f8] hover:bg-[#1a9fd8] text-white flex items-center gap-2 group shadow-lg hover:shadow-xl transition-all rounded-full px-6 py-3 font-semibold"
                 >
@@ -558,7 +558,7 @@ export function HeroLightTheme() {
                   <span className="ml-1 transition-transform group-hover:translate-x-1">
                     →
                   </span>
-                </Link>
+                </LocaleLink>
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="btn-secondary-light flex items-center gap-2 group rounded-full px-6 py-3"
@@ -615,7 +615,7 @@ export function HeroLightTheme() {
                   className="w-9 h-9 rounded-full flex items-center justify-center text-[10px] font-bold text-blue-600 bg-blue-100 border-2 border-white shadow-sm"
                   style={{ marginLeft: "-10px" }}
                 >
-                  +12K
+                  +200
                 </div>
               </div>
               <div className="flex flex-col">
@@ -776,8 +776,8 @@ export function HeroLightTheme() {
         </div>
       </div>
 
-      {/* Technology Behind DXAI - AI Models Marquee */}
-      <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm pt-12 pb-7 mt-auto">
+      {/* Technology Behind Uniksmart - AI Models Marquee */}
+      <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm pt-10 pb-10 mt-auto">
         <div className="container mx-auto text-center mb-8">
           <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em]">
             {t("heroLight.tech.title")}

@@ -1,7 +1,7 @@
 /**
- * DXAI API Client
+ * Uniksmart API Client
  *
- * Infrastructure layer API client for communicating with the DXAI backend.
+ * Infrastructure layer API client for communicating with the Uniksmart backend.
  * Wraps fetch with error handling, CSRF protection, and rate limiting.
  */
 
@@ -11,7 +11,7 @@ export interface ApiError {
   status: number
 }
 
-export class DxaiApiClient {
+export class UniksmartApiClient {
   private baseURL: string
   private timeout: number
 
@@ -138,4 +138,4 @@ export class DxaiApiClient {
 }
 
 // Export singleton instance
-export const dxaiApiClient = new DxaiApiClient()
+export const uniksmartApiClient = new UniksmartApiClient()

@@ -3,16 +3,16 @@
 import {
   createContext,
   useContext,
-  useState,
-  useEffect,
   useCallback,
   type ReactNode,
 } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import type { Locale } from "./i18n-config";
 
 // ============================================================
-// TYPES
+// TYPES - Re-export from i18n-config
 // ============================================================
-export type Locale = "vi" | "en";
+export type { Locale } from "./i18n-config";
 
 interface I18nContextType {
   locale: Locale;
@@ -54,14 +54,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.valueProp.channels": "Quản lý 50+ kênh social cùng lúc",
     "hero.valueProp.roi": "ROI tăng trung bình 285% sau 3 tháng",
     "hero.valueProp.savings": "Tiết kiệm 80% thời gian + 60% chi phí nhân sự",
-    "hero.trust.users": "12,000+ doanh nghiệp",
+    "hero.trust.users": "500+ doanh nghiệp",
     "hero.trust.provinces": "Tin dùng bởi 63 tỉnh thành",
     "hero.trust.soc2": "SOC 2 Type II",
     "hero.trust.iso": "ISO 27001",
     "hero.trust.uptime": "99.9% Uptime SLA",
     "hero.trust.dataResidency": "Dữ liệu lưu trữ tại Việt Nam",
     "hero.trust.videoTime": "2-phút tạo video",
-    "hero.trust.avgRoi": "ROI trung bình +285%",
+    "hero.trust.avgRoi": "ROI trung bình +120%",
     "hero.trust.rating": "4.8/5 rating (2,400+ reviews)",
     "hero.trust.noCard": "Miễn phí hoàn toàn 14 ngày đầu",
     "hero.trust.setup": "Setup tự động trong 5 phút",
@@ -115,12 +115,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.learnMore": "Tìm hiểu thêm",
     "features.chatbot.title": "AI Chatbot CSKH 24/7",
     "features.chatbot.desc":
-      "Giải pháp tự động hóa chăm sóc khách hàng thông minh, được huấn luyện với dữ liệu thực tế của doanh nghiệp.",
+      "Trợ lý AI thông minh được huấn luyện với dữ liệu thực tế của doanh nghiệp bạn. Tư vấn sản phẩm, báo giá tức thì, đặt lịch hẹn và chuyển lead chất lượng cao cho đội sales - tất cả hoạt động 24/7 không cần nghỉ ngơi. Giảm 99% thời gian chờ đợi của khách hàng.",
     "features.chatbot.stats":
       "Phản hồi tức thì 24/7 • Giảm 99% thời gian chờ đợi",
     "features.video.title": "AI Video Factory",
     "features.video.desc":
-      "Sản xuất video marketing với KOL Ảo trong vài phút. Không cần quay phim, không cần studio, không cần KOL thật.",
+      "Sản xuất video marketing chuyên nghiệp với KOL Ảo chỉ trong 5 phút. Không cần quay phim, không cần studio, không cần thuê KOL thật với chi phí hàng chục triệu. AI tự động tạo video với giọng nói tự nhiên, lip-sync hoàn hảo và đa ngôn ngữ. Tiết kiệm 95% chi phí so với phương pháp truyền thống.",
     "features.video.stats": "50 Credit/video • 5 phút sản xuất • Tiết kiệm 95%",
     "features.video.feature1.name": "KOL Ảo thuyết minh",
     "features.video.feature1.desc":
@@ -147,7 +147,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 giây",
     "features.email.title": "Email Marketing Automation",
     "features.email.desc":
-      "Hệ thống chăm sóc khách hàng tự động 100% - Journey khách hàng hoàn chỉnh.",
+      "Hệ thống email marketing tự động 100% với customer journey hoàn chỉnh từ Welcome đến Re-marketing. Tích hợp CRM để cá nhân hóa nội dung, A/B Testing thông minh tự động tối ưu subject line và content. Tăng Open Rate lên 35% và không cần thao tác thủ công - chạy 24/7.",
     "features.email.stats":
       "100% tự động • Tích hợp CRM • A/B Testing thông minh",
     "features.email.feature1.name": "Responsive Design",
@@ -176,7 +176,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.email.metric3.note": "Nhờ A/B Testing & Smart Tracking",
     "features.multiPlatform.title": "Quản lý Đa nền tảng",
     "features.multiPlatform.desc":
-      "Một Dashboard - Điều khiển tất cả. Quản trị tập trung đa kênh và tương tác thông minh 24/7.",
+      "Một Dashboard duy nhất điều khiển tất cả: Facebook, Instagram, TikTok, YouTube, Zalo OA. Lên lịch đăng bài hàng loạt, Content Calendar trực quan với Drag & Drop. AI tự động trả lời comment và tin nhắn 24/7 với văn phong cá nhân hóa. Tiết kiệm 90% thời gian so với thao tác thủ công từng app.",
     "features.multiPlatform.stats":
       "5 nền tảng • Tiết kiệm 90% thời gian • Trợ lý ảo 24/7",
     "features.multiPlatform.feature1.name": "Lên lịch & Đăng hàng loạt",
@@ -210,7 +210,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric3.note": "Tự động trả lời comment",
     "features.ads.title": "AI Ads Management & Analytics",
     "features.ads.desc":
-      "Do lường chính xác, ra quyết định dựa trên Data. Dashboard phân tích toàn diện với độ chính xác 99.9%.",
+      "Dashboard phân tích toàn diện với độ chính xác 99.9% giúp ra quyết định dựa trên Data. Tự động tối ưu ngân sách theo CPA/ROAS mục tiêu, đề xuất Custom & Lookalike audiences thông minh. Smart A/B Testing tìm mẫu quảng cáo hiệu quả nhất và cảnh báo realtime khi chiến dịch cần can thiệp.",
     "features.ads.stats":
       "99.9% chính xác • Tự động tối ưu ngân sách • ROI Calculator",
     "features.ads.feature1.name": "Budget Optimization",
@@ -238,7 +238,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.ads.metric3.note": "Tự động gửi báo cáo hiệu suất qua Email",
     "features.content.title": "AI Content Creator",
     "features.content.desc":
-      "Hệ thống sản xuất nội dung đa định dạng tự động hóa hoàn toàn, tạo content chuyên nghiệp trong 30 giây.",
+      "Hệ thống sản xuất nội dung đa định dạng hoàn toàn tự động. Tạo hình ảnh KOL với sản phẩm chất lượng 4K chỉ trong 30 giây, viết caption bắt trend và gợi ý hashtag thông minh để tối đa hóa Reach. Tiết kiệm 90% chi phí so với thuê designer và copywriter.",
     "features.content.stats":
       "50+ templates • Tạo hình ảnh 4K • Caption tối ưu SEO",
     "features.content.feature1.name": "Tạo ảnh KOL với sản phẩm",
@@ -269,21 +269,27 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric3.note": "Thực tế, 3D, Minh họa, Trừu tượng",
     "features.trends.title": "AI Hot Trends Discovery",
     "features.trends.desc":
-      "Hệ thống AI tìm Trends và tối ưu hóa Brief thông minh, không bao giờ hết ý tưởng.",
+      "Hệ thống AI săn trends 24/7 từ 5+ mạng xã hội lớn nhất. Phát hiện nội dung viral sớm hơn 48 giờ, chấm điểm tiềm năng và gợi ý ý tưởng content phù hợp với thương hiệu của bạn. Không bao giờ đi sau xu hướng, luôn dẫn đầu cuộc chơi.",
     "features.trends.stats":
-      "~30 giây/Brief • 4 bước xử lý • Chấm điểm realtime",
-    "features.trends.feature1.name": "INPUT ENGINE",
+      "24/7 quét trends • 5+ nền tảng • Dự đoán viral sớm 48h",
+    "features.trends.feature1.name": "Real-time Trend Scanner",
     "features.trends.feature1.desc":
-      "Thu thập & Xử lý Brief: Thông tin thương hiệu (Tên, Ngành, Sản phẩm), Đối tượng & Chiến lược (Persona, Pain points, Mục tiêu), Định dạng đầu ra",
-    "features.trends.feature2.name": "QUALITY EVALUATION",
+      "Quét trends 24/7 từ TikTok, Facebook, Instagram, YouTube - cập nhật mỗi 15 phút",
+    "features.trends.feature2.name": "Viral Content Detector",
     "features.trends.feature2.desc":
-      "Chấm điểm Brief Realtime theo thang 100: Blocking (<50), Warning (50-79), Excellent (≥80)",
-    "features.trends.feature3.name": "IDEA GENERATION",
+      "Phát hiện nội dung có tiềm năng viral sớm hơn 48h so với đối thủ cạnh tranh",
+    "features.trends.feature3.name": "Trend Score & Prediction",
     "features.trends.feature3.desc":
-      "AI Brainstorming với Fit Score (0.0-1.0), Effort Level (Low/Medium/High), Estimated Impact",
-    "features.trends.feature4.name": "CAMPAIGN MAPPER",
+      "Chấm điểm độ hot (0-100) và dự đoán tuổi thọ của mỗi trend để tối ưu timing",
+    "features.trends.feature4.name": "Industry-Specific Insights",
     "features.trends.feature4.desc":
-      "Kế hoạch hành động: Content Outline, Hooks & CTAs, Phân bổ Platform",
+      "Lọc và phân tích trends riêng theo ngành: F&B, Retail, Beauty, Tech, Education...",
+    "features.trends.feature5.name": "Content Idea Generator",
+    "features.trends.feature5.desc":
+      "AI gợi ý 10+ ý tưởng content sáng tạo từ mỗi trend đang hot, phù hợp brand voice",
+    "features.trends.feature6.name": "Competitor Trend Tracking",
+    "features.trends.feature6.desc":
+      "Theo dõi trends mà đối thủ đang khai thác để không bỏ lỡ cơ hội thị trường",
     "features.trends.metric1.name": "Trọng số đánh giá",
     "features.trends.metric1.value": "Brand 30% • Chiến lược 40% • Đầu ra 30%",
     "features.trends.metric1.note": "Bonus +5 điểm nếu Pain points > 3",
@@ -419,7 +425,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // ROI Section
     "roi.badge": "SO SÁNH HIỆU QUẢ",
     "roi.title.why": "Tại sao",
-    "roi.title.brand": "DXAI Marketing",
+    "roi.title.brand": "Uniksmart",
     "roi.title.excels": "vượt trội?",
     "roi.title.full": "Tại sao {brand} vượt trội?",
     "roi.subtitle.full":
@@ -429,21 +435,21 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.header.traditional": "Marketing Truyền thống",
     "roi.header.traditional.manual": "Quy trình thủ công",
     "roi.header.recommended": "ĐƯỢC ĐỀ XUẤT",
-    "roi.header.dxai": "DXAI Marketing AI",
+    "roi.header.dxai": "Uniksmart AI",
     "roi.header.dxai.auto": "Tự động hóa 100%",
     "roi.mobile.traditional": "Truyền thống",
     "roi.cta.ready": "Sẵn sàng chuyển đổi số và tăng trưởng với AI Marketing?",
     "roi.cta.start": "Bắt đầu ngay",
     "roi.cta.learn": "Tìm hiểu thêm",
     "roi.disclaimer":
-      "* Số liệu dựa trên khảo sát 500+ doanh nghiệp Việt Nam sử dụng DXAI Marketing Platform",
+      "* Số liệu dựa trên khảo sát 500+ doanh nghiệp Việt Nam sử dụng Uniksmart",
     "roi.title": "Tại sao bạn nên chọn chúng tôi?",
     "roi.subtitle": "So sánh hiệu quả giữa Nhân sự truyền thống và Hệ thống AI",
     "roi.traditional": "Truyền thống",
     "roi.traditional.title": "Tuyển Editor/Content",
     "roi.traditional.subtitle": "Phương pháp truyền thống",
-    "roi.aiSystem": "DXAI Marketing Platform",
-    "roi.ai.title": "Hệ thống DXAI Marketing Platform",
+    "roi.aiSystem": "Uniksmart",
+    "roi.ai.title": "Hệ thống Uniksmart",
     "roi.ai.subtitle": "Giải pháp thông minh",
     "roi.best": "Khuyên dùng",
     "roi.bestMobile": "Tốt nhất",
@@ -456,7 +462,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.save": "Tiết kiệm",
     "roi.times": "Gấp {x} lần",
     "roi.cta.text":
-      "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với DXAI Marketing Platform",
+      "Tiết kiệm chi phí và tăng hiệu suất gấp 10 lần với Uniksmart",
     "roi.cta.button": "Bắt đầu ngay",
     "roi.cost.traditional": "~15.000.000đ",
     "roi.cost.ai": "6.900.000đ",
@@ -491,7 +497,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.row4.criteria": "Đa nhiệm",
     "roi.row4.traditional": "Khó khăn",
     "roi.row4.traditionalDesc": "(1-2 kênh)",
-    "roi.row4.ai": "50+ kênh",
+    "roi.row4.ai": "10+ kênh",
     "roi.row4.aiDesc": "(Cùng lúc)",
     "roi.row5.criteria": "Vận hành",
     "roi.row5.traditional": "8-10 giờ",
@@ -500,7 +506,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.row5.aiDesc": "(Tự động)",
 
     // Why Choose Section
-    "whyChoose.title": "Tại sao nên chọn DXAI Marketing Platform?",
+    "whyChoose.title": "Tại sao nên chọn Uniksmart?",
     "whyChoose.subtitle": "Trang bị AI cho toàn công ty chỉ từ",
     "whyChoose.price": "500,000đ/người/tháng",
     "whyChoose.aiModels.title": "Chỉ 1 tài khoản – sử dụng nhiều công cụ AI",
@@ -520,7 +526,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Cấp phát, Thu hồi, Báo cáo, Ngân sách",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
-    "whyChoose.mockup.title": "DXAI Marketing Platform",
+    "whyChoose.mockup.title": "Uniksmart",
     "whyChoose.mockup.subtitle": "Dashboard Overview",
     "whyChoose.mockup.videos": "Videos/tháng",
     "whyChoose.mockup.accuracy": "Độ chính xác",
@@ -545,25 +551,25 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Why Choose Section (Optura Style)
     "whyChoose.optura.title": "Why Choose",
-    "whyChoose.optura.brand": "DXAI Marketing Platform",
+    "whyChoose.optura.brand": "Uniksmart",
     "whyChoose.optura.subtitle":
       "So sánh quy trình marketing truyền thống với giải pháp tự động hóa AI",
     "whyChoose.optura.criteria": "Tiêu chí so sánh",
     "whyChoose.optura.traditional": "Phương pháp truyền thống",
     "whyChoose.optura.traditional.manual": "Tiếp cận thủ công",
     "whyChoose.optura.bestChoice": "LỰA CHỌN TỐT NHẤT",
-    "whyChoose.optura.dxai": "Nền tảng DXAI Marketing",
+    "whyChoose.optura.dxai": "Nền tảng Uniksmart",
     "whyChoose.optura.dxai.auto": "Giải pháp tự động",
     "whyChoose.optura.guarantee.title": "Cam kết hiệu quả",
     "whyChoose.optura.guarantee.desc":
-      "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái DXAI. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất.",
+      "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái Uniksmart. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất.",
     "whyChoose.optura.tryNow": "Trải nghiệm ngay",
     "whyChoose.optura.consult.title": "Cần tư vấn chuyên sâu?",
     "whyChoose.optura.consult.desc":
       "Đội ngũ chuyên gia của chúng tôi sẵn sàng tư vấn miễn phí để giúp bạn tìm ra giải pháp phù hợp nhất cho doanh nghiệp.",
     "whyChoose.optura.consultBtn": "Tư vấn giải pháp",
     "whyChoose.optura.watchDemo": "Watch Demo",
-    "whyChoose.optura.mobilePlatform": "Nền tảng DXAI",
+    "whyChoose.optura.mobilePlatform": "Nền tảng Uniksmart",
     // Why Choose Optura Comparison Rows
     "whyChoose.optura.row1.criteria": "Chi phí",
     "whyChoose.optura.row1.traditional": "~$555 / tháng",
@@ -599,7 +605,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "trusted.badge.uptime.desc":
       "Đảm bảo độ tin cậy nền tảng cho hoạt động 24/7.",
     "trusted.copyright":
-      "© 2024 DXAI Marketing. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế.",
+      "© 2024 Uniksmart. Tất cả quyền được bảo lưu. Tín hiệu tin cậy chuyên nghiệp cho thị trường Việt Nam và Quốc tế.",
     "trusted.industry.retail": "Ngành Bán Lẻ",
     "trusted.industry.ecommerce": "Thương Mại Điện Tử",
     "trusted.industry.realestate": "Bất Động Sản",
@@ -613,23 +619,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "faq.contactUs": "Liên hệ với chúng tôi",
     "faq.notFound": "Không tìm thấy câu trả lời bạn cần?",
     "faq.contact": "Liên hệ với chúng tôi",
-    "faq.q1": "DXAI Marketing Platform là gì?",
+    "faq.q1": "Uniksmart là gì?",
     "faq.a1":
-      "DXAI Marketing Platform là nền tảng hợp nhất nhiều công cụ AI hàng đầu như tạo Video, viết Content, thiết kế hình ảnh... vào một hệ thống duy nhất. Doanh nghiệp chỉ cần cấp một tài khoản cho mỗi nhân viên để sử dụng linh hoạt nhiều công cụ AI, thay vì mua và quản lý từng tài khoản riêng lẻ.",
-    "faq.q2": "DXAI Marketing Platform hỗ trợ những gì cho doanh nghiệp?",
+      "Uniksmart là nền tảng hợp nhất nhiều công cụ AI hàng đầu như tạo Video, viết Content, thiết kế hình ảnh... vào một hệ thống duy nhất. Doanh nghiệp chỉ cần cấp một tài khoản cho mỗi nhân viên để sử dụng linh hoạt nhiều công cụ AI, thay vì mua và quản lý từng tài khoản riêng lẻ.",
+    "faq.q2": "Uniksmart hỗ trợ những gì cho doanh nghiệp?",
     "faq.a2":
       "Tiết kiệm chi phí & thời gian: Mua một lần – sử dụng cho toàn đội ngũ. Quản lý tập trung: Cấp phát, thu hồi, điều chỉnh định mức AI cho nhân viên chỉ với vài thao tác. Báo cáo chi tiết: Lãnh đạo dễ dàng theo dõi và đánh giá mức độ ứng dụng AI trong doanh nghiệp.",
-    "faq.q3": "Có được sử dụng DXAI Marketing Platform miễn phí không?",
+    "faq.q3": "Có được sử dụng Uniksmart miễn phí không?",
     "faq.a3":
-      "Có. DXAI Marketing Platform cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
+      "Có. Uniksmart cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
     "faq.q4":
-      "DXAI Marketing Platform có đáp ứng sử dụng trên điện thoại không?",
+      "Uniksmart có đáp ứng sử dụng trên điện thoại không?",
     "faq.a4":
-      "Có. DXAI Marketing Platform hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
+      "Có. Uniksmart hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
     "faq.q5":
-      "DXAI Marketing Platform có cập nhật các công cụ AI mới nhất không?",
+      "Uniksmart có cập nhật các công cụ AI mới nhất không?",
     "faq.a5":
-      "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, DXAI Marketing Platform sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
+      "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, Uniksmart sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
 
     // CTA Section
     "cta.title": "Khai phóng sức mạnh AI cho doanh nghiệp của bạn",
@@ -656,7 +662,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.support.contact": "Liên hệ hỗ trợ",
     "footer.support.privacy": "Chính sách bảo mật",
     "footer.contact": "Liên hệ",
-    "footer.copyright": "© {year} Tiên Phong CDS. Tất cả quyền được bảo lưu.",
+    "footer.copyright": "© {year} Uniksmart. Tất cả quyền được bảo lưu.",
     "footer.terms": "Điều khoản sử dụng",
     "footer.privacy": "Chính sách bảo mật",
 
@@ -666,16 +672,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.badge": "Về Chúng Tôi",
     "about.hero.title": "Về chúng tôi",
     "about.hero.title.prefix": "Nền tảng",
-    "about.hero.title.brand": "DXAI Marketing",
+    "about.hero.title.brand": "Uniksmart",
     "about.hero.title.suffix": "Tiên Phong",
-    "about.hero.subtitle": "Tiên Phong CDS & DXAI – DXAI Marketing Platform",
+    "about.hero.subtitle": "Uniksmart",
     "about.hero.description":
       "Đối tác chuyển đổi số Marketing đa kênh hàng đầu, tự động hóa quy trình từ ý tưởng đến xuất bản nội dung.",
     "about.hero.desc":
       "Chúng tôi định nghĩa lại cách doanh nghiệp vận hành với triết lý AI-First, thúc đẩy chuyển đổi số toàn diện và tối ưu hóa hiệu suất Marketing tự động.",
     "about.hero.cta.contact": "Liên hệ ngay",
     "about.hero.cta.learn": "Tìm hiểu thêm",
-    "about.hero.image.alt": "Đội ngũ chuyên nghiệp Tiên Phong CDS",
+    "about.hero.image.alt": "Đội ngũ chuyên nghiệp Uniksmart",
     "about.hero.stat.uptime": "Thời gian hoạt động",
     "about.hero.stat.operational": "Hoạt động tốt",
     "about.hero.stat.businesses": "Doanh nghiệp",
@@ -683,11 +689,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.cta.contact": "Liên hệ tư vấn",
 
     // About Company Section
-    "about.company.title": "Tiên Phong CDS",
+    "about.company.title": "Uniksmart",
     "about.company.subtitle":
       "Đối tác chuyển đổi số đa kênh cho doanh nghiệp Việt",
     "about.company.desc1":
-      "Công ty Cổ phần Tiên Phong CDS là đơn vị tiên phong trong lĩnh vực chuyển đổi số Marketing tại Việt Nam. Chúng tôi chuyên cung cấp các giải pháp AI Marketing toàn diện, giúp doanh nghiệp tối ưu hóa quy trình marketing và gia tăng hiệu quả kinh doanh.",
+      "Uniksmart là đơn vị tiên phong trong lĩnh vực chuyển đổi số Marketing tại Việt Nam. Chúng tôi chuyên cung cấp các giải pháp AI Marketing toàn diện, giúp doanh nghiệp tối ưu hóa quy trình marketing và gia tăng hiệu quả kinh doanh.",
     "about.company.desc2":
       "Với triết lý Data-driven và AI-first, chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến nhất, tối ưu chi phí vận hành và đo lường hiệu quả bằng số liệu thực tế.",
     "about.company.highlight1": "Triển khai nhanh chóng trong 2-4 tuần",
@@ -739,10 +745,10 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Product Section
     "about.product.badge": "Sản phẩm của chúng tôi",
-    "about.product.title": "DXAI Marketing Platform",
+    "about.product.title": "Uniksmart",
     "about.product.subtitle":
       "Nền tảng marketing AI toàn diện, tự động hóa mọi khía cạnh từ sáng tạo nội dung đến phân phối đa kênh",
-    "about.product.why.title": "Tại sao chọn DXAI?",
+    "about.product.why.title": "Tại sao chọn Uniksmart?",
     "about.product.why.subtitle":
       "Giải pháp AI Marketing toàn diện dành cho doanh nghiệp hiện đại",
     "about.product.why.allinone.title": "Tất cả trong một",
@@ -777,11 +783,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.feature.integration.title": "Tích hợp Liền mạch",
     "about.product.feature.integration.desc": "20+ nền tảng",
     "about.product.tech.badge": "Công nghệ AI",
-    "about.product.tech.title": "Công nghệ đằng sau DXAI",
+    "about.product.tech.title": "Công nghệ đằng sau Uniksmart",
     "about.product.tech.subtitle":
       "Tích hợp 6 mô hình AI hàng đầu thế giới để cung cấp kết quả tối ưu nhất",
     "about.product.stat.businesses": "Doanh nghiệp",
-    "about.product.capabilities.title": "Khả năng của DXAI",
+    "about.product.capabilities.title": "Khả năng của Uniksmart",
     "about.product.capabilities.video": "Sản xuất Video tự động",
     "about.product.capabilities.image": "Thiết kế hình ảnh Marketing",
     "about.product.capabilities.content": "Viết Content chuẩn SEO",
@@ -795,12 +801,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.cta.title": "Sẵn sàng chuyển đổi số Marketing?",
     "about.cta.subtitle": "Hãy liên hệ với chúng tôi!",
     "about.cta.description":
-      "Chúng tôi rất mong được tìm hiểu thêm về doanh nghiệp của bạn và cách DXAI có thể giúp bạn đạt được mục tiêu trong thế giới số.",
+      "Chúng tôi rất mong được tìm hiểu thêm về doanh nghiệp của bạn và cách Uniksmart có thể giúp bạn đạt được mục tiêu trong thế giới số.",
 
     // About Philosophy Section
     "about.philosophy.title": "Triết lý AI-First của chúng tôi",
     "about.philosophy.description":
-      "Tiên Phong CDS không chỉ là một công cụ, mà là bộ não số hóa giúp doanh nghiệp nâng cao năng lực cạnh tranh và hiệu quả vận hành tối đa thông qua tự động hóa thông minh.",
+      "Uniksmart không chỉ là một công cụ, mà là bộ não số hóa giúp doanh nghiệp nâng cao năng lực cạnh tranh và hiệu quả vận hành tối đa thông qua tự động hóa thông minh.",
     "about.philosophy.benefit1.title": "Triển khai nhanh",
     "about.philosophy.benefit1.desc":
       "Hệ thống sẵn sàng vận hành chỉ trong 48 giờ",
@@ -826,7 +832,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Lộ trình AI Marketing tùy chỉnh tập trung vào KPI tăng trưởng",
     "about.workflow.step3.title": "Tích hợp",
     "about.workflow.step3.desc":
-      "Kết nối liền mạch DXAI với dữ liệu và công cụ hiện có",
+      "Kết nối liền mạch Uniksmart với dữ liệu và công cụ hiện có",
     "about.workflow.step4.title": "Tối ưu hóa",
     "about.workflow.step4.desc":
       "Tinh chỉnh mô hình để đạt hiệu suất và hiệu quả",
@@ -844,7 +850,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Chúng tôi kết hợp chuyên môn marketing sâu rộng với cơ sở hạ tầng AI hiện đại để thúc đẩy tăng trưởng doanh nghiệp.",
     "about.whyChoose.expertise1.title": "Chuyên môn AI",
     "about.whyChoose.expertise1.desc":
-      "Tận dụng khả năng sản phẩm DXAI để đạt hiệu quả marketing xuất sắc",
+      "Tận dụng khả năng sản phẩm Uniksmart để đạt hiệu quả marketing xuất sắc",
     "about.whyChoose.expertise2.title": "Hỗ trợ Doanh nghiệp",
     "about.whyChoose.expertise2.desc":
       "Độ tin cậy 24/7 chuyên dụng cho hoạt động cấp doanh nghiệp",
@@ -870,14 +876,17 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Modal CTA
     "modal.cta.title": "ĐỪNG BỎ LỠ!",
-    "modal.cta.benefit1": "Demo miễn phí DXAI Marketing Platform",
+    "modal.cta.benefit1": "Demo miễn phí Uniksmart",
     "modal.cta.benefit2": "Báo giá cá nhân hóa theo quy mô doanh nghiệp",
     "modal.cta.benefit3": "Tư vấn 1:1 bởi chuyên gia Marketing",
     "modal.cta.trust": "Doanh nghiệp đã tin chọn",
-    "modal.cta.powered": "Powered by Tiên Phong CDS & DXAI",
+    "modal.cta.powered": "Powered by Uniksmart",
     "modal.cta.formTitle": "BÁO GIÁ & DÙNG THỬ NGAY!",
     "modal.cta.formBadge": "Chỉ 10s – Nhận demo toàn bộ tính năng",
     "modal.cta.submit": "Nhận báo giá & Demo miễn phí",
+
+    // Registration Form
+    "registration.form.company.typePlaceholder": "Chọn loại hình doanh nghiệp",
 
     // Common
     "common.learnMore": "Tìm hiểu thêm",
@@ -919,7 +928,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.stats.channels": "50+ kênh",
     "heroLight.stats.channelsManage": "Quản lý",
     "heroLight.stats.channelsSim": "cùng lúc",
-    "heroLight.stats.roi": "+285%",
+    "heroLight.stats.roi": "+120%",
     "heroLight.stats.roiText": "ROI tăng",
     "heroLight.stats.roiTime": "sau 3 tháng",
     "heroLight.stats.saveTime": "80% thời gian",
@@ -937,8 +946,116 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.dashboard.contentCreated": "Nội dung đã tạo",
     "heroLight.dashboard.active": "HOẠT ĐỘNG",
     "heroLight.dashboard.campaigns": "Chiến dịch đang chạy",
-    "heroLight.tech.title": "Công nghệ đằng sau DXAI",
+    "heroLight.tech.title": "Công nghệ đằng sau Uniksmart",
     "heroLight.tech.subtitle": "Tích hợp với các mô hình AI hàng đầu thế giới",
+
+    // Feature Page - Common
+    "featurePage.backToFeatures": "Quay lại tính năng",
+    "featurePage.tryFree": "Dùng thử miễn phí",
+    "featurePage.viewPricing": "Xem bảng giá",
+    "featurePage.keyFeatures": "Tính năng chính",
+    "featurePage.keyFeaturesDesc": "Khám phá các tính năng mạnh mẽ giúp tự động hóa marketing của bạn",
+    "featurePage.seeInAction": "Xem hoạt động thực tế",
+    "featurePage.ctaTitle": "Sẵn sàng bắt đầu?",
+    "featurePage.ctaDesc": "Đăng ký dùng thử miễn phí 14 ngày và trải nghiệm sức mạnh của AI Marketing",
+    "featurePage.startTrial": "Bắt đầu dùng thử",
+    "featurePage.exploreMore": "Khám phá thêm tính năng",
+
+    // Feature Page - Chatbot
+    "featurePage.chatbot.feature5.name": "Hỗ trợ đa ngôn ngữ",
+    "featurePage.chatbot.feature5.desc": "Tự động phát hiện và trả lời bằng ngôn ngữ của khách hàng",
+    "featurePage.chatbot.feature6.name": "Tích hợp CRM",
+    "featurePage.chatbot.feature6.desc": "Đồng bộ dữ liệu khách hàng với hệ thống CRM của bạn",
+    "featurePage.chatbot.metric1.label": "Hoạt động liên tục",
+    "featurePage.chatbot.metric2.label": "Thời gian phản hồi",
+    "featurePage.chatbot.metric3.label": "Tỷ lệ chuyển đổi",
+    "featurePage.chatbot.metric4.label": "Giảm thời gian chờ",
+    "featurePage.chatbot.benefitsTitle": "Tại sao chọn AI Chatbot?",
+    "featurePage.chatbot.benefitsDesc": "Chatbot AI thông minh giúp doanh nghiệp chăm sóc khách hàng 24/7 mà không cần nhân sự.",
+    "featurePage.chatbot.benefit1": "Phản hồi khách hàng ngay lập tức, không cần chờ đợi",
+    "featurePage.chatbot.benefit2": "Giảm chi phí nhân sự chăm sóc khách hàng",
+    "featurePage.chatbot.benefit3": "Thu thập và phân loại lead chất lượng cao",
+    "featurePage.chatbot.benefit4": "Tích hợp dễ dàng với website và fanpage",
+
+    // Feature Page - Content
+    "featurePage.content.metric1.label": "Mẫu template",
+    "featurePage.content.metric2.label": "Độ phân giải",
+    "featurePage.content.metric3.label": "Thời gian tạo",
+    "featurePage.content.metric4.label": "Tiết kiệm chi phí",
+    "featurePage.content.benefitsTitle": "Tại sao chọn AI Content Creator?",
+    "featurePage.content.benefitsDesc": "Tạo nội dung chuyên nghiệp trong vài giây với AI.",
+    "featurePage.content.benefit1": "Tạo hình ảnh 4K chuyên nghiệp với KOL ảo",
+    "featurePage.content.benefit2": "Viết caption và hashtag bắt trend tự động",
+    "featurePage.content.benefit3": "50+ mẫu template cho mọi ngành nghề",
+    "featurePage.content.benefit4": "Tối ưu SEO tự động cho mọi nội dung",
+
+    // Feature Page - Trends
+    "featurePage.trends.metric1.label": "Theo dõi liên tục",
+    "featurePage.trends.metric2.label": "Phân tích nhanh",
+    "featurePage.trends.metric3.label": "Định dạng hỗ trợ",
+    "featurePage.trends.metric4.label": "Độ chính xác",
+    "featurePage.trends.benefitsTitle": "Tại sao chọn AI Hot Trends?",
+    "featurePage.trends.benefitsDesc": "Luôn cập nhật xu hướng mới nhất để content luôn viral.",
+    "featurePage.trends.benefit1": "Phát hiện xu hướng viral trước đối thủ",
+    "featurePage.trends.benefit2": "Gợi ý ý tưởng content theo trend",
+    "featurePage.trends.benefit3": "Theo dõi đối thủ cạnh tranh real-time",
+    "featurePage.trends.benefit4": "Dự đoán xu hướng sắp tới với AI",
+
+    // Feature Page - Video
+    "featurePage.video.feature6.name": "Xuất đa định dạng",
+    "featurePage.video.feature6.desc": "Hỗ trợ YouTube, TikTok, Reels với các tỷ lệ khung hình phù hợp",
+    "featurePage.video.metric1.label": "Thời gian sản xuất",
+    "featurePage.video.metric2.label": "Độ phân giải",
+    "featurePage.video.metric3.label": "Tiết kiệm chi phí",
+    "featurePage.video.metric4.label": "Giọng nói AI",
+    "featurePage.video.benefitsTitle": "Tại sao chọn AI Video Factory?",
+    "featurePage.video.benefitsDesc": "Sản xuất video marketing chuyên nghiệp với chi phí gần như bằng 0.",
+    "featurePage.video.benefit1": "Tạo video với KOL ảo chỉ trong 5 phút",
+    "featurePage.video.benefit2": "Không cần studio, không cần quay phim",
+    "featurePage.video.benefit3": "Lip-sync tự động, giọng AI tự nhiên",
+    "featurePage.video.benefit4": "Xuất video 4K cho mọi nền tảng",
+
+    // Feature Page - Email
+    "featurePage.email.feature6.name": "Phân khúc thông minh",
+    "featurePage.email.feature6.desc": "Tự động phân loại khách hàng theo hành vi và tương tác",
+    "featurePage.email.metric1.label": "Tự động hóa",
+    "featurePage.email.metric2.label": "Open Rate tăng",
+    "featurePage.email.metric3.label": "Giai đoạn chăm sóc",
+    "featurePage.email.metric4.label": "Hoạt động",
+    "featurePage.email.benefitsTitle": "Tại sao chọn Email Automation?",
+    "featurePage.email.benefitsDesc": "Email marketing tự động 100% với customer journey hoàn chỉnh.",
+    "featurePage.email.benefit1": "Tự động gửi email theo hành trình khách hàng",
+    "featurePage.email.benefit2": "A/B Testing thông minh tối ưu open rate",
+    "featurePage.email.benefit3": "Cá nhân hóa nội dung theo từng khách hàng",
+    "featurePage.email.benefit4": "Báo cáo chi tiết hiệu quả chiến dịch",
+
+    // Feature Page - Multi Platform
+    "featurePage.multiPlatform.metric1.label": "Nền tảng",
+    "featurePage.multiPlatform.metric2.label": "Tiết kiệm thời gian",
+    "featurePage.multiPlatform.metric3.label": "Trả lời tự động",
+    "featurePage.multiPlatform.metric4.label": "Dashboard duy nhất",
+    "featurePage.multiPlatform.benefitsTitle": "Tại sao chọn Multi-Platform?",
+    "featurePage.multiPlatform.benefitsDesc": "Quản lý tất cả kênh social từ một nơi duy nhất.",
+    "featurePage.multiPlatform.benefit1": "Đăng bài hàng loạt lên 5+ nền tảng cùng lúc",
+    "featurePage.multiPlatform.benefit2": "Content Calendar trực quan với drag & drop",
+    "featurePage.multiPlatform.benefit3": "AI tự động trả lời comment và tin nhắn",
+    "featurePage.multiPlatform.benefit4": "Unified Inbox gom tất cả tin nhắn",
+
+    // Feature Page - Ads
+    "featurePage.ads.feature5.name": "ROI Calculator",
+    "featurePage.ads.feature5.desc": "Tính toán và dự đoán ROI cho từng chiến dịch quảng cáo",
+    "featurePage.ads.feature6.name": "Báo cáo tự động",
+    "featurePage.ads.feature6.desc": "Gửi báo cáo hiệu suất tự động hàng tuần/tháng",
+    "featurePage.ads.metric1.label": "Chỉ số đo lường",
+    "featurePage.ads.metric2.label": "Uptime SLA",
+    "featurePage.ads.metric3.label": "Hiệu suất ROI",
+    "featurePage.ads.metric4.label": "Báo cáo",
+    "featurePage.ads.benefitsTitle": "Tại sao chọn AI Ads Analytics?",
+    "featurePage.ads.benefitsDesc": "Tối ưu quảng cáo và theo dõi ROI với AI thông minh.",
+    "featurePage.ads.benefit1": "Tự động tối ưu ngân sách quảng cáo",
+    "featurePage.ads.benefit2": "Gợi ý đối tượng target chính xác",
+    "featurePage.ads.benefit3": "A/B Testing tự động cho ads",
+    "featurePage.ads.benefit4": "Cảnh báo real-time khi chiến dịch có vấn đề",
   },
   en: {
     // Navigation
@@ -970,14 +1087,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "hero.valueProp.channels": "Manage 50+ social channels simultaneously",
     "hero.valueProp.roi": "Average ROI increase 285% after 3 months",
     "hero.valueProp.savings": "Save 80% time + 60% staffing costs",
-    "hero.trust.users": "12,000+ businesses",
+    "hero.trust.users": "500+ businesses",
     "hero.trust.provinces": "Trusted by all 63 provinces",
     "hero.trust.soc2": "SOC 2 Type II",
     "hero.trust.iso": "ISO 27001",
     "hero.trust.uptime": "99.9% Uptime SLA",
     "hero.trust.dataResidency": "Vietnamese Data Residency",
     "hero.trust.videoTime": "2-min video creation",
-    "hero.trust.avgRoi": "Average ROI +285%",
+    "hero.trust.avgRoi": "Average ROI +120%",
     "hero.trust.rating": "4.8/5 rating (2,400+ reviews)",
     "hero.trust.noCard": "Completely free for 14 days",
     "hero.trust.setup": "Auto setup in 5 minutes",
@@ -1030,7 +1147,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.learnMore": "Learn more",
     "features.chatbot.title": "AI Chatbot Customer Service 24/7",
     "features.chatbot.desc":
-      "Intelligent customer care automation solution, trained with real business data.",
+      "Smart AI assistant trained with your real business data. Consult products, instant quotes, schedule appointments and transfer quality leads to your sales team - all operating 24/7 non-stop. Reduce customer waiting time by 99%.",
     "features.chatbot.stats": "Instant response 24/7 • 99% less waiting time",
     "features.chatbot.feature1.name": "Product & Service Consultation",
     "features.chatbot.feature1.desc":
@@ -1055,7 +1172,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.chatbot.metric3.note": "Never miss a customer",
     "features.content.title": "AI Content Creator",
     "features.content.desc":
-      "Fully automated multi-format content production system, creating professional content in 30 seconds.",
+      "Fully automated multi-format content production system. Create 4K KOL product images in just 30 seconds, write trending captions and smart hashtag suggestions to maximize reach. Save 90% costs compared to hiring designers and copywriters.",
     "features.content.stats":
       "50+ templates • 4K image generation • SEO-optimized captions",
     "features.content.feature1.name": "KOL Product Photography",
@@ -1087,21 +1204,27 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric3.note": "Realistic, 3D, Illustration, Abstract",
     "features.trends.title": "AI Hot Trends Discovery",
     "features.trends.desc":
-      "AI system that finds Trends and optimizes Briefs intelligently, never run out of ideas.",
+      "AI-powered trend hunting system scanning 5+ major social networks 24/7. Detect viral content 48 hours earlier, score potential and suggest content ideas that match your brand. Never fall behind trends, always lead the game.",
     "features.trends.stats":
-      "~30 seconds/Brief • 4-step process • Real-time scoring",
-    "features.trends.feature1.name": "INPUT ENGINE",
+      "24/7 trend scanning • 5+ platforms • Predict viral 48h ahead",
+    "features.trends.feature1.name": "Real-time Trend Scanner",
     "features.trends.feature1.desc":
-      "Collect & Process Brief: Brand info (Name, Industry, Product), Target & Strategy (Persona, Pain points, Goals), Output format",
-    "features.trends.feature2.name": "QUALITY EVALUATION",
+      "Scan trends 24/7 from TikTok, Facebook, Instagram, YouTube - updated every 15 minutes",
+    "features.trends.feature2.name": "Viral Content Detector",
     "features.trends.feature2.desc":
-      "Real-time Brief scoring on 100-point scale: Blocking (<50), Warning (50-79), Excellent (≥80)",
-    "features.trends.feature3.name": "IDEA GENERATION",
+      "Detect content with viral potential 48 hours earlier than your competitors",
+    "features.trends.feature3.name": "Trend Score & Prediction",
     "features.trends.feature3.desc":
-      "AI Brainstorming with Fit Score (0.0-1.0), Effort Level (Low/Medium/High), Estimated Impact",
-    "features.trends.feature4.name": "CAMPAIGN MAPPER",
+      "Score trend hotness (0-100) and predict lifespan to optimize your timing",
+    "features.trends.feature4.name": "Industry-Specific Insights",
     "features.trends.feature4.desc":
-      "Action plan: Content Outline, Hooks & CTAs, Platform distribution",
+      "Filter and analyze trends by industry: F&B, Retail, Beauty, Tech, Education...",
+    "features.trends.feature5.name": "Content Idea Generator",
+    "features.trends.feature5.desc":
+      "AI suggests 10+ creative content ideas from each hot trend, matching your brand voice",
+    "features.trends.feature6.name": "Competitor Trend Tracking",
+    "features.trends.feature6.desc":
+      "Track trends your competitors are leveraging so you never miss market opportunities",
     "features.trends.metric1.name": "Evaluation weights",
     "features.trends.metric1.value": "Brand 30% • Strategy 40% • Output 30%",
     "features.trends.metric1.note": "Bonus +5 points if Pain points > 3",
@@ -1121,7 +1244,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.table.note": "Note",
     "features.video.title": "AI Video Factory",
     "features.video.desc":
-      "Produce marketing videos with Virtual KOL in minutes. No filming, no studio, no real KOL needed.",
+      "Produce professional marketing videos with Virtual KOL in just 5 minutes. No filming needed, no studio required, no costly real KOL. AI automatically creates videos with natural voice, perfect lip-sync and multi-language support. Save 95% cost compared to traditional methods.",
     "features.video.stats": "50 Credits/video • 5 min production • 95% savings",
     "features.video.feature1.name": "Virtual KOL Presenter",
     "features.video.feature1.desc":
@@ -1149,7 +1272,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 sec",
     "features.email.title": "Email Marketing Automation",
     "features.email.desc":
-      "100% automated customer care system - Complete customer journey.",
+      "100% automated email marketing system with complete customer journey from Welcome to Re-marketing. CRM integration for personalized content, smart A/B Testing automatically optimizes subject lines and content. Increase Open Rate by 35% with zero manual operation - runs 24/7.",
     "features.email.stats":
       "100% automated • CRM integration • Smart A/B Testing",
     "features.email.feature1.name": "Responsive Design",
@@ -1178,7 +1301,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.email.metric3.note": "Thanks to A/B Testing & Smart Tracking",
     "features.multiPlatform.title": "Multi-Platform Management",
     "features.multiPlatform.desc":
-      "One Dashboard - Control everything. Centralized multi-channel management and smart interaction 24/7.",
+      "One single Dashboard controls everything: Facebook, Instagram, TikTok, YouTube, Zalo OA. Batch schedule posts, intuitive Content Calendar with Drag & Drop. AI auto-replies to comments and messages 24/7 with personalized tone. Save 90% time compared to manual operation on each app.",
     "features.multiPlatform.stats":
       "5 platforms • 90% time saved • 24/7 virtual assistant",
     "features.multiPlatform.feature1.name": "Batch Scheduling & Posting",
@@ -1212,7 +1335,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric3.note": "Automatic comment reply",
     "features.ads.title": "AI Ads Management & Analytics",
     "features.ads.desc":
-      "Accurate measurement, data-driven decisions. Comprehensive analytics dashboard with 99.9% accuracy.",
+      "Comprehensive analytics dashboard with 99.9% accuracy for data-driven decisions. Auto-optimize budget based on target CPA/ROAS, smart Custom & Lookalike audience suggestions. Smart A/B Testing finds the best performing ads and real-time alerts when campaigns need intervention.",
     "features.ads.stats":
       "99.9% accuracy • Auto budget optimization • ROI Calculator",
     "features.ads.feature1.name": "Budget Optimization",
@@ -1245,7 +1368,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.successIcon": "Success icon",
     "registration.successTitle": "Registration Successful!",
     "registration.successMessage":
-      "Thank you for your interest in DXAI Marketing Platform. Our team will contact you within 24 hours.",
+      "Thank you for your interest in Uniksmart. Our team will contact you within 24 hours.",
     "registration.loginLabel": "Login to system",
     "registration.loginButton": "Login Now",
     "registration.registerAnotherLabel": "Register another person",
@@ -1256,16 +1379,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.trial": "Start 14-day free trial",
     "registration.form.hero.title": "Elevate Enterprise Marketing with AI",
     "registration.form.hero.subtitle":
-      "Over 2,500+ businesses have successfully transformed digitally with DXAI. Join today to receive exclusive benefits.",
+      "Over 2,500+ businesses have successfully transformed digitally with Uniksmart. Join today to receive exclusive benefits.",
     "registration.form.benefit1": "1-on-1 expert consultation",
     "registration.form.benefit2": "Live product demo",
     "registration.form.benefit3": "Get special offers for SMBs",
     "registration.form.rating": "4.9/5 based on user reviews",
     "registration.form.testimonial":
-      "DXAI helped us optimize our workflow and increase conversion rate by 30% in the first 3 months.",
+      "Uniksmart helped us optimize our workflow and increase conversion rate by 30% in the first 3 months.",
     "registration.form.title": "Sign up for free trial",
     "registration.form.subtitle":
-      "Fill in the information to start experiencing DXAI",
+      "Fill in the information to start experiencing Uniksmart",
     "registration.form.package.starter": "Starter",
     "registration.form.package.starterTitle": "For individuals",
     "registration.form.package.starterDesc":
@@ -1279,6 +1402,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.company.taxCode": "Tax ID (TIN)",
     "registration.form.company.taxCodePlaceholder": "Example: 0101234567",
     "registration.form.company.type": "Business type",
+    "registration.form.company.typePlaceholder": "Select business type",
     "registration.form.company.typeEnterprise": "LLC/JSC",
     "registration.form.company.typeHousehold": "Household business",
     "registration.form.company.typeOther": "Other organization",
@@ -1434,8 +1558,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // ROI Section
     "roi.badge": "EFFICIENCY COMPARISON",
-    "roi.title.brand": "DXAI Marketing",
-    "roi.title": "Why Choose DXAI Marketing Platform?",
+    "roi.title.brand": "Uniksmart",
+    "roi.title": "Why Choose Uniksmart?",
     "roi.title.full": "Why {brand} excels?",
     "roi.subtitle.full":
       "Compare traditional marketing workflows vs an AI-powered solution. Save time, reduce costs, and boost productivity exponentially.",
@@ -1446,8 +1570,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.traditional": "Traditional",
     "roi.traditional.title": "Traditional Editor/Content",
     "roi.traditional.subtitle": "Manual approach",
-    "roi.aiSystem": "DXAI Marketing Platform",
-    "roi.ai.title": "DXAI Marketing Platform",
+    "roi.aiSystem": "Uniksmart",
+    "roi.ai.title": "Uniksmart",
     "roi.ai.subtitle": "Automated solution",
     "roi.best": "BEST CHOICE",
     "roi.bestMobile": "Best",
@@ -1460,7 +1584,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.save": "Save",
     "roi.times": "{x}x faster",
     "roi.cta.text":
-      "Save costs and increase productivity 10x with DXAI Marketing Platform",
+      "Save costs and increase productivity 10x with Uniksmart",
     "roi.cta.button": "Watch Demo",
     "roi.cost.traditional": "~$555 / month",
     "roi.cost.ai": "~$255 / month",
@@ -1495,7 +1619,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.row4.criteria": "Multitasking",
     "roi.row4.traditional": "Difficult",
     "roi.row4.traditionalDesc": "(1-2 channels)",
-    "roi.row4.ai": "50+ channels",
+    "roi.row4.ai": "10+ channels",
     "roi.row4.aiDesc": "(Simultaneous)",
     "roi.row5.criteria": "Operation",
     "roi.row5.traditional": "8-10 hours",
@@ -1505,17 +1629,17 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.header.traditional.manual": "Manual Approach",
     "roi.header.traditional": "Traditional Marketing",
     "roi.header.recommended": "RECOMMENDED",
-    "roi.header.dxai": "DXAI Marketing AI",
+    "roi.header.dxai": "Uniksmart AI",
     "roi.header.dxai.auto": "Automated 100%",
     "roi.mobile.traditional": "Traditional",
     "roi.cta.ready": "Ready to Transform with AI Marketing?",
     "roi.cta.start": "Get Started",
     "roi.cta.learn": "Learn More",
     "roi.disclaimer":
-      "* Data based on survey of 500+ Vietnamese businesses using DXAI Marketing Platform",
+      "* Data based on survey of 500+ Vietnamese businesses using Uniksmart",
 
     // Why Choose Section
-    "whyChoose.title": "Why Choose DXAI Marketing Platform?",
+    "whyChoose.title": "Why Choose Uniksmart?",
     "whyChoose.subtitle": "Equip AI for your entire company starting from",
     "whyChoose.price": "$500/user/month",
     "whyChoose.aiModels.title": "One account – use multiple AI tools",
@@ -1535,7 +1659,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.tools.team": "Marketing, Sales, Support, HR",
     "whyChoose.tools.cost": "Allocation, Revocation, Reporting, Budget",
     "whyChoose.tools.mobile": "iOS App, Android, Web App, Desktop",
-    "whyChoose.mockup.title": "DXAI Marketing Platform",
+    "whyChoose.mockup.title": "Uniksmart",
     "whyChoose.mockup.subtitle": "Dashboard Overview",
     "whyChoose.mockup.videos": "Videos/month",
     "whyChoose.mockup.accuracy": "Accuracy",
@@ -1559,25 +1683,25 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Why Choose Section (Optura Style)
     "whyChoose.optura.title": "Why Choose",
-    "whyChoose.optura.brand": "DXAI Marketing Platform",
+    "whyChoose.optura.brand": "Uniksmart",
     "whyChoose.optura.subtitle":
       "Compare traditional marketing workflows vs AI-powered automation solution",
     "whyChoose.optura.criteria": "Comparison Criteria",
     "whyChoose.optura.traditional": "Traditional Method",
     "whyChoose.optura.traditional.manual": "Manual Approach",
     "whyChoose.optura.bestChoice": "BEST CHOICE",
-    "whyChoose.optura.dxai": "DXAI Marketing Platform",
+    "whyChoose.optura.dxai": "Uniksmart",
     "whyChoose.optura.dxai.auto": "Automated Solution",
     "whyChoose.optura.guarantee.title": "Guaranteed Results",
     "whyChoose.optura.guarantee.desc":
-      "Metrics based on average data from 500+ businesses that have transitioned to the DXAI ecosystem. 80% cost savings calculated on total staffing and production budget.",
+      "Metrics based on average data from 500+ businesses that have transitioned to the Uniksmart ecosystem. 80% cost savings calculated on total staffing and production budget.",
     "whyChoose.optura.tryNow": "Try Now",
     "whyChoose.optura.consult.title": "Need Expert Consultation?",
     "whyChoose.optura.consult.desc":
       "Our team of experts is ready to provide free consultation to help you find the best solution for your business.",
     "whyChoose.optura.consultBtn": "Get Consultation",
     "whyChoose.optura.watchDemo": "Watch Demo",
-    "whyChoose.optura.mobilePlatform": "DXAI Platform",
+    "whyChoose.optura.mobilePlatform": "Uniksmart Platform",
     // Why Choose Optura Comparison Rows
     "whyChoose.optura.row1.criteria": "Cost",
     "whyChoose.optura.row1.traditional": "~$555 / month",
@@ -1613,7 +1737,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "trusted.badge.uptime.desc":
       "Platform reliability guaranteed for 24/7 operations.",
     "trusted.copyright":
-      "© 2024 DXAI Marketing. All rights reserved. Professional trust signals for Vietnam and International markets.",
+      "© 2024 Uniksmart. All rights reserved. Professional trust signals for Vietnam and International markets.",
     "trusted.industry.retail": "Retail Industry",
     "trusted.industry.ecommerce": "E-Commerce",
     "trusted.industry.realestate": "Real Estate",
@@ -1627,21 +1751,21 @@ const translations: Record<Locale, Record<string, string>> = {
     "faq.contactUs": "Contact us",
     "faq.notFound": "Can't find the answer you need?",
     "faq.contact": "Contact us",
-    "faq.q1": "What is DXAI Marketing Platform?",
+    "faq.q1": "What is Uniksmart?",
     "faq.a1":
-      "DXAI Marketing Platform is a platform that unifies leading AI tools like Video creation, Content writing, Image design... into a single system. Businesses only need to provide one account per employee to flexibly use multiple AI tools, instead of buying and managing separate accounts.",
-    "faq.q2": "What does DXAI Marketing Platform support for businesses?",
+      "Uniksmart is a platform that unifies leading AI tools like Video creation, Content writing, Image design... into a single system. Businesses only need to provide one account per employee to flexibly use multiple AI tools, instead of buying and managing separate accounts.",
+    "faq.q2": "What does Uniksmart support for businesses?",
     "faq.a2":
       "Save costs & time: Buy once - use for the entire team. Centralized management: Allocate, revoke, adjust AI quotas for employees with just a few operations. Detailed reports: Leaders can easily track and evaluate AI adoption levels in the business.",
-    "faq.q3": "Can I use DXAI Marketing Platform for free?",
+    "faq.q3": "Can I use Uniksmart for free?",
     "faq.a3":
-      "Yes. DXAI Marketing Platform offers a 7-day free trial with full features. Customers can upgrade to paid plans for more Credits and access to all advanced AI tools.",
-    "faq.q4": "Does DXAI Marketing Platform work on mobile phones?",
+      "Yes. Uniksmart offers a 7-day free trial with full features. Customers can upgrade to paid plans for more Credits and access to all advanced AI tools.",
+    "faq.q4": "Does Uniksmart work on mobile phones?",
     "faq.a4":
-      "Yes. DXAI Marketing Platform fully supports iOS and Android. The interface is optimized for mobile experience, allowing staff to use AI anytime, anywhere.",
-    "faq.q5": "Does DXAI Marketing Platform update with the latest AI tools?",
+      "Yes. Uniksmart fully supports iOS and Android. The interface is optimized for mobile experience, allowing staff to use AI anytime, anywhere.",
+    "faq.q5": "Does Uniksmart update with the latest AI tools?",
     "faq.a5":
-      "We constantly strive to review and integrate the most advanced AI tools, with priority on balancing customer benefits and cost efficiency. When new tools emerge, DXAI Marketing Platform will evaluate and consider updates to help customers maximize value from AI.",
+      "We constantly strive to review and integrate the most advanced AI tools, with priority on balancing customer benefits and cost efficiency. When new tools emerge, Uniksmart will evaluate and consider updates to help customers maximize value from AI.",
 
     // CTA Section
     "cta.title": "Unleash AI Power for Your Business",
@@ -1668,7 +1792,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.support.contact": "Contact Support",
     "footer.support.privacy": "Privacy Policy",
     "footer.contact": "Contact",
-    "footer.copyright": "© {year} Tien Phong CDS. All rights reserved.",
+    "footer.copyright": "© {year} Uniksmart. All rights reserved.",
     "footer.terms": "Terms of Service",
     "footer.privacy": "Privacy Policy",
 
@@ -1678,16 +1802,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.hero.badge": "About Us",
     "about.hero.title": "About Us",
     "about.hero.title.prefix": "Pioneering",
-    "about.hero.title.brand": "DXAI Marketing",
+    "about.hero.title.brand": "Uniksmart",
     "about.hero.title.suffix": "Platform",
-    "about.hero.subtitle": "Tien Phong CDS & DXAI – DXAI Marketing Platform",
+    "about.hero.subtitle": "Uniksmart",
     "about.hero.description":
       "Multi-channel Digital Marketing Transformation Partner, automating workflow from idea to content publishing.",
     "about.hero.desc":
       "We redefine how businesses operate with an AI-First philosophy, driving comprehensive digital transformation and optimizing automated marketing performance.",
     "about.hero.cta.contact": "Contact Now",
     "about.hero.cta.learn": "Learn More",
-    "about.hero.image.alt": "Professional Tien Phong CDS Team",
+    "about.hero.image.alt": "Professional Uniksmart Team",
     "about.hero.stat.uptime": "Uptime",
     "about.hero.stat.operational": "All systems operational",
     "about.hero.stat.businesses": "Businesses",
@@ -1695,11 +1819,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.cta.contact": "Contact Us",
 
     // About Company Section
-    "about.company.title": "Tien Phong CDS",
+    "about.company.title": "Uniksmart",
     "about.company.subtitle":
       "Multi-channel digital transformation partner for Vietnamese businesses",
     "about.company.desc1":
-      "Tien Phong CDS is a pioneer in the field of Digital Marketing Transformation in Vietnam. We specialize in providing comprehensive AI Marketing solutions, helping businesses optimize marketing processes and increase business efficiency.",
+      "Uniksmart is a pioneer in the field of Digital Marketing Transformation in Vietnam. We specialize in providing comprehensive AI Marketing solutions, helping businesses optimize marketing processes and increase business efficiency.",
     "about.company.desc2":
       "With a Data-driven and AI-first philosophy, we are committed to delivering the most advanced technology solutions, optimizing operating costs and measuring effectiveness with real data.",
     "about.company.highlight1": "Fast deployment in 2-4 weeks",
@@ -1751,10 +1875,10 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // About Product Section
     "about.product.badge": "Our Product",
-    "about.product.title": "DXAI Marketing Platform",
+    "about.product.title": "Uniksmart",
     "about.product.subtitle":
       "Comprehensive AI marketing platform, automating every aspect from content creation to multi-channel distribution",
-    "about.product.why.title": "Why Choose DXAI?",
+    "about.product.why.title": "Why Choose Uniksmart?",
     "about.product.why.subtitle":
       "Comprehensive AI Marketing solution for modern businesses",
     "about.product.why.allinone.title": "All-in-One Platform",
@@ -1789,11 +1913,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.product.feature.integration.title": "Seamless Integration",
     "about.product.feature.integration.desc": "20+ platforms",
     "about.product.tech.badge": "AI Technology",
-    "about.product.tech.title": "Technology Behind DXAI",
+    "about.product.tech.title": "Technology Behind Uniksmart",
     "about.product.tech.subtitle":
       "Integrated with 6 world-leading AI models to deliver optimal results",
     "about.product.stat.businesses": "Businesses",
-    "about.product.capabilities.title": "DXAI Capabilities",
+    "about.product.capabilities.title": "Uniksmart Capabilities",
     "about.product.capabilities.video": "Auto Video Production",
     "about.product.capabilities.image": "Marketing Image Design",
     "about.product.capabilities.content": "SEO Content Writing",
@@ -1807,12 +1931,12 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.cta.title": "Ready for Digital Marketing Transformation?",
     "about.cta.subtitle": "Contact us today!",
     "about.cta.description":
-      "We look forward to learning more about your business and how DXAI can help you achieve your goals in the digital world.",
+      "We look forward to learning more about your business and how Uniksmart can help you achieve your goals in the digital world.",
 
     // About Philosophy Section
     "about.philosophy.title": "Our AI-First Philosophy",
     "about.philosophy.description":
-      "Tiên Phong CDS is not just a tool, but a digital brain that helps businesses enhance competitiveness and maximize operational efficiency through intelligent automation.",
+      "Uniksmart is not just a tool, but a digital brain that helps businesses enhance competitiveness and maximize operational efficiency through intelligent automation.",
     "about.philosophy.benefit1.title": "Rapid Deployment",
     "about.philosophy.benefit1.desc":
       "System ready to operate in just 48 hours",
@@ -1837,7 +1961,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Tailored AI Marketing roadmap focused on growth KPIs",
     "about.workflow.step3.title": "Integration",
     "about.workflow.step3.desc":
-      "Seamlessly connecting DXAI with existing data and tools",
+      "Seamlessly connecting Uniksmart with existing data and tools",
     "about.workflow.step4.title": "Optimization",
     "about.workflow.step4.desc":
       "Model fine-tuning for performance and efficiency",
@@ -1855,7 +1979,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "We combine deep marketing expertise with state-of-the-art AI infrastructure to drive enterprise growth.",
     "about.whyChoose.expertise1.title": "AI Expertise",
     "about.whyChoose.expertise1.desc":
-      "Leveraging DXAI product capabilities for marketing excellence",
+      "Leveraging Uniksmart product capabilities for marketing excellence",
     "about.whyChoose.expertise2.title": "Enterprise Support",
     "about.whyChoose.expertise2.desc":
       "Dedicated 24/7 reliability for enterprise-grade operations",
@@ -1881,11 +2005,11 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Modal CTA
     "modal.cta.title": "DON'T MISS OUT!",
-    "modal.cta.benefit1": "Free DXAI Marketing Platform Demo",
+    "modal.cta.benefit1": "Free Uniksmart Demo",
     "modal.cta.benefit2": "Personalized pricing based on your business scale",
     "modal.cta.benefit3": "1:1 consultation with Marketing experts",
     "modal.cta.trust": "Businesses have trusted us",
-    "modal.cta.powered": "Powered by Tien Phong CDS & DXAI",
+    "modal.cta.powered": "Powered by Uniksmart",
     "modal.cta.formTitle": "GET QUOTE & TRY NOW!",
     "modal.cta.formBadge": "Just 10s – Get full feature demo",
     "modal.cta.submit": "Get Quote & Free Demo",
@@ -1929,7 +2053,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.stats.channels": "50+ channels",
     "heroLight.stats.channelsManage": "Manage",
     "heroLight.stats.channelsSim": "simultaneously",
-    "heroLight.stats.roi": "+285%",
+    "heroLight.stats.roi": "+120%",
     "heroLight.stats.roiText": "ROI boost",
     "heroLight.stats.roiTime": "in 3 months",
     "heroLight.stats.saveTime": "80% time",
@@ -1947,8 +2071,116 @@ const translations: Record<Locale, Record<string, string>> = {
     "heroLight.dashboard.vnContent": "Vietnamese Content",
     "heroLight.dashboard.active": "ACTIVE",
     "heroLight.dashboard.campaigns": "Active Campaigns",
-    "heroLight.tech.title": "Technology Behind DXAI",
+    "heroLight.tech.title": "Technology Behind Uniksmart",
     "heroLight.tech.subtitle": "Integrated with world's leading AI models",
+
+    // Feature Page - Common
+    "featurePage.backToFeatures": "Back to Features",
+    "featurePage.tryFree": "Try Free",
+    "featurePage.viewPricing": "View Pricing",
+    "featurePage.keyFeatures": "Key Features",
+    "featurePage.keyFeaturesDesc": "Discover powerful features that automate your marketing",
+    "featurePage.seeInAction": "See It In Action",
+    "featurePage.ctaTitle": "Ready to Get Started?",
+    "featurePage.ctaDesc": "Sign up for a free 14-day trial and experience the power of AI Marketing",
+    "featurePage.startTrial": "Start Free Trial",
+    "featurePage.exploreMore": "Explore More Features",
+
+    // Feature Page - Chatbot
+    "featurePage.chatbot.feature5.name": "Multi-language Support",
+    "featurePage.chatbot.feature5.desc": "Auto-detect and respond in customer's language",
+    "featurePage.chatbot.feature6.name": "CRM Integration",
+    "featurePage.chatbot.feature6.desc": "Sync customer data with your CRM system",
+    "featurePage.chatbot.metric1.label": "Always Available",
+    "featurePage.chatbot.metric2.label": "Response Time",
+    "featurePage.chatbot.metric3.label": "Conversion Rate",
+    "featurePage.chatbot.metric4.label": "Wait Time Reduced",
+    "featurePage.chatbot.benefitsTitle": "Why Choose AI Chatbot?",
+    "featurePage.chatbot.benefitsDesc": "Smart AI chatbot helps businesses serve customers 24/7 without staff.",
+    "featurePage.chatbot.benefit1": "Instant customer response, no waiting",
+    "featurePage.chatbot.benefit2": "Reduce customer service personnel costs",
+    "featurePage.chatbot.benefit3": "Collect and qualify high-quality leads",
+    "featurePage.chatbot.benefit4": "Easy integration with website and fanpage",
+
+    // Feature Page - Content
+    "featurePage.content.metric1.label": "Templates",
+    "featurePage.content.metric2.label": "Resolution",
+    "featurePage.content.metric3.label": "Creation Time",
+    "featurePage.content.metric4.label": "Cost Savings",
+    "featurePage.content.benefitsTitle": "Why Choose AI Content Creator?",
+    "featurePage.content.benefitsDesc": "Create professional content in seconds with AI.",
+    "featurePage.content.benefit1": "Create 4K professional images with virtual KOL",
+    "featurePage.content.benefit2": "Auto-write trending captions and hashtags",
+    "featurePage.content.benefit3": "50+ templates for all industries",
+    "featurePage.content.benefit4": "Auto SEO optimization for all content",
+
+    // Feature Page - Trends
+    "featurePage.trends.metric1.label": "Continuous Monitoring",
+    "featurePage.trends.metric2.label": "Fast Analysis",
+    "featurePage.trends.metric3.label": "Supported Formats",
+    "featurePage.trends.metric4.label": "Accuracy",
+    "featurePage.trends.benefitsTitle": "Why Choose AI Hot Trends?",
+    "featurePage.trends.benefitsDesc": "Stay updated with latest trends to keep content viral.",
+    "featurePage.trends.benefit1": "Detect viral trends before competitors",
+    "featurePage.trends.benefit2": "Get content ideas based on trends",
+    "featurePage.trends.benefit3": "Track competitors in real-time",
+    "featurePage.trends.benefit4": "Predict upcoming trends with AI",
+
+    // Feature Page - Video
+    "featurePage.video.feature6.name": "Multi-format Export",
+    "featurePage.video.feature6.desc": "Support YouTube, TikTok, Reels with appropriate aspect ratios",
+    "featurePage.video.metric1.label": "Production Time",
+    "featurePage.video.metric2.label": "Resolution",
+    "featurePage.video.metric3.label": "Cost Savings",
+    "featurePage.video.metric4.label": "AI Voices",
+    "featurePage.video.benefitsTitle": "Why Choose AI Video Factory?",
+    "featurePage.video.benefitsDesc": "Produce professional marketing videos at near-zero cost.",
+    "featurePage.video.benefit1": "Create videos with virtual KOL in 5 minutes",
+    "featurePage.video.benefit2": "No studio, no filming required",
+    "featurePage.video.benefit3": "Auto lip-sync, natural AI voice",
+    "featurePage.video.benefit4": "Export 4K videos for all platforms",
+
+    // Feature Page - Email
+    "featurePage.email.feature6.name": "Smart Segmentation",
+    "featurePage.email.feature6.desc": "Auto-categorize customers by behavior and engagement",
+    "featurePage.email.metric1.label": "Automation",
+    "featurePage.email.metric2.label": "Open Rate Increase",
+    "featurePage.email.metric3.label": "Care Stages",
+    "featurePage.email.metric4.label": "Operation",
+    "featurePage.email.benefitsTitle": "Why Choose Email Automation?",
+    "featurePage.email.benefitsDesc": "100% automated email marketing with complete customer journey.",
+    "featurePage.email.benefit1": "Auto-send emails based on customer journey",
+    "featurePage.email.benefit2": "Smart A/B Testing to optimize open rate",
+    "featurePage.email.benefit3": "Personalized content for each customer",
+    "featurePage.email.benefit4": "Detailed campaign performance reports",
+
+    // Feature Page - Multi Platform
+    "featurePage.multiPlatform.metric1.label": "Platforms",
+    "featurePage.multiPlatform.metric2.label": "Time Saved",
+    "featurePage.multiPlatform.metric3.label": "Auto Reply",
+    "featurePage.multiPlatform.metric4.label": "Single Dashboard",
+    "featurePage.multiPlatform.benefitsTitle": "Why Choose Multi-Platform?",
+    "featurePage.multiPlatform.benefitsDesc": "Manage all social channels from one place.",
+    "featurePage.multiPlatform.benefit1": "Post to 5+ platforms simultaneously",
+    "featurePage.multiPlatform.benefit2": "Visual Content Calendar with drag & drop",
+    "featurePage.multiPlatform.benefit3": "AI auto-replies to comments and messages",
+    "featurePage.multiPlatform.benefit4": "Unified Inbox for all messages",
+
+    // Feature Page - Ads
+    "featurePage.ads.feature5.name": "ROI Calculator",
+    "featurePage.ads.feature5.desc": "Calculate and predict ROI for each ad campaign",
+    "featurePage.ads.feature6.name": "Auto Reports",
+    "featurePage.ads.feature6.desc": "Send automated weekly/monthly performance reports",
+    "featurePage.ads.metric1.label": "Metrics Tracked",
+    "featurePage.ads.metric2.label": "Uptime SLA",
+    "featurePage.ads.metric3.label": "ROI Performance",
+    "featurePage.ads.metric4.label": "Reports",
+    "featurePage.ads.benefitsTitle": "Why Choose AI Ads Analytics?",
+    "featurePage.ads.benefitsDesc": "Optimize ads and track ROI with smart AI.",
+    "featurePage.ads.benefit1": "Auto-optimize ad budget",
+    "featurePage.ads.benefit2": "Accurate target audience suggestions",
+    "featurePage.ads.benefit3": "Automatic A/B Testing for ads",
+    "featurePage.ads.benefit4": "Real-time alerts when campaigns have issues",
   },
 };
 
@@ -1957,39 +2189,30 @@ const translations: Record<Locale, Record<string, string>> = {
 // ============================================================
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-const LOCALE_STORAGE_KEY = "dxai_locale";
+interface I18nProviderProps {
+  children: ReactNode;
+  locale: Locale;
+}
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("vi");
-  const [isHydrated, setIsHydrated] = useState(false);
+export function I18nProvider({ children, locale }: I18nProviderProps) {
+  const router = useRouter();
+  const pathname = usePathname();
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null;
-      if (stored && (stored === "vi" || stored === "en")) {
-        setLocaleState(stored);
-      }
-    } catch (error) {
-      console.error("Failed to read locale from localStorage:", error);
-    } finally {
-      setIsHydrated(true);
-    }
-  }, []);
+  const setLocale = useCallback(
+    (newLocale: Locale) => {
+      if (newLocale === locale) return;
 
-  useEffect(() => {
-    if (isHydrated) {
-      document.documentElement.lang = locale;
-    }
-  }, [locale, isHydrated]);
+      // Get current path without locale prefix
+      const segments = pathname.split("/");
+      // Remove empty first segment and locale segment
+      const pathWithoutLocale = segments.slice(2).join("/");
 
-  const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale);
-    try {
-      localStorage.setItem(LOCALE_STORAGE_KEY, newLocale);
-    } catch (error) {
-      console.error("Failed to save locale to localStorage:", error);
-    }
-  }, []);
+      // Navigate to new locale path
+      const newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ""}`;
+      router.push(newPath);
+    },
+    [locale, pathname, router],
+  );
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
@@ -2008,11 +2231,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     },
     [locale],
   );
-
-  // Prevent hydration mismatch by not rendering until client-side hydration is complete
-  if (!isHydrated) {
-    return null;
-  }
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>

@@ -87,7 +87,7 @@ export function UserSocialProof() {
           className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold text-[#ff7900] bg-[#ff7900]/10 border-2 border-white shadow-sm"
           style={{ marginLeft: "-8px" }}
         >
-          +12K
+          +200
         </div>
       </div>
 

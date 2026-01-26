@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import { useState, memo } from "react";
 import { Check, Sparkles } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
@@ -261,7 +261,7 @@ const PricingCard = memo(
           </div>
 
           {/* ==================== CTA ZONE ==================== */}
-          <Link
+          <LocaleLink
             href={`/dang-ky?package=${plan?.id}`}
             className={`
             w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 
@@ -275,7 +275,7 @@ const PricingCard = memo(
           >
             {plan?.cta}
             <span className="text-lg">→</span>
-          </Link>
+          </LocaleLink>
 
           {/* ==================== FEATURES ZONE (flex-grow) ==================== */}
           <div
@@ -418,7 +418,7 @@ export function PricingSection() {
                 </div>
 
                 {/* CTA Button */}
-                <Link
+                <LocaleLink
                   href={`/dang-ky?package=${plan?.id}`}
                   className={`block w-full py-3.5 px-6 rounded-full font-semibold text-center transition-all duration-200 mb-8 ${
                     isFeatured
@@ -427,7 +427,7 @@ export function PricingSection() {
                   }`}
                 >
                   {t(plan?.ctaKey)} →
-                </Link>
+                </LocaleLink>
 
                 {/* Features */}
                 <div>

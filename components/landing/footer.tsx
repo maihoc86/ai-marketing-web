@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Facebook, Youtube, Linkedin } from "lucide-react";
+import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/lib/i18n";
 
 const socialLinks = [
@@ -86,12 +86,12 @@ export function Footer() {
             <ul className="space-y-2">
               {productLinks.map((link) => (
                 <li key={link.labelKey}>
-                  <Link
+                  <LocaleLink
                     href={link.href}
                     className="text-white/60 hover:text-[#22b5f8] text-sm transition-colors"
                   >
                     {t(link.labelKey)}
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -105,12 +105,12 @@ export function Footer() {
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.labelKey}>
-                  <Link
+                  <LocaleLink
                     href={link.href}
                     className="text-white/60 hover:text-[#22b5f8] text-sm transition-colors"
                   >
                     {t(link.labelKey)}
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -150,18 +150,18 @@ export function Footer() {
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-6 text-sm">
-            <Link
+            <LocaleLink
               href="#"
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.terms")}
-            </Link>
-            <Link
+            </LocaleLink>
+            <LocaleLink
               href="#"
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.privacy")}
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </div>

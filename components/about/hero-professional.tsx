@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,12 +44,12 @@ export function HeroProfessional() {
             )}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-[#22b5f8]/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-[#22b5f8]/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
               <div className="w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
               <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
                 {t("about.hero.badge")}
               </span>
-            </div>
+            </div> */}
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-[1.1]">
@@ -72,13 +72,13 @@ export function HeroProfessional() {
                 className="bg-[#ff7900] hover:bg-[#e56b00] text-white font-bold px-8 py-6 rounded-full text-base shadow-lg hover:shadow-xl transition-all group"
                 asChild
               >
-                <Link
+                <LocaleLink
                   href="/dang-ky"
                   className="flex items-center justify-center gap-2"
                 >
                   {t("about.hero.cta.contact")}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </LocaleLink>
               </Button>
 
               <Button
@@ -87,13 +87,13 @@ export function HeroProfessional() {
                 className="border-2 border-gray-300 text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 font-semibold px-8 py-6 rounded-full text-base transition-all bg-white group"
                 asChild
               >
-                <Link
+                <LocaleLink
                   href="#philosophy"
                   className="flex items-center justify-center gap-2"
                 >
                   {t("about.hero.cta.learn")}
                   <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                </Link>
+                </LocaleLink>
               </Button>
             </div>
           </div>

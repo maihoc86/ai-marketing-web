@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSelector } from "@/components/language-selector";
+import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +46,7 @@ export function Navbar() {
           aria-label="Main navigation"
         >
           {/* Logo - LEFT */}
-          <Link
+          <LocaleLink
             href="/"
             className="flex items-center shrink-0 focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white rounded-lg"
             aria-label="UNIKSMART - Home"
@@ -59,14 +59,14 @@ export function Navbar() {
               className="h-7 w-auto"
               priority
             />
-          </Link>
+          </LocaleLink>
 
           {/* Navigation Links - CENTER (absolute centering) */}
           <div className="absolute left-1/2 -translate-x-1/2 hidden lg:block">
             <ul className="flex items-center gap-1" role="list">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <LocaleLink
                     href={link.href}
                     className={cn(
                       "relative px-4 py-2 text-[14px] font-medium text-[#1c1c1c]",
@@ -76,7 +76,7 @@ export function Navbar() {
                     )}
                   >
                     {link.label}
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -116,9 +116,9 @@ export function Navbar() {
               )}
               asChild
             >
-              <Link href="/dang-ky" aria-label={t("nav.trialFree")}>
+              <LocaleLink href="/dang-ky" aria-label={t("nav.trialFree")}>
                 <span>{t("nav.trialFree")}</span>
-              </Link>
+              </LocaleLink>
             </Button>
           </div>
 
@@ -135,10 +135,10 @@ export function Navbar() {
               )}
               asChild
             >
-              <Link href="/dang-ky" aria-label={t("nav.trialFree")}>
+              <LocaleLink href="/dang-ky" aria-label={t("nav.trialFree")}>
                 <Sparkles className="w-4 h-4 sm:hidden" aria-hidden="true" />
                 <span className="hidden sm:inline">{t("nav.trial")}</span>
-              </Link>
+              </LocaleLink>
             </Button>
 
             {/* Hamburger button */}
@@ -184,7 +184,7 @@ export function Navbar() {
             <ul className="space-y-0.5" role="list">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <LocaleLink
                     href={link.href}
                     className={cn(
                       "block py-2.5 px-3 rounded-lg",
@@ -196,7 +196,7 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -244,13 +244,13 @@ export function Navbar() {
                 )}
                 asChild
               >
-                <Link
+                <LocaleLink
                   href="/dang-ky"
                   className="flex items-center justify-center gap-2"
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{t("nav.trialFree")}</span>
-                </Link>
+                </LocaleLink>
               </Button>
             </div>
           </nav>

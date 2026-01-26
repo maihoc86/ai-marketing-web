@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { LocaleLink } from "@/components/locale-link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
@@ -38,10 +38,10 @@ export function AboutHeroSection() {
             className="bg-[#ff7900] text-white hover:bg-[#e56b00] font-semibold px-8 py-6 rounded-xl text-base"
             asChild
           >
-            <Link href="/dang-ky" className="flex items-center gap-2">
+            <LocaleLink href="/dang-ky" className="flex items-center gap-2">
               {t("about.cta.trial")}
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </LocaleLink>
           </Button>
 
           <Button
@@ -50,7 +50,7 @@ export function AboutHeroSection() {
             className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8]/5 font-semibold px-8 py-6 rounded-xl text-base bg-transparent"
             asChild
           >
-            <Link href="/dang-ky">{t("about.cta.contact")}</Link>
+            <LocaleLink href="/dang-ky">{t("about.cta.contact")}</LocaleLink>
           </Button>
         </div>
       </div>

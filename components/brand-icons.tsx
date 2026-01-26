@@ -1,4 +1,4 @@
-// Brand SVG Icons for DXAI Marketing Platform
+// Brand SVG Icons for Uniksmart
 // These are simplified brand marks optimized for the marquee
 
 import Image from "next/image";

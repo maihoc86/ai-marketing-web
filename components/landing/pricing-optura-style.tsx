@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
@@ -278,7 +278,7 @@ function PricingCard({
       </div>
 
       {/* CTA button */}
-      <Link href={`/dang-ky?package=${tier.name.toLowerCase()}`}>
+      <LocaleLink href={`/dang-ky?package=${tier.name.toLowerCase()}`}>
         <Button
           className={`w-full rounded-full py-6 text-base font-semibold shadow-optura hover:shadow-optura-lg transition-all ${
             tier.popular
@@ -290,7 +290,7 @@ function PricingCard({
             ? t("pricing.cta.contact") || "Liên hệ tư vấn"
             : t("pricing.cta") || "Bắt đầu ngay"}
         </Button>
-      </Link>
+      </LocaleLink>
 
       {/* Features list */}
       <ul className="mt-8 space-y-4">

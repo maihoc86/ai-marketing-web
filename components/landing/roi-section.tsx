@@ -117,7 +117,7 @@ export function RoiSection() {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center justify-center gap-2 bg-[#ff7900] hover:bg-[#e56b00] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all group"
+            className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group"
           >
             <Play
               className="w-5 h-5 group-hover:scale-110 transition-transform"
@@ -141,12 +141,12 @@ export function RoiSection() {
               </div>
 
               {/* Traditional Method Header */}
-              <div className="relative p-5 rounded-2xl bg-linear-to-br from-red-50 via-orange-50 to-red-50 border border-red-200 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-red-200/30 rounded-full blur-2xl" />
+              <div className="relative p-5 rounded-2xl bg-linear-to-br from-blue-50 via-sky-50 to-blue-50 border border-blue-200 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/30 rounded-full blur-2xl" />
                 <div className="relative flex flex-col items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-red-600"
+                      className="w-5 h-5 text-blue-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -168,7 +168,7 @@ export function RoiSection() {
                 </div>
               </div>
 
-              {/* DXAI AI Header */}
+              {/* Uniksmart AI Header */}
               <div className="relative p-5 rounded-2xl bg-linear-to-br from-green-50 via-emerald-50 to-green-50 border border-green-300 overflow-hidden">
                 <div className="absolute -top-1 -right-1 bg-linear-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-bl-xl rounded-tr-xl flex items-center gap-1.5 shadow-lg">
                   <Sparkles className="w-3.5 h-3.5" />
@@ -221,7 +221,7 @@ export function RoiSection() {
                   </div>
 
                   {/* Traditional Value */}
-                  <div className="p-5 rounded-2xl bg-linear-to-br from-red-50/50 to-orange-50/30 border border-red-100 hover:border-red-200 transition-all">
+                  <div className="p-5 rounded-2xl bg-linear-to-br from-blue-50/50 to-sky-50/30 border border-blue-100 hover:border-blue-200 transition-all">
                     <div className="text-center">
                       <p className="text-base font-semibold text-gray-700 mb-1">
                         {t(row.traditionalKey)}
@@ -278,7 +278,7 @@ export function RoiSection() {
                 {/* Comparison Values */}
                 <div className="grid grid-cols-2 divide-x divide-gray-200">
                   {/* Traditional */}
-                  <div className="p-4 bg-linear-to-br from-red-50/50 to-orange-50/30">
+                  <div className="p-4 bg-linear-to-br from-blue-50/50 to-sky-50/30">
                     <div className="text-center">
                       <p className="text-xs text-gray-600 mb-1 font-medium uppercase tracking-wider">
                         {t("roi.mobile.traditional")}
@@ -303,7 +303,7 @@ export function RoiSection() {
                     )}
                     <div className="text-center">
                       <p className="text-xs text-green-700 mb-1 font-bold uppercase tracking-wider">
-                        DXAI AI
+                        Uniksmart AI
                       </p>
                       <p className="text-sm font-bold text-green-700 mb-0.5">
                         {t(row.aiKey)}
@@ -328,7 +328,7 @@ export function RoiSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 bg-[#ff7900] hover:bg-[#e56b00] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#ff7900]/30 hover:shadow-xl transition-all group min-h-[56px]"
+                className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group min-h-[56px]"
               >
                 {t("roi.cta.start")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

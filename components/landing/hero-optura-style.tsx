@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
 import { Sparkles, Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,7 +51,7 @@ export function HeroOpturaStyle() {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up animation-delay-300">
-              <Link href="/dang-ky">
+              <LocaleLink href="/dang-ky">
                 <Button
                   size="lg"
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 rounded-full shadow-optura hover:shadow-optura-lg transition-all text-base group"
@@ -59,7 +59,7 @@ export function HeroOpturaStyle() {
                   {t("hero.cta.trial") || "Dùng thử miễn phí"}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </LocaleLink>
 
               <Button
                 size="lg"

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 
 interface ComparisonRow {
   id: string;
@@ -118,14 +118,14 @@ export function WhyChooseOpturaStyle() {
           </p>
 
           {/* Watch Demo Button */}
-          <Link href="#demo">
+          <LocaleLink href="#demo">
             <button className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
               </svg>
               {t("whyChoose.optura.watchDemo")}
             </button>
-          </Link>
+          </LocaleLink>
         </div>
 
         {/* Comparison Table - Desktop */}
@@ -208,7 +208,7 @@ export function WhyChooseOpturaStyle() {
                     </p>
                   </div>
 
-                  {/* DXAI Platform Column */}
+                  {/* Uniksmart Platform Column */}
                   <div className="px-8 py-6 bg-green-50/10 flex items-center justify-between">
                     <p className="text-base font-bold text-gray-900">
                       {t(row.dxaiKey)}
@@ -268,7 +268,7 @@ export function WhyChooseOpturaStyle() {
                   </p>
                 </div>
 
-                {/* DXAI Platform */}
+                {/* Uniksmart Platform */}
                 <div className="px-6 py-4 bg-green-50/20">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
@@ -326,7 +326,7 @@ export function WhyChooseOpturaStyle() {
               </div>
             </div>
 
-            <Link href="/dang-ky">
+            <LocaleLink href="/dang-ky">
               <button className="w-full px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group">
                 {t("whyChoose.optura.tryNow")}
                 <svg
@@ -343,7 +343,7 @@ export function WhyChooseOpturaStyle() {
                   />
                 </svg>
               </button>
-            </Link>
+            </LocaleLink>
           </div>
 
           {/* Right: Consultation */}
@@ -362,11 +362,11 @@ export function WhyChooseOpturaStyle() {
               </div>
             </div>
 
-            <Link href="/ve-chung-toi">
+            <LocaleLink href="/ve-chung-toi">
               <button className="w-full px-8 py-4 rounded-xl bg-white hover:bg-gray-50 text-blue-600 font-bold border-2 border-blue-600 shadow-md hover:shadow-lg transition-all duration-200">
                 {t("whyChoose.optura.consultBtn")}
               </button>
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </div>

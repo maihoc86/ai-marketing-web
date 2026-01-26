@@ -2,7 +2,7 @@
  * API User Repository
  *
  * Infrastructure implementation of UserRepository.
- * Handles user data persistence via the DXAI API.
+ * Handles user data persistence via the Uniksmart API.
  *
  * This implements the Repository interface defined in the Domain layer,
  * following the Dependency Inversion Principle.
@@ -12,7 +12,7 @@ import type { User, BusinessType, JobPosition, SubscriptionPlan } from '@/src/do
 import type { UserRepository } from '@/src/domain/interfaces/user-repository'
 import { Email } from '@/src/domain/value-objects/email'
 import { PhoneNumber } from '@/src/domain/value-objects/phone-number'
-import { DxaiApiClient } from '../api/dxai-api-client'
+import { UniksmartApiClient } from '../api/dxai-api-client'
 
 /**
  * API response format for user data
@@ -34,7 +34,7 @@ interface ApiUser {
 }
 
 export class ApiUserRepository implements UserRepository {
-  constructor(private readonly api: DxaiApiClient) {}
+  constructor(private readonly api: UniksmartApiClient) {}
 
   async findById(id: string): Promise<User | null> {
     try {

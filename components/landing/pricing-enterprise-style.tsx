@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Check, X } from "lucide-react";
-import Link from "next/link";
+import { LocaleLink } from "@/components/locale-link";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -30,8 +30,6 @@ const pricingPlans: PricingPlan[] = [
     description: "For small businesses building marketing presence",
     descriptionKey: "pricing.enterprise.startup.description",
     features: [
-      "Up to 10 AI Videos/month",
-      "1,500 content posts/month",
       "Multi-channel publishing (Facebook, Instagram, TikTok)",
       "50+ content templates",
       "Auto-scheduling",
@@ -39,8 +37,6 @@ const pricingPlans: PricingPlan[] = [
       "Email support",
     ],
     featuresKeys: [
-      "pricing.enterprise.startup.feature1",
-      "pricing.enterprise.startup.feature2",
       "pricing.enterprise.startup.feature3",
       "pricing.enterprise.startup.feature4",
       "pricing.enterprise.startup.feature5",
@@ -60,8 +56,6 @@ const pricingPlans: PricingPlan[] = [
     popular: true,
     features: [
       "All Startup features",
-      "Up to 25 AI Videos/month",
-      "2,500 content posts/month",
       "Bonus 1,000 Credits (7,500 total)",
       "AI banner & thumbnail design",
       "20+ platform publishing",
@@ -71,8 +65,6 @@ const pricingPlans: PricingPlan[] = [
     ],
     featuresKeys: [
       "pricing.enterprise.growth.feature1",
-      "pricing.enterprise.growth.feature2",
-      "pricing.enterprise.growth.feature3",
       "pricing.enterprise.growth.feature4",
       "pricing.enterprise.growth.feature5",
       "pricing.enterprise.growth.feature6",
@@ -153,8 +145,8 @@ const comparisonFeatures: ComparisonFeature[] = [
   {
     name: "Security & API Limits",
     nameKey: "pricing.enterprise.comparison.feature4",
-    startup: "10k requests/mo",
-    growth: "500k requests/mo",
+    startup: "10k requests/month",
+    growth: "500k requests/month",
     enterprise: "Unlimited",
   },
   {
@@ -339,7 +331,7 @@ export function PricingEnterpriseStyle() {
               </div>
 
               {/* CTA Button */}
-              <Link href={`/dang-ky?package=${plan.name.toLowerCase()}`}>
+              <LocaleLink href={`/dang-ky?package=${plan.name.toLowerCase()}`}>
                 <Button
                   className={cn(
                     "w-full h-12 rounded-lg font-semibold text-base transition-all duration-200",
@@ -350,7 +342,7 @@ export function PricingEnterpriseStyle() {
                 >
                   {t(`pricing.enterprise.${plan.name.toLowerCase()}.cta`)}
                 </Button>
-              </Link>
+              </LocaleLink>
 
               {/* Features List */}
               <ul className="mt-8 space-y-4">
