@@ -53,7 +53,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="UNIKSMART"
                 width={140}
                 height={36}

@@ -52,7 +52,7 @@ export function Navbar() {
             aria-label="UNIKSMART - Home"
           >
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="UNIKSMART Logo"
               width={110}
               height={30}
