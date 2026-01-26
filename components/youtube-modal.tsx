@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { X, Play } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 interface YouTubeModalProps {
   videoId: string;
@@ -74,6 +75,8 @@ interface DemoButtonProps {
 }
 
 export function DemoButton({ className = "" }: DemoButtonProps) {
+  const { locale } = useI18n();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
@@ -152,11 +155,13 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
           />
         </span>
 
-        <span className="relative">Xem Demo</span>
+        <span className="relative">
+          {locale == "vi" ? "Xem Demo" : "Watch Demo"}
+        </span>
       </button>
 
       <YouTubeModal
-        videoId="R5RuHV_JrMM"
+        videoId={locale == "vi" ? "mXg7GnG5LHk" : "R5RuHV_JrMM"}
         isOpen={isModalOpen}
         onClose={closeModal}
       />
