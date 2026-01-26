@@ -176,9 +176,9 @@ const PricingCard = memo(
     plan: (typeof pricingPlans)[0];
     billing: BillingPeriod;
   }) => {
-    const price = plan.price[billing];
+    const price = plan?.price[billing];
     const isContact = price === "Liên hệ";
-    const isFeatured = plan.featured;
+    const isFeatured = plan?.featured;
 
     return (
       <div
@@ -192,11 +192,11 @@ const PricingCard = memo(
       `}
       >
         {/* Popular badge - floating on top */}
-        {plan.badge && (
+        {plan?.badge && (
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold bg-linear-to-r from-amber-400 to-orange-500 text-white rounded-full shadow-lg uppercase tracking-wide">
               <Sparkles className="w-3.5 h-3.5" />
-              {plan.badge}
+              {plan?.badge}
             </span>
           </div>
         )}
@@ -207,12 +207,12 @@ const PricingCard = memo(
             <h3
               className={`text-2xl font-bold mb-1 ${isFeatured ? "text-white" : "text-gray-900"}`}
             >
-              {plan.name}
+              {plan?.name}
             </h3>
             <p
               className={`text-sm ${isFeatured ? "text-gray-300" : "text-gray-500"}`}
             >
-              {plan.subtitle}
+              {plan?.subtitle}
             </p>
           </div>
 
@@ -256,13 +256,13 @@ const PricingCard = memo(
                 isFeatured ? "text-gray-300" : "text-blue-600"
               }`}
             >
-              {plan.credits}
+              {plan?.credits}
             </div>
           </div>
 
           {/* ==================== CTA ZONE ==================== */}
           <Link
-            href={`/dang-ky?package=${plan.id}`}
+            href={`/dang-ky?package=${plan?.id}`}
             className={`
             w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 
             text-center flex items-center justify-center gap-2 mb-8
@@ -273,7 +273,7 @@ const PricingCard = memo(
             }
           `}
           >
-            {plan.cta}
+            {plan?.cta}
             <span className="text-lg">→</span>
           </Link>
 
@@ -287,7 +287,7 @@ const PricingCard = memo(
           </div>
 
           <ul className="space-y-3 flex-grow">
-            {plan.features.map((feature, idx) => (
+            {plan?.features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <div
                   className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
@@ -349,18 +349,19 @@ export function PricingSection() {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
           {pricingPlans.map((plan) => {
-            const isFeatured = plan.featured;
+            const isFeatured = plan?.featured;
             const isContact =
-              plan.price[billing].includes("pricing.contact") ||
-              plan.price[billing] === "Liên hệ";
+              plan?.price[billing].includes("pricing.contact") ||
+              plan?.price[billing] === "Liên hệ";
             const displayPrice = isContact
               ? t("pricing.contact")
-              : plan.price[billing];
-            const features = locale === "en" ? plan.featuresEn : plan.features;
+              : plan?.price[billing];
+            const features =
+              locale === "en" ? plan?.featuresEn : plan?.features;
 
             return (
               <div
-                key={plan.id}
+                key={plan?.id}
                 className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   isFeatured
                     ? "bg-linear-to-br from-[#1c1c1c] via-[#1c1c1c] to-[#2a2a2a] text-white shadow-2xl scale-[1.02] md:-mt-4 md:mb-4 ring-2 ring-[#ff7900]/30"
@@ -368,11 +369,11 @@ export function PricingSection() {
                 }`}
               >
                 {/* Popular Badge */}
-                {plan.badgeKey && (
+                {plan?.badgeKey && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold bg-[#ff7900] text-white shadow-lg shadow-[#ff7900]/30">
                       <Sparkles className="w-4 h-4" />
-                      {t(plan.badgeKey)}
+                      {t(plan?.badgeKey)}
                     </span>
                   </div>
                 )}
@@ -382,12 +383,12 @@ export function PricingSection() {
                   <h3
                     className={`text-xl font-bold mb-1 ${isFeatured ? "text-white" : "text-gray-900"}`}
                   >
-                    {t(plan.nameKey)}
+                    {t(plan?.nameKey)}
                   </h3>
                   <p
                     className={`text-sm ${isFeatured ? "text-gray-300" : "text-gray-500"}`}
                   >
-                    {t(plan.subtitleKey)}
+                    {t(plan?.subtitleKey)}
                   </p>
                 </div>
 
@@ -410,22 +411,22 @@ export function PricingSection() {
                   <div
                     className={`h-[24px] text-sm mt-2 ${isFeatured ? "text-[#22b5f8]" : "text-gray-600"}`}
                   >
-                    {plan.creditsKey
-                      ? `${plan.credits} / ${t(plan.creditsKey)}`
-                      : plan.credits}
+                    {plan?.creditsKey
+                      ? `${plan?.credits} / ${t(plan?.creditsKey)}`
+                      : plan?.credits}
                   </div>
                 </div>
 
                 {/* CTA Button */}
                 <Link
-                  href={`/dang-ky?package=${plan.id}`}
+                  href={`/dang-ky?package=${plan?.id}`}
                   className={`block w-full py-3.5 px-6 rounded-full font-semibold text-center transition-all duration-200 mb-8 ${
                     isFeatured
                       ? "bg-[#ff7900] text-white hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 hover:shadow-xl"
                       : "bg-[#ff7900] text-white hover:bg-[#e56b00] shadow-md shadow-[#ff7900]/20 hover:shadow-lg"
                   }`}
                 >
-                  {t(plan.ctaKey)} →
+                  {t(plan?.ctaKey)} →
                 </Link>
 
                 {/* Features */}
