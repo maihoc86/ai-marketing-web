@@ -342,6 +342,66 @@ const platforms = [
 ];
 
 // ============================================================
+// AI MODELS DATA
+// ============================================================
+const aiModels = [
+  {
+    Icon: OpenAIIcon,
+    name: "OpenAI",
+    model: "GPT-4",
+    color: "#10A37F",
+    bgGradient: "from-gray-50 to-white",
+    borderColor: "border-gray-200",
+    hoverBorder: "group-hover/item:border-gray-400",
+  },
+  {
+    Icon: GeminiIcon,
+    name: "Google",
+    model: "Gemini 2.0",
+    color: "#4285F4",
+    bgGradient: "from-blue-50 to-white",
+    borderColor: "border-blue-100",
+    hoverBorder: "group-hover/item:border-blue-400",
+  },
+  {
+    Icon: ClaudeIcon,
+    name: "Anthropic",
+    model: "Claude 3.7",
+    color: "#CC785C",
+    bgGradient: "from-amber-50 to-white",
+    borderColor: "border-amber-100",
+    hoverBorder: "group-hover/item:border-amber-400",
+  },
+  {
+    Icon: MetaIcon,
+    name: "Meta",
+    model: "Llama 4",
+    color: "#0668E1",
+    bgGradient: "from-blue-50 to-white",
+    borderColor: "border-blue-100",
+    hoverBorder: "group-hover/item:border-blue-400",
+  },
+  {
+    Icon: MistralIcon,
+    name: "Mistral",
+    model: "Large",
+    color: "#FF7000",
+    bgGradient: "from-orange-50 to-white",
+    borderColor: "border-orange-100",
+    hoverBorder: "group-hover/item:border-orange-400",
+  },
+  {
+    Icon: DeepSeekIcon,
+    name: "DeepSeek",
+    model: "V3",
+    color: "#4F46E5",
+    bgGradient: "from-indigo-50 to-white",
+    borderColor: "border-indigo-100",
+    hoverBorder: "group-hover/item:border-indigo-400",
+  },
+];
+
+// ============================================================
 // MAIN HERO COMPONENT
 // ============================================================
 export function HeroLightTheme() {
@@ -361,7 +421,7 @@ export function HeroLightTheme() {
       />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-5">
           {/* Left Column - Content */}
           <div
             className={cn(
@@ -712,7 +772,7 @@ export function HeroLightTheme() {
       </div>
 
       {/* Technology Behind DXAI - AI Models Marquee */}
-      <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm py-12 mt-auto">
+      <div className="border-t border-gray-200/60 bg-white/50 backdrop-blur-sm pt-12 pb-7 mt-auto">
         <div className="container mx-auto text-center mb-8">
           <p className="text-xs font-bold text-gray-600 uppercase tracking-[0.3em]">
             {t("heroLight.tech.title")}
@@ -732,85 +792,46 @@ export function HeroLightTheme() {
           />
           <div className="flex animate-scroll gap-16 items-center whitespace-nowrap px-10">
             {/* Duplicate content for seamless loop */}
-            {[...Array(2)].map((_, setIndex) => (
+            {[...Array(3)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-16 items-center">
-                {/* OpenAI GPT-4 */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-gray-50 to-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm group-hover/item:border-gray-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <OpenAIIcon className="w-7 h-7 text-[#10A37F]" />
+                {aiModels.map((model) => (
+                  <div
+                    key={`${setIndex}-${model.name}`}
+                    className="flex items-center gap-3 group/item cursor-pointer pb-5"
+                  >
+                    <div
+                      className={cn(
+                        "w-11 h-11 bg-linear-to-br rounded-xl flex items-center justify-center shadow-sm group-hover/item:shadow-lg transition-all duration-300",
+                        model.bgGradient,
+                        model.borderColor,
+                        model.hoverBorder,
+                        "border",
+                      )}
+                    >
+                      <model.Icon className="size-7" />
+                    </div>
+                    <div className="text-left">
+                      <p
+                        className="text-sm font-bold text-gray-900 transition-colors"
+                        style={{
+                          color: `var(--hover-color, currentColor)`,
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.setProperty(
+                            "--hover-color",
+                            model.color,
+                          );
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.removeProperty("--hover-color");
+                        }}
+                      >
+                        {model.name}
+                      </p>
+                      <p className="text-xs text-gray-500">{model.model}</p>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#10A37F] transition-colors">
-                      OpenAI
-                    </p>
-                    <p className="text-xs text-gray-500">GPT-4o</p>
-                  </div>
-                </div>
-
-                {/* Google Gemini */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-blue-50 to-white rounded-xl flex items-center justify-center border border-blue-100 shadow-sm group-hover/item:border-blue-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <GeminiIcon className="w-7 h-7 text-[#4285F4]" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#4285F4] transition-colors">
-                      Google
-                    </p>
-                    <p className="text-xs text-gray-500">Gemini 2.0</p>
-                  </div>
-                </div>
-
-                {/* Anthropic Claude */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-amber-50 to-white rounded-xl flex items-center justify-center border border-amber-100 shadow-sm group-hover/item:border-amber-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <ClaudeIcon className="w-7 h-7 text-[#CC785C]" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#CC785C] transition-colors">
-                      Anthropic
-                    </p>
-                    <p className="text-xs text-gray-500">Claude 3.7</p>
-                  </div>
-                </div>
-
-                {/* Meta Llama */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-blue-50 to-white rounded-xl flex items-center justify-center border border-blue-100 shadow-sm group-hover/item:border-blue-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <MetaIcon className="w-7 h-7 text-[#0668E1]" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#0668E1] transition-colors">
-                      Meta
-                    </p>
-                    <p className="text-xs text-gray-500">Llama 4</p>
-                  </div>
-                </div>
-
-                {/* Mistral AI */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-orange-50 to-white rounded-xl flex items-center justify-center border border-orange-100 shadow-sm group-hover/item:border-orange-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <MistralIcon className="w-7 h-7 text-[#FF7000]" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#FF7000] transition-colors">
-                      Mistral
-                    </p>
-                    <p className="text-xs text-gray-500">Large</p>
-                  </div>
-                </div>
-
-                {/* DeepSeek */}
-                <div className="flex items-center gap-3 group/item cursor-pointer">
-                  <div className="w-11 h-11 bg-gradient-to-br from-indigo-50 to-white rounded-xl flex items-center justify-center border border-indigo-100 shadow-sm group-hover/item:border-indigo-400 group-hover/item:shadow-lg transition-all duration-300">
-                    <DeepSeekIcon className="w-7 h-7 text-[#4F46E5]" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold text-gray-900 group-hover/item:text-[#4F46E5] transition-colors">
-                      DeepSeek
-                    </p>
-                    <p className="text-xs text-gray-500">V3</p>
-                  </div>
-                </div>
+                ))}
               </div>
             ))}
           </div>
