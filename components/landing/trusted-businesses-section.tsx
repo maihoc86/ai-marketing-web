@@ -318,7 +318,7 @@ export function TrustedBusinessesSection() {
   const { t } = useI18n();
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section className="relative py-16 md:py-24 lg:py-32 bg-linear-to-b from-white via-gray-50 to-white overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />

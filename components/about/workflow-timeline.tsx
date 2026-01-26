@@ -229,7 +229,7 @@ export function WorkflowTimeline() {
   }, []);
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="py-20 md:py-28 bg-linear-to-b from-gray-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div

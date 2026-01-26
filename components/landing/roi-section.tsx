@@ -92,7 +92,7 @@ export function RoiSection() {
   return (
     <section
       id="roi"
-      className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white"
+      className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32 bg-linear-to-b from-white via-gray-50 to-white"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

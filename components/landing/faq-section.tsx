@@ -28,7 +28,7 @@ export function FaqSection() {
   return (
     <section
       id="faq"
-      className="py-20 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden"
+      className="py-20 bg-linear-to-b from-white to-gray-50/50 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,181,248,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 

@@ -74,7 +74,7 @@ export function WhyChooseSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-primary/5 relative overflow-hidden">
+    <section className="py-20 bg-linear-to-b from-white to-primary/5 relative overflow-hidden">
       {/* Background dot pattern */}
       <div
         className="absolute inset-0 opacity-30"

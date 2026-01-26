@@ -48,7 +48,7 @@ function RegisterFormContent() {
   if (isSubmitted) {
     return (
       <div
-        className="min-h-screen bg-gradient-to-b from-white to-[#f5f5f5] flex items-center justify-center p-4"
+        className="min-h-screen bg-linear-to-b from-white to-[#f5f5f5] flex items-center justify-center p-4"
         onKeyDown={handleKeyDown}
       >
         <a

@@ -112,7 +112,7 @@ export function FeaturesLightTheme() {
     <section
       id="features"
       ref={sectionRef}
-      className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
+      className="relative py-16 md:py-24 lg:py-32 bg-linear-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

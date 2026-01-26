@@ -99,7 +99,7 @@ export function WhyChooseOpturaStyle() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden font-sans"
+      className="py-20 md:py-32 bg-linear-to-b from-white to-gray-50 relative overflow-hidden font-sans"
     >
       {/* Subtle background decoration */}
       <div className="absolute top-20 right-10 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20" />
