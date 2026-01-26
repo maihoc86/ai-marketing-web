@@ -47,11 +47,11 @@ export default function PrivacyPolicyPage() {
           <div className="prose prose-lg max-w-none">
             {/* Introduction */}
             <p className="text-gray-600 leading-relaxed mb-8">
-              Chính sách Bảo mật Tổng thể này ("Chính sách") giải thích cách{" "}
-              <strong>Công ty Cổ phần Tiên Phong CDS</strong>
-              ("Tiên Phong CDS", "DSP.one", "chúng tôi") thu thập, sử dụng, tiết
-              lộ, lưu trữ và bảo vệ thông tin khi bạn sử dụng các sản phẩm và
-              dịch vụ kỹ thuật số của chúng tôi.
+              Chính sách Bảo mật Tổng thể này (&quot;Chính sách&quot;) giải
+              thích cách <strong>Công ty Cổ phần Tiên Phong CDS</strong>
+              (&quot;Tiên Phong CDS&quot;, &quot;DSP.one&quot;, &quot;chúng
+              tôi&quot;) thu thập, sử dụng, tiết lộ, lưu trữ và bảo vệ thông tin
+              khi bạn sử dụng các sản phẩm và dịch vụ kỹ thuật số của chúng tôi.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
@@ -152,28 +152,28 @@ export default function PrivacyPolicyPage() {
               </h2>
               <ul className="space-y-3 text-gray-600">
                 <li>
-                  <strong>"Dữ liệu cá nhân"</strong> là bất kỳ thông tin nào
-                  liên quan đến một cá nhân đã được xác định hoặc có thể xác
-                  định được (ví dụ: tên, email, số điện thoại, địa chỉ, lịch sử
-                  giao dịch).
+                  <strong>&quot;Dữ liệu cá nhân&quot;</strong> là bất kỳ thông
+                  tin nào liên quan đến một cá nhân đã được xác định hoặc có thể
+                  xác định được (ví dụ: tên, email, số điện thoại, địa chỉ, lịch
+                  sử giao dịch).
                 </li>
                 <li>
-                  <strong>"Dữ liệu Khách hàng"</strong> là dữ liệu mà Merchant
-                  hoặc Người dùng Được ủy quyền gửi đến, lưu trữ trên hoặc thu
-                  thập thông qua Dịch vụ.
+                  <strong>&quot;Dữ liệu Khách hàng&quot;</strong> là dữ liệu mà
+                  Merchant hoặc Người dùng Được ủy quyền gửi đến, lưu trữ trên
+                  hoặc thu thập thông qua Dịch vụ.
                 </li>
                 <li>
-                  <strong>"Dữ liệu Nền tảng"</strong> là dữ liệu được truy xuất
-                  từ các nền tảng bên ngoài (Meta, Google, Shopee, Lazada, v.v.)
-                  qua API.
+                  <strong>&quot;Dữ liệu Nền tảng&quot;</strong> là dữ liệu được
+                  truy xuất từ các nền tảng bên ngoài (Meta, Google, Shopee,
+                  Lazada, v.v.) qua API.
                 </li>
                 <li>
-                  <strong>"Dữ liệu Sử dụng"</strong> là dữ liệu phân tích, log
-                  về cách Dịch vụ được truy cập và sử dụng.
+                  <strong>&quot;Dữ liệu Sử dụng&quot;</strong> là dữ liệu phân
+                  tích, log về cách Dịch vụ được truy cập và sử dụng.
                 </li>
                 <li>
-                  <strong>"Nội dung AI"</strong> là nội dung như văn bản, hình
-                  ảnh, ý tưởng được tạo bởi module AI Marketing.
+                  <strong>&quot;Nội dung AI&quot;</strong> là nội dung như văn
+                  bản, hình ảnh, ý tưởng được tạo bởi module AI Marketing.
                 </li>
               </ul>
             </section>
@@ -721,7 +721,10 @@ export default function PrivacyPolicyPage() {
                 Khi chúng tôi thực hiện thay đổi quan trọng, chúng tôi sẽ:
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                <li>Cập nhật ngày "Cập nhật lần cuối" ở đầu Chính sách này</li>
+                <li>
+                  Cập nhật ngày &quot;Cập nhật lần cuối&quot; ở đầu Chính sách
+                  này
+                </li>
                 <li>
                   Cung cấp thông báo bổ sung khi thích hợp, như qua email đến
                   chủ tài khoản hoặc thông báo nổi bật trong Dịch vụ

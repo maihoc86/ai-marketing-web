@@ -34,11 +34,12 @@ export default function TermsPage() {
           {/* Introduction */}
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-600 leading-relaxed mb-8">
-              Các Điều khoản Sử dụng Dịch vụ này ("Điều khoản") điều chỉnh việc
-              truy cập và sử dụng nền tảng DSP.one và các dịch vụ liên quan, bao
-              gồm module AI Marketing (gọi chung là "Dịch vụ") được cung cấp bởi
-              <strong> Công ty Cổ phần Tiên Phong CDS</strong> ("Tiên Phong
-              CDS", "DSP.one", "chúng tôi").
+              Các Điều khoản Sử dụng Dịch vụ này (&quot;Điều khoản&quot;) điều
+              chỉnh việc truy cập và sử dụng nền tảng DSP.one và các dịch vụ
+              liên quan, bao gồm module AI Marketing (gọi chung là &quot;Dịch
+              vụ&quot;) được cung cấp bởi
+              <strong> Công ty Cổ phần Tiên Phong CDS</strong> (&quot;Tiên Phong
+              CDS&quot;, &quot;DSP.one&quot;, &quot;chúng tôi&quot;).
             </p>
 
             <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg">
@@ -56,32 +57,34 @@ export default function TermsPage() {
               </h2>
               <ul className="space-y-3 text-gray-600">
                 <li>
-                  <strong>"Tài khoản"</strong> là tài khoản trực tuyến được đăng
-                  ký bởi hoặc thay mặt cho Khách hàng để sử dụng Dịch vụ.
+                  <strong>&quot;Tài khoản&quot;</strong> là tài khoản trực tuyến
+                  được đăng ký bởi hoặc thay mặt cho Khách hàng để sử dụng Dịch
+                  vụ.
                 </li>
                 <li>
-                  <strong>"Người dùng Được ủy quyền"</strong> là cá nhân được
-                  Khách hàng ủy quyền truy cập và sử dụng Dịch vụ (nhân viên,
-                  nhà thầu, hoặc đại lý).
+                  <strong>&quot;Người dùng Được ủy quyền&quot;</strong> là cá
+                  nhân được Khách hàng ủy quyền truy cập và sử dụng Dịch vụ
+                  (nhân viên, nhà thầu, hoặc đại lý).
                 </li>
                 <li>
-                  <strong>"Nội dung Khách hàng"</strong> là tất cả nội dung, dữ
-                  liệu, văn bản, hình ảnh, video mà Khách hàng tải lên hoặc tạo
-                  trong Dịch vụ.
+                  <strong>&quot;Nội dung Khách hàng&quot;</strong> là tất cả nội
+                  dung, dữ liệu, văn bản, hình ảnh, video mà Khách hàng tải lên
+                  hoặc tạo trong Dịch vụ.
                 </li>
                 <li>
-                  <strong>"Dữ liệu Khách hàng"</strong> là dữ liệu liên quan đến
-                  khách hàng, khách hàng tiềm năng, người dùng cuối của Khách
-                  hàng.
+                  <strong>&quot;Dữ liệu Khách hàng&quot;</strong> là dữ liệu
+                  liên quan đến khách hàng, khách hàng tiềm năng, người dùng
+                  cuối của Khách hàng.
                 </li>
                 <li>
-                  <strong>"Module AI Marketing"</strong> là các tính năng tự
-                  động hóa marketing và tạo nội dung của nền tảng DSP.one.
+                  <strong>&quot;Module AI Marketing&quot;</strong> là các tính
+                  năng tự động hóa marketing và tạo nội dung của nền tảng
+                  DSP.one.
                 </li>
                 <li>
-                  <strong>"Nền tảng Bên thứ ba"</strong> là sản phẩm, dịch vụ
-                  hoặc ứng dụng của bên thứ ba tương tác với Dịch vụ (Meta,
-                  Google, v.v.).
+                  <strong>&quot;Nền tảng Bên thứ ba&quot;</strong> là sản phẩm,
+                  dịch vụ hoặc ứng dụng của bên thứ ba tương tác với Dịch vụ
+                  (Meta, Google, v.v.).
                 </li>
               </ul>
             </section>
@@ -236,9 +239,9 @@ export default function TermsPage() {
                 dùng thử nào theo quyết định riêng của mình.
               </p>
               <p className="text-gray-600">
-                Trong thời gian Dùng thử, Dịch vụ được cung cấp "nguyên trạng"
-                không có bất kỳ bảo đảm, hỗ trợ, cam kết mức dịch vụ hoặc nghĩa
-                vụ sao lưu dữ liệu nào.
+                Trong thời gian Dùng thử, Dịch vụ được cung cấp &quot;nguyên
+                trạng&quot; không có bất kỳ bảo đảm, hỗ trợ, cam kết mức dịch vụ
+                hoặc nghĩa vụ sao lưu dữ liệu nào.
               </p>
             </section>
 
@@ -330,7 +333,8 @@ export default function TermsPage() {
               <ul className="space-y-3 text-gray-600">
                 <li>
                   Module AI Marketing có thể tạo nội dung hoặc đề xuất dựa trên
-                  lời nhắc, hướng dẫn hoặc Nội dung Khách hàng ("Đầu ra AI").
+                  lời nhắc, hướng dẫn hoặc Nội dung Khách hàng (&quot;Đầu ra
+                  AI&quot;).
                 </li>
                 <li>
                   DSP.one chuyển nhượng cho Khách hàng bất kỳ quyền nào DSP.one
@@ -406,9 +410,9 @@ export default function TermsPage() {
                 13. Bảo Mật Thông Tin
               </h2>
               <p className="text-gray-600 mb-4">
-                Mỗi bên ("Bên Nhận") có thể nhận thông tin bí mật hoặc độc quyền
-                từ bên kia ("Bên Tiết lộ") liên quan đến Điều khoản này và Dịch
-                vụ ("Thông tin Bí mật").
+                Mỗi bên (&quot;Bên Nhận&quot;) có thể nhận thông tin bí mật hoặc
+                độc quyền từ bên kia (&quot;Bên Tiết lộ&quot;) liên quan đến
+                Điều khoản này và Dịch vụ (&quot;Thông tin Bí mật&quot;).
               </p>
               <p className="text-gray-600 mb-2">
                 <strong>Nghĩa vụ của Bên Nhận:</strong>
@@ -533,8 +537,8 @@ export default function TermsPage() {
                 </li>
                 <li>
                   Ngoại trừ những gì được quy định rõ ràng trong Điều khoản này,
-                  Dịch vụ được cung cấp "NGUYÊN TRẠNG" và "NHƯ CÓ SẴN" không có
-                  bất kỳ bảo đảm nào.
+                  Dịch vụ được cung cấp &quot;NGUYÊN TRẠNG&quot; và &quot;NHƯ CÓ
+                  SẴN&quot; không có bất kỳ bảo đảm nào.
                 </li>
                 <li>
                   DSP.one từ chối cụ thể mọi bảo đảm ngầm định về khả năng bán

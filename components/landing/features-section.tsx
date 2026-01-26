@@ -127,7 +127,7 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
       </div>
 
       {/* Image with placeholder fallback */}
-      <div className="aspect-[4/3] relative bg-linear-to-br from-gray-100 to-gray-200">
+      <div className="aspect-[4/3] object-cover relative bg-linear-to-br from-gray-100 to-gray-200">
         {!imageError ? (
           <Image
             src={feature.image}
