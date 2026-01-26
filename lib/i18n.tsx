@@ -1239,6 +1239,75 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.ads.metric3.value": "Weekly/Monthly",
     "features.ads.metric3.note":
       "Automatically send performance reports via Email",
+
+    // Registration Success
+    "registration.skipLink": "Skip to main content",
+    "registration.successIcon": "Success icon",
+    "registration.successTitle": "Registration Successful!",
+    "registration.successMessage":
+      "Thank you for your interest in DXAI Marketing Platform. Our team will contact you within 24 hours.",
+    "registration.loginLabel": "Login to system",
+    "registration.loginButton": "Login Now",
+    "registration.registerAnotherLabel": "Register another person",
+    "registration.registerAnotherButton": "Register another account",
+    "registration.backToHome": "Back to home",
+
+    // Registration Form
+    "registration.form.trial": "Start 14-day free trial",
+    "registration.form.hero.title": "Elevate Enterprise Marketing with AI",
+    "registration.form.hero.subtitle":
+      "Over 2,500+ businesses have successfully transformed digitally with DXAI. Join today to receive exclusive benefits.",
+    "registration.form.benefit1": "1-on-1 expert consultation",
+    "registration.form.benefit2": "Live product demo",
+    "registration.form.benefit3": "Get special offers for SMBs",
+    "registration.form.rating": "4.9/5 based on user reviews",
+    "registration.form.testimonial":
+      "DXAI helped us optimize our workflow and increase conversion rate by 30% in the first 3 months.",
+    "registration.form.title": "Sign up for free trial",
+    "registration.form.subtitle":
+      "Fill in the information to start experiencing DXAI",
+    "registration.form.package.starter": "Starter",
+    "registration.form.package.starterTitle": "For individuals",
+    "registration.form.package.starterDesc":
+      "Free full-feature experience for 14 days.",
+    "registration.form.package.business": "Business",
+    "registration.form.package.businessTitle": "For organizations",
+    "registration.form.package.businessDesc":
+      "Custom solution with admin and permissions.",
+    "registration.form.company.name": "Company / Organization name",
+    "registration.form.company.namePlaceholder": "Enter official name",
+    "registration.form.company.taxCode": "Tax ID (TIN)",
+    "registration.form.company.taxCodePlaceholder": "Example: 0101234567",
+    "registration.form.company.type": "Business type",
+    "registration.form.company.typeEnterprise": "LLC/JSC",
+    "registration.form.company.typeHousehold": "Household business",
+    "registration.form.company.typeOther": "Other organization",
+    "registration.form.company.address": "Office address",
+    "registration.form.company.addressPlaceholder":
+      "House number, street, District, City/Province",
+    "registration.form.contact.fullName": "Full name",
+    "registration.form.contact.fullNamePlaceholder": "John Doe",
+    "registration.form.contact.email": "Work email",
+    "registration.form.contact.emailPlaceholder": "name@company.com",
+    "registration.form.contact.phone": "Phone number",
+    "registration.form.contact.phonePlaceholder": "912 345 678",
+    "registration.form.contact.jobPosition": "Job position",
+    "registration.form.contact.jobPositionPlaceholder": "Select position",
+    "registration.form.jobPosition.ceo": "CEO / Founder",
+    "registration.form.jobPosition.cmo": "CMO",
+    "registration.form.jobPosition.marketingManager": "Marketing Manager",
+    "registration.form.jobPosition.growthHacker": "Growth Hacker",
+    "registration.form.jobPosition.other": "Other",
+    "registration.form.submit.processing": "Processing...",
+    "registration.form.submit.button": "Start free trial",
+    "registration.form.login.text": "Already have an account?",
+    "registration.form.login.link": "Login now",
+    "registration.form.terms.text": "By signing up, you agree to our",
+    "registration.form.terms.service": "Terms of Service",
+    "registration.form.terms.and": "and",
+    "registration.form.terms.privacy": "Privacy Policy",
+    "registration.form.terms.suffix": ".",
+
     "features.schedule.title": "Smart Scheduling",
     "features.schedule.desc":
       "Auto-post at golden hours. AI analyzes optimal timing for each platform.",

@@ -8,8 +8,10 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRegistrationForm } from "@/hooks/use-registration-form";
 import { RegistrationForm } from "./registration-form";
+import { useI18n } from "@/lib/i18n";
 
 function RegisterFormContent() {
+  const { t } = useI18n();
   const searchParams = useSearchParams();
   const packageFromUrl = searchParams.get("package") || "starter";
 
@@ -55,14 +57,14 @@ function RegisterFormContent() {
           href="#success-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#22b5f8] focus:text-white focus:rounded-lg"
         >
-          Chuyển đến nội dung chính
+          {t("registration.skipLink")}
         </a>
 
         <div id="success-content" className="max-w-md w-full text-center">
           <div
             className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center animate-bounce"
             role="img"
-            aria-label="Biểu tượng thành công"
+            aria-label={t("registration.successIcon")}
           >
             <CheckCircle2
               className="w-12 h-12 text-green-600"
@@ -74,11 +76,10 @@ function RegisterFormContent() {
             tabIndex={-1}
             className="text-3xl font-bold text-gray-900 mb-3 focus:outline-none"
           >
-            Đăng ký thành công!
+            {t("registration.successTitle")}
           </h1>
           <p className="text-gray-600 mb-8 text-lg">
-            Cảm ơn bạn đã quan tâm đến DXAI Marketing Platform. Đội ngũ của
-            chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
+            {t("registration.successMessage")}
           </p>
 
           {/* Primary CTA */}
@@ -87,14 +88,14 @@ function RegisterFormContent() {
               asChild
               size="lg"
               className="rounded-full px-12 min-h-[56px] bg-[#22b5f8] hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
-              aria-label="Đăng nhập vào hệ thống"
+              aria-label={t("registration.loginLabel")}
             >
               <a
                 href="https://admin-ai-code.dsp.one"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Đăng nhập ngay
+                {t("registration.loginButton")}
               </a>
             </Button>
           </div>
@@ -104,18 +105,18 @@ function RegisterFormContent() {
             <button
               onClick={() => setIsSubmitted(false)}
               className="text-sm text-gray-600 hover:text-[#22b5f8] font-medium"
-              aria-label="Đăng ký thêm một người khác"
+              aria-label={t("registration.registerAnotherLabel")}
             >
-              Đăng ký thêm một tài khoản
+              {t("registration.registerAnotherButton")}
             </button>
             <Button
               asChild
               variant="ghost"
               size="sm"
               className="text-gray-500 hover:text-gray-700 hover:bg-transparent text-xs"
-              aria-label="Quay lại trang chủ"
+              aria-label={t("registration.backToHome")}
             >
-              <Link href="/">Quay lại trang chủ</Link>
+              <Link href="/">{t("registration.backToHome")}</Link>
             </Button>
           </div>
         </div>
