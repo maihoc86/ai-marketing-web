@@ -1,15 +1,19 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/next"
-import { LazyChatbot } from "@/components/lazy-chatbot"
-import { LazyAnalytics } from "@/components/lazy-analytics"
-import { WebVitals } from "@/components/web-vitals"
-import { ErrorBoundary } from "@/components/error-boundary"
-import { I18nProvider } from "@/lib/i18n"
-import { organizationSchema, softwareApplicationSchema, websiteSchema } from "@/lib/structured-data"
-import "./globals.css"
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { LazyChatbot } from "@/components/lazy-chatbot";
+import { LazyAnalytics } from "@/components/lazy-analytics";
+import { WebVitals } from "@/components/web-vitals";
+import { ErrorBoundary } from "@/components/error-boundary";
+import { I18nProvider } from "@/lib/i18n";
+import {
+  organizationSchema,
+  softwareApplicationSchema,
+  websiteSchema,
+} from "@/lib/structured-data";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -17,10 +21,11 @@ const inter = Inter({
   display: "swap",
   preload: true,
   variable: "--font-inter",
-})
+});
 
 export const metadata: Metadata = {
-  title: "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp | Tiên Phong CDS",
+  title:
+    "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp | Tiên Phong CDS",
   description:
     "Nền tảng DXAI Marketing tích hợp ChatGPT, Gemini, Claude, Grok. Sản xuất 150 Video/tháng, 2.500 bài viết SEO tự động. Tiết kiệm 40% chi phí nhân sự Marketing.",
   keywords: [
@@ -57,7 +62,8 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: "https://dsp.one",
     siteName: "DXAI Marketing Platform",
-    title: "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp",
+    title:
+      "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp",
     description:
       "Nền tảng DXAI Marketing tích hợp đa công cụ AI. Sản xuất Video & Content tự động, tiết kiệm 40% chi phí.",
     images: [
@@ -72,7 +78,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DXAI Marketing Platform - Giải pháp Marketing Tự động",
-    description: "Sản xuất Video & Content Marketing tự động với AI. Tiết kiệm 40% chi phí nhân sự.",
+    description:
+      "Sản xuất Video & Content Marketing tự động với AI. Tiết kiệm 40% chi phí nhân sự.",
     images: ["/images/og-image.png"],
   },
   alternates: {
@@ -84,10 +91,12 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   manifest: "/site.webmanifest",
-}
+};
 
 export const viewport: Viewport = {
   themeColor: "#3F5AFF",
@@ -95,43 +104,49 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="vi" className="scroll-smooth">
       <head>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              body{margin:0;font-family:system-ui,-apple-system,sans-serif;-webkit-text-size-adjust:100%}
-              *{box-sizing:border-box}
-              .registration-form{max-width:480px;margin:0 auto;padding:20px}
-              .form-title{font-size:24px;margin-bottom:20px;font-weight:700}
-              .form-field{margin-bottom:16px}
-              .form-label{display:block;margin-bottom:4px;color:#1a1a1a;font-weight:500}
-              .form-input{width:100%;padding:12px;border:1px solid#ddd;border-radius:8px;font-size:16px}
-              .submit-button{width:100%;padding:16px;background:#3B82F6;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer}
-              .submit-button:hover{background:#2563eb}
-            `,
-          }}
-        />
-
         {/* Preconnect to external domains for faster loading */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://www.googletagmanager.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://api-ai-code.dsp.one" />
         <link rel="dns-prefetch" href="https://cds-agent-sdk.netlify.app" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <meta name="geo.region" content="VN-SG" />
         <meta name="geo.placename" content="Ho Chi Minh City" />
 
@@ -205,5 +220,5 @@ export default function RootLayout({
         </Script>
       </body>
     </html>
-  )
+  );
 }

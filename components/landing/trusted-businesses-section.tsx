@@ -223,8 +223,8 @@ function StatCard({
 
     const target = parseInt(number.replace(/[^0-9]/g, ""));
     if (isNaN(target)) {
-      setDisplayNumber(number);
-      return;
+      const timeout = setTimeout(() => setDisplayNumber(number), 0);
+      return () => clearTimeout(timeout);
     }
 
     let current = 0;

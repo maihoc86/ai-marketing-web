@@ -10,6 +10,9 @@ import {
   BarChart3,
   Link2,
   ArrowRight,
+  TrendingUp,
+  Mail,
+  Share2,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -17,6 +20,17 @@ import { cn } from "@/lib/utils";
 // ============================================================
 // TYPES
 // ============================================================
+interface FeatureDetail {
+  nameKey: string;
+  descKey: string;
+}
+
+interface PerformanceMetric {
+  metricKey: string;
+  valueKey: string;
+  noteKey: string;
+}
+
 interface Feature {
   id: string;
   icon: React.ElementType;
@@ -25,6 +39,8 @@ interface Feature {
   badge: string;
   badgeColor: string;
   image: string;
+  mainFeatures?: FeatureDetail[];
+  performanceMetrics?: PerformanceMetric[];
 }
 
 // ============================================================
@@ -32,13 +48,48 @@ interface Feature {
 // ============================================================
 const features: Feature[] = [
   {
-    id: "video",
+    id: "chatbot",
     icon: Video,
     iconBg: "bg-[#22b5f8]/10",
     iconColor: "text-[#22b5f8]",
-    badge: "1000+",
+    badge: "24/7",
     badgeColor: "bg-[#22b5f8]/10 text-[#008bff] border-[#22b5f8]/30",
     image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.chatbot.feature1.name",
+        descKey: "features.chatbot.feature1.desc",
+      },
+      {
+        nameKey: "features.chatbot.feature2.name",
+        descKey: "features.chatbot.feature2.desc",
+      },
+      {
+        nameKey: "features.chatbot.feature3.name",
+        descKey: "features.chatbot.feature3.desc",
+      },
+      {
+        nameKey: "features.chatbot.feature4.name",
+        descKey: "features.chatbot.feature4.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.chatbot.metric1.name",
+        valueKey: "features.chatbot.metric1.value",
+        noteKey: "features.chatbot.metric1.note",
+      },
+      {
+        metricKey: "features.chatbot.metric2.name",
+        valueKey: "features.chatbot.metric2.value",
+        noteKey: "features.chatbot.metric2.note",
+      },
+      {
+        metricKey: "features.chatbot.metric3.name",
+        valueKey: "features.chatbot.metric3.value",
+        noteKey: "features.chatbot.metric3.note",
+      },
+    ],
   },
   {
     id: "content",
@@ -48,42 +99,285 @@ const features: Feature[] = [
     badge: "50+",
     badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
     image: "/content-writing-ai-tool-with-seo-optimization-and-.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.content.feature1.name",
+        descKey: "features.content.feature1.desc",
+      },
+      {
+        nameKey: "features.content.feature2.name",
+        descKey: "features.content.feature2.desc",
+      },
+      {
+        nameKey: "features.content.feature3.name",
+        descKey: "features.content.feature3.desc",
+      },
+      {
+        nameKey: "features.content.feature4.name",
+        descKey: "features.content.feature4.desc",
+      },
+      {
+        nameKey: "features.content.feature5.name",
+        descKey: "features.content.feature5.desc",
+      },
+      {
+        nameKey: "features.content.feature6.name",
+        descKey: "features.content.feature6.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.content.metric1.name",
+        valueKey: "features.content.metric1.value",
+        noteKey: "features.content.metric1.note",
+      },
+      {
+        metricKey: "features.content.metric2.name",
+        valueKey: "features.content.metric2.value",
+        noteKey: "features.content.metric2.note",
+      },
+      {
+        metricKey: "features.content.metric3.name",
+        valueKey: "features.content.metric3.value",
+        noteKey: "features.content.metric3.note",
+      },
+    ],
   },
   {
-    id: "schedule",
-    icon: Calendar,
+    id: "trends",
+    icon: TrendingUp,
     iconBg: "bg-indigo-100",
     iconColor: "text-indigo-600",
     badge: "24/7",
     badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
     image: "/social-media-scheduling-calendar-dashboard-with-mu.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.trends.feature1.name",
+        descKey: "features.trends.feature1.desc",
+      },
+      {
+        nameKey: "features.trends.feature2.name",
+        descKey: "features.trends.feature2.desc",
+      },
+      {
+        nameKey: "features.trends.feature3.name",
+        descKey: "features.trends.feature3.desc",
+      },
+      {
+        nameKey: "features.trends.feature4.name",
+        descKey: "features.trends.feature4.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.trends.metric1.name",
+        valueKey: "features.trends.metric1.value",
+        noteKey: "features.trends.metric1.note",
+      },
+      {
+        metricKey: "features.trends.metric2.name",
+        valueKey: "features.trends.metric2.value",
+        noteKey: "features.trends.metric2.note",
+      },
+      {
+        metricKey: "features.trends.metric3.name",
+        valueKey: "features.trends.metric3.value",
+        noteKey: "features.trends.metric3.note",
+      },
+    ],
   },
   {
-    id: "image",
-    icon: ImageIcon,
+    id: "video",
+    icon: Video,
     iconBg: "bg-pink-100",
     iconColor: "text-pink-600",
-    badge: "Unlimited",
+    badge: "5 min",
     badgeColor: "bg-pink-100 text-pink-700 border-pink-200",
     image: "/ai-image-generation-tool-with-product-banner-and-a.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.video.feature1.name",
+        descKey: "features.video.feature1.desc",
+      },
+      {
+        nameKey: "features.video.feature2.name",
+        descKey: "features.video.feature2.desc",
+      },
+      {
+        nameKey: "features.video.feature3.name",
+        descKey: "features.video.feature3.desc",
+      },
+      {
+        nameKey: "features.video.feature4.name",
+        descKey: "features.video.feature4.desc",
+      },
+      {
+        nameKey: "features.video.feature5.name",
+        descKey: "features.video.feature5.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.video.metric1.name",
+        valueKey: "features.video.metric1.value",
+        noteKey: "features.video.metric1.note",
+      },
+      {
+        metricKey: "features.video.metric2.name",
+        valueKey: "features.video.metric2.value",
+        noteKey: "features.video.metric2.note",
+      },
+      {
+        metricKey: "features.video.metric3.name",
+        valueKey: "features.video.metric3.value",
+        noteKey: "features.video.metric3.note",
+      },
+    ],
   },
   {
-    id: "analytics",
-    icon: BarChart3,
+    id: "email",
+    icon: Mail,
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
-    badge: "10+",
+    badge: "100%",
     badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
     image: "/marketing-analytics-dashboard-with-charts-graphs-a.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.email.feature1.name",
+        descKey: "features.email.feature1.desc",
+      },
+      {
+        nameKey: "features.email.feature2.name",
+        descKey: "features.email.feature2.desc",
+      },
+      {
+        nameKey: "features.email.feature3.name",
+        descKey: "features.email.feature3.desc",
+      },
+      {
+        nameKey: "features.email.feature4.name",
+        descKey: "features.email.feature4.desc",
+      },
+      {
+        nameKey: "features.email.feature5.name",
+        descKey: "features.email.feature5.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.email.metric1.name",
+        valueKey: "features.email.metric1.value",
+        noteKey: "features.email.metric1.note",
+      },
+      {
+        metricKey: "features.email.metric2.name",
+        valueKey: "features.email.metric2.value",
+        noteKey: "features.email.metric2.note",
+      },
+      {
+        metricKey: "features.email.metric3.name",
+        valueKey: "features.email.metric3.value",
+        noteKey: "features.email.metric3.note",
+      },
+    ],
   },
   {
-    id: "integration",
-    icon: Link2,
+    id: "multiPlatform",
+    icon: Share2,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
-    badge: "20+",
+    badge: "5 platforms",
     badgeColor: "bg-orange-100 text-orange-700 border-orange-200",
     image: "/social-media-multi-platform-publishing-dashboard.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.multiPlatform.feature1.name",
+        descKey: "features.multiPlatform.feature1.desc",
+      },
+      {
+        nameKey: "features.multiPlatform.feature2.name",
+        descKey: "features.multiPlatform.feature2.desc",
+      },
+      {
+        nameKey: "features.multiPlatform.feature3.name",
+        descKey: "features.multiPlatform.feature3.desc",
+      },
+      {
+        nameKey: "features.multiPlatform.feature4.name",
+        descKey: "features.multiPlatform.feature4.desc",
+      },
+      {
+        nameKey: "features.multiPlatform.feature5.name",
+        descKey: "features.multiPlatform.feature5.desc",
+      },
+      {
+        nameKey: "features.multiPlatform.feature6.name",
+        descKey: "features.multiPlatform.feature6.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.multiPlatform.metric1.name",
+        valueKey: "features.multiPlatform.metric1.value",
+        noteKey: "features.multiPlatform.metric1.note",
+      },
+      {
+        metricKey: "features.multiPlatform.metric2.name",
+        valueKey: "features.multiPlatform.metric2.value",
+        noteKey: "features.multiPlatform.metric2.note",
+      },
+      {
+        metricKey: "features.multiPlatform.metric3.name",
+        valueKey: "features.multiPlatform.metric3.value",
+        noteKey: "features.multiPlatform.metric3.note",
+      },
+    ],
+  },
+  {
+    id: "ads",
+    icon: BarChart3,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+    badge: "99.9%",
+    badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
+    image: "/social-media-multi-platform-publishing-dashboard.jpg",
+    mainFeatures: [
+      {
+        nameKey: "features.ads.feature1.name",
+        descKey: "features.ads.feature1.desc",
+      },
+      {
+        nameKey: "features.ads.feature2.name",
+        descKey: "features.ads.feature2.desc",
+      },
+      {
+        nameKey: "features.ads.feature3.name",
+        descKey: "features.ads.feature3.desc",
+      },
+      {
+        nameKey: "features.ads.feature4.name",
+        descKey: "features.ads.feature4.desc",
+      },
+    ],
+    performanceMetrics: [
+      {
+        metricKey: "features.ads.metric1.name",
+        valueKey: "features.ads.metric1.value",
+        noteKey: "features.ads.metric1.note",
+      },
+      {
+        metricKey: "features.ads.metric2.name",
+        valueKey: "features.ads.metric2.value",
+        noteKey: "features.ads.metric2.note",
+      },
+      {
+        metricKey: "features.ads.metric3.name",
+        valueKey: "features.ads.metric3.value",
+        noteKey: "features.ads.metric3.note",
+      },
+    ],
   },
 ];
 
@@ -154,19 +448,21 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
       )}
     >
       {/* Icon */}
-      <div
-        className={cn(
-          "w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
-          feature.iconBg,
-        )}
-      >
-        <Icon className={cn("w-6 h-6", feature.iconColor)} />
-      </div>
+      <div className="flex items-center space-x-4">
+        <div
+          className={cn(
+            "w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
+            feature.iconBg,
+          )}
+        >
+          <Icon className={cn("w-6 h-6", feature.iconColor)} />
+        </div>
 
-      {/* Title */}
-      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
-        {t(`features.${feature.id}.title`)}
-      </h3>
+        {/* Title */}
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+          {t(`features.${feature.id}.title`)}
+        </h3>
+      </div>
 
       {/* Description */}
       <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -174,25 +470,103 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
       </p>
 
       {/* Highlight Stat */}
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-2">
         <div className="w-2 h-2 rounded-full bg-[#ff7900]" />
         <span className="text-gray-700 font-medium">
           {t(`features.${feature.id}.stats`)}
         </span>
       </div>
 
-      {/* CTA Link */}
-      <a
-        href={`#${feature.id}`}
-        className={cn(
-          "inline-flex items-center gap-2 font-semibold",
-          feature.iconColor,
-          "hover:gap-3 transition-all duration-300",
-        )}
-      >
-        {t("features.learnMore")}
-        <ArrowRight className="w-4 h-4" />
-      </a>
+      {/* Main Features Table */}
+      {feature.mainFeatures && feature.mainFeatures.length > 0 && (
+        <div className="mt-6">
+          <h4 className="text-lg font-bold text-gray-900 mb-4">
+            {t("features.table.mainFeatures")}
+          </h4>
+          <div className="overflow-hidden rounded-lg border border-gray-200">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-900 text-white">
+                  <th className="px-4 py-3 text-left text-sm font-semibold">
+                    {t("features.table.featureName")}
+                  </th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold">
+                    {t("features.table.description")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {feature.mainFeatures.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 whitespace-nowrap">
+                      {t(item.nameKey)}
+                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-700">
+                      {t(item.descKey)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* Performance Metrics Table */}
+      {feature.performanceMetrics && feature.performanceMetrics.length > 0 && (
+        <div className="mt-6">
+          <h4 className="text-lg font-bold text-gray-900 mb-4">
+            {t("features.table.performance")}
+          </h4>
+          <div className="overflow-hidden rounded-lg border border-gray-200">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-900 text-white">
+                  <th className="px-4 py-3 text-left text-sm font-semibold">
+                    {t("features.table.metric")}
+                  </th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold">
+                    {t("features.table.value")}
+                  </th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold">
+                    {t("features.table.note")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {feature.performanceMetrics.map((metric, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-700">
+                      {t(metric.metricKey)}
+                    </td>
+                    <td className="px-4 py-3 text-sm font-semibold text-gray-900">
+                      {t(metric.valueKey)}
+                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-600">
+                      {t(metric.noteKey)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* CTA Link - Always at bottom */}
+      <div className="mt-8">
+        <a
+          href={`#${feature.id}`}
+          className={cn(
+            "inline-flex items-center gap-2 font-semibold text-base",
+            feature.iconColor,
+            "hover:gap-3 transition-all duration-300",
+          )}
+        >
+          {t("features.learnMore")}
+          <ArrowRight className="w-4 h-4" />
+        </a>
+      </div>
     </div>
   );
 

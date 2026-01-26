@@ -112,44 +112,204 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.title": "Tính năng",
     "features.titleHighlight": "vượt trội",
     "features.subtitle": "Mọi công cụ bạn cần để tự động hóa marketing",
-    "features.video.title": "Sản xuất Video Tự động",
-    "features.video.description":
-      "Biến ý tưởng thành video viral trong vài giây. AI tự động tạo script, voiceover, và editing chuyên nghiệp.",
+    "features.learnMore": "Tìm hiểu thêm",
+    "features.chatbot.title": "AI Chatbot CSKH 24/7",
+    "features.chatbot.desc":
+      "Giải pháp tự động hóa chăm sóc khách hàng thông minh, được huấn luyện với dữ liệu thực tế của doanh nghiệp.",
+    "features.chatbot.stats":
+      "Phản hồi tức thì 24/7 • Giảm 99% thời gian chờ đợi",
+    "features.video.title": "AI Video Factory",
     "features.video.desc":
-      "Biến ý tưởng thành video viral trong vài giây. AI tự động tạo script, voiceover, và editing chuyên nghiệp.",
-    "features.video.stats": "1000+ videos/tháng",
-    "features.content.title": "Content Đa kênh",
-    "features.content.description":
-      "Tạo nội dung chuẩn SEO cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
+      "Sản xuất video marketing với KOL Ảo trong vài phút. Không cần quay phim, không cần studio, không cần KOL thật.",
+    "features.video.stats": "50 Credit/video • 5 phút sản xuất • Tiết kiệm 95%",
+    "features.video.feature1.name": "KOL Ảo thuyết minh",
+    "features.video.feature1.desc":
+      "Đại sứ thương hiệu nổi theo script với Character Consistency 100%",
+    "features.video.feature2.name": "Giọng AI tự nhiên",
+    "features.video.feature2.desc":
+      "Sử dụng AI Voice, hỗ trợ nhiều ngôn ngữ khác nhau",
+    "features.video.feature3.name": "Multi-scene editor",
+    "features.video.feature3.desc":
+      "Hỗ trợ nhiều khung hình/cảnh trong một video",
+    "features.video.feature4.name": "Gợi ý AI",
+    "features.video.feature4.desc": "Tự động đề xuất nội dung cảnh phù hợp",
+    "features.video.feature5.name": "Lip-sync tự động",
+    "features.video.feature5.desc":
+      "Tự động sync môi chính xác với kịch bản lời thoại",
+    "features.video.metric1.name": "Chi phí sản xuất",
+    "features.video.metric1.value": "0 VNĐ (đã bao gồm)",
+    "features.video.metric1.note": "Tiết kiệm 95% vs KOL truyền thống",
+    "features.video.metric2.name": "Thời gian sản xuất",
+    "features.video.metric2.value": "5 phút",
+    "features.video.metric2.note": "Nhanh hơn 99% so với 3-7 ngày",
+    "features.video.metric3.name": "Định dạng xuất",
+    "features.video.metric3.value": "720p, 1080p, 4K",
+    "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 giây",
+    "features.email.title": "Email Marketing Automation",
+    "features.email.desc":
+      "Hệ thống chăm sóc khách hàng tự động 100% - Journey khách hàng hoàn chỉnh.",
+    "features.email.stats":
+      "100% tự động • Tích hợp CRM • A/B Testing thông minh",
+    "features.email.feature1.name": "Responsive Design",
+    "features.email.feature1.desc":
+      "Hiển thị hoàn hảo trên Mobile/Desktop, tự động tối ưu giao diện",
+    "features.email.feature2.name": "Smart Tracking",
+    "features.email.feature2.desc":
+      "Tối ưu Open Rate & Click Rate, theo dõi hành vi khách hàng",
+    "features.email.feature3.name": "100% Automated",
+    "features.email.feature3.desc":
+      "Workflow tự động, không cần thao tác, chạy 24/7",
+    "features.email.feature4.name": "Tích hợp CRM",
+    "features.email.feature4.desc":
+      "Đồng bộ dữ liệu khách hàng, cá nhân hóa nội dung email",
+    "features.email.feature5.name": "A/B Testing tự động",
+    "features.email.feature5.desc":
+      "Tự động test subject line và content để tối ưu hiệu quả",
+    "features.email.metric1.name": "Các giai đoạn chăm sóc",
+    "features.email.metric1.value": "4 giai đoạn",
+    "features.email.metric1.note": "Welcome, Nhắc nhở, Phản hồi, Re-marketing",
+    "features.email.metric2.name": "Tự động hóa",
+    "features.email.metric2.value": "100%",
+    "features.email.metric2.note": "Không cần thao tác thủ công",
+    "features.email.metric3.name": "Tối ưu hiệu quả",
+    "features.email.metric3.value": "Open Rate +35%",
+    "features.email.metric3.note": "Nhờ A/B Testing & Smart Tracking",
+    "features.multiPlatform.title": "Quản lý Đa nền tảng",
+    "features.multiPlatform.desc":
+      "Một Dashboard - Điều khiển tất cả. Quản trị tập trung đa kênh và tương tác thông minh 24/7.",
+    "features.multiPlatform.stats":
+      "5 nền tảng • Tiết kiệm 90% thời gian • Trợ lý ảo 24/7",
+    "features.multiPlatform.feature1.name": "Lên lịch & Đăng hàng loạt",
+    "features.multiPlatform.feature1.desc":
+      "Tiết kiệm 90% thời gian thao tác thủ công trên từng ứng dụng",
+    "features.multiPlatform.feature2.name": "Content Calendar",
+    "features.multiPlatform.feature2.desc":
+      "Giao diện lịch trực quan, phân loại nội dung bằng Color-coding",
+    "features.multiPlatform.feature3.name": "Drag & Drop",
+    "features.multiPlatform.feature3.desc":
+      "Dễ dàng kéo thả để thay đổi lịch đăng bài nhanh chóng",
+    "features.multiPlatform.feature4.name": "AI Comment Reply",
+    "features.multiPlatform.feature4.desc":
+      "Tự động trả lời bình luận với văn phong cá nhân hóa, giữ tương tác cao",
+    "features.multiPlatform.feature5.name": "AI DM Chatbot 24/7",
+    "features.multiPlatform.feature5.desc":
+      "Trả lời tin nhắn, giải đáp thắc mắc và thu thập thông tin khách hàng",
+    "features.multiPlatform.feature6.name": "Unified Inbox",
+    "features.multiPlatform.feature6.desc":
+      "Gom tất cả tin nhắn & bình luận từ mọi nền tảng về một nơi duy nhất",
+    "features.multiPlatform.metric1.name": "Nền tảng hỗ trợ",
+    "features.multiPlatform.metric1.value": "5 nền tảng",
+    "features.multiPlatform.metric1.note":
+      "Facebook, Instagram, TikTok, YouTube, Zalo OA",
+    "features.multiPlatform.metric2.name": "Tiết kiệm thời gian",
+    "features.multiPlatform.metric2.value": "90%",
+    "features.multiPlatform.metric2.note":
+      "So với thao tác thủ công từng ứng dụng",
+    "features.multiPlatform.metric3.name": "Chi phí auto reply",
+    "features.multiPlatform.metric3.value": "1 Credit/lượt",
+    "features.multiPlatform.metric3.note": "Tự động trả lời comment",
+    "features.ads.title": "AI Ads Management & Analytics",
+    "features.ads.desc":
+      "Do lường chính xác, ra quyết định dựa trên Data. Dashboard phân tích toàn diện với độ chính xác 99.9%.",
+    "features.ads.stats":
+      "99.9% chính xác • Tự động tối ưu ngân sách • ROI Calculator",
+    "features.ads.feature1.name": "Budget Optimization",
+    "features.ads.feature1.desc":
+      "Tự động điều chỉnh ngân sách theo CPA/ROAS mục tiêu",
+    "features.ads.feature2.name": "Audience Suggestions",
+    "features.ads.feature2.desc":
+      "Đề xuất Custom & Lookalike audiences từ data khách hàng",
+    "features.ads.feature3.name": "Smart A/B Testing",
+    "features.ads.feature3.desc":
+      "Thử nghiệm tự động Headline, CTA để tìm mẫu quảng cáo tốt nhất",
+    "features.ads.feature4.name": "Performance Alerts",
+    "features.ads.feature4.desc":
+      "Cảnh báo Realtime khi chiến dịch kém hiệu quả hoặc cạn ngân sách",
+    "features.ads.metric1.name": "Chỉ số do lường",
+    "features.ads.metric1.value": "8+ metrics",
+    "features.ads.metric1.note":
+      "Impressions, CTR, Conversions, CPA, ROAS, LTV, NPS",
+    "features.ads.metric2.name": "ROI Calculator",
+    "features.ads.metric2.value": "Tích hợp sẵn",
+    "features.ads.metric2.note":
+      "So sánh trực tiếp chi phí KOL AI vs Truyền thống",
+    "features.ads.metric3.name": "Auto Report",
+    "features.ads.metric3.value": "Tuần/Tháng",
+    "features.ads.metric3.note": "Tự động gửi báo cáo hiệu suất qua Email",
+    "features.content.title": "AI Content Creator",
     "features.content.desc":
-      "Tạo nội dung chuẩn SEO cho mọi nền tảng. Blog, social posts, email marketing - tất cả trong một.",
-    "features.content.stats": "50+ templates",
+      "Hệ thống sản xuất nội dung đa định dạng tự động hóa hoàn toàn, tạo content chuyên nghiệp trong 30 giây.",
+    "features.content.stats":
+      "50+ templates • Tạo hình ảnh 4K • Caption tối ưu SEO",
+    "features.content.feature1.name": "Tạo ảnh KOL với sản phẩm",
+    "features.content.feature1.desc":
+      "Tạo hình ảnh KOL chuyên nghiệp với sản phẩm hoặc bối cảnh tùy chỉnh theo yêu cầu",
+    "features.content.feature2.name": "Character Consistency Engine",
+    "features.content.feature2.desc":
+      "Công nghệ giữ vững nhận diện gương mặt KOL trên mọi hình ảnh",
+    "features.content.feature3.name": "Độ phân giải 4K",
+    "features.content.feature3.desc":
+      "Sẵn sàng cho in ấn và quảng cáo billboard",
+    "features.content.feature4.name": "Viết caption bắt trend",
+    "features.content.feature4.desc":
+      "Tự động viết caption hấp dẫn từ thông tin sản phẩm hoặc brief sơ sài",
+    "features.content.feature5.name": "Gợi ý hashtag thông minh",
+    "features.content.feature5.desc":
+      "Đề xuất hashtag để tối đa hóa lượt tiếp cận (Reach) tự nhiên",
+    "features.content.feature6.name": "Tối ưu SEO",
+    "features.content.feature6.desc": "Viết bài chuẩn SEO cho blog và website",
+    "features.content.metric1.name": "Thời gian tạo ảnh",
+    "features.content.metric1.value": "10-30 giây",
+    "features.content.metric1.note": "Chất lượng 4K chuyên nghiệp",
+    "features.content.metric2.name": "Chi phí tạo content",
+    "features.content.metric2.value": "2 Credit/ảnh",
+    "features.content.metric2.note": "Tiết kiệm 90% vs thuê designer",
+    "features.content.metric3.name": "Đa dạng phong cách",
+    "features.content.metric3.value": "50+ styles",
+    "features.content.metric3.note": "Thực tế, 3D, Minh họa, Trừu tượng",
+    "features.trends.title": "AI Hot Trends Discovery",
+    "features.trends.desc":
+      "Hệ thống AI tìm Trends và tối ưu hóa Brief thông minh, không bao giờ hết ý tưởng.",
+    "features.trends.stats":
+      "~30 giây/Brief • 4 bước xử lý • Chấm điểm realtime",
+    "features.trends.feature1.name": "INPUT ENGINE",
+    "features.trends.feature1.desc":
+      "Thu thập & Xử lý Brief: Thông tin thương hiệu (Tên, Ngành, Sản phẩm), Đối tượng & Chiến lược (Persona, Pain points, Mục tiêu), Định dạng đầu ra",
+    "features.trends.feature2.name": "QUALITY EVALUATION",
+    "features.trends.feature2.desc":
+      "Chấm điểm Brief Realtime theo thang 100: Blocking (<50), Warning (50-79), Excellent (≥80)",
+    "features.trends.feature3.name": "IDEA GENERATION",
+    "features.trends.feature3.desc":
+      "AI Brainstorming với Fit Score (0.0-1.0), Effort Level (Low/Medium/High), Estimated Impact",
+    "features.trends.feature4.name": "CAMPAIGN MAPPER",
+    "features.trends.feature4.desc":
+      "Kế hoạch hành động: Content Outline, Hooks & CTAs, Phân bổ Platform",
+    "features.trends.metric1.name": "Trọng số đánh giá",
+    "features.trends.metric1.value": "Brand 30% • Chiến lược 40% • Đầu ra 30%",
+    "features.trends.metric1.note": "Bonus +5 điểm nếu Pain points > 3",
+    "features.trends.metric2.name": "Định dạng hỗ trợ",
+    "features.trends.metric2.value": "7+ formats",
+    "features.trends.metric2.note":
+      "Bài viết, Video script, Infographic, Landing page, Hook, CTA",
+    "features.trends.metric3.name": "Tốc độ xử lý",
+    "features.trends.metric3.value": "~30 giây",
+    "features.trends.metric3.note": "Từ Brief đến Campaign hoàn chỉnh",
     "features.schedule.title": "Lên lịch Thông minh",
-    "features.schedule.description":
-      "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
     "features.schedule.desc":
       "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
     "features.schedule.stats": "24/7 tự động",
-    "features.design.title": "Thiết kế Hình ảnh AI",
-    "features.design.description":
-      "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.title": "Thiết kế Hình ảnh AI",
     "features.image.desc":
       "Tạo banner, thumbnail và creative quảng cáo chuyên nghiệp. Chỉnh sửa nhanh với AI.",
     "features.image.stats": "Không giới hạn",
     "features.analytics.title": "Phân tích Thông minh",
-    "features.analytics.description":
-      "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất campaign real-time.",
     "features.analytics.desc":
       "Dashboard trực quan với insights sâu sắc. Theo dõi ROI và hiệu suất campaign real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Tích hợp Liền mạch",
-    "features.integration.description":
-      "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
     "features.integration.desc":
       "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
     "features.integration.stats": "20+ platforms",
-    "features.learnMore": "Tìm hiểu thêm",
 
     // Pricing Section
     "pricing.title": "Bảng giá",
@@ -867,44 +1027,234 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.title": "Features",
     "features.titleHighlight": "overview",
     "features.subtitle": "Everything you need to automate your marketing",
-    "features.video.title": "Auto Video Production",
-    "features.video.description":
-      "Turn ideas into viral videos in seconds. AI automatically creates scripts, voiceover, and professional editing.",
-    "features.video.desc":
-      "Turn ideas into viral videos in seconds. AI automatically creates scripts, voiceover, and professional editing.",
-    "features.video.stats": "1000+ videos/month",
-    "features.content.title": "Multi-channel Content",
-    "features.content.description":
-      "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
+    "features.learnMore": "Learn more",
+    "features.chatbot.title": "AI Chatbot Customer Service 24/7",
+    "features.chatbot.desc":
+      "Intelligent customer care automation solution, trained with real business data.",
+    "features.chatbot.stats": "Instant response 24/7 • 99% less waiting time",
+    "features.chatbot.feature1.name": "Product & Service Consultation",
+    "features.chatbot.feature1.desc":
+      "Automatically provide detailed consultation on product packages, services, and features based on customer needs with personalized scripts",
+    "features.chatbot.feature2.name": "Instant Quotation",
+    "features.chatbot.feature2.desc":
+      "Calculate and provide estimated quotes instantly based on customer input requirements 24/7",
+    "features.chatbot.feature3.name": "Schedule Check & Appointment Booking",
+    "features.chatbot.feature3.desc":
+      "Real-time connection with calendar system to check availability and support automatic appointment booking",
+    "features.chatbot.feature4.name": "Quality Lead Transfer",
+    "features.chatbot.feature4.desc":
+      "Classify lead potential levels (Hot/Warm/Cold) and automatically push information to CRM or notify Sales team",
+    "features.chatbot.metric1.name": "Average Response Time",
+    "features.chatbot.metric1.value": "~3 seconds",
+    "features.chatbot.metric1.note": "99% reduction vs manual",
+    "features.chatbot.metric2.name": "Lead Conversion Rate",
+    "features.chatbot.metric2.value": "+45%",
+    "features.chatbot.metric2.note": "Thanks to instant response",
+    "features.chatbot.metric3.name": "Continuous Operation",
+    "features.chatbot.metric3.value": "24/7/365",
+    "features.chatbot.metric3.note": "Never miss a customer",
+    "features.content.title": "AI Content Creator",
     "features.content.desc":
-      "Create SEO-optimized content for all platforms. Blog, social posts, email marketing - all in one.",
-    "features.content.stats": "50+ templates",
+      "Fully automated multi-format content production system, creating professional content in 30 seconds.",
+    "features.content.stats":
+      "50+ templates • 4K image generation • SEO-optimized captions",
+    "features.content.feature1.name": "KOL Product Photography",
+    "features.content.feature1.desc":
+      "Create professional KOL images with products or customized backgrounds as requested",
+    "features.content.feature2.name": "Character Consistency Engine",
+    "features.content.feature2.desc":
+      "Technology that maintains KOL facial recognition across all images",
+    "features.content.feature3.name": "4K Resolution",
+    "features.content.feature3.desc":
+      "Ready for print and billboard advertising",
+    "features.content.feature4.name": "Trending Caption Writing",
+    "features.content.feature4.desc":
+      "Automatically write engaging captions from product info or brief outline",
+    "features.content.feature5.name": "Smart Hashtag Suggestions",
+    "features.content.feature5.desc":
+      "Suggest hashtags to maximize organic reach",
+    "features.content.feature6.name": "SEO Optimization",
+    "features.content.feature6.desc":
+      "Write SEO-optimized articles for blogs and websites",
+    "features.content.metric1.name": "Image Generation Time",
+    "features.content.metric1.value": "10-30 seconds",
+    "features.content.metric1.note": "Professional 4K quality",
+    "features.content.metric2.name": "Content Creation Cost",
+    "features.content.metric2.value": "2 Credits/image",
+    "features.content.metric2.note": "90% savings vs hiring designer",
+    "features.content.metric3.name": "Style Variety",
+    "features.content.metric3.value": "50+ styles",
+    "features.content.metric3.note": "Realistic, 3D, Illustration, Abstract",
+    "features.trends.title": "AI Hot Trends Discovery",
+    "features.trends.desc":
+      "AI system that finds Trends and optimizes Briefs intelligently, never run out of ideas.",
+    "features.trends.stats":
+      "~30 seconds/Brief • 4-step process • Real-time scoring",
+    "features.trends.feature1.name": "INPUT ENGINE",
+    "features.trends.feature1.desc":
+      "Collect & Process Brief: Brand info (Name, Industry, Product), Target & Strategy (Persona, Pain points, Goals), Output format",
+    "features.trends.feature2.name": "QUALITY EVALUATION",
+    "features.trends.feature2.desc":
+      "Real-time Brief scoring on 100-point scale: Blocking (<50), Warning (50-79), Excellent (≥80)",
+    "features.trends.feature3.name": "IDEA GENERATION",
+    "features.trends.feature3.desc":
+      "AI Brainstorming with Fit Score (0.0-1.0), Effort Level (Low/Medium/High), Estimated Impact",
+    "features.trends.feature4.name": "CAMPAIGN MAPPER",
+    "features.trends.feature4.desc":
+      "Action plan: Content Outline, Hooks & CTAs, Platform distribution",
+    "features.trends.metric1.name": "Evaluation weights",
+    "features.trends.metric1.value": "Brand 30% • Strategy 40% • Output 30%",
+    "features.trends.metric1.note": "Bonus +5 points if Pain points > 3",
+    "features.trends.metric2.name": "Supported formats",
+    "features.trends.metric2.value": "7+ formats",
+    "features.trends.metric2.note":
+      "Articles, Video scripts, Infographics, Landing pages, Hooks, CTAs",
+    "features.trends.metric3.name": "Processing speed",
+    "features.trends.metric3.value": "~30 seconds",
+    "features.trends.metric3.note": "From Brief to complete Campaign",
+    "features.table.mainFeatures": "Main Features",
+    "features.table.featureName": "Feature",
+    "features.table.description": "Detailed Description",
+    "features.table.performance": "Performance Metrics",
+    "features.table.metric": "Metric",
+    "features.table.value": "Value",
+    "features.table.note": "Note",
+    "features.video.title": "AI Video Factory",
+    "features.video.desc":
+      "Produce marketing videos with Virtual KOL in minutes. No filming, no studio, no real KOL needed.",
+    "features.video.stats": "50 Credits/video • 5 min production • 95% savings",
+    "features.video.feature1.name": "Virtual KOL Presenter",
+    "features.video.feature1.desc":
+      "Brand ambassador narrates from script with 100% Character Consistency",
+    "features.video.feature2.name": "Natural AI Voice",
+    "features.video.feature2.desc":
+      "Uses AI Voice, supports multiple languages",
+    "features.video.feature3.name": "Multi-scene editor",
+    "features.video.feature3.desc":
+      "Supports multiple frames/scenes in one video",
+    "features.video.feature4.name": "AI Suggestions",
+    "features.video.feature4.desc":
+      "Automatically suggests suitable scene content",
+    "features.video.feature5.name": "Auto Lip-sync",
+    "features.video.feature5.desc":
+      "Automatically syncs lips precisely with script dialogue",
+    "features.video.metric1.name": "Production cost",
+    "features.video.metric1.value": "0 VND (included)",
+    "features.video.metric1.note": "95% savings vs traditional KOL",
+    "features.video.metric2.name": "Production time",
+    "features.video.metric2.value": "5 minutes",
+    "features.video.metric2.note": "99% faster than 3-7 days",
+    "features.video.metric3.name": "Export formats",
+    "features.video.metric3.value": "720p, 1080p, 4K",
+    "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 sec",
+    "features.email.title": "Email Marketing Automation",
+    "features.email.desc":
+      "100% automated customer care system - Complete customer journey.",
+    "features.email.stats":
+      "100% automated • CRM integration • Smart A/B Testing",
+    "features.email.feature1.name": "Responsive Design",
+    "features.email.feature1.desc":
+      "Perfect display on Mobile/Desktop, auto-optimized interface",
+    "features.email.feature2.name": "Smart Tracking",
+    "features.email.feature2.desc":
+      "Optimize Open Rate & Click Rate, track customer behavior",
+    "features.email.feature3.name": "100% Automated",
+    "features.email.feature3.desc":
+      "Automated workflow, no manual operation, runs 24/7",
+    "features.email.feature4.name": "CRM Integration",
+    "features.email.feature4.desc":
+      "Sync customer data, personalize email content",
+    "features.email.feature5.name": "Auto A/B Testing",
+    "features.email.feature5.desc":
+      "Automatically test subject lines and content to optimize results",
+    "features.email.metric1.name": "Care stages",
+    "features.email.metric1.value": "4 stages",
+    "features.email.metric1.note": "Welcome, Reminder, Feedback, Re-marketing",
+    "features.email.metric2.name": "Automation",
+    "features.email.metric2.value": "100%",
+    "features.email.metric2.note": "No manual operation required",
+    "features.email.metric3.name": "Performance optimization",
+    "features.email.metric3.value": "Open Rate +35%",
+    "features.email.metric3.note": "Thanks to A/B Testing & Smart Tracking",
+    "features.multiPlatform.title": "Multi-Platform Management",
+    "features.multiPlatform.desc":
+      "One Dashboard - Control everything. Centralized multi-channel management and smart interaction 24/7.",
+    "features.multiPlatform.stats":
+      "5 platforms • 90% time saved • 24/7 virtual assistant",
+    "features.multiPlatform.feature1.name": "Batch Scheduling & Posting",
+    "features.multiPlatform.feature1.desc":
+      "Save 90% of manual operation time across each app",
+    "features.multiPlatform.feature2.name": "Content Calendar",
+    "features.multiPlatform.feature2.desc":
+      "Intuitive calendar interface, color-coded content classification",
+    "features.multiPlatform.feature3.name": "Drag & Drop",
+    "features.multiPlatform.feature3.desc":
+      "Easily drag and drop to quickly reschedule posts",
+    "features.multiPlatform.feature4.name": "AI Comment Reply",
+    "features.multiPlatform.feature4.desc":
+      "Auto-reply to comments with personalized tone, maintain high engagement",
+    "features.multiPlatform.feature5.name": "AI DM Chatbot 24/7",
+    "features.multiPlatform.feature5.desc":
+      "Answer messages, resolve queries and collect customer information",
+    "features.multiPlatform.feature6.name": "Unified Inbox",
+    "features.multiPlatform.feature6.desc":
+      "Consolidate all messages & comments from every platform in one place",
+    "features.multiPlatform.metric1.name": "Supported platforms",
+    "features.multiPlatform.metric1.value": "5 platforms",
+    "features.multiPlatform.metric1.note":
+      "Facebook, Instagram, TikTok, YouTube, Zalo OA",
+    "features.multiPlatform.metric2.name": "Time saved",
+    "features.multiPlatform.metric2.value": "90%",
+    "features.multiPlatform.metric2.note":
+      "Compared to manual operation per app",
+    "features.multiPlatform.metric3.name": "Auto reply cost",
+    "features.multiPlatform.metric3.value": "1 Credit/reply",
+    "features.multiPlatform.metric3.note": "Automatic comment reply",
+    "features.ads.title": "AI Ads Management & Analytics",
+    "features.ads.desc":
+      "Accurate measurement, data-driven decisions. Comprehensive analytics dashboard with 99.9% accuracy.",
+    "features.ads.stats":
+      "99.9% accuracy • Auto budget optimization • ROI Calculator",
+    "features.ads.feature1.name": "Budget Optimization",
+    "features.ads.feature1.desc":
+      "Automatically adjust budget based on target CPA/ROAS",
+    "features.ads.feature2.name": "Audience Suggestions",
+    "features.ads.feature2.desc":
+      "Suggest Custom & Lookalike audiences from customer data",
+    "features.ads.feature3.name": "Smart A/B Testing",
+    "features.ads.feature3.desc":
+      "Automatically test Headlines, CTAs to find best performing ads",
+    "features.ads.feature4.name": "Performance Alerts",
+    "features.ads.feature4.desc":
+      "Real-time alerts when campaigns underperform or budget runs low",
+    "features.ads.metric1.name": "Measurement metrics",
+    "features.ads.metric1.value": "8+ metrics",
+    "features.ads.metric1.note":
+      "Impressions, CTR, Conversions, CPA, ROAS, LTV, NPS",
+    "features.ads.metric2.name": "ROI Calculator",
+    "features.ads.metric2.value": "Built-in",
+    "features.ads.metric2.note":
+      "Direct comparison of AI KOL cost vs Traditional",
+    "features.ads.metric3.name": "Auto Report",
+    "features.ads.metric3.value": "Weekly/Monthly",
+    "features.ads.metric3.note":
+      "Automatically send performance reports via Email",
     "features.schedule.title": "Smart Scheduling",
-    "features.schedule.description":
-      "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
     "features.schedule.desc":
       "Auto-post at golden hours. AI analyzes optimal timing for each platform.",
     "features.schedule.stats": "24/7 automatic",
-    "features.design.title": "AI Image Design",
-    "features.design.description":
-      "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.title": "AI Image Design",
     "features.image.desc":
       "Create professional banners, thumbnails and ad creatives. Quick editing with AI.",
     "features.image.stats": "Unlimited",
     "features.analytics.title": "Smart Analytics",
-    "features.analytics.description":
-      "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
     "features.analytics.desc":
       "Intuitive dashboard with deep insights. Track ROI and campaign performance in real-time.",
     "features.analytics.stats": "10+ metrics",
     "features.integration.title": "Seamless Integration",
-    "features.integration.description":
-      "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
     "features.integration.desc":
       "Connect with Facebook, Instagram, TikTok, LinkedIn, YouTube and 20+ other platforms.",
     "features.integration.stats": "20+ platforms",
-    "features.learnMore": "Learn more",
 
     // Pricing Section
     "pricing.title": "Pricing",

@@ -25,8 +25,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Startup",
     nameKey: "pricing.enterprise.startup.name",
-    priceUSD: 499,
-    priceVND: 3500000,
+    priceUSD: 299,
+    priceVND: 299 * 250000, // Approximate conversion
     description: "For small businesses building marketing presence",
     descriptionKey: "pricing.enterprise.startup.description",
     features: [
@@ -53,8 +53,8 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Growth",
     nameKey: "pricing.enterprise.growth.name",
-    priceUSD: 2499,
-    priceVND: 6900000,
+    priceUSD: 499,
+    priceVND: 499 * 250000, // Approximate conversion
     description: "For agencies and SMEs scaling content production",
     descriptionKey: "pricing.enterprise.growth.description",
     popular: true,
