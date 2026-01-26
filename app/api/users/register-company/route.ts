@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
 interface RegistrationData {
+  registration_type: "business" | "starter";
   name: string;
   email: string;
   phone_number: string;
-  company_name: string;
-  customer_need: string;
+  position: string;
+  company_name?: string;
+  tax_code?: string;
+  activity_field?: string;
+  address?: string;
 }
 
 /**
@@ -18,11 +22,28 @@ export async function POST(request: NextRequest) {
     const data: RegistrationData = await request.json();
 
     // Validate required fields
-    if (!data.name || !data.email || !data.phone_number) {
+    if (
+      !data.name ||
+      !data.email ||
+      !data.phone_number ||
+      !data.position ||
+      !data.registration_type
+    ) {
       return NextResponse.json(
         {
           success: false,
           message: "Vui lòng điền đầy đủ thông tin bắt buộc",
+        },
+        { status: 400 },
+      );
+    }
+
+    // Validate business-specific fields for business package
+    if (data.registration_type === "business" && !data.company_name) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Vui lòng nhập tên doanh nghiệp",
         },
         { status: 400 },
       );
@@ -55,10 +76,15 @@ export async function POST(request: NextRequest) {
 
     // Forward to backend API
     console.log("Forwarding registration to backend:", {
+      registration_type: data.registration_type,
       name: data.name,
       email: data.email,
       phone_number: data.phone_number,
+      position: data.position,
       company_name: data.company_name,
+      tax_code: data.tax_code,
+      activity_field: data.activity_field,
+      address: data.address,
     });
 
     try {

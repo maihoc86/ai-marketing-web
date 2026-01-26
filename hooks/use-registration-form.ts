@@ -354,32 +354,27 @@ export function useRegistrationForm(
     setSuccessMessage("");
 
     try {
-      // Get business type label
-      const businessTypeLabels = {
-        enterprise: "Công ty TNHH/CP",
-        household: "Hộ kinh doanh",
-        other: "Tổ chức khác",
-      };
-
-      // Prepare submission data based on package type
-      const customerNeed = isBusinessPackage
-        ? `Gói: ${formData.selected_package}, Loại hình: ${businessTypeLabels[formData.business_type]}, MST: ${formData.tax_code || "N/A"}, Địa chỉ: ${formData.address || "N/A"}, Vị trí: ${formData.job_position}`
-        : `Gói: ${formData.selected_package}, Vị trí: ${formData.job_position}`;
-
       // Normalize phone number - add leading 0 if it's 9 digits
       const cleanPhone = formData.phone_number.replace(/\s/g, "");
       const normalizedPhone =
         cleanPhone.length === 9 ? `0${cleanPhone}` : cleanPhone;
 
-      const submitData = {
+      // Prepare submission data based on package type
+      const submitData: any = {
+        registration_type: formData.selected_package, // "business" or "starter"
         name: formData.full_name.trim(),
         email: formData.email,
         phone_number: normalizedPhone,
-        company_name: isBusinessPackage
-          ? formData.company_name
-          : formData.full_name.trim(),
-        customer_need: customerNeed,
+        position: formData.job_position,
       };
+
+      // Add business-specific fields only for business package
+      if (isBusinessPackage) {
+        submitData.company_name = formData.company_name;
+        submitData.tax_code = formData.tax_code || "";
+        submitData.activity_field = "Information technology company";
+        submitData.address = formData.address || "";
+      }
 
       // Use secure API client with CSRF protection and rate limiting
       const data = await api.registerCompany(submitData);
