@@ -162,7 +162,6 @@ const MetricCardLight = memo(
       className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md"
       style={{
         animation: `fadeInUp 0.3s ease-out ${delay}ms forwards`,
-        opacity: 0.3,
       }}
     >
       <div className="flex items-center justify-between mb-2">
@@ -745,7 +744,6 @@ export function HeroLightTheme() {
                         className="p-2 rounded-lg bg-gray-50 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200 hover:scale-110"
                         style={{
                           animation: `fadeInUp 0.3s ease-out ${600 + index * 50}ms forwards`,
-                          opacity: 0.4,
                         }}
                       >
                         <platform.Icon
@@ -764,7 +762,6 @@ export function HeroLightTheme() {
                     className="text-[10px] text-gray-500 font-medium"
                     style={{
                       animation: `fadeInUp 0.3s ease-out 850ms forwards`,
-                      opacity: 0.4,
                     }}
                   >
                     {t("hero.dashboard.platforms")}
