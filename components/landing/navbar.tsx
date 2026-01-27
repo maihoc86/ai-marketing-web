@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSelector } from "@/components/language-selector";
@@ -34,7 +34,7 @@ export function Navbar() {
       <div className="container mx-auto">
         <nav
           className={cn(
-            "flex items-center justify-between",
+            "flex items-center   justify-between",
             "bg-white",
             "border border-[#e0e0e0]",
             "rounded-full",
@@ -51,18 +51,15 @@ export function Navbar() {
             className="flex items-center shrink-0 focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white rounded-lg"
             aria-label="UNIKSMART - Home"
           >
-            <Image
+            <img
               src="/logo.png"
               alt="UNIKSMART Logo"
-              width={110}
-              height={30}
-              className="h-7 w-auto"
-              priority
+              className="h-8 object-contain hover:scale-110 transition"
             />
           </LocaleLink>
 
           {/* Navigation Links - CENTER (absolute centering) */}
-          <div className="absolute left-1/2 -translate-x-1/2 hidden lg:block">
+          <div className="flex-1 ml-6 hidden lg:block">
             <ul className="flex items-center gap-1" role="list">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -131,7 +128,7 @@ export function Navbar() {
                 "text-[13px] sm:text-[14px] font-semibold",
                 "px-3 sm:px-4 py-2 h-10",
                 "rounded-full shadow-sm shadow-[#ff7900]/30",
-                "min-h-[44px] min-w-[44px] touch-manipulation",
+                "min-h-11 min-w-11 touch-manipulation",
               )}
               asChild
             >
@@ -147,7 +144,7 @@ export function Navbar() {
                 "p-2.5 text-[#1c1c1c] hover:text-[#1a9fd8]",
                 "hover:bg-[#f5f5f5] rounded-lg",
                 "transition-colors duration-200",
-                "min-h-[44px] min-w-[44px]",
+                "min-h-11 min-w-[44px]",
                 "flex items-center justify-center touch-manipulation",
                 "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
               )}
@@ -191,7 +188,7 @@ export function Navbar() {
                       "text-[14px] font-medium text-[#1c1c1c]",
                       "hover:text-[#ff7900] hover:bg-[#f5f5f5]",
                       "transition-colors duration-200",
-                      "min-h-[44px] flex items-center touch-manipulation",
+                      "min-h-11 flex items-center touch-manipulation",
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -226,7 +223,7 @@ export function Navbar() {
                   "text-[14px] font-medium text-[#1c1c1c]",
                   "bg-[#f5f5f5] hover:bg-[#e0e0e0] rounded-lg",
                   "transition-colors duration-200",
-                  "min-h-[44px] flex items-center justify-center touch-manipulation",
+                  "min-h-11 flex items-center justify-center touch-manipulation",
                 )}
                 onClick={() => setIsOpen(false)}
                 aria-label={t("nav.login")}
@@ -240,7 +237,7 @@ export function Navbar() {
                   "bg-[#ff7900] hover:bg-[#e56b00] text-white",
                   "text-[14px] font-semibold",
                   "shadow-sm hover:shadow-lg shadow-[#ff7900]/30",
-                  "min-h-[44px] touch-manipulation",
+                  "min-h-11 touch-manipulation",
                 )}
                 asChild
               >
