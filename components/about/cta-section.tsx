@@ -40,7 +40,7 @@ export function AboutCtaSection() {
             className="bg-white text-[#ff7900] hover:bg-gray-50 font-semibold px-8 py-6 rounded-xl text-base transition-all"
             asChild
           >
-            <LocaleLink href="/dang-ky" className="flex items-center gap-2">
+            <LocaleLink href="/register" className="flex items-center gap-2">
               {t("about.cta.trial")}
               <ArrowRight className="w-5 h-5" />
             </LocaleLink>
@@ -52,7 +52,7 @@ export function AboutCtaSection() {
             className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-xl text-base transition-all bg-transparent"
             asChild
           >
-            <LocaleLink href="/dang-ky">{t("about.cta.contact")}</LocaleLink>
+            <LocaleLink href="/register">{t("about.cta.contact")}</LocaleLink>
           </Button>
         </div>
       </div>

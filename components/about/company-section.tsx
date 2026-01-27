@@ -145,7 +145,10 @@ export function CompanySection() {
                 className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8] hover:text-white font-semibold px-6 py-5 rounded-xl transition-all bg-transparent"
                 asChild
               >
-                <LocaleLink href="/dang-ky" className="flex items-center gap-2">
+                <LocaleLink
+                  href="/register"
+                  className="flex items-center gap-2"
+                >
                   {t("about.company.cta")}
                   <ArrowRight className="w-4 h-4" />
                 </LocaleLink>

@@ -54,7 +54,7 @@ export function FinalCtaSection() {
             asChild
           >
             <LocaleLink
-              href="/dang-ky"
+              href="/register"
               className="flex items-center justify-center gap-2"
             >
               {t("about.finalCta.cta.demo")}
@@ -69,7 +69,7 @@ export function FinalCtaSection() {
             asChild
           >
             <LocaleLink
-              href="/dang-ky"
+              href="/register"
               className="flex items-center justify-center gap-2"
             >
               {t("about.finalCta.cta.roadmap")}

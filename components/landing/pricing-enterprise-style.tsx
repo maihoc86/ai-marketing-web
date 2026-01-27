@@ -331,7 +331,7 @@ export function PricingEnterpriseStyle() {
               </div>
 
               {/* CTA Button */}
-              <LocaleLink href={`/dang-ky?package=${plan.name.toLowerCase()}`}>
+              <LocaleLink href={`/register?package=${plan.name.toLowerCase()}`}>
                 <Button
                   className={cn(
                     "w-full h-12 rounded-lg font-semibold text-base transition-all duration-200",

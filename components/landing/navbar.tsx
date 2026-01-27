@@ -17,7 +17,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/#features", label: t("nav.features") },
     { href: "/#pricing", label: t("nav.pricing") },
-    { href: "/ve-chung-toi", label: t("nav.about") },
+    { href: "/about-us", label: t("nav.about") },
     { href: "/#faq", label: t("nav.faq") },
   ];
 
@@ -113,7 +113,7 @@ export function Navbar() {
               )}
               asChild
             >
-              <LocaleLink href="/dang-ky" aria-label={t("nav.trialFree")}>
+              <LocaleLink href="/register" aria-label={t("nav.trialFree")}>
                 <span>{t("nav.trialFree")}</span>
               </LocaleLink>
             </Button>
@@ -132,7 +132,7 @@ export function Navbar() {
               )}
               asChild
             >
-              <LocaleLink href="/dang-ky" aria-label={t("nav.trialFree")}>
+              <LocaleLink href="/register" aria-label={t("nav.trialFree")}>
                 <Sparkles className="w-4 h-4 sm:hidden" aria-hidden="true" />
                 <span className="hidden sm:inline">{t("nav.trial")}</span>
               </LocaleLink>
@@ -242,7 +242,7 @@ export function Navbar() {
                 asChild
               >
                 <LocaleLink
-                  href="/dang-ky"
+                  href="/register"
                   className="flex items-center justify-center gap-2"
                   onClick={() => setIsOpen(false)}
                 >

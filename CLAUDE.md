@@ -33,6 +33,7 @@
 **DXAI Marketing Platform** is a comprehensive AI-powered marketing automation platform that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
 
 ### Key Features
+
 - **Video Production**: AI-powered automated video creation (1000+ videos/month)
 - **Content Generation**: Multi-channel content with 50+ templates
 - **Smart Scheduling**: 24/7 automated posting with optimal timing
@@ -41,12 +42,14 @@
 - **Platform Integration**: 20+ social media platforms (Facebook, TikTok, Instagram, LinkedIn, YouTube)
 
 ### Target Audience
+
 - Vietnamese SMEs and Enterprises
 - Marketing Agencies
 - Retail chains
 - E-commerce businesses
 
 ### Project Goals
+
 - Automate 80% of marketing tasks
 - Save 54% in operational costs vs traditional methods
 - Produce 2x more content with AI assistance
@@ -57,6 +60,7 @@
 ## 🛠 TECH STACK
 
 ### Core Framework
+
 ```json
 {
   "framework": "Next.js 16.1.1",
@@ -67,12 +71,14 @@
 ```
 
 ### Styling
+
 - **Tailwind CSS 4.1.18** - Utility-first CSS framework
 - **tw-animate-css 1.4.0** - Animation utilities
 - **class-variance-authority** - Component variants
 - **tailwind-merge** - Conditional class merging
 
 ### UI Components
+
 - **Radix UI** - Headless accessible components
   - `@radix-ui/react-label`
   - `@radix-ui/react-slot`
@@ -80,11 +86,13 @@
 - **React Icons 5.5.0** - Additional icons
 
 ### Analytics & Monitoring
+
 - **Vercel Analytics** - Performance monitoring
 - **Web Vitals 5.1.0** - Core Web Vitals tracking
 - **Google Tag Manager** - Marketing analytics
 
 ### Third-party Integrations
+
 - **CDS Chatbot SDK** - AI chatbot (Gemini 2.5 Flash)
 - **YouTube API** - Video embedding
 - **Social Media APIs** - Multi-platform publishing
@@ -98,9 +106,9 @@ ai-marketing-fe/
 ├── app/                          # Next.js App Router
 │   ├── layout.tsx               # Root layout with providers
 │   ├── page.tsx                 # Landing page (/)
-│   ├── dang-ky/                 # Registration page (/dang-ky)
+│   ├── dang-ky/                 # Registration page (/register)
 │   │   └── page.tsx
-│   ├── ve-chung-toi/            # About page (/ve-chung-toi)
+│   ├── ve-chung-toi/            # About page (/about-us)
 │   │   └── page.tsx
 │   ├── dieu-khoan/              # Terms page (/dieu-khoan)
 │   │   └── page.tsx
@@ -179,12 +187,12 @@ DXAI uses a **Pragmatic Clean Architecture** - a hybrid approach optimized for N
 
 ### Layer Responsibilities
 
-| Layer | Purpose | Example Files |
-|-------|---------|---------------|
-| **Domain** | Business logic, entities, validation | `campaign.ts`, `email.ts` (value object) |
-| **Application** | Use cases, orchestration, DTOs | `create-campaign.ts`, `user-mapper.ts` |
-| **Infrastructure** | External systems, API clients | `dxai-api-client.ts`, `api-campaign-repository.ts` |
-| **Presentation** | UI, pages, components | `page.tsx`, `CampaignList.tsx` |
+| Layer              | Purpose                              | Example Files                                      |
+| ------------------ | ------------------------------------ | -------------------------------------------------- |
+| **Domain**         | Business logic, entities, validation | `campaign.ts`, `email.ts` (value object)           |
+| **Application**    | Use cases, orchestration, DTOs       | `create-campaign.ts`, `user-mapper.ts`             |
+| **Infrastructure** | External systems, API clients        | `dxai-api-client.ts`, `api-campaign-repository.ts` |
+| **Presentation**   | UI, pages, components                | `page.tsx`, `CampaignList.tsx`                     |
 
 ### Dependency Rule
 
@@ -260,6 +268,7 @@ ai-marketing-fe/
 ### Next.js App Router Patterns
 
 #### 1. Server vs Client Components
+
 ```typescript
 // ✅ CORRECT: Server Component (default)
 export function ServerComponent() {
@@ -280,6 +289,7 @@ export function ClientComponent() {
 ```
 
 **Rules:**
+
 - Default to Server Components
 - Add `"use client"` ONLY when you need:
   - React hooks (`useState`, `useEffect`, etc.)
@@ -288,6 +298,7 @@ export function ClientComponent() {
   - Context consumers
 
 #### 2. Lazy Loading Pattern
+
 ```typescript
 // ✅ CORRECT: Lazy load below-the-fold sections
 import dynamic from "next/dynamic"
@@ -299,12 +310,14 @@ const FeaturesSection = dynamic(() => import("@/components/landing/features-sect
 ```
 
 **Rules:**
+
 - Lazy load sections below the fold
 - Provide loading skeleton
 - Disable SSR for client-heavy components
 - Keep above-the-fold content in main bundle
 
 #### 3. Layout Composition
+
 ```typescript
 // app/layout.tsx - Root layout with providers
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -329,27 +342,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ### TypeScript Guidelines
 
 #### 1. Type Safety
+
 ```typescript
 // ✅ CORRECT: Explicit types for props
 interface ButtonProps {
-  variant: "primary" | "secondary" | "ghost"
-  size: "sm" | "md" | "lg"
-  onClick?: () => void
-  disabled?: boolean
-  children: React.ReactNode
+  variant: "primary" | "secondary" | "ghost";
+  size: "sm" | "md" | "lg";
+  onClick?: () => void;
+  disabled?: boolean;
+  children: React.ReactNode;
 }
 
-export function Button({ variant, size, onClick, disabled, children }: ButtonProps) {
+export function Button({
+  variant,
+  size,
+  onClick,
+  disabled,
+  children,
+}: ButtonProps) {
   // Implementation
 }
 
 // ❌ INCORRECT: Implicit any
-export function Button(props) { // Type error: Parameter 'props' implicitly has an 'any' type
+export function Button(props) {
+  // Type error: Parameter 'props' implicitly has an 'any' type
   // Implementation
 }
 ```
 
 #### 2. Strict Mode Compliance
+
 ```typescript
 // tsconfig.json
 {
@@ -364,6 +386,7 @@ export function Button(props) { // Type error: Parameter 'props' implicitly has 
 ```
 
 #### 3. Component Prop Types
+
 ```typescript
 // ✅ CORRECT: Destructured props with types
 interface CardProps {
@@ -405,28 +428,30 @@ layout.tsx         # Next.js layout files
 ```
 
 ### Import Order
+
 ```typescript
 // 1. React/Next.js imports
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 // 2. Third-party libraries
-import { Sparkles, Menu, X } from "lucide-react"
+import { Sparkles, Menu, X } from "lucide-react";
 
 // 3. Internal components
-import { Button } from "@/components/ui/button"
-import { LanguageSelector } from "@/components/language-selector"
+import { Button } from "@/components/ui/button";
+import { LanguageSelector } from "@/components/language-selector";
 
 // 4. Utils and helpers
-import { useI18n } from "@/lib/i18n"
-import { cn } from "@/lib/utils"
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 // 5. Types
-import type { Locale } from "@/lib/i18n"
+import type { Locale } from "@/lib/i18n";
 ```
 
 ### Code Organization
+
 ```typescript
 // ✅ CORRECT: Logical grouping
 export function Component() {
@@ -545,6 +570,7 @@ export function Component({
 ### Component Best Practices
 
 #### 1. Always Use Semantic HTML
+
 ```typescript
 // ✅ CORRECT
 <button onClick={handleClick} aria-label="Close">
@@ -558,6 +584,7 @@ export function Component({
 ```
 
 #### 2. Provide ARIA Labels
+
 ```typescript
 // ✅ CORRECT
 <nav aria-label="Main navigation">
@@ -571,6 +598,7 @@ export function Component({
 ```
 
 #### 3. Use Next.js Image Component
+
 ```typescript
 // ✅ CORRECT
 import Image from "next/image"
@@ -590,6 +618,7 @@ import Image from "next/image"
 ```
 
 #### 4. Handle Loading States
+
 ```typescript
 // ✅ CORRECT
 export function Form() {
@@ -630,6 +659,7 @@ export function Form() {
 The project uses a custom i18n system with **692 translation keys** across **2 languages** (Vietnamese and English).
 
 #### Usage Pattern
+
 ```typescript
 "use client"
 
@@ -656,6 +686,7 @@ export function Component() {
 ```
 
 ### Translation Key Naming Convention
+
 ```
 {section}.{subsection}.{element}
 
@@ -668,6 +699,7 @@ hero.cta.trial       # Hero > CTA > Trial button
 ### Adding New Translations
 
 1. **Add to both locales** in `lib/i18n.tsx`:
+
 ```typescript
 const translations: Record<Locale, Record<string, string>> = {
   vi: {
@@ -675,17 +707,19 @@ const translations: Record<Locale, Record<string, string>> = {
   },
   en: {
     "section.new.key": "English text",
-  }
-}
+  },
+};
 ```
 
 2. **Use in component**:
+
 ```typescript
 const { t } = useI18n()
 return <p>{t("section.new.key")}</p>
 ```
 
 ### Locale Persistence
+
 - Stored in `localStorage` under key: `dxai_locale`
 - Default locale: `vi` (Vietnamese)
 - Updates `<html lang="...">` attribute automatically
@@ -697,6 +731,7 @@ return <p>{t("section.new.key")}</p>
 ### Tailwind CSS Approach
 
 #### 1. Utility-First Pattern
+
 ```typescript
 // ✅ CORRECT: Compose with utilities
 <div className="flex items-center gap-4 rounded-xl bg-white p-6 shadow-lg">
@@ -710,6 +745,7 @@ return <p>{t("section.new.key")}</p>
 ```
 
 #### 2. Responsive Design
+
 ```typescript
 // Mobile-first approach
 <div className="
@@ -731,6 +767,7 @@ return <p>{t("section.new.key")}</p>
 ```
 
 #### 3. Conditional Classes with cn()
+
 ```typescript
 import { cn } from "@/lib/utils"
 
@@ -764,33 +801,34 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-        }
+          50: "#eff6ff",
+          100: "#dbeafe",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+        },
       },
       spacing: {
-        xs: '4px',
-        sm: '8px',
-        md: '12px',
-        lg: '16px',
-        xl: '20px',
+        xs: "4px",
+        sm: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
       },
       borderRadius: {
-        'card': '12px',
-        'modal': '16px',
-        'button': '9999px', // Full rounded
-      }
-    }
-  }
-}
+        card: "12px",
+        modal: "16px",
+        button: "9999px", // Full rounded
+      },
+    },
+  },
+};
 ```
 
 ### Common Patterns
 
 #### Card Component
+
 ```typescript
 <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
   <h3 className="text-lg font-semibold text-gray-900 mb-2">Card Title</h3>
@@ -799,6 +837,7 @@ module.exports = {
 ```
 
 #### Button Variants
+
 ```typescript
 // Primary CTA
 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full shadow-sm hover:shadow-lg transition-all">
@@ -817,6 +856,7 @@ module.exports = {
 ```
 
 #### Glassmorphism Effect
+
 ```typescript
 <div className="
   bg-white/95 backdrop-blur-md
@@ -835,6 +875,7 @@ module.exports = {
 ### Image Optimization
 
 #### 1. Next.js Image Component
+
 ```typescript
 import Image from "next/image"
 
@@ -860,6 +901,7 @@ import Image from "next/image"
 ```
 
 #### 2. Image Format Priority
+
 1. **AVIF** (best compression, modern browsers)
 2. **WebP** (good compression, wide support)
 3. **JPEG** (fallback)
@@ -869,6 +911,7 @@ Next.js handles this automatically with the Image component.
 ### Code Splitting
 
 #### 1. Dynamic Imports
+
 ```typescript
 import dynamic from "next/dynamic"
 
@@ -888,6 +931,7 @@ const ReactPlayer = dynamic(() => import("react-player/youtube"), {
 ```
 
 #### 2. Bundle Analysis
+
 ```bash
 # Add to package.json scripts
 "analyze": "ANALYZE=true next build"
@@ -905,12 +949,12 @@ module.exports = withBundleAnalyzer(nextConfig)
 ```typescript
 // Target metrics (from lib/performance.ts)
 const TARGET_METRICS = {
-  LCP: 2500,  // Largest Contentful Paint < 2.5s
-  FID: 100,   // First Input Delay < 100ms
-  CLS: 0.1,   // Cumulative Layout Shift < 0.1
-  TTFB: 800,  // Time to First Byte < 800ms
-  FCP: 1800,  // First Contentful Paint < 1.8s
-}
+  LCP: 2500, // Largest Contentful Paint < 2.5s
+  FID: 100, // First Input Delay < 100ms
+  CLS: 0.1, // Cumulative Layout Shift < 0.1
+  TTFB: 800, // Time to First Byte < 800ms
+  FCP: 1800, // First Contentful Paint < 1.8s
+};
 ```
 
 ### Performance Checklist
@@ -932,6 +976,7 @@ const TARGET_METRICS = {
 ### WCAG 2.1 AA Compliance
 
 #### 1. Semantic HTML
+
 ```typescript
 // ✅ CORRECT
 <nav aria-label="Main navigation">
@@ -957,6 +1002,7 @@ const TARGET_METRICS = {
 ```
 
 #### 2. ARIA Attributes
+
 ```typescript
 // Form inputs
 <label htmlFor="email" className="sr-only">Email</label>
@@ -991,6 +1037,7 @@ const TARGET_METRICS = {
 ```
 
 #### 3. Keyboard Navigation
+
 ```typescript
 // ✅ CORRECT: Keyboard accessible
 <div
@@ -1014,6 +1061,7 @@ const TARGET_METRICS = {
 ```
 
 #### 4. Focus Management
+
 ```typescript
 // Modal focus trap
 export function Modal({ isOpen, onClose, children }: ModalProps) {
@@ -1053,6 +1101,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 ```
 
 #### 5. Touch Targets
+
 ```typescript
 // Minimum 44x44px for touch targets
 <button className="
@@ -1065,6 +1114,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 ```
 
 #### 6. Color Contrast
+
 ```typescript
 // ✅ CORRECT: WCAG AA compliant
 <p className="text-gray-900 bg-white">          // 21:1 ratio
@@ -1099,6 +1149,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 ## 🔄 STATE MANAGEMENT
 
 ### Local State (useState)
+
 ```typescript
 // ✅ CORRECT: Simple component state
 export function Counter() {
@@ -1113,6 +1164,7 @@ export function Counter() {
 ```
 
 ### Context API for Global State
+
 ```typescript
 // lib/theme-context.tsx
 "use client"
@@ -1150,35 +1202,36 @@ export function useTheme() {
 ```
 
 ### LocalStorage State
+
 ```typescript
 // ✅ CORRECT: Safe localStorage usage
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [value, setValue] = useState<T>(initialValue)
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [value, setValue] = useState<T>(initialValue);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(key)
+      const stored = localStorage.getItem(key);
       if (stored) {
-        setValue(JSON.parse(stored))
+        setValue(JSON.parse(stored));
       }
     } catch (error) {
-      console.error("Failed to read from localStorage:", error)
+      console.error("Failed to read from localStorage:", error);
     } finally {
-      setIsHydrated(true)
+      setIsHydrated(true);
     }
-  }, [key])
+  }, [key]);
 
   const updateValue = (newValue: T) => {
-    setValue(newValue)
+    setValue(newValue);
     try {
-      localStorage.setItem(key, JSON.stringify(newValue))
+      localStorage.setItem(key, JSON.stringify(newValue));
     } catch (error) {
-      console.error("Failed to write to localStorage:", error)
+      console.error("Failed to write to localStorage:", error);
     }
-  }
+  };
 
-  return [value, updateValue, isHydrated] as const
+  return [value, updateValue, isHydrated] as const;
 }
 ```
 
@@ -1191,50 +1244,53 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 ```typescript
 // ✅ CORRECT: Type-safe API calls
 interface RegisterFormData {
-  business_type: "enterprise" | "household"
-  tax_code: string
-  company_name: string
-  first_name: string
-  last_name: string
-  email: string
-  phone_number: string
-  job_position: string
-  selected_package: string
+  business_type: "enterprise" | "household";
+  tax_code: string;
+  company_name: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+  job_position: string;
+  selected_package: string;
 }
 
 async function registerUser(data: RegisterFormData) {
-  const response = await fetch("https://api-ai-code.dsp.one/api/users/register-company", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    "https://api-ai-code.dsp.one/api/users/register-company",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     },
-    body: JSON.stringify(data),
-  })
+  );
 
   if (!response.ok) {
-    const error = await response.json()
-    throw new Error(error.message || "Registration failed")
+    const error = await response.json();
+    throw new Error(error.message || "Registration failed");
   }
 
-  return response.json()
+  return response.json();
 }
 
 // Usage in component
 const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setIsLoading(true)
+  e.preventDefault();
+  setIsLoading(true);
 
   try {
-    const result = await registerUser(formData)
-    setSuccess(true)
+    const result = await registerUser(formData);
+    setSuccess(true);
   } catch (error) {
     setErrors({
-      submit: error instanceof Error ? error.message : "An error occurred"
-    })
+      submit: error instanceof Error ? error.message : "An error occurred",
+    });
   } finally {
-    setIsLoading(false)
+    setIsLoading(false);
   }
-}
+};
 ```
 
 ### Error Handling
@@ -1243,31 +1299,30 @@ const handleSubmit = async (e: React.FormEvent) => {
 // ✅ CORRECT: Comprehensive error handling
 async function apiCall() {
   try {
-    const response = await fetch("/api/endpoint")
+    const response = await fetch("/api/endpoint");
 
     if (!response.ok) {
       // HTTP error
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
 
-    const data = await response.json()
-    return data
-
+    const data = await response.json();
+    return data;
   } catch (error) {
     if (error instanceof TypeError) {
       // Network error
-      console.error("Network error:", error)
-      throw new Error("Unable to connect. Check your internet connection.")
+      console.error("Network error:", error);
+      throw new Error("Unable to connect. Check your internet connection.");
     }
 
     if (error instanceof SyntaxError) {
       // JSON parse error
-      console.error("Invalid response format:", error)
-      throw new Error("Server returned invalid data.")
+      console.error("Invalid response format:", error);
+      throw new Error("Server returned invalid data.");
     }
 
     // Re-throw other errors
-    throw error
+    throw error;
   }
 }
 ```
@@ -1308,23 +1363,23 @@ describe("Button", () => {
 
 ```typescript
 // Recommended: Playwright
-import { test, expect } from "@playwright/test"
+import { test, expect } from "@playwright/test";
 
 test("user can register successfully", async ({ page }) => {
-  await page.goto("/dang-ky")
+  await page.goto("/register");
 
   // Fill form
-  await page.fill('[name="first_name"]', "John")
-  await page.fill('[name="last_name"]', "Doe")
-  await page.fill('[name="email"]', "john@example.com")
-  await page.fill('[name="phone_number"]', "0912345678")
+  await page.fill('[name="first_name"]', "John");
+  await page.fill('[name="last_name"]', "Doe");
+  await page.fill('[name="email"]', "john@example.com");
+  await page.fill('[name="phone_number"]', "0912345678");
 
   // Submit
-  await page.click('button[type="submit"]')
+  await page.click('button[type="submit"]');
 
   // Verify success
-  await expect(page.locator('text=Thành công')).toBeVisible()
-})
+  await expect(page.locator("text=Thành công")).toBeVisible();
+});
 ```
 
 ---
@@ -1379,10 +1434,7 @@ perf(images): implement lazy loading for features section
     "lint-staged": "^15.0.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "*.{ts,tsx}": ["eslint --fix", "prettier --write"]
   }
 }
 ```
@@ -1436,6 +1488,7 @@ vercel --prod
 ```
 
 **Build Settings:**
+
 - Framework: Next.js
 - Root Directory: `./`
 - Build Command: `next build`
@@ -1449,6 +1502,7 @@ vercel --prod
 ### Common Issues
 
 #### 1. Hydration Mismatch
+
 ```
 Error: Text content does not match server-rendered HTML
 ```
@@ -1456,6 +1510,7 @@ Error: Text content does not match server-rendered HTML
 **Cause:** Client/server mismatch (localStorage, Date.now(), Math.random())
 
 **Solution:**
+
 ```typescript
 // ❌ INCORRECT
 export function Component() {
@@ -1478,6 +1533,7 @@ export function Component() {
 ```
 
 #### 2. "use client" Missing
+
 ```
 Error: Attempted to call useState() in a Server Component
 ```
@@ -1485,18 +1541,20 @@ Error: Attempted to call useState() in a Server Component
 **Solution:** Add `"use client"` directive at top of file
 
 ```typescript
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 // ...
 ```
 
 #### 3. Image Optimization Error
+
 ```
 Error: Invalid src prop on `next/image`
 ```
 
 **Solution:** Add domain to `next.config.ts`
+
 ```typescript
 const nextConfig = {
   images: {
@@ -1511,22 +1569,24 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 ```
 
 #### 4. Tailwind Classes Not Working
+
 ```
 Classes not applying in production
 ```
 
 **Solution:** Check `tailwind.config.ts` content paths
+
 ```typescript
 export default {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-}
+};
 ```
 
 ---
@@ -1779,17 +1839,20 @@ export function Accordion({ items }: AccordionProps) {
 ## 📖 ADDITIONAL RESOURCES
 
 ### Documentation
+
 - [Next.js 14 Docs](https://nextjs.org/docs)
 - [React 19 Docs](https://react.dev)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
 ### Tools
+
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance auditing
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - Color contrast
 - [WAVE](https://wave.webaim.org/) - Accessibility evaluation
 
 ### Community
+
 - Project Issues: [GitHub Issues](https://github.com/anthropics/claude-code/issues)
 - Next.js Discord: [discord.gg/nextjs](https://discord.gg/nextjs)
 
@@ -1798,6 +1861,7 @@ export function Accordion({ items }: AccordionProps) {
 ## 📝 CHANGE LOG
 
 ### Version 2.0.0 (2026-01-20)
+
 - **NEW**: Pragmatic Clean Architecture recommendation
 - **NEW**: ARCHITECTURE.md with comprehensive architecture documentation
 - **NEW**: Layer definitions (Domain, Application, Infrastructure, Presentation)
@@ -1807,6 +1871,7 @@ export function Accordion({ items }: AccordionProps) {
 - **UPDATED**: Architecture section with new patterns
 
 ### Version 1.0.0 (2026-01-16)
+
 - Initial CLAUDE.md documentation
 - Comprehensive project structure
 - Code standards and best practices

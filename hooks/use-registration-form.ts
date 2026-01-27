@@ -130,7 +130,7 @@ function calculatePasswordStrength(password: string): PasswordStrength {
  *
  * Consolidates duplicate form logic from:
  * - components/cta-register-modal.tsx
- * - app/dang-ky/page.tsx
+ * - app/register/page.tsx
  *
  * Provides:
  * - Form state management

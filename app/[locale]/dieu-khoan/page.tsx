@@ -38,7 +38,8 @@ export default function TermsPage() {
               chỉnh việc truy cập và sử dụng nền tảng DSP.one và các dịch vụ
               liên quan, bao gồm module AI Marketing (gọi chung là &quot;Dịch
               vụ&quot;) được cung cấp bởi
-              <strong> Uniksmart</strong> (&quot;Uniksmart&quot;, &quot;DSP.one&quot;, &quot;chúng tôi&quot;).
+              <strong> Uniksmart</strong> (&quot;Uniksmart&quot;,
+              &quot;DSP.one&quot;, &quot;chúng tôi&quot;).
             </p>
 
             <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg">
@@ -755,7 +756,7 @@ export default function TermsPage() {
             Xem Chính sách Bảo mật
           </Link>
           <Link
-            href="/dang-ky"
+            href="/register"
             className="flex-1 text-center px-6 py-3 bg-blue-600 rounded-lg text-white hover:bg-blue-700 transition-colors"
           >
             Đăng ký dùng thử

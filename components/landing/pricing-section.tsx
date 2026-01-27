@@ -262,7 +262,7 @@ const PricingCard = memo(
 
           {/* ==================== CTA ZONE ==================== */}
           <LocaleLink
-            href={`/dang-ky?package=${plan?.id}`}
+            href={`/register?package=${plan?.id}`}
             className={`
             w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 
             text-center flex items-center justify-center gap-2 mb-8
@@ -419,7 +419,7 @@ export function PricingSection() {
 
                 {/* CTA Button */}
                 <LocaleLink
-                  href={`/dang-ky?package=${plan?.id}`}
+                  href={`/register?package=${plan?.id}`}
                   className={`block w-full py-3.5 px-6 rounded-full font-semibold text-center transition-all duration-200 mb-8 ${
                     isFeatured
                       ? "bg-[#ff7900] text-white hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 hover:shadow-xl"

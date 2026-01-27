@@ -32,7 +32,7 @@ export function Footer() {
     { labelKey: "footer.product.overview", href: "/" },
     { labelKey: "footer.product.features", href: "#features" },
     { labelKey: "footer.product.pricing", href: "#pricing" },
-    { labelKey: "footer.product.trial", href: "/dang-ky" },
+    { labelKey: "footer.product.trial", href: "/register" },
   ];
 
   const supportLinks = [

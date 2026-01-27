@@ -278,7 +278,7 @@ function PricingCard({
       </div>
 
       {/* CTA button */}
-      <LocaleLink href={`/dang-ky?package=${tier.name.toLowerCase()}`}>
+      <LocaleLink href={`/register?package=${tier.name.toLowerCase()}`}>
         <Button
           className={`w-full rounded-full py-6 text-base font-semibold shadow-optura hover:shadow-optura-lg transition-all ${
             tier.popular

@@ -809,7 +809,7 @@ export default function PrivacyPolicyPage() {
             Xem Điều khoản Sử dụng
           </Link>
           <Link
-            href="/dang-ky"
+            href="/register"
             className="flex-1 text-center px-6 py-3 bg-emerald-600 rounded-lg text-white hover:bg-emerald-700 transition-colors"
           >
             Đăng ký dùng thử
