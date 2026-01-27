@@ -662,6 +662,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "cta.ssl": "Bảo mật SSL",
     "cta.noCard": "Không cần thẻ",
 
+    // CTA Modal
+    "modal.cta.dontMiss": "ĐỪNG BỎ LỠ!",
+    "modal.cta.benefit1": "Demo miễn phí Uniksmart",
+    "modal.cta.benefit2": "Báo giá cá nhân hóa theo quy mô doanh nghiệp",
+    "modal.cta.benefit3": "Tư vấn 1:1 bởi chuyên gia Marketing",
+    "modal.cta.stats.businesses": "Doanh nghiệp đã tin chọn",
+    "modal.cta.poweredBy": "Powered by Uniksmart",
+    "modal.cta.badge": "Chỉ 10s – Nhận demo toàn bộ tính năng",
+    "modal.cta.title": "BÁO GIÁ & DÙNG THỬ NGAY!",
+    "modal.cta.submit": "Nhận báo giá & Demo miễn phí",
+    "modal.cta.submitting": "Đang gửi...",
+    "modal.cta.terms": "Bằng việc đăng ký, bạn đồng ý với",
+    "modal.cta.termsLink": "Điều khoản sử dụng",
+    "modal.cta.and": "và",
+    "modal.cta.privacyLink": "Chính sách bảo mật",
+    "modal.cta.close": "Đóng",
+    "modal.cta.closeModal": "Đóng modal",
+    "modal.cta.success.title": "Đăng ký thành công!",
+    "modal.cta.success.message":
+      "Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.",
+    "modal.cta.submit.sending": "Đang gửi đăng ký",
+    "modal.cta.submit.get": "Nhận báo giá & Demo miễn phí",
+
     // Footer
     "footer.description":
       "Giải pháp Marketing tự động hoá toàn diện dành cho doanh nghiệp. Tiên phong ứng dụng AI vào quy trình sản xuất nội dung thực chiến.",
@@ -889,15 +912,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.finalCta.trust.support": "Hỗ trợ 24/7",
 
     // Modal CTA
-    "modal.cta.title": "ĐỪNG BỎ LỠ!",
-    "modal.cta.benefit1": "Demo miễn phí Uniksmart",
-    "modal.cta.benefit2": "Báo giá cá nhân hóa theo quy mô doanh nghiệp",
-    "modal.cta.benefit3": "Tư vấn 1:1 bởi chuyên gia Marketing",
     "modal.cta.trust": "Doanh nghiệp đã tin chọn",
     "modal.cta.powered": "Powered by Uniksmart",
     "modal.cta.formTitle": "BÁO GIÁ & DÙNG THỬ NGAY!",
     "modal.cta.formBadge": "Chỉ 10s – Nhận demo toàn bộ tính năng",
-    "modal.cta.submit": "Nhận báo giá & Demo miễn phí",
 
     // Registration Form
     "registration.form.company.typePlaceholder": "Chọn loại hình doanh nghiệp",
@@ -1090,6 +1108,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.ads.benefit2": "Gợi ý đối tượng target chính xác",
     "featurePage.ads.benefit3": "A/B Testing tự động cho ads",
     "featurePage.ads.benefit4": "Cảnh báo real-time khi chiến dịch có vấn đề",
+    "form.packageSelector.label": "Chọn gói dịch vụ",
   },
   en: {
     // Navigation
@@ -1811,6 +1830,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "cta.ssl": "SSL Secured",
     "cta.noCard": "No card needed",
 
+    // CTA Modal
+    "modal.cta.dontMiss": "DON'T MISS OUT!",
+    "modal.cta.benefit1": "Free Uniksmart demo",
+    "modal.cta.benefit2": "Personalized pricing for your business scale",
+    "modal.cta.benefit3": "1:1 consultation with Marketing experts",
+    "modal.cta.stats.businesses": "Businesses trust us",
+    "modal.cta.poweredBy": "Powered by Uniksmart",
+    "modal.cta.badge": "Just 10s – Get full features demo",
+    "modal.cta.title": "GET QUOTE & TRY NOW!",
+    "modal.cta.submit": "Get Quote & Free Demo",
+    "modal.cta.submitting": "Submitting...",
+    "modal.cta.terms": "By signing up, you agree to our",
+    "modal.cta.termsLink": "Terms of Service",
+    "modal.cta.and": "and",
+    "modal.cta.privacyLink": "Privacy Policy",
+    "modal.cta.close": "Close",
+    "modal.cta.closeModal": "Close modal",
+    "modal.cta.success.title": "Registration Successful!",
+    "modal.cta.success.message":
+      "Thank you for your interest in Uniksmart. Our team will contact you within 24 hours.",
+    "modal.cta.submit.sending": "Submitting registration",
+    "modal.cta.submit.get": "Get Quote & Free Demo",
+
     // Footer
     "footer.description":
       "Comprehensive automated Marketing solution for businesses. Pioneering AI application in practical content production workflows.",
@@ -2037,15 +2079,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "about.finalCta.trust.support": "24/7 support",
 
     // Modal CTA
-    "modal.cta.title": "DON'T MISS OUT!",
-    "modal.cta.benefit1": "Free Uniksmart Demo",
-    "modal.cta.benefit2": "Personalized pricing based on your business scale",
-    "modal.cta.benefit3": "1:1 consultation with Marketing experts",
     "modal.cta.trust": "Businesses have trusted us",
     "modal.cta.powered": "Powered by Uniksmart",
     "modal.cta.formTitle": "GET QUOTE & TRY NOW!",
     "modal.cta.formBadge": "Just 10s – Get full feature demo",
-    "modal.cta.submit": "Get Quote & Free Demo",
 
     // Common
     "common.learnMore": "Learn More",
@@ -2231,6 +2268,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.ads.benefit2": "Accurate target audience suggestions",
     "featurePage.ads.benefit3": "Automatic A/B Testing for ads",
     "featurePage.ads.benefit4": "Real-time alerts when campaigns have issues",
+    "form.packageSelector.label": "Select Package",
   },
 };
 

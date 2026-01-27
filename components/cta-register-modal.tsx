@@ -18,6 +18,7 @@ import { BusinessTypeSelector } from "@/components/forms/business-type-selector"
 import { PackageSelector } from "@/components/forms/package-selector";
 import { RegistrationFields } from "@/components/forms/registration-fields";
 import { useRegistrationForm } from "@/hooks/use-registration-form";
+import { useI18n } from "@/lib/i18n";
 
 const STORAGE_KEY = "dxai_cta_modal_dismissed";
 
@@ -26,6 +27,7 @@ export function CtaRegisterModal() {
   const firstInputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  const { t } = useI18n();
 
   // Use shared registration form hook
   const {
@@ -165,17 +167,16 @@ export function CtaRegisterModal() {
               id="success-title"
               className="text-2xl font-bold text-gray-900 mb-3"
             >
-              Đăng ký thành công!
+              {t("modal.cta.success.title")}
             </h2>
             <p className="text-gray-600 mb-6">
-              Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của chúng tôi sẽ
-              liên hệ với bạn trong vòng 24 giờ.
+              {t("modal.cta.success.message")}
             </p>
             <Button
               onClick={handleClose}
               className="w-full h-12 rounded-xl bg-[#ff7900] hover:bg-[#e56b00]"
             >
-              Đóng
+              {t("modal.cta.close")}
             </Button>
           </div>
         </div>
@@ -218,7 +219,7 @@ export function CtaRegisterModal() {
 
               {/* Main heading */}
               <h2 className="text-3xl font-bold mb-6 leading-tight">
-                ĐỪNG BỎ LỠ!
+                {t("modal.cta.dontMiss")}
               </h2>
 
               {/* Benefits list */}
@@ -228,7 +229,7 @@ export function CtaRegisterModal() {
                     <Gift className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
-                    Demo miễn phí Uniksmart
+                    {t("modal.cta.benefit1")}
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -236,7 +237,7 @@ export function CtaRegisterModal() {
                     <Sparkles className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
-                    Báo giá cá nhân hóa theo quy mô doanh nghiệp
+                    {t("modal.cta.benefit2")}
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -244,7 +245,7 @@ export function CtaRegisterModal() {
                     <Headphones className="w-3.5 h-3.5 text-cyan-100" />
                   </div>
                   <span className="text-white/90 text-sm">
-                    Tư vấn 1:1 bởi chuyên gia Marketing
+                    {t("modal.cta.benefit3")}
                   </span>
                 </li>
               </ul>
@@ -258,7 +259,7 @@ export function CtaRegisterModal() {
                   <div>
                     <div className="text-2xl font-bold">350,000+</div>
                     <div className="text-white/80 text-sm">
-                      Doanh nghiệp đã tin chọn
+                      {t("modal.cta.stats.businesses")}
                     </div>
                   </div>
                 </div>
@@ -267,7 +268,9 @@ export function CtaRegisterModal() {
 
             {/* Bottom trust line */}
             <div className="relative z-10 mt-6 pt-4 border-t border-white/20">
-              <p className="text-white/70 text-sm">Powered by Uniksmart</p>
+              <p className="text-white/70 text-sm">
+                {t("modal.cta.poweredBy")}
+              </p>
             </div>
           </div>
 
@@ -277,7 +280,7 @@ export function CtaRegisterModal() {
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
-              aria-label="Đóng modal"
+              aria-label={t("modal.cta.closeModal")}
             >
               <X className="w-5 h-5 text-gray-600" />
             </button>
@@ -286,10 +289,10 @@ export function CtaRegisterModal() {
             <div className="mb-6 pr-12">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#22b5f8]/10 text-[#008bff] text-xs font-medium mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
-                Chỉ 10s – Nhận demo toàn bộ tính năng
+                {t("modal.cta.badge")}
               </div>
               <h3 id="modal-title" className="text-2xl font-bold text-gray-900">
-                BÁO GIÁ & DÙNG THỬ NGAY!
+                {t("modal.cta.title")}
               </h3>
             </div>
 
@@ -327,18 +330,18 @@ export function CtaRegisterModal() {
                 disabled={isLoading}
                 aria-label={
                   isLoading
-                    ? "Đang gửi đăng ký"
-                    : "Nhận báo giá & Demo miễn phí"
+                    ? t("modal.cta.submit.sending")
+                    : t("modal.cta.submit.get")
                 }
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center gap-2">
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Đang gửi...</span>
+                    <span>{t("modal.cta.submitting")}</span>
                   </span>
                 ) : (
                   <span className="flex items-center justify-center gap-2">
-                    <span>Nhận báo giá & Demo miễn phí</span>
+                    <span>{t("modal.cta.submit")}</span>
                     <Send className="w-4 h-4" />
                   </span>
                 )}
@@ -346,19 +349,19 @@ export function CtaRegisterModal() {
 
               {/* Terms */}
               <p className="text-xs text-gray-500 text-center leading-relaxed pt-2">
-                Bằng việc đăng ký, bạn đồng ý với{" "}
+                {t("modal.cta.terms")}{" "}
                 <LocaleLink
                   href="/terms"
                   className="text-[#22b5f8] hover:underline"
                 >
-                  Điều khoản sử dụng
+                  {t("modal.cta.termsLink")}
                 </LocaleLink>{" "}
-                và{" "}
+                {t("modal.cta.and")}{" "}
                 <LocaleLink
                   href="/privacy"
                   className="text-[#22b5f8] hover:underline"
                 >
-                  Chính sách bảo mật
+                  {t("modal.cta.privacyLink")}
                 </LocaleLink>
               </p>
             </form>

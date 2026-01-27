@@ -4,6 +4,7 @@ import { memo } from "react";
 import { Check, Sparkles } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { packageOptions } from "./types";
+import { useI18n } from "@/lib/i18n";
 
 interface PackageSelectorProps {
   value: string;
@@ -21,10 +22,12 @@ export const PackageSelector = memo(
     error,
     className = "",
   }: PackageSelectorProps) => {
+    const { t } = useI18n();
+
     return (
       <div className={`space-y-3 ${className}`}>
         <Label className="text-sm font-medium text-gray-900">
-          Chọn gói dịch vụ{" "}
+          {t("form.packageSelector.label")}{" "}
           <span className="text-red-500" aria-label="required">
             *
           </span>
@@ -33,7 +36,7 @@ export const PackageSelector = memo(
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {packageOptions.map((pkg) => {
             const isSelected = value === pkg.id;
-            const isPopular = pkg.popular;
+            const isPopular = pkg?.popular;
 
             return (
               <button
