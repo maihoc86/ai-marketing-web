@@ -144,7 +144,7 @@ export function Navbar() {
                 "p-2.5 text-[#1c1c1c] hover:text-[#1a9fd8]",
                 "hover:bg-[#f5f5f5] rounded-lg",
                 "transition-colors duration-200",
-                "min-h-11 min-w-[44px]",
+                "min-h-11 min-w-11",
                 "flex items-center justify-center touch-manipulation",
                 "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-offset-2 focus:ring-offset-white",
               )}
@@ -171,7 +171,7 @@ export function Navbar() {
             "rounded-2xl shadow-lg shadow-black/10",
             "transition-all duration-300 ease-out overflow-hidden",
             isOpen
-              ? "max-h-[500px] opacity-100"
+              ? "max-h-125 opacity-100"
               : "max-h-0 opacity-0 pointer-events-none",
           )}
           aria-hidden={!isOpen}
