@@ -1,5 +1,3 @@
-"use client";
-
 import { FileText } from "lucide-react";
 import { Metadata } from "next";
 
@@ -22,7 +20,10 @@ export default function TermsPage() {
                 DSP.ONE Terms of Service
               </h1>
               <p className="text-sm text-gray-500">
-                Last updated: 24 November 2025
+                Effective Date: 24 March 2025
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                Last Updated: 24 November 2025
               </p>
             </div>
           </div>
