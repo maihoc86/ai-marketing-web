@@ -571,12 +571,14 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
               return (
                 <div
                   key={idx}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+                  className="group/tooltip relative flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"
                 >
-                  <div className={cn(
-                    "w-10 h-10 rounded-lg flex items-center justify-center shrink-0",
-                    feature.iconBg
-                  )}>
+                  <div
+                    className={cn(
+                      "w-10 h-10 rounded-lg flex items-center justify-center shrink-0",
+                      feature.iconBg,
+                    )}
+                  >
                     <ItemIcon className={cn("w-5 h-5", feature.iconColor)} />
                   </div>
                   <div className="min-w-0">
@@ -586,6 +588,16 @@ function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
                     <p className="text-xs text-gray-500 truncate">
                       {t(item.descKey)}
                     </p>
+                  </div>
+
+                  {/* Tooltip */}
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-3 bg-gray-900 text-white text-sm rounded-lg shadow-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 w-72 pointer-events-none">
+                    <div className="space-y-1">
+                      <p className="font-semibold">{t(item.nameKey)}</p>
+                      <p className="text-xs text-gray-300">{t(item.descKey)}</p>
+                    </div>
+                    {/* Arrow */}
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-2 h-2 bg-gray-900 transform rotate-45 -mt-1" />
                   </div>
                 </div>
               );

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useCallback,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useCallback, type ReactNode } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import type { Locale } from "./i18n-config";
 
@@ -118,6 +113,27 @@ const translations: Record<Locale, Record<string, string>> = {
       "Trợ lý AI thông minh được huấn luyện với dữ liệu thực tế của doanh nghiệp bạn. Tư vấn sản phẩm, báo giá tức thì, đặt lịch hẹn và chuyển lead chất lượng cao cho đội sales - tất cả hoạt động 24/7 không cần nghỉ ngơi. Giảm 99% thời gian chờ đợi của khách hàng.",
     "features.chatbot.stats":
       "Phản hồi tức thì 24/7 • Giảm 99% thời gian chờ đợi",
+    "features.chatbot.feature1.name": "Tư vấn Sản phẩm & Dịch vụ",
+    "features.chatbot.feature1.desc":
+      "Tự động tư vấn chi tiết về gói sản phẩm, dịch vụ và tính năng dựa trên nhu cầu khách hàng với kịch bản cá nhân hóa",
+    "features.chatbot.feature2.name": "Báo giá Tức thì",
+    "features.chatbot.feature2.desc":
+      "Tính toán và cung cấp báo giá ước tính ngay lập tức dựa trên yêu cầu khách hàng nhập vào 24/7",
+    "features.chatbot.feature3.name": "Kiểm tra Lịch & Đặt hẹn",
+    "features.chatbot.feature3.desc":
+      "Kết nối realtime với hệ thống lịch để kiểm tra trống và hỗ trợ đặt lịch hẹn tự động",
+    "features.chatbot.feature4.name": "Chuyển Lead Chất lượng",
+    "features.chatbot.feature4.desc":
+      "Phân loại mức độ tiềm năng lead (Hot/Warm/Cold) và tự động đẩy thông tin vào CRM hoặc thông báo cho đội Sales",
+    "features.chatbot.metric1.name": "Thời gian Phản hồi Trung bình",
+    "features.chatbot.metric1.value": "~3 giây",
+    "features.chatbot.metric1.note": "Giảm 99% so với thủ công",
+    "features.chatbot.metric2.name": "Tỷ lệ Chuyển đổi Lead",
+    "features.chatbot.metric2.value": "+45%",
+    "features.chatbot.metric2.note": "Nhờ phản hồi tức thì",
+    "features.chatbot.metric3.name": "Vận hành Liên tục",
+    "features.chatbot.metric3.value": "24/7/365",
+    "features.chatbot.metric3.note": "Không bỏ lỡ khách hàng nào",
     "features.video.title": "AI Video Factory",
     "features.video.desc":
       "Sản xuất video marketing chuyên nghiệp với KOL Ảo chỉ trong 5 phút. Không cần quay phim, không cần studio, không cần thuê KOL thật với chi phí hàng chục triệu. AI tự động tạo video với giọng nói tự nhiên, lip-sync hoàn hảo và đa ngôn ngữ. Tiết kiệm 95% chi phí so với phương pháp truyền thống.",
@@ -628,12 +644,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "faq.q3": "Có được sử dụng Uniksmart miễn phí không?",
     "faq.a3":
       "Có. Uniksmart cung cấp gói dùng thử 7 ngày miễn phí với đầy đủ tính năng. Khách hàng có thể nâng cấp lên gói trả phí để có nhiều Credits hơn và truy cập toàn bộ công cụ AI nâng cao.",
-    "faq.q4":
-      "Uniksmart có đáp ứng sử dụng trên điện thoại không?",
+    "faq.q4": "Uniksmart có đáp ứng sử dụng trên điện thoại không?",
     "faq.a4":
       "Có. Uniksmart hỗ trợ đầy đủ trên iOS và Android. Giao diện được tối ưu cho trải nghiệm di động, cho phép nhân sự sử dụng AI mọi lúc, mọi nơi.",
-    "faq.q5":
-      "Uniksmart có cập nhật các công cụ AI mới nhất không?",
+    "faq.q5": "Uniksmart có cập nhật các công cụ AI mới nhất không?",
     "faq.a5":
       "Chúng tôi luôn nỗ lực xem xét và tích hợp các công cụ AI tiên tiến nhất, với ưu tiên cân bằng giữa lợi ích của khách hàng và hiệu quả chi phí. Khi xuất hiện những công cụ mới, Uniksmart sẽ đánh giá và cân nhắc cập nhật nhằm giúp khách hàng tận dụng tốt nhất giá trị từ AI.",
 
@@ -954,25 +968,31 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.tryFree": "Dùng thử miễn phí",
     "featurePage.viewPricing": "Xem bảng giá",
     "featurePage.keyFeatures": "Tính năng chính",
-    "featurePage.keyFeaturesDesc": "Khám phá các tính năng mạnh mẽ giúp tự động hóa marketing của bạn",
+    "featurePage.keyFeaturesDesc":
+      "Khám phá các tính năng mạnh mẽ giúp tự động hóa marketing của bạn",
     "featurePage.seeInAction": "Xem hoạt động thực tế",
     "featurePage.ctaTitle": "Sẵn sàng bắt đầu?",
-    "featurePage.ctaDesc": "Đăng ký dùng thử miễn phí 14 ngày và trải nghiệm sức mạnh của AI Marketing",
+    "featurePage.ctaDesc":
+      "Đăng ký dùng thử miễn phí 14 ngày và trải nghiệm sức mạnh của AI Marketing",
     "featurePage.startTrial": "Bắt đầu dùng thử",
     "featurePage.exploreMore": "Khám phá thêm tính năng",
 
     // Feature Page - Chatbot
     "featurePage.chatbot.feature5.name": "Hỗ trợ đa ngôn ngữ",
-    "featurePage.chatbot.feature5.desc": "Tự động phát hiện và trả lời bằng ngôn ngữ của khách hàng",
+    "featurePage.chatbot.feature5.desc":
+      "Tự động phát hiện và trả lời bằng ngôn ngữ của khách hàng",
     "featurePage.chatbot.feature6.name": "Tích hợp CRM",
-    "featurePage.chatbot.feature6.desc": "Đồng bộ dữ liệu khách hàng với hệ thống CRM của bạn",
+    "featurePage.chatbot.feature6.desc":
+      "Đồng bộ dữ liệu khách hàng với hệ thống CRM của bạn",
     "featurePage.chatbot.metric1.label": "Hoạt động liên tục",
     "featurePage.chatbot.metric2.label": "Thời gian phản hồi",
     "featurePage.chatbot.metric3.label": "Tỷ lệ chuyển đổi",
     "featurePage.chatbot.metric4.label": "Giảm thời gian chờ",
     "featurePage.chatbot.benefitsTitle": "Tại sao chọn AI Chatbot?",
-    "featurePage.chatbot.benefitsDesc": "Chatbot AI thông minh giúp doanh nghiệp chăm sóc khách hàng 24/7 mà không cần nhân sự.",
-    "featurePage.chatbot.benefit1": "Phản hồi khách hàng ngay lập tức, không cần chờ đợi",
+    "featurePage.chatbot.benefitsDesc":
+      "Chatbot AI thông minh giúp doanh nghiệp chăm sóc khách hàng 24/7 mà không cần nhân sự.",
+    "featurePage.chatbot.benefit1":
+      "Phản hồi khách hàng ngay lập tức, không cần chờ đợi",
     "featurePage.chatbot.benefit2": "Giảm chi phí nhân sự chăm sóc khách hàng",
     "featurePage.chatbot.benefit3": "Thu thập và phân loại lead chất lượng cao",
     "featurePage.chatbot.benefit4": "Tích hợp dễ dàng với website và fanpage",
@@ -983,7 +1003,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.metric3.label": "Thời gian tạo",
     "featurePage.content.metric4.label": "Tiết kiệm chi phí",
     "featurePage.content.benefitsTitle": "Tại sao chọn AI Content Creator?",
-    "featurePage.content.benefitsDesc": "Tạo nội dung chuyên nghiệp trong vài giây với AI.",
+    "featurePage.content.benefitsDesc":
+      "Tạo nội dung chuyên nghiệp trong vài giây với AI.",
     "featurePage.content.benefit1": "Tạo hình ảnh 4K chuyên nghiệp với KOL ảo",
     "featurePage.content.benefit2": "Viết caption và hashtag bắt trend tự động",
     "featurePage.content.benefit3": "50+ mẫu template cho mọi ngành nghề",
@@ -995,7 +1016,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.trends.metric3.label": "Định dạng hỗ trợ",
     "featurePage.trends.metric4.label": "Độ chính xác",
     "featurePage.trends.benefitsTitle": "Tại sao chọn AI Hot Trends?",
-    "featurePage.trends.benefitsDesc": "Luôn cập nhật xu hướng mới nhất để content luôn viral.",
+    "featurePage.trends.benefitsDesc":
+      "Luôn cập nhật xu hướng mới nhất để content luôn viral.",
     "featurePage.trends.benefit1": "Phát hiện xu hướng viral trước đối thủ",
     "featurePage.trends.benefit2": "Gợi ý ý tưởng content theo trend",
     "featurePage.trends.benefit3": "Theo dõi đối thủ cạnh tranh real-time",
@@ -1003,13 +1025,15 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Feature Page - Video
     "featurePage.video.feature6.name": "Xuất đa định dạng",
-    "featurePage.video.feature6.desc": "Hỗ trợ YouTube, TikTok, Reels với các tỷ lệ khung hình phù hợp",
+    "featurePage.video.feature6.desc":
+      "Hỗ trợ YouTube, TikTok, Reels với các tỷ lệ khung hình phù hợp",
     "featurePage.video.metric1.label": "Thời gian sản xuất",
     "featurePage.video.metric2.label": "Độ phân giải",
     "featurePage.video.metric3.label": "Tiết kiệm chi phí",
     "featurePage.video.metric4.label": "Giọng nói AI",
     "featurePage.video.benefitsTitle": "Tại sao chọn AI Video Factory?",
-    "featurePage.video.benefitsDesc": "Sản xuất video marketing chuyên nghiệp với chi phí gần như bằng 0.",
+    "featurePage.video.benefitsDesc":
+      "Sản xuất video marketing chuyên nghiệp với chi phí gần như bằng 0.",
     "featurePage.video.benefit1": "Tạo video với KOL ảo chỉ trong 5 phút",
     "featurePage.video.benefit2": "Không cần studio, không cần quay phim",
     "featurePage.video.benefit3": "Lip-sync tự động, giọng AI tự nhiên",
@@ -1017,14 +1041,17 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Feature Page - Email
     "featurePage.email.feature6.name": "Phân khúc thông minh",
-    "featurePage.email.feature6.desc": "Tự động phân loại khách hàng theo hành vi và tương tác",
+    "featurePage.email.feature6.desc":
+      "Tự động phân loại khách hàng theo hành vi và tương tác",
     "featurePage.email.metric1.label": "Tự động hóa",
     "featurePage.email.metric2.label": "Open Rate tăng",
     "featurePage.email.metric3.label": "Giai đoạn chăm sóc",
     "featurePage.email.metric4.label": "Hoạt động",
     "featurePage.email.benefitsTitle": "Tại sao chọn Email Automation?",
-    "featurePage.email.benefitsDesc": "Email marketing tự động 100% với customer journey hoàn chỉnh.",
-    "featurePage.email.benefit1": "Tự động gửi email theo hành trình khách hàng",
+    "featurePage.email.benefitsDesc":
+      "Email marketing tự động 100% với customer journey hoàn chỉnh.",
+    "featurePage.email.benefit1":
+      "Tự động gửi email theo hành trình khách hàng",
     "featurePage.email.benefit2": "A/B Testing thông minh tối ưu open rate",
     "featurePage.email.benefit3": "Cá nhân hóa nội dung theo từng khách hàng",
     "featurePage.email.benefit4": "Báo cáo chi tiết hiệu quả chiến dịch",
@@ -1035,23 +1062,30 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.multiPlatform.metric3.label": "Trả lời tự động",
     "featurePage.multiPlatform.metric4.label": "Dashboard duy nhất",
     "featurePage.multiPlatform.benefitsTitle": "Tại sao chọn Multi-Platform?",
-    "featurePage.multiPlatform.benefitsDesc": "Quản lý tất cả kênh social từ một nơi duy nhất.",
-    "featurePage.multiPlatform.benefit1": "Đăng bài hàng loạt lên 5+ nền tảng cùng lúc",
-    "featurePage.multiPlatform.benefit2": "Content Calendar trực quan với drag & drop",
-    "featurePage.multiPlatform.benefit3": "AI tự động trả lời comment và tin nhắn",
+    "featurePage.multiPlatform.benefitsDesc":
+      "Quản lý tất cả kênh social từ một nơi duy nhất.",
+    "featurePage.multiPlatform.benefit1":
+      "Đăng bài hàng loạt lên 5+ nền tảng cùng lúc",
+    "featurePage.multiPlatform.benefit2":
+      "Content Calendar trực quan với drag & drop",
+    "featurePage.multiPlatform.benefit3":
+      "AI tự động trả lời comment và tin nhắn",
     "featurePage.multiPlatform.benefit4": "Unified Inbox gom tất cả tin nhắn",
 
     // Feature Page - Ads
     "featurePage.ads.feature5.name": "ROI Calculator",
-    "featurePage.ads.feature5.desc": "Tính toán và dự đoán ROI cho từng chiến dịch quảng cáo",
+    "featurePage.ads.feature5.desc":
+      "Tính toán và dự đoán ROI cho từng chiến dịch quảng cáo",
     "featurePage.ads.feature6.name": "Báo cáo tự động",
-    "featurePage.ads.feature6.desc": "Gửi báo cáo hiệu suất tự động hàng tuần/tháng",
+    "featurePage.ads.feature6.desc":
+      "Gửi báo cáo hiệu suất tự động hàng tuần/tháng",
     "featurePage.ads.metric1.label": "Chỉ số đo lường",
     "featurePage.ads.metric2.label": "Uptime SLA",
     "featurePage.ads.metric3.label": "Hiệu suất ROI",
     "featurePage.ads.metric4.label": "Báo cáo",
     "featurePage.ads.benefitsTitle": "Tại sao chọn AI Ads Analytics?",
-    "featurePage.ads.benefitsDesc": "Tối ưu quảng cáo và theo dõi ROI với AI thông minh.",
+    "featurePage.ads.benefitsDesc":
+      "Tối ưu quảng cáo và theo dõi ROI với AI thông minh.",
     "featurePage.ads.benefit1": "Tự động tối ưu ngân sách quảng cáo",
     "featurePage.ads.benefit2": "Gợi ý đối tượng target chính xác",
     "featurePage.ads.benefit3": "A/B Testing tự động cho ads",
@@ -1583,8 +1617,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.operation": "Operation",
     "roi.save": "Save",
     "roi.times": "{x}x faster",
-    "roi.cta.text":
-      "Save costs and increase productivity 10x with Uniksmart",
+    "roi.cta.text": "Save costs and increase productivity 10x with Uniksmart",
     "roi.cta.button": "Watch Demo",
     "roi.cost.traditional": "~$555 / month",
     "roi.cost.ai": "~$255 / month",
@@ -2079,24 +2112,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.tryFree": "Try Free",
     "featurePage.viewPricing": "View Pricing",
     "featurePage.keyFeatures": "Key Features",
-    "featurePage.keyFeaturesDesc": "Discover powerful features that automate your marketing",
+    "featurePage.keyFeaturesDesc":
+      "Discover powerful features that automate your marketing",
     "featurePage.seeInAction": "See It In Action",
     "featurePage.ctaTitle": "Ready to Get Started?",
-    "featurePage.ctaDesc": "Sign up for a free 14-day trial and experience the power of AI Marketing",
+    "featurePage.ctaDesc":
+      "Sign up for a free 14-day trial and experience the power of AI Marketing",
     "featurePage.startTrial": "Start Free Trial",
     "featurePage.exploreMore": "Explore More Features",
 
     // Feature Page - Chatbot
     "featurePage.chatbot.feature5.name": "Multi-language Support",
-    "featurePage.chatbot.feature5.desc": "Auto-detect and respond in customer's language",
+    "featurePage.chatbot.feature5.desc":
+      "Auto-detect and respond in customer's language",
     "featurePage.chatbot.feature6.name": "CRM Integration",
-    "featurePage.chatbot.feature6.desc": "Sync customer data with your CRM system",
+    "featurePage.chatbot.feature6.desc":
+      "Sync customer data with your CRM system",
     "featurePage.chatbot.metric1.label": "Always Available",
     "featurePage.chatbot.metric2.label": "Response Time",
     "featurePage.chatbot.metric3.label": "Conversion Rate",
     "featurePage.chatbot.metric4.label": "Wait Time Reduced",
     "featurePage.chatbot.benefitsTitle": "Why Choose AI Chatbot?",
-    "featurePage.chatbot.benefitsDesc": "Smart AI chatbot helps businesses serve customers 24/7 without staff.",
+    "featurePage.chatbot.benefitsDesc":
+      "Smart AI chatbot helps businesses serve customers 24/7 without staff.",
     "featurePage.chatbot.benefit1": "Instant customer response, no waiting",
     "featurePage.chatbot.benefit2": "Reduce customer service personnel costs",
     "featurePage.chatbot.benefit3": "Collect and qualify high-quality leads",
@@ -2108,8 +2146,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.metric3.label": "Creation Time",
     "featurePage.content.metric4.label": "Cost Savings",
     "featurePage.content.benefitsTitle": "Why Choose AI Content Creator?",
-    "featurePage.content.benefitsDesc": "Create professional content in seconds with AI.",
-    "featurePage.content.benefit1": "Create 4K professional images with virtual KOL",
+    "featurePage.content.benefitsDesc":
+      "Create professional content in seconds with AI.",
+    "featurePage.content.benefit1":
+      "Create 4K professional images with virtual KOL",
     "featurePage.content.benefit2": "Auto-write trending captions and hashtags",
     "featurePage.content.benefit3": "50+ templates for all industries",
     "featurePage.content.benefit4": "Auto SEO optimization for all content",
@@ -2120,7 +2160,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.trends.metric3.label": "Supported Formats",
     "featurePage.trends.metric4.label": "Accuracy",
     "featurePage.trends.benefitsTitle": "Why Choose AI Hot Trends?",
-    "featurePage.trends.benefitsDesc": "Stay updated with latest trends to keep content viral.",
+    "featurePage.trends.benefitsDesc":
+      "Stay updated with latest trends to keep content viral.",
     "featurePage.trends.benefit1": "Detect viral trends before competitors",
     "featurePage.trends.benefit2": "Get content ideas based on trends",
     "featurePage.trends.benefit3": "Track competitors in real-time",
@@ -2128,13 +2169,15 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Feature Page - Video
     "featurePage.video.feature6.name": "Multi-format Export",
-    "featurePage.video.feature6.desc": "Support YouTube, TikTok, Reels with appropriate aspect ratios",
+    "featurePage.video.feature6.desc":
+      "Support YouTube, TikTok, Reels with appropriate aspect ratios",
     "featurePage.video.metric1.label": "Production Time",
     "featurePage.video.metric2.label": "Resolution",
     "featurePage.video.metric3.label": "Cost Savings",
     "featurePage.video.metric4.label": "AI Voices",
     "featurePage.video.benefitsTitle": "Why Choose AI Video Factory?",
-    "featurePage.video.benefitsDesc": "Produce professional marketing videos at near-zero cost.",
+    "featurePage.video.benefitsDesc":
+      "Produce professional marketing videos at near-zero cost.",
     "featurePage.video.benefit1": "Create videos with virtual KOL in 5 minutes",
     "featurePage.video.benefit2": "No studio, no filming required",
     "featurePage.video.benefit3": "Auto lip-sync, natural AI voice",
@@ -2142,13 +2185,15 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Feature Page - Email
     "featurePage.email.feature6.name": "Smart Segmentation",
-    "featurePage.email.feature6.desc": "Auto-categorize customers by behavior and engagement",
+    "featurePage.email.feature6.desc":
+      "Auto-categorize customers by behavior and engagement",
     "featurePage.email.metric1.label": "Automation",
     "featurePage.email.metric2.label": "Open Rate Increase",
     "featurePage.email.metric3.label": "Care Stages",
     "featurePage.email.metric4.label": "Operation",
     "featurePage.email.benefitsTitle": "Why Choose Email Automation?",
-    "featurePage.email.benefitsDesc": "100% automated email marketing with complete customer journey.",
+    "featurePage.email.benefitsDesc":
+      "100% automated email marketing with complete customer journey.",
     "featurePage.email.benefit1": "Auto-send emails based on customer journey",
     "featurePage.email.benefit2": "Smart A/B Testing to optimize open rate",
     "featurePage.email.benefit3": "Personalized content for each customer",
@@ -2160,17 +2205,22 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.multiPlatform.metric3.label": "Auto Reply",
     "featurePage.multiPlatform.metric4.label": "Single Dashboard",
     "featurePage.multiPlatform.benefitsTitle": "Why Choose Multi-Platform?",
-    "featurePage.multiPlatform.benefitsDesc": "Manage all social channels from one place.",
+    "featurePage.multiPlatform.benefitsDesc":
+      "Manage all social channels from one place.",
     "featurePage.multiPlatform.benefit1": "Post to 5+ platforms simultaneously",
-    "featurePage.multiPlatform.benefit2": "Visual Content Calendar with drag & drop",
-    "featurePage.multiPlatform.benefit3": "AI auto-replies to comments and messages",
+    "featurePage.multiPlatform.benefit2":
+      "Visual Content Calendar with drag & drop",
+    "featurePage.multiPlatform.benefit3":
+      "AI auto-replies to comments and messages",
     "featurePage.multiPlatform.benefit4": "Unified Inbox for all messages",
 
     // Feature Page - Ads
     "featurePage.ads.feature5.name": "ROI Calculator",
-    "featurePage.ads.feature5.desc": "Calculate and predict ROI for each ad campaign",
+    "featurePage.ads.feature5.desc":
+      "Calculate and predict ROI for each ad campaign",
     "featurePage.ads.feature6.name": "Auto Reports",
-    "featurePage.ads.feature6.desc": "Send automated weekly/monthly performance reports",
+    "featurePage.ads.feature6.desc":
+      "Send automated weekly/monthly performance reports",
     "featurePage.ads.metric1.label": "Metrics Tracked",
     "featurePage.ads.metric2.label": "Uptime SLA",
     "featurePage.ads.metric3.label": "ROI Performance",
