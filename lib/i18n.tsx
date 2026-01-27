@@ -192,7 +192,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.email.metric3.note": "Nhờ A/B Testing & Theo dõi Thông minh",
     "features.multiPlatform.title": "Quản lý Đa nền tảng",
     "features.multiPlatform.desc":
-      "Một Dashboard duy nhất điều khiển tất cả: Facebook, Instagram, TikTok, YouTube, Zalo OA. Lên lịch đăng bài hàng loạt, Content Calendar trực quan với Drag & Drop. AI tự động trả lời comment và tin nhắn 24/7 với văn phong cá nhân hóa. Tiết kiệm 90% thời gian so với thao tác thủ công từng app.",
+      "Một Dashboard duy nhất điều khiển tất cả: Facebook, Instagram, TikTok, YouTube, Zalo OA. Lên lịch đăng bài hàng loạt, Content Calendar trực quan với Drag & Drop. AI tự động trả lời bình luận và tin nhắn 24/7 với văn phong cá nhân hóa. Tiết kiệm 90% thời gian so với thao tác thủ công từng app.",
     "features.multiPlatform.stats":
       "5 nền tảng • Tiết kiệm 90% thời gian • Trợ lý ảo 24/7",
     "features.multiPlatform.feature1.name": "Lên lịch & Đăng hàng loạt",
@@ -204,13 +204,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.feature3.name": "Kéo & Thả",
     "features.multiPlatform.feature3.desc":
       "Dễ dàng kéo thả để thay đổi lịch đăng bài nhanh chóng",
-    "features.multiPlatform.feature4.name": "AI Comment Reply",
+    "features.multiPlatform.feature4.name": "AI trả lời bình luận",
     "features.multiPlatform.feature4.desc":
       "Tự động trả lời bình luận với văn phong cá nhân hóa, giữ tương tác cao",
-    "features.multiPlatform.feature5.name": "AI DM Chatbot 24/7",
+    "features.multiPlatform.feature5.name": "AI Chatbot 24/7",
     "features.multiPlatform.feature5.desc":
       "Trả lời tin nhắn, giải đáp thắc mắc và thu thập thông tin khách hàng",
-    "features.multiPlatform.feature6.name": "Unified Inbox",
+    "features.multiPlatform.feature6.name": "Trung tâm tin nhắn",
     "features.multiPlatform.feature6.desc":
       "Gom tất cả tin nhắn & bình luận từ mọi nền tảng về một nơi duy nhất",
     "features.multiPlatform.metric1.name": "Nền tảng hỗ trợ",
@@ -223,8 +223,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "So với thao tác thủ công từng ứng dụng",
     "features.multiPlatform.metric3.name": "Chi phí auto reply",
     "features.multiPlatform.metric3.value": "1 Credit/lượt",
-    "features.multiPlatform.metric3.note": "Tự động trả lời comment",
-    "features.ads.title": "AI Ads Management & Analytics",
+    "features.multiPlatform.metric3.note": "Tự động trả lời bình luận",
+    "features.ads.title": "Quản trị & Phân tích Quảng cáo AI",
     "features.ads.desc":
       "Dashboard phân tích toàn diện với độ chính xác 99.9% giúp ra quyết định dựa trên Data. Tự động tối ưu ngân sách theo CPA/ROAS mục tiêu, đề xuất Custom & Lookalike audiences thông minh. Smart A/B Testing tìm mẫu quảng cáo hiệu quả nhất và cảnh báo realtime khi chiến dịch cần can thiệp.",
     "features.ads.stats":
@@ -252,15 +252,14 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.ads.metric3.name": "Auto Report",
     "features.ads.metric3.value": "Tuần/Tháng",
     "features.ads.metric3.note": "Tự động gửi báo cáo hiệu suất qua Email",
-    "features.content.title": "AI Content Creator",
+    "features.content.title": "Trình tạo nội dung AI",
     "features.content.desc":
       "Hệ thống sản xuất nội dung đa định dạng hoàn toàn tự động. Tạo hình ảnh KOL với sản phẩm chất lượng 4K chỉ trong 30 giây, viết caption bắt trend và gợi ý hashtag thông minh để tối đa hóa Reach. Tiết kiệm 90% chi phí so với thuê designer và copywriter.",
-    "features.content.stats":
-      "50+ templates • Tạo hình ảnh 4K • Caption tối ưu SEO",
+    "features.content.stats": "50+ mẫu thiết kế • Ảnh 4K • Caption chuẩn SEO",
     "features.content.feature1.name": "Tạo ảnh KOL với sản phẩm",
     "features.content.feature1.desc":
       "Tạo hình ảnh KOL chuyên nghiệp với sản phẩm hoặc bối cảnh tùy chỉnh theo yêu cầu",
-    "features.content.feature2.name": "Character Consistency Engine",
+    "features.content.feature2.name": "Bộ xử lý nhân vật đồng nhất",
     "features.content.feature2.desc":
       "Công nghệ giữ vững nhận diện gương mặt KOL trên mọi hình ảnh",
     "features.content.feature3.name": "Độ phân giải 4K",
@@ -277,18 +276,18 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric1.name": "Thời gian tạo ảnh",
     "features.content.metric1.value": "10-30 giây",
     "features.content.metric1.note": "Chất lượng 4K chuyên nghiệp",
-    "features.content.metric2.name": "Chi phí tạo content",
+    "features.content.metric2.name": "Chi phí tạo nội dung",
     "features.content.metric2.value": "2 Credit/ảnh",
     "features.content.metric2.note": "Tiết kiệm 90% vs thuê designer",
     "features.content.metric3.name": "Đa dạng phong cách",
     "features.content.metric3.value": "50+ styles",
     "features.content.metric3.note": "Thực tế, 3D, Minh họa, Trừu tượng",
-    "features.trends.title": "AI Hot Trends Discovery",
+    "features.trends.title": "Khám phá Trend AI",
     "features.trends.desc":
       "Hệ thống AI săn trends 24/7 từ 5+ mạng xã hội lớn nhất. Phát hiện nội dung viral sớm hơn 48 giờ, chấm điểm tiềm năng và gợi ý ý tưởng content phù hợp với thương hiệu của bạn. Không bao giờ đi sau xu hướng, luôn dẫn đầu cuộc chơi.",
     "features.trends.stats":
       "24/7 quét trends • 5+ nền tảng • Dự đoán viral sớm 48h",
-    "features.trends.feature1.name": "Real-time Trend Scanner",
+    "features.trends.feature1.name": "Quét xu hướng tức thì",
     "features.trends.feature1.desc":
       "Quét trends 24/7 từ TikTok, Facebook, Instagram, YouTube - cập nhật mỗi 15 phút",
     "features.trends.feature2.name": "Phát hiện Nội dung Viral",
@@ -307,15 +306,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.trends.feature6.desc":
       "Theo dõi trends mà đối thủ đang khai thác để không bỏ lỡ cơ hội thị trường",
     "features.trends.metric1.name": "Trọng số đánh giá",
-    "features.trends.metric1.value": "Brand 30% • Chiến lược 40% • Đầu ra 30%",
+    "features.trends.metric1.value":
+      "Thương hiệu 30% • Chiến lược 40% • Đầu ra 30%",
     "features.trends.metric1.note": "Bonus +5 điểm nếu Pain points > 3",
     "features.trends.metric2.name": "Định dạng hỗ trợ",
-    "features.trends.metric2.value": "7+ formats",
+    "features.trends.metric2.value": "7+ định dạng",
     "features.trends.metric2.note":
-      "Bài viết, Video script, Infographic, Landing page, Hook, CTA",
+      "Bài viết, Kịch bản Video, Đồ họa thông tin, Trang đích, Câu dẫn, CTA.",
     "features.trends.metric3.name": "Tốc độ xử lý",
     "features.trends.metric3.value": "~30 giây",
-    "features.trends.metric3.note": "Từ Brief đến Campaign hoàn chỉnh",
+    "features.trends.metric3.note": "Từ Kịch bản đến Chiến dịch hoàn chỉnh",
     "features.schedule.title": "Lên lịch Thông minh",
     "features.schedule.desc":
       "Đăng bài tự động đúng giờ vàng. AI phân tích thời điểm tối ưu cho từng nền tảng.",
@@ -331,7 +331,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.integration.title": "Tích hợp Liền mạch",
     "features.integration.desc":
       "Kết nối với Facebook, Instagram, TikTok, LinkedIn, YouTube và 20+ nền tảng khác.",
-    "features.integration.stats": "20+ platforms",
+    "features.integration.stats": "20+ nền tảng",
 
     // Pricing Section
     "pricing.title": "Bảng giá",
@@ -364,8 +364,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.startup.desc": "Trải nghiệm & Kênh nhỏ",
     "pricing.startup.subtitle":
       "Dành cho doanh nghiệp nhỏ muốn xây kênh tần suất thấp",
-    "pricing.growth.name": "Growth",
-    "pricing.growth.desc": "Tăng tốc - Best Seller",
+    "pricing.growth.name": "Tăng trưởng",
+    "pricing.growth.desc": "Tăng tốc - Bán chạy nhất",
     "pricing.growth.subtitle":
       "Dành cho Agency hoặc SME muốn phủ nội dung video hàng ngày",
     "pricing.enterprise.name": "Enterprise",
