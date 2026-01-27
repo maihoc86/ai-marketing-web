@@ -1136,6 +1136,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.ads.benefit3": "A/B Testing tự động cho ads",
     "featurePage.ads.benefit4": "Cảnh báo real-time khi chiến dịch có vấn đề",
     "form.packageSelector.label": "Chọn gói dịch vụ",
+    "form.packageSelector.popular": "Phổ biến",
+    "form.package.startup.name": "Startup",
+    "form.package.startup.price": "8.073.000 VNĐ/tháng",
+    "form.package.growth.name": "Growth",
+    "form.package.growth.price": "13.473.000 VNĐ/tháng",
+    "form.package.enterprise.name": "Enterprise",
+    "form.package.enterprise.price": "Liên hệ",
   },
   en: {
     // Navigation
@@ -2306,6 +2313,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.ads.benefit3": "Automatic A/B Testing for ads",
     "featurePage.ads.benefit4": "Real-time alerts when campaigns have issues",
     "form.packageSelector.label": "Select Package",
+    "form.packageSelector.popular": "Popular",
+    "form.package.startup.name": "Startup",
+    "form.package.startup.price": "$299/month",
+    "form.package.growth.name": "Growth",
+    "form.package.growth.price": "$499/month",
+    "form.package.enterprise.name": "Enterprise",
+    "form.package.enterprise.price": "Contact us",
   },
 };
 

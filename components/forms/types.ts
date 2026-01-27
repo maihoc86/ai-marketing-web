@@ -57,12 +57,20 @@ export const jobPositions = [
 ] as const;
 
 export const packageOptions = [
-  { id: "startup", label: "Startup", price: "3,500,000 VNĐ/tháng" },
+  {
+    id: "startup",
+    labelKey: "form.package.startup.name",
+    priceKey: "form.package.startup.price",
+  },
   {
     id: "growth",
-    label: "Growth",
-    price: "6,900,000 VNĐ/tháng",
+    labelKey: "form.package.growth.name",
+    priceKey: "form.package.growth.price",
     popular: true,
   },
-  { id: "enterprise", label: "Enterprise", price: "Liên hệ" },
+  {
+    id: "enterprise",
+    labelKey: "form.package.enterprise.name",
+    priceKey: "form.package.enterprise.price",
+  },
 ] as const;

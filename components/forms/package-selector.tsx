@@ -59,7 +59,7 @@ export const PackageSelector = memo(
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-linear-to-r from-amber-400 to-orange-400 text-white shadow-sm">
                       <Sparkles className="w-3 h-3" aria-hidden="true" />
-                      Phổ biến
+                      {t("form.packageSelector.popular")}
                     </span>
                   </div>
                 )}
@@ -77,12 +77,12 @@ export const PackageSelector = memo(
                   <div
                     className={`font-bold text-base mb-1 ${isSelected ? "text-[#008bff]" : "text-gray-900"}`}
                   >
-                    {pkg.label}
+                    {t(pkg.labelKey)}
                   </div>
                   <div
                     className={`text-sm ${isSelected ? "text-[#22b5f8]" : "text-gray-600"}`}
                   >
-                    {pkg.price}
+                    {t(pkg.priceKey)}
                   </div>
                 </div>
               </button>
