@@ -803,7 +803,7 @@ export default function PrivacyPolicyPage() {
         {/* Related Links */}
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
           <Link
-            href="/dieu-khoan"
+            href="/terms"
             className="flex-1 text-center px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors"
           >
             Xem Điều khoản Sử dụng

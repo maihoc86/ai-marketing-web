@@ -87,11 +87,11 @@ function RegisterFormContent() {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-12 min-h-[56px] bg-[#22b5f8] hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
+              className="rounded-full px-12 min-h-14 bg-[#22b5f8] hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
               aria-label={t("registration.loginLabel")}
             >
               <a
-                href="https://admin-ai-code.dsp.one"
+                href="https://admin.dsp.one"
                 target="_blank"
                 rel="noopener noreferrer"
               >

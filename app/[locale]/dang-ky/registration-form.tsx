@@ -70,8 +70,11 @@ export function RegistrationForm({
         if (result.data?.activityFields?.data) {
           // Remove duplicates based on id
           const uniqueFields = result.data.activityFields.data.filter(
-            (field: { id: string }, index: number, self: Array<{ id: string }>) =>
-              index === self.findIndex((f) => f.id === field.id)
+            (
+              field: { id: string },
+              index: number,
+              self: Array<{ id: string }>,
+            ) => index === self.findIndex((f) => f.id === field.id),
           );
           setActivityFields(uniqueFields);
         }
@@ -610,7 +613,7 @@ export function RegistrationForm({
               <p className="text-center text-sm text-gray-600">
                 {t("registration.form.login.text")}{" "}
                 <a
-                  href="https://admin-ai-code.dsp.one"
+                  href="https://admin.dsp.one"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#22b5f8] font-semibold hover:underline"
@@ -621,15 +624,12 @@ export function RegistrationForm({
 
               <p className="text-center text-xs text-gray-500">
                 {t("registration.form.terms.text")}{" "}
-                <Link
-                  href="/dieu-khoan"
-                  className="text-[#22b5f8] hover:underline"
-                >
+                <Link href="/terms" className="text-[#22b5f8] hover:underline">
                   {t("registration.form.terms.service")}
                 </Link>{" "}
                 {t("registration.form.terms.and")}{" "}
                 <Link
-                  href="/chinh-sach-bao-mat"
+                  href="/privacy"
                   className="text-[#22b5f8] hover:underline"
                 >
                   {t("registration.form.terms.privacy")}

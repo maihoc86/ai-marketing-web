@@ -1,6 +1,5 @@
 "use client";
 
-import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { LocaleLink } from "@/components/locale-link";
 import Image from "next/image";
@@ -34,7 +33,6 @@ export function CtaRegisterModal() {
     errors,
     isLoading,
     isSubmitted,
-    setIsSubmitted,
     handleInputChange,
     handlePackageSelect,
     handleBusinessTypeChange,
@@ -72,6 +70,11 @@ export function CtaRegisterModal() {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleClose = () => {
+    localStorage.setItem(STORAGE_KEY, "true");
+    setIsOpen(false);
+  };
 
   // Auto-focus first input when modal opens
   useEffect(() => {
@@ -138,11 +141,6 @@ export function CtaRegisterModal() {
     };
   }, [isOpen]);
 
-  const handleClose = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
-    setIsOpen(false);
-  };
-
   if (!isOpen) return null;
 
   // Success state
@@ -170,8 +168,8 @@ export function CtaRegisterModal() {
               Đăng ký thành công!
             </h2>
             <p className="text-gray-600 mb-6">
-              Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của
-              chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
+              Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của chúng tôi sẽ
+              liên hệ với bạn trong vòng 24 giờ.
             </p>
             <Button
               onClick={handleClose}
@@ -269,9 +267,7 @@ export function CtaRegisterModal() {
 
             {/* Bottom trust line */}
             <div className="relative z-10 mt-6 pt-4 border-t border-white/20">
-              <p className="text-white/70 text-sm">
-                Powered by Uniksmart
-              </p>
+              <p className="text-white/70 text-sm">Powered by Uniksmart</p>
             </div>
           </div>
 
@@ -352,14 +348,14 @@ export function CtaRegisterModal() {
               <p className="text-xs text-gray-500 text-center leading-relaxed pt-2">
                 Bằng việc đăng ký, bạn đồng ý với{" "}
                 <LocaleLink
-                  href="/dieu-khoan"
+                  href="/terms"
                   className="text-[#22b5f8] hover:underline"
                 >
                   Điều khoản sử dụng
                 </LocaleLink>{" "}
                 và{" "}
                 <LocaleLink
-                  href="/chinh-sach-bao-mat"
+                  href="/privacy"
                   className="text-[#22b5f8] hover:underline"
                 >
                   Chính sách bảo mật
