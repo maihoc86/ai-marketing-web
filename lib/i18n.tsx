@@ -140,11 +140,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.stats": "50 Credit/video • 5 phút sản xuất • Tiết kiệm 95%",
     "features.video.feature1.name": "KOL Ảo thuyết minh",
     "features.video.feature1.desc":
-      "Đại sứ thương hiệu nổi theo script với Character Consistency 100%",
+      "Đại sứ thương hiệu nổi theo script với tính nhất quán nhân vật 100%",
     "features.video.feature2.name": "Giọng AI tự nhiên",
     "features.video.feature2.desc":
       "Sử dụng AI Voice, hỗ trợ nhiều ngôn ngữ khác nhau",
-    "features.video.feature3.name": "Multi-scene editor",
+    "features.video.feature3.name": "Trình chỉnh sửa đa bối cảnh",
     "features.video.feature3.desc":
       "Hỗ trợ nhiều khung hình/cảnh trong một video",
     "features.video.feature4.name": "Gợi ý AI",
@@ -166,13 +166,13 @@ const translations: Record<Locale, Record<string, string>> = {
       "Hệ thống email marketing tự động 100% với customer journey hoàn chỉnh từ Welcome đến Re-marketing. Tích hợp CRM để cá nhân hóa nội dung, A/B Testing thông minh tự động tối ưu subject line và content. Tăng Open Rate lên 35% và không cần thao tác thủ công - chạy 24/7.",
     "features.email.stats":
       "100% tự động • Tích hợp CRM • A/B Testing thông minh",
-    "features.email.feature1.name": "Responsive Design",
+    "features.email.feature1.name": "Thiết kế Responsive",
     "features.email.feature1.desc":
       "Hiển thị hoàn hảo trên Mobile/Desktop, tự động tối ưu giao diện",
-    "features.email.feature2.name": "Smart Tracking",
+    "features.email.feature2.name": "Theo dõi Thông minh",
     "features.email.feature2.desc":
       "Tối ưu Open Rate & Click Rate, theo dõi hành vi khách hàng",
-    "features.email.feature3.name": "100% Automated",
+    "features.email.feature3.name": "100% tự động",
     "features.email.feature3.desc":
       "Workflow tự động, không cần thao tác, chạy 24/7",
     "features.email.feature4.name": "Tích hợp CRM",
@@ -189,7 +189,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.email.metric2.note": "Không cần thao tác thủ công",
     "features.email.metric3.name": "Tối ưu hiệu quả",
     "features.email.metric3.value": "Open Rate +35%",
-    "features.email.metric3.note": "Nhờ A/B Testing & Smart Tracking",
+    "features.email.metric3.note": "Nhờ A/B Testing & Theo dõi Thông minh",
     "features.multiPlatform.title": "Quản lý Đa nền tảng",
     "features.multiPlatform.desc":
       "Một Dashboard duy nhất điều khiển tất cả: Facebook, Instagram, TikTok, YouTube, Zalo OA. Lên lịch đăng bài hàng loạt, Content Calendar trực quan với Drag & Drop. AI tự động trả lời comment và tin nhắn 24/7 với văn phong cá nhân hóa. Tiết kiệm 90% thời gian so với thao tác thủ công từng app.",
@@ -198,10 +198,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.feature1.name": "Lên lịch & Đăng hàng loạt",
     "features.multiPlatform.feature1.desc":
       "Tiết kiệm 90% thời gian thao tác thủ công trên từng ứng dụng",
-    "features.multiPlatform.feature2.name": "Content Calendar",
+    "features.multiPlatform.feature2.name": "Lịch Nội dung trực quan",
     "features.multiPlatform.feature2.desc":
       "Giao diện lịch trực quan, phân loại nội dung bằng Color-coding",
-    "features.multiPlatform.feature3.name": "Drag & Drop",
+    "features.multiPlatform.feature3.name": "Kéo & Thả",
     "features.multiPlatform.feature3.desc":
       "Dễ dàng kéo thả để thay đổi lịch đăng bài nhanh chóng",
     "features.multiPlatform.feature4.name": "AI Comment Reply",
@@ -228,24 +228,24 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.ads.desc":
       "Dashboard phân tích toàn diện với độ chính xác 99.9% giúp ra quyết định dựa trên Data. Tự động tối ưu ngân sách theo CPA/ROAS mục tiêu, đề xuất Custom & Lookalike audiences thông minh. Smart A/B Testing tìm mẫu quảng cáo hiệu quả nhất và cảnh báo realtime khi chiến dịch cần can thiệp.",
     "features.ads.stats":
-      "99.9% chính xác • Tự động tối ưu ngân sách • ROI Calculator",
-    "features.ads.feature1.name": "Budget Optimization",
+      "99.9% chính xác • Tự động tối ưu ngân sách • Máy tính ROI",
+    "features.ads.feature1.name": "Tối ưu ngân sách",
     "features.ads.feature1.desc":
       "Tự động điều chỉnh ngân sách theo CPA/ROAS mục tiêu",
-    "features.ads.feature2.name": "Audience Suggestions",
+    "features.ads.feature2.name": "Đề xuất đối tượng",
     "features.ads.feature2.desc":
       "Đề xuất Custom & Lookalike audiences từ data khách hàng",
     "features.ads.feature3.name": "Smart A/B Testing",
     "features.ads.feature3.desc":
       "Thử nghiệm tự động Headline, CTA để tìm mẫu quảng cáo tốt nhất",
-    "features.ads.feature4.name": "Performance Alerts",
+    "features.ads.feature4.name": "Cảnh báo hiệu suất",
     "features.ads.feature4.desc":
       "Cảnh báo Realtime khi chiến dịch kém hiệu quả hoặc cạn ngân sách",
     "features.ads.metric1.name": "Chỉ số do lường",
-    "features.ads.metric1.value": "8+ metrics",
+    "features.ads.metric1.value": "8+ chỉ số",
     "features.ads.metric1.note":
       "Impressions, CTR, Conversions, CPA, ROAS, LTV, NPS",
-    "features.ads.metric2.name": "ROI Calculator",
+    "features.ads.metric2.name": "Máy tính ROI",
     "features.ads.metric2.value": "Tích hợp sẵn",
     "features.ads.metric2.note":
       "So sánh trực tiếp chi phí KOL AI vs Truyền thống",
@@ -291,19 +291,19 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.trends.feature1.name": "Real-time Trend Scanner",
     "features.trends.feature1.desc":
       "Quét trends 24/7 từ TikTok, Facebook, Instagram, YouTube - cập nhật mỗi 15 phút",
-    "features.trends.feature2.name": "Viral Content Detector",
+    "features.trends.feature2.name": "Phát hiện Nội dung Viral",
     "features.trends.feature2.desc":
       "Phát hiện nội dung có tiềm năng viral sớm hơn 48h so với đối thủ cạnh tranh",
-    "features.trends.feature3.name": "Trend Score & Prediction",
+    "features.trends.feature3.name": "Chấm điểm & Dự đoán Xu hướng",
     "features.trends.feature3.desc":
       "Chấm điểm độ hot (0-100) và dự đoán tuổi thọ của mỗi trend để tối ưu timing",
-    "features.trends.feature4.name": "Industry-Specific Insights",
+    "features.trends.feature4.name": "Phân tích Theo từng Ngành",
     "features.trends.feature4.desc":
       "Lọc và phân tích trends riêng theo ngành: F&B, Retail, Beauty, Tech, Education...",
-    "features.trends.feature5.name": "Content Idea Generator",
+    "features.trends.feature5.name": "Tạo Ý tưởng Nội dung",
     "features.trends.feature5.desc":
       "AI gợi ý 10+ ý tưởng content sáng tạo từ mỗi trend đang hot, phù hợp brand voice",
-    "features.trends.feature6.name": "Competitor Trend Tracking",
+    "features.trends.feature6.name": "Theo dõi Xu hướng Đối thủ",
     "features.trends.feature6.desc":
       "Theo dõi trends mà đối thủ đang khai thác để không bỏ lỡ cơ hội thị trường",
     "features.trends.metric1.name": "Trọng số đánh giá",
