@@ -39,7 +39,7 @@ export function Footer() {
     { labelKey: "footer.support.guide", href: "#" },
     { labelKey: "footer.support.faq", href: "#faq" },
     { labelKey: "footer.support.contact", href: "#contact" },
-    { labelKey: "footer.support.privacy", href: "#" },
+    { labelKey: "footer.support.privacy", href: "/privacy" },
   ];
 
   return (
