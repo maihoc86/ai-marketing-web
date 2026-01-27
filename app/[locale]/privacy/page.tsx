@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
+
+import { LocaleLink } from "@/components/locale-link";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowLeft,
   Shield,
@@ -10,33 +12,28 @@ import {
   Mail,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Chính Sách Bảo Mật | DSP.ONE - Uniksmart",
-  description:
-    "Chính sách bảo mật của DSP.ONE - Cam kết bảo vệ dữ liệu và quyền riêng tư của người dùng.",
-};
-
 export default function PrivacyPolicyPage() {
+  const { t } = useI18n();
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-linear-to-r from-emerald-600 to-teal-700 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
+          <LocaleLink
             href="/"
             className="inline-flex items-center text-emerald-100 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Quay lại trang chủ
-          </Link>
+            {t("privacy.backToHome")}
+          </LocaleLink>
           <div className="flex items-center gap-3 mb-4">
             <Shield className="w-10 h-10" />
             <h1 className="text-3xl md:text-4xl font-bold">
-              Chính Sách Bảo Mật
+              {t("privacy.title")}
             </h1>
           </div>
           <p className="text-emerald-100">
-            Cập nhật lần cuối: 24 tháng 11, 2025
+            {t("privacy.lastUpdated")}
           </p>
         </div>
       </div>
@@ -107,21 +104,32 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 mb-6">
                 <p className="font-semibold text-gray-900 mb-2">
-                  CÔNG TY CỔ PHẦN TIÊN PHONG CDS
+                  Uniksmart Company
                 </p>
                 <ul className="space-y-2 text-gray-600 text-sm">
                   <li>
-                    <strong>Địa chỉ:</strong> Tầng 01, Tòa nhà 232 Lê Văn Lương,
+                    <strong>Địa chỉ:</strong> Tầng 01, 232 Lê Văn Lương,
                     Phường Tân Hưng, Quận 7, TP. Hồ Chí Minh, Việt Nam
                   </li>
                   <li>
-                    <strong>Mã số thuế:</strong> 0316459939
+                    <strong>Email:</strong>{" "}
+                    <a
+                      href="mailto:hoc.thai@tienphongcds.com"
+                      className="text-emerald-600 hover:underline"
+                    >
+                      hoc.thai@tienphongcds.com
+                    </a>
                   </li>
                   <li>
-                    <strong>Email:</strong> mailhoc348@gmail.com
-                  </li>
-                  <li>
-                    <strong>Hotline:</strong> (+84) 378 387 375
+                    <strong>Website:</strong>{" "}
+                    <a
+                      href="https://uniksmark.dsp.one/en"
+                      className="text-emerald-600 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      https://uniksmark.dsp.one/en
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -750,40 +758,31 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                 <p className="font-semibold text-gray-900 mb-2">
-                  CÔNG TY CỔ PHẦN TIÊN PHONG CDS
+                  Uniksmart Company
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li>
-                    <strong>Địa chỉ:</strong> Tầng 01, Tòa nhà 232 Lê Văn Lương,
+                    <strong>Địa chỉ:</strong> Tầng 01, 232 Lê Văn Lương,
                     Phường Tân Hưng, Quận 7, TP. Hồ Chí Minh, Việt Nam
                   </li>
                   <li>
                     <strong>Email:</strong>{" "}
                     <a
-                      href="mailto:mailhoc348@gmail.com"
+                      href="mailto:hoc.thai@tienphongcds.com"
                       className="text-emerald-600 hover:underline"
                     >
-                      mailhoc348@gmail.com
+                      hoc.thai@tienphongcds.com
                     </a>
                   </li>
                   <li>
-                    <strong>Hotline:</strong>{" "}
+                    <strong>Website:</strong>{" "}
                     <a
-                      href="tel:+84378387375"
-                      className="text-emerald-600 hover:underline"
-                    >
-                      (+84) 378 387 375
-                    </a>
-                  </li>
-                  <li>
-                    <strong>Biểu mẫu web:</strong>{" "}
-                    <a
-                      href="https://tienphongcds.com/vi/contact"
+                      href="https://uniksmark.dsp.one/en"
                       className="text-emerald-600 hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      https://tienphongcds.com/vi/contact
+                      https://uniksmark.dsp.one/en
                     </a>
                   </li>
                 </ul>
@@ -802,18 +801,18 @@ export default function PrivacyPolicyPage() {
 
         {/* Related Links */}
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/dieu-khoan"
+          <LocaleLink
+            href="/terms"
             className="flex-1 text-center px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors"
           >
-            Xem Điều khoản Sử dụng
-          </Link>
-          <Link
+            {t("privacy.viewTerms")}
+          </LocaleLink>
+          <LocaleLink
             href="/dang-ky"
             className="flex-1 text-center px-6 py-3 bg-emerald-600 rounded-lg text-white hover:bg-emerald-700 transition-colors"
           >
-            Đăng ký dùng thử
-          </Link>
+            {t("privacy.registerTrial")}
+          </LocaleLink>
         </div>
       </div>
     </main>

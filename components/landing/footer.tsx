@@ -39,7 +39,7 @@ export function Footer() {
     { labelKey: "footer.support.guide", href: "#" },
     { labelKey: "footer.support.faq", href: "#faq" },
     { labelKey: "footer.support.contact", href: "#contact" },
-    { labelKey: "footer.support.privacy", href: "#" },
+    { labelKey: "footer.support.privacy", href: "/privacy" },
   ];
 
   return (
@@ -151,13 +151,13 @@ export function Footer() {
           </p>
           <div className="flex gap-6 text-sm">
             <LocaleLink
-              href="#"
+              href="/terms"
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.terms")}
             </LocaleLink>
             <LocaleLink
-              href="#"
+              href="/privacy"
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.privacy")}

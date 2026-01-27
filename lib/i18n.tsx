@@ -680,6 +680,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.terms": "Điều khoản sử dụng",
     "footer.privacy": "Chính sách bảo mật",
 
+    // Terms of Service Page
+    "terms.backToHome": "Quay lại trang chủ",
+    "terms.title": "Điều Khoản Sử Dụng Dịch Vụ",
+    "terms.lastUpdated": "Cập nhật lần cuối: 24 tháng 11, 2025",
+    "terms.viewPrivacy": "Xem Chính sách Bảo mật",
+    "terms.registerTrial": "Đăng ký dùng thử",
+
+    // Privacy Policy Page
+    "privacy.backToHome": "Quay lại trang chủ",
+    "privacy.title": "Chính Sách Bảo Mật",
+    "privacy.lastUpdated": "Cập nhật lần cuối: 24 tháng 11, 2025",
+    "privacy.viewTerms": "Xem Điều khoản Sử dụng",
+    "privacy.registerTrial": "Đăng ký dùng thử",
+
     // About Hero Section
     "about.hero.breadcrumb.home": "Trang chủ",
     "about.hero.breadcrumb.about": "Về chúng tôi",
@@ -1828,6 +1842,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.copyright": "© {year} Uniksmart. All rights reserved.",
     "footer.terms": "Terms of Service",
     "footer.privacy": "Privacy Policy",
+
+    // Terms of Service Page
+    "terms.backToHome": "Back to Home",
+    "terms.title": "Terms of Service",
+    "terms.lastUpdated": "Last updated: November 24, 2025",
+    "terms.viewPrivacy": "View Privacy Policy",
+    "terms.registerTrial": "Sign Up for Trial",
+
+    // Privacy Policy Page
+    "privacy.backToHome": "Back to Home",
+    "privacy.title": "Privacy Policy",
+    "privacy.lastUpdated": "Last updated: November 24, 2025",
+    "privacy.viewTerms": "View Terms of Service",
+    "privacy.registerTrial": "Sign Up for Trial",
 
     // About Hero Section
     "about.hero.breadcrumb.home": "Home",
