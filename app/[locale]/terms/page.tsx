@@ -1,6 +1,13 @@
 "use client";
 
 import { FileText } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | DSP.ONE - Uniksmart",
+  description:
+    "Terms of service of DSP.ONE - Committed to providing clear and fair terms for our users.",
+};
 
 export default function TermsPage() {
   return (
