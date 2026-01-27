@@ -51,7 +51,7 @@ export function HeroOpturaStyle() {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up animation-delay-300">
-              <LocaleLink href="/dang-ky">
+              <LocaleLink href="/register">
                 <Button
                   size="lg"
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 rounded-full shadow-optura hover:shadow-optura-lg transition-all text-base group"

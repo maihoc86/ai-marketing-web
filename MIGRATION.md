@@ -22,6 +22,7 @@ This guide provides step-by-step instructions for migrating the DXAI Marketing P
 ## Migration Overview
 
 ### Current Structure
+
 ```
 ai-marketing-fe/
 ├── app/                    # Next.js pages
@@ -32,6 +33,7 @@ ai-marketing-fe/
 ```
 
 ### Target Structure
+
 ```
 ai-marketing-fe/
 ├── app/                    # Next.js pages (Presentation)
@@ -77,22 +79,22 @@ Create `src/shared/errors/validation-error.ts`:
 
 ```typescript
 export class ValidationError extends Error {
-  public readonly code: string
+  public readonly code: string;
 
-  constructor(message: string, code: string = 'VALIDATION_ERROR') {
-    super(message)
-    this.name = 'ValidationError'
-    this.code = code
+  constructor(message: string, code: string = "VALIDATION_ERROR") {
+    super(message);
+    this.name = "ValidationError";
+    this.code = code;
   }
 }
 
 export class DomainError extends Error {
-  public readonly code: string
+  public readonly code: string;
 
-  constructor(message: string, code: string = 'DOMAIN_ERROR') {
-    super(message)
-    this.name = 'DomainError'
-    this.code = code
+  constructor(message: string, code: string = "DOMAIN_ERROR") {
+    super(message);
+    this.name = "DomainError";
+    this.code = code;
   }
 }
 ```
@@ -103,11 +105,11 @@ Move `lib/utils.ts` → `src/shared/utils/cn.ts`:
 
 ```typescript
 // src/shared/utils/cn.ts
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]): string {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 ```
 
@@ -115,7 +117,7 @@ Update `lib/utils.ts` to re-export (backward compatibility):
 
 ```typescript
 // lib/utils.ts
-export { cn } from '@/src/shared/utils/cn'
+export { cn } from "@/src/shared/utils/cn";
 ```
 
 ---
@@ -127,39 +129,39 @@ export { cn } from '@/src/shared/utils/cn'
 Extract email validation from `lib/validation.ts` to `src/domain/value-objects/email.ts`:
 
 ```typescript
-import { ValidationError } from '@/src/shared/errors/validation-error'
+import { ValidationError } from "@/src/shared/errors/validation-error";
 
 export class Email {
-  private readonly value: string
+  private readonly value: string;
 
   private constructor(email: string) {
-    this.value = email
+    this.value = email;
   }
 
   static create(email: string): Email {
-    const normalized = email?.trim().toLowerCase()
+    const normalized = email?.trim().toLowerCase();
 
     if (!normalized) {
-      throw new ValidationError('Email là bắt buộc', 'EMAIL_REQUIRED')
+      throw new ValidationError("Email là bắt buộc", "EMAIL_REQUIRED");
     }
 
     if (!Email.isValid(normalized)) {
-      throw new ValidationError('Email không hợp lệ', 'EMAIL_INVALID')
+      throw new ValidationError("Email không hợp lệ", "EMAIL_INVALID");
     }
 
-    return new Email(normalized)
+    return new Email(normalized);
   }
 
   static isValid(email: string): boolean {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   getValue(): string {
-    return this.value
+    return this.value;
   }
 
   equals(other: Email): boolean {
-    return this.value === other.value
+    return this.value === other.value;
   }
 }
 ```
@@ -168,42 +170,42 @@ export class Email {
 
 ```typescript
 // src/domain/value-objects/phone-number.ts
-import { ValidationError } from '@/src/shared/errors/validation-error'
+import { ValidationError } from "@/src/shared/errors/validation-error";
 
 export class PhoneNumber {
-  private readonly value: string
+  private readonly value: string;
 
   private constructor(phone: string) {
-    this.value = phone
+    this.value = phone;
   }
 
   static create(phone: string): PhoneNumber {
-    const normalized = phone?.replace(/[\s-()]/g, '').replace(/^\+84/, '0')
+    const normalized = phone?.replace(/[\s-()]/g, "").replace(/^\+84/, "0");
 
     if (!normalized) {
-      throw new ValidationError('Số điện thoại là bắt buộc', 'PHONE_REQUIRED')
+      throw new ValidationError("Số điện thoại là bắt buộc", "PHONE_REQUIRED");
     }
 
     if (!PhoneNumber.isValid(normalized)) {
       throw new ValidationError(
-        'Số điện thoại không hợp lệ (định dạng: 0xxxxxxxxx)',
-        'PHONE_INVALID'
-      )
+        "Số điện thoại không hợp lệ (định dạng: 0xxxxxxxxx)",
+        "PHONE_INVALID",
+      );
     }
 
-    return new PhoneNumber(normalized)
+    return new PhoneNumber(normalized);
   }
 
   static isValid(phone: string): boolean {
-    return /^0\d{9}$/.test(phone)
+    return /^0\d{9}$/.test(phone);
   }
 
   getValue(): string {
-    return this.value
+    return this.value;
   }
 
   getFormatted(): string {
-    return this.value.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3')
+    return this.value.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3");
   }
 }
 ```
@@ -214,25 +216,25 @@ Update `lib/validation.ts` to use value objects:
 
 ```typescript
 // lib/validation.ts
-import { Email } from '@/src/domain/value-objects/email'
-import { PhoneNumber } from '@/src/domain/value-objects/phone-number'
+import { Email } from "@/src/domain/value-objects/email";
+import { PhoneNumber } from "@/src/domain/value-objects/phone-number";
 
 // Keep old functions for backward compatibility
 export function validateEmail(email: string): ValidationResult {
   try {
-    Email.create(email)
-    return { success: true }
+    Email.create(email);
+    return { success: true };
   } catch (error) {
-    return { success: false, error: error.message }
+    return { success: false, error: error.message };
   }
 }
 
 export function validatePhone(phone: string): ValidationResult {
   try {
-    PhoneNumber.create(phone)
-    return { success: true }
+    PhoneNumber.create(phone);
+    return { success: true };
   } catch (error) {
-    return { success: false, error: error.message }
+    return { success: false, error: error.message };
   }
 }
 ```
@@ -245,25 +247,25 @@ export function validatePhone(phone: string): ValidationResult {
 
 ```typescript
 // src/domain/entities/user.ts
-import { Email } from '../value-objects/email'
-import { PhoneNumber } from '../value-objects/phone-number'
+import { Email } from "../value-objects/email";
+import { PhoneNumber } from "../value-objects/phone-number";
 
-export type BusinessType = 'enterprise' | 'household'
-export type SubscriptionPlan = 'startup' | 'growth' | 'enterprise'
+export type BusinessType = "enterprise" | "household";
+export type SubscriptionPlan = "startup" | "growth" | "enterprise";
 
 export interface User {
-  readonly id: string
-  email: Email
-  phone: PhoneNumber
-  firstName: string
-  lastName: string
-  companyName: string
-  businessType: BusinessType
-  taxCode?: string
-  jobPosition: string
-  subscriptionPlan: SubscriptionPlan
-  readonly createdAt: Date
-  updatedAt: Date
+  readonly id: string;
+  email: Email;
+  phone: PhoneNumber;
+  firstName: string;
+  lastName: string;
+  companyName: string;
+  businessType: BusinessType;
+  taxCode?: string;
+  jobPosition: string;
+  subscriptionPlan: SubscriptionPlan;
+  readonly createdAt: Date;
+  updatedAt: Date;
 }
 ```
 
@@ -271,13 +273,13 @@ export interface User {
 
 ```typescript
 // src/domain/interfaces/user-repository.ts
-import type { User } from '../entities/user'
-import type { Email } from '../value-objects/email'
+import type { User } from "../entities/user";
+import type { Email } from "../value-objects/email";
 
 export interface UserRepository {
-  findByEmail(email: Email): Promise<User | null>
-  emailExists(email: Email): Promise<boolean>
-  save(user: User): Promise<User>
+  findByEmail(email: Email): Promise<User | null>;
+  emailExists(email: Email): Promise<boolean>;
+  save(user: User): Promise<User>;
 }
 ```
 
@@ -285,28 +287,28 @@ export interface UserRepository {
 
 ```typescript
 // src/application/use-cases/auth/register-user.ts
-import { Email } from '@/src/domain/value-objects/email'
-import { PhoneNumber } from '@/src/domain/value-objects/phone-number'
-import type { UserRepository } from '@/src/domain/interfaces/user-repository'
+import { Email } from "@/src/domain/value-objects/email";
+import { PhoneNumber } from "@/src/domain/value-objects/phone-number";
+import type { UserRepository } from "@/src/domain/interfaces/user-repository";
 
 export class RegisterUserUseCase {
   constructor(private readonly userRepository: UserRepository) {}
 
   async execute(request: RegisterUserRequest): Promise<RegisterUserResponse> {
     // 1. Create value objects (validation happens here)
-    const email = Email.create(request.email)
-    const phone = PhoneNumber.create(request.phoneNumber)
+    const email = Email.create(request.email);
+    const phone = PhoneNumber.create(request.phoneNumber);
 
     // 2. Check if email exists
     if (await this.userRepository.emailExists(email)) {
-      return { success: false, message: 'Email đã được đăng ký' }
+      return { success: false, message: "Email đã được đăng ký" };
     }
 
     // 3. Create and save user
-    const user = createUser({ email, phone, ...request })
-    await this.userRepository.save(user)
+    const user = createUser({ email, phone, ...request });
+    await this.userRepository.save(user);
 
-    return { success: true, message: 'Đăng ký thành công!' }
+    return { success: true, message: "Đăng ký thành công!" };
   }
 }
 ```
@@ -315,17 +317,17 @@ export class RegisterUserUseCase {
 
 ```typescript
 // src/infrastructure/repositories/api-user-repository.ts
-import type { UserRepository } from '@/src/domain/interfaces/user-repository'
-import { dxaiApiClient } from '../api/dxai-api-client'
+import type { UserRepository } from "@/src/domain/interfaces/user-repository";
+import { dxaiApiClient } from "../api/dxai-api-client";
 
 export class ApiUserRepository implements UserRepository {
   async save(user: User): Promise<User> {
-    const response = await dxaiApiClient.post('/users/register-company', {
+    const response = await dxaiApiClient.post("/users/register-company", {
       email: user.email.getValue(),
       phone_number: user.phone.getValue(),
       // ... other fields
-    })
-    return this.toDomain(response)
+    });
+    return this.toDomain(response);
   }
 
   // ... other methods
@@ -338,46 +340,46 @@ export class ApiUserRepository implements UserRepository {
 
 ### Step 4.1: Update Registration Form
 
-Update `app/dang-ky/registration-form.tsx` to use the new use case:
+Update `app/register/registration-form.tsx` to use the new use case:
 
 ```typescript
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { RegisterUserUseCase } from '@/src/application/use-cases/auth/register-user'
-import { ApiUserRepository } from '@/src/infrastructure/repositories/api-user-repository'
+import { useState } from "react";
+import { RegisterUserUseCase } from "@/src/application/use-cases/auth/register-user";
+import { ApiUserRepository } from "@/src/infrastructure/repositories/api-user-repository";
 
 // Create use case instance
-const userRepository = new ApiUserRepository()
-const registerUserUseCase = new RegisterUserUseCase(userRepository)
+const userRepository = new ApiUserRepository();
+const registerUserUseCase = new RegisterUserUseCase(userRepository);
 
 export function RegistrationForm() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
-    setIsLoading(true)
-    setError(null)
+    setIsLoading(true);
+    setError(null);
 
     try {
       const result = await registerUserUseCase.execute({
-        email: formData.get('email') as string,
-        phoneNumber: formData.get('phone_number') as string,
+        email: formData.get("email") as string,
+        phoneNumber: formData.get("phone_number") as string,
         // ... other fields
-      })
+      });
 
       if (!result.success) {
-        setError(result.message)
-        return
+        setError(result.message);
+        return;
       }
 
       // Handle success
     } catch (err) {
-      setError('An unexpected error occurred')
+      setError("An unexpected error occurred");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   // ... rest of component
 }
@@ -386,39 +388,42 @@ export function RegistrationForm() {
 ### Step 4.2: Reorganize Components
 
 Move landing components:
+
 ```
 components/landing/hero-section.tsx → components/features/landing/hero/hero-section.tsx
 components/landing/navbar.tsx → components/features/shared/navbar/navbar.tsx
 ```
 
 Update imports in pages:
+
 ```typescript
 // Before
-import { HeroSection } from '@/components/landing/hero-section'
+import { HeroSection } from "@/components/landing/hero-section";
 
 // After
-import { HeroSection } from '@/components/features/landing/hero/hero-section'
+import { HeroSection } from "@/components/features/landing/hero/hero-section";
 ```
 
 ---
 
 ## File Migration Map
 
-| Current Location | New Location | Priority |
-|-----------------|--------------|----------|
-| `lib/utils.ts` | `src/shared/utils/cn.ts` | High |
-| `lib/validation.ts` | `src/domain/value-objects/` | High |
-| `lib/api-client.ts` | `src/infrastructure/api/dxai-api-client.ts` | High |
-| `lib/i18n.tsx` | `lib/i18n/index.ts` + `translations/` | Medium |
-| `components/landing/` | `components/features/landing/` | Low |
-| `components/forms/` | `components/features/auth/` | Medium |
-| `components/about/` | `components/features/landing/about/` | Low |
+| Current Location      | New Location                                | Priority |
+| --------------------- | ------------------------------------------- | -------- |
+| `lib/utils.ts`        | `src/shared/utils/cn.ts`                    | High     |
+| `lib/validation.ts`   | `src/domain/value-objects/`                 | High     |
+| `lib/api-client.ts`   | `src/infrastructure/api/dxai-api-client.ts` | High     |
+| `lib/i18n.tsx`        | `lib/i18n/index.ts` + `translations/`       | Medium   |
+| `components/landing/` | `components/features/landing/`              | Low      |
+| `components/forms/`   | `components/features/auth/`                 | Medium   |
+| `components/about/`   | `components/features/landing/about/`        | Low      |
 
 ---
 
 ## Validation Checklist
 
 ### Phase 1 Complete
+
 - [ ] Directory structure created
 - [ ] Error classes created
 - [ ] Utility functions moved
@@ -426,12 +431,14 @@ import { HeroSection } from '@/components/features/landing/hero/hero-section'
 - [ ] Build succeeds
 
 ### Phase 2 Complete
+
 - [ ] Email value object created with tests
 - [ ] PhoneNumber value object created with tests
 - [ ] Old validation.ts updated to use value objects
 - [ ] Form validation still works
 
 ### Phase 3 Complete
+
 - [ ] User entity created
 - [ ] UserRepository interface defined
 - [ ] RegisterUser use case implemented
@@ -439,6 +446,7 @@ import { HeroSection } from '@/components/features/landing/hero/hero-section'
 - [ ] Registration flow works end-to-end
 
 ### Phase 4 Complete
+
 - [ ] Registration form uses new architecture
 - [ ] Components reorganized under features/
 - [ ] All imports updated
@@ -461,27 +469,28 @@ Example re-export for backward compatibility:
 ```typescript
 // lib/validation.ts (old location)
 // Re-export from new location for backward compatibility
-export * from '@/src/domain/value-objects'
-export { validateRegistrationForm } from '@/src/application/use-cases/auth/register-user'
+export * from "@/src/domain/value-objects";
+export { validateRegistrationForm } from "@/src/application/use-cases/auth/register-user";
 ```
 
 ---
 
 ## Timeline Estimate
 
-| Phase | Duration | Dependencies |
-|-------|----------|--------------|
-| Phase 1: Foundation | 2-3 days | None |
-| Phase 2: Value Objects | 3-4 days | Phase 1 |
-| Phase 3: Use Cases | 1 week | Phase 2 |
-| Phase 4: Integration | 1 week | Phase 3 |
-| **Total** | **3-4 weeks** | - |
+| Phase                  | Duration      | Dependencies |
+| ---------------------- | ------------- | ------------ |
+| Phase 1: Foundation    | 2-3 days      | None         |
+| Phase 2: Value Objects | 3-4 days      | Phase 1      |
+| Phase 3: Use Cases     | 1 week        | Phase 2      |
+| Phase 4: Integration   | 1 week        | Phase 3      |
+| **Total**              | **3-4 weeks** | -            |
 
 ---
 
 ## Support
 
 For questions or issues during migration:
+
 - Review [ARCHITECTURE.md](./ARCHITECTURE.md) for architecture details
 - Check [CLAUDE.md](./CLAUDE.md) for coding standards
 - Create an issue in the repository

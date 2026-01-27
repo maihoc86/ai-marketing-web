@@ -161,8 +161,7 @@ const MetricCardLight = memo(
     <div
       className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md"
       style={{
-        animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
-        opacity: 0,
+        animation: `fadeInUp 0.3s ease-out ${delay}ms forwards`,
       }}
     >
       <div className="flex items-center justify-between mb-2">
@@ -550,7 +549,7 @@ export function HeroLightTheme() {
             <div className="flex flex-col gap-4 pt-2">
               <div className="flex flex-wrap gap-4">
                 <LocaleLink
-                  href="/dang-ky"
+                  href="/register"
                   className="bg-[#22b5f8] hover:bg-[#1a9fd8] text-white flex items-center gap-2 group shadow-lg hover:shadow-xl transition-all rounded-full px-6 py-3 font-semibold"
                 >
                   <Sparkles className="w-5 h-5" />
@@ -677,27 +676,27 @@ export function HeroLightTheme() {
                     label={t("hero.dashboard.totalReach")}
                     value="1200000"
                     growth="+14%"
-                    delay={200}
+                    delay={0}
                   />
                   <MetricCardLight
                     label={t("hero.dashboard.aiEfficiency")}
                     value="98.4"
                     badge="AI"
                     badgeColor="bg-blue-500"
-                    delay={300}
+                    delay={50}
                   />
                   <MetricCardLight
                     label={t("hero.dashboard.contentCreated")}
                     value="2500"
                     growth="+23%"
-                    delay={400}
+                    delay={100}
                   />
                   <MetricCardLight
                     label={t("hero.dashboard.activeCampaigns")}
                     value="47"
                     badge={t("hero.dashboard.active")}
                     badgeColor="bg-emerald-500"
-                    delay={500}
+                    delay={150}
                   />
                 </div>
 
@@ -714,25 +713,25 @@ export function HeroLightTheme() {
                       label={t("hero.dashboard.region.vietnam")}
                       percentage={87}
                       color="bg-blue-500"
-                      delay={600}
+                      delay={200}
                     />
                     <RegionBarLight
                       label={t("hero.dashboard.region.sea")}
                       percentage={62}
                       color="bg-blue-400"
-                      delay={700}
+                      delay={300}
                     />
                     <RegionBarLight
                       label={t("hero.dashboard.region.latam")}
                       percentage={45}
                       color="bg-indigo-400"
-                      delay={800}
+                      delay={400}
                     />
                     <RegionBarLight
                       label={t("hero.dashboard.region.apac")}
                       percentage={58}
                       color="bg-cyan-500"
-                      delay={900}
+                      delay={500}
                     />
                   </div>
                 </div>
@@ -744,8 +743,7 @@ export function HeroLightTheme() {
                         key={platform.name}
                         className="p-2 rounded-lg bg-gray-50 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200 hover:scale-110"
                         style={{
-                          animation: `fadeInUp 0.3s ease-out ${1500 + index * 100}ms forwards`,
-                          opacity: 0,
+                          animation: `fadeInUp 0.3s ease-out ${600 + index * 50}ms forwards`,
                         }}
                       >
                         <platform.Icon
@@ -763,8 +761,7 @@ export function HeroLightTheme() {
                   <span
                     className="text-[10px] text-gray-500 font-medium"
                     style={{
-                      animation: `fadeInUp 0.3s ease-out 2000ms forwards`,
-                      opacity: 0,
+                      animation: `fadeInUp 0.3s ease-out 850ms forwards`,
                     }}
                   >
                     {t("hero.dashboard.platforms")}

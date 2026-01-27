@@ -71,7 +71,7 @@ export function FeaturePageTemplate({
               <div
                 className={cn(
                   "inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6",
-                  iconBg
+                  iconBg,
                 )}
               >
                 <FeatureIcon className={cn("w-8 h-8", iconColor)} />
@@ -91,7 +91,7 @@ export function FeaturePageTemplate({
                   className="bg-[#ff7900] hover:bg-[#e56b00] text-white font-semibold px-8 rounded-full"
                   asChild
                 >
-                  <LocaleLink href="/dang-ky">
+                  <LocaleLink href="/register">
                     <Sparkles className="w-5 h-5 mr-2" />
                     {t("featurePage.tryFree")}
                   </LocaleLink>
@@ -102,7 +102,9 @@ export function FeaturePageTemplate({
                   className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-8 rounded-full"
                   asChild
                 >
-                  <LocaleLink href="/#pricing">{t("featurePage.viewPricing")}</LocaleLink>
+                  <LocaleLink href="/#pricing">
+                    {t("featurePage.viewPricing")}
+                  </LocaleLink>
                 </Button>
               </div>
             </div>
@@ -169,7 +171,7 @@ export function FeaturePageTemplate({
                   <div
                     className={cn(
                       "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4",
-                      iconBg
+                      iconBg,
                     )}
                   >
                     <ItemIcon className={cn("w-6 h-6", iconColor)} />
@@ -272,7 +274,7 @@ export function FeaturePageTemplate({
               className="bg-white text-[#008bff] hover:bg-gray-100 font-semibold px-8 rounded-full"
               asChild
             >
-              <LocaleLink href="/dang-ky">
+              <LocaleLink href="/register">
                 <Sparkles className="w-5 h-5 mr-2" />
                 {t("featurePage.startTrial")}
               </LocaleLink>
@@ -283,7 +285,9 @@ export function FeaturePageTemplate({
               className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 rounded-full bg-transparent"
               asChild
             >
-              <LocaleLink href="/#features">{t("featurePage.exploreMore")}</LocaleLink>
+              <LocaleLink href="/#features">
+                {t("featurePage.exploreMore")}
+              </LocaleLink>
             </Button>
           </div>
         </div>

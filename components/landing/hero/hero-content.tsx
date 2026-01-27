@@ -54,7 +54,7 @@ export function HeroContent() {
             className="text-base h-14 px-8 rounded-full bg-[#ff7900] hover:bg-[#e56b00] shadow-lg shadow-[#ff7900]/30 gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-[#ff7900]/40 hover:-translate-y-0.5"
             asChild
           >
-            <LocaleLink href="/dang-ky">
+            <LocaleLink href="/register">
               <Sparkles className="w-5 h-5" />
               {t("hero.cta.trial")}
             </LocaleLink>

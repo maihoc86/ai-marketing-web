@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { LocaleLink } from "@/components/locale-link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useI18n } from "@/lib/i18n"
+import { LocaleLink } from "@/components/locale-link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export function AboutHeroSection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <section className="relative pt-28 pb-16 overflow-hidden">
@@ -25,12 +25,18 @@ export function AboutHeroSection() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">{t("about.hero.title")}</h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          {t("about.hero.title")}
+        </h1>
 
         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-          <span className="font-semibold text-[#22b5f8]">{t("about.hero.subtitle")}</span>
+          <span className="font-semibold text-[#22b5f8]">
+            {t("about.hero.subtitle")}
+          </span>
         </p>
-        <p className="text-base text-gray-500 max-w-2xl mx-auto mb-10">{t("about.hero.description")}</p>
+        <p className="text-base text-gray-500 max-w-2xl mx-auto mb-10">
+          {t("about.hero.description")}
+        </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <Button
@@ -38,7 +44,7 @@ export function AboutHeroSection() {
             className="bg-[#ff7900] text-white hover:bg-[#e56b00] font-semibold px-8 py-6 rounded-xl text-base"
             asChild
           >
-            <LocaleLink href="/dang-ky" className="flex items-center gap-2">
+            <LocaleLink href="/register" className="flex items-center gap-2">
               {t("about.cta.trial")}
               <ArrowRight className="w-5 h-5" />
             </LocaleLink>
@@ -50,10 +56,10 @@ export function AboutHeroSection() {
             className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8]/5 font-semibold px-8 py-6 rounded-xl text-base bg-transparent"
             asChild
           >
-            <LocaleLink href="/dang-ky">{t("about.cta.contact")}</LocaleLink>
+            <LocaleLink href="/register">{t("about.cta.contact")}</LocaleLink>
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }

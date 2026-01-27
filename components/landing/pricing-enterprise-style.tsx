@@ -250,20 +250,20 @@ export function PricingEnterpriseStyle() {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {pricingPlans.map((plan, index) => (
+          {pricingPlans.map((plan) => (
             <div
               key={plan.name}
               className={cn(
                 "relative rounded-xl bg-white p-8 transition-all duration-300",
                 plan.popular
-                  ? "border-2 border-blue-600 shadow-xl scale-105"
+                  ? "border-2 border-primary shadow-xl scale-105"
                   : "border border-gray-200 shadow-md hover:shadow-lg",
               )}
             >
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                  <span className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
                     {t("pricing.popular")}
                   </span>
                 </div>
@@ -275,7 +275,7 @@ export function PricingEnterpriseStyle() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm mb-6 min-h-[40px]">
+              <p className="text-gray-600 text-sm mb-6 min-h-10">
                 {t(`pricing.enterprise.${plan.name.toLowerCase()}.description`)}
               </p>
 
@@ -331,13 +331,13 @@ export function PricingEnterpriseStyle() {
               </div>
 
               {/* CTA Button */}
-              <LocaleLink href={`/dang-ky?package=${plan.name.toLowerCase()}`}>
+              <LocaleLink href={`/register?package=${plan.name.toLowerCase()}`}>
                 <Button
                   className={cn(
                     "w-full h-12 rounded-lg font-semibold text-base transition-all duration-200",
                     plan.popular
-                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg"
-                      : "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700",
+                      ? "bg-primary hover:bg-primary-hover text-white shadow-md hover:shadow-lg"
+                      : "bg-white hover:bg-gray-50 text-primary border-2 border-primary hover:border-primary-hover",
                   )}
                 >
                   {t(`pricing.enterprise.${plan.name.toLowerCase()}.cta`)}
@@ -348,8 +348,8 @@ export function PricingEnterpriseStyle() {
               <ul className="mt-8 space-y-4">
                 {plan.featuresKeys.map((featureKey, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <div className="shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-blue-600" />
+                    <div className="shrink-0 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-gray-700 text-sm leading-relaxed">
                       {t(featureKey)}

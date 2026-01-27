@@ -34,7 +34,6 @@ export function RegistrationForm({
   onSubmit,
 }: RegistrationFormProps) {
   const { t, locale } = useI18n();
-  const language = locale === "vi" ? "vi" : "en";
 
   const [activityFields, setActivityFields] = useState<
     Array<{ id: string; name: string; description: string }>
@@ -46,7 +45,7 @@ export function RegistrationForm({
     const fetchActivityFields = async () => {
       try {
         const response = await fetch(
-          `https://api-ai-code.dsp.one/graphql?language_code=${language}`,
+          `https://api-ai-code.dsp.one/graphql?language_code=${locale}`,
           {
             method: "POST",
             headers: {
@@ -54,7 +53,7 @@ export function RegistrationForm({
             },
             body: JSON.stringify({
               query: `{
-                activityFields(page: 1, perPage: 20, status: "active", language_code: "${language}") {
+                activityFields(page: 1, perPage: 20, status: "active", language_code: "${locale}") {
                   data {
                     id
                     name
@@ -68,12 +67,7 @@ export function RegistrationForm({
 
         const result = await response.json();
         if (result.data?.activityFields?.data) {
-          // Remove duplicates based on id
-          const uniqueFields = result.data.activityFields.data.filter(
-            (field: { id: string }, index: number, self: Array<{ id: string }>) =>
-              index === self.findIndex((f) => f.id === field.id)
-          );
-          setActivityFields(uniqueFields);
+          setActivityFields(result.data.activityFields.data);
         }
       } catch (error) {
         console.error("Error fetching activity fields:", error);
@@ -89,7 +83,7 @@ export function RegistrationForm({
     };
 
     fetchActivityFields();
-  }, [language]);
+  }, [locale]);
 
   const jobPositions = [
     { id: "", labelKey: "registration.form.contact.jobPositionPlaceholder" },
@@ -117,7 +111,7 @@ export function RegistrationForm({
           <div className="flex flex-col gap-8">
             {/* Hero Section */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#22b5f8] text-white text-sm font-semibold rounded-full">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#ff7900] text-white text-sm font-semibold rounded-full">
                 <Star className="w-4 h-4" aria-hidden="true" />
                 {t("registration.form.trial")}
               </div>
@@ -165,7 +159,7 @@ export function RegistrationForm({
                   />
                 ))}
                 <div className="size-10 rounded-full border-2 border-white bg-[#22b5f8]/10 flex items-center justify-center text-xs font-bold text-[#22b5f8]">
-                  +200
+                  +2k
                 </div>
               </div>
               <div>
@@ -344,41 +338,42 @@ export function RegistrationForm({
 
                   {/* Business Type */}
                   <div className="flex flex-col gap-2">
-                    <label
-                      htmlFor="business_type"
-                      className="text-sm font-semibold text-gray-900"
-                    >
+                    <label className="text-sm font-semibold text-gray-900">
                       {t("registration.form.company.type")}
                     </label>
                     {isLoadingFields ? (
                       <div className="flex items-center gap-2 text-sm text-gray-500">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        {t("common.loading")}
+                        Đang tải...
                       </div>
                     ) : (
-                      <select
-                        id="business_type"
-                        name="business_type"
-                        value={formData.business_type}
-                        onChange={(e) =>
-                          onBusinessTypeChange(
-                            e.target.value as
-                              | "enterprise"
-                              | "household"
-                              | "other",
-                          )
-                        }
-                        className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all border-gray-200 ${!formData.business_type ? "text-gray-400" : "text-gray-900"}`}
-                      >
-                        <option value="" disabled>
-                          {t("registration.form.company.typePlaceholder")}
-                        </option>
+                      <div className="flex flex-wrap gap-4 mt-1">
                         {activityFields.map((field) => (
-                          <option key={field.id} value={field.id}>
-                            {field.name}
-                          </option>
+                          <label
+                            key={field.id}
+                            className="flex items-center gap-2 cursor-pointer"
+                          >
+                            <input
+                              type="radio"
+                              name="business_type"
+                              value={field.id}
+                              checked={formData.business_type === field.id}
+                              onChange={() =>
+                                onBusinessTypeChange(
+                                  field.id as
+                                    | "enterprise"
+                                    | "household"
+                                    | "other",
+                                )
+                              }
+                              className="w-4 h-4 text-[#22b5f8] border-gray-300 focus:ring-[#22b5f8]"
+                            />
+                            <span className="text-sm text-gray-700">
+                              {field.name}
+                            </span>
+                          </label>
                         ))}
-                      </select>
+                      </div>
                     )}
                   </div>
 
@@ -591,7 +586,7 @@ export function RegistrationForm({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-14 bg-[#22b5f8] text-white font-bold rounded-lg hover:bg-[#1a9fd8] disabled:bg-[#22b5f8]/50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#22b5f8]/30"
+                  className="w-full h-14 bg-[#ff7900] text-white font-bold rounded-lg hover:bg-[#e56b00] disabled:bg-[#ff7900]/50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#ff7900]/30"
                 >
                   {isLoading ? (
                     <>

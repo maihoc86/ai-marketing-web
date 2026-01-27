@@ -15,7 +15,7 @@ interface LocaleLinkProps extends Omit<LinkProps, "href"> {
  *
  * Automatically adds locale prefix for internal links.
  * Handles:
- * - Internal paths: /dang-ky -> /vi/dang-ky or /en/dang-ky
+ * - Internal paths: /register -> /vi/register or /en/register
  * - Hash links: /#features -> /vi/#features
  * - External links: https://example.com (pass-through)
  * - Absolute paths with locale: /vi/... (pass-through)

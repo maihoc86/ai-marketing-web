@@ -334,7 +334,7 @@ export function RoiSection() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="/ve-chung-toi"
+                href="/about-us"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-[#22b5f8]/50 transition-all min-h-[56px]"
               >
                 {t("roi.cta.learn")}

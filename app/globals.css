@@ -144,8 +144,11 @@
   --color-primary-900: #7c3900;
 
   /* Brand: Primary Orange */
-  --primary: #ff7900;
+  --primary: #22b5f8;
+  --primary-hover: #1a9fd8;
   --primary-foreground: #ffffff;
+
+  --secondary: #ff7900;
 
   /* Improved neutral colors for better contrast */
   --background: oklch(0.99 0 0);

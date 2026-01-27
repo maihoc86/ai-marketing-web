@@ -326,7 +326,7 @@ export function WhyChooseOpturaStyle() {
               </div>
             </div>
 
-            <LocaleLink href="/dang-ky">
+            <LocaleLink href="/register">
               <button className="w-full px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group">
                 {t("whyChoose.optura.tryNow")}
                 <svg
@@ -362,7 +362,7 @@ export function WhyChooseOpturaStyle() {
               </div>
             </div>
 
-            <LocaleLink href="/ve-chung-toi">
+            <LocaleLink href="/about-us">
               <button className="w-full px-8 py-4 rounded-xl bg-white hover:bg-gray-50 text-blue-600 font-bold border-2 border-blue-600 shadow-md hover:shadow-lg transition-all duration-200">
                 {t("whyChoose.optura.consultBtn")}
               </button>

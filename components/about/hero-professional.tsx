@@ -73,7 +73,7 @@ export function HeroProfessional() {
                 asChild
               >
                 <LocaleLink
-                  href="/dang-ky"
+                  href="/register"
                   className="flex items-center justify-center gap-2"
                 >
                   {t("about.hero.cta.contact")}
