@@ -8,6 +8,7 @@ import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 interface PricingPlan {
+  id: string;
   nameKey: string;
   priceUSD: number | "custom";
   priceVND: number | "custom";
@@ -19,6 +20,7 @@ interface PricingPlan {
 
 const pricingPlans: PricingPlan[] = [
   {
+    id: "starter",
     nameKey: "pricing.enterprise.startup.name",
     priceUSD: 499,
     priceVND: 499 * 250000, // Approximate conversion
@@ -46,6 +48,7 @@ const pricingPlans: PricingPlan[] = [
     ctaKey: "pricing.enterprise.startup.cta",
   },
   {
+    id: "business",
     nameKey: "pricing.enterprise.growth.name",
     priceUSD: 799,
     priceVND: 799 * 250000, // Approximate conversion
@@ -367,9 +370,7 @@ export function PricingEnterpriseStyle() {
               </div>
 
               {/* CTA Button */}
-              <LocaleLink
-                href={`/register?package=${plan.nameKey.toLowerCase()}`}
-              >
+              <LocaleLink href={`/register?package=${plan.id}`}>
                 <Button
                   className={cn(
                     "w-full h-12 rounded-lg font-semibold text-base transition-all duration-200",

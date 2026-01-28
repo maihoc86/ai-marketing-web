@@ -1,7 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import { Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { packageOptions } from "./types";
 import { useI18n } from "@/lib/i18n";
@@ -56,9 +56,8 @@ export const PackageSelector = memo(
               >
                 {/* Popular badge */}
                 {isPopular && (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-linear-to-r from-amber-400 to-orange-400 text-white shadow-sm">
-                      <Sparkles className="w-3 h-3" aria-hidden="true" />
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-linear-to-r from-amber-400 to-orange-400 whitespace-nowrap text-white shadow-sm">
                       {t("form.packageSelector.popular")}
                     </span>
                   </div>
@@ -68,7 +67,7 @@ export const PackageSelector = memo(
                 {isSelected && (
                   <div className="absolute top-3 right-3" aria-hidden="true">
                     <div className="w-5 h-5 rounded-full bg-[#22b5f8] flex items-center justify-center">
-                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                      <Check className="size-3 text-white" strokeWidth={3} />
                     </div>
                   </div>
                 )}

@@ -9,6 +9,7 @@ import { LazyAnalytics } from "@/components/lazy-analytics";
 import { WebVitals } from "@/components/web-vitals";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { I18nProvider } from "@/lib/i18n";
+import { QueryClientProviderWrapper } from "@/components/providers/query-client-provider";
 import { i18nConfig, isValidLocale, type Locale } from "@/lib/i18n-config";
 import {
   organizationSchema,
@@ -233,14 +234,16 @@ export default async function LocaleLayout({
         </a>
 
         <ErrorBoundary>
-          <I18nProvider locale={locale}>
-            <LazyAnalytics />
-            <WebVitals />
-            <main id="main-content" tabIndex={-1}>
-              {children}
-            </main>
-            <LazyChatbot />
-          </I18nProvider>
+          <QueryClientProviderWrapper>
+            <I18nProvider locale={locale}>
+              <LazyAnalytics />
+              <WebVitals />
+              <main id="main-content" tabIndex={-1}>
+                {children}
+              </main>
+              <LazyChatbot />
+            </I18nProvider>
+          </QueryClientProviderWrapper>
           <Analytics />
         </ErrorBoundary>
 
