@@ -35,7 +35,7 @@ export function BusinessFields({
             className="text-sm font-semibold text-gray-900"
           >
             {t("registration.form.company.name")}{" "}
-            <span className="text-red-500">*</span>
+            {/* <span className="text-red-500">*</span> */}
           </label>
           <input
             id="company_name"
@@ -46,7 +46,7 @@ export function BusinessFields({
             placeholder={t("registration.form.company.namePlaceholder")}
             className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.company_name ? "border-red-500" : "border-gray-200"}`}
           />
-          {errors.company_name && (
+          {/* {errors.company_name && (
             <p
               role="alert"
               className="text-sm text-red-600 flex items-center gap-1"
@@ -54,7 +54,7 @@ export function BusinessFields({
               <AlertCircle className="w-4 h-4" aria-hidden="true" />
               {errors.company_name}
             </p>
-          )}
+          )} */}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -130,7 +130,7 @@ export function BusinessFields({
         />
       </div>
 
-      <div className="border-t border-gray-200 my-2" />
+      <div className="border-t border-gray-200 mt-2 mb-4" />
     </>
   );
 }

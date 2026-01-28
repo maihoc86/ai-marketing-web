@@ -178,17 +178,9 @@ export function useRegistrationForm(
   const validateStep1 = (): boolean => {
     const newErrors: RegistrationFormErrors = {};
 
-    // Package validation
+    // Only require selected package at step 1
     if (!formData.selected_package) {
       newErrors.selected_package = "Vui lòng chọn gói dùng thử";
-    }
-
-    // Company name validation - only required for business package
-    if (
-      formData.selected_package === "business" &&
-      !formData.company_name.trim()
-    ) {
-      newErrors.company_name = "Vui lòng nhập tên doanh nghiệp";
     }
 
     setErrors(newErrors);
@@ -359,8 +351,20 @@ export function useRegistrationForm(
       const normalizedPhone =
         cleanPhone.length === 9 ? `0${cleanPhone}` : cleanPhone;
 
-      // Prepare submission data based on package type
-      const submitData: any = {
+      // Define type for submitData
+      type SubmitData = {
+        registration_type: string;
+        name: string;
+        email: string;
+        phone_number: string;
+        position: string;
+        company_name?: string;
+        tax_code?: string;
+        activity_field?: string;
+        address?: string;
+      };
+
+      const submitData: SubmitData = {
         registration_type: formData.selected_package, // "business" or "starter"
         name: formData.full_name.trim(),
         email: formData.email,
