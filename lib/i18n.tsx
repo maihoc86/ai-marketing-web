@@ -635,6 +635,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.mockup.chatbot": "Chatbot",
     "whyChoose.mockup.members": "Thành viên đang hoạt động",
     "whyChoose.mockup.others": "+42 người khác",
+    "registration.form.contact.phonePlaceholder": "0123456789",
 
     // Testimonials Section
     "testimonials.badge": "TESTIMONIALS",
@@ -2567,6 +2568,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "form.package.growth.price": "$799/month",
     "form.package.enterprise.name": "Enterprise",
     "form.package.enterprise.price": "Contact us",
+    "registration.form.contact.phonePlaceholder": "55 555 5555",
   },
 };
 
