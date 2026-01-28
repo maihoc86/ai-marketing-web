@@ -8,9 +8,9 @@ import { api, type ApiError } from "@/lib/api-client";
  */
 export interface RegistrationFormData {
   selected_package: string;
-  business_type: "enterprise" | "household" | "other";
-  tax_code: string;
-  company_name: string;
+  business_type?: string;
+  tax_code?: string;
+  company_name?: string;
   address: string;
   full_name: string;
   first_name: string;
@@ -150,9 +150,9 @@ export function useRegistrationForm(
   // Form State
   const [formData, setFormData] = useState<RegistrationFormData>({
     selected_package: initialPackage,
-    business_type: "enterprise",
+    business_type: undefined,
     tax_code: "",
-    company_name: "",
+    company_name: undefined,
     address: "",
     full_name: "",
     first_name: "",
@@ -292,9 +292,7 @@ export function useRegistrationForm(
   /**
    * Handle business type change
    */
-  const handleBusinessTypeChange = (
-    type: "enterprise" | "household" | "other",
-  ) => {
+  const handleBusinessTypeChange = (type: string) => {
     setFormData((prev) => ({ ...prev, business_type: type }));
   };
 
@@ -304,9 +302,9 @@ export function useRegistrationForm(
   const resetForm = () => {
     setFormData({
       selected_package: initialPackage,
-      business_type: "enterprise",
-      tax_code: "",
-      company_name: "",
+      business_type: undefined,
+      tax_code: undefined,
+      company_name: undefined,
       address: "",
       full_name: "",
       first_name: "",
@@ -362,6 +360,7 @@ export function useRegistrationForm(
         tax_code?: string;
         activity_field?: string;
         address?: string;
+        customer_need: string;
       };
 
       const submitData: SubmitData = {
@@ -370,14 +369,17 @@ export function useRegistrationForm(
         email: formData.email,
         phone_number: normalizedPhone,
         position: formData.job_position,
+        customer_need: "register", // Default value, adjust as needed
       };
 
       // Add business-specific fields only for business package
       if (isBusinessPackage) {
-        submitData.company_name = formData.company_name;
-        submitData.tax_code = formData.tax_code || "";
+        submitData.company_name = formData.company_name
+          ? formData.company_name
+          : "";
+        submitData.tax_code = formData.tax_code ? formData.tax_code : "";
         submitData.activity_field = "Information technology company";
-        submitData.address = formData.address || "";
+        submitData.address = formData.address ? formData.address : "";
       }
 
       // Use secure API client with CSRF protection and rate limiting
@@ -391,9 +393,9 @@ export function useRegistrationForm(
         // Reset form after successful submission
         setFormData({
           selected_package: initialPackage,
-          business_type: "enterprise",
+          business_type: undefined,
           tax_code: "",
-          company_name: "",
+          company_name: undefined,
           address: "",
           full_name: "",
           first_name: "",

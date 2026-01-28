@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { Loader2, AlertCircle } from "lucide-react";
+import { BusinessTypeSelector } from "@/components/forms/business-type-selector";
 import type {
   RegistrationFormData,
   RegistrationFormErrors,
@@ -12,8 +12,6 @@ export function BusinessFields({
   errors,
   onInputChange,
   onBusinessTypeChange,
-  activityFields,
-  isLoadingFields,
   t,
 }: {
   formData: RegistrationFormData;
@@ -21,7 +19,7 @@ export function BusinessFields({
   onInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
-  onBusinessTypeChange: (type: "enterprise" | "household" | "other") => void;
+  onBusinessTypeChange: (type: string) => void;
   activityFields: Array<{ id: string; name: string }>;
   isLoadingFields: boolean;
   t: (k: string) => string;
@@ -75,41 +73,13 @@ export function BusinessFields({
           />
         </div>
       </div>
-
       <div className="flex flex-col gap-2">
-        <label
-          htmlFor="business_type"
-          className="text-sm font-semibold text-gray-900"
-        >
-          {t("registration.form.company.type")}
-        </label>
-        {isLoadingFields ? (
-          <div className="flex items-center gap-2 text-sm text-gray-500">
-            <Loader2 className="w-4 h-4 animate-spin" />
-            {t("common.loading")}
-          </div>
-        ) : (
-          <select
-            id="business_type"
-            name="business_type"
-            value={formData.business_type}
-            onChange={(e) =>
-              onBusinessTypeChange(
-                e.target.value as "enterprise" | "household" | "other",
-              )
-            }
-            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all border-gray-200 ${!formData.business_type ? "text-gray-400" : "text-gray-900"}`}
-          >
-            <option value="" disabled>
-              {t("registration.form.company.typePlaceholder")}
-            </option>
-            {activityFields.map((field) => (
-              <option key={field.id} value={field.id}>
-                {field.name}
-              </option>
-            ))}
-          </select>
-        )}
+        <BusinessTypeSelector
+          value={formData.business_type as "enterprise" | "household" | "other"}
+          onChange={onBusinessTypeChange}
+          disabled={false}
+          className="w-full"
+        />
       </div>
 
       <div className="flex flex-col gap-2">

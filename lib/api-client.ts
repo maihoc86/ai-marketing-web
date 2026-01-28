@@ -283,7 +283,7 @@ interface RegistrationSubmit {
   name: string;
   email: string;
   phone_number: string;
-  company_name: string;
+  company_name?: string;
   customer_need: string;
 }
 

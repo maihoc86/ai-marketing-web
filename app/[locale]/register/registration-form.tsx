@@ -23,7 +23,7 @@ interface RegistrationFormProps {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
   onPackageSelect: (packageId: string) => void;
-  onBusinessTypeChange: (type: "enterprise" | "household" | "other") => void;
+  onBusinessTypeChange: (type: string) => void;
   onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 

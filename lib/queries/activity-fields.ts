@@ -5,13 +5,65 @@ export type ActivityField = { id: string; name: string };
 
 export async function fetchActivityFields(
   language: string,
+  opts?: {
+    token?: string;
+    companyId?: string | number;
+    perPage?: number;
+    page?: number;
+    orderBy?: string;
+    orderDirection?: string;
+  },
 ): Promise<ActivityField[]> {
-  const query = `{ activityFields(page: 1, perPage: 20, status: "active", language_code: "${language}") { data { id name description } } }`;
+  const {
+    token,
+    companyId = 19,
+    perPage = -1,
+    page = 1,
+    orderBy = "created_at",
+    orderDirection = "asc",
+  } = opts ?? {};
+
+  const query = `{
+    activityFields(page: ${page}, perPage: ${perPage}, status: "active", orderBy: "${orderBy}", orderDirection: "${orderDirection}", language_code: "${language}") {
+      current_page
+      has_more_pages
+      last_page
+      per_page
+      total
+      data {
+        id
+        name
+        description
+        language_id
+        status
+        file {
+          id
+          url
+        }
+        language {
+          language_name
+          language_code
+        }
+        created_at
+        created_at_formatted
+        updated_at
+      }
+    }
+  }`;
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "accept-language": `${language},en;q=0.9`,
+  };
+
+  if (token) headers["authorization"] = `Bearer ${token}`;
+  if (companyId !== undefined) headers["x-company-id"] = String(companyId);
 
   const res = await axios.post(
-    `https://api-ai-code.dsp.one/graphql?language_code=${language}`,
-    { query },
-    { headers: { "Content-Type": "application/json" } },
+    `https://api-ai-code.dsp.one/graphql`,
+    { query, variables: {} },
+    { headers },
   );
 
   const json = res.data;
