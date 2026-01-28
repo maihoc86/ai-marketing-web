@@ -1240,8 +1240,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "form.package.startup.price": "8.073.000 VNĐ/tháng",
     "form.package.growth.name": "Growth",
     "form.package.growth.price": "13.473.000 VNĐ/tháng",
-    "form.package.enterprise.name": "Enterprise",
+    "form.package.enterprise.name": "Doanh nghiệp",
     "form.package.enterprise.price": "Liên hệ",
+    "registration.form.package.starter": "Chuyên nghiệp",
+    "registration.form.package.starterDesc":
+      "Trải nghiệm toàn bộ tính năng miễn phí trong 1 tháng",
   },
   en: {
     // Navigation
@@ -1575,10 +1578,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.title": "Sign up for free trial",
     "registration.form.subtitle":
       "Fill in the information to start experiencing Uniksmart",
-    "registration.form.package.starter": "Starter",
+    "registration.form.package.starter": "Professional",
     "registration.form.package.starterTitle": "For individuals",
     "registration.form.package.starterDesc":
-      "Free full-feature experience for 14 days.",
+      "Free full-feature experience for 1 month.",
     "registration.form.package.business": "Business",
     "registration.form.package.businessTitle": "For organizations",
     "registration.form.package.businessDesc":
