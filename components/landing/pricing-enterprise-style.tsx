@@ -60,7 +60,6 @@ const pricingPlans: PricingPlan[] = [
       "pricing.enterprise.growth.feature15",
       "pricing.enterprise.growth.feature16",
       "pricing.enterprise.growth.feature17",
-      "pricing.enterprise.growth.feature18",
       "pricing.enterprise.growth.feature19",
       "pricing.enterprise.growth.feature20",
       "pricing.enterprise.growth.feature21",
@@ -99,14 +98,14 @@ const comparisonFeatures: ComparisonFeature[] = [
   {
     name: "Annual price",
     nameKey: "pricing.enterprise.comparison.priceAnnual",
-    professional: "$399/mo",
-    business: "$639/mo",
+    professional: "$399/month",
+    business: "$639/month",
   },
   {
     name: "Free trial",
     nameKey: "pricing.enterprise.comparison.freeTrial",
     professional: "Free 1-month trial",
-    business: "Free 1-month trial",
+    business: false,
   },
   {
     name: "Social accounts",
@@ -218,19 +217,27 @@ export function PricingEnterpriseStyle() {
     return Math.round(monthlyPrice * 12 * 0.8); // 20% discount
   };
 
-  const formatPrice = (
-    priceVND: number | "custom",
-    priceUSD: number | "custom",
-  ) => {
-    if (priceVND === "custom") {
-      return locale === "vi" ? "Liên hệ" : "Custom";
-    }
+  // Format display price for the large price element
+  const formatDisplayPrice = (plan: PricingPlan) => {
+    if (plan.priceVND === "custom") return t("pricing.enterprise.custom");
 
     if (locale === "vi") {
-      return `${new Intl.NumberFormat("vi-VN").format(priceVND as number)} VNĐ`;
-    } else {
-      return `$${new Intl.NumberFormat("en-US").format(priceUSD as number)}`;
+      const vnd =
+        billingPeriod === "monthly"
+          ? (plan.priceVND as number)
+          : (calculateYearlyPrice(plan.priceVND) as number);
+      const thousands = Math.round(vnd / 1000);
+      return (
+        <>
+          {new Intl.NumberFormat("vi-VN").format(thousands)}
+          <span className="text-2xl text-gray-600">vnđ</span>
+        </>
+      );
     }
+
+    // USD
+    if (billingPeriod === "monthly") return `$${plan.priceUSD}`;
+    return `$${calculateYearlyPrice(plan.priceUSD)}`;
   };
 
   const renderComparisonValue = (value: string | boolean) => {
@@ -347,35 +354,7 @@ export function PricingEnterpriseStyle() {
                 )}
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl md:text-5xl font-bold text-gray-900">
-                    {plan.priceVND === "custom" ? (
-                      t("pricing.enterprise.custom")
-                    ) : (
-                      <>
-                        {locale === "vi" ? (
-                          billingPeriod === "monthly" ? (
-                            <>
-                              {new Intl.NumberFormat("vi-VN")
-                                .format(plan.priceVND as number)
-                                .slice(0, -4)}
-                              <span className="text-2xl text-gray-600">K</span>
-                            </>
-                          ) : (
-                            <>
-                              {new Intl.NumberFormat("vi-VN")
-                                .format(
-                                  calculateYearlyPrice(plan.priceVND) as number,
-                                )
-                                .slice(0, -4)}
-                              <span className="text-2xl text-gray-600">K</span>
-                            </>
-                          )
-                        ) : billingPeriod === "monthly" ? (
-                          `$${plan.priceUSD}`
-                        ) : (
-                          `$${calculateYearlyPrice(plan.priceUSD)}`
-                        )}
-                      </>
-                    )}
+                    {formatDisplayPrice(plan)}
                   </span>
                   {plan.priceVND !== "custom" && (
                     <span className="text-gray-600 text-base">

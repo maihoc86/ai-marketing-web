@@ -487,8 +487,6 @@ const translations: Record<Locale, Record<string, string>> = {
       "Thiết kế banner & thumbnail AI: Bao gồm",
     "pricing.enterprise.growth.feature17":
       "Huấn luyện giọng thương hiệu: Voices không giới hạn",
-    "pricing.enterprise.growth.feature18":
-      "Custom AI Model: Fine-tuned cho thương hiệu của bạn",
     "pricing.enterprise.growth.feature19": "Lên lịch tự động: Không giới hạn",
     "pricing.enterprise.growth.feature20": "Content Calendar: Nâng cao",
     "pricing.enterprise.growth.feature21": "Best Time to Post AI: Bao gồm",
@@ -1795,8 +1793,6 @@ const translations: Record<Locale, Record<string, string>> = {
       "AI Banner & Thumbnail Design: Included",
     "pricing.enterprise.growth.feature17":
       "Brand Voice Training: Unlimited brand voices",
-    "pricing.enterprise.growth.feature18":
-      "Custom AI Model: Fine-tuned for your brand",
     "pricing.enterprise.growth.feature19": "Auto-scheduling: Unlimited",
     "pricing.enterprise.growth.feature20": "Content Calendar: Advanced",
     "pricing.enterprise.growth.feature21": "Best Time to Post AI: Included",
