@@ -93,87 +93,42 @@ export const RegistrationFields = memo(
           </div>
         </div>
 
-        {/* Name fields */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="space-y-1.5">
-            <Label
-              htmlFor="first_name"
-              className="text-sm font-medium text-gray-900"
+        <div className="space-y-1.5">
+          <Label
+            htmlFor="full_name"
+            className="text-sm font-medium text-gray-900"
+          >
+            {t("registration.form.contact.fullName")}{" "}
+            <span
+              className="text-red-500"
+              aria-label={t("registration.form.required")}
             >
-              {t("registration.form.contact.firstName")}{" "}
-              <span
-                className="text-red-500"
-                aria-label={t("registration.form.required")}
-              >
-                *
-              </span>
-            </Label>
-            <Input
-              id="first_name"
-              name="first_name"
-              value={formData.first_name}
-              onChange={onChange}
-              disabled={disabled}
-              placeholder={t("registration.form.contact.firstNamePlaceholder")}
-              className={`h-11 rounded-xl ${
-                errors.first_name ? "border-red-500" : "border-gray-200"
-              } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
-              aria-invalid={!!errors.first_name}
-              aria-describedby={
-                errors.first_name ? "first_name-error" : undefined
-              }
-            />
-            {errors.first_name && (
-              <p
-                id="first_name-error"
-                role="alert"
-                className="text-sm text-red-600 flex items-center gap-1.5"
-              >
-                <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
-                {errors.first_name}
-              </p>
-            )}
-          </div>
-
-          <div className="space-y-1.5">
-            <Label
-              htmlFor="last_name"
-              className="text-sm font-medium text-gray-900"
+              *
+            </span>
+          </Label>
+          <Input
+            id="full_name"
+            name="full_name"
+            value={formData.full_name}
+            onChange={onChange}
+            disabled={disabled}
+            placeholder={t("registration.form.contact.fullNamePlaceholder")}
+            className={`h-11 rounded-xl ${
+              errors.full_name ? "border-red-500" : "border-gray-200"
+            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
+            aria-invalid={!!errors.full_name}
+            aria-describedby={errors.full_name ? "full_name-error" : undefined}
+          />
+          {errors.full_name && (
+            <p
+              id="full_name-error"
+              role="alert"
+              className="text-sm text-red-600 flex items-center gap-1.5"
             >
-              {t("registration.form.contact.lastName")}{" "}
-              <span
-                className="text-red-500"
-                aria-label={t("registration.form.required")}
-              >
-                *
-              </span>
-            </Label>
-            <Input
-              id="last_name"
-              name="last_name"
-              value={formData.last_name}
-              onChange={onChange}
-              disabled={disabled}
-              placeholder={t("registration.form.contact.lastNamePlaceholder")}
-              className={`h-11 rounded-xl ${
-                errors.last_name ? "border-red-500" : "border-gray-200"
-              } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
-              aria-invalid={!!errors.last_name}
-              aria-describedby={
-                errors.last_name ? "last_name-error" : undefined
-              }
-            />
-            {errors.last_name && (
-              <p
-                id="last_name-error"
-                role="alert"
-                className="text-sm text-red-600 flex items-center gap-1.5"
-              >
-                <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
-                {errors.last_name}
-              </p>
-            )}
-          </div>
+              <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
+              {errors.full_name}
+            </p>
+          )}
         </div>
 
         {/* Email field */}
