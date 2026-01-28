@@ -5,6 +5,7 @@ import { Check, X } from "lucide-react";
 import { LocaleLink } from "@/components/locale-link";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
+import { usdToVnd, PRICING_USD } from "@/lib/constants/pricing";
 import { cn } from "@/lib/utils";
 
 interface PricingPlan {
@@ -22,8 +23,8 @@ const pricingPlans: PricingPlan[] = [
   {
     id: "starter",
     nameKey: "pricing.enterprise.startup.name",
-    priceUSD: 499,
-    priceVND: 499 * 250000, // Approximate conversion
+    priceUSD: PRICING_USD.starter,
+    priceVND: usdToVnd(PRICING_USD.starter),
     descriptionKey: "pricing.enterprise.startup.description",
     featuresKeys: [
       "pricing.enterprise.startup.feature8",
@@ -50,8 +51,8 @@ const pricingPlans: PricingPlan[] = [
   {
     id: "business",
     nameKey: "pricing.enterprise.growth.name",
-    priceUSD: 799,
-    priceVND: 799 * 250000, // Approximate conversion
+    priceUSD: PRICING_USD.business,
+    priceVND: usdToVnd(PRICING_USD.business),
     descriptionKey: "pricing.enterprise.growth.description",
     popular: true,
     featuresKeys: [
@@ -107,44 +108,46 @@ const comparisonFeatures: ComparisonFeature[] = [
   {
     name: "Free trial",
     nameKey: "pricing.enterprise.comparison.freeTrial",
-    professional: "Free 1-month trial",
+    professional: true,
     business: false,
   },
   {
     name: "Social accounts",
     nameKey: "pricing.enterprise.comparison.socialAccounts",
-    professional: "3 platforms",
-    business: "<b>7+ platforms</b>",
+    professional:
+      "pricing.enterprise.comparison.value.socialAccounts.professional",
+    business: "pricing.enterprise.comparison.value.socialAccounts.business",
   },
   {
     name: "Platforms supported",
     nameKey: "pricing.enterprise.comparison.platformsSupported",
-    professional: "3 platforms",
-    business: "<b>7+ platforms</b>",
+    professional:
+      "pricing.enterprise.comparison.value.platformsSupported.professional",
+    business: "pricing.enterprise.comparison.value.platformsSupported.business",
   },
   {
     name: "Multi-language",
     nameKey: "pricing.enterprise.comparison.multiLang",
-    professional: "30+ languages",
-    business: "30+ languages",
+    professional: "pricing.enterprise.comparison.value.multiLang.professional",
+    business: "pricing.enterprise.comparison.value.multiLang.business",
   },
   {
     name: "AI Text Posts",
     nameKey: "pricing.enterprise.comparison.aiText",
-    professional: "Unlimited",
-    business: "Unlimited",
+    professional: "pricing.enterprise.comparison.value.aiText.professional",
+    business: "pricing.enterprise.comparison.value.aiText.business",
   },
   {
     name: "AI Images/month",
     nameKey: "pricing.enterprise.comparison.aiImages",
-    professional: "500/month",
-    business: "<b>5,000/month</b>",
+    professional: "pricing.enterprise.comparison.value.aiImages.professional",
+    business: "pricing.enterprise.comparison.value.aiImages.business",
   },
   {
     name: "AI Videos/month",
     nameKey: "pricing.enterprise.comparison.aiVideos",
-    professional: "20 videos/month",
-    business: "<b>100 videos/month</b>",
+    professional: "pricing.enterprise.comparison.value.aiVideos.professional",
+    business: "pricing.enterprise.comparison.value.aiVideos.business",
   },
   {
     name: "AI Banner & Thumbnail",
@@ -185,14 +188,14 @@ const comparisonFeatures: ComparisonFeature[] = [
   {
     name: "1-on-1 Onboarding",
     nameKey: "pricing.enterprise.comparison.onboarding",
-    professional: "Dedicated",
-    business: "Dedicated",
+    professional: "pricing.enterprise.comparison.value.onboarding.professional",
+    business: "pricing.enterprise.comparison.value.onboarding.business",
   },
   {
     name: "Strategy Consultation",
     nameKey: "pricing.enterprise.comparison.strategy",
     professional: "",
-    business: "<b>Dedicated</b>",
+    business: "pricing.enterprise.comparison.value.strategy.business",
   },
   {
     name: "Account Manager",
@@ -204,7 +207,7 @@ const comparisonFeatures: ComparisonFeature[] = [
     name: "Support Response",
     nameKey: "pricing.enterprise.comparison.supportResponse",
     professional: "",
-    business: "<b>Priority 2-hour response</b>",
+    business: "pricing.enterprise.comparison.value.supportResponse.business",
   },
 ];
 
@@ -214,10 +217,57 @@ export function PricingEnterpriseStyle() {
     "monthly",
   );
 
+  const getPlanById = (id: string) =>
+    pricingPlans.find((p) => p.id === id) as PricingPlan;
+
+  const formatVnd = (value: number) =>
+    String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+  const formatPriceString = (
+    plan: PricingPlan,
+    period: "monthly" | "yearly",
+  ) => {
+    if (plan.priceVND === "custom") return t("pricing.enterprise.custom");
+    if (locale === "vi") {
+      const monthly = plan.priceVND as number;
+      const value = period === "monthly" ? monthly : Math.round(monthly * 0.8);
+      return period === "monthly"
+        ? `${formatVnd(value)} vnđ`
+        : `${formatVnd(value)} vnđ/tháng`;
+    }
+
+    // USD: show monthly value; yearly shows discounted monthly rate (20% off) as `/month`
+    const monthlyUSD = plan.priceUSD as number;
+    const usdValue =
+      period === "monthly" ? monthlyUSD : Math.round(monthlyUSD * 0.8);
+    return period === "monthly" ? `$${usdValue}` : `$${usdValue}/month`;
+  };
+
+  // Build a localized comparisonFeatures array where price rows use locale-aware values
+  const localizedComparison = comparisonFeatures.map((f) => {
+    if (f.nameKey === "pricing.enterprise.comparison.priceMonthly") {
+      return {
+        ...f,
+        professional: formatPriceString(getPlanById("starter"), "monthly"),
+        business: formatPriceString(getPlanById("business"), "monthly"),
+      };
+    }
+
+    if (f.nameKey === "pricing.enterprise.comparison.priceAnnual") {
+      return {
+        ...f,
+        professional: formatPriceString(getPlanById("starter"), "yearly"),
+        business: formatPriceString(getPlanById("business"), "yearly"),
+      };
+    }
+
+    return f;
+  });
+
   // Calculate discounted yearly price (20% discount)
   const calculateYearlyPrice = (monthlyPrice: number | "custom") => {
     if (monthlyPrice === "custom") return "custom";
-    return Math.round(monthlyPrice * 12 * 0.8); // 20% discount
+    return Math.round(monthlyPrice * 0.8); // 20% discount
   };
 
   // Format display price for the large price element
@@ -229,11 +279,10 @@ export function PricingEnterpriseStyle() {
         billingPeriod === "monthly"
           ? (plan.priceVND as number)
           : (calculateYearlyPrice(plan.priceVND) as number);
-      const thousands = Math.round(vnd / 1000);
       return (
         <>
-          {new Intl.NumberFormat("vi-VN").format(thousands)}
-          <span className="text-2xl text-gray-600">vnđ</span>
+          {formatVnd(vnd)}
+          <span className="text-2xl text-gray-600"> vnđ</span>
         </>
       );
     }
@@ -251,16 +300,22 @@ export function PricingEnterpriseStyle() {
         <X className="size-5 text-gray-400 mx-auto" />
       );
     }
+    // If the value is an i18n key, resolve it via `t()`.
+    const isI18nKey = typeof value === "string" && value.startsWith("pricing.");
+    const resolved = isI18nKey ? t(value as string) : (value as string);
+
     // support small HTML (e.g. <strong>) from internal strings
-    if (typeof value === "string" && value.includes("<")) {
+    if (resolved.includes("<")) {
       return (
         <span
           className="text-sm font-medium text-gray-700"
-          dangerouslySetInnerHTML={{ __html: value }}
+          dangerouslySetInnerHTML={{ __html: resolved }}
         />
       );
     }
-    return <span className="text-sm font-medium text-gray-700">{value}</span>;
+    return (
+      <span className="text-sm font-medium text-gray-700">{resolved}</span>
+    );
   };
 
   return (
@@ -361,9 +416,7 @@ export function PricingEnterpriseStyle() {
                   </span>
                   {plan.priceVND !== "custom" && (
                     <span className="text-gray-600 text-base">
-                      {t(
-                        `pricing.enterprise.per${billingPeriod === "monthly" ? "Month" : "Year"}`,
-                      )}
+                      {t("pricing.enterprise.perMonth")}
                     </span>
                   )}
                 </div>
@@ -426,7 +479,7 @@ export function PricingEnterpriseStyle() {
 
             {/* Table Body */}
             <div className="divide-y divide-gray-100">
-              {comparisonFeatures.map((feature, idx) => (
+              {localizedComparison.map((feature, idx) => (
                 <div
                   key={idx}
                   className={cn(

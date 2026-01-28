@@ -221,7 +221,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric2.value": "90%",
     "features.multiPlatform.metric2.note":
       "So với thao tác thủ công từng ứng dụng",
-    "features.multiPlatform.metric3.name": "Chi phí auto reply",
+    "features.multiPlatform.metric3.name": "Chi phí trả lời tự động",
     "features.multiPlatform.metric3.value": "1 Credit/lượt",
     "features.multiPlatform.metric3.note": "Tự động trả lời bình luận",
     "features.ads.title": "Quản trị & Phân tích Quảng cáo AI",
@@ -280,7 +280,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric2.value": "2 Credit/ảnh",
     "features.content.metric2.note": "Tiết kiệm 90% vs thuê designer",
     "features.content.metric3.name": "Đa dạng phong cách",
-    "features.content.metric3.value": "50+ styles",
+    "features.content.metric3.value": "50+ phong cách",
     "features.content.metric3.note": "Thực tế, 3D, Minh họa, Trừu tượng",
     "features.trends.title": "Khám phá Trend AI",
     "features.trends.desc":
@@ -446,9 +446,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Video AI: 20 video/tháng (tối đa 3 phút mỗi video)",
     "pricing.enterprise.startup.feature14":
       "Huấn luyện giọng thương hiệu: 3 giọng thương hiệu",
-    "pricing.enterprise.startup.feature15": "Content Calendar (bao gồm)",
-    "pricing.enterprise.startup.feature16":
-      "Thời điểm đăng tốt nhất (AI) (bao gồm)",
+    "pricing.enterprise.startup.feature15": "Content Calendar ",
+    "pricing.enterprise.startup.feature16": "Thời điểm đăng tốt nhất (AI) ",
     "pricing.enterprise.startup.feature17": "Bulk upload: Lên đến 100 bài",
     "pricing.enterprise.startup.feature18": "Báo cáo hiệu suất: Hàng tuần",
     "pricing.enterprise.startup.feature19": "Theo dõi đối thủ: 3 đối thủ",
@@ -458,8 +457,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Tư vấn chiến lược: Phiên hàng tháng",
     "pricing.enterprise.startup.feature22":
       "Hỗ trợ triển khai: Hỗ trợ thiết lập đầy đủ",
-    "pricing.enterprise.startup.feature23":
-      "Quản lý tài khoản chuyên dụng (bao gồm)",
+    "pricing.enterprise.startup.feature23": "Quản lý tài khoản chuyên dụng ",
     "pricing.enterprise.startup.feature24":
       "Phản hồi hỗ trợ ưu tiên trong 2 giờ",
     "pricing.enterprise.startup.feature25":
@@ -473,23 +471,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.growth.feature7": "Phân tích nâng cao & ROI tracking",
     "pricing.enterprise.growth.feature8": "Hỗ trợ ưu tiên (phản hồi 2h)",
     "pricing.enterprise.growth.feature9": "A/B testing cho campaigns",
-    "pricing.enterprise.growth.feature10": "Tài khoản mạng xã hội: Unlimited",
+    "pricing.enterprise.growth.feature10":
+      "Tài khoản mạng xã hội: Không giới hạn",
     "pricing.enterprise.growth.feature11":
       "Nền tảng hỗ trợ: Facebook, Instagram, TikTok, YouTube, LinkedIn, X, Threads",
     "pricing.enterprise.growth.feature12":
       "Đăng nội dung đa ngôn ngữ: 30+ ngôn ngữ",
     "pricing.enterprise.growth.feature13": "AI text posts: Không giới hạn",
     "pricing.enterprise.growth.feature14":
-      "AI images: 5,000/tháng (10x Professional)",
+      "Hình ảnh AI: 5,000/tháng (10x Professional)",
     "pricing.enterprise.growth.feature15":
-      "AI videos: 100 videos/tháng (5x Professional)",
-    "pricing.enterprise.growth.feature16":
-      "Thiết kế banner & thumbnail AI: Bao gồm",
+      "Video AI: 100 videos/tháng (5x Professional)",
+    "pricing.enterprise.growth.feature16": "Thiết kế banner & thumbnail AI",
     "pricing.enterprise.growth.feature17":
       "Huấn luyện giọng thương hiệu: Voices không giới hạn",
     "pricing.enterprise.growth.feature19": "Lên lịch tự động: Không giới hạn",
     "pricing.enterprise.growth.feature20": "Content Calendar: Nâng cao",
-    "pricing.enterprise.growth.feature21": "Best Time to Post AI: Bao gồm",
+    "pricing.enterprise.growth.feature21": "Best Time to Post AI",
     "pricing.enterprise.growth.feature22": "Bulk Upload: Không giới hạn",
     "pricing.enterprise.growth.feature23":
       "Analytics Dashboard: Phân tích nâng cao",
@@ -499,17 +497,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.growth.feature26": "A/B Testing: Tối ưu hoá chiến dịch",
     "pricing.enterprise.growth.feature27":
       "Competitor Tracking: Đối thủ không giới hạn",
-    "pricing.enterprise.growth.feature28": "Onboarding 1-1: Dedicated session",
+    "pricing.enterprise.growth.feature28": "Onboarding 1-1: Phiên chuyên dụng",
     "pricing.enterprise.growth.feature29":
-      "Strategy Consultation: Monthly sessions",
+      "Strategy Consultation: Phiên hàng tháng",
     "pricing.enterprise.growth.feature30":
-      "Implementation Support: Full setup assistance",
-    "pricing.enterprise.growth.feature31":
-      "Dedicated Account Manager: Included",
+      "Implementation Support: Hỗ trợ thiết lập đầy đủ",
+    "pricing.enterprise.growth.feature31": "Quản lý tài khoản chuyên trách: Có",
     "pricing.enterprise.growth.feature32":
-      "Support Response: Priority 2-hour response",
+      "Phản hồi hỗ trợ: Ưu tiên trong vòng 2 giờ",
     "pricing.enterprise.growth.feature33":
-      "Support Channels: Email + Chat + Phone",
+      "Kênh hỗ trợ: Email + Chat + Điện thoại",
     "pricing.enterprise.enterprise.feature1": "Tất cả tính năng Growth",
     "pricing.enterprise.enterprise.feature2": "Video & Nội dung không giới hạn",
     "pricing.enterprise.enterprise.feature3": "Server chuyên dụng",
@@ -580,11 +577,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.note": "*Converted at ~27,000 VND = 1 USD (approx.)",
     // ROI Comparison Rows
     "roi.row1.criteria": "Chi phí vận hành",
-    "roi.row1.traditional": "~$555/tháng",
+    "roi.row1.traditional": "~20.000.000vnđ/tháng",
     "roi.row1.traditionalDesc": "(Nhân sự + Tools)",
-    "roi.row1.ai": "~$255/tháng",
+    "roi.row1.ai": "~19.975.000vnđ/tháng",
     "roi.row1.aiDesc": "(All-in-one)",
-    "roi.row1.savings": "Tiết kiệm ~54%",
+    "roi.row1.savings": "Tiết kiệm ~50% ",
     "roi.row2.criteria": "Sản lượng Video",
     "roi.row2.traditional": "10-15 video",
     "roi.row2.traditionalDesc": "/tháng",
@@ -1033,15 +1030,43 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.contact.email": "Email",
     "registration.form.contact.emailPlaceholder": "vd: nguyenvanan@company.com",
     "registration.form.contact.phone": "Số điện thoại",
+    // Comparison table values (professional / business)
+    "pricing.enterprise.comparison.value.socialAccounts.professional":
+      "3 nền tảng",
+    "pricing.enterprise.comparison.value.socialAccounts.business":
+      "<b>7+ nền tảng</b>",
+    "pricing.enterprise.comparison.value.platformsSupported.professional":
+      "3 nền tảng",
+    "pricing.enterprise.comparison.value.platformsSupported.business":
+      "<b>7+ nền tảng</b>",
+    "pricing.enterprise.comparison.value.multiLang.professional":
+      "30+ ngôn ngữ",
+    "pricing.enterprise.comparison.value.multiLang.business": "30+ ngôn ngữ",
+    "pricing.enterprise.comparison.value.aiText.professional": "Không giới hạn",
+    "pricing.enterprise.comparison.value.aiText.business": "Không giới hạn",
+    "pricing.enterprise.comparison.value.aiImages.professional": "500/tháng",
+    "pricing.enterprise.comparison.value.aiImages.business":
+      "<b>5.000/tháng</b>",
+    "pricing.enterprise.comparison.value.aiVideos.professional":
+      "20 video/tháng",
+    "pricing.enterprise.comparison.value.aiVideos.business":
+      "<b>100 video/tháng</b>",
+    "pricing.enterprise.comparison.value.onboarding.professional":
+      "Chuyên dụng",
+    "pricing.enterprise.comparison.value.onboarding.business": "Chuyên dụng",
+    "pricing.enterprise.comparison.value.strategy.business":
+      "<b>Chuyên dụng</b>",
+    "pricing.enterprise.comparison.value.supportResponse.business":
+      "<b>Ưu tiên: phản hồi trong 2 giờ</b>",
     "registration.form.contact.jobPosition": "Vị trí công việc",
     "registration.form.contact.jobPositionPlaceholder": "Chọn vị trí công việc",
     "registration.form.jobPosition.ceo": "CEO / Giám đốc",
     "registration.form.jobPosition.marketingDirector": "Giám đốc Marketing",
-    "registration.form.jobPosition.marketingManager": "Marketing Manager",
-    "registration.form.jobPosition.contentManager": "Content Manager",
-    "registration.form.jobPosition.socialMediaManager": "Social Media Manager",
-    "registration.form.jobPosition.designer": "Designer",
-    "registration.form.jobPosition.developer": "Developer",
+    "registration.form.jobPosition.marketingManager": "Quản lý Marketing",
+    "registration.form.jobPosition.contentManager": "Quản lý Nội dung",
+    "registration.form.jobPosition.socialMediaManager": "Quản lý Mạng xã hội",
+    "registration.form.jobPosition.designer": "Nhà thiết kế",
+    "registration.form.jobPosition.developer": "Nhà phát triển",
     "registration.form.jobPosition.other": "Khác",
     "registration.form.required": "Bắt buộc",
 
@@ -1450,7 +1475,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.feature5.desc":
       "Automatically syncs lips precisely with script dialogue",
     "features.video.metric1.name": "Production cost",
-    "features.video.metric1.value": "0 VND (included)",
+    "features.video.metric1.value": "0 VND ",
     "features.video.metric1.note": "95% savings vs traditional KOL",
     "features.video.metric2.name": "Production time",
     "features.video.metric2.value": "5 minutes",
@@ -1606,6 +1631,32 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.contact.email": "Work email",
     "registration.form.contact.emailPlaceholder": "name@company.com",
     "registration.form.contact.phone": "Phone number",
+    // Comparison table values (professional / business)
+    "pricing.enterprise.comparison.value.socialAccounts.professional":
+      "3 platforms",
+    "pricing.enterprise.comparison.value.socialAccounts.business":
+      "<b>7+ platforms</b>",
+    "pricing.enterprise.comparison.value.platformsSupported.professional":
+      "3 platforms",
+    "pricing.enterprise.comparison.value.platformsSupported.business":
+      "<b>7+ platforms</b>",
+    "pricing.enterprise.comparison.value.multiLang.professional":
+      "30+ languages",
+    "pricing.enterprise.comparison.value.multiLang.business": "30+ languages",
+    "pricing.enterprise.comparison.value.aiText.professional": "Unlimited",
+    "pricing.enterprise.comparison.value.aiText.business": "Unlimited",
+    "pricing.enterprise.comparison.value.aiImages.professional": "500/month",
+    "pricing.enterprise.comparison.value.aiImages.business":
+      "<b>5,000/month</b>",
+    "pricing.enterprise.comparison.value.aiVideos.professional":
+      "20 videos/month",
+    "pricing.enterprise.comparison.value.aiVideos.business":
+      "<b>100 videos/month</b>",
+    "pricing.enterprise.comparison.value.onboarding.professional": "Dedicated",
+    "pricing.enterprise.comparison.value.onboarding.business": "Dedicated",
+    "pricing.enterprise.comparison.value.strategy.business": "<b>Dedicated</b>",
+    "pricing.enterprise.comparison.value.supportResponse.business":
+      "<b>Priority 2-hour response</b>",
     "registration.form.contact.jobPosition": "Job position",
     "registration.form.contact.jobPositionPlaceholder": "Select position",
     "registration.form.jobPosition.ceo": "CEO / Director",
@@ -1758,8 +1809,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "AI videos: 20 videos/month (up to 3 min each)",
     "pricing.enterprise.startup.feature14":
       "Brand voice training: 3 brand voices",
-    "pricing.enterprise.startup.feature15": "Content Calendar (included)",
-    "pricing.enterprise.startup.feature16": "Best Time to Post AI (included)",
+    "pricing.enterprise.startup.feature15": "Content Calendar ",
+    "pricing.enterprise.startup.feature16": "Best Time to Post AI ",
     "pricing.enterprise.startup.feature17": "Bulk upload: Up to 100 posts",
     "pricing.enterprise.startup.feature18":
       "Performance reports: Weekly reports",
@@ -1771,8 +1822,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Strategy consultation: Monthly sessions",
     "pricing.enterprise.startup.feature22":
       "Implementation support: Full setup assistance",
-    "pricing.enterprise.startup.feature23":
-      "Dedicated account manager (included)",
+    "pricing.enterprise.startup.feature23": "Dedicated account manager ",
     "pricing.enterprise.startup.feature24":
       "Support response: Priority 2-hour response",
     "pricing.enterprise.startup.feature25":
@@ -1790,13 +1840,12 @@ const translations: Record<Locale, Record<string, string>> = {
       "AI Images: 5,000/month (10x Professional)",
     "pricing.enterprise.growth.feature15":
       "AI Videos: 100 videos/month (5x Professional)",
-    "pricing.enterprise.growth.feature16":
-      "AI Banner & Thumbnail Design: Included",
+    "pricing.enterprise.growth.feature16": "AI Banner & Thumbnail Design",
     "pricing.enterprise.growth.feature17":
       "Brand Voice Training: Unlimited brand voices",
     "pricing.enterprise.growth.feature19": "Auto-scheduling: Unlimited",
     "pricing.enterprise.growth.feature20": "Content Calendar: Advanced",
-    "pricing.enterprise.growth.feature21": "Best Time to Post AI: Included",
+    "pricing.enterprise.growth.feature21": "Best Time to Post AI",
     "pricing.enterprise.growth.feature22": "Bulk Upload: Unlimited",
     "pricing.enterprise.growth.feature23":
       "Analytics Dashboard: Advanced Analytics",
@@ -1812,8 +1861,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Strategy Consultation: Monthly sessions",
     "pricing.enterprise.growth.feature30":
       "Implementation Support: Full setup assistance",
-    "pricing.enterprise.growth.feature31":
-      "Dedicated Account Manager: Included",
+    "pricing.enterprise.growth.feature31": "Dedicated Account Manager",
     "pricing.enterprise.growth.feature32":
       "Support Response: Priority 2-hour response",
     "pricing.enterprise.growth.feature33":
@@ -1882,11 +1930,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.note": "* Converted at ~27,000 VND = 1 USD (approx.)",
     // ROI Comparison Rows
     "roi.row1.criteria": "Operating Cost",
-    "roi.row1.traditional": "~$555/month",
+    "roi.row1.traditional": "~$800/month",
     "roi.row1.traditionalDesc": "(Staff + Tools)",
-    "roi.row1.ai": "~$255/month",
+    "roi.row1.ai": "~$399/month",
     "roi.row1.aiDesc": "(All-in-one)",
-    "roi.row1.savings": "Save ~54%",
+    "roi.row1.savings": "Save ~50% ",
     "roi.row2.criteria": "Video Output",
     "roi.row2.traditional": "10-15 videos",
     "roi.row2.traditionalDesc": "/month",
