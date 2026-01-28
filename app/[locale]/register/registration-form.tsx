@@ -110,17 +110,15 @@ export function RegistrationForm({
                 </p>
               )}
 
-              {formData.selected_package === "business" && (
-                <BusinessFields
-                  formData={formData}
-                  errors={errors}
-                  onInputChange={onInputChange}
-                  onBusinessTypeChange={onBusinessTypeChange}
-                  activityFields={activityFields}
-                  isLoadingFields={isLoadingFields}
-                  t={t}
-                />
-              )}
+              <BusinessFields
+                formData={formData}
+                errors={errors}
+                onInputChange={onInputChange}
+                onBusinessTypeChange={onBusinessTypeChange}
+                activityFields={activityFields}
+                isLoadingFields={isLoadingFields}
+                t={t}
+              />
 
               <ContactFields
                 formData={formData}

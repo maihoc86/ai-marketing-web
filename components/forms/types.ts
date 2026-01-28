@@ -61,6 +61,7 @@ export const packageOptions = [
     id: "professional",
     labelKey: "form.package.startup.name",
     priceKey: "form.package.startup.price",
+    popular: false,
   },
   {
     id: "business",
