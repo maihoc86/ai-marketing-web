@@ -245,7 +245,7 @@ export function PricingEnterpriseStyle() {
       return value ? (
         <Check className="size-5 text-green-600 mx-auto" />
       ) : (
-        <X className="size-5 text-gray-300 mx-auto" />
+        <X className="size-5 text-gray-400 mx-auto" />
       );
     }
     // support small HTML (e.g. <strong>) from internal strings
