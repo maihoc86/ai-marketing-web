@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 import type {
   RegistrationFormData,
   RegistrationFormErrors,
@@ -22,6 +23,11 @@ export function ContactFields({
   jobPositions: Array<{ id: string; labelKey: string }>;
   t: (k: string) => string;
 }) {
+  const { locale } = useI18n();
+
+  const countryCode = locale === "vi" ? "+84" : "+1";
+  const phonePlaceholder =
+    countryCode === "+1" ? "(555) 555-5555" : "0123 456 789";
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -98,7 +104,7 @@ export function ContactFields({
           </label>
           <div className="flex">
             <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-200 bg-gray-50 text-gray-500 text-sm font-medium">
-              +84
+              {countryCode}
             </span>
             <input
               id="phone_number"
@@ -106,7 +112,7 @@ export function ContactFields({
               type="tel"
               value={formData.phone_number}
               onChange={onInputChange}
-              placeholder={t("registration.form.contact.phonePlaceholder")}
+              placeholder={phonePlaceholder}
               className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.phone_number ? "border-red-500" : "border-gray-200"}`}
             />
           </div>
