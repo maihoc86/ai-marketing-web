@@ -1,11 +1,12 @@
 "use client";
 
+import { PackageType } from "@/hooks/use-registration-form";
 import { Check } from "lucide-react";
 
 type PackageOptionProps = {
-  id: string;
-  selected: string;
-  onSelect: (id: string) => void;
+  id: PackageType;
+  selected: PackageType;
+  onSelect: (id: PackageType) => void;
   titleKey: string;
   title: string;
   descKey: string;

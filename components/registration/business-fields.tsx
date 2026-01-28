@@ -75,7 +75,7 @@ export function BusinessFields({
       </div>
       <div className="flex flex-col gap-2">
         <BusinessTypeSelector
-          value={formData.business_type as "enterprise" | "household" | "other"}
+          value={formData.business_type}
           onChange={onBusinessTypeChange}
           disabled={false}
           className="w-full"

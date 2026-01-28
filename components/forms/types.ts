@@ -4,7 +4,7 @@
 
 export interface RegistrationFormData {
   selected_package: string;
-  business_type: "enterprise" | "household" | "other";
+  business_type: string;
   tax_code: string;
   company_name: string;
   address: string;

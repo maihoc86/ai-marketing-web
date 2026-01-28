@@ -6,14 +6,17 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRegistrationForm } from "@/hooks/use-registration-form";
+import {
+  PackageType,
+  useRegistrationForm,
+} from "@/hooks/use-registration-form";
 import { RegistrationForm } from "./registration-form";
 import { useI18n } from "@/lib/i18n";
 
 function RegisterFormContent() {
   const { t } = useI18n();
   const searchParams = useSearchParams();
-  const packageFromUrl = searchParams.get("package") || "starter";
+  const packageFromUrl = searchParams.get("package") || "professional";
 
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
 
@@ -30,7 +33,7 @@ function RegisterFormContent() {
     handleBusinessTypeChange,
     handleSubmit,
   } = useRegistrationForm({
-    initialPackage: packageFromUrl,
+    initialPackage: packageFromUrl as PackageType,
   });
 
   // Focus heading on success

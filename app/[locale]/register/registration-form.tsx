@@ -10,6 +10,7 @@ import { ContactFields } from "@/components/registration/contact-fields";
 import { useI18n } from "@/lib/i18n";
 import { useActivityFields } from "@/lib/queries/activity-fields";
 import type {
+  PackageType,
   RegistrationFormData,
   RegistrationFormErrors,
 } from "@/hooks/use-registration-form";
@@ -22,7 +23,7 @@ interface RegistrationFormProps {
   onInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
-  onPackageSelect: (packageId: string) => void;
+  onPackageSelect: (packageId: PackageType) => void;
   onBusinessTypeChange: (type: string) => void;
   onSubmit: (e: React.FormEvent) => Promise<void>;
 }
@@ -80,7 +81,7 @@ export function RegistrationForm({
             <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <PackageOption
-                  id="starter"
+                  id="professional"
                   selected={formData.selected_package}
                   onSelect={onPackageSelect}
                   titleKey="registration.form.package.starter"

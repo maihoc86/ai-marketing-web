@@ -7,7 +7,7 @@ import { api, type ApiError } from "@/lib/api-client";
  * Form Data Structure
  */
 export interface RegistrationFormData {
-  selected_package: string;
+  selected_package: PackageType;
   business_type?: string;
   tax_code?: string;
   company_name?: string;
@@ -39,12 +39,12 @@ export interface RegistrationFormErrors {
  * Password Strength Levels
  */
 export type PasswordStrength = "weak" | "medium" | "strong" | "very_strong";
-
+export type PackageType = "professional" | "business";
 /**
  * Hook Configuration
  */
 interface UseRegistrationFormConfig {
-  initialPackage?: string;
+  initialPackage?: PackageType;
   onSuccess?: () => void;
   onError?: (error: string) => void;
 }
@@ -65,11 +65,8 @@ interface UseRegistrationFormReturn {
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
-  handlePackageSelect: (packageId: string) => void;
-  removePackage: () => void;
-  handleBusinessTypeChange: (
-    type: "enterprise" | "household" | "other",
-  ) => void;
+  handlePackageSelect: (packageId: PackageType) => void;
+  handleBusinessTypeChange: (type: string) => void;
   handleSubmit: (e: React.FormEvent) => Promise<void>;
   handleNextStep: () => boolean;
   handlePrevStep: () => void;
@@ -141,7 +138,7 @@ function calculatePasswordStrength(password: string): PasswordStrength {
 export function useRegistrationForm(
   config: UseRegistrationFormConfig = {},
 ): UseRegistrationFormReturn {
-  const { initialPackage = "starter", onSuccess, onError } = config;
+  const { initialPackage = "professional", onSuccess, onError } = config;
 
   // Form State
   const [formData, setFormData] = useState<RegistrationFormData>({
@@ -269,18 +266,11 @@ export function useRegistrationForm(
   /**
    * Handle package selection
    */
-  const handlePackageSelect = (packageId: string) => {
+  const handlePackageSelect = (packageId: PackageType) => {
     setFormData((prev) => ({ ...prev, selected_package: packageId }));
     if (errors.selected_package) {
       setErrors((prev) => ({ ...prev, selected_package: undefined }));
     }
-  };
-
-  /**
-   * Remove selected package
-   */
-  const removePackage = () => {
-    setFormData((prev) => ({ ...prev, selected_package: "" }));
   };
 
   /**
@@ -428,7 +418,6 @@ export function useRegistrationForm(
     setCurrentStep,
     handleInputChange,
     handlePackageSelect,
-    removePackage,
     handleBusinessTypeChange,
     handleSubmit,
     handleNextStep,

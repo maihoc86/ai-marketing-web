@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n";
 import { useActivityFields } from "@/lib/queries/activity-fields";
 
 interface BusinessTypeSelectorProps {
-  value: string;
+  value?: string;
   onChange: (value: string) => void;
   disabled?: boolean;
   className?: string;
