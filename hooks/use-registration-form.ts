@@ -13,8 +13,6 @@ export interface RegistrationFormData {
   company_name?: string;
   address: string;
   full_name: string;
-  first_name: string;
-  last_name: string;
   email: string;
   phone_number: string;
   job_position: string;
@@ -30,8 +28,6 @@ export interface RegistrationFormErrors {
   company_name?: string;
   address?: string;
   full_name?: string;
-  first_name?: string;
-  last_name?: string;
   email?: string;
   phone_number?: string;
   job_position?: string;
@@ -155,8 +151,6 @@ export function useRegistrationForm(
     company_name: undefined,
     address: "",
     full_name: "",
-    first_name: "",
-    last_name: "",
     email: "",
     phone_number: "",
     job_position: "",
@@ -307,8 +301,6 @@ export function useRegistrationForm(
       company_name: undefined,
       address: "",
       full_name: "",
-      first_name: "",
-      last_name: "",
       email: "",
       phone_number: "",
       job_position: "",
@@ -398,8 +390,6 @@ export function useRegistrationForm(
           company_name: undefined,
           address: "",
           full_name: "",
-          first_name: "",
-          last_name: "",
           email: "",
           phone_number: "",
           job_position: "",
