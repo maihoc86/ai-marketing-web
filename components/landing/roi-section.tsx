@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import YouTubeModal from "@/components/youtube-modal";
+import Link from "next/link";
 
 export function RoiSection() {
   const { t } = useI18n();
@@ -29,7 +30,7 @@ export function RoiSection() {
     return (
       <>
         {parts[0]}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5fffec] to-[#008bff]">
+        <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff]">
           {brandName}
         </span>
         {parts[1]}
@@ -328,17 +329,17 @@ export function RoiSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group min-h-[56px]"
+                className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group min-h-14"
               >
                 {t("roi.cta.start")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a
+              <Link
                 href="/about-us"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-[#22b5f8]/50 transition-all min-h-[56px]"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-[#22b5f8]/50 transition-all min-h-14"
               >
                 {t("roi.cta.learn")}
-              </a>
+              </Link>
             </div>
             <p className="text-xs text-gray-500 mt-6">{t("roi.disclaimer")}</p>
           </div>
