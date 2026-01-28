@@ -1,67 +1,54 @@
 "use client";
 
-import {
-  FileText,
-  Image as ImageIcon,
-  Sparkles,
-  Hash,
-  Search,
-  Palette,
-  Wand2,
-  Layers,
-} from "lucide-react";
-import { FeaturePageTemplate } from "@/components/features/feature-page-template";
+import { AIContentHeroSection } from "@/components/features/ai-content/hero-section";
+import { AIContentProblemsSection } from "@/components/features/ai-content/problems-section";
+import { AIContentCapabilitiesBentoSection } from "@/components/features/ai-content/capabilities-bento-section";
+import { AIContentDemoSection } from "@/components/features/ai-content/demo-section";
+import { AIContentGallerySection } from "@/components/features/ai-content/gallery-section";
+import { AIContentStepsSection } from "@/components/features/ai-content/steps-section";
+import { AIContentMarketingNeedsSection } from "@/components/features/ai-content/marketing-needs-section";
+import { AIContentMetricsSection } from "@/components/features/ai-content/metrics-section";
+import { AIContentComparisonSection } from "@/components/features/ai-content/comparison-section";
+import { AIContentCTASection } from "@/components/features/ai-content/cta-section";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
 
-const features = [
-  {
-    icon: ImageIcon,
-    nameKey: "features.content.feature1.name",
-    descKey: "features.content.feature1.desc",
-  },
-  {
-    icon: Sparkles,
-    nameKey: "features.content.feature2.name",
-    descKey: "features.content.feature2.desc",
-  },
-  {
-    icon: Layers,
-    nameKey: "features.content.feature3.name",
-    descKey: "features.content.feature3.desc",
-  },
-  {
-    icon: FileText,
-    nameKey: "features.content.feature4.name",
-    descKey: "features.content.feature4.desc",
-  },
-  {
-    icon: Hash,
-    nameKey: "features.content.feature5.name",
-    descKey: "features.content.feature5.desc",
-  },
-  {
-    icon: Search,
-    nameKey: "features.content.feature6.name",
-    descKey: "features.content.feature6.desc",
-  },
-];
-
-const metrics = [
-  { value: "50+", labelKey: "featurePage.content.metric1.label" },
-  { value: "4K", labelKey: "featurePage.content.metric2.label" },
-  { value: "30s", labelKey: "featurePage.content.metric3.label" },
-  { value: "90%", labelKey: "featurePage.content.metric4.label" },
-];
-
-export default function ContentFeaturePage() {
+export default function AIContentFeaturePage() {
   return (
-    <FeaturePageTemplate
-      featureId="content"
-      icon={Wand2}
-      iconBg="bg-purple-100"
-      iconColor="text-purple-600"
-      heroImage="/ai-content.jpeg"
-      features={features}
-      metrics={metrics}
-    />
+    <main className="min-h-screen bg-white">
+      <Navbar />
+
+      {/* 1. Hero - First impression, value proposition */}
+      <AIContentHeroSection />
+
+      {/* 2. Marketing Needs - Use cases: what you can do */}
+      <AIContentMarketingNeedsSection />
+
+      {/* 3. Problems vs Solutions - Why you need it */}
+      <AIContentProblemsSection />
+
+      {/* 4. Interactive Demo - Proof of concept */}
+      <AIContentDemoSection />
+
+      {/* 5. Studio Capabilities - Feature deep dive */}
+      <AIContentCapabilitiesBentoSection />
+
+      {/* 6. Metrics - Social proof with numbers */}
+      <AIContentMetricsSection />
+
+      {/* 7. Before/After Comparison - Visual proof */}
+      <AIContentComparisonSection />
+
+      {/* 8. Gallery - Portfolio showcase */}
+      <AIContentGallerySection />
+
+      {/* 9. How to Get Started - 3 simple steps */}
+      <AIContentStepsSection />
+
+      {/* 10. CTA - Final conversion */}
+      <AIContentCTASection />
+
+      <Footer />
+    </main>
   );
 }

@@ -1147,6 +1147,73 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.exploreMore": "Khám phá thêm tính năng",
 
     // Feature Page - Chatbot
+    "featurePage.chatbot.automated": "TỰ ĐỘNG HÓA",
+    "featurePage.chatbot.hero.title1": "Không Bỏ Lỡ Bất Kỳ",
+    "featurePage.chatbot.hero.title2": "Cuộc Trò Chuyện Nào",
+    "featurePage.chatbot.hero.description":
+      "Trao quyền cho doanh nghiệp với trợ lý hỗ trợ không bao giờ ngủ. Biến câu hỏi thành đơn hàng ngay lập tức với độ chính xác giống con người.",
+    "featurePage.chatbot.metric.response": "Phản hồi",
+    "featurePage.chatbot.metric.accuracy": "Độ chính xác",
+    "featurePage.chatbot.metric.costReduction": "Giảm chi phí",
+    "featurePage.chatbot.cta.deploy": "Triển khai ngay",
+    "featurePage.chatbot.cta.watchDemo": "Xem Demo",
+    "featurePage.chatbot.demo.agentName": "UniksMarK AI Agent",
+    "featurePage.chatbot.demo.status": "Trực tuyến & Sẵn sàng",
+    "featurePage.chatbot.demo.message1":
+      'Tôi đang tìm gói marketing cao cấp cho startup của mình. Bạn có slot nào cho tuần sau không?"',
+    "featurePage.chatbot.demo.label1": "Câu hỏi sản phẩm",
+    "featurePage.chatbot.demo.message2":
+      "Chắc chắn rồi! Chúng tôi có hai slot cho gói Elite Growth. Bạn muốn xem bảng giá hay đặt lịch tư vấn?",
+    "featurePage.chatbot.demo.label2": "Phản hồi AI",
+    "featurePage.chatbot.demo.message3": "Hãy đặt lịch tư vấn cho thứ Hai lúc 10 giờ sáng.",
+    "featurePage.chatbot.demo.message4":
+      "Thành công! Tôi đã đặt lịch tư vấn cho thứ Hai, 21/10 lúc 10:00 sáng. Lời mời lịch đã được gửi tới email của bạn.",
+    "featurePage.chatbot.demo.label3": "ĐÃ XÁC NHẬN ĐẶT LỊCH",
+    "featurePage.chatbot.problems.heading": "Thách Thức Hỗ Trợ Khách Hàng Của Bạn, Được Giải Quyết",
+    "featurePage.chatbot.problems.subheading":
+      "Hỗ trợ truyền thống chậm và tốn kém. Chúng tôi xây dựng giải pháp cho quy mô hiện đại.",
+    "featurePage.chatbot.problems.problem1.title": "Vấn đề",
+    "featurePage.chatbot.problems.problem1.desc":
+      "Thời gian chờ vượt quá 4 giờ trong giờ cao điểm, dẫn đến tỷ lệ thoát 40% tại trang thanh toán.",
+    "featurePage.chatbot.problems.solution1.title": "Giải pháp",
+    "featurePage.chatbot.problems.solution1.desc":
+      "Phân loại và giải quyết ngay lập tức bằng AI. 0 thời gian chờ, 100% mọi lúc, bất kể số lượng người dùng đồng thời.",
+    "featurePage.chatbot.problems.problem2.title": "Chi Phí Cao",
+    "featurePage.chatbot.problems.problem2.desc":
+      "Mở rộng đội ngũ hỗ trợ con người đòi hỏi ngân sách đào tạo khổng lồ và quản lý ca làm việc tốn kém.",
+    "featurePage.chatbot.problems.solution2.title": "Hiệu Quả Chi Phí",
+    "featurePage.chatbot.problems.solution2.desc":
+      "Giảm chi phí vận hành 80% trong khi tăng năng lực hỗ trợ gấp 10 lần chỉ trong một đêm.",
+    "featurePage.chatbot.capabilities.badge": "Khả năng cốt lõi",
+    "featurePage.chatbot.capabilities.heading": "Mọi Thứ Bạn Cần",
+    "featurePage.chatbot.capabilities.bentoDesc":
+      "Triển khai các module AI cấp doanh nghiệp để chuyển đổi quy trình làm việc và tăng hiệu suất lên đến 90%.",
+    "featurePage.chatbot.capabilities.viewAll": "Xem tất cả tính năng",
+    "featurePage.chatbot.capabilities.learnMore": "Tìm hiểu thêm",
+    "featurePage.chatbot.capabilities.bento.badge1": "Phản hồi < 2 giây",
+    "featurePage.chatbot.capabilities.bento.badge2": "Thời gian thực",
+    "featurePage.chatbot.capabilities.bento.badge3": "95+ ngôn ngữ",
+    "featurePage.chatbot.capabilities.bento.badge4": "Không cần thao tác",
+    "featurePage.chatbot.capabilities.bento.badge5": "Bảo mật cấp ngân hàng",
+    "featurePage.chatbot.capabilities.bento.badge6": "Độ chính xác 99.9%",
+    "featurePage.chatbot.capabilities.capability1.title": "Tư Vấn Cá Nhân Hóa",
+    "featurePage.chatbot.capabilities.capability1.desc":
+      "AI nhớ lịch sử khách hàng để đưa ra lời khuyên phù hợp và đề xuất sản phẩm.",
+    "featurePage.chatbot.capabilities.capability2.title": "Báo Giá Tức Thì",
+    "featurePage.chatbot.capabilities.capability2.desc":
+      "Phân tích yêu cầu ngay lập tức và cung cấp ước tính giá chính xác theo thời gian thực.",
+    "featurePage.chatbot.capabilities.capability3.title": "Dịch Toàn Cầu",
+    "featurePage.chatbot.capabilities.capability3.desc":
+      "Hỗ trợ khách hàng bằng 95+ ngôn ngữ với độ trôi chảy cấp độ người bản xứ và nhận thức văn hóa.",
+    "featurePage.chatbot.capabilities.capability4.title": "Đặt Lịch Thông Minh",
+    "featurePage.chatbot.capabilities.capability4.desc":
+      "Tích hợp trực tiếp với lịch của bạn để quản lý cuộc hẹn mà không cần can thiệp của con người.",
+    "featurePage.chatbot.capabilities.capability5.title": "Bảo Mật Doanh Nghiệp",
+    "featurePage.chatbot.capabilities.capability5.desc":
+      "Mã hóa đầu cuối và tuân thủ GDPR cho mọi tương tác khách hàng.",
+    "featurePage.chatbot.capabilities.capability6.title": "Phân Tích Cảm Xúc",
+    "featurePage.chatbot.capabilities.capability6.desc":
+      "Phát hiện cảm xúc khách hàng theo thời gian thực và chuyển các vấn đề phức tạp cho con người ngay lập tức.",
     "featurePage.chatbot.feature5.name": "Hỗ trợ đa ngôn ngữ",
     "featurePage.chatbot.feature5.desc":
       "Tự động phát hiện và trả lời bằng ngôn ngữ của khách hàng",
@@ -1166,18 +1233,221 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.benefit3": "Thu thập và phân loại lead chất lượng cao",
     "featurePage.chatbot.benefit4": "Tích hợp dễ dàng với website và fanpage",
 
+    // Feature Page - Chatbot Demo Live
+    "featurePage.chatbot.demo.live.heading": "Xem AI Chatbot Hoạt Động",
+    "featurePage.chatbot.demo.live.subheading":
+      "Trải nghiệm cách AI của chúng tôi xử lý các truy vấn phức tạp và chuyển đổi liền mạch sang nhân viên khi cần.",
+    "featurePage.chatbot.demo.live.terminal": "UniksMarK AI Support - Demo",
+    "featurePage.chatbot.demo.live.message1":
+      "Xin chào! Tôi là trợ lý UniksMarK của bạn. Tôi có thể giúp gì cho đơn hàng của bạn hôm nay?",
+    "featurePage.chatbot.demo.live.message2":
+      "Chào, tôi cần chuyển hướng lô hàng #UK-9283 của mình đến một kho khác, nhưng cổng thông tin cho biết nó đã đang vận chuyển. Bạn có thể ghi đè điều này không?",
+    "featurePage.chatbot.demo.live.message3":
+      "Tôi đã xác định vị trí lô hàng #UK-9283. Hiện tại nó đang ở Trung tâm Phân loại Khu vực. Mặc dù cổng thông tin tiêu chuẩn chặn thay đổi, tôi có thể bắt đầu việc chuyển hướng bị chặn.",
+    "featurePage.chatbot.demo.live.checking": "Đang kiểm tra tính khả dụng của kho...",
+    "featurePage.chatbot.demo.live.message4":
+      "Bạn có muốn tôi xử lý việc chuyển hướng này hoặc kết nối bạn với Trưởng phòng Logistics để có hướng dẫn xử lý cụ thể không?",
+    "featurePage.chatbot.demo.live.transferring": "Đang chuyển sang nhân viên",
+    "featurePage.chatbot.demo.live.placeholder": "Nhập tin nhắn của bạn...",
+    "featurePage.chatbot.demo.live.send": "Gửi",
+
+    // Feature Page - Chatbot Steps
+    "featurePage.chatbot.steps.heading": "Bắt Đầu Với 3 Bước Đơn Giản",
+    "featurePage.chatbot.steps.subheading":
+      "Nền tảng của chúng tôi được thiết kế để triển khai nhanh chóng mà không làm giảm độ sâu.",
+    "featurePage.chatbot.steps.badge": "Thời gian thiết lập tổng: Dưới 1 giờ",
+    "featurePage.chatbot.steps.step1.title": "Huấn Luyện",
+    "featurePage.chatbot.steps.step1.desc":
+      "Kết nối trung tâm trợ giúp, tài liệu hoặc URL trang web của bạn. AI của chúng tôi lập chỉ mục dữ liệu của bạn trong vài phút.",
+    "featurePage.chatbot.steps.step2.title": "Tùy Chỉnh",
+    "featurePage.chatbot.steps.step2.desc":
+      "Xác định giọng điệu thương hiệu, cá tính và quy tắc xử lý. Thiết kế giao diện để phù hợp hoàn hảo với thương hiệu của bạn.",
+    "featurePage.chatbot.steps.step3.title": "Triển Khai",
+    "featurePage.chatbot.steps.step3.desc":
+      "Thêm một dòng mã vào trang web của bạn hoặc kết nối qua API để bắt đầu giải quyết các yêu cầu ngay lập tức.",
+
+    // Feature Page - Chatbot Industries
+    "featurePage.chatbot.industries.heading": "Xây Dựng Cho Mọi Ngành",
+    "featurePage.chatbot.industries.ecommerce.name": "Thương Mại Điện Tử",
+    "featurePage.chatbot.industries.realestate.name": "Bất Động Sản",
+    "featurePage.chatbot.industries.education.name": "Giáo Dục",
+    "featurePage.chatbot.industries.healthcare.name": "Chăm Sóc Sức Khỏe",
+    "featurePage.chatbot.industries.commonQuery": "Câu hỏi phổ biến",
+    "featurePage.chatbot.industries.aiResponse": "Phản hồi AI",
+    "featurePage.chatbot.industries.readyBoost": "Sẵn sàng nâng cao chỉ số của bạn?",
+    "featurePage.chatbot.industries.description":
+      "Các mô hình chuyên biệt của chúng tôi được đào tạo trước trên các tập dữ liệu cụ thể theo ngành để đảm bảo độ chính xác cao ngay từ ngày đầu tiên.",
+    "featurePage.chatbot.industries.cta.start": "Bắt Đầu Mở Rộng",
+    "featurePage.chatbot.industries.cta.view": "Xem Tất Cả Ngành",
+    "featurePage.chatbot.industries.ecommerce.query":
+      "Gói hàng của tôi ở đâu và tôi có thể thay đổi kích cỡ không?",
+    "featurePage.chatbot.industries.ecommerce.response":
+      "Kết nối với API Shopify, cung cấp theo dõi thời gian thực và kiểm tra tồn kho cho việc hoán đổi kích cỡ tự động.",
+    "featurePage.chatbot.industries.ecommerce.stat1": "Giảm yêu cầu",
+    "featurePage.chatbot.industries.ecommerce.stat2": "Tăng ROI",
+    "featurePage.chatbot.industries.realestate.query":
+      "Tôi cần lên lịch xem nhà 3 phòng ngủ trong khu vực Quận 2.",
+    "featurePage.chatbot.industries.realestate.response":
+      "Phân tích sở thích và đề xuất 5 danh sách phù hợp nhất, tự động đặt lịch xem với đại lý.",
+    "featurePage.chatbot.industries.realestate.stat1": "Tỷ lệ phản hồi lead",
+    "featurePage.chatbot.industries.realestate.stat2": "Tăng tốc độ đóng",
+    "featurePage.chatbot.industries.education.query":
+      "Học phí cho chương trình MBA là bao nhiêu và khi nào nộp đơn?",
+    "featurePage.chatbot.industries.education.response":
+      "Cung cấp chi tiết chi phí, lịch trình và hướng dẫn từng bước về ứng dụng với liên kết đến tài chính.",
+    "featurePage.chatbot.industries.education.stat1": "Thời gian phản hồi nhanh hơn",
+    "featurePage.chatbot.industries.education.stat2": "Tăng đăng ký",
+    "featurePage.chatbot.industries.healthcare.query":
+      "Tôi cần đặt lịch khám tổng quát với bác sĩ tim mạch.",
+    "featurePage.chatbot.industries.healthcare.response":
+      "Kiểm tra tính khả dụng của bác sĩ, xác minh bảo hiểm và đặt lịch hẹn tuân thủ HIPAA.",
+    "featurePage.chatbot.industries.healthcare.stat1": "Độ chính xác đặt lịch",
+    "featurePage.chatbot.industries.healthcare.stat2": "Giảm không đến",
+
     // Feature Page - Content
-    "featurePage.content.metric1.label": "Mẫu template",
-    "featurePage.content.metric2.label": "Độ phân giải",
-    "featurePage.content.metric3.label": "Thời gian tạo",
-    "featurePage.content.metric4.label": "Tiết kiệm chi phí",
-    "featurePage.content.benefitsTitle": "Tại sao chọn AI Content Creator?",
-    "featurePage.content.benefitsDesc":
-      "Tạo nội dung chuyên nghiệp trong vài giây với AI.",
-    "featurePage.content.benefit1": "Tạo hình ảnh 4K chuyên nghiệp với KOL ảo",
-    "featurePage.content.benefit2": "Viết caption và hashtag bắt trend tự động",
-    "featurePage.content.benefit3": "50+ mẫu template cho mọi ngành nghề",
-    "featurePage.content.benefit4": "Tối ưu SEO tự động cho mọi nội dung",
+    "featurePage.content.hero.title1": "Tạo Nội Dung Đỉnh Cao Chỉ Trong",
+    "featurePage.content.hero.title2": "Vài Giây",
+    "featurePage.content.hero.title3": "Không Phải Vài Giờ",
+    "featurePage.content.hero.description":
+      "Giải phóng sức mạnh AI chuyên biệt cho hình ảnh marketing cao cấp, chụp ảnh sản phẩm và nội dung mạng xã hội thống nhất thương hiệu.",
+    "featurePage.content.metric.perImage": "Trên mỗi ảnh",
+    "featurePage.content.metric.resolution": "Độ phân giải",
+    "featurePage.content.metric.commercial": "Bản quyền thương mại",
+    "featurePage.content.cta.generate": "Tạo Ngay",
+    "featurePage.content.cta.viewGallery": "Xem Bộ Sưu Tập",
+    "featurePage.content.problems.title": "Nội Dung Đang Gặp Khó Khăn?",
+    "featurePage.content.problems.subtitle":
+      "Ngừng lãng phí nguồn lực vào quy trình lỗi thời.",
+    "featurePage.content.problems.oldWay.title": "Cách Cũ",
+    "featurePage.content.problems.oldWay.problem1.title": "Chụp ảnh Thủ công",
+    "featurePage.content.problems.oldWay.problem1.desc":
+      "Nhiều ngày lên kế hoạch, di chuyển và thuê thiết bị đắt đỏ.",
+    "featurePage.content.problems.oldWay.problem2.title": "Vòng Chỉnh Sửa Bất Tận",
+    "featurePage.content.problems.oldWay.problem2.desc":
+      "Chờ 48h cho các chỉnh sửa cơ bản và sửa ánh sáng.",
+    "featurePage.content.problems.oldWay.problem3.title": "Hình Stock Nhàm Chán",
+    "featurePage.content.problems.oldWay.problem3.desc":
+      "Hình ảnh chung chung mà mọi người đã dùng.",
+    "featurePage.content.problems.dxaiWay.title": "Cách của DXAI",
+    "featurePage.content.problems.dxaiWay.solution1.title": "Chân Thực Tức Thì",
+    "featurePage.content.problems.dxaiWay.solution1.desc":
+      "Tạo cảnh chất lượng studio từ văn bản đơn giản.",
+    "featurePage.content.problems.dxaiWay.solution2.title": "Lặp Lại Siêu Nhanh",
+    "featurePage.content.problems.dxaiWay.solution2.desc":
+      "Thay đổi màu sắc, ánh sáng hoặc đạo cụ trong dưới 10 giây.",
+    "featurePage.content.problems.dxaiWay.solution3.title": "Độc Đáo Thật Sự",
+    "featurePage.content.problems.dxaiWay.solution3.desc":
+      "Tài sản độc nhất phù hợp hoàn hảo với DNA thương hiệu của bạn.",
+    "featurePage.content.capabilities.badge": "Hệ Sinh Thái Studio",
+    "featurePage.content.capabilities.title": "Studio Nội Dung AI Hoàn Chỉnh",
+    "featurePage.content.capabilities.aiStudio.title": "AI Image Studio",
+    "featurePage.content.capabilities.aiStudio.description":
+      "Công cụ chuyển văn bản thành hình ảnh tiên tiến nhất thế giới được điều chỉnh đặc biệt cho marketing, thời trang và thiết kế sản phẩm.",
+    "featurePage.content.capabilities.aiStudio.cta": "Vào Studio",
+    "featurePage.content.capabilities.aiStudio.badge": "Công cụ PRO v4.2",
+    "featurePage.content.capabilities.characterEngine.title":
+      "Bộ Đồng Nhất Nhân Vật",
+    "featurePage.content.capabilities.characterEngine.description":
+      "Đảm bảo mô hình AI của bạn trông giống hệt nhau trong mọi chiến dịch, trang phục và bối cảnh.",
+    "featurePage.content.capabilities.characterEngine.cta": "Duy Trì ID Thương Hiệu",
+    "featurePage.content.demo.badge": "Trải Nghiệm Studio",
+    "featurePage.content.demo.title": "Thử AI Tạo Hình Ảnh — Miễn Phí",
+    "featurePage.content.demo.description":
+      "Biến ý tưởng sản phẩm thành hình ảnh marketing chuyên nghiệp ngay lập tức.",
+    "featurePage.content.demo.uploadTitle": "Kéo thả hình ảnh sản phẩm vào đây",
+    "featurePage.content.demo.uploadDesc": "PNG, JPG tối đa 10MB",
+    "featurePage.content.demo.promptLabel": "Mô tả",
+    "featurePage.content.demo.promptPlaceholder":
+      "Mô tả cảnh sản phẩm... VD: 'Chai gốm sứ trên bệ đá cẩm thạch với ánh sáng buổi sáng'",
+    "featurePage.content.demo.presetMinimalist": "Tối giản",
+    "featurePage.content.demo.presetOrganic": "Tự nhiên",
+    "featurePage.content.demo.presetCinematic": "Điện ảnh",
+    "featurePage.content.demo.styleLabel": "Phong cách",
+    "featurePage.content.demo.styleProduct": "Sản phẩm",
+    "featurePage.content.demo.styleLifestyle": "Lifestyle",
+    "featurePage.content.demo.styleEcom": "E-com",
+    "featurePage.content.demo.aspectLabel": "Tỷ lệ",
+    "featurePage.content.demo.generateBtn": "Tạo hình ảnh",
+    "featurePage.content.demo.generating": "Đang tạo...",
+    "featurePage.content.demo.freeRemaining": "Còn 3 lượt tạo miễn phí",
+    "featurePage.content.demo.downloadHD": "Tải HD",
+    "featurePage.content.demo.tryAgain": "Thử lại",
+    "featurePage.content.demo.history": "Lịch sử",
+    "featurePage.content.demo.viewAll": "Xem tất cả",
+    "featurePage.content.gallery.title": "Được Tạo Với AI của DXAI",
+    "featurePage.content.gallery.subtitle":
+      "Khám phá cách các thương hiệu hàng đầu mở rộng sản xuất sáng tạo.",
+    "featurePage.content.gallery.filter.all": "Tất cả",
+    "featurePage.content.gallery.filter.product": "Sản phẩm",
+    "featurePage.content.gallery.filter.lifestyle": "Phong cách sống",
+    "featurePage.content.gallery.filter.social": "Mạng xã hội",
+    "featurePage.content.steps.title": "Từ Ý Tưởng Đến Nội Dung Trong 3 Bước",
+    "featurePage.content.steps.subtitle":
+      "Đơn giản hóa quy trình sáng tạo với quy trình liền mạch.",
+    "featurePage.content.steps.step1.title": "Mô Tả",
+    "featurePage.content.steps.step1.description":
+      "Nhập prompt hoặc tải lên hình ảnh tham khảo để xác định tầm nhìn và hướng dẫn phong cách thương hiệu.",
+    "featurePage.content.steps.step2.title": "Tạo",
+    "featurePage.content.steps.step2.description":
+      "AI của chúng tôi tạo ra 4 biến thể độ phân giải cao. Tinh chỉnh chi tiết với lệnh ngôn ngữ tự nhiên đơn giản.",
+    "featurePage.content.steps.step3.title": "Xuất Bản",
+    "featurePage.content.steps.step3.description":
+      "Tải xuống tài sản độ phân giải cao hoặc đẩy trực tiếp lên kênh mạng xã hội và quản lý quảng cáo chỉ bằng một cú nhấp chuột.",
+    "featurePage.content.cta.title": "Sẵn Sàng Chuyển Đổi Quy Trình Sáng Tạo?",
+    "featurePage.content.cta.description":
+      "Tham gia hàng nghìn công ty sử dụng DXAI để mở rộng sản xuất hình ảnh một cách dễ dàng.",
+    "featurePage.content.cta.startTrial": "Bắt Đầu Dùng Thử Miễn Phí",
+    "featurePage.content.cta.bookDemo": "Đặt Lịch Demo",
+    "featurePage.content.marketingNeeds.title":
+      "Nội Dung Cho Mọi Nhu Cầu Marketing",
+    "featurePage.content.marketingNeeds.social.title": "Mạng Xã Hội",
+    "featurePage.content.marketingNeeds.social.desc":
+      "Tạo bài viết viral-ready, caption và hashtag tối ưu cho Instagram, TikTok và LinkedIn chỉ trong vài giây.",
+    "featurePage.content.marketingNeeds.social.feature1":
+      "Tự động resize cho tất cả nền tảng",
+    "featurePage.content.marketingNeeds.social.feature2":
+      "Gợi ý âm thanh trending",
+    "featurePage.content.marketingNeeds.social.feature3":
+      "Lịch đăng bài tối ưu bằng AI",
+    "featurePage.content.marketingNeeds.social.cta": "Khám Phá Công Cụ Social",
+    "featurePage.content.marketingNeeds.ecommerce.title": "Thương Mại Điện Tử",
+    "featurePage.content.marketingNeeds.ecommerce.desc":
+      "Mô tả sản phẩm chuyển đổi cao, quảng cáo và hình ảnh cửa hàng biến người xem thành người mua.",
+    "featurePage.content.marketingNeeds.ecommerce.feature1":
+      "Tiêu đề tối ưu SEO",
+    "featurePage.content.marketingNeeds.ecommerce.feature2":
+      "Tự động xóa nền",
+    "featurePage.content.marketingNeeds.ecommerce.feature3":
+      "Bản sao đa ngôn ngữ",
+    "featurePage.content.marketingNeeds.ecommerce.cta": "Tăng Doanh Số Ngay",
+    "featurePage.content.marketingNeeds.advertising.title": "Quảng Cáo",
+    "featurePage.content.marketingNeeds.advertising.desc":
+      "A/B test biến thể quảng cáo quy mô lớn. Tạo hàng trăm mẫu sáng tạo cho Meta, Google và Amazon.",
+    "featurePage.content.marketingNeeds.advertising.feature1":
+      "Dự đoán tỷ lệ nhấp chuột",
+    "featurePage.content.marketingNeeds.advertising.feature2":
+      "Theo dõi chi tiêu quảng cáo tự động",
+    "featurePage.content.marketingNeeds.advertising.feature3":
+      "Tạo CTA có tác động cao",
+    "featurePage.content.marketingNeeds.advertising.cta":
+      "Mở Rộng Quảng Cáo",
+    "featurePage.content.metrics.title": "Con Số Không Biết Nói Dối",
+    "featurePage.content.metrics.speed.label": "Thời Gian Tạo",
+    "featurePage.content.metrics.speed.desc":
+      "Thời gian trung bình để tạo một chiến dịch marketing hoàn chỉnh, đồng nhất thương hiệu từ một prompt.",
+    "featurePage.content.metrics.quality.label": "Chất Lượng",
+    "featurePage.content.metrics.quality.desc":
+      "Độ phân giải rõ nét cho mọi hình ảnh và video, sẵn sàng cho in ấn quy mô lớn chuyên nghiệp.",
+    "featurePage.content.metrics.cost.label": "Chi Phí Sáng Tạo",
+    "featurePage.content.metrics.cost.desc":
+      "Loại bỏ chi phí outsource đắt đỏ và nhiều vòng chỉnh sửa. Đội ngũ nội bộ trở thành nhà sáng tạo.",
+    "featurePage.content.comparison.title": "Xem Sự Khác Biệt",
+    "featurePage.content.comparison.subtitle":
+      "So sánh đầu ra AI generic tiêu chuẩn với công cụ neural tinh chỉnh cho thương hiệu của DXAI.",
+    "featurePage.content.comparison.standardAI": "AI Tiêu Chuẩn",
+    "featurePage.content.comparison.dxaiPro": "DXAI Pro",
+    "featurePage.content.comparison.hint":
+      "Kéo thanh trượt để khám phá sự nâng cấp chi tiết",
 
     // Feature Page - Trends
     "featurePage.trends.metric1.label": "Theo dõi liên tục",
@@ -2451,6 +2721,73 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.exploreMore": "Explore More Features",
 
     // Feature Page - Chatbot
+    "featurePage.chatbot.automated": "AUTOMATED",
+    "featurePage.chatbot.hero.title1": "Never Miss Another",
+    "featurePage.chatbot.hero.title2": "Customer Conversation",
+    "featurePage.chatbot.hero.description":
+      "Empower your business with a support agent that never sleeps. Transform inquiries into bookings instantly with human-like precision.",
+    "featurePage.chatbot.metric.response": "Response",
+    "featurePage.chatbot.metric.accuracy": "Accuracy",
+    "featurePage.chatbot.metric.costReduction": "Cost Reduction",
+    "featurePage.chatbot.cta.deploy": "Deploy Now",
+    "featurePage.chatbot.cta.watchDemo": "Watch Demo",
+    "featurePage.chatbot.demo.agentName": "UniksMarK AI Agent",
+    "featurePage.chatbot.demo.status": "Online & Ready",
+    "featurePage.chatbot.demo.message1":
+      "I'm looking for a premium marketing package for my startup. Do you have slots for next week?",
+    "featurePage.chatbot.demo.label1": "Product Question",
+    "featurePage.chatbot.demo.message2":
+      "Absolutely! We have two slots available for our Elite Growth package. Would you like to see our pricing or book a consultation?",
+    "featurePage.chatbot.demo.label2": "AI Response",
+    "featurePage.chatbot.demo.message3": "Let's book a consultation for Monday at 10 AM.",
+    "featurePage.chatbot.demo.message4":
+      "Success! I've scheduled your consultation for Monday, Oct 21st at 10:00 AM. A calendar invite has been sent to your email.",
+    "featurePage.chatbot.demo.label3": "BOOKING CONFIRMED",
+    "featurePage.chatbot.problems.heading": "Your Customer Support Challenges, Solved",
+    "featurePage.chatbot.problems.subheading":
+      "Traditional support is slow and expensive. We built the solution for the modern scale-up.",
+    "featurePage.chatbot.problems.problem1.title": "The Problem",
+    "featurePage.chatbot.problems.problem1.desc":
+      "Wait times exceeding 4 hours during peak traffic, leading to 40% bounce rates on checkout pages.",
+    "featurePage.chatbot.problems.solution1.title": "The Solution",
+    "featurePage.chatbot.problems.solution1.desc":
+      "Instant AI triage and resolution. 0 wait time, 100% of the time, regardless of concurrent user volume.",
+    "featurePage.chatbot.problems.problem2.title": "High Overheads",
+    "featurePage.chatbot.problems.problem2.desc":
+      "Scaling human support teams requires massive training budgets and expensive shift management.",
+    "featurePage.chatbot.problems.solution2.title": "Cost Efficiency",
+    "featurePage.chatbot.problems.solution2.desc":
+      "Reduce operational costs by 80% while increasing your support capacity by 10x overnight.",
+    "featurePage.chatbot.capabilities.badge": "Core Capabilities",
+    "featurePage.chatbot.capabilities.heading": "Everything You Need",
+    "featurePage.chatbot.capabilities.bentoDesc":
+      "Deploy enterprise-grade AI modules that transform your workflow and boost efficiency by up to 90%.",
+    "featurePage.chatbot.capabilities.viewAll": "View all features",
+    "featurePage.chatbot.capabilities.learnMore": "Learn more",
+    "featurePage.chatbot.capabilities.bento.badge1": "Respond < 2 seconds",
+    "featurePage.chatbot.capabilities.bento.badge2": "Real-time",
+    "featurePage.chatbot.capabilities.bento.badge3": "95+ languages",
+    "featurePage.chatbot.capabilities.bento.badge4": "No intervention",
+    "featurePage.chatbot.capabilities.bento.badge5": "Bank-level security",
+    "featurePage.chatbot.capabilities.bento.badge6": "99.9% Accuracy",
+    "featurePage.chatbot.capabilities.capability1.title": "Personalized Consultation",
+    "featurePage.chatbot.capabilities.capability1.desc":
+      "AI that remembers customer history to provide bespoke advice and product recommendations.",
+    "featurePage.chatbot.capabilities.capability2.title": "Instant Quote",
+    "featurePage.chatbot.capabilities.capability2.desc":
+      "Analyze requirements on the fly and provide accurate pricing estimates in real-time.",
+    "featurePage.chatbot.capabilities.capability3.title": "Global Translation",
+    "featurePage.chatbot.capabilities.capability3.desc":
+      "Support customers in 95+ languages with native-level fluency and cultural awareness.",
+    "featurePage.chatbot.capabilities.capability4.title": "Smart Booking",
+    "featurePage.chatbot.capabilities.capability4.desc":
+      "Integrate directly with your calendar to manage appointments without human intervention.",
+    "featurePage.chatbot.capabilities.capability5.title": "Enterprise Security",
+    "featurePage.chatbot.capabilities.capability5.desc":
+      "End-to-end encryption and GDPR compliance for every single customer interaction.",
+    "featurePage.chatbot.capabilities.capability6.title": "Sentiment Analysis",
+    "featurePage.chatbot.capabilities.capability6.desc":
+      "Detect customer emotion in real-time and escalate complex issues to humans instantly.",
     "featurePage.chatbot.feature5.name": "Multi-language Support",
     "featurePage.chatbot.feature5.desc":
       "Auto-detect and respond in customer's language",
@@ -2469,19 +2806,220 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.benefit3": "Collect and qualify high-quality leads",
     "featurePage.chatbot.benefit4": "Easy integration with website and fanpage",
 
+    // Feature Page - Chatbot Demo Live
+    "featurePage.chatbot.demo.live.heading": "See AI Chatbot in Action",
+    "featurePage.chatbot.demo.live.subheading":
+      "Experience how our neural engine handles complex logistics queries and seamlessly transitions to human agents when needed.",
+    "featurePage.chatbot.demo.live.terminal": "UniksMarK AI Support - Demo",
+    "featurePage.chatbot.demo.live.message1":
+      "Hello! I'm your UniksMarK assistant. How can I help with your order today?",
+    "featurePage.chatbot.demo.live.message2":
+      "Hi, I need to redirect my shipment #UK-9283 to a different warehouse, but the portal says it's already in transit. Can you override this?",
+    "featurePage.chatbot.demo.live.message3":
+      "I've located shipment #UK-9283. It is currently at the Regional Sort Center. While the standard portal blocks changes, I can initiate an intercepted reroute.",
+    "featurePage.chatbot.demo.live.checking": "Checking warehouse availability...",
+    "featurePage.chatbot.demo.live.message4":
+      "Would you like me to process this reroute or connect you with a Logistics Manager for specific handling instructions?",
+    "featurePage.chatbot.demo.live.transferring": "Transferring to Human Agent",
+    "featurePage.chatbot.demo.live.placeholder": "Type your message...",
+    "featurePage.chatbot.demo.live.send": "Send",
+
+    // Feature Page - Chatbot Steps
+    "featurePage.chatbot.steps.heading": "Get Started in 3 Simple Steps",
+    "featurePage.chatbot.steps.subheading":
+      "Our platform is designed for rapid deployment without sacrificing depth.",
+    "featurePage.chatbot.steps.badge": "Total setup time: Under 1 hour",
+    "featurePage.chatbot.steps.step1.title": "Train",
+    "featurePage.chatbot.steps.step1.desc":
+      "Connect your help center, docs, or website URL. Our AI indexes your data in minutes.",
+    "featurePage.chatbot.steps.step2.title": "Customize",
+    "featurePage.chatbot.steps.step2.desc":
+      "Define brand voice, persona, and handoff rules. Design the UI to match your brand perfectly.",
+    "featurePage.chatbot.steps.step3.title": "Deploy",
+    "featurePage.chatbot.steps.step3.desc":
+      "Add a single line of code to your site or connect via API to start resolving tickets instantly.",
+
+    // Feature Page - Chatbot Industries
+    "featurePage.chatbot.industries.heading": "Built for Every Industry",
+    "featurePage.chatbot.industries.ecommerce.name": "E-commerce",
+    "featurePage.chatbot.industries.realestate.name": "Real Estate",
+    "featurePage.chatbot.industries.education.name": "Education",
+    "featurePage.chatbot.industries.healthcare.name": "Healthcare",
+    "featurePage.chatbot.industries.commonQuery": "Common Query",
+    "featurePage.chatbot.industries.aiResponse": "AI Response",
+    "featurePage.chatbot.industries.readyBoost": "Ready to boost your metrics?",
+    "featurePage.chatbot.industries.description":
+      "Our specialized models are pre-trained on industry-specific datasets to ensure high accuracy from day one.",
+    "featurePage.chatbot.industries.cta.start": "Start Scaling",
+    "featurePage.chatbot.industries.cta.view": "View All Industries",
+    "featurePage.chatbot.industries.ecommerce.query":
+      "Where is my package and can I change size?",
+    "featurePage.chatbot.industries.ecommerce.response":
+      "Connects to Shopify API, provides real-time tracking, and checks inventory for size swaps automatically.",
+    "featurePage.chatbot.industries.ecommerce.stat1": "Ticket Deflection",
+    "featurePage.chatbot.industries.ecommerce.stat2": "ROI Increase",
+    "featurePage.chatbot.industries.realestate.query":
+      "I need to schedule a 3-bedroom viewing in District 2 area.",
+    "featurePage.chatbot.industries.realestate.response":
+      "Analyzes preferences and suggests 5 best-match listings, auto-schedules viewing with agent.",
+    "featurePage.chatbot.industries.realestate.stat1": "Lead Response Rate",
+    "featurePage.chatbot.industries.realestate.stat2": "Faster Close Rate",
+    "featurePage.chatbot.industries.education.query":
+      "What's the tuition for MBA program and when's the application?",
+    "featurePage.chatbot.industries.education.response":
+      "Provides cost breakdown, timeline, and step-by-step application guide with links to financial aid.",
+    "featurePage.chatbot.industries.education.stat1": "Faster Response",
+    "featurePage.chatbot.industries.education.stat2": "Enrollment Increase",
+    "featurePage.chatbot.industries.healthcare.query":
+      "I need to book a general checkup with a cardiologist.",
+    "featurePage.chatbot.industries.healthcare.response":
+      "Checks doctor availability, verifies insurance, and books HIPAA-compliant appointment.",
+    "featurePage.chatbot.industries.healthcare.stat1": "Booking Accuracy",
+    "featurePage.chatbot.industries.healthcare.stat2": "No-Show Reduction",
+
     // Feature Page - Content
-    "featurePage.content.metric1.label": "Templates",
-    "featurePage.content.metric2.label": "Resolution",
-    "featurePage.content.metric3.label": "Creation Time",
-    "featurePage.content.metric4.label": "Cost Savings",
-    "featurePage.content.benefitsTitle": "Why Choose AI Content Creator?",
-    "featurePage.content.benefitsDesc":
-      "Create professional content in seconds with AI.",
-    "featurePage.content.benefit1":
-      "Create 4K professional images with virtual KOL",
-    "featurePage.content.benefit2": "Auto-write trending captions and hashtags",
-    "featurePage.content.benefit3": "50+ templates for all industries",
-    "featurePage.content.benefit4": "Auto SEO optimization for all content",
+    "featurePage.content.hero.title1": "Create Stunning Content in",
+    "featurePage.content.hero.title2": "Seconds",
+    "featurePage.content.hero.title3": "Not Hours",
+    "featurePage.content.hero.description":
+      "Unleash the power of specialized AI trained for high-end marketing visuals, product photography, and brand-consistent social content.",
+    "featurePage.content.metric.perImage": "Per Image",
+    "featurePage.content.metric.resolution": "Resolution",
+    "featurePage.content.metric.commercial": "Commercial Rights",
+    "featurePage.content.cta.generate": "Generate Now",
+    "featurePage.content.cta.viewGallery": "View Gallery",
+    "featurePage.content.problems.title": "Content Creation Bottleneck?",
+    "featurePage.content.problems.subtitle":
+      "Stop wasting resources on outdated workflows.",
+    "featurePage.content.problems.oldWay.title": "The Old Way",
+    "featurePage.content.problems.oldWay.problem1.title": "Manual Photoshoots",
+    "featurePage.content.problems.oldWay.problem1.desc":
+      "Days of planning, travel, and expensive gear rental.",
+    "featurePage.content.problems.oldWay.problem2.title": "Endless Revision Rounds",
+    "featurePage.content.problems.oldWay.problem2.desc":
+      "Waiting 48h for basic retouches and lighting fixes.",
+    "featurePage.content.problems.oldWay.problem3.title": "Stock Image Burnout",
+    "featurePage.content.problems.oldWay.problem3.desc":
+      "Generic visuals that everyone else is already using.",
+    "featurePage.content.problems.dxaiWay.title": "The DXAI Way",
+    "featurePage.content.problems.dxaiWay.solution1.title": "Instant Photorealism",
+    "featurePage.content.problems.dxaiWay.solution1.desc":
+      "Generate studio-quality scenes from a simple text prompt.",
+    "featurePage.content.problems.dxaiWay.solution2.title": "Lightning-Fast Iteration",
+    "featurePage.content.problems.dxaiWay.solution2.desc":
+      "Change colors, lighting, or props in under 10 seconds.",
+    "featurePage.content.problems.dxaiWay.solution3.title": "True Brand Originality",
+    "featurePage.content.problems.dxaiWay.solution3.desc":
+      "Unique assets that match your brand DNA perfectly.",
+    "featurePage.content.capabilities.badge": "The Studio Ecosystem",
+    "featurePage.content.capabilities.title": "Your Complete AI Content Studio",
+    "featurePage.content.capabilities.aiStudio.title": "AI Image Studio",
+    "featurePage.content.capabilities.aiStudio.description":
+      "The world's most advanced prompt-to-image engine specifically tuned for marketing, fashion, and product design.",
+    "featurePage.content.capabilities.aiStudio.cta": "Enter Studio",
+    "featurePage.content.capabilities.aiStudio.badge": "v4.2 PRO ENGINE",
+    "featurePage.content.capabilities.characterEngine.title":
+      "Character Consistency Engine",
+    "featurePage.content.capabilities.characterEngine.description":
+      "Ensure your AI models look exactly the same across every campaign, outfit, and setting.",
+    "featurePage.content.capabilities.characterEngine.cta": "Maintain Brand ID",
+    "featurePage.content.demo.badge": "Interactive Studio",
+    "featurePage.content.demo.title": "Try AI Image Generator — Free",
+    "featurePage.content.demo.description":
+      "Transform your product concepts into high-converting visual assets instantly.",
+    "featurePage.content.demo.uploadTitle": "Drop product image here",
+    "featurePage.content.demo.uploadDesc": "PNG, JPG up to 10MB",
+    "featurePage.content.demo.promptLabel": "Prompt",
+    "featurePage.content.demo.promptPlaceholder":
+      "Describe your product scene... e.g. 'A sleek ceramic bottle on a marble pedestal with soft morning light'",
+    "featurePage.content.demo.presetMinimalist": "Minimalist",
+    "featurePage.content.demo.presetOrganic": "Organic",
+    "featurePage.content.demo.presetCinematic": "Cinematic",
+    "featurePage.content.demo.styleLabel": "Style",
+    "featurePage.content.demo.styleProduct": "Product",
+    "featurePage.content.demo.styleLifestyle": "Lifestyle",
+    "featurePage.content.demo.styleEcom": "E-com",
+    "featurePage.content.demo.aspectLabel": "Aspect Ratio",
+    "featurePage.content.demo.generateBtn": "Generate Image",
+    "featurePage.content.demo.generating": "Generating...",
+    "featurePage.content.demo.freeRemaining": "3 free generations remaining",
+    "featurePage.content.demo.downloadHD": "Download HD",
+    "featurePage.content.demo.tryAgain": "Try Again",
+    "featurePage.content.demo.history": "History",
+    "featurePage.content.demo.viewAll": "View All",
+    "featurePage.content.gallery.title": "Created with DXAI AI",
+    "featurePage.content.gallery.subtitle":
+      "Discover how top brands are scaling their creative output.",
+    "featurePage.content.gallery.filter.all": "All",
+    "featurePage.content.gallery.filter.product": "Product",
+    "featurePage.content.gallery.filter.lifestyle": "Lifestyle",
+    "featurePage.content.gallery.filter.social": "Social",
+    "featurePage.content.steps.title": "From Idea to Content in 3 Steps",
+    "featurePage.content.steps.subtitle":
+      "Streamline your creative workflow with our frictionless process.",
+    "featurePage.content.steps.step1.title": "Describe",
+    "featurePage.content.steps.step1.description":
+      "Input a prompt or upload a reference image to define your brand vision and style guidelines.",
+    "featurePage.content.steps.step2.title": "Generate",
+    "featurePage.content.steps.step2.description":
+      "Our AI engine produces 4 high-fidelity variations. Fine-tune details with simple natural language commands.",
+    "featurePage.content.steps.step3.title": "Publish",
+    "featurePage.content.steps.step3.description":
+      "Download high-res assets or push directly to your social channels and ad managers in one click.",
+    "featurePage.content.cta.title": "Ready to transform your creative workflow?",
+    "featurePage.content.cta.description":
+      "Join thousands of companies using DXAI to scale their visual production effortlessly.",
+    "featurePage.content.cta.startTrial": "Start Free Trial",
+    "featurePage.content.cta.bookDemo": "Book a Demo",
+    "featurePage.content.marketingNeeds.title":
+      "Content for Every Marketing Need",
+    "featurePage.content.marketingNeeds.social.title": "Social Media",
+    "featurePage.content.marketingNeeds.social.desc":
+      "Generate viral-ready posts, captions, and hashtags optimized for Instagram, TikTok, and LinkedIn in seconds.",
+    "featurePage.content.marketingNeeds.social.feature1":
+      "Auto-resize for all platforms",
+    "featurePage.content.marketingNeeds.social.feature2":
+      "Trending audio suggestions",
+    "featurePage.content.marketingNeeds.social.feature3":
+      "AI-powered posting schedules",
+    "featurePage.content.marketingNeeds.social.cta": "Explore Social Tools",
+    "featurePage.content.marketingNeeds.ecommerce.title": "E-commerce",
+    "featurePage.content.marketingNeeds.ecommerce.desc":
+      "High-converting product descriptions, ad copy, and storefront visuals that turn browsers into buyers.",
+    "featurePage.content.marketingNeeds.ecommerce.feature1":
+      "SEO-optimized titles",
+    "featurePage.content.marketingNeeds.ecommerce.feature2":
+      "Dynamic background removal",
+    "featurePage.content.marketingNeeds.ecommerce.feature3":
+      "Multi-language localized copy",
+    "featurePage.content.marketingNeeds.ecommerce.cta": "Boost Sales Now",
+    "featurePage.content.marketingNeeds.advertising.title": "Advertising",
+    "featurePage.content.marketingNeeds.advertising.desc":
+      "A/B test ad variations at scale. Create hundreds of creative iterations for Meta, Google, and Amazon ads.",
+    "featurePage.content.marketingNeeds.advertising.feature1":
+      "Click-through rate prediction",
+    "featurePage.content.marketingNeeds.advertising.feature2":
+      "Automatic ad spend tracking",
+    "featurePage.content.marketingNeeds.advertising.feature3":
+      "High-impact CTA generation",
+    "featurePage.content.marketingNeeds.advertising.cta": "Scale Your Ads",
+    "featurePage.content.metrics.title": "The Numbers Don't Lie",
+    "featurePage.content.metrics.speed.label": "To Create",
+    "featurePage.content.metrics.speed.desc":
+      "Average time to generate a complete, brand-aligned marketing campaign from a single prompt.",
+    "featurePage.content.metrics.quality.label": "Quality",
+    "featurePage.content.metrics.quality.desc":
+      "Crystal clear resolution for every image and video generated, ready for professional large-scale printing.",
+    "featurePage.content.metrics.cost.label": "Creative Fee",
+    "featurePage.content.metrics.cost.desc":
+      "Eliminate expensive outsourcing costs and multiple revisions. Your internal team becomes a creative powerhouse.",
+    "featurePage.content.comparison.title": "See the Difference",
+    "featurePage.content.comparison.subtitle":
+      "Compare standard generic AI outputs with DXAI's brand-tuned neural engine.",
+    "featurePage.content.comparison.standardAI": "Standard AI",
+    "featurePage.content.comparison.dxaiPro": "DXAI Pro",
+    "featurePage.content.comparison.hint":
+      "Drag the slider to explore the detail enhancement",
 
     // Feature Page - Trends
     "featurePage.trends.metric1.label": "Continuous Monitoring",
