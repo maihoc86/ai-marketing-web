@@ -579,7 +579,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.row1.criteria": "Chi phí vận hành",
     "roi.row1.traditional": "~20.000.000vnđ/tháng",
     "roi.row1.traditionalDesc": "(Nhân sự + Tools)",
-    "roi.row1.ai": "~19.975.000vnđ/tháng",
+    "roi.row1.ai": "~9.975.000vnđ/tháng",
     "roi.row1.aiDesc": "(All-in-one)",
     "roi.row1.savings": "Tiết kiệm ~50% ",
     "roi.row2.criteria": "Sản lượng Video",
