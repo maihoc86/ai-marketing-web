@@ -8,106 +8,76 @@ import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 interface PricingPlan {
-  name: string;
   nameKey: string;
   priceUSD: number | "custom";
   priceVND: number | "custom";
-  description: string;
   descriptionKey: string;
   popular?: boolean;
-  features: string[];
   featuresKeys: string[];
-  ctaText: string;
   ctaKey: string;
 }
 
 const pricingPlans: PricingPlan[] = [
   {
-    name: "Startup",
     nameKey: "pricing.enterprise.startup.name",
-    priceUSD: 299,
-    priceVND: 299 * 250000, // Approximate conversion
-    description: "For small businesses building marketing presence",
+    priceUSD: 499,
+    priceVND: 499 * 250000, // Approximate conversion
     descriptionKey: "pricing.enterprise.startup.description",
-    features: [
-      "Multi-channel publishing (Facebook, Instagram, TikTok)",
-      "50+ content templates",
-      "Auto-scheduling",
-      "Basic analytics",
-      "Email support",
-    ],
     featuresKeys: [
-      "pricing.enterprise.startup.feature3",
-      "pricing.enterprise.startup.feature4",
-      "pricing.enterprise.startup.feature5",
-      "pricing.enterprise.startup.feature6",
-      "pricing.enterprise.startup.feature7",
+      "pricing.enterprise.startup.feature8",
+      "pricing.enterprise.startup.feature9",
+      "pricing.enterprise.startup.feature10",
+      "pricing.enterprise.startup.feature11",
+      "pricing.enterprise.startup.feature12",
+      "pricing.enterprise.startup.feature13",
+      "pricing.enterprise.startup.feature14",
+      "pricing.enterprise.startup.feature15",
+      "pricing.enterprise.startup.feature16",
+      "pricing.enterprise.startup.feature17",
+      "pricing.enterprise.startup.feature18",
+      "pricing.enterprise.startup.feature19",
+      "pricing.enterprise.startup.feature20",
+      "pricing.enterprise.startup.feature21",
+      "pricing.enterprise.startup.feature22",
+      "pricing.enterprise.startup.feature23",
+      "pricing.enterprise.startup.feature24",
+      "pricing.enterprise.startup.feature25",
     ],
-    ctaText: "Start Free Trial",
     ctaKey: "pricing.enterprise.startup.cta",
   },
   {
-    name: "Growth",
     nameKey: "pricing.enterprise.growth.name",
-    priceUSD: 499,
-    priceVND: 499 * 250000, // Approximate conversion
-    description: "For agencies and SMEs scaling content production",
+    priceUSD: 799,
+    priceVND: 799 * 250000, // Approximate conversion
     descriptionKey: "pricing.enterprise.growth.description",
     popular: true,
-    features: [
-      "All Startup features",
-      "Bonus 1,000 Credits (7,500 total)",
-      "AI banner & thumbnail design",
-      "20+ platform publishing",
-      "Advanced Analytics & ROI tracking",
-      "Priority support (2hr response)",
-      "A/B testing for campaigns",
-    ],
     featuresKeys: [
-      "pricing.enterprise.growth.feature1",
-      "pricing.enterprise.growth.feature4",
-      "pricing.enterprise.growth.feature5",
-      "pricing.enterprise.growth.feature6",
-      "pricing.enterprise.growth.feature7",
-      "pricing.enterprise.growth.feature8",
-      "pricing.enterprise.growth.feature9",
+      "pricing.enterprise.growth.feature10",
+      "pricing.enterprise.growth.feature11",
+      "pricing.enterprise.growth.feature12",
+      "pricing.enterprise.growth.feature13",
+      "pricing.enterprise.growth.feature14",
+      "pricing.enterprise.growth.feature15",
+      "pricing.enterprise.growth.feature16",
+      "pricing.enterprise.growth.feature17",
+      "pricing.enterprise.growth.feature18",
+      "pricing.enterprise.growth.feature19",
+      "pricing.enterprise.growth.feature20",
+      "pricing.enterprise.growth.feature21",
+      "pricing.enterprise.growth.feature22",
+      "pricing.enterprise.growth.feature23",
+      "pricing.enterprise.growth.feature24",
+      "pricing.enterprise.growth.feature25",
+      "pricing.enterprise.growth.feature26",
+      "pricing.enterprise.growth.feature27",
+      "pricing.enterprise.growth.feature28",
+      "pricing.enterprise.growth.feature29",
+      "pricing.enterprise.growth.feature30",
+      "pricing.enterprise.growth.feature31",
+      "pricing.enterprise.growth.feature32",
+      "pricing.enterprise.growth.feature33",
     ],
-    ctaText: "Get Started",
     ctaKey: "pricing.enterprise.growth.cta",
-  },
-  {
-    name: "Enterprise",
-    nameKey: "pricing.enterprise.enterprise.name",
-    priceUSD: "custom",
-    priceVND: "custom",
-    description: "For retail chains and custom enterprise solutions",
-    descriptionKey: "pricing.enterprise.enterprise.description",
-    features: [
-      "All Growth features",
-      "Unlimited Videos & Content",
-      "Dedicated Server",
-      "Custom AI Models (brand fine-tuned)",
-      "API Access for system integration",
-      "Dedicated Account Manager",
-      "99.9% SLA uptime guarantee",
-      "24/7 Hotline/Chat support",
-      "Team onboarding & training",
-      "White-label solution (optional)",
-    ],
-    featuresKeys: [
-      "pricing.enterprise.enterprise.feature1",
-      "pricing.enterprise.enterprise.feature2",
-      "pricing.enterprise.enterprise.feature3",
-      "pricing.enterprise.enterprise.feature4",
-      "pricing.enterprise.enterprise.feature5",
-      "pricing.enterprise.enterprise.feature6",
-      "pricing.enterprise.enterprise.feature7",
-      "pricing.enterprise.enterprise.feature8",
-      "pricing.enterprise.enterprise.feature9",
-      "pricing.enterprise.enterprise.feature10",
-    ],
-    ctaText: "Contact Sales",
-    ctaKey: "pricing.enterprise.enterprise.cta",
   },
 ];
 
@@ -115,46 +85,124 @@ const pricingPlans: PricingPlan[] = [
 interface ComparisonFeature {
   name: string;
   nameKey: string;
-  startup: string | boolean;
-  growth: string | boolean;
-  enterprise: string | boolean;
+  professional: string | boolean;
+  business: string | boolean;
 }
 
 const comparisonFeatures: ComparisonFeature[] = [
   {
-    name: "Global LLM Orchestration",
-    nameKey: "pricing.enterprise.comparison.feature1",
-    startup: true,
-    growth: true,
-    enterprise: true,
+    name: "Monthly price",
+    nameKey: "pricing.enterprise.comparison.priceMonthly",
+    professional: "$499",
+    business: "$799",
   },
   {
-    name: "Localized Content Gen (40+ Languages)",
-    nameKey: "pricing.enterprise.comparison.feature2",
-    startup: false,
-    growth: true,
-    enterprise: true,
+    name: "Annual price",
+    nameKey: "pricing.enterprise.comparison.priceAnnual",
+    professional: "$399/mo",
+    business: "$639/mo",
   },
   {
-    name: "Predictive Performance Analytics",
-    nameKey: "pricing.enterprise.comparison.feature3",
-    startup: "Basic",
-    growth: "Advanced",
-    enterprise: "Full Real-time",
+    name: "Free trial",
+    nameKey: "pricing.enterprise.comparison.freeTrial",
+    professional: "Free 1-month trial",
+    business: "Free 1-month trial",
   },
   {
-    name: "Security & API Limits",
-    nameKey: "pricing.enterprise.comparison.feature4",
-    startup: "10k requests/month",
-    growth: "500k requests/month",
-    enterprise: "Unlimited",
+    name: "Social accounts",
+    nameKey: "pricing.enterprise.comparison.socialAccounts",
+    professional: "3 platforms",
+    business: "<b>7+ platforms</b>",
   },
   {
-    name: "Deployment Type",
-    nameKey: "pricing.enterprise.comparison.feature5",
-    startup: "SaaS",
-    growth: "SaaS",
-    enterprise: "Hybrid / On-Prem",
+    name: "Platforms supported",
+    nameKey: "pricing.enterprise.comparison.platformsSupported",
+    professional: "3 platforms",
+    business: "<b>7+ platforms</b>",
+  },
+  {
+    name: "Multi-language",
+    nameKey: "pricing.enterprise.comparison.multiLang",
+    professional: "30+ languages",
+    business: "30+ languages",
+  },
+  {
+    name: "AI Text Posts",
+    nameKey: "pricing.enterprise.comparison.aiText",
+    professional: "Unlimited",
+    business: "Unlimited",
+  },
+  {
+    name: "AI Images/month",
+    nameKey: "pricing.enterprise.comparison.aiImages",
+    professional: "500/month",
+    business: "<b>5,000/month</b>",
+  },
+  {
+    name: "AI Videos/month",
+    nameKey: "pricing.enterprise.comparison.aiVideos",
+    professional: "20 videos/month",
+    business: "<b>100 videos/month</b>",
+  },
+  {
+    name: "AI Banner & Thumbnail",
+    nameKey: "pricing.enterprise.comparison.aiBanner",
+    professional: false,
+    business: true,
+  },
+  {
+    name: "Custom AI Model",
+    nameKey: "pricing.enterprise.comparison.customModel",
+    professional: false,
+    business: true,
+  },
+  {
+    name: "Basic Analytics",
+    nameKey: "pricing.enterprise.comparison.basicAnalytics",
+    professional: true,
+    business: true,
+  },
+  {
+    name: "Advanced Analytics",
+    nameKey: "pricing.enterprise.comparison.advancedAnalytics",
+    professional: false,
+    business: true,
+  },
+  {
+    name: "ROI Tracking",
+    nameKey: "pricing.enterprise.comparison.roi",
+    professional: false,
+    business: true,
+  },
+  {
+    name: "A/B Testing",
+    nameKey: "pricing.enterprise.comparison.abTesting",
+    professional: false,
+    business: true,
+  },
+  {
+    name: "1-on-1 Onboarding",
+    nameKey: "pricing.enterprise.comparison.onboarding",
+    professional: "Dedicated",
+    business: "Dedicated",
+  },
+  {
+    name: "Strategy Consultation",
+    nameKey: "pricing.enterprise.comparison.strategy",
+    professional: "",
+    business: "<b>Dedicated</b>",
+  },
+  {
+    name: "Account Manager",
+    nameKey: "pricing.enterprise.comparison.accountManager",
+    professional: true,
+    business: true,
+  },
+  {
+    name: "Support Response",
+    nameKey: "pricing.enterprise.comparison.supportResponse",
+    professional: "",
+    business: "<b>Priority 2-hour response</b>",
   },
 ];
 
@@ -164,10 +212,10 @@ export function PricingEnterpriseStyle() {
     "monthly",
   );
 
-  // Calculate discounted yearly price (15% discount)
+  // Calculate discounted yearly price (20% discount)
   const calculateYearlyPrice = (monthlyPrice: number | "custom") => {
     if (monthlyPrice === "custom") return "custom";
-    return Math.round(monthlyPrice * 12 * 0.85); // 15% discount
+    return Math.round(monthlyPrice * 12 * 0.8); // 20% discount
   };
 
   const formatPrice = (
@@ -188,9 +236,18 @@ export function PricingEnterpriseStyle() {
   const renderComparisonValue = (value: string | boolean) => {
     if (typeof value === "boolean") {
       return value ? (
-        <Check className="w-5 h-5 text-green-600 mx-auto" />
+        <Check className="size-5 text-green-600 mx-auto" />
       ) : (
-        <X className="w-5 h-5 text-gray-300 mx-auto" />
+        <X className="size-5 text-gray-300 mx-auto" />
+      );
+    }
+    // support small HTML (e.g. <strong>) from internal strings
+    if (typeof value === "string" && value.includes("<")) {
+      return (
+        <span
+          className="text-sm font-medium text-gray-700"
+          dangerouslySetInnerHTML={{ __html: value }}
+        />
       );
     }
     return <span className="text-sm font-medium text-gray-700">{value}</span>;
@@ -210,7 +267,7 @@ export function PricingEnterpriseStyle() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {t("pricing.enterprise.title")}{" "}
-            <span className="text-blue-600">
+            <span className="text-primary">
               {t("pricing.enterprise.titleHighlight")}
             </span>
           </h2>
@@ -242,17 +299,17 @@ export function PricingEnterpriseStyle() {
             >
               {t("pricing.enterprise.billing.yearly")}
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                -15%
+                -20%
               </span>
             </button>
           </div>
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {pricingPlans.map((plan) => (
             <div
-              key={plan.name}
+              key={plan.nameKey}
               className={cn(
                 "relative rounded-xl bg-white p-8 transition-all duration-300",
                 plan.popular
@@ -271,12 +328,12 @@ export function PricingEnterpriseStyle() {
 
               {/* Plan Name */}
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                {t(`pricing.enterprise.${plan.name.toLowerCase()}.name`)}
+                {t(plan.nameKey)}
               </h3>
 
               {/* Description */}
               <p className="text-gray-600 text-sm mb-6 min-h-10">
-                {t(`pricing.enterprise.${plan.name.toLowerCase()}.description`)}
+                {t(plan.descriptionKey)}
               </p>
 
               {/* Price */}
@@ -284,7 +341,7 @@ export function PricingEnterpriseStyle() {
                 {billingPeriod === "yearly" && plan.priceVND !== "custom" && (
                   <div className="mb-2">
                     <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-                      {t("pricing.enterprise.save15")}
+                      {t("pricing.enterprise.save20")}
                     </span>
                   </div>
                 )}
@@ -331,7 +388,9 @@ export function PricingEnterpriseStyle() {
               </div>
 
               {/* CTA Button */}
-              <LocaleLink href={`/register?package=${plan.name.toLowerCase()}`}>
+              <LocaleLink
+                href={`/register?package=${plan.nameKey.toLowerCase()}`}
+              >
                 <Button
                   className={cn(
                     "w-full h-12 rounded-lg font-semibold text-base transition-all duration-200",
@@ -340,7 +399,7 @@ export function PricingEnterpriseStyle() {
                       : "bg-white hover:bg-gray-50 text-primary border-2 border-primary hover:border-primary-hover",
                   )}
                 >
-                  {t(`pricing.enterprise.${plan.name.toLowerCase()}.cta`)}
+                  {t(plan.ctaKey)}
                 </Button>
               </LocaleLink>
 
@@ -349,11 +408,15 @@ export function PricingEnterpriseStyle() {
                 {plan.featuresKeys.map((featureKey, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div className="shrink-0 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-primary" />
+                      <Check className="size-3 text-primary" />
                     </div>
-                    <span className="text-gray-700 text-sm leading-relaxed">
-                      {t(featureKey)}
-                    </span>
+                    <span
+                      className="text-gray-700 text-sm leading-relaxed"
+                      // translations are internal-controlled; allow simple <strong> tags
+                      dangerouslySetInnerHTML={{
+                        __html: String(t(featureKey)),
+                      }}
+                    />
                   </li>
                 ))}
               </ul>
@@ -369,42 +432,36 @@ export function PricingEnterpriseStyle() {
 
           <div className="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden">
             {/* Table Header */}
-            <div className="grid grid-cols-4 gap-4 bg-gray-50 p-6 font-semibold text-gray-900 border-b border-gray-200">
+            <div className="grid grid-cols-3 gap-4 bg-gray-50 p-6 font-semibold text-gray-900 border-b border-gray-200">
               <div className="col-span-1">
                 {t("pricing.enterprise.comparison.features")}
               </div>
               <div className="text-center">
                 {t("pricing.enterprise.startup.name")}
               </div>
-              <div className="text-center">
+              <div className="text-center text-primary">
                 {t("pricing.enterprise.growth.name")}
-              </div>
-              <div className="text-center">
-                {t("pricing.enterprise.enterprise.name")}
               </div>
             </div>
 
             {/* Table Body */}
             <div className="divide-y divide-gray-100">
-              {comparisonFeatures.map((feature, index) => (
+              {comparisonFeatures.map((feature, idx) => (
                 <div
-                  key={index}
+                  key={idx}
                   className={cn(
-                    "grid grid-cols-4 gap-4 p-6 hover:bg-gray-50 transition-colors",
-                    index % 2 === 0 ? "bg-white" : "bg-gray-50/50",
+                    "grid grid-cols-3 gap-4 p-6 hover:bg-gray-50 transition-colors bg-gray-50/50",
+                    { "bg-white": idx % 2 === 0 },
                   )}
                 >
                   <div className="col-span-1 font-medium text-gray-900 text-sm">
                     {t(feature.nameKey)}
                   </div>
                   <div className="text-center flex items-center justify-center">
-                    {renderComparisonValue(feature.startup)}
+                    {renderComparisonValue(feature.professional)}
                   </div>
                   <div className="text-center flex items-center justify-center">
-                    {renderComparisonValue(feature.growth)}
-                  </div>
-                  <div className="text-center flex items-center justify-center">
-                    {renderComparisonValue(feature.enterprise)}
+                    {renderComparisonValue(feature.business)}
                   </div>
                 </div>
               ))}

@@ -344,7 +344,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.cta": "Bắt đầu ngay",
     "pricing.cta.start": "Bắt đầu ngay",
     "pricing.cta.contact": "Liên hệ tư vấn",
-    "pricing.popular": "Phổ biến nhất",
+    "pricing.popular": "Giá trị tốt nhất",
     "pricing.credits": "credits",
     "pricing.per.monthly": "tháng",
     "pricing.per.quarterly": "quý",
@@ -381,14 +381,14 @@ const translations: Record<Locale, Record<string, string>> = {
       "Giá minh bạch, có thể mở rộng cho mọi giai đoạn chuyển đổi AI của bạn. Không có phí ẩn.",
     "pricing.enterprise.billing.monthly": "Theo tháng",
     "pricing.enterprise.billing.yearly": "Theo năm",
-    "pricing.enterprise.save15": "Tiết kiệm 15%",
-    "pricing.enterprise.startup.name": "Khởi nghiệp",
+    "pricing.enterprise.save20": "Tiết kiệm 20%",
+    "pricing.enterprise.startup.name": "Chuyên nghiệp",
     "pricing.enterprise.startup.description":
-      "Dành cho doanh nghiệp nhỏ xây dựng hiện diện marketing",
+      "Dành cho các doanh nghiệp đang phát triển",
     "pricing.enterprise.startup.cta": "Dùng thử miễn phí",
-    "pricing.enterprise.growth.name": "Tăng trưởng",
+    "pricing.enterprise.growth.name": "Doanh nghiệp",
     "pricing.enterprise.growth.description":
-      "Dành cho agency và SME mở rộng sản xuất nội dung",
+      "Dành cho các Agency và công ty đang mở rộng quy mô",
     "pricing.enterprise.growth.cta": "Bắt đầu ngay",
     "pricing.enterprise.enterprise.name": "Doanh nghiệp",
     "pricing.enterprise.enterprise.description":
@@ -405,6 +405,25 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.comparison.feature3": "Phân tích hiệu suất dự đoán",
     "pricing.enterprise.comparison.feature4": "Bảo mật & Giới hạn API",
     "pricing.enterprise.comparison.feature5": "Loại triển khai",
+    "pricing.enterprise.comparison.priceMonthly": "Giá hàng tháng",
+    "pricing.enterprise.comparison.priceAnnual": "Giá hàng năm (giảm 20%)",
+    "pricing.enterprise.comparison.freeTrial": "Dùng thử miễn phí",
+    "pricing.enterprise.comparison.socialAccounts": "Tài khoản mạng xã hội",
+    "pricing.enterprise.comparison.platformsSupported": "Nền tảng hỗ trợ",
+    "pricing.enterprise.comparison.multiLang": "Tạo nội dung đa ngôn ngữ",
+    "pricing.enterprise.comparison.aiText": "Bài viết văn bản AI",
+    "pricing.enterprise.comparison.aiImages": "Hình ảnh AI/tháng",
+    "pricing.enterprise.comparison.aiVideos": "Video AI/tháng",
+    "pricing.enterprise.comparison.aiBanner": "Banner & Thumbnail AI",
+    "pricing.enterprise.comparison.customModel": "Mô hình AI tùy chỉnh",
+    "pricing.enterprise.comparison.basicAnalytics": "Phân tích cơ bản",
+    "pricing.enterprise.comparison.advancedAnalytics": "Phân tích nâng cao",
+    "pricing.enterprise.comparison.roi": "Theo dõi ROI",
+    "pricing.enterprise.comparison.abTesting": "A/B Testing",
+    "pricing.enterprise.comparison.onboarding": "Onboarding 1-1",
+    "pricing.enterprise.comparison.strategy": "Tư vấn chiến lược",
+    "pricing.enterprise.comparison.accountManager": "Quản lý tài khoản",
+    "pricing.enterprise.comparison.supportResponse": "Phản hồi hỗ trợ",
     "pricing.enterprise.cta.help":
       "Cần tư vấn thêm về gói phù hợp với doanh nghiệp của bạn?",
     "pricing.enterprise.cta.expert": "Liên hệ chuyên gia tư vấn",
@@ -416,6 +435,35 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.startup.feature5": "Lên lịch tự động",
     "pricing.enterprise.startup.feature6": "Phân tích cơ bản",
     "pricing.enterprise.startup.feature7": "Hỗ trợ qua email",
+    "pricing.enterprise.startup.feature8": "20 kênh mạng xã hội",
+    "pricing.enterprise.startup.feature9":
+      "Nền tảng hỗ trợ: Facebook, Instagram, TikTok",
+    "pricing.enterprise.startup.feature10": "Hỗ trợ đa ngôn ngữ: 30+ ngôn ngữ",
+    "pricing.enterprise.startup.feature11":
+      "Bài viết văn bản AI: Không giới hạn",
+    "pricing.enterprise.startup.feature12": "Hình ảnh AI: 500/tháng",
+    "pricing.enterprise.startup.feature13":
+      "Video AI: 20 video/tháng (tối đa 3 phút mỗi video)",
+    "pricing.enterprise.startup.feature14":
+      "Huấn luyện giọng thương hiệu: 3 giọng thương hiệu",
+    "pricing.enterprise.startup.feature15": "Content Calendar (bao gồm)",
+    "pricing.enterprise.startup.feature16":
+      "Thời điểm đăng tốt nhất (AI) (bao gồm)",
+    "pricing.enterprise.startup.feature17": "Bulk upload: Lên đến 100 bài",
+    "pricing.enterprise.startup.feature18": "Báo cáo hiệu suất: Hàng tuần",
+    "pricing.enterprise.startup.feature19": "Theo dõi đối thủ: 3 đối thủ",
+    "pricing.enterprise.startup.feature20":
+      "Onboarding 1-1: Session chuyên dụng",
+    "pricing.enterprise.startup.feature21":
+      "Tư vấn chiến lược: Phiên hàng tháng",
+    "pricing.enterprise.startup.feature22":
+      "Hỗ trợ triển khai: Hỗ trợ thiết lập đầy đủ",
+    "pricing.enterprise.startup.feature23":
+      "Quản lý tài khoản chuyên dụng (bao gồm)",
+    "pricing.enterprise.startup.feature24":
+      "Phản hồi hỗ trợ ưu tiên trong 2 giờ",
+    "pricing.enterprise.startup.feature25":
+      "Kênh hỗ trợ: Email + Chat + Điện thoại",
     "pricing.enterprise.growth.feature1": "Tất cả tính năng Startup",
     "pricing.enterprise.growth.feature2": "Tối đa 25 Video AI/tháng",
     "pricing.enterprise.growth.feature3": "2,500 bài viết nội dung/tháng",
@@ -425,6 +473,45 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.growth.feature7": "Phân tích nâng cao & ROI tracking",
     "pricing.enterprise.growth.feature8": "Hỗ trợ ưu tiên (phản hồi 2h)",
     "pricing.enterprise.growth.feature9": "A/B testing cho campaigns",
+    "pricing.enterprise.growth.feature10": "Tài khoản mạng xã hội: Unlimited",
+    "pricing.enterprise.growth.feature11":
+      "Nền tảng hỗ trợ: Facebook, Instagram, TikTok, YouTube, LinkedIn, X, Threads",
+    "pricing.enterprise.growth.feature12":
+      "Đăng nội dung đa ngôn ngữ: 30+ ngôn ngữ",
+    "pricing.enterprise.growth.feature13": "AI text posts: Không giới hạn",
+    "pricing.enterprise.growth.feature14":
+      "AI images: 5,000/tháng (10x Professional)",
+    "pricing.enterprise.growth.feature15":
+      "AI videos: 100 videos/tháng (5x Professional)",
+    "pricing.enterprise.growth.feature16":
+      "Thiết kế banner & thumbnail AI: Bao gồm",
+    "pricing.enterprise.growth.feature17":
+      "Huấn luyện giọng thương hiệu: Voices không giới hạn",
+    "pricing.enterprise.growth.feature18":
+      "Custom AI Model: Fine-tuned cho thương hiệu của bạn",
+    "pricing.enterprise.growth.feature19": "Lên lịch tự động: Không giới hạn",
+    "pricing.enterprise.growth.feature20": "Content Calendar: Nâng cao",
+    "pricing.enterprise.growth.feature21": "Best Time to Post AI: Bao gồm",
+    "pricing.enterprise.growth.feature22": "Bulk Upload: Không giới hạn",
+    "pricing.enterprise.growth.feature23":
+      "Analytics Dashboard: Phân tích nâng cao",
+    "pricing.enterprise.growth.feature24": "ROI Tracking: Đo lường ROI đầy đủ",
+    "pricing.enterprise.growth.feature25":
+      "AI Performance Insights: Khuyến nghị do AI cung cấp",
+    "pricing.enterprise.growth.feature26": "A/B Testing: Tối ưu hoá chiến dịch",
+    "pricing.enterprise.growth.feature27":
+      "Competitor Tracking: Đối thủ không giới hạn",
+    "pricing.enterprise.growth.feature28": "Onboarding 1-1: Dedicated session",
+    "pricing.enterprise.growth.feature29":
+      "Strategy Consultation: Monthly sessions",
+    "pricing.enterprise.growth.feature30":
+      "Implementation Support: Full setup assistance",
+    "pricing.enterprise.growth.feature31":
+      "Dedicated Account Manager: Included",
+    "pricing.enterprise.growth.feature32":
+      "Support Response: Priority 2-hour response",
+    "pricing.enterprise.growth.feature33":
+      "Support Channels: Email + Chat + Phone",
     "pricing.enterprise.enterprise.feature1": "Tất cả tính năng Growth",
     "pricing.enterprise.enterprise.feature2": "Video & Nội dung không giới hạn",
     "pricing.enterprise.enterprise.feature3": "Server chuyên dụng",
@@ -1571,7 +1658,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.cta": "Get Started",
     "pricing.cta.start": "Get Started",
     "pricing.cta.contact": "Contact Sales",
-    "pricing.popular": "Most Popular",
+    "pricing.popular": "Best Value",
     "pricing.credits": "credits",
     "pricing.per.monthly": "month",
     "pricing.per.quarterly": "quarter",
@@ -1608,14 +1695,12 @@ const translations: Record<Locale, Record<string, string>> = {
       "Transparent, scalable pricing for every stage of your AI transformation journey. No hidden fees.",
     "pricing.enterprise.billing.monthly": "Monthly",
     "pricing.enterprise.billing.yearly": "Yearly",
-    "pricing.enterprise.save15": "Save 15%",
-    "pricing.enterprise.startup.name": "Startup",
-    "pricing.enterprise.startup.description":
-      "For small businesses building marketing presence",
+    "pricing.enterprise.save20": "Save 20%",
+    "pricing.enterprise.startup.name": "Professional",
+    "pricing.enterprise.startup.description": "For growing businesses",
     "pricing.enterprise.startup.cta": "Start Free Trial",
-    "pricing.enterprise.growth.name": "Growth",
-    "pricing.enterprise.growth.description":
-      "For agencies and SMEs scaling content production",
+    "pricing.enterprise.growth.name": "Business",
+    "pricing.enterprise.growth.description": "For agencies & scaling companies",
     "pricing.enterprise.growth.cta": "Get Started",
     "pricing.enterprise.enterprise.name": "Enterprise",
     "pricing.enterprise.enterprise.description":
@@ -1633,6 +1718,25 @@ const translations: Record<Locale, Record<string, string>> = {
       "Predictive Performance Analytics",
     "pricing.enterprise.comparison.feature4": "Security & API Limits",
     "pricing.enterprise.comparison.feature5": "Deployment Type",
+    "pricing.enterprise.comparison.priceMonthly": "Monthly Price",
+    "pricing.enterprise.comparison.priceAnnual": "Annual Price (20% off)",
+    "pricing.enterprise.comparison.freeTrial": "Free Trial",
+    "pricing.enterprise.comparison.socialAccounts": "Social Media Accounts",
+    "pricing.enterprise.comparison.platformsSupported": "Platforms Supported",
+    "pricing.enterprise.comparison.multiLang": "Multi-language Publishing",
+    "pricing.enterprise.comparison.aiText": "AI Text Posts",
+    "pricing.enterprise.comparison.aiImages": "AI Images/month",
+    "pricing.enterprise.comparison.aiVideos": "AI Videos/month",
+    "pricing.enterprise.comparison.aiBanner": "AI Banner & Thumbnail",
+    "pricing.enterprise.comparison.customModel": "Custom AI Model",
+    "pricing.enterprise.comparison.basicAnalytics": "Basic Analytics",
+    "pricing.enterprise.comparison.advancedAnalytics": "Advanced Analytics",
+    "pricing.enterprise.comparison.roi": "ROI Tracking",
+    "pricing.enterprise.comparison.abTesting": "A/B Testing",
+    "pricing.enterprise.comparison.onboarding": "1-on-1 Onboarding",
+    "pricing.enterprise.comparison.strategy": "Strategy Consultation",
+    "pricing.enterprise.comparison.accountManager": "Account Manager",
+    "pricing.enterprise.comparison.supportResponse": "Support Response",
     "pricing.enterprise.cta.help":
       "Need help choosing the right plan for your business?",
     "pricing.enterprise.cta.expert": "Talk to an Expert",
@@ -1644,9 +1748,79 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.enterprise.startup.feature5": "Auto-scheduling",
     "pricing.enterprise.startup.feature6": "Basic analytics",
     "pricing.enterprise.startup.feature7": "Email support",
+    "pricing.enterprise.startup.feature8": "20 social media channels",
+    "pricing.enterprise.startup.feature9":
+      "Supported platforms: Facebook, Instagram, TikTok",
+    "pricing.enterprise.startup.feature10":
+      "Multi-language publishing: 30+ languages",
+    "pricing.enterprise.startup.feature11": "AI text posts: Unlimited",
+    "pricing.enterprise.startup.feature12": "AI images: 500/month",
+    "pricing.enterprise.startup.feature13":
+      "AI videos: 20 videos/month (up to 3 min each)",
+    "pricing.enterprise.startup.feature14":
+      "Brand voice training: 3 brand voices",
+    "pricing.enterprise.startup.feature15": "Content Calendar (included)",
+    "pricing.enterprise.startup.feature16": "Best Time to Post AI (included)",
+    "pricing.enterprise.startup.feature17": "Bulk upload: Up to 100 posts",
+    "pricing.enterprise.startup.feature18":
+      "Performance reports: Weekly reports",
+    "pricing.enterprise.startup.feature19":
+      "Competitor tracking: 3 competitors",
+    "pricing.enterprise.startup.feature20":
+      "1-on-1 onboarding: Dedicated session",
+    "pricing.enterprise.startup.feature21":
+      "Strategy consultation: Monthly sessions",
+    "pricing.enterprise.startup.feature22":
+      "Implementation support: Full setup assistance",
+    "pricing.enterprise.startup.feature23":
+      "Dedicated account manager (included)",
+    "pricing.enterprise.startup.feature24":
+      "Support response: Priority 2-hour response",
+    "pricing.enterprise.startup.feature25":
+      "Support channels: Email + Chat + Phone",
     "pricing.enterprise.growth.feature1": "All Startup features",
     "pricing.enterprise.growth.feature2": "Up to 25 AI Videos/month",
     "pricing.enterprise.growth.feature3": "2,500 content posts/month",
+    "pricing.enterprise.growth.feature10": "Social Media Accounts: Unlimited",
+    "pricing.enterprise.growth.feature11":
+      "Supported Platforms: Facebook, Instagram, TikTok, YouTube, LinkedIn, X, Threads",
+    "pricing.enterprise.growth.feature12":
+      "Multi-language Publishing: 30+ languages",
+    "pricing.enterprise.growth.feature13": "AI Text Posts: Unlimited",
+    "pricing.enterprise.growth.feature14":
+      "AI Images: 5,000/month (10x Professional)",
+    "pricing.enterprise.growth.feature15":
+      "AI Videos: 100 videos/month (5x Professional)",
+    "pricing.enterprise.growth.feature16":
+      "AI Banner & Thumbnail Design: Included",
+    "pricing.enterprise.growth.feature17":
+      "Brand Voice Training: Unlimited brand voices",
+    "pricing.enterprise.growth.feature18":
+      "Custom AI Model: Fine-tuned for your brand",
+    "pricing.enterprise.growth.feature19": "Auto-scheduling: Unlimited",
+    "pricing.enterprise.growth.feature20": "Content Calendar: Advanced",
+    "pricing.enterprise.growth.feature21": "Best Time to Post AI: Included",
+    "pricing.enterprise.growth.feature22": "Bulk Upload: Unlimited",
+    "pricing.enterprise.growth.feature23":
+      "Analytics Dashboard: Advanced Analytics",
+    "pricing.enterprise.growth.feature24": "ROI Tracking: Full ROI measurement",
+    "pricing.enterprise.growth.feature25":
+      "AI Performance Insights: AI-powered recommendations",
+    "pricing.enterprise.growth.feature26": "A/B Testing: Campaign optimization",
+    "pricing.enterprise.growth.feature27":
+      "Competitor Tracking: Unlimited competitors",
+    "pricing.enterprise.growth.feature28":
+      "1-on-1 Onboarding: Dedicated session",
+    "pricing.enterprise.growth.feature29":
+      "Strategy Consultation: Monthly sessions",
+    "pricing.enterprise.growth.feature30":
+      "Implementation Support: Full setup assistance",
+    "pricing.enterprise.growth.feature31":
+      "Dedicated Account Manager: Included",
+    "pricing.enterprise.growth.feature32":
+      "Support Response: Priority 2-hour response",
+    "pricing.enterprise.growth.feature33":
+      "Support Channels: Email + Chat + Phone",
     "pricing.enterprise.growth.feature4": "Bonus 1,000 Credits (7,500 total)",
     "pricing.enterprise.growth.feature5": "AI banner & thumbnail design",
     "pricing.enterprise.growth.feature6": "20+ platform publishing",
