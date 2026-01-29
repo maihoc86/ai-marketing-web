@@ -117,7 +117,7 @@ export function AIContentDemoSection() {
                       className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all ${
                         activeStyle === style.key
                           ? "bg-[#22b5f8] text-white shadow-sm"
-                          : "bg-white border border-gray-200 hover:border-[#22b5f8]"
+                          : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                       }`}
                     >
                       {t(style.labelKey)}
