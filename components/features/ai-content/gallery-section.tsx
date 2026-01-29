@@ -13,22 +13,50 @@ export function AIContentGallerySection() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
 
   const galleryImages = [
-    { src: "/images/gallery/product-1.jpg", alt: "Product AI Generation", category: "product" },
-    { src: "/images/gallery/lifestyle-1.jpg", alt: "Lifestyle AI Generation", category: "lifestyle" },
-    { src: "/images/gallery/social-1.jpg", alt: "Social Media Content", category: "social" },
-    { src: "/images/gallery/product-2.jpg", alt: "High Quality Audio Visuals", category: "product" },
-    { src: "/images/gallery/lifestyle-2.jpg", alt: "Style Transfer AI", category: "lifestyle" },
-    { src: "/images/gallery/social-2.jpg", alt: "Creative AI Art", category: "social" },
+    {
+      src: "/images/gallery/product-1.jpg",
+      alt: "Product AI Generation",
+      category: "product",
+    },
+    {
+      src: "/images/gallery/lifestyle-1.jpg",
+      alt: "Lifestyle AI Generation",
+      category: "lifestyle",
+    },
+    {
+      src: "/images/gallery/social-1.jpg",
+      alt: "Social Media Content",
+      category: "social",
+    },
+    {
+      src: "/images/gallery/product-2.jpg",
+      alt: "High Quality Audio Visuals",
+      category: "product",
+    },
+    {
+      src: "/images/gallery/lifestyle-2.jpg",
+      alt: "Style Transfer AI",
+      category: "lifestyle",
+    },
+    {
+      src: "/images/gallery/social-2.jpg",
+      alt: "Creative AI Art",
+      category: "social",
+    },
   ];
 
-  const filteredImages = activeFilter === "all"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === activeFilter);
+  const filteredImages =
+    activeFilter === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeFilter);
 
   const filters: { key: FilterType; labelKey: string }[] = [
     { key: "all", labelKey: "featurePage.content.gallery.filter.all" },
     { key: "product", labelKey: "featurePage.content.gallery.filter.product" },
-    { key: "lifestyle", labelKey: "featurePage.content.gallery.filter.lifestyle" },
+    {
+      key: "lifestyle",
+      labelKey: "featurePage.content.gallery.filter.lifestyle",
+    },
     { key: "social", labelKey: "featurePage.content.gallery.filter.social" },
   ];
 
@@ -59,7 +87,7 @@ export function AIContentGallerySection() {
                 className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
                   activeFilter === filter.key
                     ? "bg-[#22b5f8] text-white shadow-lg"
-                    : "bg-white border border-gray-200 text-gray-600 hover:border-[#22b5f8] hover:text-[#22b5f8]"
+                    : "bg-white border border-gray-200 text-gray-600 hover:border-[#22b5f8] hover:text-white"
                 }`}
               >
                 {t(filter.labelKey)}
@@ -74,7 +102,9 @@ export function AIContentGallerySection() {
             <div
               key={index}
               className={`break-inside-avoid transition-all duration-500 ${
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
             >
