@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CloudUpload, Zap, Download, RefreshCw, Bookmark, Loader2 } from "lucide-react";
+import {
+  CloudUpload,
+  Zap,
+  Download,
+  RefreshCw,
+  Bookmark,
+  Loader2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { useInView } from "@/hooks/use-in-view";
@@ -162,7 +169,7 @@ export function AIContentDemoSection() {
               <Button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="w-full py-4 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#22b5f8]/25 transition-all transform hover:-translate-y-1 disabled:opacity-70"
+                className="btn-primary-light w-full disabled:opacity-70"
               >
                 {isGenerating ? (
                   <>

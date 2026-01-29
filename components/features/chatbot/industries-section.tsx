@@ -171,7 +171,7 @@ export function ChatbotIndustriesSection() {
             style={{ animationDelay: "0.3s" }}
             key={`${currentIndustry.id}-stats`}
           >
-            <div className="bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] rounded-2xl p-8 text-white">
+            <div className="bg-linear-to-br from-[#1c1c1c] to-[#2d2d2d] rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-black mb-8">
                 {t("featurePage.chatbot.industries.readyBoost")}
               </h3>
