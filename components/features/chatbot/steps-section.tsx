@@ -13,6 +13,7 @@ export function ChatbotStepsSection() {
       titleKey: "featurePage.chatbot.steps.step1.title",
       descKey: "featurePage.chatbot.steps.step1.desc",
       color: "from-[#22b5f8] to-[#008bff]",
+      colorSolid: "#22b5f8",
     },
     {
       number: 2,
@@ -20,6 +21,7 @@ export function ChatbotStepsSection() {
       titleKey: "featurePage.chatbot.steps.step2.title",
       descKey: "featurePage.chatbot.steps.step2.desc",
       color: "from-[#ff7900] to-[#e56b00]",
+      colorSolid: "#ff7900",
     },
     {
       number: 3,
@@ -27,6 +29,7 @@ export function ChatbotStepsSection() {
       titleKey: "featurePage.chatbot.steps.step3.title",
       descKey: "featurePage.chatbot.steps.step3.desc",
       color: "from-[#10b981] to-[#059669]",
+      colorSolid: "#10b981",
     },
   ];
 
@@ -48,46 +51,54 @@ export function ChatbotStepsSection() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+        <div className="relative">
+          <div className="grid md:grid-cols-3 gap-8 mt-16 z-10">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
 
-            return (
-              <div
-                key={index}
-                className="relative animate-fade-in"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-              >
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-gray-300 to-transparent" />
-                )}
+              return (
+                <div
+                  key={index}
+                  className="relative animate-fade-in z-10 bg-white"
+                  style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                >
+                  <div
+                    className="bg-white rounded-2xl border-2 p-8 border-primary transition-all hover:shadow-xl group"
+                    style={{
+                      borderColor: step.colorSolid,
+                    }}
+                  >
+                    {/* Icon with Gradient */}
+                    <div className="relative mb-6">
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-linear-to-br ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform`}
+                      >
+                        <Icon className="size-8 text-white" />
+                      </div>
+                      {/* Step Number */}
+                      <div
+                        className="absolute -top-2 -right-2 size-8 text-white rounded-full flex items-center justify-center text-sm font-black transition-all"
+                        style={{
+                          backgroundColor: step.colorSolid,
+                        }}
+                      >
+                        {step.number}
+                      </div>
+                    </div>
 
-                <div className="bg-white rounded-2xl border-2 border-gray-200 p-8 hover:border-[#22b5f8] transition-all hover:shadow-xl group">
-                  {/* Icon with Gradient */}
-                  <div className="relative mb-6">
-                    <div
-                      className={`w-16 h-16 rounded-2xl bg-linear-to-br ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform`}
-                    >
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    {/* Step Number */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#1c1c1c] text-white rounded-full flex items-center justify-center text-sm font-black">
-                      {step.number}
-                    </div>
+                    {/* Content */}
+                    <h3 className="text-xl font-bold mb-3 text-[#1c1c1c]">
+                      {t(step.titleKey)}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {t(step.descKey)}
+                    </p>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold mb-3 text-[#1c1c1c]">
-                    {t(step.titleKey)}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {t(step.descKey)}
-                  </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <div className="hidden  md:block absolute top-12 left-0 w-[80%] h-0.5 bg-gray-300" />
         </div>
       </div>
 

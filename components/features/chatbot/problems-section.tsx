@@ -65,19 +65,21 @@ export function ChatbotProblemsSection() {
                 >
                   <Icon
                     className={`w-6 h-6 ${
-                      isProblem ? "text-red-500" : "text-green-500"
+                      isProblem ? "text-secondary" : "text-primary"
                     }`}
                   />
                 </div>
                 <div>
                   <h4
                     className={`text-lg font-bold mb-2 ${
-                      isProblem ? "text-red-500" : "text-green-500"
+                      isProblem ? "text-secondary" : "text-primary"
                     }`}
                   >
                     {t(item.titleKey)}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">{t(item.descKey)}</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {t(item.descKey)}
+                  </p>
                 </div>
               </div>
             );

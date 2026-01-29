@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingCart, Building2, GraduationCap, Heart, ArrowRight } from "lucide-react";
+import {
+  ShoppingCart,
+  Building2,
+  GraduationCap,
+  Heart,
+  ArrowRight,
+} from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { LocaleLink } from "@/components/locale-link";
@@ -121,7 +127,7 @@ export function ChatbotIndustriesSection() {
                 onClick={() => setActiveTab(index)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all flex items-center gap-2 ${
                   isActive
-                    ? "bg-[#1c1c1c] text-white shadow-lg"
+                    ? "bg-primary text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
@@ -141,11 +147,11 @@ export function ChatbotIndustriesSection() {
             key={currentIndustry.id}
           >
             <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
-              <span className="text-xs font-bold text-[#22b5f8] uppercase tracking-wider mb-4 block">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider mb-4 block">
                 {t("featurePage.chatbot.industries.commonQuery")}
               </span>
               <p className="text-lg italic text-gray-700 mb-6 leading-relaxed">
-                "{currentContent.query}"
+                &quot;{currentContent.query}&quot;
               </p>
 
               <div className="h-px bg-gray-200 my-6" />
