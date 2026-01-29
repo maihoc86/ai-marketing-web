@@ -1,143 +1,106 @@
 "use client";
 
-import { X, CheckCircle, Clock, Wand2 } from "lucide-react";
+import { X, CheckCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { useInView } from "@/hooks/use-in-view";
 
 export function AIContentProblemsSection() {
   const { t } = useI18n();
-  const { ref, isInView } = useInView();
+
+  // Unified items array for 2x2 grid
+  const items = [
+    {
+      type: "problem",
+      titleKey: "featurePage.content.problems.oldWay.problem1.title",
+      descKey: "featurePage.content.problems.oldWay.problem1.desc",
+    },
+    {
+      type: "solution",
+      titleKey: "featurePage.content.problems.dxaiWay.solution1.title",
+      descKey: "featurePage.content.problems.dxaiWay.solution1.desc",
+    },
+    {
+      type: "problem",
+      titleKey: "featurePage.content.problems.oldWay.problem2.title",
+      descKey: "featurePage.content.problems.oldWay.problem2.desc",
+    },
+    {
+      type: "solution",
+      titleKey: "featurePage.content.problems.dxaiWay.solution2.title",
+      descKey: "featurePage.content.problems.dxaiWay.solution2.desc",
+    },
+  ];
 
   return (
-    <section className="py-24 bg-white">
-      <div ref={ref} className="container mx-auto px-6">
+    <section className="bg-white py-16 md:py-24 border-y border-gray-100">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-black mb-4">
             {t("featurePage.content.problems.title")}
           </h2>
-          <p className="text-gray-500">
+          <p className="text-gray-600 max-w-xl mx-auto text-lg">
             {t("featurePage.content.problems.subtitle")}
           </p>
         </div>
 
-        {/* Comparison Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* The Old Way */}
-          <div
-            className={`bg-gray-50 rounded-3xl p-8 border border-red-100 transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-16"
-            }`}
-            style={{ transitionDelay: "0.2s" }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="size-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
-                <Clock className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-bold text-red-700">
-                {t("featurePage.content.problems.oldWay.title")}
-              </h3>
+        {/* Grid Header */}
+        <div className="grid md:grid-cols-2 gap-px bg-gray-200 rounded-t-3xl overflow-hidden border border-gray-200 shadow-lg">
+          <div className="bg-white py-4 px-8 md:px-10 flex items-center justify-center gap-3 font-bold text-secondary text-lg tracking-wide border-b border-gray-200">
+            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+              <X className="w-5 h-5 text-(--color-secondary)" />
             </div>
-
-            <ul className="space-y-6">
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-gray-700">
-                    {t("featurePage.content.problems.oldWay.problem1.title")}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    {t("featurePage.content.problems.oldWay.problem1.desc")}
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-gray-700">
-                    {t("featurePage.content.problems.oldWay.problem2.title")}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    {t("featurePage.content.problems.oldWay.problem2.desc")}
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-gray-700">
-                    {t("featurePage.content.problems.oldWay.problem3.title")}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    {t("featurePage.content.problems.oldWay.problem3.desc")}
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <div>{t("featurePage.content.problems.oldWay.header")}</div>
           </div>
-
-          {/* The DXAI Way */}
-          <div
-            className={`bg-[#1f3b61] rounded-3xl p-8 shadow-2xl shadow-[#1f3b61]/10 transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-16"
-            }`}
-            style={{ transitionDelay: "0.2s" }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="size-10 rounded-full bg-green-400/20 flex items-center justify-center text-green-400">
-                <Wand2 className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-bold text-white">
-                {t("featurePage.content.problems.dxaiWay.title")}
-              </h3>
+          <div className="bg-white py-4 px-8 md:px-10 flex items-center justify-center gap-3 font-bold text-primary text-lg tracking-wide border-b border-gray-200">
+            <div className="w-10 h-10 rounded-full bg-(--color-primary)/10 flex items-center justify-center">
+              <CheckCircle className="w-5 h-5 text-(--color-primary)" />
             </div>
-
-            <ul className="space-y-6 text-white/90">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold">
-                    {t("featurePage.content.problems.dxaiWay.solution1.title")}
-                  </p>
-                  <p className="text-sm text-white/60">
-                    {t("featurePage.content.problems.dxaiWay.solution1.desc")}
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold">
-                    {t("featurePage.content.problems.dxaiWay.solution2.title")}
-                  </p>
-                  <p className="text-sm text-white/60">
-                    {t("featurePage.content.problems.dxaiWay.solution2.desc")}
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold">
-                    {t("featurePage.content.problems.dxaiWay.solution3.title")}
-                  </p>
-                  <p className="text-sm text-white/60">
-                    {t("featurePage.content.problems.dxaiWay.solution3.desc")}
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <div>{t("featurePage.content.problems.dxaiWay.header")}</div>
           </div>
         </div>
+        {/* 2x2 Grid */}
+        <div className="grid md:grid-cols-2 gap-px bg-gray-200 rounded-b-3xl overflow-hidden border-x border-b border-gray-200 shadow-lg">
+          {items.map((item, index) => {
+            const isProblem = item.type === "problem";
+
+            return (
+              <div
+                key={index}
+                className="bg-white p-8 md:p-10 hover:bg-gray-50 transition-colors animate-fade-in"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              >
+                <h4
+                  className={`text-lg font-bold mb-2 ${isProblem ? "text-secondary" : "text-primary"}`}
+                >
+                  {t(item.titleKey)}
+                </h4>
+                <p className="text-gray-600 leading-relaxed">
+                  {t(item.descKey)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
+      {/* Animation Styles */}
+      <style jsx global>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
     </section>
   );
 }

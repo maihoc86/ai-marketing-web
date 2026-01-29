@@ -7,7 +7,6 @@ import type { Locale } from "./i18n-config";
 // ============================================================
 // TYPES - Re-export from i18n-config
 // ============================================================
-export type { Locale } from "./i18n-config";
 
 interface I18nContextType {
   locale: Locale;
@@ -28,6 +27,9 @@ const translations: Record<Locale, Record<string, string>> = {
     "nav.login": "Đăng nhập",
     "nav.trial": "Dùng thử",
     "nav.trialFree": "Dùng thử miễn phí",
+
+    "featurePage.content.problems.oldWay.header": "Cách cũ",
+    "featurePage.content.problems.dxaiWay.header": "Giải pháp",
 
     // Hero Section
     "hero.badge": "#1 AI MARKETING PLATFORM TẠI VIỆT NAM",
@@ -1561,6 +1563,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "nav.trialFree": "Start Free Trial",
 
     "featurePage.content.hero.4kQuality": "4K Quality",
+    "featurePage.content.problems.oldWay.header": "Old Way",
+    "featurePage.content.problems.dxaiWay.header": "Solution",
 
     // Hero Section
     "hero.badge": "#1 AI MARKETING PLATFORM IN VIETNAM",
