@@ -14,8 +14,14 @@ export function AIContentHeroSection() {
       <div className="absolute inset-0 bg-linear-to-br from-[#22b5f8]/5 via-[#008bff]/5 to-white" />
 
       {/* Animated Gradient Blobs */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-[#22b5f8]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "4s" }} />
-      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#008bff]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "6s", animationDelay: "1s" }} />
+      <div
+        className="absolute top-0 left-0 w-1/3 h-1/3 bg-[#22b5f8]/10 rounded-full blur-3xl animate-pulse"
+        style={{ animationDuration: "4s" }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[#008bff]/10 rounded-full blur-3xl animate-pulse"
+        style={{ animationDuration: "6s", animationDelay: "1s" }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -36,9 +42,9 @@ export function AIContentHeroSection() {
             </nav>
 
             {/* Badge */}
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-[11px] font-black uppercase tracking-[0.2em] text-white bg-[#1c1c1c] rounded-full shadow-lg">
-              <Sparkles className="w-3 h-3" />
-              4K QUALITY RENDERING
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-[11px] font-black uppercase tracking-[0.2em] text-white bg-primary rounded-full shadow-lg">
+              <Sparkles className="size-3" />
+              {t("featurePage.content.hero.4kQuality")}
             </span>
 
             {/* Heading */}
@@ -84,7 +90,7 @@ export function AIContentHeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="px-10 py-5 bg-[#ff7900] hover:bg-[#e06c00] text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                className="px-10 py-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
                 asChild
               >
                 <LocaleLink href="/register">
@@ -104,7 +110,10 @@ export function AIContentHeroSection() {
           </div>
 
           {/* Right - Image Grid */}
-          <div className="relative lg:h-[600px] grid grid-cols-2 gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div
+            className="relative lg:h-[600px] grid grid-cols-2 gap-4 animate-fade-in"
+            style={{ animationDelay: "0.3s" }}
+          >
             {/* Column 1 */}
             <div className="space-y-4 pt-12">
               <div className="h-64 rounded-3xl overflow-hidden shadow-2xl bg-gray-200 group relative transform hover:scale-105 transition-transform duration-300">

@@ -1165,11 +1165,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.message2":
       "Chắc chắn rồi! Chúng tôi có hai slot cho gói Elite Growth. Bạn muốn xem bảng giá hay đặt lịch tư vấn?",
     "featurePage.chatbot.demo.label2": "Phản hồi AI",
-    "featurePage.chatbot.demo.message3": "Hãy đặt lịch tư vấn cho thứ Hai lúc 10 giờ sáng.",
+    "featurePage.chatbot.demo.message3":
+      "Hãy đặt lịch tư vấn cho thứ Hai lúc 10 giờ sáng.",
     "featurePage.chatbot.demo.message4":
       "Thành công! Tôi đã đặt lịch tư vấn cho thứ Hai, 21/10 lúc 10:00 sáng. Lời mời lịch đã được gửi tới email của bạn.",
     "featurePage.chatbot.demo.label3": "ĐÃ XÁC NHẬN ĐẶT LỊCH",
-    "featurePage.chatbot.problems.heading": "Thách Thức Hỗ Trợ Khách Hàng Của Bạn, Được Giải Quyết",
+    "featurePage.chatbot.problems.heading":
+      "Thách Thức Hỗ Trợ Khách Hàng Của Bạn, Được Giải Quyết",
     "featurePage.chatbot.problems.subheading":
       "Hỗ trợ truyền thống chậm và tốn kém. Chúng tôi xây dựng giải pháp cho quy mô hiện đại.",
     "featurePage.chatbot.problems.problem1.title": "Vấn đề",
@@ -1208,7 +1210,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.capabilities.capability4.title": "Đặt Lịch Thông Minh",
     "featurePage.chatbot.capabilities.capability4.desc":
       "Tích hợp trực tiếp với lịch của bạn để quản lý cuộc hẹn mà không cần can thiệp của con người.",
-    "featurePage.chatbot.capabilities.capability5.title": "Bảo Mật Doanh Nghiệp",
+    "featurePage.chatbot.capabilities.capability5.title":
+      "Bảo Mật Doanh Nghiệp",
     "featurePage.chatbot.capabilities.capability5.desc":
       "Mã hóa đầu cuối và tuân thủ GDPR cho mọi tương tác khách hàng.",
     "featurePage.chatbot.capabilities.capability6.title": "Phân Tích Cảm Xúc",
@@ -1244,7 +1247,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Chào, tôi cần chuyển hướng lô hàng #UK-9283 của mình đến một kho khác, nhưng cổng thông tin cho biết nó đã đang vận chuyển. Bạn có thể ghi đè điều này không?",
     "featurePage.chatbot.demo.live.message3":
       "Tôi đã xác định vị trí lô hàng #UK-9283. Hiện tại nó đang ở Trung tâm Phân loại Khu vực. Mặc dù cổng thông tin tiêu chuẩn chặn thay đổi, tôi có thể bắt đầu việc chuyển hướng bị chặn.",
-    "featurePage.chatbot.demo.live.checking": "Đang kiểm tra tính khả dụng của kho...",
+    "featurePage.chatbot.demo.live.checking":
+      "Đang kiểm tra tính khả dụng của kho...",
     "featurePage.chatbot.demo.live.message4":
       "Bạn có muốn tôi xử lý việc chuyển hướng này hoặc kết nối bạn với Trưởng phòng Logistics để có hướng dẫn xử lý cụ thể không?",
     "featurePage.chatbot.demo.live.transferring": "Đang chuyển sang nhân viên",
@@ -1274,7 +1278,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.industries.healthcare.name": "Chăm Sóc Sức Khỏe",
     "featurePage.chatbot.industries.commonQuery": "Câu hỏi phổ biến",
     "featurePage.chatbot.industries.aiResponse": "Phản hồi AI",
-    "featurePage.chatbot.industries.readyBoost": "Sẵn sàng nâng cao chỉ số của bạn?",
+    "featurePage.chatbot.industries.readyBoost":
+      "Sẵn sàng nâng cao chỉ số của bạn?",
     "featurePage.chatbot.industries.description":
       "Các mô hình chuyên biệt của chúng tôi được đào tạo trước trên các tập dữ liệu cụ thể theo ngành để đảm bảo độ chính xác cao ngay từ ngày đầu tiên.",
     "featurePage.chatbot.industries.cta.start": "Bắt Đầu Mở Rộng",
@@ -1295,7 +1300,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Học phí cho chương trình MBA là bao nhiêu và khi nào nộp đơn?",
     "featurePage.chatbot.industries.education.response":
       "Cung cấp chi tiết chi phí, lịch trình và hướng dẫn từng bước về ứng dụng với liên kết đến tài chính.",
-    "featurePage.chatbot.industries.education.stat1": "Thời gian phản hồi nhanh hơn",
+    "featurePage.chatbot.industries.education.stat1":
+      "Thời gian phản hồi nhanh hơn",
     "featurePage.chatbot.industries.education.stat2": "Tăng đăng ký",
     "featurePage.chatbot.industries.healthcare.query":
       "Tôi cần đặt lịch khám tổng quát với bác sĩ tim mạch.",
@@ -1322,17 +1328,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.problems.oldWay.problem1.title": "Chụp ảnh Thủ công",
     "featurePage.content.problems.oldWay.problem1.desc":
       "Nhiều ngày lên kế hoạch, di chuyển và thuê thiết bị đắt đỏ.",
-    "featurePage.content.problems.oldWay.problem2.title": "Vòng Chỉnh Sửa Bất Tận",
+    "featurePage.content.problems.oldWay.problem2.title":
+      "Vòng Chỉnh Sửa Bất Tận",
     "featurePage.content.problems.oldWay.problem2.desc":
       "Chờ 48h cho các chỉnh sửa cơ bản và sửa ánh sáng.",
-    "featurePage.content.problems.oldWay.problem3.title": "Hình Stock Nhàm Chán",
+    "featurePage.content.problems.oldWay.problem3.title":
+      "Hình Stock Nhàm Chán",
     "featurePage.content.problems.oldWay.problem3.desc":
       "Hình ảnh chung chung mà mọi người đã dùng.",
     "featurePage.content.problems.dxaiWay.title": "Cách của DXAI",
     "featurePage.content.problems.dxaiWay.solution1.title": "Chân Thực Tức Thì",
     "featurePage.content.problems.dxaiWay.solution1.desc":
       "Tạo cảnh chất lượng studio từ văn bản đơn giản.",
-    "featurePage.content.problems.dxaiWay.solution2.title": "Lặp Lại Siêu Nhanh",
+    "featurePage.content.problems.dxaiWay.solution2.title":
+      "Lặp Lại Siêu Nhanh",
     "featurePage.content.problems.dxaiWay.solution2.desc":
       "Thay đổi màu sắc, ánh sáng hoặc đạo cụ trong dưới 10 giây.",
     "featurePage.content.problems.dxaiWay.solution3.title": "Độc Đáo Thật Sự",
@@ -1349,7 +1358,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Bộ Đồng Nhất Nhân Vật",
     "featurePage.content.capabilities.characterEngine.description":
       "Đảm bảo mô hình AI của bạn trông giống hệt nhau trong mọi chiến dịch, trang phục và bối cảnh.",
-    "featurePage.content.capabilities.characterEngine.cta": "Duy Trì ID Thương Hiệu",
+    "featurePage.content.capabilities.characterEngine.cta":
+      "Duy Trì ID Thương Hiệu",
     "featurePage.content.demo.badge": "Trải Nghiệm Studio",
     "featurePage.content.demo.title": "Thử AI Tạo Hình Ảnh — Miễn Phí",
     "featurePage.content.demo.description":
@@ -1415,8 +1425,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Mô tả sản phẩm chuyển đổi cao, quảng cáo và hình ảnh cửa hàng biến người xem thành người mua.",
     "featurePage.content.marketingNeeds.ecommerce.feature1":
       "Tiêu đề tối ưu SEO",
-    "featurePage.content.marketingNeeds.ecommerce.feature2":
-      "Tự động xóa nền",
+    "featurePage.content.marketingNeeds.ecommerce.feature2": "Tự động xóa nền",
     "featurePage.content.marketingNeeds.ecommerce.feature3":
       "Bản sao đa ngôn ngữ",
     "featurePage.content.marketingNeeds.ecommerce.cta": "Tăng Doanh Số Ngay",
@@ -1429,8 +1438,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Theo dõi chi tiêu quảng cáo tự động",
     "featurePage.content.marketingNeeds.advertising.feature3":
       "Tạo CTA có tác động cao",
-    "featurePage.content.marketingNeeds.advertising.cta":
-      "Mở Rộng Quảng Cáo",
+    "featurePage.content.marketingNeeds.advertising.cta": "Mở Rộng Quảng Cáo",
     "featurePage.content.metrics.title": "Con Số Không Biết Nói Dối",
     "featurePage.content.metrics.speed.label": "Thời Gian Tạo",
     "featurePage.content.metrics.speed.desc":
@@ -1540,6 +1548,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.package.starter": "Chuyên nghiệp",
     "registration.form.package.starterDesc":
       "Trải nghiệm toàn bộ tính năng miễn phí trong 1 tháng",
+    "featurePage.content.hero.4kQuality": "Chất lượng 4K",
   },
   en: {
     // Navigation
@@ -1550,6 +1559,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "nav.login": "Login",
     "nav.trial": "Free Trial",
     "nav.trialFree": "Start Free Trial",
+
+    "featurePage.content.hero.4kQuality": "4K Quality",
 
     // Hero Section
     "hero.badge": "#1 AI MARKETING PLATFORM IN VIETNAM",
@@ -2739,11 +2750,13 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.message2":
       "Absolutely! We have two slots available for our Elite Growth package. Would you like to see our pricing or book a consultation?",
     "featurePage.chatbot.demo.label2": "AI Response",
-    "featurePage.chatbot.demo.message3": "Let's book a consultation for Monday at 10 AM.",
+    "featurePage.chatbot.demo.message3":
+      "Let's book a consultation for Monday at 10 AM.",
     "featurePage.chatbot.demo.message4":
       "Success! I've scheduled your consultation for Monday, Oct 21st at 10:00 AM. A calendar invite has been sent to your email.",
     "featurePage.chatbot.demo.label3": "BOOKING CONFIRMED",
-    "featurePage.chatbot.problems.heading": "Your Customer Support Challenges, Solved",
+    "featurePage.chatbot.problems.heading":
+      "Your Customer Support Challenges, Solved",
     "featurePage.chatbot.problems.subheading":
       "Traditional support is slow and expensive. We built the solution for the modern scale-up.",
     "featurePage.chatbot.problems.problem1.title": "The Problem",
@@ -2770,7 +2783,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.capabilities.bento.badge4": "No intervention",
     "featurePage.chatbot.capabilities.bento.badge5": "Bank-level security",
     "featurePage.chatbot.capabilities.bento.badge6": "99.9% Accuracy",
-    "featurePage.chatbot.capabilities.capability1.title": "Personalized Consultation",
+    "featurePage.chatbot.capabilities.capability1.title":
+      "Personalized Consultation",
     "featurePage.chatbot.capabilities.capability1.desc":
       "AI that remembers customer history to provide bespoke advice and product recommendations.",
     "featurePage.chatbot.capabilities.capability2.title": "Instant Quote",
@@ -2817,7 +2831,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Hi, I need to redirect my shipment #UK-9283 to a different warehouse, but the portal says it's already in transit. Can you override this?",
     "featurePage.chatbot.demo.live.message3":
       "I've located shipment #UK-9283. It is currently at the Regional Sort Center. While the standard portal blocks changes, I can initiate an intercepted reroute.",
-    "featurePage.chatbot.demo.live.checking": "Checking warehouse availability...",
+    "featurePage.chatbot.demo.live.checking":
+      "Checking warehouse availability...",
     "featurePage.chatbot.demo.live.message4":
       "Would you like me to process this reroute or connect you with a Logistics Manager for specific handling instructions?",
     "featurePage.chatbot.demo.live.transferring": "Transferring to Human Agent",
@@ -2895,20 +2910,24 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.problems.oldWay.problem1.title": "Manual Photoshoots",
     "featurePage.content.problems.oldWay.problem1.desc":
       "Days of planning, travel, and expensive gear rental.",
-    "featurePage.content.problems.oldWay.problem2.title": "Endless Revision Rounds",
+    "featurePage.content.problems.oldWay.problem2.title":
+      "Endless Revision Rounds",
     "featurePage.content.problems.oldWay.problem2.desc":
       "Waiting 48h for basic retouches and lighting fixes.",
     "featurePage.content.problems.oldWay.problem3.title": "Stock Image Burnout",
     "featurePage.content.problems.oldWay.problem3.desc":
       "Generic visuals that everyone else is already using.",
     "featurePage.content.problems.dxaiWay.title": "The DXAI Way",
-    "featurePage.content.problems.dxaiWay.solution1.title": "Instant Photorealism",
+    "featurePage.content.problems.dxaiWay.solution1.title":
+      "Instant Photorealism",
     "featurePage.content.problems.dxaiWay.solution1.desc":
       "Generate studio-quality scenes from a simple text prompt.",
-    "featurePage.content.problems.dxaiWay.solution2.title": "Lightning-Fast Iteration",
+    "featurePage.content.problems.dxaiWay.solution2.title":
+      "Lightning-Fast Iteration",
     "featurePage.content.problems.dxaiWay.solution2.desc":
       "Change colors, lighting, or props in under 10 seconds.",
-    "featurePage.content.problems.dxaiWay.solution3.title": "True Brand Originality",
+    "featurePage.content.problems.dxaiWay.solution3.title":
+      "True Brand Originality",
     "featurePage.content.problems.dxaiWay.solution3.desc":
       "Unique assets that match your brand DNA perfectly.",
     "featurePage.content.capabilities.badge": "The Studio Ecosystem",
@@ -2966,7 +2985,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.steps.step3.title": "Publish",
     "featurePage.content.steps.step3.description":
       "Download high-res assets or push directly to your social channels and ad managers in one click.",
-    "featurePage.content.cta.title": "Ready to transform your creative workflow?",
+    "featurePage.content.cta.title":
+      "Ready to transform your creative workflow?",
     "featurePage.content.cta.description":
       "Join thousands of companies using DXAI to scale their visual production effortlessly.",
     "featurePage.content.cta.startTrial": "Start Free Trial",

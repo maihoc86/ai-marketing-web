@@ -30,7 +30,9 @@ export function AIContentProblemsSection() {
           {/* The Old Way */}
           <div
             className={`bg-gray-50 rounded-3xl p-8 border border-red-100 transition-all duration-700 ${
-              isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16"
+              isInView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-16"
             }`}
             style={{ transitionDelay: "0.2s" }}
           >
@@ -83,7 +85,9 @@ export function AIContentProblemsSection() {
           {/* The DXAI Way */}
           <div
             className={`bg-[#1f3b61] rounded-3xl p-8 shadow-2xl shadow-[#1f3b61]/10 transition-all duration-700 ${
-              isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
+              isInView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-16"
             }`}
             style={{ transitionDelay: "0.2s" }}
           >

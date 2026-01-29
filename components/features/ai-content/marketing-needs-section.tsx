@@ -70,12 +70,16 @@ export function AIContentMarketingNeedsSection() {
               <div
                 key={index}
                 className={`bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#22b5f8]/30 transition-all duration-500 flex flex-col ${
-                  isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
               >
                 {/* Icon */}
-                <div className={`size-12 rounded-xl ${category.iconBg} flex items-center justify-center mb-6`}>
+                <div
+                  className={`size-12 rounded-xl ${category.iconBg} flex items-center justify-center mb-6`}
+                >
                   <Icon className={`w-6 h-6 ${category.iconColor}`} />
                 </div>
 
@@ -85,9 +89,7 @@ export function AIContentMarketingNeedsSection() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-6">
-                  {t(category.descKey)}
-                </p>
+                <p className="text-gray-600 mb-6">{t(category.descKey)}</p>
 
                 {/* Features List */}
                 <ul className="space-y-3 mb-8 text-sm text-gray-500">
@@ -101,7 +103,7 @@ export function AIContentMarketingNeedsSection() {
 
                 {/* CTA Button */}
                 <div className="mt-auto">
-                  <Button className="w-full py-3 bg-[#1f3b61] hover:bg-[#1f3b61]/90 text-white font-bold rounded-xl transition-all">
+                  <Button className="w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl transition-all">
                     {t(category.ctaKey)}
                   </Button>
                 </div>

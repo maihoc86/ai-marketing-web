@@ -134,8 +134,8 @@ export function AIContentDemoSection() {
                     onClick={() => setActiveRatio("square")}
                     className={`size-8 flex items-center justify-center rounded-lg transition-all ${
                       activeRatio === "square"
-                        ? "bg-[#22b5f8] text-white"
-                        : "bg-white border border-gray-200 hover:border-[#22b5f8]"
+                        ? "bg-primary text-white"
+                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                     }`}
                   >
                     <div className="size-3.5 border-2 border-current rounded-sm" />
@@ -144,8 +144,8 @@ export function AIContentDemoSection() {
                     onClick={() => setActiveRatio("landscape")}
                     className={`size-8 flex items-center justify-center rounded-lg transition-all ${
                       activeRatio === "landscape"
-                        ? "bg-[#22b5f8] text-white"
-                        : "bg-white border border-gray-200 hover:border-[#22b5f8]"
+                        ? "bg-primary text-white"
+                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                     }`}
                   >
                     <div className="w-4 h-3 border-2 border-current rounded-sm" />
@@ -154,8 +154,8 @@ export function AIContentDemoSection() {
                     onClick={() => setActiveRatio("portrait")}
                     className={`size-8 flex items-center justify-center rounded-lg transition-all ${
                       activeRatio === "portrait"
-                        ? "bg-[#22b5f8] text-white"
-                        : "bg-white border border-gray-200 hover:border-[#22b5f8]"
+                        ? "bg-primary text-white"
+                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                     }`}
                   >
                     <div className="w-3 h-4 border-2 border-current rounded-sm" />
@@ -222,19 +222,19 @@ export function AIContentDemoSection() {
               {/* Action Buttons */}
               <div className="flex items-center justify-between mt-6 px-2">
                 <div className="flex gap-3">
-                  <Button className="px-6 py-2.5 bg-[#1f3b61] text-white text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-[#1f3b61]/90 transition-all">
-                    <Download className="w-4 h-4" />
+                  <Button className="px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-primary/90 transition-all">
+                    <Download className="size-4" />
                     {t("featurePage.content.demo.downloadHD")}
                   </Button>
                   <Button
                     variant="outline"
-                    className="px-6 py-2.5 bg-white border border-gray-200 text-sm font-bold rounded-xl flex items-center gap-2 hover:border-[#22b5f8] transition-all"
+                    className="px-6 py-2.5 bg-white border border-gray-200 text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-primary hover:text-white transition-all"
                   >
-                    <RefreshCw className="w-4 h-4" />
+                    <RefreshCw className="size-4" />
                     {t("featurePage.content.demo.tryAgain")}
                   </Button>
                 </div>
-                <button className="p-2.5 bg-white border border-gray-200 rounded-xl hover:text-[#22b5f8] transition-all">
+                <button className="p-2.5 bg-white border border-gray-200 rounded-xl hover:text-primary transition-all">
                   <Bookmark className="w-5 h-5" />
                 </button>
               </div>
