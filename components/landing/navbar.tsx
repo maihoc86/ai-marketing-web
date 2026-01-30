@@ -54,7 +54,7 @@ export function Navbar() {
             <img
               src="/logo.png"
               alt="UNIKSMART Logo"
-              className="h-8 object-contain hover:scale-110 transition"
+              className="h-22 object-contain"
             />
           </LocaleLink>
 
