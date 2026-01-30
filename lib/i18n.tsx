@@ -188,26 +188,28 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.metric3.name": "Định dạng xuất",
     "features.video.metric3.value": "HD, Full HD, 4K",
     "features.video.metric3.note": "Hỗ trợ dọc, ngang, vuông",
-    "features.email.title": "Email Marketing Automation",
+    "features.email.title": "Tự động hoá Email Marketing",
     "features.email.desc":
-      "Hệ thống email marketing tự động 100% với customer journey hoàn chỉnh từ Welcome đến Re-marketing. Tích hợp CRM để cá nhân hóa nội dung, A/B Testing thông minh tự động tối ưu subject line và content. Tăng Open Rate lên 35% và không cần thao tác thủ công - chạy 24/7.",
-    "features.email.stats":
-      "100% tự động • Tích hợp CRM • A/B Testing thông minh",
-    "features.email.feature1.name": "Thiết kế Responsive",
+      "Hệ thống email automation thông minh giúp nuôi dưỡng, tương tác và giữ chân khách hàng suốt vòng đời — từ sau mua đến mua lại và giới thiệu — được tối ưu bởi AI.",
+    "features.email.stats": "Tự động 100% • Tích hợp CRM • Cá nhân hóa bằng AI",
+    "features.email.feature1.name": "Email Xác nhận & Chào mừng Tự động",
     "features.email.feature1.desc":
-      "Hiển thị hoàn hảo trên Mobile/Desktop, tự động tối ưu giao diện",
-    "features.email.feature2.name": "Theo dõi Thông minh",
+      "Gửi ngay xác nhận đơn hàng, hoá đơn điện tử và hướng dẫn onboarding sau giao dịch.",
+    "features.email.feature2.name": "Nhắc lịch & Gia hạn Thông minh",
     "features.email.feature2.desc":
-      "Tối ưu Open Rate & Click Rate, theo dõi hành vi khách hàng",
-    "features.email.feature3.name": "100% tự động",
+      "Nhắc tự động cho cuộc hẹn, hạn chót và gia hạn đăng ký.",
+    "features.email.feature3.name": "Thu thập Đánh giá & Khảo sát",
     "features.email.feature3.desc":
-      "Workflow tự động, không cần thao tác, chạy 24/7",
-    "features.email.feature4.name": "Tích hợp CRM",
+      "Tự động yêu cầu đánh giá và thu thập phản hồi khách hàng vào thời điểm tối ưu.",
+    "features.email.feature4.name": "Chiến dịch Tái Tương tác dựa trên Hành vi",
     "features.email.feature4.desc":
-      "Đồng bộ dữ liệu khách hàng, cá nhân hóa nội dung email",
-    "features.email.feature5.name": "A/B Testing tự động",
+      "Ưu đãi sinh nhật, nhắc mua lại và khuyến nghị cá nhân hoá dựa trên hành vi.",
+    "features.email.feature5.name": "Cá nhân hóa bằng AI",
     "features.email.feature5.desc":
-      "Tự động test subject line và content để tối ưu hiệu quả",
+      "Nội dung động được cá nhân hoá bằng dữ liệu CRM và lịch sử tương tác.",
+    "features.email.feature6.name": "Tự động Hoàn Toàn",
+    "features.email.feature6.desc":
+      "Thiết lập một lần — toàn bộ hành trình khách hàng chạy tự động, tiết kiệm thời gian và nguồn lực.",
     "features.email.metric1.name": "Các giai đoạn chăm sóc",
     "features.email.metric1.value": "4 giai đoạn",
     "features.email.metric1.note": "Welcome, Nhắc nhở, Phản hồi, Re-marketing",
@@ -217,29 +219,31 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.email.metric3.name": "Tối ưu hiệu quả",
     "features.email.metric3.value": "Open Rate +35%",
     "features.email.metric3.note": "Nhờ A/B Testing & Theo dõi Thông minh",
-    "features.multiPlatform.title": "Quản lý Đa nền tảng",
+    "features.multiPlatform.title": "Quản lý Mạng Xã Hội Đa Nền Tảng",
     "features.multiPlatform.desc":
-      "Một Dashboard duy nhất điều khiển tất cả: Facebook, Instagram, TikTok, YouTube, Zalo OA. Lên lịch đăng bài hàng loạt, Content Calendar trực quan với Drag & Drop. AI tự động trả lời bình luận và tin nhắn 24/7 với văn phong cá nhân hóa. Tiết kiệm 90% thời gian so với thao tác thủ công từng app.",
+      "Một trung tâm điều phối tập trung để lên lịch, đăng bài và quản lý tương tác trên tất cả kênh xã hội của bạn từ một dashboard duy nhất — được hỗ trợ bởi AI để phản hồi thông minh 24/7.",
     "features.multiPlatform.stats":
-      "5 nền tảng • Tiết kiệm 90% thời gian • Trợ lý ảo 24/7",
-    "features.multiPlatform.feature1.name": "Lên lịch & Đăng hàng loạt",
+      "5 nền tảng • Tiết kiệm 90% thời gian • Phản hồi AI 24/7",
+    "features.multiPlatform.feature1.name": "Quản lý Đa nền tảng Thống nhất",
     "features.multiPlatform.feature1.desc":
-      "Tiết kiệm 90% thời gian thao tác thủ công trên từng ứng dụng",
-    "features.multiPlatform.feature2.name": "Lịch Nội dung trực quan",
+      "Quản lý Facebook, Instagram, TikTok, YouTube và hơn thế nữa mà không cần chuyển nền tảng.",
+    "features.multiPlatform.feature2.name":
+      "Lên lịch & Đăng tự động (Hàng loạt)",
     "features.multiPlatform.feature2.desc":
-      "Giao diện lịch trực quan, phân loại nội dung bằng Color-coding",
-    "features.multiPlatform.feature3.name": "Kéo & Thả",
+      "Lên lịch và đăng nhiều bài cùng lúc — giảm 90% công việc thủ công.",
+    "features.multiPlatform.feature3.name":
+      "Lịch Nội dung Trực quan với Mã màu",
     "features.multiPlatform.feature3.desc":
-      "Dễ dàng kéo thả để thay đổi lịch đăng bài nhanh chóng",
-    "features.multiPlatform.feature4.name": "AI trả lời bình luận",
+      "Xem toàn bộ kế hoạch nội dung trong nháy mắt — dễ theo dõi tiến độ chiến dịch.",
+    "features.multiPlatform.feature4.name": "Điều chỉnh Lịch bằng Kéo & Thả",
     "features.multiPlatform.feature4.desc":
-      "Tự động trả lời bình luận với văn phong cá nhân hóa, giữ tương tác cao",
-    "features.multiPlatform.feature5.name": "AI Chatbot 24/7",
+      "Điều chỉnh lịch đăng ngay lập tức khi chiến dịch cần thay đổi nhanh.",
+    "features.multiPlatform.feature5.name": "Tự động trả lời bình luận bằng AI",
     "features.multiPlatform.feature5.desc":
-      "Trả lời tin nhắn, giải đáp thắc mắc và thu thập thông tin khách hàng",
-    "features.multiPlatform.feature6.name": "Trung tâm tin nhắn",
+      "AI phân tích ngữ cảnh và phản hồi phù hợp — duy trì tương tác 24/7.",
+    "features.multiPlatform.feature6.name": "Hộp thư xã hội Thống nhất",
     "features.multiPlatform.feature6.desc":
-      "Gom tất cả tin nhắn & bình luận từ mọi nền tảng về một nơi duy nhất",
+      "Tập hợp tất cả tin nhắn và bình luận từ mọi nền tảng về một giao diện duy nhất.",
     "features.multiPlatform.metric1.name": "Nền tảng hỗ trợ",
     "features.multiPlatform.metric1.value": "5 nền tảng",
     "features.multiPlatform.metric1.note":
@@ -247,38 +251,44 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric2.name": "Tiết kiệm thời gian",
     "features.multiPlatform.metric2.value": "90%",
     "features.multiPlatform.metric2.note":
-      "So với thao tác thủ công từng ứng dụng",
+      "So với thao tác thủ công trên từng nền tảng",
     "features.multiPlatform.metric3.name": "Chi phí trả lời tự động",
     "features.multiPlatform.metric3.value": "1 Credit/lượt",
     "features.multiPlatform.metric3.note": "Tự động trả lời bình luận",
-    "features.ads.title": "Quản trị & Phân tích Quảng cáo AI",
+    "features.ads.title": "Quản trị Quảng Cáo & Phân tích AI",
     "features.ads.desc":
-      "Dashboard phân tích toàn diện với độ chính xác 99.9% giúp ra quyết định dựa trên Data. Tự động tối ưu ngân sách theo CPA/ROAS mục tiêu, đề xuất Custom & Lookalike audiences thông minh. Smart A/B Testing tìm mẫu quảng cáo hiệu quả nhất và cảnh báo realtime khi chiến dịch cần can thiệp.",
+      "Hệ thống tối ưu hoá quảng cáo dựa trên dữ liệu giúp doanh nghiệp đo lường hiệu suất chiến dịch chính xác và tối đa hoá ROI theo thời gian thực bằng phân tích AI tiên tiến.",
     "features.ads.stats":
-      "99.9% chính xác • Tự động tối ưu ngân sách • Máy tính ROI",
-    "features.ads.feature1.name": "Tối ưu ngân sách",
+      "99.9% chính xác • Tự động tối ưu ngân sách • Máy tính ROAS",
+    "features.ads.feature1.name": "Bảng điều khiển hiệu suất thời gian thực",
     "features.ads.feature1.desc":
-      "Tự động điều chỉnh ngân sách theo CPA/ROAS mục tiêu",
-    "features.ads.feature2.name": "Đề xuất đối tượng",
+      "Theo dõi reach, tương tác, số lượng người theo dõi, lượt xem video và hiệu suất kênh theo thời gian thực.",
+    "features.ads.feature2.name": "Máy tính ROAS & So sánh KOL",
     "features.ads.feature2.desc":
-      "Đề xuất Custom & Lookalike audiences từ data khách hàng",
-    "features.ads.feature3.name": "Smart A/B Testing",
+      "So sánh chi phí và hiệu quả giữa đại sứ AI (AI spokesperson) và influencer truyền thống.",
+    "features.ads.feature3.name": "Tối ưu ngân sách tự động",
     "features.ads.feature3.desc":
-      "Thử nghiệm tự động Headline, CTA để tìm mẫu quảng cáo tốt nhất",
-    "features.ads.feature4.name": "Cảnh báo hiệu suất",
+      "AI tự động điều chỉnh chi tiêu dựa trên chi phí/mỗi chuyển đổi (CPA) và mục tiêu hiệu suất.",
+    "features.ads.feature4.name": "Gợi ý nhắm mục tiêu bằng AI",
     "features.ads.feature4.desc":
-      "Cảnh báo Realtime khi chiến dịch kém hiệu quả hoặc cạn ngân sách",
-    "features.ads.metric1.name": "Chỉ số do lường",
+      "Đề xuất audience tuỳ chỉnh và lookalike dựa trên dữ liệu thực tế để tối ưu hoá hiệu suất.",
+    "features.ads.feature5.name": "Kiểm thử A/B creative tự động",
+    "features.ads.feature5.desc":
+      "Tự động thử headline, hình ảnh và CTA để tìm biến thể quảng cáo hiệu suất cao nhất.",
+    "features.ads.feature6.name": "Cảnh báo hiệu suất theo thời gian thực",
+    "features.ads.feature6.desc":
+      "Cảnh báo tức thì khi chiến dịch kém hiệu quả hoặc ngân sách thấp — giúp ngăn chặn chi tiêu lãng phí.",
+    "features.ads.metric1.name": "Chỉ số theo dõi",
     "features.ads.metric1.value": "8+ chỉ số",
     "features.ads.metric1.note":
       "Impressions, CTR, Conversions, CPA, ROAS, LTV, NPS",
-    "features.ads.metric2.name": "Máy tính ROI",
+    "features.ads.metric2.name": "Máy tính ROAS",
     "features.ads.metric2.value": "Tích hợp sẵn",
     "features.ads.metric2.note":
-      "So sánh trực tiếp chi phí KOL AI vs Truyền thống",
-    "features.ads.metric3.name": "Auto Report",
+      "So sánh trực tiếp chi phí và hiệu quả giữa đại sứ AI và phương án truyền thống",
+    "features.ads.metric3.name": "Báo cáo tự động",
     "features.ads.metric3.value": "Tuần/Tháng",
-    "features.ads.metric3.note": "Tự động gửi báo cáo hiệu suất qua Email",
+    "features.ads.metric3.note": "Gửi báo cáo hiệu suất tự động qua Email",
     "features.content.title": "Trình tạo nội dung AI",
     "features.content.desc":
       "Một nền tảng AI toàn diện giúp doanh nghiệp tạo hình ảnh chất lượng cao, bài viết và nội dung mạng xã hội trong vài giây — duy trì tính nhất quán thương hiệu trong khi tối đa hoá độ tiếp cận và tương tác.",
@@ -1826,56 +1836,61 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 sec",
     "features.email.title": "Email Marketing Automation",
     "features.email.desc":
-      "100% automated email marketing system with complete customer journey from Welcome to Re-marketing. CRM integration for personalized content, smart A/B Testing automatically optimizes subject lines and content. Increase Open Rate by 35% with zero manual operation - runs 24/7.",
+      "An intelligent email automation system that nurtures, engages, and retains customers throughout their entire lifecycle - from post-purchase to repurchase and referral - powered by AI optimization.",
     "features.email.stats":
-      "100% automated • CRM integration • Smart A/B Testing",
-    "features.email.feature1.name": "Responsive Design",
+      "100% automated • CRM integration • AI-powered personalization",
+    "features.email.feature1.name": "Automated Welcome & Confirmation Emails",
     "features.email.feature1.desc":
-      "Perfect display on Mobile/Desktop, auto-optimized interface",
-    "features.email.feature2.name": "Smart Tracking",
+      "Instantly send order confirmations, e-invoices, and onboarding guides post-transaction.",
+    "features.email.feature2.name": "Smart Appointment & Renewal Reminders",
     "features.email.feature2.desc":
-      "Optimize Open Rate & Click Rate, track customer behavior",
-    "features.email.feature3.name": "100% Automated",
+      "Automated reminders for appointments, deadlines, and subscription renewals.",
+    "features.email.feature3.name": "Review Collection & Satisfaction Surveys",
     "features.email.feature3.desc":
-      "Automated workflow, no manual operation, runs 24/7",
-    "features.email.feature4.name": "CRM Integration",
+      "Automatically request reviews and gather customer feedback at optimal times.",
+    "features.email.feature4.name": "Behavior-Based Re-engagement Campaigns",
     "features.email.feature4.desc":
-      "Sync customer data, personalize email content",
-    "features.email.feature5.name": "Auto A/B Testing",
+      "Birthday offers, repurchase reminders, and personalized recommendations based on activity.",
+    "features.email.feature5.name": "AI-Powered Personalization",
     "features.email.feature5.desc":
-      "Automatically test subject lines and content to optimize results",
+      "Dynamic content personalized using CRM data and interaction history.",
+    "features.email.feature6.name": "100% Hands-Free Automation",
+    "features.email.feature6.desc":
+      "Set up once - the entire customer journey runs automatically, saving time and resources.",
     "features.email.metric1.name": "Care stages",
     "features.email.metric1.value": "4 stages",
     "features.email.metric1.note": "Welcome, Reminder, Feedback, Re-marketing",
     "features.email.metric2.name": "Automation",
     "features.email.metric2.value": "100%",
     "features.email.metric2.note": "No manual operation required",
-    "features.email.metric3.name": "Performance optimization",
+    "features.email.metric3.name": "Performance improvement",
     "features.email.metric3.value": "Open Rate +35%",
-    "features.email.metric3.note": "Thanks to A/B Testing & Smart Tracking",
-    "features.multiPlatform.title": "Multi-Platform Management",
+    "features.email.metric3.note": "Driven by AI personalization & A/B testing",
+    "features.multiPlatform.title": "Multi-Platform Social Manager",
     "features.multiPlatform.desc":
-      "One single Dashboard controls everything: Facebook, Instagram, TikTok, YouTube, Zalo OA. Batch schedule posts, intuitive Content Calendar with Drag & Drop. AI auto-replies to comments and messages 24/7 with personalized tone. Save 90% time compared to manual operation on each app.",
+      "A centralized command center for scheduling, publishing, and managing engagement across all your social channels from a single dashboard - powered by AI for 24/7 intelligent response.",
     "features.multiPlatform.stats":
-      "5 platforms • 90% time saved • 24/7 virtual assistant",
-    "features.multiPlatform.feature1.name": "Batch Scheduling & Posting",
+      "5 platforms • 90% time saved • AI replies 24/7",
+    "features.multiPlatform.feature1.name": "Unified Multi-Platform Management",
     "features.multiPlatform.feature1.desc":
-      "Save 90% of manual operation time across each app",
-    "features.multiPlatform.feature2.name": "Content Calendar",
+      "Manage Facebook, Instagram, TikTok, YouTube, and more - no platform switching required.",
+    "features.multiPlatform.feature2.name": "Bulk Scheduling & Auto-Publishing",
     "features.multiPlatform.feature2.desc":
-      "Intuitive calendar interface, color-coded content classification",
-    "features.multiPlatform.feature3.name": "Drag & Drop",
+      "Schedule and publish multiple posts simultaneously - reduce manual work by 90%.",
+    "features.multiPlatform.feature3.name":
+      "Visual Content Calendar with Color Coding",
     "features.multiPlatform.feature3.desc":
-      "Easily drag and drop to quickly reschedule posts",
-    "features.multiPlatform.feature4.name": "AI Comment Reply",
+      "See your entire content plan at a glance - easily track campaign progress.",
+    "features.multiPlatform.feature4.name": "Drag-and-Drop Schedule Adjustment",
     "features.multiPlatform.feature4.desc":
-      "Auto-reply to comments with personalized tone, maintain high engagement",
-    "features.multiPlatform.feature5.name": "AI DM Chatbot 24/7",
+      "Instantly reschedule posts when campaigns need quick changes.",
+    "features.multiPlatform.feature5.name":
+      "AI-Powered Auto-Reply for Comments",
     "features.multiPlatform.feature5.desc":
-      "Answer messages, resolve queries and collect customer information",
-    "features.multiPlatform.feature6.name": "Unified Inbox",
+      "AI analyzes context and responds appropriately - maintain engagement 24/7.",
+    "features.multiPlatform.feature6.name": "Unified Social Inbox",
     "features.multiPlatform.feature6.desc":
-      "Consolidate all messages & comments from every platform in one place",
+      "All messages and comments from every platform in one interface.",
     "features.multiPlatform.metric1.name": "Supported platforms",
     "features.multiPlatform.metric1.value": "5 platforms",
     "features.multiPlatform.metric1.note":
@@ -1887,31 +1902,37 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric3.name": "Auto reply cost",
     "features.multiPlatform.metric3.value": "1 Credit/reply",
     "features.multiPlatform.metric3.note": "Automatic comment reply",
-    "features.ads.title": "AI Ads Management & Analytics",
+    "features.ads.title": "ADS Management & AI Analytics",
     "features.ads.desc":
-      "Comprehensive analytics dashboard with 99.9% accuracy for data-driven decisions. Auto-optimize budget based on target CPA/ROAS, smart Custom & Lookalike audience suggestions. Smart A/B Testing finds the best performing ads and real-time alerts when campaigns need intervention.",
+      "A data-driven advertising optimization system that helps businesses measure campaign performance accurately and maximize ROI in real-time using advanced AI analytics.",
     "features.ads.stats":
-      "99.9% accuracy • Auto budget optimization • ROI Calculator",
-    "features.ads.feature1.name": "Budget Optimization",
+      "99.9% accuracy • Auto budget optimization • ROAS Calculator",
+    "features.ads.feature1.name": "Real-Time Performance Dashboard",
     "features.ads.feature1.desc":
-      "Automatically adjust budget based on target CPA/ROAS",
-    "features.ads.feature2.name": "Audience Suggestions",
+      "Track reach, engagement, followers, video views, and channel performance live.",
+    "features.ads.feature2.name": "ROAS Calculator & KOL Comparison Tool",
     "features.ads.feature2.desc":
-      "Suggest Custom & Lookalike audiences from customer data",
-    "features.ads.feature3.name": "Smart A/B Testing",
+      "Compare costs and effectiveness between AI spokespersons and traditional influencers.",
+    "features.ads.feature3.name": "Automated Budget Optimization",
     "features.ads.feature3.desc":
-      "Automatically test Headlines, CTAs to find best performing ads",
-    "features.ads.feature4.name": "Performance Alerts",
+      "AI automatically adjusts spend based on cost-per-conversion and performance goals.",
+    "features.ads.feature4.name": "AI Audience Targeting Suggestions",
     "features.ads.feature4.desc":
-      "Real-time alerts when campaigns underperform or budget runs low",
+      "Get custom audience and lookalike audience recommendations based on real data.",
+    "features.ads.feature5.name": "Automated Creative A/B Testing",
+    "features.ads.feature5.desc":
+      "Auto-test headlines, images, and CTAs to find the highest-performing ad variations.",
+    "features.ads.feature6.name": "Real-Time Performance Alerts",
+    "features.ads.feature6.desc":
+      "Instant alerts for underperforming campaigns or low budget - prevent wasted spend.",
     "features.ads.metric1.name": "Measurement metrics",
     "features.ads.metric1.value": "8+ metrics",
     "features.ads.metric1.note":
       "Impressions, CTR, Conversions, CPA, ROAS, LTV, NPS",
-    "features.ads.metric2.name": "ROI Calculator",
+    "features.ads.metric2.name": "ROAS Calculator",
     "features.ads.metric2.value": "Built-in",
     "features.ads.metric2.note":
-      "Direct comparison of AI KOL cost vs Traditional",
+      "Direct comparison of AI spokesperson cost vs traditional approaches",
     "features.ads.metric3.name": "Auto Report",
     "features.ads.metric3.value": "Weekly/Monthly",
     "features.ads.metric3.note":
