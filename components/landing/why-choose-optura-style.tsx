@@ -20,7 +20,7 @@ interface ComparisonRow {
   iconBg: string;
   criteriaKey: string;
   traditionalKey: string;
-  dxaiKey: string;
+  UniksmartKey: string;
   savingsKey?: string;
 }
 
@@ -59,7 +59,7 @@ export function WhyChooseOpturaStyle() {
       iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row1.criteria",
       traditionalKey: "whyChoose.optura.row1.traditional",
-      dxaiKey: "whyChoose.optura.row1.dxai",
+      UniksmartKey: "whyChoose.optura.row1.Uniksmart",
       savingsKey: "whyChoose.optura.row1.savings",
     },
     {
@@ -68,7 +68,7 @@ export function WhyChooseOpturaStyle() {
       iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row2.criteria",
       traditionalKey: "whyChoose.optura.row2.traditional",
-      dxaiKey: "whyChoose.optura.row2.dxai",
+      UniksmartKey: "whyChoose.optura.row2.Uniksmart",
     },
     {
       id: "time",
@@ -76,7 +76,7 @@ export function WhyChooseOpturaStyle() {
       iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row3.criteria",
       traditionalKey: "whyChoose.optura.row3.traditional",
-      dxaiKey: "whyChoose.optura.row3.dxai",
+      UniksmartKey: "whyChoose.optura.row3.Uniksmart",
     },
     {
       id: "multitask",
@@ -84,7 +84,7 @@ export function WhyChooseOpturaStyle() {
       iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row4.criteria",
       traditionalKey: "whyChoose.optura.row4.traditional",
-      dxaiKey: "whyChoose.optura.row4.dxai",
+      UniksmartKey: "whyChoose.optura.row4.Uniksmart",
     },
     {
       id: "operation",
@@ -92,7 +92,7 @@ export function WhyChooseOpturaStyle() {
       iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row5.criteria",
       traditionalKey: "whyChoose.optura.row5.traditional",
-      dxaiKey: "whyChoose.optura.row5.dxai",
+      UniksmartKey: "whyChoose.optura.row5.Uniksmart",
     },
   ];
 
@@ -165,10 +165,10 @@ export function WhyChooseOpturaStyle() {
                 </div>
               </div>
               <h3 className="text-base font-bold text-green-700 mt-2">
-                {t("whyChoose.optura.dxai")}
+                {t("whyChoose.optura.Uniksmart")}
               </h3>
               <p className="text-sm text-green-600">
-                {t("whyChoose.optura.dxai.auto")}
+                {t("whyChoose.optura.Uniksmart.auto")}
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@ export function WhyChooseOpturaStyle() {
                   {/* Uniksmart Platform Column */}
                   <div className="px-8 py-6 bg-green-50/10 flex items-center justify-between">
                     <p className="text-base font-bold text-gray-900">
-                      {t(row.dxaiKey)}
+                      {t(row.UniksmartKey)}
                     </p>
                     {row.savingsKey && (
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-600 text-white text-xs font-bold">
@@ -284,7 +284,7 @@ export function WhyChooseOpturaStyle() {
                     )}
                   </div>
                   <p className="text-base font-bold text-gray-900">
-                    {t(row.dxaiKey)}
+                    {t(row.UniksmartKey)}
                   </p>
                 </div>
               </div>

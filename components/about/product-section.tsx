@@ -26,7 +26,7 @@ import { useI18n } from "@/lib/i18n";
 export function ProductSection() {
   const { t } = useI18n();
 
-  const whyDxaiFeatures = [
+  const whyUniksmartFeatures = [
     {
       icon: Layers,
       titleKey: "about.product.why.allinone.title",
@@ -134,7 +134,7 @@ export function ProductSection() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {whyDxaiFeatures.map((feature, index) => (
+            {whyUniksmartFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="relative bg-white border border-gray-100 rounded-2xl p-6 pt-10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"

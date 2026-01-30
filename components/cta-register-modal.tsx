@@ -20,7 +20,7 @@ import { RegistrationFields } from "@/components/forms/registration-fields";
 import { useRegistrationForm } from "@/hooks/use-registration-form";
 import { useI18n } from "@/lib/i18n";
 
-const STORAGE_KEY = "dxai_cta_modal_dismissed";
+const STORAGE_KEY = "Uniksmart_cta_modal_dismissed";
 
 export function CtaRegisterModal() {
   const [isOpen, setIsOpen] = useState(false);

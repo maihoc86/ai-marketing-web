@@ -1,10 +1,10 @@
-# DXAI Marketing Platform
+# Uniksmart Marketing Platform
 
 AI-powered marketing automation platform built with Next.js 16, React 19, and Tailwind CSS.
 
 ## Overview
 
-DXAI Marketing Platform is a comprehensive AI-powered solution that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
+Uniksmart Marketing Platform is a comprehensive AI-powered solution that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
 
 ### Key Features
 
@@ -17,19 +17,19 @@ DXAI Marketing Platform is a comprehensive AI-powered solution that helps Vietna
 
 ## Tech Stack
 
-| Category | Technology |
-|----------|------------|
-| Framework | Next.js 16.1.1 |
-| React | 19.2.3 |
-| Language | TypeScript 5.x |
-| Styling | Tailwind CSS 4.1.18 |
-| UI Components | Radix UI, Shadcn |
-| Icons | Lucide React, React Icons |
-| Analytics | Vercel Analytics |
+| Category      | Technology                |
+| ------------- | ------------------------- |
+| Framework     | Next.js 16.1.1            |
+| React         | 19.2.3                    |
+| Language      | TypeScript 5.x            |
+| Styling       | Tailwind CSS 4.1.18       |
+| UI Components | Radix UI, Shadcn          |
+| Icons         | Lucide React, React Icons |
+| Analytics     | Vercel Analytics          |
 
 ## Architecture
 
-DXAI uses **Pragmatic Clean Architecture** - a hybrid approach optimized for Next.js that combines Clean Architecture layers with Domain-Driven Design concepts.
+Uniksmart uses **Pragmatic Clean Architecture** - a hybrid approach optimized for Next.js that combines Clean Architecture layers with Domain-Driven Design concepts.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -137,13 +137,13 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server |
-| `pnpm build` | Create production build |
-| `pnpm start` | Start production server |
-| `pnpm lint` | Run ESLint |
-| `pnpm type-check` | Run TypeScript compiler |
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `pnpm dev`        | Start development server |
+| `pnpm build`      | Create production build  |
+| `pnpm start`      | Start production server  |
+| `pnpm lint`       | Run ESLint               |
+| `pnpm type-check` | Run TypeScript compiler  |
 
 ## Development Guidelines
 
@@ -184,9 +184,9 @@ chore: build, dependencies updates
 
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [CLAUDE.md](./CLAUDE.md) | Complete project documentation for developers |
+| Document                             | Description                                         |
+| ------------------------------------ | --------------------------------------------------- |
+| [CLAUDE.md](./CLAUDE.md)             | Complete project documentation for developers       |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Architecture decision document with migration guide |
 
 ## Contributing

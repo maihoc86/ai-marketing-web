@@ -193,10 +193,10 @@ export function RoiSection() {
                     </svg>
                   </div>
                   <h3 className="text-base font-bold text-gray-900">
-                    {t("roi.header.dxai")}
+                    {t("roi.header.Uniksmart")}
                   </h3>
                   <p className="text-xs text-green-700 font-semibold">
-                    {t("roi.header.dxai.auto")}
+                    {t("roi.header.Uniksmart.auto")}
                   </p>
                 </div>
               </div>

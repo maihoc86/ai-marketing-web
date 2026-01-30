@@ -15,8 +15,8 @@ export function AIContentProblemsSection() {
     },
     {
       type: "solution",
-      titleKey: "featurePage.content.problems.dxaiWay.solution1.title",
-      descKey: "featurePage.content.problems.dxaiWay.solution1.desc",
+      titleKey: "featurePage.content.problems.UniksmartWay.solution1.title",
+      descKey: "featurePage.content.problems.UniksmartWay.solution1.desc",
     },
     {
       type: "problem",
@@ -25,8 +25,8 @@ export function AIContentProblemsSection() {
     },
     {
       type: "solution",
-      titleKey: "featurePage.content.problems.dxaiWay.solution2.title",
-      descKey: "featurePage.content.problems.dxaiWay.solution2.desc",
+      titleKey: "featurePage.content.problems.UniksmartWay.solution2.title",
+      descKey: "featurePage.content.problems.UniksmartWay.solution2.desc",
     },
   ];
 
@@ -55,7 +55,7 @@ export function AIContentProblemsSection() {
             <div className="w-10 h-10 rounded-full bg-(--color-primary)/10 flex items-center justify-center">
               <CheckCircle className="w-5 h-5 text-(--color-primary)" />
             </div>
-            <div>{t("featurePage.content.problems.dxaiWay.header")}</div>
+            <div>{t("featurePage.content.problems.UniksmartWay.header")}</div>
           </div>
         </div>
         {/* 2x2 Grid */}

@@ -1,4 +1,4 @@
-# CLAUDE.MD - DXAI Marketing Platform Project Documentation
+# CLAUDE.MD - Uniksmart Marketing Platform Project Documentation
 
 > **Project Guide for AI Assistants and Developers**
 > Last Updated: 2026-01-20
@@ -30,7 +30,7 @@
 
 ## 📊 PROJECT OVERVIEW
 
-**DXAI Marketing Platform** is a comprehensive AI-powered marketing automation platform that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
+**Uniksmart Marketing Platform** is a comprehensive AI-powered marketing automation platform that helps Vietnamese businesses automate their entire marketing workflow from ideation to multi-platform content publishing.
 
 ### Key Features
 
@@ -167,7 +167,7 @@ ai-marketing-fe/
 
 ### Pragmatic Clean Architecture
 
-DXAI uses a **Pragmatic Clean Architecture** - a hybrid approach optimized for Next.js that combines Clean Architecture layers with DDD concepts.
+Uniksmart uses a **Pragmatic Clean Architecture** - a hybrid approach optimized for Next.js that combines Clean Architecture layers with DDD concepts.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -187,12 +187,12 @@ DXAI uses a **Pragmatic Clean Architecture** - a hybrid approach optimized for N
 
 ### Layer Responsibilities
 
-| Layer              | Purpose                              | Example Files                                      |
-| ------------------ | ------------------------------------ | -------------------------------------------------- |
-| **Domain**         | Business logic, entities, validation | `campaign.ts`, `email.ts` (value object)           |
-| **Application**    | Use cases, orchestration, DTOs       | `create-campaign.ts`, `user-mapper.ts`             |
-| **Infrastructure** | External systems, API clients        | `dxai-api-client.ts`, `api-campaign-repository.ts` |
-| **Presentation**   | UI, pages, components                | `page.tsx`, `CampaignList.tsx`                     |
+| Layer              | Purpose                              | Example Files                                           |
+| ------------------ | ------------------------------------ | ------------------------------------------------------- |
+| **Domain**         | Business logic, entities, validation | `campaign.ts`, `email.ts` (value object)                |
+| **Application**    | Use cases, orchestration, DTOs       | `create-campaign.ts`, `user-mapper.ts`                  |
+| **Infrastructure** | External systems, API clients        | `Uniksmart-api-client.ts`, `api-campaign-repository.ts` |
+| **Presentation**   | UI, pages, components                | `page.tsx`, `CampaignList.tsx`                          |
 
 ### Dependency Rule
 
@@ -720,7 +720,7 @@ return <p>{t("section.new.key")}</p>
 
 ### Locale Persistence
 
-- Stored in `localStorage` under key: `dxai_locale`
+- Stored in `localStorage` under key: `Uniksmart_locale`
 - Default locale: `vi` (Vietnamese)
 - Updates `<html lang="...">` attribute automatically
 

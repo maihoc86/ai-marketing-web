@@ -1,15 +1,15 @@
-# Architecture Decision Document: DXAI Marketing Platform
+# Architecture Decision Document: Uniksmart Marketing Platform
 
 > **Version**: 1.0.0
 > **Date**: 2026-01-20
 > **Status**: Approved
-> **Author**: DXAI Architecture Team
+> **Author**: Uniksmart Architecture Team
 
 ---
 
 ## Executive Summary
 
-After analyzing six architecture options against DXAI's current state (landing page phase), growth trajectory (dashboard, APIs, multi-platform), and team context (Next.js expertise, Vietnamese market), we recommend **Option 6: Pragmatic Clean Architecture for Next.js** - a hybrid approach that combines:
+After analyzing six architecture options against Uniksmart's current state (landing page phase), growth trajectory (dashboard, APIs, multi-platform), and team context (Next.js expertise, Vietnamese market), we recommend **Option 6: Pragmatic Clean Architecture for Next.js** - a hybrid approach that combines:
 
 - **Clean Architecture layers** (from Option 2) for clear separation of concerns
 - **DDD concepts** (from Option 4) for domain modeling without full complexity
@@ -38,25 +38,25 @@ This architecture provides the right balance: simple enough for the current land
 
 ## Architecture Comparison Matrix
 
-| Criteria | Option 1 (DDD Hexagon) | Option 2 (Clean Next.js) | Option 3 (CQRS/ES) | Option 4 (Codely DDD) | Option 5 (Node API) | Option 6 (Hybrid) |
-|----------|------------------------|--------------------------|--------------------|-----------------------|---------------------|-------------------|
-| Next.js Compatibility | 2/5 | 5/5 | 2/5 | 3/5 | 2/5 | **5/5** |
-| Learning Curve | 4/5 | 2/5 | 5/5 | 3/5 | 3/5 | **2/5** |
-| Scalability | 5/5 | 3/5 | 5/5 | 4/5 | 3/5 | **4/5** |
-| MVP Speed | 2/5 | 4/5 | 1/5 | 3/5 | 3/5 | **4/5** |
-| Enterprise Ready | 5/5 | 3/5 | 5/5 | 4/5 | 3/5 | **4/5** |
-| Team Fit (Next.js expertise) | 2/5 | 5/5 | 2/5 | 3/5 | 3/5 | **5/5** |
-| **TOTAL** | 20/30 | 22/30 | 20/30 | 20/30 | 17/30 | **24/30** |
+| Criteria                     | Option 1 (DDD Hexagon) | Option 2 (Clean Next.js) | Option 3 (CQRS/ES) | Option 4 (Codely DDD) | Option 5 (Node API) | Option 6 (Hybrid) |
+| ---------------------------- | ---------------------- | ------------------------ | ------------------ | --------------------- | ------------------- | ----------------- |
+| Next.js Compatibility        | 2/5                    | 5/5                      | 2/5                | 3/5                   | 2/5                 | **5/5**           |
+| Learning Curve               | 4/5                    | 2/5                      | 5/5                | 3/5                   | 3/5                 | **2/5**           |
+| Scalability                  | 5/5                    | 3/5                      | 5/5                | 4/5                   | 3/5                 | **4/5**           |
+| MVP Speed                    | 2/5                    | 4/5                      | 1/5                | 3/5                   | 3/5                 | **4/5**           |
+| Enterprise Ready             | 5/5                    | 3/5                      | 5/5                | 4/5                   | 3/5                 | **4/5**           |
+| Team Fit (Next.js expertise) | 2/5                    | 5/5                      | 2/5                | 3/5                   | 3/5                 | **5/5**           |
+| **TOTAL**                    | 20/30                  | 22/30                    | 20/30              | 20/30                 | 17/30               | **24/30**         |
 
 ### Why NOT Other Options
 
-| Option | Primary Rejection Reason |
-|--------|-------------------------|
+| Option   | Primary Rejection Reason                                    |
+| -------- | ----------------------------------------------------------- |
 | Option 1 | NestJS-focused, requires significant adaptation for Next.js |
-| Option 2 | Too simple for future dashboard/API complexity |
-| Option 3 | Massive over-engineering for current phase, 6+ month ROI |
-| Option 4 | Backend-only, requires building Next.js layer from scratch |
-| Option 5 | REST API focused, doesn't address frontend architecture |
+| Option 2 | Too simple for future dashboard/API complexity              |
+| Option 3 | Massive over-engineering for current phase, 6+ month ROI    |
+| Option 4 | Backend-only, requires building Next.js layer from scratch  |
+| Option 5 | REST API focused, doesn't address frontend architecture     |
 
 ---
 
@@ -186,7 +186,7 @@ ai-marketing-fe/
 │   │
 │   ├── infrastructure/              # INFRASTRUCTURE LAYER
 │   │   ├── api/                     # External API clients
-│   │   │   ├── dxai-api-client.ts
+│   │   │   ├── Uniksmart-api-client.ts
 │   │   │   ├── facebook-api.ts
 │   │   │   ├── tiktok-api.ts
 │   │   │   └── openai-api.ts
@@ -313,64 +313,72 @@ ai-marketing-fe/
 The **heart of the application**. Contains business logic that is independent of frameworks, UI, and external services.
 
 #### Entities
+
 Business objects with identity and lifecycle:
 
 ```typescript
 // src/domain/entities/campaign.ts
 export interface Campaign {
-  id: string
-  name: string
-  status: CampaignStatus
-  platforms: Platform[]
-  content: Content[]
-  schedule: Schedule
-  analytics: CampaignAnalytics
-  createdAt: Date
-  updatedAt: Date
+  id: string;
+  name: string;
+  status: CampaignStatus;
+  platforms: Platform[];
+  content: Content[];
+  schedule: Schedule;
+  analytics: CampaignAnalytics;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export type CampaignStatus = 'draft' | 'scheduled' | 'active' | 'paused' | 'completed'
+export type CampaignStatus =
+  | "draft"
+  | "scheduled"
+  | "active"
+  | "paused"
+  | "completed";
 ```
 
 #### Value Objects
+
 Immutable objects defined by their attributes:
 
 ```typescript
 // src/domain/value-objects/email.ts
 export class Email {
-  private readonly value: string
+  private readonly value: string;
 
   private constructor(email: string) {
-    this.value = email
+    this.value = email;
   }
 
   static create(email: string): Email {
     if (!Email.isValid(email)) {
-      throw new ValidationError('Invalid email format')
+      throw new ValidationError("Invalid email format");
     }
-    return new Email(email.toLowerCase())
+    return new Email(email.toLowerCase());
   }
 
   static isValid(email: string): boolean {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   getValue(): string {
-    return this.value
+    return this.value;
   }
 }
 ```
 
 #### Repository Interfaces
+
 Contracts for data access (implemented in Infrastructure):
 
 ```typescript
 // src/domain/interfaces/campaign-repository.ts
 export interface CampaignRepository {
-  findById(id: string): Promise<Campaign | null>
-  findByUser(userId: string): Promise<Campaign[]>
-  save(campaign: Campaign): Promise<Campaign>
-  delete(id: string): Promise<void>
+  findById(id: string): Promise<Campaign | null>;
+  findByUser(userId: string): Promise<Campaign[]>;
+  save(campaign: Campaign): Promise<Campaign>;
+  delete(id: string): Promise<void>;
 }
 ```
 
@@ -379,6 +387,7 @@ export interface CampaignRepository {
 Orchestrates domain objects to implement use cases. Contains no business rules.
 
 #### Use Cases
+
 Single-purpose operations:
 
 ```typescript
@@ -386,55 +395,56 @@ Single-purpose operations:
 export class CreateCampaignUseCase {
   constructor(
     private campaignRepository: CampaignRepository,
-    private contentValidator: ContentValidator
+    private contentValidator: ContentValidator,
   ) {}
 
   async execute(request: CreateCampaignRequest): Promise<CampaignResponse> {
     // 1. Validate request
-    const validatedContent = this.contentValidator.validate(request.content)
+    const validatedContent = this.contentValidator.validate(request.content);
 
     // 2. Create domain entity
     const campaign: Campaign = {
       id: generateId(),
       name: request.name,
-      status: 'draft',
+      status: "draft",
       platforms: request.platforms,
       content: validatedContent,
       schedule: request.schedule,
       analytics: initialAnalytics(),
       createdAt: new Date(),
-      updatedAt: new Date()
-    }
+      updatedAt: new Date(),
+    };
 
     // 3. Persist
-    const saved = await this.campaignRepository.save(campaign)
+    const saved = await this.campaignRepository.save(campaign);
 
     // 4. Return DTO
-    return CampaignMapper.toResponse(saved)
+    return CampaignMapper.toResponse(saved);
   }
 }
 ```
 
 #### DTOs (Data Transfer Objects)
+
 Data structures for input/output:
 
 ```typescript
 // src/application/dto/request/create-campaign-request.ts
 export interface CreateCampaignRequest {
-  name: string
-  platforms: Platform[]
-  content: ContentInput[]
-  schedule: ScheduleInput
+  name: string;
+  platforms: Platform[];
+  content: ContentInput[];
+  schedule: ScheduleInput;
 }
 
 // src/application/dto/response/campaign-response.ts
 export interface CampaignResponse {
-  id: string
-  name: string
-  status: string
-  platformCount: number
-  contentCount: number
-  nextScheduledAt: string | null
+  id: string;
+  name: string;
+  status: string;
+  platformCount: number;
+  contentCount: number;
+  nextScheduledAt: string | null;
 }
 ```
 
@@ -447,17 +457,20 @@ Implements interfaces defined in Domain. Handles external concerns.
 ```typescript
 // src/infrastructure/repositories/api-campaign-repository.ts
 export class ApiCampaignRepository implements CampaignRepository {
-  constructor(private apiClient: DxaiApiClient) {}
+  constructor(private apiClient: UniksmartApiClient) {}
 
   async findById(id: string): Promise<Campaign | null> {
-    const response = await this.apiClient.get<ApiCampaign>(`/campaigns/${id}`)
-    return response ? this.toDomain(response) : null
+    const response = await this.apiClient.get<ApiCampaign>(`/campaigns/${id}`);
+    return response ? this.toDomain(response) : null;
   }
 
   async save(campaign: Campaign): Promise<Campaign> {
-    const apiCampaign = this.toApi(campaign)
-    const response = await this.apiClient.post<ApiCampaign>('/campaigns', apiCampaign)
-    return this.toDomain(response)
+    const apiCampaign = this.toApi(campaign);
+    const response = await this.apiClient.post<ApiCampaign>(
+      "/campaigns",
+      apiCampaign,
+    );
+    return this.toDomain(response);
   }
 
   private toDomain(api: ApiCampaign): Campaign {
@@ -497,13 +510,14 @@ export default async function CampaignsPage() {
 ## Design Patterns
 
 ### 1. Repository Pattern
+
 **Where**: Domain ↔ Infrastructure
 **Purpose**: Abstract data access, enable testing with mocks
 
 ```typescript
 // Domain defines interface
 interface UserRepository {
-  findByEmail(email: string): Promise<User | null>
+  findByEmail(email: string): Promise<User | null>;
 }
 
 // Infrastructure implements
@@ -515,41 +529,44 @@ class ApiUserRepository implements UserRepository {
 ```
 
 ### 2. Use Case Pattern
+
 **Where**: Application layer
 **Purpose**: Encapsulate business operations, single responsibility
 
 ```typescript
 // One class = one use case
 class RegisterUserUseCase {
-  async execute(request: RegisterRequest): Promise<UserResponse>
+  async execute(request: RegisterRequest): Promise<UserResponse>;
 }
 
 class CreateCampaignUseCase {
-  async execute(request: CampaignRequest): Promise<CampaignResponse>
+  async execute(request: CampaignRequest): Promise<CampaignResponse>;
 }
 ```
 
 ### 3. DTO Pattern
+
 **Where**: Application layer boundaries
 **Purpose**: Decouple internal models from external representation
 
 ```typescript
 // Internal domain entity
 interface User {
-  id: string
-  email: Email  // Value object
-  passwordHash: string  // Never exposed
+  id: string;
+  email: Email; // Value object
+  passwordHash: string; // Never exposed
 }
 
 // External response
 interface UserResponse {
-  id: string
-  email: string  // Primitive
+  id: string;
+  email: string; // Primitive
   // No password
 }
 ```
 
 ### 4. Mapper Pattern
+
 **Where**: Application layer
 **Purpose**: Transform between layers
 
@@ -558,20 +575,21 @@ class UserMapper {
   static toResponse(user: User): UserResponse {
     return {
       id: user.id,
-      email: user.email.getValue()
-    }
+      email: user.email.getValue(),
+    };
   }
 
   static toDomain(dto: UserDto): User {
     return {
       id: dto.id,
-      email: Email.create(dto.email)
-    }
+      email: Email.create(dto.email),
+    };
   }
 }
 ```
 
 ### 5. Factory Pattern
+
 **Where**: Domain layer (for complex entity creation)
 **Purpose**: Encapsulate creation logic
 
@@ -582,14 +600,15 @@ class CampaignFactory {
       id: generateId(),
       name,
       userId,
-      status: 'draft',
-      createdAt: new Date()
-    }
+      status: "draft",
+      createdAt: new Date(),
+    };
   }
 }
 ```
 
 ### 6. Service Pattern
+
 **Where**: Application layer
 **Purpose**: Coordinate multiple use cases, provide facade
 
@@ -598,12 +617,12 @@ class CampaignService {
   constructor(
     private createUseCase: CreateCampaignUseCase,
     private updateUseCase: UpdateCampaignUseCase,
-    private getUseCase: GetCampaignsUseCase
+    private getUseCase: GetCampaignsUseCase,
   ) {}
 
   // Facade methods for components
   async create(request: CreateRequest) {
-    return this.createUseCase.execute(request)
+    return this.createUseCase.execute(request);
   }
 }
 ```
@@ -632,6 +651,7 @@ Week 2:
 ```
 
 **Deliverables**:
+
 - `src/` directory with domain, application, infrastructure, shared
 - Working registration flow using new architecture
 - 80%+ test coverage on domain layer
@@ -651,6 +671,7 @@ Week 3-4:
 ```
 
 **Deliverables**:
+
 - Complete domain model for campaigns/content
 - Repository pattern working with API
 - Dashboard shell with auth
@@ -670,6 +691,7 @@ Weeks 5-8:
 ```
 
 **Deliverables**:
+
 - Working campaign management
 - Content creation with AI
 - Platform integrations
@@ -690,6 +712,7 @@ Weeks 9-12:
 ```
 
 **Deliverables**:
+
 - Enterprise-ready features
 - Performance benchmarks met
 - Full test coverage
@@ -717,16 +740,16 @@ mkdir -p tests/{unit,integration,e2e}
 
 #### Step 2: Move Existing Files
 
-| Current Location | New Location | Notes |
-|-----------------|--------------|-------|
-| `lib/utils.ts` | `src/shared/utils/cn.ts` | Extract cn() function |
-| `lib/validation.ts` | `src/domain/value-objects/` | Split into value objects |
-| `lib/api-client.ts` | `src/infrastructure/api/dxai-api-client.ts` | Keep as is |
-| `lib/i18n.tsx` | `lib/i18n/index.ts` + `translations/` | Split translations |
-| `lib/performance.ts` | `src/infrastructure/analytics/` | Move to infrastructure |
-| `components/landing/` | `components/features/landing/` | Reorganize |
-| `components/forms/` | `components/features/auth/` | Merge with auth |
-| `components/about/` | `components/features/landing/about/` | Group with landing |
+| Current Location      | New Location                                     | Notes                    |
+| --------------------- | ------------------------------------------------ | ------------------------ |
+| `lib/utils.ts`        | `src/shared/utils/cn.ts`                         | Extract cn() function    |
+| `lib/validation.ts`   | `src/domain/value-objects/`                      | Split into value objects |
+| `lib/api-client.ts`   | `src/infrastructure/api/Uniksmart-api-client.ts` | Keep as is               |
+| `lib/i18n.tsx`        | `lib/i18n/index.ts` + `translations/`            | Split translations       |
+| `lib/performance.ts`  | `src/infrastructure/analytics/`                  | Move to infrastructure   |
+| `components/landing/` | `components/features/landing/`                   | Reorganize               |
+| `components/forms/`   | `components/features/auth/`                      | Merge with auth          |
+| `components/about/`   | `components/features/landing/about/`             | Group with landing       |
 
 #### Step 3: Create Value Objects from Validation
 
@@ -759,21 +782,21 @@ export class Email {
 
 ```typescript
 // src/application/use-cases/auth/register-user.ts
-import { Email } from '@/src/domain/value-objects/email'
-import { PhoneNumber } from '@/src/domain/value-objects/phone-number'
-import { UserRepository } from '@/src/domain/interfaces/user-repository'
+import { Email } from "@/src/domain/value-objects/email";
+import { PhoneNumber } from "@/src/domain/value-objects/phone-number";
+import { UserRepository } from "@/src/domain/interfaces/user-repository";
 
 export interface RegisterUserRequest {
-  email: string
-  phoneNumber: string
-  companyName: string
-  firstName: string
-  lastName: string
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface RegisterUserResponse {
-  success: boolean
-  message: string
+  success: boolean;
+  message: string;
 }
 
 export class RegisterUserUseCase {
@@ -781,21 +804,21 @@ export class RegisterUserUseCase {
 
   async execute(request: RegisterUserRequest): Promise<RegisterUserResponse> {
     // Validate and create value objects
-    const email = Email.create(request.email)
-    const phone = PhoneNumber.create(request.phoneNumber)
+    const email = Email.create(request.email);
+    const phone = PhoneNumber.create(request.phoneNumber);
 
     // Create user entity
     const user = {
       email,
       phone,
       companyName: request.companyName,
-      name: `${request.firstName} ${request.lastName}`
-    }
+      name: `${request.firstName} ${request.lastName}`,
+    };
 
     // Persist
-    await this.userRepository.save(user)
+    await this.userRepository.save(user);
 
-    return { success: true, message: 'Registration successful' }
+    return { success: true, message: "Registration successful" };
   }
 }
 ```
@@ -804,14 +827,14 @@ export class RegisterUserUseCase {
 
 ```typescript
 // Before
-import { cn } from "@/lib/utils"
-import { useI18n } from "@/lib/i18n"
-import { apiClient } from "@/lib/api-client"
+import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
+import { apiClient } from "@/lib/api-client";
 
 // After
-import { cn } from "@/src/shared/utils/cn"
-import { useI18n } from "@/lib/i18n"
-import { dxaiApiClient } from "@/src/infrastructure/api/dxai-api-client"
+import { cn } from "@/src/shared/utils/cn";
+import { useI18n } from "@/lib/i18n";
+import { UniksmartApiClient } from "@/src/infrastructure/api/Uniksmart-api-client";
 ```
 
 #### Step 6: Create Path Aliases
@@ -842,48 +865,48 @@ import { dxaiApiClient } from "@/src/infrastructure/api/dxai-api-client"
 
 ```typescript
 // src/domain/value-objects/phone-number.ts
-import { ValidationError } from '@/src/shared/errors/validation-error'
+import { ValidationError } from "@/src/shared/errors/validation-error";
 
 export class PhoneNumber {
-  private readonly value: string
+  private readonly value: string;
 
   private constructor(phone: string) {
-    this.value = phone
+    this.value = phone;
   }
 
   static create(phone: string): PhoneNumber {
-    const normalized = this.normalize(phone)
+    const normalized = this.normalize(phone);
 
     if (!this.isValid(normalized)) {
       throw new ValidationError(
-        'Số điện thoại không hợp lệ (định dạng: 0xxxxxxxxx)',
-        'INVALID_PHONE'
-      )
+        "Số điện thoại không hợp lệ (định dạng: 0xxxxxxxxx)",
+        "INVALID_PHONE",
+      );
     }
 
-    return new PhoneNumber(normalized)
+    return new PhoneNumber(normalized);
   }
 
   static isValid(phone: string): boolean {
-    return /^0\d{9}$/.test(phone)
+    return /^0\d{9}$/.test(phone);
   }
 
   private static normalize(phone: string): string {
     // Remove spaces, dashes, and country code
-    return phone.replace(/[\s-]/g, '').replace(/^\+84/, '0')
+    return phone.replace(/[\s-]/g, "").replace(/^\+84/, "0");
   }
 
   getValue(): string {
-    return this.value
+    return this.value;
   }
 
   getFormatted(): string {
     // Format: 0xxx xxx xxx
-    return this.value.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3')
+    return this.value.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3");
   }
 
   equals(other: PhoneNumber): boolean {
-    return this.value === other.value
+    return this.value === other.value;
   }
 }
 ```
@@ -892,48 +915,53 @@ export class PhoneNumber {
 
 ```typescript
 // src/domain/entities/campaign.ts
-import { Platform } from './platform'
-import { Content } from './content'
-import { Schedule } from '../value-objects/schedule'
+import { Platform } from "./platform";
+import { Content } from "./content";
+import { Schedule } from "../value-objects/schedule";
 
-export type CampaignStatus = 'draft' | 'scheduled' | 'active' | 'paused' | 'completed'
+export type CampaignStatus =
+  | "draft"
+  | "scheduled"
+  | "active"
+  | "paused"
+  | "completed";
 
 export interface Campaign {
-  readonly id: string
-  readonly userId: string
-  name: string
-  description?: string
-  status: CampaignStatus
-  platforms: Platform[]
-  content: Content[]
-  schedule: Schedule | null
-  budget?: number
-  analytics: CampaignAnalytics
-  readonly createdAt: Date
-  updatedAt: Date
+  readonly id: string;
+  readonly userId: string;
+  name: string;
+  description?: string;
+  status: CampaignStatus;
+  platforms: Platform[];
+  content: Content[];
+  schedule: Schedule | null;
+  budget?: number;
+  analytics: CampaignAnalytics;
+  readonly createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface CampaignAnalytics {
-  totalReach: number
-  engagement: number
-  conversions: number
-  roi: number
+  totalReach: number;
+  engagement: number;
+  conversions: number;
+  roi: number;
 }
 
 // Domain logic methods
 export function canPublish(campaign: Campaign): boolean {
   return (
-    campaign.status === 'draft' &&
+    campaign.status === "draft" &&
     campaign.content.length > 0 &&
     campaign.platforms.length > 0 &&
     campaign.schedule !== null
-  )
+  );
 }
 
 export function calculateEffectiveness(campaign: Campaign): number {
-  const { totalReach, engagement, conversions } = campaign.analytics
-  if (totalReach === 0) return 0
-  return (engagement + conversions * 10) / totalReach * 100
+  const { totalReach, engagement, conversions } = campaign.analytics;
+  if (totalReach === 0) return 0;
+  return ((engagement + conversions * 10) / totalReach) * 100;
 }
 ```
 
@@ -941,54 +969,56 @@ export function calculateEffectiveness(campaign: Campaign): number {
 
 ```typescript
 // src/domain/interfaces/campaign-repository.ts
-import { Campaign } from '../entities/campaign'
+import { Campaign } from "../entities/campaign";
 
 export interface CampaignRepository {
-  findById(id: string): Promise<Campaign | null>
-  findByUserId(userId: string): Promise<Campaign[]>
-  findActive(): Promise<Campaign[]>
-  save(campaign: Campaign): Promise<Campaign>
-  update(campaign: Campaign): Promise<Campaign>
-  delete(id: string): Promise<void>
+  findById(id: string): Promise<Campaign | null>;
+  findByUserId(userId: string): Promise<Campaign[]>;
+  findActive(): Promise<Campaign[]>;
+  save(campaign: Campaign): Promise<Campaign>;
+  update(campaign: Campaign): Promise<Campaign>;
+  delete(id: string): Promise<void>;
 }
 
 // src/infrastructure/repositories/api-campaign-repository.ts
-import { CampaignRepository } from '@/domain/interfaces/campaign-repository'
-import { Campaign } from '@/domain/entities/campaign'
-import { DxaiApiClient } from '../api/dxai-api-client'
+import { CampaignRepository } from "@/domain/interfaces/campaign-repository";
+import { Campaign } from "@/domain/entities/campaign";
+import { UniksmartApiClient } from "../api/Uniksmart-api-client";
 
 interface ApiCampaign {
-  id: string
-  user_id: string
-  name: string
-  status: string
-  platforms: string[]
-  created_at: string
+  id: string;
+  user_id: string;
+  name: string;
+  status: string;
+  platforms: string[];
+  created_at: string;
   // ... API format
 }
 
 export class ApiCampaignRepository implements CampaignRepository {
-  constructor(private api: DxaiApiClient) {}
+  constructor(private api: UniksmartApiClient) {}
 
   async findById(id: string): Promise<Campaign | null> {
     try {
-      const response = await this.api.get<ApiCampaign>(`/campaigns/${id}`)
-      return this.toDomain(response)
+      const response = await this.api.get<ApiCampaign>(`/campaigns/${id}`);
+      return this.toDomain(response);
     } catch (error) {
-      if (error.status === 404) return null
-      throw error
+      if (error.status === 404) return null;
+      throw error;
     }
   }
 
   async findByUserId(userId: string): Promise<Campaign[]> {
-    const response = await this.api.get<ApiCampaign[]>(`/users/${userId}/campaigns`)
-    return response.map(this.toDomain)
+    const response = await this.api.get<ApiCampaign[]>(
+      `/users/${userId}/campaigns`,
+    );
+    return response.map(this.toDomain);
   }
 
   async save(campaign: Campaign): Promise<Campaign> {
-    const apiFormat = this.toApi(campaign)
-    const response = await this.api.post<ApiCampaign>('/campaigns', apiFormat)
-    return this.toDomain(response)
+    const apiFormat = this.toApi(campaign);
+    const response = await this.api.post<ApiCampaign>("/campaigns", apiFormat);
+    return this.toDomain(response);
   }
 
   private toDomain(api: ApiCampaign): Campaign {
@@ -997,21 +1027,21 @@ export class ApiCampaignRepository implements CampaignRepository {
       userId: api.user_id,
       name: api.name,
       status: api.status as CampaignStatus,
-      platforms: api.platforms.map(p => ({ name: p })),
+      platforms: api.platforms.map((p) => ({ name: p })),
       content: [],
       schedule: null,
       analytics: { totalReach: 0, engagement: 0, conversions: 0, roi: 0 },
       createdAt: new Date(api.created_at),
-      updatedAt: new Date(api.created_at)
-    }
+      updatedAt: new Date(api.created_at),
+    };
   }
 
   private toApi(domain: Campaign): Partial<ApiCampaign> {
     return {
       name: domain.name,
       status: domain.status,
-      platforms: domain.platforms.map(p => p.name)
-    }
+      platforms: domain.platforms.map((p) => p.name),
+    };
   }
 }
 ```
@@ -1020,35 +1050,37 @@ export class ApiCampaignRepository implements CampaignRepository {
 
 ```typescript
 // src/application/use-cases/campaigns/create-campaign.ts
-import { Campaign, CampaignStatus } from '@/domain/entities/campaign'
-import { CampaignRepository } from '@/domain/interfaces/campaign-repository'
-import { generateId } from '@/shared/utils/id'
+import { Campaign, CampaignStatus } from "@/domain/entities/campaign";
+import { CampaignRepository } from "@/domain/interfaces/campaign-repository";
+import { generateId } from "@/shared/utils/id";
 
 export interface CreateCampaignRequest {
-  userId: string
-  name: string
-  description?: string
-  platforms: string[]
+  userId: string;
+  name: string;
+  description?: string;
+  platforms: string[];
 }
 
 export interface CreateCampaignResponse {
-  id: string
-  name: string
-  status: CampaignStatus
-  createdAt: string
+  id: string;
+  name: string;
+  status: CampaignStatus;
+  createdAt: string;
 }
 
 export class CreateCampaignUseCase {
   constructor(private campaignRepository: CampaignRepository) {}
 
-  async execute(request: CreateCampaignRequest): Promise<CreateCampaignResponse> {
+  async execute(
+    request: CreateCampaignRequest,
+  ): Promise<CreateCampaignResponse> {
     // Validate
     if (!request.name || request.name.trim().length < 3) {
-      throw new ValidationError('Campaign name must be at least 3 characters')
+      throw new ValidationError("Campaign name must be at least 3 characters");
     }
 
     if (request.platforms.length === 0) {
-      throw new ValidationError('At least one platform is required')
+      throw new ValidationError("At least one platform is required");
     }
 
     // Create campaign entity
@@ -1057,30 +1089,30 @@ export class CreateCampaignUseCase {
       userId: request.userId,
       name: request.name.trim(),
       description: request.description,
-      status: 'draft',
-      platforms: request.platforms.map(name => ({ name })),
+      status: "draft",
+      platforms: request.platforms.map((name) => ({ name })),
       content: [],
       schedule: null,
       analytics: {
         totalReach: 0,
         engagement: 0,
         conversions: 0,
-        roi: 0
+        roi: 0,
       },
       createdAt: new Date(),
-      updatedAt: new Date()
-    }
+      updatedAt: new Date(),
+    };
 
     // Persist
-    const saved = await this.campaignRepository.save(campaign)
+    const saved = await this.campaignRepository.save(campaign);
 
     // Return response DTO
     return {
       id: saved.id,
       name: saved.name,
       status: saved.status,
-      createdAt: saved.createdAt.toISOString()
-    }
+      createdAt: saved.createdAt.toISOString(),
+    };
   }
 }
 ```
@@ -1089,57 +1121,64 @@ export class CreateCampaignUseCase {
 
 ```typescript
 // hooks/use-campaigns.ts
-'use client'
+"use client";
 
-import { useState, useCallback } from 'react'
-import { CampaignService } from '@/application/services/campaign-service'
-import { CreateCampaignRequest, CreateCampaignResponse } from '@/application/use-cases/campaigns/create-campaign'
+import { useState, useCallback } from "react";
+import { CampaignService } from "@/application/services/campaign-service";
+import {
+  CreateCampaignRequest,
+  CreateCampaignResponse,
+} from "@/application/use-cases/campaigns/create-campaign";
 
 // Singleton service instance
-const campaignService = new CampaignService()
+const campaignService = new CampaignService();
 
 export function useCampaigns() {
-  const [campaigns, setCampaigns] = useState<CampaignResponse[]>([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [campaigns, setCampaigns] = useState<CampaignResponse[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchCampaigns = useCallback(async (userId: string) => {
-    setLoading(true)
-    setError(null)
+    setLoading(true);
+    setError(null);
 
     try {
-      const result = await campaignService.getByUser(userId)
-      setCampaigns(result)
+      const result = await campaignService.getByUser(userId);
+      setCampaigns(result);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch campaigns')
+      setError(
+        err instanceof Error ? err.message : "Failed to fetch campaigns",
+      );
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   const createCampaign = useCallback(async (request: CreateCampaignRequest) => {
-    setLoading(true)
-    setError(null)
+    setLoading(true);
+    setError(null);
 
     try {
-      const result = await campaignService.create(request)
-      setCampaigns(prev => [...prev, result])
-      return result
+      const result = await campaignService.create(request);
+      setCampaigns((prev) => [...prev, result]);
+      return result;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create campaign')
-      throw err
+      setError(
+        err instanceof Error ? err.message : "Failed to create campaign",
+      );
+      throw err;
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   return {
     campaigns,
     loading,
     error,
     fetchCampaigns,
-    createCampaign
-  }
+    createCampaign,
+  };
 }
 ```
 
@@ -1187,104 +1226,105 @@ async function CampaignListAsync({ userId }: { userId: string }) {
 
 ```typescript
 // tests/unit/domain/value-objects/email.test.ts
-import { Email } from '@/domain/value-objects/email'
-import { ValidationError } from '@/shared/errors/validation-error'
+import { Email } from "@/domain/value-objects/email";
+import { ValidationError } from "@/shared/errors/validation-error";
 
-describe('Email Value Object', () => {
-  describe('create', () => {
-    it('creates email with valid input', () => {
-      const email = Email.create('test@example.com')
-      expect(email.getValue()).toBe('test@example.com')
-    })
+describe("Email Value Object", () => {
+  describe("create", () => {
+    it("creates email with valid input", () => {
+      const email = Email.create("test@example.com");
+      expect(email.getValue()).toBe("test@example.com");
+    });
 
-    it('normalizes email to lowercase', () => {
-      const email = Email.create('TEST@EXAMPLE.COM')
-      expect(email.getValue()).toBe('test@example.com')
-    })
+    it("normalizes email to lowercase", () => {
+      const email = Email.create("TEST@EXAMPLE.COM");
+      expect(email.getValue()).toBe("test@example.com");
+    });
 
-    it('throws ValidationError for invalid email', () => {
-      expect(() => Email.create('invalid')).toThrow(ValidationError)
-    })
+    it("throws ValidationError for invalid email", () => {
+      expect(() => Email.create("invalid")).toThrow(ValidationError);
+    });
 
-    it('throws ValidationError for empty email', () => {
-      expect(() => Email.create('')).toThrow(ValidationError)
-    })
-  })
+    it("throws ValidationError for empty email", () => {
+      expect(() => Email.create("")).toThrow(ValidationError);
+    });
+  });
 
-  describe('isValid', () => {
-    it('returns true for valid emails', () => {
-      expect(Email.isValid('test@example.com')).toBe(true)
-      expect(Email.isValid('user.name@domain.co.uk')).toBe(true)
-    })
+  describe("isValid", () => {
+    it("returns true for valid emails", () => {
+      expect(Email.isValid("test@example.com")).toBe(true);
+      expect(Email.isValid("user.name@domain.co.uk")).toBe(true);
+    });
 
-    it('returns false for invalid emails', () => {
-      expect(Email.isValid('invalid')).toBe(false)
-      expect(Email.isValid('@domain.com')).toBe(false)
-      expect(Email.isValid('user@')).toBe(false)
-    })
-  })
-})
+    it("returns false for invalid emails", () => {
+      expect(Email.isValid("invalid")).toBe(false);
+      expect(Email.isValid("@domain.com")).toBe(false);
+      expect(Email.isValid("user@")).toBe(false);
+    });
+  });
+});
 ```
 
 ### Integration Tests
 
 ```typescript
 // tests/integration/use-cases/create-campaign.test.ts
-import { CreateCampaignUseCase } from '@/application/use-cases/campaigns/create-campaign'
-import { InMemoryCampaignRepository } from '@/tests/mocks/in-memory-campaign-repository'
+import { CreateCampaignUseCase } from "@/application/use-cases/campaigns/create-campaign";
+import { InMemoryCampaignRepository } from "@/tests/mocks/in-memory-campaign-repository";
 
-describe('CreateCampaignUseCase', () => {
-  let useCase: CreateCampaignUseCase
-  let repository: InMemoryCampaignRepository
+describe("CreateCampaignUseCase", () => {
+  let useCase: CreateCampaignUseCase;
+  let repository: InMemoryCampaignRepository;
 
   beforeEach(() => {
-    repository = new InMemoryCampaignRepository()
-    useCase = new CreateCampaignUseCase(repository)
-  })
+    repository = new InMemoryCampaignRepository();
+    useCase = new CreateCampaignUseCase(repository);
+  });
 
-  it('creates campaign with valid input', async () => {
+  it("creates campaign with valid input", async () => {
     const result = await useCase.execute({
-      userId: 'user-123',
-      name: 'My Campaign',
-      platforms: ['facebook', 'instagram']
-    })
+      userId: "user-123",
+      name: "My Campaign",
+      platforms: ["facebook", "instagram"],
+    });
 
-    expect(result.id).toBeDefined()
-    expect(result.name).toBe('My Campaign')
-    expect(result.status).toBe('draft')
-  })
+    expect(result.id).toBeDefined();
+    expect(result.name).toBe("My Campaign");
+    expect(result.status).toBe("draft");
+  });
 
-  it('persists campaign to repository', async () => {
+  it("persists campaign to repository", async () => {
     const result = await useCase.execute({
-      userId: 'user-123',
-      name: 'My Campaign',
-      platforms: ['facebook']
-    })
+      userId: "user-123",
+      name: "My Campaign",
+      platforms: ["facebook"],
+    });
 
-    const saved = await repository.findById(result.id)
-    expect(saved).not.toBeNull()
-    expect(saved?.name).toBe('My Campaign')
-  })
-})
+    const saved = await repository.findById(result.id);
+    expect(saved).not.toBeNull();
+    expect(saved?.name).toBe("My Campaign");
+  });
+});
 ```
 
 ---
 
 ## Risk Assessment
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|------------|
-| Over-engineering early | Medium | High | Start with minimal layers, add complexity only when needed |
-| Migration breaks features | Medium | High | Incremental migration, comprehensive tests, feature flags |
-| Team learning curve | Low | Medium | Pair programming, code reviews, documentation |
-| Performance overhead | Low | Low | Lazy loading, code splitting, profiling |
-| Import path confusion | Medium | Low | Clear path aliases, linting rules, IDE configuration |
+| Risk                      | Likelihood | Impact | Mitigation                                                 |
+| ------------------------- | ---------- | ------ | ---------------------------------------------------------- |
+| Over-engineering early    | Medium     | High   | Start with minimal layers, add complexity only when needed |
+| Migration breaks features | Medium     | High   | Incremental migration, comprehensive tests, feature flags  |
+| Team learning curve       | Low        | Medium | Pair programming, code reviews, documentation              |
+| Performance overhead      | Low        | Low    | Lazy loading, code splitting, profiling                    |
+| Import path confusion     | Medium     | Low    | Clear path aliases, linting rules, IDE configuration       |
 
 ---
 
 ## Success Criteria
 
 ### Phase 1 Success (Foundation)
+
 - [ ] All existing features work without regression
 - [ ] `src/` directory structure in place
 - [ ] At least 3 value objects created
@@ -1293,6 +1333,7 @@ describe('CreateCampaignUseCase', () => {
 - [ ] Build time < 30 seconds
 
 ### Phase 2 Success (Dashboard Prep)
+
 - [ ] Domain model complete for campaigns/content
 - [ ] Repository pattern working with API
 - [ ] Dashboard layout renders
@@ -1300,6 +1341,7 @@ describe('CreateCampaignUseCase', () => {
 - [ ] Zero runtime errors in production
 
 ### Phase 3 Success (Core Features)
+
 - [ ] Campaign CRUD fully functional
 - [ ] Content creation with AI working
 - [ ] 3+ platform integrations active
@@ -1307,6 +1349,7 @@ describe('CreateCampaignUseCase', () => {
 - [ ] < 3 second page load time
 
 ### Phase 4 Success (Scale)
+
 - [ ] Enterprise features operational
 - [ ] Team collaboration working
 - [ ] < 100ms API response times
@@ -1319,12 +1362,12 @@ describe('CreateCampaignUseCase', () => {
 
 ### Layer Responsibility Summary
 
-| Layer | Contains | Depends On | Example Files |
-|-------|----------|------------|---------------|
-| Domain | Entities, Value Objects, Interfaces | Nothing | `campaign.ts`, `email.ts` |
-| Application | Use Cases, Services, DTOs | Domain | `create-campaign.ts` |
-| Infrastructure | API Clients, Repositories | Domain interfaces | `api-campaign-repository.ts` |
-| Presentation | Pages, Components, Hooks | Application | `page.tsx`, `CampaignList.tsx` |
+| Layer          | Contains                            | Depends On        | Example Files                  |
+| -------------- | ----------------------------------- | ----------------- | ------------------------------ |
+| Domain         | Entities, Value Objects, Interfaces | Nothing           | `campaign.ts`, `email.ts`      |
+| Application    | Use Cases, Services, DTOs           | Domain            | `create-campaign.ts`           |
+| Infrastructure | API Clients, Repositories           | Domain interfaces | `api-campaign-repository.ts`   |
+| Presentation   | Pages, Components, Hooks            | Application       | `page.tsx`, `CampaignList.tsx` |
 
 ### When to Add Code to Each Layer
 
@@ -1337,4 +1380,4 @@ describe('CreateCampaignUseCase', () => {
 
 **Document Version**: 1.0.0
 **Last Updated**: 2026-01-20
-**Approved By**: DXAI Architecture Team
+**Approved By**: Uniksmart Architecture Team

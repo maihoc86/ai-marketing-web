@@ -29,14 +29,15 @@ import { cn } from "@/lib/utils";
 export function ProductEnterprise() {
   const { t } = useI18n();
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const [isWhyDxaiHeaderVisible, setIsWhyDxaiHeaderVisible] = useState(false);
+  const [isWhyUniksmartHeaderVisible, setIsWhyUniksmartHeaderVisible] =
+    useState(false);
   const [isCoreCapabilitiesVisible, setIsCoreCapabilitiesVisible] =
     useState(false);
   const [isTechnologyHeaderVisible, setIsTechnologyHeaderVisible] =
     useState(false);
 
   const headerRef = useRef<HTMLDivElement>(null);
-  const whyDxaiHeaderRef = useRef<HTMLDivElement>(null);
+  const whyUniksmartHeaderRef = useRef<HTMLDivElement>(null);
   const coreCapabilitiesRef = useRef<HTMLDivElement>(null);
   const technologyHeaderRef = useRef<HTMLDivElement>(null);
 
@@ -46,8 +47,8 @@ export function ProductEnterprise() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.target === headerRef.current) setIsHeaderVisible(true);
-            if (entry.target === whyDxaiHeaderRef.current)
-              setIsWhyDxaiHeaderVisible(true);
+            if (entry.target === whyUniksmartHeaderRef.current)
+              setIsWhyUniksmartHeaderVisible(true);
             if (entry.target === coreCapabilitiesRef.current)
               setIsCoreCapabilitiesVisible(true);
             if (entry.target === technologyHeaderRef.current)
@@ -59,7 +60,8 @@ export function ProductEnterprise() {
     );
 
     if (headerRef.current) observer.observe(headerRef.current);
-    if (whyDxaiHeaderRef.current) observer.observe(whyDxaiHeaderRef.current);
+    if (whyUniksmartHeaderRef.current)
+      observer.observe(whyUniksmartHeaderRef.current);
     if (coreCapabilitiesRef.current)
       observer.observe(coreCapabilitiesRef.current);
     if (technologyHeaderRef.current)
@@ -68,7 +70,7 @@ export function ProductEnterprise() {
     return () => observer.disconnect();
   }, []);
 
-  const whyDxaiFeatures = [
+  const whyUniksmartFeatures = [
     {
       icon: Layers,
       titleKey: "about.product.why.allinone.title",
@@ -201,10 +203,10 @@ export function ProductEnterprise() {
         {/* Why Uniksmart - 4 Cards */}
         <div className="mb-24">
           <div
-            ref={whyDxaiHeaderRef}
+            ref={whyUniksmartHeaderRef}
             className={cn(
               "text-center mb-12 transition-all duration-700",
-              isWhyDxaiHeaderVisible
+              isWhyUniksmartHeaderVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8",
             )}
@@ -218,8 +220,13 @@ export function ProductEnterprise() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyDxaiFeatures.map((feature, index) => (
-              <WhyDxaiCard key={index} feature={feature} index={index} t={t} />
+            {whyUniksmartFeatures.map((feature, index) => (
+              <WhyUniksmartCard
+                key={index}
+                feature={feature}
+                index={index}
+                t={t}
+              />
             ))}
           </div>
         </div>
@@ -303,7 +310,7 @@ export function ProductEnterprise() {
 }
 
 // Sub-components
-interface WhyDxaiFeature {
+interface WhyUniksmartFeature {
   icon: React.ElementType;
   titleKey: string;
   descKey: string;
@@ -312,12 +319,12 @@ interface WhyDxaiFeature {
   lightBg: string;
 }
 
-function WhyDxaiCard({
+function WhyUniksmartCard({
   feature,
   index,
   t,
 }: {
-  feature: WhyDxaiFeature;
+  feature: WhyUniksmartFeature;
   index: number;
   t: (key: string) => string;
 }) {

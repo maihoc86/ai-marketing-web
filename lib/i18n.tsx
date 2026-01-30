@@ -29,7 +29,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "nav.trialFree": "Dùng thử miễn phí",
 
     "featurePage.content.problems.oldWay.header": "Cách cũ",
-    "featurePage.content.problems.dxaiWay.header": "Giải pháp",
+    "featurePage.content.problems.UniksmartWay.header": "Giải pháp",
 
     // Hero Section
     "hero.badge": "#1 AI MARKETING PLATFORM TẠI VIỆT NAM",
@@ -573,8 +573,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.header.traditional": "Marketing Truyền thống",
     "roi.header.traditional.manual": "Quy trình thủ công",
     "roi.header.recommended": "ĐƯỢC ĐỀ XUẤT",
-    "roi.header.dxai": "Uniksmart AI",
-    "roi.header.dxai.auto": "Tự động hóa 100%",
+    "roi.header.Uniksmart": "Uniksmart AI",
+    "roi.header.Uniksmart.auto": "Tự động hóa 100%",
     "roi.mobile.traditional": "Truyền thống",
     "roi.cta.ready": "Sẵn sàng chuyển đổi số và tăng trưởng với AI Marketing?",
     "roi.cta.start": "Bắt đầu ngay",
@@ -697,8 +697,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.traditional": "Phương pháp truyền thống",
     "whyChoose.optura.traditional.manual": "Tiếp cận thủ công",
     "whyChoose.optura.bestChoice": "LỰA CHỌN TỐT NHẤT",
-    "whyChoose.optura.dxai": "Nền tảng Uniksmart",
-    "whyChoose.optura.dxai.auto": "Giải pháp tự động",
+    "whyChoose.optura.Uniksmart": "Nền tảng Uniksmart",
+    "whyChoose.optura.Uniksmart.auto": "Giải pháp tự động",
     "whyChoose.optura.guarantee.title": "Cam kết hiệu quả",
     "whyChoose.optura.guarantee.desc":
       "Các chỉ số dựa trên dữ liệu trung bình từ hơn 500+ doanh nghiệp đã chuyển đổi sang hệ sinh thái Uniksmart. Tiết kiệm 80% chi phí được tính toán trên tổng ngân sách nhân sự và sản xuất.",
@@ -712,21 +712,21 @@ const translations: Record<Locale, Record<string, string>> = {
     // Why Choose Optura Comparison Rows
     "whyChoose.optura.row1.criteria": "Chi phí",
     "whyChoose.optura.row1.traditional": "~$555 / tháng",
-    "whyChoose.optura.row1.dxai": "~$255 / tháng",
+    "whyChoose.optura.row1.Uniksmart": "~$255 / tháng",
     "whyChoose.optura.row1.savings": "Tiết kiệm ~54%",
     "whyChoose.optura.row2.criteria": "Sản lượng Video",
     "whyChoose.optura.row2.traditional": "10–15 video/tháng",
-    "whyChoose.optura.row2.dxai": "~25 video/tháng",
+    "whyChoose.optura.row2.Uniksmart": "~25 video/tháng",
     "whyChoose.optura.row3.criteria": "Thời gian/Video",
     "whyChoose.optura.row3.traditional": "1–2 ngày/video",
-    "whyChoose.optura.row3.dxai": "~2 phút/video",
+    "whyChoose.optura.row3.Uniksmart": "~2 phút/video",
     "whyChoose.optura.row4.criteria": "Đa nhiệm",
     "whyChoose.optura.row4.traditional": "Công việc đơn lẻ",
-    "whyChoose.optura.row4.dxai": "Video + Hình ảnh + Bài viết + Chatbot",
+    "whyChoose.optura.row4.Uniksmart": "Video + Hình ảnh + Bài viết + Chatbot",
     "whyChoose.optura.row5.criteria": "Vận hành",
     "whyChoose.optura.row5.traditional":
       "Cần ca làm việc, nghỉ phép, giám sát thủ công",
-    "whyChoose.optura.row5.dxai": "Tự động 24/7",
+    "whyChoose.optura.row5.Uniksmart": "Tự động 24/7",
 
     // Trusted Businesses Section
     "trusted.title.prefix": "Được tin dùng bởi hơn",
@@ -1376,16 +1376,18 @@ const translations: Record<Locale, Record<string, string>> = {
       "Hình Stock Nhàm Chán",
     "featurePage.content.problems.oldWay.problem3.desc":
       "Hình ảnh chung chung mà mọi người đã dùng.",
-    "featurePage.content.problems.dxaiWay.title": "Cách của DXAI",
-    "featurePage.content.problems.dxaiWay.solution1.title": "Chân Thực Tức Thì",
-    "featurePage.content.problems.dxaiWay.solution1.desc":
+    "featurePage.content.problems.UniksmartWay.title": "Cách của Uniksmart",
+    "featurePage.content.problems.UniksmartWay.solution1.title":
+      "Chân Thực Tức Thì",
+    "featurePage.content.problems.UniksmartWay.solution1.desc":
       "Tạo cảnh chất lượng studio từ văn bản đơn giản.",
-    "featurePage.content.problems.dxaiWay.solution2.title":
+    "featurePage.content.problems.UniksmartWay.solution2.title":
       "Lặp Lại Siêu Nhanh",
-    "featurePage.content.problems.dxaiWay.solution2.desc":
+    "featurePage.content.problems.UniksmartWay.solution2.desc":
       "Thay đổi màu sắc, ánh sáng hoặc đạo cụ trong dưới 10 giây.",
-    "featurePage.content.problems.dxaiWay.solution3.title": "Độc Đáo Thật Sự",
-    "featurePage.content.problems.dxaiWay.solution3.desc":
+    "featurePage.content.problems.UniksmartWay.solution3.title":
+      "Độc Đáo Thật Sự",
+    "featurePage.content.problems.UniksmartWay.solution3.desc":
       "Tài sản độc nhất phù hợp hoàn hảo với DNA thương hiệu của bạn.",
     "featurePage.content.capabilities.badge": "Hệ Sinh Thái Studio",
     "featurePage.content.capabilities.title": "Studio Nội Dung AI Hoàn Chỉnh",
@@ -1425,7 +1427,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.tryAgain": "Thử lại",
     "featurePage.content.demo.history": "Lịch sử",
     "featurePage.content.demo.viewAll": "Xem tất cả",
-    "featurePage.content.gallery.title": "Được Tạo Với AI của DXAI",
+    "featurePage.content.gallery.title": "Được Tạo Với AI của Uniksmart",
     "featurePage.content.gallery.subtitle":
       "Khám phá cách các thương hiệu hàng đầu mở rộng sản xuất sáng tạo.",
     "featurePage.content.gallery.filter.all": "Tất cả",
@@ -1446,7 +1448,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Tải xuống tài sản độ phân giải cao hoặc đẩy trực tiếp lên kênh mạng xã hội và quản lý quảng cáo chỉ bằng một cú nhấp chuột.",
     "featurePage.content.cta.title": "Sẵn Sàng Chuyển Đổi Quy Trình Sáng Tạo?",
     "featurePage.content.cta.description":
-      "Tham gia hàng nghìn công ty sử dụng DXAI để mở rộng sản xuất hình ảnh một cách dễ dàng.",
+      "Tham gia hàng nghìn công ty sử dụng Uniksmart để mở rộng sản xuất hình ảnh một cách dễ dàng.",
     "featurePage.content.cta.startTrial": "Bắt Đầu Dùng Thử Miễn Phí",
     "featurePage.content.cta.bookDemo": "Đặt Lịch Demo",
     "featurePage.content.marketingNeeds.title":
@@ -1492,9 +1494,9 @@ const translations: Record<Locale, Record<string, string>> = {
       "Loại bỏ chi phí outsource đắt đỏ và nhiều vòng chỉnh sửa. Đội ngũ nội bộ trở thành nhà sáng tạo.",
     "featurePage.content.comparison.title": "Xem Sự Khác Biệt",
     "featurePage.content.comparison.subtitle":
-      "So sánh đầu ra AI generic tiêu chuẩn với công cụ neural tinh chỉnh cho thương hiệu của DXAI.",
+      "So sánh đầu ra AI generic tiêu chuẩn với công cụ neural tinh chỉnh cho thương hiệu của Uniksmart.",
     "featurePage.content.comparison.standardAI": "AI Tiêu Chuẩn",
-    "featurePage.content.comparison.dxaiPro": "DXAI Pro",
+    "featurePage.content.comparison.UniksmartPro": "Uniksmart",
     "featurePage.content.comparison.hint":
       "Kéo thanh trượt để khám phá sự nâng cấp chi tiết",
 
@@ -1603,7 +1605,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     "featurePage.content.hero.4kQuality": "4K Quality",
     "featurePage.content.problems.oldWay.header": "Old Way",
-    "featurePage.content.problems.dxaiWay.header": "Solution",
+    "featurePage.content.problems.UniksmartWay.header": "Solution",
 
     // Hero Section
     "hero.badge": "#1 AI MARKETING PLATFORM IN VIETNAM",
@@ -2320,8 +2322,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "roi.header.traditional.manual": "Manual Approach",
     "roi.header.traditional": "Traditional Marketing",
     "roi.header.recommended": "RECOMMENDED",
-    "roi.header.dxai": "Uniksmart AI",
-    "roi.header.dxai.auto": "Automated 100%",
+    "roi.header.Uniksmart": "Uniksmart AI",
+    "roi.header.Uniksmart.auto": "Automated 100%",
     "roi.mobile.traditional": "Traditional",
     "roi.cta.ready": "Ready to Transform with AI Marketing?",
     "roi.cta.start": "Get Started",
@@ -2381,8 +2383,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "whyChoose.optura.traditional": "Traditional Method",
     "whyChoose.optura.traditional.manual": "Manual Approach",
     "whyChoose.optura.bestChoice": "BEST CHOICE",
-    "whyChoose.optura.dxai": "Uniksmart",
-    "whyChoose.optura.dxai.auto": "Automated Solution",
+    "whyChoose.optura.Uniksmart": "Uniksmart",
+    "whyChoose.optura.Uniksmart.auto": "Automated Solution",
     "whyChoose.optura.guarantee.title": "Guaranteed Results",
     "whyChoose.optura.guarantee.desc":
       "Metrics based on average data from 500+ businesses that have transitioned to the Uniksmart ecosystem. 80% cost savings calculated on total staffing and production budget.",
@@ -2396,21 +2398,21 @@ const translations: Record<Locale, Record<string, string>> = {
     // Why Choose Optura Comparison Rows
     "whyChoose.optura.row1.criteria": "Cost",
     "whyChoose.optura.row1.traditional": "~$555 / month",
-    "whyChoose.optura.row1.dxai": "~$255 / month",
+    "whyChoose.optura.row1.Uniksmart": "~$255 / month",
     "whyChoose.optura.row1.savings": "Save ~54%",
     "whyChoose.optura.row2.criteria": "Video Output",
     "whyChoose.optura.row2.traditional": "10–15 videos/month",
-    "whyChoose.optura.row2.dxai": "~25 videos/month",
+    "whyChoose.optura.row2.Uniksmart": "~25 videos/month",
     "whyChoose.optura.row3.criteria": "Time per Video",
     "whyChoose.optura.row3.traditional": "1–2 days/video",
-    "whyChoose.optura.row3.dxai": "~2 minutes/video",
+    "whyChoose.optura.row3.Uniksmart": "~2 minutes/video",
     "whyChoose.optura.row4.criteria": "Multitasking",
     "whyChoose.optura.row4.traditional": "Single task",
-    "whyChoose.optura.row4.dxai": "Video + Images + Articles + Chatbot",
+    "whyChoose.optura.row4.Uniksmart": "Video + Images + Articles + Chatbot",
     "whyChoose.optura.row5.criteria": "Operation",
     "whyChoose.optura.row5.traditional":
       "Requires shifts, leave, manual oversight",
-    "whyChoose.optura.row5.dxai": "Automated 24/7",
+    "whyChoose.optura.row5.Uniksmart": "Automated 24/7",
 
     // Trusted Businesses Section
     "trusted.title.prefix": "Trusted by over",
@@ -2997,18 +2999,18 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.problems.oldWay.problem3.title": "Stock Image Burnout",
     "featurePage.content.problems.oldWay.problem3.desc":
       "Generic visuals that everyone else is already using.",
-    "featurePage.content.problems.dxaiWay.title": "The DXAI Way",
-    "featurePage.content.problems.dxaiWay.solution1.title":
+    "featurePage.content.problems.UniksmartWay.title": "The Uniksmart Way",
+    "featurePage.content.problems.UniksmartWay.solution1.title":
       "Instant Photorealism",
-    "featurePage.content.problems.dxaiWay.solution1.desc":
+    "featurePage.content.problems.UniksmartWay.solution1.desc":
       "Generate studio-quality scenes from a simple text prompt.",
-    "featurePage.content.problems.dxaiWay.solution2.title":
+    "featurePage.content.problems.UniksmartWay.solution2.title":
       "Lightning-Fast Iteration",
-    "featurePage.content.problems.dxaiWay.solution2.desc":
+    "featurePage.content.problems.UniksmartWay.solution2.desc":
       "Change colors, lighting, or props in under 10 seconds.",
-    "featurePage.content.problems.dxaiWay.solution3.title":
+    "featurePage.content.problems.UniksmartWay.solution3.title":
       "True Brand Originality",
-    "featurePage.content.problems.dxaiWay.solution3.desc":
+    "featurePage.content.problems.UniksmartWay.solution3.desc":
       "Unique assets that match your brand DNA perfectly.",
     "featurePage.content.capabilities.badge": "The Studio Ecosystem",
     "featurePage.content.capabilities.title": "Your Complete AI Content Studio",
@@ -3047,7 +3049,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.tryAgain": "Try Again",
     "featurePage.content.demo.history": "History",
     "featurePage.content.demo.viewAll": "View All",
-    "featurePage.content.gallery.title": "Created with DXAI AI",
+    "featurePage.content.gallery.title": "Created with Uniksmart AI",
     "featurePage.content.gallery.subtitle":
       "Discover how top brands are scaling their creative output.",
     "featurePage.content.gallery.filter.all": "All",
@@ -3069,7 +3071,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.cta.title":
       "Ready to transform your creative workflow?",
     "featurePage.content.cta.description":
-      "Join thousands of companies using DXAI to scale their visual production effortlessly.",
+      "Join thousands of companies using Uniksmart to scale their visual production effortlessly.",
     "featurePage.content.cta.startTrial": "Start Free Trial",
     "featurePage.content.cta.bookDemo": "Book a Demo",
     "featurePage.content.marketingNeeds.title":
@@ -3116,9 +3118,9 @@ const translations: Record<Locale, Record<string, string>> = {
       "Eliminate expensive outsourcing costs and multiple revisions. Your internal team becomes a creative powerhouse.",
     "featurePage.content.comparison.title": "See the Difference",
     "featurePage.content.comparison.subtitle":
-      "Compare standard generic AI outputs with DXAI's brand-tuned neural engine.",
+      "Compare standard generic AI outputs with Uniksmart's brand-tuned neural engine.",
     "featurePage.content.comparison.standardAI": "Standard AI",
-    "featurePage.content.comparison.dxaiPro": "DXAI Pro",
+    "featurePage.content.comparison.UniksmartPro": "Uniksmart",
     "featurePage.content.comparison.hint":
       "Drag the slider to explore the detail enhancement",
 

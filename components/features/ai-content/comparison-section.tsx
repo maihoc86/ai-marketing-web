@@ -89,21 +89,21 @@ export function AIContentComparisonSection() {
             </span>
           </div>
 
-          {/* DXAI Pro Side (Clipped) */}
+          {/* Uniksmart Pro Side (Clipped) */}
           <div
             className="absolute inset-0 overflow-hidden"
             style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
           >
             <div className="w-full h-full">
               <img
-                src="/images/comparison/dxai-pro.jpg"
-                alt="DXAI Pro output"
+                src="/images/comparison/Uniksmart-pro.jpg"
+                alt="Uniksmart Pro output"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-r from-[#22b5f8]/10 to-[#008bff]/10" />
             </div>
             <span className="absolute top-4 right-6 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-widest">
-              {t("featurePage.content.comparison.dxaiPro")}
+              {t("featurePage.content.comparison.UniksmartPro")}
             </span>
           </div>
 

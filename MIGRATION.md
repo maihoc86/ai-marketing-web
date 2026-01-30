@@ -3,7 +3,7 @@
 > **Version**: 1.0.0
 > **Date**: 2026-01-20
 
-This guide provides step-by-step instructions for migrating the DXAI Marketing Platform from its current structure to the new Pragmatic Clean Architecture.
+This guide provides step-by-step instructions for migrating the Uniksmart Marketing Platform from its current structure to the new Pragmatic Clean Architecture.
 
 ---
 
@@ -318,11 +318,11 @@ export class RegisterUserUseCase {
 ```typescript
 // src/infrastructure/repositories/api-user-repository.ts
 import type { UserRepository } from "@/src/domain/interfaces/user-repository";
-import { dxaiApiClient } from "../api/dxai-api-client";
+import { UniksmartApiClient } from "../api/Uniksmart-api-client";
 
 export class ApiUserRepository implements UserRepository {
   async save(user: User): Promise<User> {
-    const response = await dxaiApiClient.post("/users/register-company", {
+    const response = await UniksmartApiClient.post("/users/register-company", {
       email: user.email.getValue(),
       phone_number: user.phone.getValue(),
       // ... other fields
@@ -408,15 +408,15 @@ import { HeroSection } from "@/components/features/landing/hero/hero-section";
 
 ## File Migration Map
 
-| Current Location      | New Location                                | Priority |
-| --------------------- | ------------------------------------------- | -------- |
-| `lib/utils.ts`        | `src/shared/utils/cn.ts`                    | High     |
-| `lib/validation.ts`   | `src/domain/value-objects/`                 | High     |
-| `lib/api-client.ts`   | `src/infrastructure/api/dxai-api-client.ts` | High     |
-| `lib/i18n.tsx`        | `lib/i18n/index.ts` + `translations/`       | Medium   |
-| `components/landing/` | `components/features/landing/`              | Low      |
-| `components/forms/`   | `components/features/auth/`                 | Medium   |
-| `components/about/`   | `components/features/landing/about/`        | Low      |
+| Current Location      | New Location                                     | Priority |
+| --------------------- | ------------------------------------------------ | -------- |
+| `lib/utils.ts`        | `src/shared/utils/cn.ts`                         | High     |
+| `lib/validation.ts`   | `src/domain/value-objects/`                      | High     |
+| `lib/api-client.ts`   | `src/infrastructure/api/Uniksmart-api-client.ts` | High     |
+| `lib/i18n.tsx`        | `lib/i18n/index.ts` + `translations/`            | Medium   |
+| `components/landing/` | `components/features/landing/`                   | Low      |
+| `components/forms/`   | `components/features/auth/`                      | Medium   |
+| `components/about/`   | `components/features/landing/about/`             | Low      |
 
 ---
 

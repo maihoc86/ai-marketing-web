@@ -1,6 +1,6 @@
-# 🎨 DXAI Marketing Platform - REDESIGN IMPLEMENTATION PLAN
+# 🎨 Uniksmart Marketing Platform - REDESIGN IMPLEMENTATION PLAN
 
-> **Objective:** Redesign the DXAI Marketing Platform website with modern light theme design while preserving 100% of existing Vietnamese/English content, pricing, and company information.
+> **Objective:** Redesign the Uniksmart Marketing Platform website with modern light theme design while preserving 100% of existing Vietnamese/English content, pricing, and company information.
 
 **Date:** 2026-01-19
 **Status:** Planning Phase
@@ -131,7 +131,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ [Logo] DXAI Marketing Platform   [Nav Links]   [Lang] [CTA] │
+│ [Logo] Uniksmart Marketing Platform   [Nav Links]   [Lang] [CTA] │
 └─────────────────────────────────────────────────────┘
 
 Features:
@@ -277,7 +277,7 @@ Features:
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
-│  Why Choose DXAI Marketing Platform?                        │
+│  Why Choose Uniksmart Marketing Platform?                        │
 │  So sánh hiệu quả: Truyền thống vs AI              │
 │                                                     │
 │  ╔═══════════════╦══════════════╦════════════════╗ │
@@ -356,7 +356,7 @@ Features:
 │  │ 👤 Anh Nguyễn Văn Minh                     │  │
 │  │ Tổng Giám đốc - Tiên Phong CDS             │  │
 │  │                                             │  │
-│  │ "DXAI Marketing Platform được xây dựng từ những    │  │
+│  │ "Uniksmart Marketing Platform được xây dựng từ những    │  │
 │  │ vấn đề thực tế mà chúng tôi và nhiều       │  │
 │  │ doanh nghiệp Việt gặp phải..."             │  │
 │  │                                             │  │
@@ -409,10 +409,10 @@ Features:
 │  Frequently Asked Questions                         │
 │  Câu hỏi thường gặp                                │
 │                                                     │
-│  ▼ DXAI Marketing Platform là gì?                          │
-│     DXAI Marketing Platform là nền tảng hợp nhất...        │
+│  ▼ Uniksmart Marketing Platform là gì?                          │
+│     Uniksmart Marketing Platform là nền tảng hợp nhất...        │
 │                                                     │
-│  ▶ DXAI Marketing Platform hỗ trợ những gì?                │
+│  ▶ Uniksmart Marketing Platform hỗ trợ những gì?                │
 │                                                     │
 │  ▶ Có được sử dụng miễn phí không?                 │
 │                                                     │
@@ -462,7 +462,7 @@ Features:
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
-│ [Logo] DXAI Marketing Platform                              │
+│ [Logo] Uniksmart Marketing Platform                              │
 │                                                     │
 │ Giải pháp Marketing tự động hoá toàn diện dành     │
 │ cho doanh nghiệp. Tiên phong ứng dụng AI vào...    │
@@ -941,7 +941,7 @@ xl: 1280px  /* Desktops */
 - Testimonial quotes with avatars
 - Brand logo carousel (grayscale with hover)
 
-**Applicable to DXAI Marketing Platform:**
+**Applicable to Uniksmart Marketing Platform:**
 
 - Use stats grid for: 500+ businesses, 63 provinces, 50+ industries
 - Adapt success stories for customer testimonials
@@ -958,7 +958,7 @@ xl: 1280px  /* Desktops */
 - Feature comparison table (zebra striping)
 - Security badges (SOC2, GDPR, ISO, AES)
 
-**Applicable to DXAI Marketing Platform:**
+**Applicable to Uniksmart Marketing Platform:**
 
 - **EXACT pricing structure match!** (Startup/Growth/Enterprise)
 - Use ROI calculator concept (optional feature)
@@ -976,7 +976,7 @@ xl: 1280px  /* Desktops */
 - Platform icons: Salesforce, HubSpot, LinkedIn, Google Ads
 - Animated pulse effect on Core OS node
 
-**Applicable to DXAI Marketing Platform:**
+**Applicable to Uniksmart Marketing Platform:**
 
 - Use for "Why Choose" section (4 benefits)
 - Platform integration diagram
@@ -996,7 +996,7 @@ xl: 1280px  /* Desktops */
 - Trust badges row (avatars + SOC 2 + GDPR)
 - Scrolling brand logos (infinite marquee)
 
-**Applicable to DXAI Marketing Platform:**
+**Applicable to Uniksmart Marketing Platform:**
 
 - **PERFECT for hero section redesign!**
 - Dashboard mockup shows: Total Reach, AI Efficiency, Regional data
@@ -1176,7 +1176,7 @@ xl: 1280px  /* Desktops */
 
 ---
 
-**Document Owner:** DXAI Marketing Platform Redesign Team
+**Document Owner:** Uniksmart Marketing Platform Redesign Team
 **Last Updated:** 2026-01-19
 **Version:** 1.0
 **Status:** Ready for Implementation
