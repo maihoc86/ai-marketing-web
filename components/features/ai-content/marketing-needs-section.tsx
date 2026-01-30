@@ -12,7 +12,7 @@ export function AIContentMarketingNeedsSection() {
   const categories = [
     {
       icon: Share2,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       iconColor: "text-blue-600",
       titleKey: "featurePage.content.marketingNeeds.social.title",
       descKey: "featurePage.content.marketingNeeds.social.desc",
@@ -25,7 +25,7 @@ export function AIContentMarketingNeedsSection() {
     },
     {
       icon: ShoppingBag,
-      iconBg: "bg-orange-100",
+      iconBg: "#FFF7ED",
       iconColor: "text-orange-600",
       titleKey: "featurePage.content.marketingNeeds.ecommerce.title",
       descKey: "featurePage.content.marketingNeeds.ecommerce.desc",
@@ -38,7 +38,7 @@ export function AIContentMarketingNeedsSection() {
     },
     {
       icon: Target,
-      iconBg: "bg-purple-100",
+      iconBg: "#F3E8FF",
       iconColor: "text-purple-600",
       titleKey: "featurePage.content.marketingNeeds.advertising.title",
       descKey: "featurePage.content.marketingNeeds.advertising.desc",
@@ -78,9 +78,13 @@ export function AIContentMarketingNeedsSection() {
               >
                 {/* Icon */}
                 <div
-                  className={`size-12 rounded-xl ${category.iconBg} flex items-center justify-center mb-6`}
+                  className={`size-12 rounded-xl flex items-center justify-center mb-6`}
+                  style={{ backgroundColor: category.iconBg }}
                 >
-                  <Icon className={`w-6 h-6 ${category.iconColor}`} />
+                  <Icon
+                    className="w-6 h-6"
+                    style={{ color: category.iconColor }}
+                  />
                 </div>
 
                 {/* Title */}

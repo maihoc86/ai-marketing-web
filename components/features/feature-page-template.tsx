@@ -71,10 +71,10 @@ export function FeaturePageTemplate({
               <div
                 className={cn(
                   "inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6",
-                  iconBg,
                 )}
+                style={{ backgroundColor: iconBg }}
               >
-                <FeatureIcon className={cn("w-8 h-8", iconColor)} />
+                <FeatureIcon className="w-8 h-8" style={{ color: iconColor }} />
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -171,10 +171,13 @@ export function FeaturePageTemplate({
                   <div
                     className={cn(
                       "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4",
-                      iconBg,
                     )}
+                    style={{ backgroundColor: iconBg }}
                   >
-                    <ItemIcon className={cn("w-6 h-6", iconColor)} />
+                    <ItemIcon
+                      className="w-6 h-6"
+                      style={{ color: iconColor }}
+                    />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {t(feature.nameKey)}

@@ -112,21 +112,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.learnMore": "Tìm hiểu thêm",
     "features.chatbot.title": "AI Chatbot CSKH 24/7",
     "features.chatbot.desc":
-      "Trợ lý AI thông minh được huấn luyện với dữ liệu thực tế của doanh nghiệp bạn. Tư vấn sản phẩm, báo giá tức thì, đặt lịch hẹn và chuyển lead chất lượng cao cho đội sales - tất cả hoạt động 24/7 không cần nghỉ ngơi. Giảm 99% thời gian chờ đợi của khách hàng.",
+      "Hệ thống chatbot AI thông minh tự động hóa toàn bộ quy trình chăm sóc khách hàng — từ tư vấn sản phẩm, báo giá tự động, tới đặt lịch hẹn và phân loại lead — hoạt động 24/7 trên nhiều nền tảng.",
     "features.chatbot.stats":
       "Phản hồi tức thì 24/7 • Giảm 99% thời gian chờ đợi",
-    "features.chatbot.feature1.name": "Tư vấn Sản phẩm & Dịch vụ",
+    "features.chatbot.feature1.name": "Tư vấn Sản phẩm & Dịch vụ Cá nhân hoá",
     "features.chatbot.feature1.desc":
-      "Tự động tư vấn chi tiết về gói sản phẩm, dịch vụ và tính năng dựa trên nhu cầu khách hàng với kịch bản cá nhân hóa",
-    "features.chatbot.feature2.name": "Báo giá Tức thì",
+      "AI được huấn luyện trên dữ liệu doanh nghiệp bạn — hiểu ngành hàng, sản phẩm và giọng điệu thương hiệu.",
+    "features.chatbot.feature2.name": "Báo giá Tự động tức thì",
     "features.chatbot.feature2.desc":
-      "Tính toán và cung cấp báo giá ước tính ngay lập tức dựa trên yêu cầu khách hàng nhập vào 24/7",
-    "features.chatbot.feature3.name": "Kiểm tra Lịch & Đặt hẹn",
+      "Tính toán và cung cấp báo giá ước tính trong vài giây, bất cứ lúc nào trong ngày.",
+    "features.chatbot.feature3.name": "So sánh Sản phẩm & Gợi ý Thông minh",
     "features.chatbot.feature3.desc":
-      "Kết nối realtime với hệ thống lịch để kiểm tra trống và hỗ trợ đặt lịch hẹn tự động",
-    "features.chatbot.feature4.name": "Chuyển Lead Chất lượng",
+      "Giúp khách hàng so sánh sản phẩm và nhận gợi ý phù hợp ngay trong cuộc hội thoại.",
+    "features.chatbot.feature4.name":
+      "Tích hợp Lịch & Đặt hẹn Theo thời gian thực",
     "features.chatbot.feature4.desc":
-      "Phân loại mức độ tiềm năng lead (Hot/Warm/Cold) và tự động đẩy thông tin vào CRM hoặc thông báo cho đội Sales",
+      "Tự động kiểm tra lịch trống và lên lịch tư vấn, demo hoặc cuộc họp từ trong chat.",
+    "features.chatbot.feature5.name":
+      "Đánh giá Lead Thông minh (Hot / Warm / Cold)",
+    "features.chatbot.feature5.desc":
+      "Đánh giá mức độ quan tâm và đồng bộ lead đủ điều kiện vào CRM tự động.",
+    "features.chatbot.feature6.name": "Chuyển giao cho Nhân viên Mượt mà",
+    "features.chatbot.feature6.desc":
+      "Chuyển ngay các yêu cầu phức tạp cho nhân viên với đầy đủ ngữ cảnh hội thoại.",
     "features.chatbot.metric1.name": "Thời gian Phản hồi Trung bình",
     "features.chatbot.metric1.value": "~3 giây",
     "features.chatbot.metric1.note": "Giảm 99% so với thủ công",
@@ -136,6 +144,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.chatbot.metric3.name": "Vận hành Liên tục",
     "features.chatbot.metric3.value": "24/7/365",
     "features.chatbot.metric3.note": "Không bỏ lỡ khách hàng nào",
+    "features.chatbot.why.title": "Tại sao chọn Chatbot CSKH AI?",
+    "features.chatbot.why.bullet1":
+      "Phản hồi ngay lập tức — không bỏ lỡ cơ hội bán hàng",
+    "features.chatbot.why.bullet2":
+      "Giảm khối lượng công việc cho đội hỗ trợ lên đến 80%",
+    "features.chatbot.why.bullet3":
+      "Hoạt động 24/7/365 — bao gồm ngày lễ và cuối tuần",
+    "features.chatbot.why.bullet4":
+      "Tăng tỷ lệ chuyển đổi nhờ phản hồi cá nhân hoá, hiểu ngữ cảnh",
+    "features.chatbot.cta": "Liên hệ chuyên gia",
     "features.video.title": "AI Video Factory",
     "features.video.desc":
       "Sản xuất video marketing chuyên nghiệp với KOL Ảo chỉ trong 5 phút. Không cần quay phim, không cần studio, không cần thuê KOL thật với chi phí hàng chục triệu. AI tự động tạo video với giọng nói tự nhiên, lip-sync hoàn hảo và đa ngôn ngữ. Tiết kiệm 95% chi phí so với phương pháp truyền thống.",
@@ -1645,22 +1663,32 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.titleHighlight": "overview",
     "features.subtitle": "Everything you need to automate your marketing",
     "features.learnMore": "Learn more",
-    "features.chatbot.title": "AI Chatbot Customer Service 24/7",
+    "features.chatbot.title": "AI Customer Support Chatbot 24/7",
     "features.chatbot.desc":
-      "Smart AI assistant trained with your real business data. Consult products, instant quotes, schedule appointments and transfer quality leads to your sales team - all operating 24/7 non-stop. Reduce customer waiting time by 99%.",
+      "An intelligent AI chatbot system that automates your entire customer support workflow - from product consultation and instant quotes to appointment booking and lead qualification - operating 24/7 across multiple platforms.",
     "features.chatbot.stats": "Instant response 24/7 • 99% less waiting time",
-    "features.chatbot.feature1.name": "Product & Service Consultation",
+    "features.chatbot.feature1.name":
+      "Personalized Product & Service Consultation",
     "features.chatbot.feature1.desc":
-      "Automatically provide detailed consultation on product packages, services, and features based on customer needs with personalized scripts",
-    "features.chatbot.feature2.name": "Instant Quotation",
+      "AI trained on your business data - understands your industry, products, and brand voice.",
+    "features.chatbot.feature2.name": "Instant Automated Quotes",
     "features.chatbot.feature2.desc":
-      "Calculate and provide estimated quotes instantly based on customer input requirements 24/7",
-    "features.chatbot.feature3.name": "Schedule Check & Appointment Booking",
+      "Calculate and deliver preliminary quotes in seconds, any time of day.",
+    "features.chatbot.feature3.name":
+      "Smart Product Comparison & Recommendations",
     "features.chatbot.feature3.desc":
-      "Real-time connection with calendar system to check availability and support automatic appointment booking",
-    "features.chatbot.feature4.name": "Quality Lead Transfer",
+      "Help customers compare products and get instant, context-aware recommendations during the conversation.",
+    "features.chatbot.feature4.name":
+      "Real-Time Calendar Integration & Booking",
     "features.chatbot.feature4.desc":
-      "Classify lead potential levels (Hot/Warm/Cold) and automatically push information to CRM or notify Sales team",
+      "Automatically check availability and schedule consultations, demos, or meetings from the chat.",
+    "features.chatbot.feature5.name":
+      "Intelligent Lead Scoring (Hot / Warm / Cold)",
+    "features.chatbot.feature5.desc":
+      "Evaluate interest levels and sync qualified leads to your CRM automatically.",
+    "features.chatbot.feature6.name": "Seamless Human Handoff",
+    "features.chatbot.feature6.desc":
+      "Instantly transfer complex inquiries to human agents with full conversation context.",
     "features.chatbot.metric1.name": "Average Response Time",
     "features.chatbot.metric1.value": "~3 seconds",
     "features.chatbot.metric1.note": "99% reduction vs manual",
@@ -1670,6 +1698,16 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.chatbot.metric3.name": "Continuous Operation",
     "features.chatbot.metric3.value": "24/7/365",
     "features.chatbot.metric3.note": "Never miss a customer",
+    "features.chatbot.why.title": "Why Choose AI Customer Support Chatbot?",
+    "features.chatbot.why.bullet1":
+      "Respond instantly to customers — never miss a sales opportunity",
+    "features.chatbot.why.bullet2":
+      "Reduce workload for your support team by up to 80%",
+    "features.chatbot.why.bullet3":
+      "Available 24/7/365 — including holidays and weekends",
+    "features.chatbot.why.bullet4":
+      "Increase conversion rates with personalized, context-aware responses",
+    "features.chatbot.cta": "Talk to an Expert",
     "features.content.title": "AI Content Creator",
     "features.content.desc":
       "Fully automated multi-format content production system. Create 4K KOL product images in just 30 seconds, write trending captions and smart hashtag suggestions to maximize reach. Save 90% costs compared to hiring designers and copywriters.",

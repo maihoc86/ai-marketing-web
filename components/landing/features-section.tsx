@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import {
   Video,
   FileText,
   Calendar,
   ImageIcon,
   BarChart3,
-  ArrowRight,
   TrendingUp,
   Mail,
   Share2,
@@ -38,51 +36,11 @@ import {
   Flame,
   Building2,
   Eye,
-  type LucideIcon,
 } from "lucide-react";
+import FeatureRow, { Feature } from "./feature-row";
 import { useI18n } from "@/lib/i18n";
-import { cn } from "@/lib/utils";
-import { LocaleLink } from "@/components/locale-link";
 
-// ============================================================
-// FEATURE URL MAPPING
-// ============================================================
-const featureUrlSlugs: Record<string, string> = {
-  chatbot: "chatbot",
-  content: "content",
-  trends: "trends",
-  video: "video",
-  email: "email",
-  multiPlatform: "multi-platform",
-  ads: "ads",
-};
-
-// ============================================================
-// TYPES
-// ============================================================
-interface FeatureDetail {
-  nameKey: string;
-  descKey: string;
-  icon: LucideIcon;
-}
-
-interface PerformanceMetric {
-  metricKey: string;
-  valueKey: string;
-  noteKey: string;
-}
-
-interface Feature {
-  id: string;
-  icon: React.ElementType;
-  iconBg: string;
-  iconColor: string;
-  badge: string;
-  badgeColor: string;
-  image: string;
-  mainFeatures?: FeatureDetail[];
-  performanceMetrics?: PerformanceMetric[];
-}
+// NOTE: `Feature` type and `featureUrlSlugs` moved to components/landing/feature-row.tsx
 
 // ============================================================
 // DATA
@@ -91,32 +49,48 @@ const features: Feature[] = [
   {
     id: "chatbot",
     icon: Video,
-    iconBg: "bg-primary/10",
-    iconColor: "text-[#22b5f8]",
+    iconBg: "#E6F8FF",
+    iconColor: "#22b5f8",
     badge: "24/7",
     badgeColor: "bg-primary/10 text-[#008bff] border-primary/30",
-    image: "/ai-chatbot.webp",
+    image: "/ai-chatbot.png",
     mainFeatures: [
-      {
-        nameKey: "features.chatbot.feature1.name",
-        descKey: "features.chatbot.feature1.desc",
-        icon: MessageSquare,
-      },
-      {
-        nameKey: "features.chatbot.feature2.name",
-        descKey: "features.chatbot.feature2.desc",
-        icon: DollarSign,
-      },
-      {
-        nameKey: "features.chatbot.feature3.name",
-        descKey: "features.chatbot.feature3.desc",
-        icon: Calendar,
-      },
-      {
-        nameKey: "features.chatbot.feature4.name",
-        descKey: "features.chatbot.feature4.desc",
-        icon: UserCheck,
-      },
+      [
+        {
+          nameKey: "features.chatbot.feature1.name",
+          descKey: "features.chatbot.feature1.desc",
+          icon: MessageSquare,
+        },
+        {
+          nameKey: "features.chatbot.feature2.name",
+          descKey: "features.chatbot.feature2.desc",
+          icon: DollarSign,
+        },
+      ],
+      [
+        {
+          nameKey: "features.chatbot.feature3.name",
+          descKey: "features.chatbot.feature3.desc",
+          icon: TrendingUp,
+        },
+        {
+          nameKey: "features.chatbot.feature4.name",
+          descKey: "features.chatbot.feature4.desc",
+          icon: Calendar,
+        },
+      ],
+      [
+        {
+          nameKey: "features.chatbot.feature5.name",
+          descKey: "features.chatbot.feature5.desc",
+          icon: UserCheck,
+        },
+        {
+          nameKey: "features.chatbot.feature6.name",
+          descKey: "features.chatbot.feature6.desc",
+          icon: Users,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -139,42 +113,48 @@ const features: Feature[] = [
   {
     id: "content",
     icon: FileText,
-    iconBg: "bg-purple-100",
-    iconColor: "text-purple-600",
+    iconBg: "#F3E8FF",
+    iconColor: "#7c3aed",
     badge: "50+",
     badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
     image: "/ai-content.jpeg",
     mainFeatures: [
-      {
-        nameKey: "features.content.feature1.name",
-        descKey: "features.content.feature1.desc",
-        icon: ImageIcon,
-      },
-      {
-        nameKey: "features.content.feature2.name",
-        descKey: "features.content.feature2.desc",
-        icon: Layers,
-      },
-      {
-        nameKey: "features.content.feature3.name",
-        descKey: "features.content.feature3.desc",
-        icon: Sparkles,
-      },
-      {
-        nameKey: "features.content.feature4.name",
-        descKey: "features.content.feature4.desc",
-        icon: PenTool,
-      },
-      {
-        nameKey: "features.content.feature5.name",
-        descKey: "features.content.feature5.desc",
-        icon: Target,
-      },
-      {
-        nameKey: "features.content.feature6.name",
-        descKey: "features.content.feature6.desc",
-        icon: Search,
-      },
+      [
+        {
+          nameKey: "features.content.feature1.name",
+          descKey: "features.content.feature1.desc",
+          icon: ImageIcon,
+        },
+        {
+          nameKey: "features.content.feature2.name",
+          descKey: "features.content.feature2.desc",
+          icon: Layers,
+        },
+      ],
+      [
+        {
+          nameKey: "features.content.feature3.name",
+          descKey: "features.content.feature3.desc",
+          icon: Sparkles,
+        },
+        {
+          nameKey: "features.content.feature4.name",
+          descKey: "features.content.feature4.desc",
+          icon: PenTool,
+        },
+      ],
+      [
+        {
+          nameKey: "features.content.feature5.name",
+          descKey: "features.content.feature5.desc",
+          icon: Target,
+        },
+        {
+          nameKey: "features.content.feature6.name",
+          descKey: "features.content.feature6.desc",
+          icon: Search,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -197,42 +177,48 @@ const features: Feature[] = [
   {
     id: "trends",
     icon: TrendingUp,
-    iconBg: "bg-indigo-100",
-    iconColor: "text-indigo-600",
+    iconBg: "#E0E7FF",
+    iconColor: "#4f46e5",
     badge: "24/7",
     badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
     image: "/ai-discovery.jpeg",
     mainFeatures: [
-      {
-        nameKey: "features.trends.feature1.name",
-        descKey: "features.trends.feature1.desc",
-        icon: Radio,
-      },
-      {
-        nameKey: "features.trends.feature2.name",
-        descKey: "features.trends.feature2.desc",
-        icon: Flame,
-      },
-      {
-        nameKey: "features.trends.feature3.name",
-        descKey: "features.trends.feature3.desc",
-        icon: TrendingUp,
-      },
-      {
-        nameKey: "features.trends.feature4.name",
-        descKey: "features.trends.feature4.desc",
-        icon: Building2,
-      },
-      {
-        nameKey: "features.trends.feature5.name",
-        descKey: "features.trends.feature5.desc",
-        icon: Lightbulb,
-      },
-      {
-        nameKey: "features.trends.feature6.name",
-        descKey: "features.trends.feature6.desc",
-        icon: Eye,
-      },
+      [
+        {
+          nameKey: "features.trends.feature1.name",
+          descKey: "features.trends.feature1.desc",
+          icon: Radio,
+        },
+        {
+          nameKey: "features.trends.feature2.name",
+          descKey: "features.trends.feature2.desc",
+          icon: Flame,
+        },
+      ],
+      [
+        {
+          nameKey: "features.trends.feature3.name",
+          descKey: "features.trends.feature3.desc",
+          icon: TrendingUp,
+        },
+        {
+          nameKey: "features.trends.feature4.name",
+          descKey: "features.trends.feature4.desc",
+          icon: Building2,
+        },
+      ],
+      [
+        {
+          nameKey: "features.trends.feature5.name",
+          descKey: "features.trends.feature5.desc",
+          icon: Lightbulb,
+        },
+        {
+          nameKey: "features.trends.feature6.name",
+          descKey: "features.trends.feature6.desc",
+          icon: Eye,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -255,37 +241,43 @@ const features: Feature[] = [
   {
     id: "video",
     icon: Video,
-    iconBg: "bg-pink-100",
-    iconColor: "text-pink-600",
+    iconBg: "#FCE7F3",
+    iconColor: "#db2777",
     badge: "5 min",
     badgeColor: "bg-pink-100 text-pink-700 border-pink-200",
     image: "/ai-content-factory.png",
     mainFeatures: [
-      {
-        nameKey: "features.video.feature1.name",
-        descKey: "features.video.feature1.desc",
-        icon: Users,
-      },
-      {
-        nameKey: "features.video.feature2.name",
-        descKey: "features.video.feature2.desc",
-        icon: Mic,
-      },
-      {
-        nameKey: "features.video.feature3.name",
-        descKey: "features.video.feature3.desc",
-        icon: Scissors,
-      },
-      {
-        nameKey: "features.video.feature4.name",
-        descKey: "features.video.feature4.desc",
-        icon: Sparkles,
-      },
-      {
-        nameKey: "features.video.feature5.name",
-        descKey: "features.video.feature5.desc",
-        icon: RefreshCw,
-      },
+      [
+        {
+          nameKey: "features.video.feature1.name",
+          descKey: "features.video.feature1.desc",
+          icon: Users,
+        },
+        {
+          nameKey: "features.video.feature2.name",
+          descKey: "features.video.feature2.desc",
+          icon: Mic,
+        },
+      ],
+      [
+        {
+          nameKey: "features.video.feature3.name",
+          descKey: "features.video.feature3.desc",
+          icon: Scissors,
+        },
+        {
+          nameKey: "features.video.feature4.name",
+          descKey: "features.video.feature4.desc",
+          icon: Sparkles,
+        },
+      ],
+      [
+        {
+          nameKey: "features.video.feature5.name",
+          descKey: "features.video.feature5.desc",
+          icon: RefreshCw,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -308,37 +300,43 @@ const features: Feature[] = [
   {
     id: "email",
     icon: Mail,
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-600",
+    iconBg: "#D1FAE5",
+    iconColor: "#059669",
     badge: "100%",
     badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
     image: "/ai-email-marketing.png",
     mainFeatures: [
-      {
-        nameKey: "features.email.feature1.name",
-        descKey: "features.email.feature1.desc",
-        icon: LayoutTemplate,
-      },
-      {
-        nameKey: "features.email.feature2.name",
-        descKey: "features.email.feature2.desc",
-        icon: Activity,
-      },
-      {
-        nameKey: "features.email.feature3.name",
-        descKey: "features.email.feature3.desc",
-        icon: Zap,
-      },
-      {
-        nameKey: "features.email.feature4.name",
-        descKey: "features.email.feature4.desc",
-        icon: Settings,
-      },
-      {
-        nameKey: "features.email.feature5.name",
-        descKey: "features.email.feature5.desc",
-        icon: Repeat,
-      },
+      [
+        {
+          nameKey: "features.email.feature1.name",
+          descKey: "features.email.feature1.desc",
+          icon: LayoutTemplate,
+        },
+        {
+          nameKey: "features.email.feature2.name",
+          descKey: "features.email.feature2.desc",
+          icon: Activity,
+        },
+      ],
+      [
+        {
+          nameKey: "features.email.feature3.name",
+          descKey: "features.email.feature3.desc",
+          icon: Zap,
+        },
+        {
+          nameKey: "features.email.feature4.name",
+          descKey: "features.email.feature4.desc",
+          icon: Settings,
+        },
+      ],
+      [
+        {
+          nameKey: "features.email.feature5.name",
+          descKey: "features.email.feature5.desc",
+          icon: Repeat,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -361,42 +359,48 @@ const features: Feature[] = [
   {
     id: "multiPlatform",
     icon: Share2,
-    iconBg: "bg-orange-100",
-    iconColor: "text-orange-600",
+    iconBg: "#FFF7ED",
+    iconColor: "#ea580c",
     badge: "5 platforms",
     badgeColor: "bg-orange-100 text-orange-700 border-orange-200",
     image: "/ai-multi-platform.png",
     mainFeatures: [
-      {
-        nameKey: "features.multiPlatform.feature1.name",
-        descKey: "features.multiPlatform.feature1.desc",
-        icon: Clock,
-      },
-      {
-        nameKey: "features.multiPlatform.feature2.name",
-        descKey: "features.multiPlatform.feature2.desc",
-        icon: Calendar,
-      },
-      {
-        nameKey: "features.multiPlatform.feature3.name",
-        descKey: "features.multiPlatform.feature3.desc",
-        icon: MousePointer,
-      },
-      {
-        nameKey: "features.multiPlatform.feature4.name",
-        descKey: "features.multiPlatform.feature4.desc",
-        icon: MessageSquare,
-      },
-      {
-        nameKey: "features.multiPlatform.feature5.name",
-        descKey: "features.multiPlatform.feature5.desc",
-        icon: Bot,
-      },
-      {
-        nameKey: "features.multiPlatform.feature6.name",
-        descKey: "features.multiPlatform.feature6.desc",
-        icon: Mail,
-      },
+      [
+        {
+          nameKey: "features.multiPlatform.feature1.name",
+          descKey: "features.multiPlatform.feature1.desc",
+          icon: Clock,
+        },
+        {
+          nameKey: "features.multiPlatform.feature2.name",
+          descKey: "features.multiPlatform.feature2.desc",
+          icon: Calendar,
+        },
+      ],
+      [
+        {
+          nameKey: "features.multiPlatform.feature3.name",
+          descKey: "features.multiPlatform.feature3.desc",
+          icon: MousePointer,
+        },
+        {
+          nameKey: "features.multiPlatform.feature4.name",
+          descKey: "features.multiPlatform.feature4.desc",
+          icon: MessageSquare,
+        },
+      ],
+      [
+        {
+          nameKey: "features.multiPlatform.feature5.name",
+          descKey: "features.multiPlatform.feature5.desc",
+          icon: Bot,
+        },
+        {
+          nameKey: "features.multiPlatform.feature6.name",
+          descKey: "features.multiPlatform.feature6.desc",
+          icon: Mail,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -419,32 +423,36 @@ const features: Feature[] = [
   {
     id: "ads",
     icon: BarChart3,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
+    iconBg: "#DBEAFE",
+    iconColor: "#2563eb",
     badge: "99.9%",
     badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
     image: "/ai-dashboard.png",
     mainFeatures: [
-      {
-        nameKey: "features.ads.feature1.name",
-        descKey: "features.ads.feature1.desc",
-        icon: DollarSign,
-      },
-      {
-        nameKey: "features.ads.feature2.name",
-        descKey: "features.ads.feature2.desc",
-        icon: Users,
-      },
-      {
-        nameKey: "features.ads.feature3.name",
-        descKey: "features.ads.feature3.desc",
-        icon: Repeat,
-      },
-      {
-        nameKey: "features.ads.feature4.name",
-        descKey: "features.ads.feature4.desc",
-        icon: Bell,
-      },
+      [
+        {
+          nameKey: "features.ads.feature1.name",
+          descKey: "features.ads.feature1.desc",
+          icon: DollarSign,
+        },
+        {
+          nameKey: "features.ads.feature2.name",
+          descKey: "features.ads.feature2.desc",
+          icon: Users,
+        },
+      ],
+      [
+        {
+          nameKey: "features.ads.feature3.name",
+          descKey: "features.ads.feature3.desc",
+          icon: Repeat,
+        },
+        {
+          nameKey: "features.ads.feature4.name",
+          descKey: "features.ads.feature4.desc",
+          icon: Bell,
+        },
+      ],
     ],
     performanceMetrics: [
       {
@@ -466,227 +474,7 @@ const features: Feature[] = [
   },
 ];
 
-// ============================================================
-// FEATURE ROW COMPONENT
-// ============================================================
-interface FeatureRowProps {
-  feature: Feature;
-  index: number;
-  isVisible: boolean;
-}
-
-function FeatureRow({ feature, index, isVisible }: FeatureRowProps) {
-  const { t } = useI18n();
-  const Icon = feature.icon;
-  const isEven = index % 2 === 0;
-  const [imageError, setImageError] = useState(false);
-
-  const imageContent = (
-    <div
-      className={cn(
-        "relative rounded-2xl overflow-hidden shadow-xl group",
-        "transition-all duration-700 ease-out",
-        isVisible
-          ? "opacity-100 translate-x-0"
-          : isEven
-            ? "opacity-0 -translate-x-16"
-            : "opacity-0 translate-x-16",
-      )}
-    >
-      {/* Badge */}
-      <div
-        className={cn(
-          "absolute top-4 right-4 z-10",
-          "px-3 py-1.5 rounded-full text-sm font-semibold border",
-          "bg-white/90 backdrop-blur-sm shadow-sm",
-          feature.badgeColor,
-        )}
-      >
-        {feature.badge}
-      </div>
-
-      {/* Image with placeholder fallback */}
-      <div className="aspect-[4/3] object-cover relative bg-linear-to-br from-gray-100 to-gray-200">
-        {!imageError ? (
-          <Image
-            src={feature.image}
-            alt={t(`features.${feature.id}.title`)}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Icon className="w-16 h-16 text-gray-300" />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const contentBlock = (
-    <div
-      className={cn(
-        "flex flex-col justify-center",
-        "transition-all duration-700 ease-out delay-200",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-      )}
-    >
-      {/* Icon */}
-      <div className="flex items-center space-x-4">
-        <div
-          className={cn(
-            "w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
-            feature.iconBg,
-          )}
-        >
-          <Icon className={cn("w-6 h-6", feature.iconColor)} />
-        </div>
-
-        {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
-          {t(`features.${feature.id}.title`)}
-        </h3>
-      </div>
-
-      {/* Description */}
-      <p className="text-gray-600 text-lg leading-relaxed mb-6">
-        {t(`features.${feature.id}.desc`)}
-      </p>
-
-      {/* Highlight Stat */}
-      {/* <div className="flex items-center gap-2 mb-2">
-        <div className="w-2 h-2 rounded-full bg-[#ff7900]" />
-        <span className="text-gray-700 font-medium">
-          {t(`features.${feature.id}.stats`)}
-        </span>
-      </div> */}
-
-      {/* Main Features Badges */}
-      {feature.mainFeatures && feature.mainFeatures.length > 0 && (
-        <div className="mt-6">
-          <div className="grid grid-cols-2 gap-3">
-            {feature.mainFeatures.map((item, idx) => {
-              const ItemIcon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group/tooltip relative flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"
-                >
-                  <div
-                    className={cn(
-                      "w-10 h-10 rounded-lg flex items-center justify-center shrink-0",
-                      feature.iconBg,
-                    )}
-                  >
-                    <ItemIcon className={cn("w-5 h-5", feature.iconColor)} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-gray-900 truncate">
-                      {t(item.nameKey)}
-                    </p>
-                    <p className="text-xs text-gray-500 truncate">
-                      {t(item.descKey)}
-                    </p>
-                  </div>
-
-                  {/* Tooltip */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-3 bg-gray-900 text-white text-sm rounded-lg shadow-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 w-72 pointer-events-none">
-                    <div className="space-y-1">
-                      <p className="font-semibold">{t(item.nameKey)}</p>
-                      <p className="text-xs text-gray-300">{t(item.descKey)}</p>
-                    </div>
-                    {/* Arrow */}
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-2 h-2 bg-gray-900 transform rotate-45 -mt-1" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* Performance Metrics Table */}
-      {/* {feature.performanceMetrics && feature.performanceMetrics.length > 0 && (
-        <div className="mt-6">
-          <h4 className="text-lg font-bold text-gray-900 mb-4">
-            {t("features.table.performance")}
-          </h4>
-          <div className="overflow-hidden rounded-lg border border-gray-200">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-900 text-white">
-                  <th className="px-4 py-3 text-left text-sm font-semibold">
-                    {t("features.table.metric")}
-                  </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">
-                    {t("features.table.value")}
-                  </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold">
-                    {t("features.table.note")}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {feature.performanceMetrics.map((metric, idx) => (
-                  <tr key={idx} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 text-sm text-gray-700">
-                      {t(metric.metricKey)}
-                    </td>
-                    <td className="px-4 py-3 text-sm font-semibold text-gray-900">
-                      {t(metric.valueKey)}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
-                      {t(metric.noteKey)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )} */}
-
-      {/* CTA Link - Always at bottom */}
-      <div className="mt-8">
-        <LocaleLink
-          href={`/features/${featureUrlSlugs[feature.id]}`}
-          className={cn(
-            "inline-flex items-center gap-2 font-semibold text-base",
-            feature.iconColor,
-            "hover:gap-3 transition-all duration-300",
-          )}
-        >
-          {t("features.learnMore")}
-          <ArrowRight className="w-4 h-4" />
-        </LocaleLink>
-      </div>
-    </div>
-  );
-
-  return (
-    <div
-      className={cn(
-        "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center",
-        "py-16 lg:py-24",
-        index !== 0 && "border-t border-gray-100",
-      )}
-    >
-      {/* Zigzag: alternate order based on index */}
-      {isEven ? (
-        <>
-          <div className="order-1">{imageContent}</div>
-          <div className="order-2">{contentBlock}</div>
-        </>
-      ) : (
-        <>
-          <div className="order-2 lg:order-1">{contentBlock}</div>
-          <div className="order-1 lg:order-2">{imageContent}</div>
-        </>
-      )}
-    </div>
-  );
-}
+// `FeatureRow` implementation moved to components/landing/feature-row.tsx
 
 // ============================================================
 // MAIN COMPONENT
@@ -724,41 +512,43 @@ export function FeaturesSection() {
   }, []);
 
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="container mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff]">
-              {t("features.title")}
-            </span>{" "}
-            <span className="text-gray-900">
-              {t("features.titleHighlight")}
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t("features.subtitle")}
-          </p>
-        </div>
+    <>
+      <section id="features" className="py-20 bg-white">
+        <div className="container mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#5fffec] to-[#008bff]">
+                {t("features.title")}
+              </span>{" "}
+              <span className="text-gray-900">
+                {t("features.titleHighlight")}
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {t("features.subtitle")}
+            </p>
+          </div>
 
-        {/* Feature Rows - Zigzag Layout */}
-        <div className="">
-          {features.map((feature, index) => (
-            <div
-              key={feature.id}
-              ref={(el) => {
-                featureRefs.current[index] = el;
-              }}
-            >
-              <FeatureRow
-                feature={feature}
-                index={index}
-                isVisible={visibleFeatures.has(index)}
-              />
-            </div>
-          ))}
+          {/* Feature Rows - Zigzag Layout */}
+          <div className="">
+            {features.map((feature, index) => (
+              <div
+                key={feature.id}
+                ref={(el) => {
+                  featureRefs.current[index] = el;
+                }}
+              >
+                <FeatureRow
+                  feature={feature}
+                  index={index}
+                  isVisible={visibleFeatures.has(index)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

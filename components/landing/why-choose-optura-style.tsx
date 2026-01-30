@@ -56,7 +56,7 @@ export function WhyChooseOpturaStyle() {
     {
       id: "cost",
       icon: TrendingUp,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row1.criteria",
       traditionalKey: "whyChoose.optura.row1.traditional",
       dxaiKey: "whyChoose.optura.row1.dxai",
@@ -65,7 +65,7 @@ export function WhyChooseOpturaStyle() {
     {
       id: "video-output",
       icon: Zap,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row2.criteria",
       traditionalKey: "whyChoose.optura.row2.traditional",
       dxaiKey: "whyChoose.optura.row2.dxai",
@@ -73,7 +73,7 @@ export function WhyChooseOpturaStyle() {
     {
       id: "time",
       icon: Clock,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row3.criteria",
       traditionalKey: "whyChoose.optura.row3.traditional",
       dxaiKey: "whyChoose.optura.row3.dxai",
@@ -81,7 +81,7 @@ export function WhyChooseOpturaStyle() {
     {
       id: "multitask",
       icon: Users,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row4.criteria",
       traditionalKey: "whyChoose.optura.row4.traditional",
       dxaiKey: "whyChoose.optura.row4.dxai",
@@ -89,7 +89,7 @@ export function WhyChooseOpturaStyle() {
     {
       id: "operation",
       icon: Settings,
-      iconBg: "bg-blue-100",
+      iconBg: "#DBEAFE",
       criteriaKey: "whyChoose.optura.row5.criteria",
       traditionalKey: "whyChoose.optura.row5.traditional",
       dxaiKey: "whyChoose.optura.row5.dxai",
@@ -191,8 +191,8 @@ export function WhyChooseOpturaStyle() {
                     <div
                       className={cn(
                         "w-12 h-12 rounded-xl flex items-center justify-center shrink-0",
-                        row.iconBg,
                       )}
+                      style={{ backgroundColor: row.iconBg }}
                     >
                       <Icon className="w-6 h-6 text-blue-600" />
                     </div>
@@ -245,8 +245,8 @@ export function WhyChooseOpturaStyle() {
                   <div
                     className={cn(
                       "w-12 h-12 rounded-xl flex items-center justify-center shrink-0",
-                      row.iconBg,
                     )}
+                    style={{ backgroundColor: row.iconBg }}
                   >
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>

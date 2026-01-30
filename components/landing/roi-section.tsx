@@ -46,7 +46,7 @@ export function RoiSection() {
       aiDescKey: "roi.row1.aiDesc",
       savingsKey: "roi.row1.savings",
       icon: TrendingUp,
-      iconBg: "from-blue-500 to-blue-600",
+      iconBg: "#3B82F6",
     },
     {
       criteriaKey: "roi.row2.criteria",
@@ -56,7 +56,7 @@ export function RoiSection() {
       aiDescKey: "roi.row2.aiDesc",
       savingsKey: null,
       icon: Zap,
-      iconBg: "from-purple-500 to-purple-600",
+      iconBg: "#8B5CF6",
     },
     {
       criteriaKey: "roi.row3.criteria",
@@ -66,7 +66,7 @@ export function RoiSection() {
       aiDescKey: "roi.row3.aiDesc",
       savingsKey: null,
       icon: Clock,
-      iconBg: "from-amber-500 to-amber-600",
+      iconBg: "#F59E0B",
     },
     {
       criteriaKey: "roi.row4.criteria",
@@ -76,7 +76,7 @@ export function RoiSection() {
       aiDescKey: "roi.row4.aiDesc",
       savingsKey: null,
       icon: Users,
-      iconBg: "from-green-500 to-green-600",
+      iconBg: "#10B981",
     },
     {
       criteriaKey: "roi.row5.criteria",
@@ -86,7 +86,7 @@ export function RoiSection() {
       aiDescKey: "roi.row5.aiDesc",
       savingsKey: null,
       icon: Settings,
-      iconBg: "from-indigo-500 to-indigo-600",
+      iconBg: "#6366F1",
     },
   ];
 
@@ -212,7 +212,8 @@ export function RoiSection() {
                   {/* Criteria Cell */}
                   <div className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                     <div
-                      className={`w-10 h-10 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-lg shrink-0`}
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shrink-0`}
+                      style={{ backgroundColor: row.iconBg }}
                     >
                       <row.icon className="w-5 h-5 text-white" />
                     </div>
@@ -267,7 +268,8 @@ export function RoiSection() {
                 {/* Criteria Header */}
                 <div className="flex items-center gap-3 p-4 bg-linear-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                   <div
-                    className={`w-9 h-9 rounded-xl bg-linear-to-br ${row.iconBg} flex items-center justify-center shadow-md shrink-0`}
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-md shrink-0`}
+                    style={{ backgroundColor: row.iconBg }}
                   >
                     <row.icon className="w-4 h-4 text-white" />
                   </div>

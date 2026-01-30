@@ -30,7 +30,7 @@ const features: Feature[] = [
     descKey: "features.video.desc",
     statLabelKey: "features.video.stats",
     statValue: "1000+",
-    iconBg: "from-blue-500 to-blue-600",
+    iconBg: "#3B82F6",
     image: "/ai-video-production-dashboard-with-timeline-editor.jpg",
   },
   {
@@ -39,7 +39,7 @@ const features: Feature[] = [
     descKey: "features.content.desc",
     statLabelKey: "features.content.stats",
     statValue: "50+",
-    iconBg: "from-cyan-500 to-cyan-600",
+    iconBg: "#06B6D4",
     image: "/content-writing-ai-tool-with-seo-optimization-and-.jpg",
   },
   {
@@ -48,7 +48,7 @@ const features: Feature[] = [
     descKey: "features.schedule.desc",
     statLabelKey: "features.schedule.stats",
     statValue: "24/7",
-    iconBg: "from-indigo-500 to-indigo-600",
+    iconBg: "#6366F1",
     image: "/social-media-scheduling-calendar-dashboard-with-mu.jpg",
   },
   {
@@ -57,7 +57,7 @@ const features: Feature[] = [
     descKey: "features.image.desc",
     statLabelKey: "features.image.stats",
     statValue: "Unlimited",
-    iconBg: "from-purple-500 to-purple-600",
+    iconBg: "#8B5CF6",
     image: "/ai-image-generation-tool-with-product-banner-and-a.jpg",
   },
   {
@@ -66,7 +66,7 @@ const features: Feature[] = [
     descKey: "features.analytics.desc",
     statLabelKey: "features.analytics.stats",
     statValue: "10+",
-    iconBg: "from-green-500 to-green-600",
+    iconBg: "#10B981",
     image: "/marketing-analytics-dashboard-with-charts-graphs-a.jpg",
   },
   {
@@ -75,7 +75,7 @@ const features: Feature[] = [
     descKey: "features.integration.desc",
     statLabelKey: "features.integration.stats",
     statValue: "20+",
-    iconBg: "from-orange-500 to-orange-600",
+    iconBg: "#F97316",
     image: "/social-media-multi-platform-publishing-dashboard.jpg",
   },
 ];
@@ -216,11 +216,11 @@ function FeatureCard({ feature, index, isVisible, t }: FeatureCardProps) {
             className={cn(
               "inline-flex items-center justify-center",
               "w-12 h-12 rounded-xl",
-              `bg-linear-to-br ${feature.iconBg}`,
               "shadow-lg",
               "transition-all duration-300",
               isHovered && "scale-110 shadow-xl",
             )}
+            style={{ backgroundColor: feature.iconBg }}
           >
             <Icon className="w-6 h-6 text-white" />
           </div>
