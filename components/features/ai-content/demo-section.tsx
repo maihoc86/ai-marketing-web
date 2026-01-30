@@ -213,7 +213,7 @@ export function AIContentDemoSection() {
                 <div className="absolute top-6 left-6">
                   <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
                     <span className="size-1.5 bg-green-400 rounded-full animate-pulse" />
-                    4K READY
+                    {t("featurePage.content.demo.4kReady")}
                   </span>
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
@@ -222,7 +222,7 @@ export function AIContentDemoSection() {
               {/* Action Buttons */}
               <div className="flex items-center justify-between mt-6 px-2">
                 <div className="flex gap-3">
-                  <Button className="px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-primary/90 transition-all">
+                  <Button className="btn-primary-light rounded-xl">
                     <Download className="size-4" />
                     {t("featurePage.content.demo.downloadHD")}
                   </Button>

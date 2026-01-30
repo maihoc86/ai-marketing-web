@@ -1368,6 +1368,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Biến ý tưởng sản phẩm thành hình ảnh marketing chuyên nghiệp ngay lập tức.",
     "featurePage.content.demo.uploadTitle": "Kéo thả hình ảnh sản phẩm vào đây",
     "featurePage.content.demo.uploadDesc": "PNG, JPG tối đa 10MB",
+    "featurePage.content.demo.4kReady": "Sẵn sàng 4K",
     "featurePage.content.demo.promptLabel": "Mô tả",
     "featurePage.content.demo.promptPlaceholder":
       "Mô tả cảnh sản phẩm... VD: 'Chai gốm sứ trên bệ đá cẩm thạch với ánh sáng buổi sáng'",
@@ -2952,6 +2953,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Transform your product concepts into high-converting visual assets instantly.",
     "featurePage.content.demo.uploadTitle": "Drop product image here",
     "featurePage.content.demo.uploadDesc": "PNG, JPG up to 10MB",
+    "featurePage.content.demo.4kReady": "4K READY",
     "featurePage.content.demo.promptLabel": "Prompt",
     "featurePage.content.demo.promptPlaceholder":
       "Describe your product scene... e.g. 'A sleek ceramic bottle on a marble pedestal with soft morning light'",
