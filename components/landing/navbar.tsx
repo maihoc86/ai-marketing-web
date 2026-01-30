@@ -54,7 +54,7 @@ export function Navbar() {
             <img
               src="/logo.svg"
               alt="UNIKSMART Logo"
-              className="h-20 object-contain"
+              className="h-12 object-contain"
             />
           </LocaleLink>
 
