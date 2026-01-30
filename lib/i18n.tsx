@@ -154,33 +154,40 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.chatbot.why.bullet4":
       "Tăng tỷ lệ chuyển đổi nhờ phản hồi cá nhân hoá, hiểu ngữ cảnh",
     "features.chatbot.cta": "Liên hệ chuyên gia",
-    "features.video.title": "AI Video Factory",
+    "features.video.title": "Nhà máy Video AI",
     "features.video.desc":
-      "Sản xuất video marketing chuyên nghiệp với KOL Ảo chỉ trong 5 phút. Không cần quay phim, không cần studio, không cần thuê KOL thật với chi phí hàng chục triệu. AI tự động tạo video với giọng nói tự nhiên, lip-sync hoàn hảo và đa ngôn ngữ. Tiết kiệm 95% chi phí so với phương pháp truyền thống.",
+      "Tạo video marketing chuyên nghiệp với đại sứ thương hiệu ảo chạy bằng AI. Sản xuất nội dung video nhanh, tiết kiệm chi phí và kiểm soát hoàn toàn thông điệp thương hiệu — không cần quay phim.",
     "features.video.stats": "50 Credit/video • 5 phút sản xuất • Tiết kiệm 95%",
-    "features.video.feature1.name": "KOL Ảo thuyết minh",
+    "features.video.feature1.name": "Video Đại Sứ Thương Hiệu AI",
     "features.video.feature1.desc":
-      "Đại sứ thương hiệu nổi theo script với tính nhất quán nhân vật 100%",
-    "features.video.feature2.name": "Giọng AI tự nhiên",
+      "Tạo video với đại sứ AI độc quyền của bạn — kiểm soát nội dung 100%, không tốn phí nhân sự.",
+    "features.video.feature2.name": "Công nghệ Lip-sync Siêu Thực",
     "features.video.feature2.desc":
-      "Sử dụng AI Voice, hỗ trợ nhiều ngôn ngữ khác nhau",
-    "features.video.feature3.name": "Trình chỉnh sửa đa bối cảnh",
+      "Chuyển động môi tự nhiên đồng bộ hoàn hảo với lời nói — không phân biệt được với cảnh quay thật.",
+    "features.video.feature3.name": "Ba Chế Độ Tạo Nội Dung Linh Hoạt",
     "features.video.feature3.desc":
-      "Hỗ trợ nhiều khung hình/cảnh trong một video",
-    "features.video.feature4.name": "Gợi ý AI",
-    "features.video.feature4.desc": "Tự động đề xuất nội dung cảnh phù hợp",
-    "features.video.feature5.name": "Lip-sync tự động",
+      "Script-to-Video | Text-to-Video | Image-to-Video — chọn quy trình làm việc phù hợp.",
+    "features.video.feature4.name": "Giọng AI Tự Nhiên & Hỗ Trợ Đa Ngôn Ngữ",
+    "features.video.feature4.desc":
+      "Giọng nói giống con người trong 30+ ngôn ngữ cho thị trường trong nước và quốc tế.",
+    "features.video.feature5.name":
+      "Trình chỉnh sửa Nhiều Cảnh với Gợi ý Bố cục AI",
     "features.video.feature5.desc":
-      "Tự động sync môi chính xác với kịch bản lời thoại",
+      "Tuỳ chỉnh video dễ dàng với bố cục cảnh được AI đề xuất.",
+    "features.video.feature6.name": "Xuất Nhiều Định Dạng (HD đến 4K)",
+    "features.video.feature6.desc":
+      "Xuất theo tỉ lệ dọc, ngang, vuông — HD, Full HD và 4K.",
     "features.video.metric1.name": "Chi phí sản xuất",
-    "features.video.metric1.value": "0 VNĐ (đã bao gồm)",
-    "features.video.metric1.note": "Tiết kiệm 95% vs KOL truyền thống",
+    "features.video.metric1.value": "0 VNĐ",
+    "features.video.metric1.note":
+      "Tiết kiệm 95% so với phương pháp truyền thống",
     "features.video.metric2.name": "Thời gian sản xuất",
     "features.video.metric2.value": "5 phút",
-    "features.video.metric2.note": "Nhanh hơn 99% so với 3-7 ngày",
+    "features.video.metric2.note":
+      "Nhanh hơn nhiều so với quy trình truyền thống",
     "features.video.metric3.name": "Định dạng xuất",
-    "features.video.metric3.value": "720p, 1080p, 4K",
-    "features.video.metric3.note": "16:9 (YouTube) • 9:16 (TikTok) • 8-60 giây",
+    "features.video.metric3.value": "HD, Full HD, 4K",
+    "features.video.metric3.note": "Hỗ trợ dọc, ngang, vuông",
     "features.email.title": "Email Marketing Automation",
     "features.email.desc":
       "Hệ thống email marketing tự động 100% với customer journey hoàn chỉnh từ Welcome đến Re-marketing. Tích hợp CRM để cá nhân hóa nội dung, A/B Testing thông minh tự động tối ưu subject line và content. Tăng Open Rate lên 35% và không cần thao tác thủ công - chạy 24/7.",
@@ -274,25 +281,26 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.ads.metric3.note": "Tự động gửi báo cáo hiệu suất qua Email",
     "features.content.title": "Trình tạo nội dung AI",
     "features.content.desc":
-      "Hệ thống sản xuất nội dung đa định dạng hoàn toàn tự động. Tạo hình ảnh KOL với sản phẩm chất lượng 4K chỉ trong 30 giây, viết caption bắt trend và gợi ý hashtag thông minh để tối đa hóa Reach. Tiết kiệm 90% chi phí so với thuê designer và copywriter.",
+      "Một nền tảng AI toàn diện giúp doanh nghiệp tạo hình ảnh chất lượng cao, bài viết và nội dung mạng xã hội trong vài giây — duy trì tính nhất quán thương hiệu trong khi tối đa hoá độ tiếp cận và tương tác.",
     "features.content.stats": "50+ mẫu thiết kế • Ảnh 4K • Caption chuẩn SEO",
-    "features.content.feature1.name": "Tạo ảnh KOL với sản phẩm",
+    "features.content.feature1.name": "Studio Ảnh AI (Đến 4K)",
     "features.content.feature1.desc":
-      "Tạo hình ảnh KOL chuyên nghiệp với sản phẩm hoặc bối cảnh tùy chỉnh theo yêu cầu",
-    "features.content.feature2.name": "Bộ xử lý nhân vật đồng nhất",
+      "Tạo hình ảnh bắt mắt cho thương mại điện tử, mạng xã hội, quảng cáo và in ấn.",
+    "features.content.feature2.name": "Công nghệ Nhân vật Đồng nhất",
     "features.content.feature2.desc":
-      "Công nghệ giữ vững nhận diện gương mặt KOL trên mọi hình ảnh",
-    "features.content.feature3.name": "Độ phân giải 4K",
+      "Giữ nguyên khuôn mặt và nhận diện nhân vật AI trên tất cả hình ảnh được tạo.",
+    "features.content.feature3.name": "Tạo Ảnh Sản phẩm & Lifestyle",
     "features.content.feature3.desc":
-      "Sẵn sàng cho in ấn và quảng cáo billboard",
-    "features.content.feature4.name": "Viết caption bắt trend",
+      "Tạo ảnh sản phẩm tùy chỉnh và cảnh lifestyle — không cần studio hay người mẫu.",
+    "features.content.feature4.name": "Viết Caption bằng AI + Phân tích Trend",
     "features.content.feature4.desc":
-      "Tự động viết caption hấp dẫn từ thông tin sản phẩm hoặc brief sơ sài",
-    "features.content.feature5.name": "Gợi ý hashtag thông minh",
+      "Tạo caption hấp dẫn từ brief đơn giản, tối ưu cho xu hướng hiện tại.",
+    "features.content.feature5.name": "Gợi ý Hashtag Thông minh",
     "features.content.feature5.desc":
-      "Đề xuất hashtag để tối đa hóa lượt tiếp cận (Reach) tự nhiên",
-    "features.content.feature6.name": "Tối ưu SEO",
-    "features.content.feature6.desc": "Viết bài chuẩn SEO cho blog và website",
+      "Gợi ý hashtag do AI đề xuất, tối ưu cho từng nền tảng để tăng lượt tiếp cận tự nhiên.",
+    "features.content.feature6.name": "Nhiều Giọng Nội dung",
+    "features.content.feature6.desc":
+      "Sales, Chuyên nghiệp, Thân thiện, Gen-Z, Kỹ thuật, Kể chuyện — phù hợp với mọi đối tượng.",
     "features.content.metric1.name": "Thời gian tạo ảnh",
     "features.content.metric1.value": "10-30 giây",
     "features.content.metric1.note": "Chất lượng 4K chuyên nghiệp",
@@ -302,21 +310,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric3.name": "Đa dạng phong cách",
     "features.content.metric3.value": "50+ phong cách",
     "features.content.metric3.note": "Thực tế, 3D, Minh họa, Trừu tượng",
-    "features.trends.title": "Khám phá Trend AI",
+    "features.trends.title":
+      "Khám phá Xu hướng & Lập kế hoạch Nội dung bằng AI",
     "features.trends.desc":
-      "Hệ thống AI săn trends 24/7 từ 5+ mạng xã hội lớn nhất. Phát hiện nội dung viral sớm hơn 48 giờ, chấm điểm tiềm năng và gợi ý ý tưởng content phù hợp với thương hiệu của bạn. Không bao giờ đi sau xu hướng, luôn dẫn đầu cuộc chơi.",
+      "Hệ thống trí tuệ thị trường chạy bằng AI giúp xác định các xu hướng mới nổi, sinh ý tưởng nội dung và xây dựng chiến lược chiến dịch — giúp doanh nghiệp luôn dẫn trước đối thủ.",
     "features.trends.stats":
       "24/7 quét trends • 5+ nền tảng • Dự đoán viral sớm 48h",
-    "features.trends.feature1.name": "Quét xu hướng tức thì",
+    "features.trends.feature1.name": "Phát hiện Xu hướng theo Ngành & Nền tảng",
     "features.trends.feature1.desc":
-      "Quét trends 24/7 từ TikTok, Facebook, Instagram, YouTube - cập nhật mỗi 15 phút",
-    "features.trends.feature2.name": "Phát hiện Nội dung Viral",
+      "Phân tích hành vi người dùng và dữ liệu thị trường để phát hiện các xu hướng mới trong lĩnh vực của bạn.",
+    "features.trends.feature2.name": "Phân tích & Tối ưu Brief Nội dung",
     "features.trends.feature2.desc":
-      "Phát hiện nội dung có tiềm năng viral sớm hơn 48h so với đối thủ cạnh tranh",
-    "features.trends.feature3.name": "Chấm điểm & Dự đoán Xu hướng",
+      "Chuẩn hóa và nâng cao brief nội dung trước khi bắt đầu sản xuất.",
+    "features.trends.feature3.name":
+      "Chấm điểm Chất lượng Brief Theo thời gian Thực (0-100)",
     "features.trends.feature3.desc":
-      "Chấm điểm độ hot (0-100) và dự đoán tuổi thọ của mỗi trend để tối ưu timing",
-    "features.trends.feature4.name": "Phân tích Theo từng Ngành",
+      "Nhận phản hồi tức thì về chất lượng brief kèm gợi ý cải thiện có thể hành động.",
+    "features.trends.feature4.name": "Động cơ Ý tưởng Nội dung bằng AI",
     "features.trends.feature4.desc":
       "Lọc và phân tích trends riêng theo ngành: F&B, Retail, Beauty, Tech, Education...",
     "features.trends.feature5.name": "Tạo Ý tưởng Nội dung",
@@ -1708,29 +1718,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.chatbot.why.bullet4":
       "Increase conversion rates with personalized, context-aware responses",
     "features.chatbot.cta": "Talk to an Expert",
-    "features.content.title": "AI Content Creator",
+    "features.content.title": "AI Content Generator",
     "features.content.desc":
-      "Fully automated multi-format content production system. Create 4K KOL product images in just 30 seconds, write trending captions and smart hashtag suggestions to maximize reach. Save 90% costs compared to hiring designers and copywriters.",
+      "A comprehensive AI platform that helps businesses create high-quality images, articles, and social media content in seconds - maintaining brand consistency while maximizing reach and engagement.",
     "features.content.stats":
       "50+ templates • 4K image generation • SEO-optimized captions",
-    "features.content.feature1.name": "KOL Product Photography",
+    "features.content.feature1.name": "AI Image Studio (Up to 4K Resolution)",
     "features.content.feature1.desc":
-      "Create professional KOL images with products or customized backgrounds as requested",
-    "features.content.feature2.name": "Character Consistency Engine",
+      "Generate stunning visuals for e-commerce, social media, ads, and print.",
+    "features.content.feature2.name": "Consistent Character Technology",
     "features.content.feature2.desc":
-      "Technology that maintains KOL facial recognition across all images",
-    "features.content.feature3.name": "4K Resolution",
+      "Maintain the same AI character face and identity across all generated images.",
+    "features.content.feature3.name": "Product & Lifestyle Image Generation",
     "features.content.feature3.desc":
-      "Ready for print and billboard advertising",
-    "features.content.feature4.name": "Trending Caption Writing",
+      "Create custom product shots and lifestyle scenes - no studio or models required.",
+    "features.content.feature4.name": "AI Caption Writer with Trend Analysis",
     "features.content.feature4.desc":
-      "Automatically write engaging captions from product info or brief outline",
+      "Generate engaging captions from simple briefs, optimized for current trends.",
     "features.content.feature5.name": "Smart Hashtag Suggestions",
     "features.content.feature5.desc":
-      "Suggest hashtags to maximize organic reach",
-    "features.content.feature6.name": "SEO Optimization",
+      "AI-recommended hashtags optimized for each social platform to maximize organic reach.",
+    "features.content.feature6.name": "Multiple Content Tones",
     "features.content.feature6.desc":
-      "Write SEO-optimized articles for blogs and websites",
+      "Sales, Professional, Friendly, Gen-Z, Technical, Storytelling - adapt to any audience.",
     "features.content.metric1.name": "Image Generation Time",
     "features.content.metric1.value": "10-30 seconds",
     "features.content.metric1.note": "Professional 4K quality",
@@ -1740,29 +1750,30 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.content.metric3.name": "Style Variety",
     "features.content.metric3.value": "50+ styles",
     "features.content.metric3.note": "Realistic, 3D, Illustration, Abstract",
-    "features.trends.title": "AI Hot Trends Discovery",
+    "features.trends.title": "AI Trend Discovery & Content Planning",
     "features.trends.desc":
-      "AI-powered trend hunting system scanning 5+ major social networks 24/7. Detect viral content 48 hours earlier, score potential and suggest content ideas that match your brand. Never fall behind trends, always lead the game.",
+      "An AI-powered market intelligence system that identifies emerging trends, generates content ideas, and builds campaign strategies - keeping your business ahead of the competition.",
     "features.trends.stats":
       "24/7 trend scanning • 5+ platforms • Predict viral 48h ahead",
-    "features.trends.feature1.name": "Real-time Trend Scanner",
+    "features.trends.feature1.name": "Industry & Platform Trend Detection",
     "features.trends.feature1.desc":
-      "Scan trends 24/7 from TikTok, Facebook, Instagram, YouTube - updated every 15 minutes",
-    "features.trends.feature2.name": "Viral Content Detector",
+      "Analyze user behavior and market data to surface emerging trends in your niche.",
+    "features.trends.feature2.name": "Content Brief Analyzer & Optimizer",
     "features.trends.feature2.desc":
-      "Detect content with viral potential 48 hours earlier than your competitors",
-    "features.trends.feature3.name": "Trend Score & Prediction",
+      "Standardize and enhance your content briefs before production begins.",
+    "features.trends.feature3.name": "Real-Time Brief Quality Scoring (0-100)",
     "features.trends.feature3.desc":
-      "Score trend hotness (0-100) and predict lifespan to optimize your timing",
-    "features.trends.feature4.name": "Industry-Specific Insights",
+      "Get instant feedback on brief quality with actionable improvement suggestions.",
+    "features.trends.feature4.name": "AI Content Ideation Engine",
     "features.trends.feature4.desc":
-      "Filter and analyze trends by industry: F&B, Retail, Beauty, Tech, Education...",
-    "features.trends.feature5.name": "Content Idea Generator",
+      "Generate article, video, and campaign ideas aligned with your business goals.",
+    "features.trends.feature5.name":
+      "Performance Prediction & Relevance Scoring",
     "features.trends.feature5.desc":
-      "AI suggests 10+ creative content ideas from each hot trend, matching your brand voice",
-    "features.trends.feature6.name": "Competitor Trend Tracking",
+      "Estimate content performance based on historical engagement data.",
+    "features.trends.feature6.name": "Complete Campaign Blueprint Generator",
     "features.trends.feature6.desc":
-      "Track trends your competitors are leveraging so you never miss market opportunities",
+      "Build full content plans including structure, hooks, and calls-to-action",
     "features.trends.metric1.name": "Evaluation weights",
     "features.trends.metric1.value": "Brand 30% • Strategy 40% • Output 30%",
     "features.trends.metric1.note": "Bonus +5 points if Pain points > 3",
@@ -1780,28 +1791,33 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.table.metric": "Metric",
     "features.table.value": "Value",
     "features.table.note": "Note",
-    "features.video.title": "AI Video Factory",
+    "features.video.title": "AI Video Factory (Virtual Spokesperson)",
     "features.video.desc":
-      "Produce professional marketing videos with Virtual KOL in just 5 minutes. No filming needed, no studio required, no costly real KOL. AI automatically creates videos with natural voice, perfect lip-sync and multi-language support. Save 95% cost compared to traditional methods.",
+      "Create professional marketing videos featuring AI-powered virtual brand ambassadors. Produce video content rapidly, cost-effectively, and with complete control over your brand messaging - no filming required.",
     "features.video.stats": "50 Credits/video • 5 min production • 95% savings",
-    "features.video.feature1.name": "Virtual KOL Presenter",
+    "features.video.feature1.name": "AI Brand Ambassador Videos",
     "features.video.feature1.desc":
-      "Brand ambassador narrates from script with 100% Character Consistency",
-    "features.video.feature2.name": "Natural AI Voice",
+      "Create videos with your exclusive AI spokesperson - 100% content control, no talent fees.",
+    "features.video.feature2.name": "Hyper-Realistic Lip Sync Technology",
     "features.video.feature2.desc":
-      "Uses AI Voice, supports multiple languages",
-    "features.video.feature3.name": "Multi-scene editor",
+      "Natural lip movements perfectly synchronized with speech - indistinguishable from real footage.",
+    "features.video.feature3.name": "Three Flexible Creation Modes",
     "features.video.feature3.desc":
-      "Supports multiple frames/scenes in one video",
-    "features.video.feature4.name": "AI Suggestions",
+      "Script-to-Video | Text-to-Video | Image-to-Video - choose your workflow.",
+    "features.video.feature4.name":
+      "Natural AI Voice with Multi-Language Support",
     "features.video.feature4.desc":
-      "Automatically suggests suitable scene content",
-    "features.video.feature5.name": "Auto Lip-sync",
+      "Human-like voices in 30+ languages for domestic and international markets.",
+    "features.video.feature5.name":
+      "Multi-Scene Editor with AI Layout Suggestions",
     "features.video.feature5.desc":
-      "Automatically syncs lips precisely with script dialogue",
+      "Easily customize videos with AI-recommended scene compositions.",
+    "features.video.feature6.name": "Multi-Format Export (HD to 4K)",
+    "features.video.feature6.desc":
+      "Export in vertical, horizontal, square - HD, Full HD, and 4K resolutions.",
     "features.video.metric1.name": "Production cost",
-    "features.video.metric1.value": "0 VND ",
-    "features.video.metric1.note": "95% savings vs traditional KOL",
+    "features.video.metric1.value": "0 VND",
+    "features.video.metric1.note": "95% savings vs traditional methods",
     "features.video.metric2.name": "Production time",
     "features.video.metric2.value": "5 minutes",
     "features.video.metric2.note": "99% faster than 3-7 days",
