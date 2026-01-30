@@ -52,9 +52,9 @@ export function Navbar() {
             aria-label="UNIKSMART - Home"
           >
             <img
-              src="/logo.png"
+              src="/logo.svg"
               alt="UNIKSMART Logo"
-              className="h-22 object-contain"
+              className="h-20 object-contain"
             />
           </LocaleLink>
 
