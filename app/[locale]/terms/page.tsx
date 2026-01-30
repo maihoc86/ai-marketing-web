@@ -75,7 +75,7 @@ export default function TermsPage() {
 
             {/* Section 1: Definitions */}
             <section id="definitions" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 1. DEFINITIONS
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -233,7 +233,7 @@ export default function TermsPage() {
             {/* Section 23: Contact */}
             {/* Section 2: Scope of the Agreement */}
             <section id="scope" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 2. SCOPE OF THE AGREEMENT
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -261,7 +261,7 @@ export default function TermsPage() {
 
             {/* Section 3: Description of the Services */}
             <section id="services" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 3. DESCRIPTION OF THE SERVICES
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -315,7 +315,7 @@ export default function TermsPage() {
 
             {/* Section 4: Account Registration and Security */}
             <section id="account" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 4. ACCOUNT REGISTRATION AND SECURITY
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -360,7 +360,7 @@ export default function TermsPage() {
 
             {/* Section 5: Orders, Subscription Term and Renewal */}
             <section id="subscription" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 5. ORDERS, SUBSCRIPTION TERM AND RENEWAL
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -410,7 +410,7 @@ export default function TermsPage() {
 
             {/* Section 6: Fees, Billing and Payment */}
             <section id="fees" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 6. FEES, BILLING AND PAYMENT
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -480,7 +480,7 @@ export default function TermsPage() {
 
             {/* Section 7: Free Trials and Evaluation Use */}
             <section id="trial" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 7. FREE TRIALS AND EVALUATION USE
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -509,7 +509,7 @@ export default function TermsPage() {
 
             {/* Section 8: Customer Responsibilities */}
             <section id="responsibilities" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 8. CUSTOMER RESPONSIBILITIES
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -583,7 +583,7 @@ export default function TermsPage() {
 
             {/* Section 9: Customer Content and Customer Data */}
             <section id="content" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 9. CUSTOMER CONTENT AND CUSTOMER DATA
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -640,7 +640,7 @@ export default function TermsPage() {
 
             {/* Section 10: AI‑Generated Content */}
             <section id="ai-content" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 10. AI‑GENERATED CONTENT
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -677,7 +677,7 @@ export default function TermsPage() {
 
             {/* Section 11: Third‑Party Platforms and Integrations */}
             <section id="third-party" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 11. THIRD‑PARTY PLATFORMS AND INTEGRATIONS
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -723,7 +723,7 @@ export default function TermsPage() {
 
             {/* Section 12: Intellectual Property Rights */}
             <section id="ip" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 12. INTELLECTUAL PROPERTY RIGHTS
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -762,7 +762,7 @@ export default function TermsPage() {
 
             {/* Section 13: Confidentiality */}
             <section id="confidentiality" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 13. CONFIDENTIALITY
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -839,7 +839,7 @@ export default function TermsPage() {
 
             {/* Section 14: Data Protection and Security */}
             <section id="data-protection" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 14. DATA PROTECTION AND SECURITY
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -878,7 +878,7 @@ export default function TermsPage() {
 
             {/* Section 15: Service Availability, Support and Changes */}
             <section id="availability" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 15. SERVICE AVAILABILITY, SUPPORT AND CHANGES
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -912,7 +912,7 @@ export default function TermsPage() {
 
             {/* Section 16: Term and Termination */}
             <section id="termination" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 16. TERM AND TERMINATION
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -994,7 +994,7 @@ export default function TermsPage() {
 
             {/* Section 17: Warranties and Disclaimers */}
             <section id="warranties" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 17. WARRANTIES AND DISCLAIMERS
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1048,7 +1048,7 @@ export default function TermsPage() {
 
             {/* Section 18: Limitation of Liability */}
             <section id="liability" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 18. LIMITATION OF LIABILITY
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1084,7 +1084,7 @@ export default function TermsPage() {
 
             {/* Section 19: Indemnification */}
             <section id="indemnification" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 19. INDEMNIFICATION
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1180,7 +1180,7 @@ export default function TermsPage() {
 
             {/* Section 20: Force Majeure */}
             <section id="force-majeure" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 20. FORCE MAJEURE
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1202,7 +1202,7 @@ export default function TermsPage() {
 
             {/* Section 21: Governing Law and Dispute Resolution */}
             <section id="governing-law" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 21. GOVERNING LAW AND DISPUTE RESOLUTION
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1227,7 +1227,7 @@ export default function TermsPage() {
 
             {/* Section 22: Miscellaneous */}
             <section id="miscellaneous" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 22. MISCELLANEOUS
               </h2>
               <div className="space-y-4 text-gray-700">
@@ -1298,7 +1298,7 @@ export default function TermsPage() {
 
             {/* Section 23: Contact */}
             <section id="contact" className="mb-16 scroll-mt-32">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#22b5f8]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-primary">
                 23. CONTACT
               </h2>
               <div className="space-y-4 text-gray-700">

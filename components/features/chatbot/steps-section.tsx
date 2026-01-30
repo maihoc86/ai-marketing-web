@@ -44,8 +44,8 @@ export function ChatbotStepsSection() {
           <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-6">
             {t("featurePage.chatbot.steps.subheading")}
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/10 text-[#22b5f8] rounded-full text-sm font-semibold">
-            <span className="w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#22b5f8] rounded-full text-sm font-semibold">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             {t("featurePage.chatbot.steps.badge")}
           </div>
         </div>

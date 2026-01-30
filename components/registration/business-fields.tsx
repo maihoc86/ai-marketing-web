@@ -42,7 +42,7 @@ export function BusinessFields({
             value={formData.company_name}
             onChange={onInputChange}
             placeholder={t("registration.form.company.namePlaceholder")}
-            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.company_name ? "border-red-500" : "border-gray-200"}`}
+            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.company_name ? "border-red-500" : "border-gray-200"}`}
           />
           {/* {errors.company_name && (
             <p
@@ -69,7 +69,7 @@ export function BusinessFields({
             value={formData.tax_code}
             onChange={onInputChange}
             placeholder={t("registration.form.company.taxCodePlaceholder")}
-            className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all"
+            className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all"
           />
         </div>
       </div>
@@ -96,7 +96,7 @@ export function BusinessFields({
           value={formData.address}
           onChange={onInputChange}
           placeholder={t("registration.form.company.addressPlaceholder")}
-          className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all"
+          className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all"
         />
       </div>
 

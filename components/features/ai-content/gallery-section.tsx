@@ -86,8 +86,8 @@ export function AIContentGallerySection() {
                 onClick={() => setActiveFilter(filter.key)}
                 className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
                   activeFilter === filter.key
-                    ? "bg-[#22b5f8] text-white shadow-lg"
-                    : "bg-white border border-gray-200 text-gray-600 hover:border-[#22b5f8] hover:text-white"
+                    ? "bg-primary text-white shadow-lg"
+                    : "bg-white border border-gray-200 text-gray-600 hover:border-primary hover:text-white"
                 }`}
               >
                 {t(filter.labelKey)}

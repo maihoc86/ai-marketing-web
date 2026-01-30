@@ -32,7 +32,7 @@ export function ProductSection() {
       titleKey: "about.product.why.allinone.title",
       descKey: "about.product.why.allinone.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]/10",
+      bgColor: "bg-primary/10",
     },
     {
       icon: Wallet,
@@ -46,7 +46,7 @@ export function ProductSection() {
       titleKey: "about.product.why.multiplatform.title",
       descKey: "about.product.why.multiplatform.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]/5",
+      bgColor: "bg-primary/5",
     },
     {
       icon: Brain,
@@ -113,7 +113,7 @@ export function ProductSection() {
     <section id="product" className="py-20 bg-[#f9fafb]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#22b5f8]/10 text-[#008bff] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-[#008bff] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
             <Sparkles className="w-3 h-3" />
             {t("about.product.badge")}
           </div>
@@ -169,7 +169,7 @@ export function ProductSection() {
                 {productFeatures.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md hover:border-[#22b5f8]/30 transition-all"
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all"
                   >
                     <feature.icon
                       className={`w-5 h-5 ${feature.color} shrink-0`}
@@ -205,16 +205,14 @@ export function ProductSection() {
                     {/* Header */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#22b5f8] rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
                           <Sparkles className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">
                             Uniksmart Dashboard
                           </p>
-                          <p className="text-xs text-gray-500">
-                            Uniksmart
-                          </p>
+                          <p className="text-xs text-gray-500">Uniksmart</p>
                         </div>
                       </div>
                     </div>
@@ -239,10 +237,10 @@ export function ProductSection() {
                     <div className="bg-white rounded-xl p-4 border border-gray-100">
                       <p className="text-xs text-gray-500 mb-3">AI Tools</p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-[#22b5f8]/5 text-[#22b5f8] rounded-md text-xs font-medium">
+                        <span className="px-2 py-1 bg-primary/5 text-[#22b5f8] rounded-md text-xs font-medium">
                           Video AI
                         </span>
-                        <span className="px-2 py-1 bg-[#22b5f8]/10 text-[#008bff] rounded-md text-xs font-medium">
+                        <span className="px-2 py-1 bg-primary/10 text-[#008bff] rounded-md text-xs font-medium">
                           Content AI
                         </span>
                         <span className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-md text-xs font-medium">
@@ -273,7 +271,7 @@ export function ProductSection() {
             {aiModels.map((model, index) => (
               <div
                 key={index}
-                className="group bg-gray-50 hover:bg-white border border-gray-100 hover:border-[#22b5f8]/30 rounded-xl p-4 text-center hover:shadow-md transition-all duration-300"
+                className="group bg-gray-50 hover:bg-white border border-gray-100 hover:border-primary/30 rounded-xl p-4 text-center hover:shadow-md transition-all duration-300"
               >
                 <div
                   className="w-10 h-10 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform border border-gray-100"

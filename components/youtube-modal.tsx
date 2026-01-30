@@ -113,7 +113,7 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
           text-base font-medium h-12 px-8 rounded-full
           bg-white border border-gray-200
           transition-all duration-200
-          ${isHovered ? "border-[#22b5f8] bg-[#22b5f8]/5 scale-[1.02] shadow-lg shadow-[#22b5f8]/20" : ""}
+          ${isHovered ? "border-primary bg-primary/5 scale-[1.02] shadow-lg shadow-[#22b5f8]/20" : ""}
           active:scale-[0.98] active:shadow-md
           ${className}
         `}
@@ -140,7 +140,7 @@ export function DemoButton({ className = "" }: DemoButtonProps) {
         )}
 
         <span
-          className="relative flex items-center justify-center w-6 h-6 rounded-full bg-[#22b5f8]/10"
+          className="relative flex items-center justify-center w-6 h-6 rounded-full bg-primary/10"
           style={
             shouldAnimate
               ? {

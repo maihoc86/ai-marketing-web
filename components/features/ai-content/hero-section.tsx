@@ -15,7 +15,7 @@ export function AIContentHeroSection() {
 
       {/* Animated Gradient Blobs */}
       <div
-        className="absolute top-0 left-0 w-1/3 h-1/3 bg-[#22b5f8]/10 rounded-full blur-3xl animate-pulse"
+        className="absolute top-0 left-0 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl animate-pulse"
         style={{ animationDuration: "4s" }}
       />
       <div

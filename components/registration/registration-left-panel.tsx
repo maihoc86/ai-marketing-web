@@ -13,7 +13,7 @@ export function RegistrationLeftPanel({ t }: { t: (k: string) => string }) {
     <div className="w-full lg:w-[40%] bg-[#f5f5f5] p-8 lg:p-12 xl:p-16 flex flex-col justify-between border-r border-gray-100">
       <div className="flex flex-col gap-8">
         <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#22b5f8] text-white text-sm font-semibold rounded-full">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary text-white text-sm font-semibold rounded-full">
             <Star className="w-4 h-4" aria-hidden="true" />
             {t("registration.form.trial")}
           </div>
@@ -28,7 +28,7 @@ export function RegistrationLeftPanel({ t }: { t: (k: string) => string }) {
         <div className="flex flex-col gap-4">
           {benefits.map((b, i) => (
             <div key={i} className="flex gap-x-3 items-center">
-              <div className="bg-[#22b5f8]/10 p-1.5 rounded-full">
+              <div className="bg-primary/10 p-1.5 rounded-full">
                 <Check className="w-4 h-4 text-[#22b5f8]" aria-hidden="true" />
               </div>
               <p className="text-base font-medium text-gray-900">{b}</p>
@@ -49,7 +49,7 @@ export function RegistrationLeftPanel({ t }: { t: (k: string) => string }) {
                 }}
               />
             ))}
-            <div className="size-10 rounded-full border-2 border-white bg-[#22b5f8]/10 flex items-center justify-center text-xs font-bold text-[#22b5f8]">
+            <div className="size-10 rounded-full border-2 border-white bg-primary/10 flex items-center justify-center text-xs font-bold text-[#22b5f8]">
               +200
             </div>
           </div>

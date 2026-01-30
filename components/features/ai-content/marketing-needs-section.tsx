@@ -69,7 +69,7 @@ export function AIContentMarketingNeedsSection() {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#22b5f8]/30 transition-all duration-500 flex flex-col ${
+                className={`bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-500 flex flex-col ${
                   isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
@@ -103,7 +103,7 @@ export function AIContentMarketingNeedsSection() {
 
                 {/* CTA Button */}
                 <div className="mt-auto">
-                  <Button className="w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl transition-all">
+                  <Button className="w-full btn-primary-light">
                     {t(category.ctaKey)}
                   </Button>
                 </div>

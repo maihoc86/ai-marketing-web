@@ -58,7 +58,7 @@ function RegisterFormContent() {
       >
         <a
           href="#success-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#22b5f8] focus:text-white focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg"
         >
           {t("registration.skipLink")}
         </a>
@@ -90,7 +90,7 @@ function RegisterFormContent() {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-12 min-h-14 bg-[#22b5f8] hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
+              className="rounded-full px-12 min-h-14 bg-primary hover:bg-[#1a9dd9] text-base font-semibold shadow-lg"
               aria-label={t("registration.loginLabel")}
             >
               <a

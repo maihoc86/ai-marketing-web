@@ -77,43 +77,43 @@ export function ChatbotCapabilitiesSection() {
           </LocaleLink>
         </div>
 
-      {/* Capabilities Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {capabilities.map((capability, index) => {
-          const Icon = capability.icon;
+        {/* Capabilities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {capabilities.map((capability, index) => {
+            const Icon = capability.icon;
 
-          return (
-            <div
-              key={index}
-              className="group bg-white p-6 md:p-8 rounded-2xl border border-gray-200 hover:border-[#22b5f8] transition-all hover:shadow-xl animate-fade-in"
-              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-[#22b5f8]/5 flex items-center justify-center mb-6 group-hover:bg-[#22b5f8] transition-all group-hover:scale-110">
-                <Icon className="w-7 h-7 text-[#22b5f8] group-hover:text-white transition-colors" />
+            return (
+              <div
+                key={index}
+                className="group bg-white p-6 md:p-8 rounded-2xl border border-gray-200 hover:border-primary transition-all hover:shadow-xl animate-fade-in"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              >
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary transition-all group-hover:scale-110">
+                  <Icon className="w-7 h-7 text-[#22b5f8] group-hover:text-white transition-colors" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-3 text-[#1c1c1c]">
+                  {t(capability.titleKey)}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {t(capability.descKey)}
+                </p>
+
+                {/* Progress Bar */}
+                <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-linear-to-r from-[#22b5f8] to-[#008bff] transition-all duration-1000 ease-out"
+                    style={{ width: `${capability.progress}%` }}
+                  />
+                </div>
               </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-3 text-[#1c1c1c]">
-                {t(capability.titleKey)}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {t(capability.descKey)}
-              </p>
-
-              {/* Progress Bar */}
-              <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-linear-to-r from-[#22b5f8] to-[#008bff] transition-all duration-1000 ease-out"
-                  style={{ width: `${capability.progress}%` }}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Animation Styles */}

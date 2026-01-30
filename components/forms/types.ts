@@ -5,12 +5,10 @@
 export interface RegistrationFormData {
   selected_package: string;
   business_type: string;
-  tax_code: string;
-  company_name: string;
+  tax_code?: string;
+  company_name?: string;
   address: string;
   full_name: string;
-  first_name: string;
-  last_name: string;
   email: string;
   phone_number: string;
   job_position: string;
@@ -23,8 +21,6 @@ export interface RegistrationFormErrors {
   company_name?: string;
   address?: string;
   full_name?: string;
-  first_name?: string;
-  last_name?: string;
   email?: string;
   phone_number?: string;
   job_position?: string;

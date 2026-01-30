@@ -27,7 +27,7 @@ export function PackageOption({
   const isSelected = selected === id;
   return (
     <label
-      className={`relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition-all ${isSelected ? "border-[#22b5f8] bg-[#22b5f8]/10" : "border-gray-200 hover:border-[#22b5f8]/50"}`}
+      className={`relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition-all ${isSelected ? "border-primary bg-primary/10" : "border-gray-200 hover:border-primary/50"}`}
     >
       <input
         type="radio"

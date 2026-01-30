@@ -33,8 +33,8 @@ export function WhyChooseEnterprise() {
       titleKey: "about.whyChoose.expertise1.title",
       descKey: "about.whyChoose.expertise1.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]",
-      lightBg: "bg-[#22b5f8]/5",
+      bgColor: "bg-primary",
+      lightBg: "bg-primary/5",
     },
     {
       icon: Headphones,
@@ -75,7 +75,7 @@ export function WhyChooseEnterprise() {
               : "opacity-0 translate-y-8",
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/10 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
             <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
               {t("about.whyChoose.badge")}
             </span>

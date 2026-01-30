@@ -122,7 +122,7 @@ function TestimonialCard({
             className={cn(
               "rounded-full overflow-hidden border-2 shrink-0 transition-all duration-400",
               "w-12 h-12",
-              isActive ? "border-[#22b5f8]/30" : "border-gray-200",
+              isActive ? "border-primary/30" : "border-gray-200",
             )}
           >
             <img
@@ -361,7 +361,7 @@ export function TestimonialsSection() {
               "absolute left-0 lg:-left-6 top-1/2 -translate-y-1/2",
               "w-12 h-12 rounded-full bg-white border border-gray-200",
               "flex items-center justify-center",
-              "hover:bg-gray-50 hover:border-[#22b5f8] hover:shadow-lg",
+              "hover:bg-gray-50 hover:border-primary hover:shadow-lg",
               "transition-all duration-300 z-30 shadow-md",
               isAnimating && "opacity-50 cursor-not-allowed",
             )}
@@ -377,7 +377,7 @@ export function TestimonialsSection() {
               "absolute right-0 lg:-right-6 top-1/2 -translate-y-1/2",
               "w-12 h-12 rounded-full bg-white border border-gray-200",
               "flex items-center justify-center",
-              "hover:bg-gray-50 hover:border-[#22b5f8] hover:shadow-lg",
+              "hover:bg-gray-50 hover:border-primary hover:shadow-lg",
               "transition-all duration-300 z-30 shadow-md",
               isAnimating && "opacity-50 cursor-not-allowed",
             )}
@@ -397,7 +397,7 @@ export function TestimonialsSection() {
               className={cn(
                 "h-2.5 rounded-full transition-all duration-300",
                 idx === activeIndex
-                  ? "w-8 bg-[#22b5f8]"
+                  ? "w-8 bg-primary"
                   : "w-2.5 bg-gray-300 hover:bg-gray-400",
                 isAnimating && "cursor-not-allowed",
               )}

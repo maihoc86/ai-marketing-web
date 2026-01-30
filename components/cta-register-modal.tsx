@@ -40,7 +40,7 @@ export function CtaRegisterModal() {
     handleBusinessTypeChange,
     handleSubmit,
   } = useRegistrationForm({
-    initialPackage: "growth",
+    initialPackage: "professional",
     onSuccess: () => {
       // Store dismissed state on success
       localStorage.setItem(STORAGE_KEY, "true");
@@ -287,7 +287,7 @@ export function CtaRegisterModal() {
 
             {/* Form header */}
             <div className="mb-6 pr-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#22b5f8]/10 text-[#008bff] text-xs font-medium mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-[#008bff] text-xs font-medium mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
                 {t("modal.cta.badge")}
               </div>

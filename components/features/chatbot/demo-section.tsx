@@ -75,7 +75,7 @@ export function ChatbotDemoSection() {
                   style={{ animationDelay: `${0.3 + index * 0.1}s` }}
                 >
                   {message.type === "bot" && (
-                    <div className="w-8 h-8 rounded-full bg-[#22b5f8] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
                       <MessageSquare className="w-4 h-4 text-white" />
                     </div>
                   )}
@@ -87,7 +87,7 @@ export function ChatbotDemoSection() {
                     <div
                       className={`p-4 rounded-2xl text-sm ${
                         message.type === "user"
-                          ? "bg-[#22b5f8] text-white rounded-tr-none"
+                          ? "bg-primary text-white rounded-tr-none"
                           : message.highlight
                             ? "bg-linear-to-r from-[#22b5f8] to-[#008bff] text-white rounded-tl-none"
                             : "bg-[#2d2d2d] text-gray-100 rounded-tl-none"
@@ -97,7 +97,7 @@ export function ChatbotDemoSection() {
                       {message.status && (
                         <div className="mt-2 pt-2 border-t border-white/10">
                           <p className="text-xs text-gray-300 flex items-center gap-2">
-                            <span className="inline-block w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
+                            <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse" />
                             {message.status}
                           </p>
                         </div>
@@ -134,10 +134,10 @@ export function ChatbotDemoSection() {
                 <input
                   type="text"
                   placeholder={t("featurePage.chatbot.demo.live.placeholder")}
-                  className="flex-1 bg-[#1c1c1c] text-gray-300 px-4 py-3 rounded-xl border border-gray-700 focus:border-[#22b5f8] focus:outline-none transition-colors"
+                  className="flex-1 bg-[#1c1c1c] text-gray-300 px-4 py-3 rounded-xl border border-gray-700 focus:border-primary focus:outline-none transition-colors"
                   disabled
                 />
-                <button className="px-6 py-3 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-semibold rounded-xl transition-colors">
+                <button className="px-6 py-3 bg-primary hover:bg-[#1a9fd8] text-white font-semibold rounded-xl transition-colors">
                   {t("featurePage.chatbot.demo.live.send")}
                 </button>
               </div>

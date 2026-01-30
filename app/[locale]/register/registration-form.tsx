@@ -157,7 +157,7 @@ export function RegistrationForm({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-14 bg-[#22b5f8] text-white font-bold rounded-lg hover:bg-[#1a9fd8] disabled:bg-[#22b5f8]/50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#22b5f8]/30"
+                  className="w-full h-14 bg-primary text-white font-bold rounded-lg hover:bg-[#1a9fd8] disabled:bg-primary/50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#22b5f8]/30"
                 >
                   {isLoading ? (
                     <>

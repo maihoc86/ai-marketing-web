@@ -57,7 +57,7 @@ export function AIContentDemoSection() {
           <div className="lg:col-span-5 space-y-8">
             {/* Header */}
             <div>
-              <span className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest text-[#22b5f8] bg-[#22b5f8]/10 rounded-full">
+              <span className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest text-[#22b5f8] bg-primary/10 rounded-full">
                 {t("featurePage.content.demo.badge")}
               </span>
               <h2 className="text-4xl font-black tracking-tight mb-4">
@@ -69,8 +69,8 @@ export function AIContentDemoSection() {
             </div>
 
             {/* Upload Area */}
-            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 bg-white/50 flex flex-col items-center justify-center text-center hover:border-[#22b5f8] transition-colors cursor-pointer group">
-              <div className="size-12 rounded-full bg-[#22b5f8]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 bg-white/50 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer group">
+              <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <CloudUpload className="w-6 h-6 text-[#22b5f8]" />
               </div>
               <p className="text-sm font-bold mb-1">
@@ -87,7 +87,7 @@ export function AIContentDemoSection() {
                 {t("featurePage.content.demo.promptLabel")}
               </label>
               <textarea
-                className="w-full h-32 p-4 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#22b5f8]/50 focus:border-[#22b5f8] transition-all text-sm resize-none"
+                className="w-full h-32 p-4 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#22b5f8]/50 focus:border-primary transition-all text-sm resize-none"
                 placeholder={t("featurePage.content.demo.promptPlaceholder")}
                 readOnly
               />
@@ -95,7 +95,7 @@ export function AIContentDemoSection() {
                 {presets.map((preset) => (
                   <button
                     key={preset.labelKey}
-                    className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-gray-100 rounded-full hover:bg-[#22b5f8]/10 hover:text-[#22b5f8] transition-colors"
+                    className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-gray-100 rounded-full hover:bg-primary/10 hover:text-[#22b5f8] transition-colors"
                   >
                     {preset.emoji} {t(preset.labelKey)}
                   </button>
@@ -116,7 +116,7 @@ export function AIContentDemoSection() {
                       onClick={() => setActiveStyle(style.key)}
                       className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all ${
                         activeStyle === style.key
-                          ? "bg-[#22b5f8] text-white shadow-sm"
+                          ? "bg-primary text-white shadow-sm"
                           : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                       }`}
                     >
@@ -189,7 +189,7 @@ export function AIContentDemoSection() {
                   <span>60%</span>
                 </div>
                 <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#22b5f8] w-[60%] rounded-full" />
+                  <div className="h-full bg-primary w-[60%] rounded-full" />
                 </div>
               </div>
             </div>
@@ -257,7 +257,7 @@ export function AIContentDemoSection() {
                     onClick={() => setActiveHistory(index)}
                     className={`size-20 rounded-xl overflow-hidden transition-all cursor-pointer ${
                       activeHistory === index
-                        ? "border-2 border-[#22b5f8] ring-2 ring-[#22b5f8]/20"
+                        ? "border-2 border-primary ring-2 ring-[#22b5f8]/20"
                         : "border border-gray-200 grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
                     }`}
                   >

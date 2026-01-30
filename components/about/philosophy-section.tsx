@@ -33,8 +33,8 @@ export function PhilosophySection() {
       titleKey: "about.philosophy.benefit1.title",
       descKey: "about.philosophy.benefit1.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]",
-      lightBg: "bg-[#22b5f8]/5",
+      bgColor: "bg-primary",
+      lightBg: "bg-primary/5",
     },
     {
       icon: Settings,

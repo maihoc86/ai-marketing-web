@@ -21,7 +21,7 @@ export function HeroContent() {
       {/* Left Column - Text Content */}
       <div className="text-center lg:text-left order-2 lg:order-1">
         {/* Badge */}
-        {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 mb-6 animate-fade-in">
+        {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-primary/30 mb-6 animate-fade-in">
           <Rocket className="w-4 h-4 text-[#22b5f8]" />
           <span className="text-sm font-semibold text-[#008bff]">
             {t("hero.badge")}

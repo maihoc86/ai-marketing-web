@@ -40,25 +40,23 @@ export function AIContentMetricsSection() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className={`p-8 rounded-2xl border border-gray-50 hover:bg-gray-50 transition-all duration-500 group ${
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`p-8 shadow-lg rounded-2xl border border-gray-50 hover:bg-gray-50 transition-all duration-500 group ${
+                isInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
             >
               {/* Big Number */}
-              <div className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#22b5f8] to-[#008bff] mb-4">
+              <div className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-hover mb-6">
                 {metric.value}
               </div>
 
               {/* Label */}
-              <div className="text-xl font-bold mb-2">
-                {t(metric.labelKey)}
-              </div>
+              <div className="text-xl font-bold mb-2">{t(metric.labelKey)}</div>
 
               {/* Description */}
-              <p className="text-gray-500">
-                {t(metric.descKey)}
-              </p>
+              <p className="text-gray-500">{t(metric.descKey)}</p>
             </div>
           ))}
         </div>

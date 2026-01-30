@@ -20,7 +20,7 @@ export function ChatbotCapabilitiesBentoSection() {
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="mb-12 text-center md:text-left animate-fade-in">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest text-[#22b5f8] bg-[#22b5f8]/10 rounded-full">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest text-[#22b5f8] bg-primary/10 rounded-full">
             {t("featurePage.chatbot.capabilities.badge")}
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
@@ -39,7 +39,7 @@ export function ChatbotCapabilitiesBentoSection() {
             style={{ animationDelay: "0.1s" }}
           >
             <div className="flex justify-between items-start mb-6">
-              <div className="w-14 h-14 rounded-xl bg-[#22b5f8]/10 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Brain className="w-8 h-8 text-[#22b5f8]" />
               </div>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">
@@ -55,9 +55,15 @@ export function ChatbotCapabilitiesBentoSection() {
 
             {/* UI Preview */}
             <div className="opacity-40 group-hover:opacity-100 transition-all duration-500 mt-4 rounded-lg bg-gray-50 p-4 border border-gray-200 h-32 flex flex-col gap-2">
-              <div className="w-2/3 h-4 bg-[#22b5f8]/20 rounded animate-pulse" />
-              <div className="w-full h-4 bg-[#ff7900]/20 rounded animate-pulse" style={{ animationDelay: "0.2s" }} />
-              <div className="w-1/2 h-4 bg-[#22b5f8]/20 rounded animate-pulse" style={{ animationDelay: "0.4s" }} />
+              <div className="w-2/3 h-4 bg-primary/20 rounded animate-pulse" />
+              <div
+                className="w-full h-4 bg-[#ff7900]/20 rounded animate-pulse"
+                style={{ animationDelay: "0.2s" }}
+              />
+              <div
+                className="w-1/2 h-4 bg-primary/20 rounded animate-pulse"
+                style={{ animationDelay: "0.4s" }}
+              />
             </div>
 
             <div className="absolute bottom-8 left-8">
@@ -102,7 +108,7 @@ export function ChatbotCapabilitiesBentoSection() {
             className="md:row-span-2 group relative bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col animate-fade-in"
             style={{ animationDelay: "0.3s" }}
           >
-            <div className="w-12 h-12 rounded-xl bg-[#22b5f8]/10 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
               <Globe className="w-7 h-7 text-[#22b5f8]" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-[#1c1c1c]">
@@ -114,8 +120,8 @@ export function ChatbotCapabilitiesBentoSection() {
 
             {/* Icon Grid Preview */}
             <div className="flex-grow flex items-center justify-center py-4">
-              <div className="w-32 h-32 rounded-full border-4 border-dashed border-[#22b5f8]/20 flex items-center justify-center transition-all duration-500 group-hover:border-[#22b5f8]/40">
-                <div className="w-16 h-16 rounded-full bg-[#22b5f8]/10 flex items-center justify-center">
+              <div className="w-32 h-32 rounded-full border-4 border-dashed border-primary/20 flex items-center justify-center transition-all duration-500 group-hover:border-primary/40">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                   <Globe className="w-8 h-8 text-[#22b5f8] animate-pulse" />
                 </div>
               </div>

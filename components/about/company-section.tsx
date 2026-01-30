@@ -28,7 +28,7 @@ export function CompanySection() {
       titleKey: "about.why.expertise.title",
       descKey: "about.why.expertise.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]/10",
+      bgColor: "bg-primary/10",
     },
     {
       icon: Target,
@@ -118,7 +118,7 @@ export function CompanySection() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#22b5f8] rounded-2xl -z-10" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-2xl -z-10" />
             </div>
 
             {/* Right - Content */}
@@ -142,7 +142,7 @@ export function CompanySection() {
 
               <Button
                 variant="outline"
-                className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8] hover:text-white font-semibold px-6 py-5 rounded-xl transition-all bg-transparent"
+                className="border-2 border-primary text-[#22b5f8] hover:bg-primary hover:text-white font-semibold px-6 py-5 rounded-xl transition-all bg-transparent"
                 asChild
               >
                 <LocaleLink
@@ -207,7 +207,7 @@ export function CompanySection() {
 
               <Button
                 variant="outline"
-                className="border-2 border-[#22b5f8] text-[#22b5f8] hover:bg-[#22b5f8]/5 font-medium px-5 py-4 rounded-xl mb-8 bg-transparent"
+                className="border-2 border-primary text-[#22b5f8] hover:bg-primary/5 font-medium px-5 py-4 rounded-xl mb-8 bg-transparent"
                 asChild
               >
                 <LocaleLink
@@ -233,13 +233,13 @@ export function CompanySection() {
             {/* Right Column - Vertical Timeline */}
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-[#22b5f8]/30" />
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-primary/30" />
 
               <div className="space-y-8">
                 {processSteps.map((step, index) => (
                   <div key={index} className="relative flex gap-6">
                     {/* Icon circle */}
-                    <div className="relative z-10 w-12 h-12 bg-white border-2 border-[#22b5f8]/30 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
+                    <div className="relative z-10 w-12 h-12 bg-white border-2 border-primary/30 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
                       <step.icon className="w-5 h-5 text-[#22b5f8]" />
                     </div>
 

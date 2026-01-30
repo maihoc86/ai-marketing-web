@@ -7,7 +7,7 @@ import { useI18n } from "@/lib/i18n";
 
 const badgeColors = [
   "bg-[#ff7900]",
-  "bg-[#22b5f8]",
+  "bg-primary",
   "bg-[#008bff]",
   "bg-[#5fffec]",
   "bg-[#e56b00]",
@@ -55,7 +55,7 @@ export function FaqSection() {
                 "rounded-xl border bg-white transition-all duration-300 overflow-hidden group",
                 openIndex === idx
                   ? "border-l-[3px] border-l-[#ff7900] border-t-gray-200 border-r-gray-200 border-b-gray-200 shadow-lg shadow-[#ff7900]/5"
-                  : "border-gray-200 hover:border-[#22b5f8]/50 hover:shadow-md hover:shadow-gray-100",
+                  : "border-gray-200 hover:border-primary/50 hover:shadow-md hover:shadow-gray-100",
                 idx % 2 === 1 && openIndex !== idx && "bg-gray-50/50",
               )}
             >
@@ -63,7 +63,7 @@ export function FaqSection() {
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 className={cn(
                   "w-full flex items-center gap-4 p-5 text-left transition-colors duration-200",
-                  openIndex !== idx && "group-hover:bg-[#22b5f8]/5",
+                  openIndex !== idx && "group-hover:bg-primary/5",
                 )}
               >
                 <div

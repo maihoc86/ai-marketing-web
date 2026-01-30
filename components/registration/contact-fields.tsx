@@ -47,7 +47,7 @@ export function ContactFields({
               value={formData.full_name}
               onChange={onInputChange}
               placeholder={t("registration.form.contact.fullNamePlaceholder")}
-              className={`w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.full_name ? "border-red-500" : "border-gray-200"}`}
+              className={`w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.full_name ? "border-red-500" : "border-gray-200"}`}
             />
             {formData.full_name && !errors.full_name && (
               <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
@@ -79,7 +79,7 @@ export function ContactFields({
             value={formData.email}
             onChange={onInputChange}
             placeholder={t("registration.form.contact.emailPlaceholder")}
-            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.email ? "border-red-500" : "border-gray-200"}`}
+            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.email ? "border-red-500" : "border-gray-200"}`}
           />
           {errors.email && (
             <p
@@ -113,7 +113,7 @@ export function ContactFields({
               value={formData.phone_number}
               onChange={onInputChange}
               placeholder={phonePlaceholder}
-              className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.phone_number ? "border-red-500" : "border-gray-200"}`}
+              className={`w-full h-12 px-4 rounded-r-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.phone_number ? "border-red-500" : "border-gray-200"}`}
             />
           </div>
           {errors.phone_number && (
@@ -140,7 +140,7 @@ export function ContactFields({
             name="job_position"
             value={formData.job_position}
             onChange={onInputChange}
-            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all ${errors.job_position ? "border-red-500" : "border-gray-200"} ${!formData.job_position ? "text-gray-400" : "text-gray-900"}`}
+            className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.job_position ? "border-red-500" : "border-gray-200"} ${!formData.job_position ? "text-gray-400" : "text-gray-900"}`}
           >
             {jobPositions.map((position) => (
               <option

@@ -74,8 +74,8 @@ export function ProductEnterprise() {
       titleKey: "about.product.why.allinone.title",
       descKey: "about.product.why.allinone.desc",
       color: "text-[#22b5f8]",
-      bgColor: "bg-[#22b5f8]",
-      lightBg: "bg-[#22b5f8]/5",
+      bgColor: "bg-primary",
+      lightBg: "bg-primary/5",
     },
     {
       icon: Wallet,
@@ -109,7 +109,7 @@ export function ProductEnterprise() {
       titleKey: "about.product.feature.video.title",
       descKey: "about.product.feature.video.desc",
       color: "text-[#22b5f8]",
-      lightBg: "bg-[#22b5f8]/5",
+      lightBg: "bg-primary/5",
     },
     {
       icon: ImageIcon,
@@ -184,7 +184,7 @@ export function ProductEnterprise() {
               : "opacity-0 translate-y-8",
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22b5f8]/10 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-[#22b5f8]" />
             <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
               {t("about.product.badge")}
@@ -342,7 +342,7 @@ function WhyDxaiCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-[#22b5f8]/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
+        "group relative bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
       )}
     >
@@ -407,7 +407,7 @@ function FeatureCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-[#22b5f8]/30 hover:-translate-y-1 transition-all duration-300",
+        "group relative bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1 transition-all duration-300",
         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
       )}
     >
@@ -589,12 +589,12 @@ function AIModelCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white hover:bg-linear-to-br hover:from-white hover:to-[#22b5f8]/5 border-2 border-gray-100 hover:border-[#22b5f8]/50 rounded-2xl p-5 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
+        "group relative bg-white hover:bg-linear-to-br hover:from-white hover:to-[#22b5f8]/5 border-2 border-gray-100 hover:border-primary/50 rounded-2xl p-5 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
       <div
-        className="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border-2 border-gray-100 group-hover:border-[#22b5f8]/30 shadow-sm"
+        className="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border-2 border-gray-100 group-hover:border-primary/30 shadow-sm"
         style={{ color: model.color }}
       >
         <model.icon className="w-6 h-6" />

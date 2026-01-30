@@ -52,7 +52,7 @@ export const RegistrationFields = memo(
               onChange={onChange}
               disabled={disabled}
               placeholder={t("registration.form.company.taxCodePlaceholder")}
-              className="h-11 rounded-xl border-gray-200 focus:border-[#22b5f8] focus:ring-[#22b5f8]/20"
+              className="h-11 rounded-xl border-gray-200 focus:border-primary focus:ring-[#22b5f8]/20"
             />
             {errors.tax_code && (
               <p
@@ -79,7 +79,7 @@ export const RegistrationFields = memo(
               onChange={onChange}
               disabled={disabled}
               placeholder={t("registration.form.company.namePlaceholder")}
-              className="h-11 rounded-xl border-gray-200 focus:border-[#22b5f8] focus:ring-[#22b5f8]/20"
+              className="h-11 rounded-xl border-gray-200 focus:border-primary focus:ring-[#22b5f8]/20"
             />
             {errors.company_name && (
               <p
@@ -115,7 +115,7 @@ export const RegistrationFields = memo(
             placeholder={t("registration.form.contact.fullNamePlaceholder")}
             className={`h-11 rounded-xl ${
               errors.full_name ? "border-red-500" : "border-gray-200"
-            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
+            } focus:border-primary focus:ring-[#22b5f8]/20`}
             aria-invalid={!!errors.full_name}
             aria-describedby={errors.full_name ? "full_name-error" : undefined}
           />
@@ -152,7 +152,7 @@ export const RegistrationFields = memo(
             placeholder={t("registration.form.contact.emailPlaceholder")}
             className={`h-11 rounded-xl ${
               errors.email ? "border-red-500" : "border-gray-200"
-            } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
+            } focus:border-primary focus:ring-[#22b5f8]/20`}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
           />
@@ -193,7 +193,7 @@ export const RegistrationFields = memo(
               placeholder={t("registration.form.contact.phonePlaceholder")}
               className={`h-11 rounded-xl ${
                 errors.phone_number ? "border-red-500" : "border-gray-200"
-              } focus:border-[#22b5f8] focus:ring-[#22b5f8]/20`}
+              } focus:border-primary focus:ring-[#22b5f8]/20`}
               aria-invalid={!!errors.phone_number}
               aria-describedby={
                 errors.phone_number ? "phone_number-error" : undefined
@@ -232,7 +232,7 @@ export const RegistrationFields = memo(
               disabled={disabled}
               className={`w-full h-11 rounded-xl px-3 border ${
                 errors.job_position ? "border-red-500" : "border-gray-200"
-              } focus:border-[#22b5f8] focus:ring-2 focus:ring-[#22b5f8]/20 focus:outline-none bg-white text-gray-900`}
+              } focus:border-primary focus:ring-2 focus:ring-[#22b5f8]/20 focus:outline-none bg-white text-gray-900`}
               aria-invalid={!!errors.job_position}
               aria-describedby={
                 errors.job_position ? "job_position-error" : undefined

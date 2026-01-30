@@ -150,6 +150,8 @@
 
   --secondary: #ff7900;
 
+  --tertiary: #1f3b61;
+
   /* Improved neutral colors for better contrast */
   --background: oklch(0.99 0 0);
   --foreground: oklch(0.13 0.02 260); /* Dark text for 17:1 contrast */
@@ -194,7 +196,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-@theme inline {
+@theme {
   --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
@@ -205,6 +207,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);

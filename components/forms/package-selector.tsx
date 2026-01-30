@@ -5,10 +5,11 @@ import { Check } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { packageOptions } from "./types";
 import { useI18n } from "@/lib/i18n";
+import { PackageType } from "@/hooks/use-registration-form";
 
 interface PackageSelectorProps {
-  value: string;
-  onChange: (value: string) => void;
+  value: PackageType;
+  onChange: (value: PackageType) => void;
   disabled?: boolean;
   error?: string;
   className?: string;
@@ -48,8 +49,8 @@ export const PackageSelector = memo(
                 relative p-4 rounded-xl border-2 transition-all duration-200 text-left
                 ${
                   isSelected
-                    ? "border-[#22b5f8] bg-[#22b5f8]/5 shadow-md"
-                    : "border-gray-200 hover:border-[#22b5f8]/50 hover:bg-gray-50"
+                    ? "border-primary bg-primary/5 shadow-md"
+                    : "border-gray-200 hover:border-primary/50 hover:bg-gray-50"
                 }
                 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
               `}
@@ -66,7 +67,7 @@ export const PackageSelector = memo(
                 {/* Selected indicator */}
                 {isSelected && (
                   <div className="absolute top-3 right-3" aria-hidden="true">
-                    <div className="w-5 h-5 rounded-full bg-[#22b5f8] flex items-center justify-center">
+                    <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                       <Check className="size-3 text-white" strokeWidth={3} />
                     </div>
                   </div>

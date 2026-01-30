@@ -25,9 +25,9 @@ export function CtaSection() {
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#ff7900]/10" />
-        <div className="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-[#22b5f8]/10" />
+        <div className="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-primary/10" />
         <div className="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-[#5fffec]/30" />
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full bg-[#22b5f8]/20" />
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full bg-primary/20" />
         <div className="absolute bottom-1/4 right-1/4 w-5 h-5 rounded-full bg-[#ff7900]/15" />
         <div className="absolute top-1/2 left-[15%] w-2 h-2 rounded-full bg-[#5fffec]/25" />
         <div className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-[#008bff]/20" />

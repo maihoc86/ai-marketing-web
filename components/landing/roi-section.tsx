@@ -97,7 +97,7 @@ export function RoiSection() {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 -right-20 size-125 bg-[#5fffec]/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-150 bg-[#ff7900]/5 rounded-full blur-3xl" />
       </div>
@@ -105,7 +105,7 @@ export function RoiSection() {
       <div className="relative container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-[#22b5f8]/30 text-[#008bff] text-xs font-bold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#5fffec]/10 to-[#008bff]/10 border border-primary/30 text-[#008bff] text-xs font-bold uppercase tracking-wider mb-6">
             <Sparkles className="w-4 h-4 text-[#22b5f8]" />
             {t("roi.badge")}
           </div>
@@ -118,7 +118,7 @@ export function RoiSection() {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group"
+            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[#1a9fd8] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group"
           >
             <Play
               className="w-5 h-5 group-hover:scale-110 transition-transform"
@@ -329,14 +329,14 @@ export function RoiSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 bg-[#22b5f8] hover:bg-[#1a9fd8] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group min-h-14"
+                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[#1a9fd8] text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-[#22b5f8]/30 hover:shadow-xl transition-all group min-h-14"
               >
                 {t("roi.cta.start")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/about-us"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-[#22b5f8]/50 transition-all min-h-14"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-full border-2 border-gray-300 hover:border-primary/50 transition-all min-h-14"
               >
                 {t("roi.cta.learn")}
               </Link>

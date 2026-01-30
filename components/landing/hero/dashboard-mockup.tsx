@@ -103,7 +103,7 @@ const MetricCard = memo(
     delay = 0,
   }: MetricCardProps) => (
     <div
-      className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-[#22b5f8]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#22b5f8]/10"
+      className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#22b5f8]/10"
       style={{
         animation: `fadeInUp 0.5s ease-out ${delay}ms forwards`,
         opacity: 0,
@@ -276,7 +276,7 @@ export function DashboardMockup() {
               label={t("hero.dashboard.aiEfficiency")}
               value="98.4"
               badge="AI"
-              badgeColor="bg-[#22b5f8]"
+              badgeColor="bg-primary"
               delay={300}
             />
             <MetricCard
@@ -306,19 +306,19 @@ export function DashboardMockup() {
               <RegionBar
                 label={t("hero.dashboard.region.vietnam")}
                 percentage={87}
-                color="bg-[#22b5f8]"
+                color="bg-primary"
                 delay={600}
               />
               <RegionBar
                 label={t("hero.dashboard.region.sea")}
                 percentage={62}
-                color="bg-[#22b5f8]/80"
+                color="bg-primary/80"
                 delay={700}
               />
               <RegionBar
                 label={t("hero.dashboard.region.latam")}
                 percentage={45}
-                color="bg-[#22b5f8]/60"
+                color="bg-primary/60"
                 delay={800}
               />
               <RegionBar
@@ -365,7 +365,7 @@ export function DashboardMockup() {
               {platforms.map((platform, index) => (
                 <div
                   key={platform.name}
-                  className="p-1.5 rounded-md bg-slate-800/50 border border-slate-700/30 hover:border-[#22b5f8]/30 transition-all duration-200 hover:scale-110"
+                  className="p-1.5 rounded-md bg-slate-800/50 border border-slate-700/30 hover:border-primary/30 transition-all duration-200 hover:scale-110"
                   style={{
                     animation: `fadeInUp 0.3s ease-out ${1500 + index * 100}ms forwards`,
                     opacity: 0,

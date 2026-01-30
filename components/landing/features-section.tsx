@@ -91,10 +91,10 @@ const features: Feature[] = [
   {
     id: "chatbot",
     icon: Video,
-    iconBg: "bg-[#22b5f8]/10",
+    iconBg: "bg-primary/10",
     iconColor: "text-[#22b5f8]",
     badge: "24/7",
-    badgeColor: "bg-[#22b5f8]/10 text-[#008bff] border-[#22b5f8]/30",
+    badgeColor: "bg-primary/10 text-[#008bff] border-primary/30",
     image: "/ai-chatbot.webp",
     mainFeatures: [
       {

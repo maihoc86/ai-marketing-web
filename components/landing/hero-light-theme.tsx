@@ -550,7 +550,7 @@ export function HeroLightTheme() {
               <div className="flex flex-wrap gap-4">
                 <LocaleLink
                   href="/register"
-                  className="bg-[#22b5f8] hover:bg-[#1a9fd8] text-white flex items-center gap-2 group shadow-lg hover:shadow-xl transition-all rounded-full px-6 py-3 font-semibold"
+                  className="bg-primary hover:bg-[#1a9fd8] text-white flex items-center gap-2 group shadow-lg hover:shadow-xl transition-all rounded-full px-6 py-3 font-semibold"
                 >
                   <Sparkles className="w-5 h-5" />
                   {t("hero.cta.trial")}

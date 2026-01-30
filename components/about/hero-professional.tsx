@@ -19,7 +19,7 @@ export function HeroProfessional() {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-linear-to-b from-gray-50 to-white">
       {/* Background decorative elements with animation */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-[#22b5f8]/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute top-40 right-10 w-80 h-80 bg-[#5fffec]/20 rounded-full blur-3xl animate-pulse delay-150" />
       <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-[#008bff]/10 rounded-full blur-3xl animate-pulse delay-300" />
 
@@ -44,8 +44,8 @@ export function HeroProfessional() {
             )}
           >
             {/* Badge */}
-            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-[#22b5f8]/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
-              <div className="w-2 h-2 bg-[#22b5f8] rounded-full animate-pulse" />
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#22b5f8]/10 to-[#5fffec]/10 border-2 border-primary/30 rounded-full mb-6 hover:shadow-lg transition-shadow">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-sm font-bold text-[#22b5f8] uppercase tracking-wider">
                 {t("about.hero.badge")}
               </span>

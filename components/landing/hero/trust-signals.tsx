@@ -1,21 +1,30 @@
-"use client"
+"use client";
 
-import { memo } from "react"
-import { useI18n } from "@/lib/i18n"
-import { Shield, Zap, Star, CreditCard, Clock, Lock, Users, MapPin } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { memo } from "react";
+import { useI18n } from "@/lib/i18n";
+import {
+  Shield,
+  Zap,
+  Star,
+  CreditCard,
+  Clock,
+  Lock,
+  Users,
+  MapPin,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // TYPES
 // ============================================================
 interface TrustBadgeProps {
-  icon: React.ReactNode
-  text: string
-  variant?: "default" | "highlight"
+  icon: React.ReactNode;
+  text: string;
+  variant?: "default" | "highlight";
 }
 
 interface UserAvatarProps {
-  index: number
+  index: number;
 }
 
 // ============================================================
@@ -24,18 +33,18 @@ interface UserAvatarProps {
 const UserAvatar = memo(({ index }: UserAvatarProps) => {
   const colors = [
     "bg-[#ff7900]",
-    "bg-[#22b5f8]",
+    "bg-primary",
     "bg-[#5fffec]",
     "bg-[#008bff]",
     "bg-emerald-500",
-  ]
-  const initials = ["T", "M", "H", "L", "N"]
+  ];
+  const initials = ["T", "M", "H", "L", "N"];
 
   return (
     <div
       className={cn(
         "w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 border-white shadow-sm",
-        colors[index % colors.length]
+        colors[index % colors.length],
       )}
       style={{
         marginLeft: index > 0 ? "-8px" : "0",
@@ -44,35 +53,37 @@ const UserAvatar = memo(({ index }: UserAvatarProps) => {
     >
       {initials[index]}
     </div>
-  )
-})
+  );
+});
 
-UserAvatar.displayName = "UserAvatar"
+UserAvatar.displayName = "UserAvatar";
 
 // ============================================================
 // TRUST BADGE COMPONENT
 // ============================================================
-const TrustBadge = memo(({ icon, text, variant = "default" }: TrustBadgeProps) => (
-  <div
-    className={cn(
-      "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105",
-      variant === "highlight"
-        ? "bg-[#22b5f8]/10 text-[#008bff] border border-[#22b5f8]/30"
-        : "bg-gray-100 text-gray-700 border border-gray-200"
-    )}
-  >
-    {icon}
-    <span>{text}</span>
-  </div>
-))
+const TrustBadge = memo(
+  ({ icon, text, variant = "default" }: TrustBadgeProps) => (
+    <div
+      className={cn(
+        "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105",
+        variant === "highlight"
+          ? "bg-primary/10 text-[#008bff] border border-primary/30"
+          : "bg-gray-100 text-gray-700 border border-gray-200",
+      )}
+    >
+      {icon}
+      <span>{text}</span>
+    </div>
+  ),
+);
 
-TrustBadge.displayName = "TrustBadge"
+TrustBadge.displayName = "TrustBadge";
 
 // ============================================================
 // USER SOCIAL PROOF
 // ============================================================
 export function UserSocialProof() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -102,14 +113,14 @@ export function UserSocialProof() {
         </span>
       </div>
     </div>
-  )
+  );
 }
 
 // ============================================================
 // SECURITY & COMPLIANCE BADGES
 // ============================================================
 export function SecurityBadges() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <div className="flex flex-wrap justify-center gap-2">
@@ -132,14 +143,14 @@ export function SecurityBadges() {
         text={t("hero.trust.dataResidency")}
       />
     </div>
-  )
+  );
 }
 
 // ============================================================
 // PERFORMANCE BADGES
 // ============================================================
 export function PerformanceBadges() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <div className="flex flex-wrap justify-center gap-2">
@@ -158,14 +169,14 @@ export function PerformanceBadges() {
         text={t("hero.trust.rating")}
       />
     </div>
-  )
+  );
 }
 
 // ============================================================
 // CTA TRUST SIGNALS
 // ============================================================
 export function CTATrustSignals() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-600">
@@ -182,35 +193,35 @@ export function CTATrustSignals() {
         {t("hero.trust.security")}
       </span>
     </div>
-  )
+  );
 }
 
 // ============================================================
 // VALUE PROPOSITIONS
 // ============================================================
 export function ValuePropositions() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   const props = [
     { icon: "🎬", text: t("hero.valueProp.videos") },
     { icon: "📱", text: t("hero.valueProp.channels") },
     { icon: "📈", text: t("hero.valueProp.roi") },
     { icon: "💰", text: t("hero.valueProp.savings") },
-  ]
+  ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto">
       {props.map((prop, index) => (
         <div
           key={index}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/70 hover:border-[#22b5f8]/50 hover:shadow-md transition-all duration-200"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/70 hover:border-primary/50 hover:shadow-md transition-all duration-200"
         >
           <span className="text-lg">{prop.icon}</span>
           <span className="text-sm font-medium text-gray-700">{prop.text}</span>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 // ============================================================
@@ -230,5 +241,5 @@ export function TrustSignals() {
       {/* Performance Badges */}
       <PerformanceBadges />
     </div>
-  )
+  );
 }

@@ -119,7 +119,7 @@ function LogoCard({ name, index }: { name: string; index: number }) {
         "flex items-center justify-center h-20 rounded-lg",
         "bg-gray-50 border border-gray-200",
         "transition-all duration-300",
-        "hover:-translate-y-1 hover:shadow-lg hover:border-[#22b5f8]/50 hover:bg-white",
+        "hover:-translate-y-1 hover:shadow-lg hover:border-primary/50 hover:bg-white",
         "cursor-pointer group",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
       )}
@@ -170,7 +170,7 @@ function IndustryColumn({
     >
       {/* Industry Header */}
       <div className="flex items-center gap-2 mb-6">
-        <div className="w-8 h-8 rounded-lg bg-[#22b5f8]/10 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
           <Icon className="w-5 h-5 text-[#22b5f8]" />
         </div>
         <h3 className="text-base font-bold text-gray-900">
@@ -296,7 +296,7 @@ function TrustBadge({
       className={cn(
         "flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200",
         "shadow-sm hover:shadow-lg transition-all duration-300",
-        "hover:border-[#22b5f8]/50 hover:-translate-y-1",
+        "hover:border-primary/50 hover:-translate-y-1",
         isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4",
       )}
     >
@@ -321,7 +321,7 @@ export function TrustedBusinessesSection() {
     <section className="relative py-16 md:py-24 lg:py-32 bg-linear-to-b from-white via-gray-50 to-white overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[#22b5f8]/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#5fffec]/10 rounded-full blur-3xl" />
       </div>
 

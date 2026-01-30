@@ -27,16 +27,16 @@ export function AIContentCapabilitiesBentoSection() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+        <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-6 h-auto md:h-100">
           {/* AI Image Studio - Large Card */}
           <div
-            className={`md:col-span-4 md:row-span-2 group bg-white border border-gray-100 rounded-4xl p-10 overflow-hidden relative shadow-sm hover:shadow-2xl hover:border-[#22b5f8]/30 transition-all duration-500 ${
+            className={`md:col-span-4 md:row-span-2 group bg-white border border-gray-100 rounded-4xl p-10 overflow-hidden relative shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: "0.15s" }}
           >
             <div className="relative z-10 flex flex-col h-full">
-              <div className="size-16 rounded-2xl bg-[#22b5f8]/10 flex items-center justify-center mb-8">
+              <div className="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8">
                 <ImageIcon className="w-8 h-8 text-[#22b5f8]" />
               </div>
 
@@ -44,7 +44,7 @@ export function AIContentCapabilitiesBentoSection() {
                 {t("featurePage.content.capabilities.aiStudio.title")}
               </h3>
 
-              <p className="text-gray-500 text-lg max-w-sm mb-auto">
+              <p className="text-gray-500 text-lg mb-auto">
                 {t("featurePage.content.capabilities.aiStudio.description")}
               </p>
 
@@ -57,7 +57,7 @@ export function AIContentCapabilitiesBentoSection() {
                   <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
 
-                <span className="text-xs font-black text-[#22b5f8] bg-[#22b5f8]/10 px-3 py-1 rounded-full">
+                <span className="text-xs font-black text-[#22b5f8] bg-primary/10 px-3 py-1 rounded-full">
                   {t("featurePage.content.capabilities.aiStudio.badge")}
                 </span>
               </div>
@@ -79,7 +79,7 @@ export function AIContentCapabilitiesBentoSection() {
 
           {/* Character Consistency Engine - Tall Card */}
           <div
-            className={`md:col-span-2 md:row-span-2 group bg-[#1f3b61] rounded-4xl p-10 overflow-hidden relative shadow-sm hover:shadow-2xl transition-all duration-500 text-white ${
+            className={`md:col-span-2 md:row-span-2 group bg-tertiary rounded-4xl p-10 overflow-hidden relative shadow-sm hover:shadow-2xl transition-all duration-500 text-white ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: "0.3s" }}
@@ -94,13 +94,15 @@ export function AIContentCapabilitiesBentoSection() {
               </h3>
 
               <p className="text-white/60 text-sm mb-auto">
-                {t("featurePage.content.capabilities.characterEngine.description")}
+                {t(
+                  "featurePage.content.capabilities.characterEngine.description",
+                )}
               </p>
 
               <div className="mt-12">
                 <Button
                   variant="outline"
-                  className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl font-bold text-sm transition-colors border border-white/10 text-white"
+                  className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl font-bold text-sm transition-colors border border-white/10 text-white hover:text-white"
                 >
                   {t("featurePage.content.capabilities.characterEngine.cta")}
                 </Button>

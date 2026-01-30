@@ -49,7 +49,7 @@ export const BusinessTypeSelector = memo(
             value={value}
             onChange={(e) => onChange(e.target.value)}
             disabled={isLoadingFields || disabled}
-            className={`w-full h-12 disabled:opacity-60 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-[#22b5f8] outline-none transition-all border-gray-200 ${!value ? "text-gray-400" : "text-gray-900"}`}
+            className={`w-full h-12 disabled:opacity-60 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all border-gray-200 ${!value ? "text-gray-400" : "text-gray-900"}`}
             defaultValue={"placeholder"}
           >
             <option value="placeholder" disabled>

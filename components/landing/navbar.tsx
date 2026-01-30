@@ -103,7 +103,7 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-[#22b5f8] hover:bg-[#1a9fd8] text-white",
+                "bg-primary hover:bg-[#1a9fd8] text-white",
                 "text-[14px] font-semibold",
                 "px-5 py-2 h-10",
                 "rounded-full",
@@ -124,7 +124,7 @@ export function Navbar() {
             <Button
               size="sm"
               className={cn(
-                "bg-[#22b5f8] hover:bg-[#1a9fd8] text-white",
+                "bg-primary hover:bg-[#1a9fd8] text-white",
                 "text-[13px] sm:text-[14px] font-semibold",
                 "px-3 sm:px-4 py-2 h-10",
                 "rounded-full shadow-sm shadow-[#ff7900]/30",

@@ -126,7 +126,7 @@ export function LanguageSelector({
                 "text-[14px] transition-colors duration-150",
                 "focus:outline-none focus:ring-2 focus:ring-[#22b5f8] focus:ring-inset",
                 locale === lang.code
-                  ? "bg-[#22b5f8]/10 text-[#008bff] font-medium"
+                  ? "bg-primary/10 text-[#008bff] font-medium"
                   : "text-gray-700 hover:bg-gray-50",
               )}
               role="option"

@@ -12,16 +12,13 @@ export function AIContentComparisonSection() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
 
-  const handleMove = useCallback(
-    (clientX: number) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-      setSliderPosition(percentage);
-    },
-    []
-  );
+  const handleMove = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(percentage);
+  }, []);
 
   const handleMouseDown = () => setIsDragging(true);
   const handleMouseUp = () => setIsDragging(false);
@@ -32,19 +29,22 @@ export function AIContentComparisonSection() {
         handleMove(e.clientX);
       }
     },
-    [isDragging, handleMove]
+    [isDragging, handleMove],
   );
 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent) => {
       handleMove(e.touches[0].clientX);
     },
-    [handleMove]
+    [handleMove],
   );
 
   return (
     <section className="py-24 bg-gray-50">
-      <div ref={sectionRef} className="container mx-auto px-6 text-center max-w-5xl">
+      <div
+        ref={sectionRef}
+        className="container mx-auto px-6 text-center max-w-5xl"
+      >
         <h2
           className={`text-3xl md:text-4xl font-black mb-6 transition-all duration-700 ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -102,7 +102,7 @@ export function AIContentComparisonSection() {
               />
               <div className="absolute inset-0 bg-linear-to-r from-[#22b5f8]/10 to-[#008bff]/10" />
             </div>
-            <span className="absolute top-4 right-6 px-3 py-1 bg-[#22b5f8] text-white text-xs font-bold rounded-full uppercase tracking-widest">
+            <span className="absolute top-4 right-6 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-widest">
               {t("featurePage.content.comparison.dxaiPro")}
             </span>
           </div>
@@ -110,12 +110,15 @@ export function AIContentComparisonSection() {
           {/* Slider Handle */}
           <div
             className="absolute inset-y-0 z-10 flex items-center justify-center"
-            style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
+            style={{
+              left: `${sliderPosition}%`,
+              transform: "translateX(-50%)",
+            }}
             onMouseDown={handleMouseDown}
             onTouchStart={handleMouseDown}
           >
             <div className="w-1 h-full bg-white shadow-xl" />
-            <div className="absolute size-10 bg-white rounded-full border-2 border-[#22b5f8] flex items-center justify-center shadow-lg cursor-grab active:cursor-grabbing">
+            <div className="absolute size-10 bg-white rounded-full border-2 border-primary flex items-center justify-center shadow-lg cursor-grab active:cursor-grabbing">
               <ChevronsLeftRight className="w-5 h-5 text-[#22b5f8]" />
             </div>
           </div>
