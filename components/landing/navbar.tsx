@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const { t } = useI18n();
 
   const navLinks = [
@@ -22,15 +23,47 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentY = window.scrollY;
+      setIsScrolled(currentY > 10);
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const hideThreshold = 8; // require slightly larger downward scroll to hide
+
+          if (currentY <= 10) {
+            setIsHidden(false);
+          } else if (currentY - lastY > hideThreshold) {
+            // scrolling down beyond threshold -> hide
+            setIsHidden(true);
+            setIsOpen(false);
+          } else if (currentY < lastY) {
+            // any upward movement -> show (including very small scrolls)
+            setIsHidden(false);
+          }
+
+          lastY = currentY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-4 ">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 pt-4",
+        "transform transition-transform duration-300",
+        isHidden ? "-translate-y-28 pointer-events-none" : "translate-y-0",
+      )}
+    >
       <div className="container mx-auto">
         <nav
           className={cn(
