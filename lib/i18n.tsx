@@ -255,7 +255,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric3.name": "Chi phí trả lời tự động",
     "features.multiPlatform.metric3.value": "1 Credit/lượt",
     "features.multiPlatform.metric3.note": "Tự động trả lời bình luận",
-    "features.ads.title": "Quản trị Quảng Cáo & Phân tích AI",
+    "features.ads.title": "Quản lý Quảng cáo & Phân tích Trí tuệ Nhân tạo (AI)",
     "features.ads.desc":
       "Hệ thống tối ưu hoá quảng cáo dựa trên dữ liệu giúp doanh nghiệp đo lường hiệu suất chiến dịch chính xác và tối đa hoá ROI theo thời gian thực bằng phân tích AI tiên tiến.",
     "features.ads.stats":
