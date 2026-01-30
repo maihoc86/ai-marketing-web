@@ -116,7 +116,7 @@ export default function FeatureRow({
       <div className="flex items-center space-x-4">
         <div
           className={cn(
-            "size-12 rounded-xl flex items-center justify-center mb-6 shadow-lg",
+            "size-12 rounded-xl shrink-0 flex items-center justify-center mb-6 shadow-lg",
           )}
           style={{ backgroundColor: feature.iconBg }}
         >
