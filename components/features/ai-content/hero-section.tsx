@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Sparkles, Zap, Image as ImageIcon } from "lucide-react";
+import { ChevronRight, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/lib/i18n";
