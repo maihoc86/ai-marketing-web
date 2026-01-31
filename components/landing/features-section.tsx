@@ -117,7 +117,7 @@ const features: Feature[] = [
     iconColor: "#7c3aed",
     badge: "50+",
     badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
-    image: "/ai-content.jpeg",
+    image: "/ai-content.png",
     mainFeatures: [
       [
         {
@@ -181,7 +181,7 @@ const features: Feature[] = [
     iconColor: "#4f46e5",
     badge: "24/7",
     badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
-    image: "/ai-discovery.jpeg",
+    image: "/ai-discovery.png",
     mainFeatures: [
       [
         {
