@@ -2,18 +2,12 @@
 "use client";
 
 import { useState, useRef } from "react";
-import {
-  CloudUpload,
-  Zap,
-  Download,
-  RefreshCw,
-  Bookmark,
-  Loader2,
-} from "lucide-react";
+import { CloudUpload, Zap, Download, RefreshCw, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { generateImage } from "@/lib/queries/generate-image";
 import { useInView } from "@/hooks/use-in-view";
+import { buildFinalPrompt } from "@/lib/prompt-builder";
 
 export function AIContentDemoSection() {
   const { t } = useI18n();
@@ -25,7 +19,8 @@ export function AIContentDemoSection() {
   const [prompt, setPrompt] = useState("");
   const [promptError, setPromptError] = useState<string | null>(null);
   const [generatedSrc, setGeneratedSrc] = useState<string | null>(null);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [historyImages, setHistoryImages] = useState(
     [] as { src: string; alt: string }[],
@@ -40,66 +35,28 @@ export function AIContentDemoSection() {
       return;
     }
     setPromptError(null);
-
-    // Build a final prompt that silently enforces the user's selections
-    const defaultPrompt = t("featurePage.content.demo.defaultPrompt");
-    const presetObj = styles.find((p) => p.key === selectedPreset);
-    const presetText = presetObj ? t(presetObj.labelKey) : "";
-    const fieldObj = fields.find((s) => s.key === activeField);
-    const fieldText = fieldObj ? t(fieldObj.labelKey) : "";
-    const ratioMap: Record<string, string> = {
-      square: "square (1:1)",
-      landscape: "landscape (4:3)",
-      portrait: "portrait (3:4)",
-    };
-    const ratioText = ratioMap[activeRatio] || activeRatio;
+    if (uploadedImages.length === 0) {
+      setUploadError(
+        t("featurePage.content.demo.uploadRequired") ||
+          "Please upload at least one image.",
+      );
+      return;
+    }
+    setUploadError(null);
 
     const variationSeed = Math.random().toString(36).slice(2, 9);
-
-    const styleDescriptors: Record<string, string> = {
-      minimalist:
-        "minimalist composition, clean negative space, soft natural shadows, muted color palette",
-      organic:
-        "natural tones, warm ambient light, textured materials, soft highlights",
-      cinematic:
-        "dramatic cinematic lighting, high contrast, shallow depth of field, rich color grading",
-    };
-
-    const fieldDescriptors: Record<string, string> = {
-      product:
-        "studio product shot: centered composition, product fills most of the frame, sharp details, neutral background",
-      lifestyle:
-        "lifestyle scene: contextual props, subtle human interaction, environmental storytelling, natural poses",
-      ecom: "e-commerce white-background product photo: pure white background, even lighting, crisp shadows, 3/4 angle",
-    };
-
-    const styleHint = selectedPreset
-      ? styleDescriptors[selectedPreset] || presetText
-      : "photorealistic, high-quality";
-    const fieldHint = activeField
-      ? fieldDescriptors[activeField] || fieldText
-      : fieldText || "general product imagery";
-
-    const negativeInstructions =
-      "No watermarks, no visible text, no logos, no brand names, no UI overlays, avoid hands covering the product unless specified.";
-
-    // Append a short variation seed so each generation differs from previous ones
-    const variationNote = `Variation seed: ${variationSeed}. Produce a visually different composition and details from previous generations.`;
-
     const base =
-      prompt && prompt.trim().length > 0 ? prompt.trim() : defaultPrompt;
-    const finalPrompt = [
+      prompt && prompt.trim().length > 0
+        ? prompt.trim()
+        : t("featurePage.content.demo.defaultPrompt");
+    const finalPrompt = buildFinalPrompt({
       base,
-      `Style: ${presetText || selectedPreset || "photorealistic"}. ${styleHint}.`,
-      `Field: ${fieldText || activeField || "general"}. ${fieldHint}.`,
-      `Aspect Ratio: ${ratioText}.`,
-      `Output: high resolution, prioritize sharp detail and realistic materials.`,
-      negativeInstructions,
-      variationNote,
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .trim();
+      selectedPreset,
+      activeField,
+      ratio: activeRatio,
+      uploadedImages,
+      variationSeed,
+    });
 
     setIsGenerating(true);
 
@@ -109,7 +66,7 @@ export function AIContentDemoSection() {
           prompt: finalPrompt,
           field: activeField,
           ratio: activeRatio,
-          initImage: uploadedImage,
+          initImage: uploadedImages[0] ?? null,
           preset: selectedPreset,
         });
 
@@ -174,7 +131,6 @@ export function AIContentDemoSection() {
         >
           {/* Left Panel - Controls */}
           <div className="lg:col-span-5 space-y-8">
-            {/* Header */}
             <div>
               <span className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest text-[#22b5f8] bg-primary/10 rounded-full">
                 {t("featurePage.content.demo.badge")}
@@ -193,47 +149,142 @@ export function AIContentDemoSection() {
                 ref={fileInputRef}
                 type="file"
                 accept="image/*"
+                multiple
                 className="hidden"
                 onChange={async (e) => {
-                  const file = e.target.files?.[0];
-                  if (!file) return;
-                  const reader = new FileReader();
-                  reader.onload = () => {
-                    const result = reader.result as string | null;
-                    if (result) {
-                      setUploadedImage(result);
+                  const input = e.currentTarget as HTMLInputElement;
+                  const replaceIndex = input.dataset.replaceIndex;
+                  const files = Array.from(input.files || []);
+                  if (files.length === 0) return;
+
+                  const readFile = (file: File) =>
+                    new Promise<string>((resolve, reject) => {
+                      const reader = new FileReader();
+                      reader.onload = () => resolve(String(reader.result));
+                      reader.onerror = reject;
+                      reader.readAsDataURL(file);
+                    });
+
+                  // If replaceIndex is set on the input dataset, replace that single slot with the first selected file
+                  if (replaceIndex) {
+                    const idx = Number(replaceIndex);
+                    try {
+                      const dataUrl = await readFile(files[0]);
+                      setUploadedImages((prev) => {
+                        const next = [...prev];
+                        next[idx] = dataUrl;
+                        return next;
+                      });
+                      input.dataset.replaceIndex = "";
+                      setUploadError(null);
+                    } catch (err) {
+                      console.error(err);
+                    } finally {
+                      input.value = "";
                     }
-                  };
-                  reader.readAsDataURL(file);
+                    return;
+                  }
+
+                  // Otherwise append new images up to 5
+                  try {
+                    const dataUrls = await Promise.all(
+                      files.map((f) => readFile(f)),
+                    );
+                    setUploadedImages((prev) => {
+                      const combined = [...prev, ...dataUrls].slice(0, 5);
+                      return combined;
+                    });
+                    setUploadError(null);
+                  } catch (err) {
+                    console.error(err);
+                  } finally {
+                    if (fileInputRef.current) fileInputRef.current.value = "";
+                  }
                 }}
               />
 
               <div
                 role="button"
                 tabIndex={0}
-                onClick={() => fileInputRef.current?.click()}
+                onClick={() => {
+                  if (fileInputRef.current)
+                    fileInputRef.current.dataset.replaceIndex = "";
+                  fileInputRef.current?.click();
+                }}
                 onKeyDown={(e) =>
-                  e.key === "Enter" && fileInputRef.current?.click()
+                  e.key === "Enter" &&
+                  (fileInputRef.current &&
+                    (fileInputRef.current.dataset.replaceIndex = ""),
+                  fileInputRef.current?.click())
                 }
-                className="border-2 border-dashed border-gray-300 rounded-2xl p-8 bg-white/50 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer group"
+                className="border-2 border-dashed border-gray-300 rounded-2xl p-4 bg-white/50 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer group"
               >
-                <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  {uploadedImage ? (
-                    <img
-                      src={uploadedImage}
-                      alt="upload preview"
-                      className="size-10 object-cover rounded-full"
-                    />
+                <div className="w-full flex gap-3 items-center justify-center mb-3">
+                  {uploadedImages.length > 0 ? (
+                    <div className="flex gap-3">
+                      {uploadedImages.map((src, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={(ev) => {
+                            ev.stopPropagation();
+                            if (fileInputRef.current)
+                              fileInputRef.current.dataset.replaceIndex =
+                                String(idx);
+                            fileInputRef.current?.click();
+                          }}
+                          className="w-12 h-12 rounded-md overflow-hidden border border-gray-200 flex-shrink-0 relative"
+                          aria-label={`Replace image ${idx + 1}`}
+                        >
+                          <img
+                            src={src}
+                            alt={`preview-${idx}`}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute inset-0 flex items-center justify-center text-xs text-white bg-black/30 opacity-0 hover:opacity-100 transition-opacity">
+                            <RefreshCw className="size-4" />
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   ) : (
-                    <CloudUpload className="size-6 text-[#22b5f8]" />
+                    <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <CloudUpload className="size-6 text-[#22b5f8]" />
+                    </div>
                   )}
                 </div>
-                <p className="text-sm font-bold mb-1">
-                  {t("featurePage.content.demo.uploadTitle")}
-                </p>
-                <p className="text-xs text-gray-500">
-                  {t("featurePage.content.demo.uploadDesc")}
-                </p>
+
+                <div className="w-full">
+                  <p className="text-sm font-bold mb-1">
+                    {t("featurePage.content.demo.uploadTitle")}{" "}
+                    <span className="text-red-500">*</span>
+                    <span className="ml-2 text-xs text-gray-400">
+                      {uploadedImages.length}/5
+                    </span>
+                  </p>
+                  <p className="text-xs text-gray-500 mb-2">
+                    {t("featurePage.content.demo.uploadDesc")}
+                  </p>
+                  {uploadedImages.length < 5 && (
+                    <div className="text-xs text-gray-600">
+                      <button
+                        type="button"
+                        onClick={(ev) => {
+                          ev.stopPropagation();
+                          if (fileInputRef.current)
+                            fileInputRef.current.dataset.replaceIndex = "";
+                          fileInputRef.current?.click();
+                        }}
+                        className="text-primary font-bold"
+                      >
+                        Add images
+                      </button>
+                    </div>
+                  )}
+                </div>
+                {uploadError && (
+                  <p className="text-xs text-red-500 mt-2">{uploadError}</p>
+                )}
               </div>
             </div>
 
@@ -332,7 +383,11 @@ export function AIContentDemoSection() {
             <div className="space-y-4 pt-4">
               <Button
                 onClick={handleGenerate}
-                disabled={isGenerating || prompt.trim().length === 0}
+                disabled={
+                  isGenerating ||
+                  prompt.trim().length === 0 ||
+                  uploadedImages.length === 0
+                }
                 className="btn-primary-light w-full disabled:opacity-70"
               >
                 {isGenerating ? (
