@@ -439,30 +439,26 @@ export function AIContentDemoSection() {
                       </span>
                     </div>
                   </>
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
-                    <CloudUpload className="w-12 h-12 mb-3" />
+                ) : isGenerating ? (
+                  <div className="size-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
+                    <Loader2 className="w-12 animate-spin mb-3" />
                     <div className="text-sm font-semibold">
-                      {t("featurePage.content.demo.noImage") || "No image yet"}
+                      {t("featurePage.content.demo.generating")}
                     </div>
                   </div>
-                )}
-
-                {isGenerating && (
-                  <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/40">
-                    <div className="flex flex-col items-center text-white">
-                      <Loader2 className="w-8 h-8 animate-spin mb-3" />
-                      <div className="text-sm font-semibold">
-                        {t("featurePage.content.demo.generating")}
-                      </div>
+                ) : (
+                  <div className="size-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
+                    <CloudUpload className="w-12 mb-3" />
+                    <div className="text-sm font-semibold">
+                      {t("featurePage.content.demo.noImage") || "No image yet"}
                     </div>
                   </div>
                 )}
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center justify-between mt-6 px-2">
-                <div className="flex gap-3">
+              {generatedSrc && (
+                <div className="flex gap-3 mt-6">
                   <Button className="btn-primary-light rounded-xl" asChild>
                     <a
                       href={
@@ -488,7 +484,7 @@ export function AIContentDemoSection() {
                     {t("featurePage.content.demo.tryAgain")}
                   </Button>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* History */}

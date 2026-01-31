@@ -16,7 +16,11 @@ export async function generateImageWithGemini(opts: {
         : "1024x1024";
 
   // Compose a clear prompt for the image generation model
+  // Encourage the model to return image bytes inline when using generateContent.
+  // We append a clear instruction so the model knows to return base64 image data only.
   const fullPrompt = `${prompt}${style ? ` — style: ${style}` : ""}`;
+  const base64Instruction =
+    "\n\nIMPORTANT: return the generated image as a single base64-encoded string (JPEG) with no extra text. If the API supports inline image output, include it as inline_data. The response should prioritize providing the image data so it can be decoded programmatically.";
 
   const body: Record<string, any> = {
     // This payload is compatible with Google Generative AI image endpoints that return base64 images.
@@ -48,7 +52,7 @@ export async function generateImageWithGemini(opts: {
   let fetchBody: any = body;
   if (isGenerateContent) {
     // Build the `contents` payload with parts. First part = text prompt.
-    const parts: any[] = [{ text: fullPrompt }];
+    const parts: any[] = [{ text: fullPrompt + base64Instruction }];
 
     if (opts.initImage) {
       const dataUrl = opts.initImage;
@@ -120,7 +124,20 @@ export async function generateImageWithGemini(opts: {
 
   const possibleB64 = findBase64(json);
   if (!possibleB64) {
-    throw new Error("No image returned from Gemini: " + JSON.stringify(json));
+    // Try to extract any textual candidate to surface model reply for debugging
+    const candidateText =
+      json?.candidates && json.candidates.length > 0
+        ? (json.candidates[0]?.content?.parts || [])
+            .map((p: any) => p.text)
+            .filter(Boolean)
+            .join("\n")
+        : null;
+    const msg = {
+      message: "No image returned from Gemini",
+      candidateText: candidateText || null,
+      raw: json,
+    };
+    throw new Error(JSON.stringify(msg));
   }
 
   const b64 = possibleB64;
