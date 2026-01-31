@@ -47,13 +47,52 @@ export function AIContentDemoSection() {
     };
     const ratioText = ratioMap[activeRatio] || activeRatio;
 
-    const enforcedInstructions = `Ensure the image matches the following: Style: ${
-      presetText || "default"
-    }. Field: ${fieldText || "general"}. Aspect ratio: ${ratioText}.`;
+    const variationSeed = Math.random().toString(36).slice(2, 9);
 
-    const finalPrompt = `${
-      prompt && prompt.trim().length > 0 ? prompt.trim() : defaultPrompt
-    } ${enforcedInstructions}`.trim();
+    const styleDescriptors: Record<string, string> = {
+      minimalist:
+        "minimalist composition, clean negative space, soft natural shadows, muted color palette",
+      organic:
+        "natural tones, warm ambient light, textured materials, soft highlights",
+      cinematic:
+        "dramatic cinematic lighting, high contrast, shallow depth of field, rich color grading",
+    };
+
+    const fieldDescriptors: Record<string, string> = {
+      product:
+        "studio product shot: centered composition, product fills most of the frame, sharp details, neutral background",
+      lifestyle:
+        "lifestyle scene: contextual props, subtle human interaction, environmental storytelling, natural poses",
+      ecom: "e-commerce white-background product photo: pure white background, even lighting, crisp shadows, 3/4 angle",
+    };
+
+    const styleHint = selectedPreset
+      ? styleDescriptors[selectedPreset] || presetText
+      : "photorealistic, high-quality";
+    const fieldHint = activeField
+      ? fieldDescriptors[activeField] || fieldText
+      : fieldText || "general product imagery";
+
+    const negativeInstructions =
+      "No watermarks, no visible text, no logos, no brand names, no UI overlays, avoid hands covering the product unless specified.";
+
+    // Append a short variation seed so each generation differs from previous ones
+    const variationNote = `Variation seed: ${variationSeed}. Produce a visually different composition and details from previous generations.`;
+
+    const base =
+      prompt && prompt.trim().length > 0 ? prompt.trim() : defaultPrompt;
+    const finalPrompt = [
+      base,
+      `Style: ${presetText || selectedPreset || "photorealistic"}. ${styleHint}.`,
+      `Field: ${fieldText || activeField || "general"}. ${fieldHint}.`,
+      `Aspect Ratio: ${ratioText}.`,
+      `Output: high resolution, prioritize sharp detail and realistic materials.`,
+      negativeInstructions,
+      variationNote,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .trim();
 
     setIsGenerating(true);
 
