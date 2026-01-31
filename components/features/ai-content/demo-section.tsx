@@ -23,17 +23,12 @@ export function AIContentDemoSection() {
   const [activeHistory, setActiveHistory] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const [prompt, setPrompt] = useState("");
-  const [generatedSrc, setGeneratedSrc] = useState<string | null>(
-    "/images/demo/generated-preview.jpg",
-  );
+  const [generatedSrc, setGeneratedSrc] = useState<string | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const [historyImages, setHistoryImages] = useState([
-    { src: "/images/demo/history-1.jpg", alt: "History 1" },
-    { src: "/images/demo/history-2.jpg", alt: "History 2" },
-    { src: "/images/demo/history-3.jpg", alt: "History 3" },
-    { src: "/images/demo/history-4.jpg", alt: "History 4" },
-  ] as { src: string; alt: string }[]);
+  const [historyImages, setHistoryImages] = useState(
+    [] as { src: string; alt: string }[],
+  );
 
   const handleGenerate = async () => {
     if (!prompt || prompt.trim().length === 0) {
@@ -161,7 +156,6 @@ export function AIContentDemoSection() {
                     const result = reader.result as string | null;
                     if (result) {
                       setUploadedImage(result);
-                      setGeneratedSrc(result);
                     }
                   };
                   reader.readAsDataURL(file);
@@ -321,18 +315,28 @@ export function AIContentDemoSection() {
             {/* Main Image Preview */}
             <div className="relative group">
               <div className="aspect-4/3 rounded-3xl overflow-hidden bg-gray-100 border-8 border-white shadow-2xl relative">
-                <img
-                  alt="Generated product image"
-                  className="w-full h-full object-cover"
-                  src={generatedSrc ?? "/images/demo/generated-preview.jpg"}
-                />
-                <div className="absolute top-6 left-6">
-                  <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
-                    <span className="size-1.5 bg-green-400 rounded-full animate-pulse" />
-                    {t("featurePage.content.demo.4kReady")}
-                  </span>
-                </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                {generatedSrc ? (
+                  <>
+                    <img
+                      alt="Generated product image"
+                      className="w-full h-full object-cover"
+                      src={generatedSrc}
+                    />
+                    <div className="absolute top-6 left-6">
+                      <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
+                        <span className="size-1.5 bg-green-400 rounded-full animate-pulse" />
+                        {t("featurePage.content.demo.4kReady")}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
+                    <CloudUpload className="w-12 h-12 mb-3" />
+                    <div className="text-sm font-semibold">
+                      {t("featurePage.content.demo.noImage") || "No image yet"}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons */}
@@ -351,48 +355,53 @@ export function AIContentDemoSection() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="px-6 py-2.5 bg-white border border-gray-200 text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-primary hover:text-white transition-all"
+                    onClick={() => {
+                      // clear current preview and re-run generation with the same params
+                      setGeneratedSrc(null);
+                      handleGenerate();
+                    }}
+                    disabled={isGenerating}
+                    className="px-6 py-2.5 bg-white border border-gray-200 text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-primary hover:text-white transition-all disabled:opacity-70"
                   >
                     <RefreshCw className="size-4" />
                     {t("featurePage.content.demo.tryAgain")}
                   </Button>
                 </div>
-                <button className="p-2.5 bg-white border border-gray-200 rounded-xl hover:text-primary transition-all">
-                  <Bookmark className="w-5 h-5" />
-                </button>
               </div>
             </div>
 
             {/* History */}
-            <div className="mt-4">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500">
-                  {t("featurePage.content.demo.history")}
-                </h4>
-                <button className="text-xs font-bold text-[#22b5f8]">
-                  {t("featurePage.content.demo.viewAll")}
-                </button>
-              </div>
-              <div className="flex gap-4">
-                {historyImages.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveHistory(index)}
-                    className={`size-20 rounded-xl overflow-hidden transition-all cursor-pointer ${
-                      activeHistory === index
-                        ? "border-2 border-primary ring-2 ring-[#22b5f8]/20"
-                        : "border border-gray-200 grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
-                    }`}
-                  >
-                    <img
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                      src={image.src}
-                    />
+            {historyImages.length > 0 && (
+              <div className="mt-4">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                    {t("featurePage.content.demo.history")}
+                  </h4>
+                  <button className="text-xs font-bold text-[#22b5f8]">
+                    {t("featurePage.content.demo.viewAll")}
                   </button>
-                ))}
+                </div>
+                <div className="flex gap-4">
+                  {historyImages.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveHistory(index)}
+                      className={`size-20 rounded-xl overflow-hidden transition-all cursor-pointer ${
+                        activeHistory === index
+                          ? "border-2 border-primary ring-2 ring-[#22b5f8]/20"
+                          : "border border-gray-200 grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      <img
+                        alt={image.alt}
+                        className="w-full h-full object-cover"
+                        src={image.src}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

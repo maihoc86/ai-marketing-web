@@ -1408,7 +1408,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Biến ý tưởng sản phẩm thành hình ảnh marketing chuyên nghiệp ngay lập tức.",
     "featurePage.content.demo.uploadTitle": "Kéo thả hình ảnh sản phẩm vào đây",
     "featurePage.content.demo.uploadDesc": "PNG, JPG tối đa 10MB",
-    "featurePage.content.demo.4kReady": "Sẵn sàng 4K",
+    "featurePage.content.demo.4kReady": "Hình ảnh chất lượng cao",
     "featurePage.content.demo.promptLabel": "Mô tả",
     "featurePage.content.demo.promptPlaceholder":
       "Mô tả cảnh sản phẩm... VD: 'Chai gốm sứ trên bệ đá cẩm thạch với ánh sáng buổi sáng'",
@@ -1428,6 +1428,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.history": "Lịch sử",
     "featurePage.content.demo.viewAll": "Xem tất cả",
     "featurePage.content.demo.field": "Lĩnh vực",
+    "featurePage.content.demo.noImage": "Chưa có hình ảnh được thực hiện",
     "featurePage.content.gallery.title": "Được Tạo Với AI của Uniksmart",
     "featurePage.content.gallery.subtitle":
       "Khám phá cách các thương hiệu hàng đầu mở rộng sản xuất sáng tạo.",
@@ -3031,7 +3032,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Transform your product concepts into high-converting visual assets instantly.",
     "featurePage.content.demo.uploadTitle": "Drop product image here",
     "featurePage.content.demo.uploadDesc": "PNG, JPG up to 10MB",
-    "featurePage.content.demo.4kReady": "4K READY",
+    "featurePage.content.demo.4kReady": "HIGH QUALITY READY",
     "featurePage.content.demo.promptLabel": "Prompt",
     "featurePage.content.demo.promptPlaceholder":
       "Describe your product scene... e.g. 'A sleek ceramic bottle on a marble pedestal with soft morning light'",
@@ -3051,6 +3052,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.history": "History",
     "featurePage.content.demo.viewAll": "View All",
     "featurePage.content.demo.field": "Fields",
+    "featurePage.content.demo.noImage": "No image have generated yet",
     "featurePage.content.gallery.title": "Created with Uniksmart AI",
     "featurePage.content.gallery.subtitle":
       "Discover how top brands are scaling their creative output.",
