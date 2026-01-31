@@ -12,12 +12,13 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
+import { generateImage } from "@/lib/queries/generate-image";
 import { useInView } from "@/hooks/use-in-view";
 
 export function AIContentDemoSection() {
   const { t } = useI18n();
   const { ref, isInView } = useInView();
-  const [activeStyle, setActiveStyle] = useState("product");
+  const [activeField, setActiveField] = useState("");
   const [activeRatio, setActiveRatio] = useState("square");
   const [activeHistory, setActiveHistory] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -40,9 +41,9 @@ export function AIContentDemoSection() {
     }
     // Build a final prompt that silently enforces the user's selections
     const defaultPrompt = t("featurePage.content.demo.defaultPrompt");
-    const presetObj = presets.find((p) => p.key === selectedPreset);
+    const presetObj = styles.find((p) => p.key === selectedPreset);
     const presetText = presetObj ? t(presetObj.labelKey) : "";
-    const fieldObj = styles.find((s) => s.key === activeStyle);
+    const fieldObj = fields.find((s) => s.key === activeField);
     const fieldText = fieldObj ? t(fieldObj.labelKey) : "";
     const ratioMap: Record<string, string> = {
       square: "square (1:1)",
@@ -62,31 +63,29 @@ export function AIContentDemoSection() {
     setIsGenerating(true);
 
     try {
-      const res = await fetch("/api/generate-image", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      try {
+        const json = await generateImage({
           prompt: finalPrompt,
-          style: activeStyle,
+          field: activeField,
           ratio: activeRatio,
           initImage: uploadedImage,
           preset: selectedPreset,
-        }),
-      });
+        });
 
-      const json = await res.json();
-      if (res.ok && json.image) {
-        setGeneratedSrc(json.image);
-        // prepend to history (keep max 6)
-        setHistoryImages((prev) =>
-          [{ src: json.image, alt: finalPrompt || "Generated" }, ...prev].slice(
-            0,
-            6,
-          ),
-        );
-        setActiveHistory(0);
-      } else {
-        console.error("Generation error", json);
+        if (json?.image) {
+          setGeneratedSrc(json.image);
+          setHistoryImages((prev) =>
+            [
+              { src: json.image, alt: finalPrompt || "Generated" },
+              ...prev,
+            ].slice(0, 6),
+          );
+          setActiveHistory(0);
+        } else {
+          console.error("Generation error", json);
+        }
+      } catch (err) {
+        console.error(err);
       }
     } catch (err) {
       console.error(err);
@@ -95,7 +94,7 @@ export function AIContentDemoSection() {
     }
   };
 
-  const styles = [
+  const fields = [
     { key: "product", labelKey: "featurePage.content.demo.styleProduct" },
     { key: "lifestyle", labelKey: "featurePage.content.demo.styleLifestyle" },
     { key: "ecom", labelKey: "featurePage.content.demo.styleEcom" },
@@ -103,7 +102,7 @@ export function AIContentDemoSection() {
 
   const [selectedPreset, setSelectedPreset] = useState<string | null>(null);
 
-  const presets = [
+  const styles = [
     {
       key: "minimalist",
       emoji: "✨",
@@ -216,7 +215,7 @@ export function AIContentDemoSection() {
                   {t("featurePage.content.demo.styleLabel")}
                 </label>
                 <div className="grid grid-cols-3 gap-2">
-                  {presets.map((preset) => (
+                  {styles.map((preset) => (
                     <button
                       key={preset.key}
                       onClick={() => {
@@ -238,17 +237,17 @@ export function AIContentDemoSection() {
                   {t("featurePage.content.demo.field")}
                 </label>
                 <div className="grid grid-cols-3 gap-2">
-                  {styles.map((style) => (
+                  {fields.map((field) => (
                     <button
-                      key={style.key}
-                      onClick={() => setActiveStyle(style.key)}
+                      key={field.key}
+                      onClick={() => setActiveField(field.key)}
                       className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all ${
-                        activeStyle === style.key
+                        activeField === field.key
                           ? "bg-primary text-white shadow-sm"
                           : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
                       }`}
                     >
-                      {t(style.labelKey)}
+                      {t(field.labelKey)}
                     </button>
                   ))}
                 </div>
