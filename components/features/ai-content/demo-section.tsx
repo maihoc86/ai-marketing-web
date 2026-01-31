@@ -494,9 +494,9 @@ export function AIContentDemoSection() {
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500">
                     {t("featurePage.content.demo.history")}
                   </h4>
-                  <button className="text-xs font-bold text-[#22b5f8]">
+                  {/* <button className="text-xs font-bold text-[#22b5f8]">
                     {t("featurePage.content.demo.viewAll")}
-                  </button>
+                  </button> */}
                 </div>
                 <div className="flex gap-4">
                   {historyImages.map((image, index) => (

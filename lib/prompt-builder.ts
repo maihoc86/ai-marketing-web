@@ -73,26 +73,10 @@ export function buildFinalPrompt(opts: {
       referenceNote =
         "Use the provided reference image to inform composition, materials and color; prioritize its details where relevant and produce a single cohesive result.";
     } else {
-      // Assign helpful roles to each reference image so the model fuses them rather than producing separate scenes
-      const roles = [
-        "primary composition & main subject",
-        "color palette & materials",
-        "textures & surface details",
-        "context, props & supporting elements",
-        "lighting, mood & atmosphere",
-      ];
-
-      const mappings = uploadedImages
-        .slice(0, 5)
-        .map(
-          (_, i) =>
-            `Image ${i + 1}: ${roles[i] || "supporting visual attributes"}`,
-        )
-        .join("; ");
-
-      referenceNote =
-        `You have provided ${uploadedImages.length} reference images. Fuse these into ONE cohesive composition — do NOT produce separate panels or disconnected scenes. Follow these guidance mappings: ${mappings}. ` +
-        "Seamlessly blend attributes from the references (composition, color, texture, props, and lighting) so the final image reads as a single natural scene. Ensure consistent perspective, matched lighting and shadows, harmonized color grading, and avoid visible seams, collaged cutouts, or repeated frames.";
+      // When multiple images are provided, require the model to use ALL of them.
+      // This is intentionally strict: the model must incorporate visible
+      // elements from every reference image into a single cohesive poster.
+      referenceNote = `You have provided ${uploadedImages.length} reference images. MUST combine and visually incorporate ALL of these images into ONE single cohesive poster. Do NOT omit, ignore, or treat any input image as optional. For each reference, explicitly incorporate its most distinctive visual attributes (primary subject, unique props, textures, key colors, lighting characteristics or composition cues) so that the final artwork contains identifiable contributions from every image. Blend elements seamlessly—avoid collage, panels, split‑screen layouts, or multiple disconnected scenes. Ensure unified perspective, matched lighting and shadows, consistent color grading, and harmonious composition so all references read as a single integrated design. If references conflict, harmonize elements while preserving recognizable aspects from each image. The output must be a single high‑quality poster that clearly shows visual elements from image 1 through image ${uploadedImages.length}.`;
     }
   }
 
