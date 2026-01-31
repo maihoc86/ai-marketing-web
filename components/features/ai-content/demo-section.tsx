@@ -233,7 +233,7 @@ export function AIContentDemoSection() {
                                 String(idx);
                             fileInputRef.current?.click();
                           }}
-                          className="w-12 h-12 rounded-md overflow-hidden border border-gray-200 flex-shrink-0 relative"
+                          className="w-12 h-12 rounded-md overflow-hidden border border-gray-200 shrink-0 relative"
                           aria-label={`Replace image ${idx + 1}`}
                         >
                           <img
