@@ -48,7 +48,7 @@ export function ChatTerminal() {
       </div>
 
       {/* Chat Messages */}
-      <div className="p-6 space-y-4 min-h-[400px] max-h-[500px] overflow-y-auto bg-white">
+      <div className="p-6 space-y-4 min-h-100 max-h-125 overflow-y-auto bg-white">
         {messages.map((message, index) => (
           <div
             key={index}
