@@ -5,6 +5,7 @@ export interface GenerateImageOptions {
   // support multiple init images (data URLs)
   initImages?: string[] | null;
   preset?: string | null;
+  recaptchaToken?: string | null;
 }
 
 export async function generateImage(opts: GenerateImageOptions) {
@@ -17,6 +18,7 @@ export async function generateImage(opts: GenerateImageOptions) {
       ratio: opts.ratio,
       initImages: opts.initImages,
       preset: opts.preset,
+      recaptchaToken: opts.recaptchaToken,
     }),
   });
 

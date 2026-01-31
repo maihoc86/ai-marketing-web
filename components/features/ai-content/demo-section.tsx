@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CloudUpload, Zap, Download, RefreshCw, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
@@ -12,6 +12,16 @@ import { buildFinalPrompt } from "@/lib/prompt-builder";
 export function AIContentDemoSection() {
   const { t } = useI18n();
   const { ref, isInView } = useInView();
+  useEffect(() => {
+    const key = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!key) return;
+    if (document.querySelector('script[data-recaptcha="true"]')) return;
+    const s = document.createElement("script");
+    s.src = `https://www.google.com/recaptcha/api.js?render=${key}`;
+    s.async = true;
+    s.setAttribute("data-recaptcha", "true");
+    document.head.appendChild(s);
+  }, []);
   const [activeField, setActiveField] = useState("");
   const [activeRatio, setActiveRatio] = useState("square");
   const [activeHistory, setActiveHistory] = useState(0);
@@ -60,6 +70,41 @@ export function AIContentDemoSection() {
 
     setIsGenerating(true);
 
+    // If reCAPTCHA site key is configured, obtain a token before sending.
+    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    const getRecaptchaToken = async () => {
+      if (!RECAPTCHA_SITE_KEY) return null;
+      // wait until grecaptcha is available
+      if (!(window as any).grecaptcha) {
+        await new Promise<void>((resolve) => {
+          const interval = setInterval(() => {
+            if ((window as any).grecaptcha) {
+              clearInterval(interval);
+              resolve();
+            }
+          }, 100);
+        });
+      }
+      try {
+        return await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+          action: "generate",
+        });
+      } catch (err) {
+        return null;
+      }
+    };
+
+    // execute reCAPTCHA if configured
+    const recaptchaToken = await getRecaptchaToken();
+    if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !recaptchaToken) {
+      setUploadError(
+        t("featurePage.content.demo.recaptchaFailed") ||
+          "reCAPTCHA verification failed. Please try again.",
+      );
+      setIsGenerating(false);
+      return;
+    }
+
     try {
       try {
         const json = await generateImage({
@@ -68,6 +113,7 @@ export function AIContentDemoSection() {
           ratio: activeRatio,
           initImages: uploadedImages ?? [],
           preset: selectedPreset,
+          recaptchaToken: recaptchaToken ?? undefined,
         });
 
         if (json?.image) {
