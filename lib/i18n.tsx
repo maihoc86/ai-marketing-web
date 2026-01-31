@@ -1359,7 +1359,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.metric.perImage": "Trên mỗi ảnh",
     "featurePage.content.metric.resolution": "Độ phân giải",
     "featurePage.content.metric.commercial": "Bản quyền thương mại",
-    "featurePage.content.cta.generate": "Tạo Ngay",
+    "featurePage.content.cta.generate": "Dùng thử Demo",
     "featurePage.content.cta.viewGallery": "Xem Bộ Sưu Tập",
     "featurePage.content.problems.title": "Nội Dung Đang Gặp Khó Khăn?",
     "featurePage.content.problems.subtitle":
@@ -1427,6 +1427,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.tryAgain": "Thử lại",
     "featurePage.content.demo.history": "Lịch sử",
     "featurePage.content.demo.viewAll": "Xem tất cả",
+    "featurePage.content.demo.field": "Lĩnh vực",
     "featurePage.content.gallery.title": "Được Tạo Với AI của Uniksmart",
     "featurePage.content.gallery.subtitle":
       "Khám phá cách các thương hiệu hàng đầu mở rộng sản xuất sáng tạo.",
@@ -2983,7 +2984,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.metric.perImage": "Per Image",
     "featurePage.content.metric.resolution": "Resolution",
     "featurePage.content.metric.commercial": "Commercial Rights",
-    "featurePage.content.cta.generate": "Generate Now",
+    "featurePage.content.cta.generate": "Try It Now",
     "featurePage.content.cta.viewGallery": "View Gallery",
     "featurePage.content.problems.title": "Content Creation Bottleneck?",
     "featurePage.content.problems.subtitle":
@@ -3049,6 +3050,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.tryAgain": "Try Again",
     "featurePage.content.demo.history": "History",
     "featurePage.content.demo.viewAll": "View All",
+    "featurePage.content.demo.field": "Fields",
     "featurePage.content.gallery.title": "Created with Uniksmart AI",
     "featurePage.content.gallery.subtitle":
       "Discover how top brands are scaling their creative output.",

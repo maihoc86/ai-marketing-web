@@ -90,22 +90,22 @@ export function AIContentHeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="px-10 py-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                className="w-40 py-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
                 asChild
               >
-                <LocaleLink href="/register">
+                <LocaleLink href="/features/content#demo-generator">
                   {t("featurePage.content.cta.generate")}
-                  <Zap className="w-5 h-5" />
+                  <Zap className="size-5" />
                 </LocaleLink>
               </Button>
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 className="px-10 py-5 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
               >
                 {t("featurePage.content.cta.viewGallery")}
                 <ImageIcon className="w-5 h-5" />
-              </Button>
+              </Button> */}
             </div>
           </div>
 

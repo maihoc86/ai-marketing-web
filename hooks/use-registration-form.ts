@@ -8,7 +8,7 @@ import { api, type ApiError } from "@/lib/api-client";
  */
 export interface RegistrationFormData {
   selected_package: PackageType;
-  business_type: string;
+  business_type?: string;
   tax_code?: string;
   company_name?: string;
   address: string;
@@ -143,7 +143,7 @@ export function useRegistrationForm(
   // Form State
   const [formData, setFormData] = useState<RegistrationFormData>({
     selected_package: initialPackage,
-    business_type: "professional",
+    business_type: undefined,
     tax_code: "",
     company_name: undefined,
     address: "",
@@ -286,7 +286,7 @@ export function useRegistrationForm(
   const resetForm = () => {
     setFormData({
       selected_package: initialPackage,
-      business_type: "professional",
+      business_type: undefined,
       tax_code: undefined,
       company_name: undefined,
       address: "",
@@ -375,7 +375,7 @@ export function useRegistrationForm(
         // Reset form after successful submission
         setFormData({
           selected_package: initialPackage,
-          business_type: "professional",
+          business_type: undefined,
           tax_code: "",
           company_name: undefined,
           address: "",

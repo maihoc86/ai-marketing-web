@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   CloudUpload,
   Zap,
@@ -20,10 +21,78 @@ export function AIContentDemoSection() {
   const [activeRatio, setActiveRatio] = useState("square");
   const [activeHistory, setActiveHistory] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [generatedSrc, setGeneratedSrc] = useState<string | null>(
+    "/images/demo/generated-preview.jpg",
+  );
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [historyImages, setHistoryImages] = useState([
+    { src: "/images/demo/history-1.jpg", alt: "History 1" },
+    { src: "/images/demo/history-2.jpg", alt: "History 2" },
+    { src: "/images/demo/history-3.jpg", alt: "History 3" },
+    { src: "/images/demo/history-4.jpg", alt: "History 4" },
+  ] as { src: string; alt: string }[]);
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
+    if (!prompt || prompt.trim().length === 0) {
+      // Use a default prompt if none provided
+    }
+    // Build a final prompt that silently enforces the user's selections
+    const defaultPrompt = t("featurePage.content.demo.defaultPrompt");
+    const presetObj = presets.find((p) => p.key === selectedPreset);
+    const presetText = presetObj ? t(presetObj.labelKey) : "";
+    const fieldObj = styles.find((s) => s.key === activeStyle);
+    const fieldText = fieldObj ? t(fieldObj.labelKey) : "";
+    const ratioMap: Record<string, string> = {
+      square: "square (1:1)",
+      landscape: "landscape (4:3)",
+      portrait: "portrait (3:4)",
+    };
+    const ratioText = ratioMap[activeRatio] || activeRatio;
+
+    const enforcedInstructions = `Ensure the image matches the following: Style: ${
+      presetText || "default"
+    }. Field: ${fieldText || "general"}. Aspect ratio: ${ratioText}.`;
+
+    const finalPrompt = `${
+      prompt && prompt.trim().length > 0 ? prompt.trim() : defaultPrompt
+    } ${enforcedInstructions}`.trim();
+
     setIsGenerating(true);
-    setTimeout(() => setIsGenerating(false), 2000);
+
+    try {
+      const res = await fetch("/api/generate-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prompt: finalPrompt,
+          style: activeStyle,
+          ratio: activeRatio,
+          initImage: uploadedImage,
+          preset: selectedPreset,
+        }),
+      });
+
+      const json = await res.json();
+      if (res.ok && json.image) {
+        setGeneratedSrc(json.image);
+        // prepend to history (keep max 6)
+        setHistoryImages((prev) =>
+          [{ src: json.image, alt: finalPrompt || "Generated" }, ...prev].slice(
+            0,
+            6,
+          ),
+        );
+        setActiveHistory(0);
+      } else {
+        console.error("Generation error", json);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const styles = [
@@ -32,21 +101,31 @@ export function AIContentDemoSection() {
     { key: "ecom", labelKey: "featurePage.content.demo.styleEcom" },
   ];
 
-  const presets = [
-    { emoji: "✨", labelKey: "featurePage.content.demo.presetMinimalist" },
-    { emoji: "🌿", labelKey: "featurePage.content.demo.presetOrganic" },
-    { emoji: "🔥", labelKey: "featurePage.content.demo.presetCinematic" },
-  ];
+  const [selectedPreset, setSelectedPreset] = useState<string | null>(null);
 
-  const historyImages = [
-    { src: "/images/demo/history-1.jpg", alt: "History 1" },
-    { src: "/images/demo/history-2.jpg", alt: "History 2" },
-    { src: "/images/demo/history-3.jpg", alt: "History 3" },
-    { src: "/images/demo/history-4.jpg", alt: "History 4" },
+  const presets = [
+    {
+      key: "minimalist",
+      emoji: "✨",
+      labelKey: "featurePage.content.demo.presetMinimalist",
+    },
+    {
+      key: "organic",
+      emoji: "🌿",
+      labelKey: "featurePage.content.demo.presetOrganic",
+    },
+    {
+      key: "cinematic",
+      emoji: "🔥",
+      labelKey: "featurePage.content.demo.presetCinematic",
+    },
   ];
 
   return (
-    <section className="py-24 bg-linear-to-b from-[#22b5f8]/5 to-white">
+    <section
+      id="demo-generator"
+      className="py-24 bg-linear-to-b from-[#22b5f8]/5 to-white"
+    >
       <div ref={ref} className="container mx-auto px-6">
         <div
           className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-start transition-all duration-700 ${
@@ -69,47 +148,96 @@ export function AIContentDemoSection() {
             </div>
 
             {/* Upload Area */}
-            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 bg-white/50 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer group">
-              <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <CloudUpload className="w-6 h-6 text-[#22b5f8]" />
-              </div>
-              <p className="text-sm font-bold mb-1">
-                {t("featurePage.content.demo.uploadTitle")}
-              </p>
-              <p className="text-xs text-gray-500">
-                {t("featurePage.content.demo.uploadDesc")}
-              </p>
-            </div>
-
-            {/* Prompt */}
-            <div className="space-y-4">
-              <label className="block text-sm font-bold text-gray-700">
-                {t("featurePage.content.demo.promptLabel")}
-              </label>
-              <textarea
-                className="w-full h-32 p-4 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#22b5f8]/50 focus:border-primary transition-all text-sm resize-none"
-                placeholder={t("featurePage.content.demo.promptPlaceholder")}
-                readOnly
+            <div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const result = reader.result as string | null;
+                    if (result) {
+                      setUploadedImage(result);
+                      setGeneratedSrc(result);
+                    }
+                  };
+                  reader.readAsDataURL(file);
+                }}
               />
-              <div className="flex flex-wrap gap-2">
-                {presets.map((preset) => (
-                  <button
-                    key={preset.labelKey}
-                    className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-gray-100 rounded-full hover:bg-primary/10 hover:text-[#22b5f8] transition-colors"
-                  >
-                    {preset.emoji} {t(preset.labelKey)}
-                  </button>
-                ))}
+
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => fileInputRef.current?.click()}
+                onKeyDown={(e) =>
+                  e.key === "Enter" && fileInputRef.current?.click()
+                }
+                className="border-2 border-dashed border-gray-300 rounded-2xl p-8 bg-white/50 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer group"
+              >
+                <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  {uploadedImage ? (
+                    <img
+                      src={uploadedImage}
+                      alt="upload preview"
+                      className="w-10 h-10 object-cover rounded-full"
+                    />
+                  ) : (
+                    <CloudUpload className="w-6 h-6 text-[#22b5f8]" />
+                  )}
+                </div>
+                <p className="text-sm font-bold mb-1">
+                  {t("featurePage.content.demo.uploadTitle")}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {t("featurePage.content.demo.uploadDesc")}
+                </p>
               </div>
             </div>
 
             {/* Style & Aspect Ratio */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="flex flex-col gap-4">
+              <div className="space-y-3">
+                <label className="block text-sm font-bold text-gray-700">
+                  {t("featurePage.content.demo.promptLabel")}
+                </label>
+                <textarea
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  className="w-full h-32 p-4 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#22b5f8]/50 focus:border-primary transition-all text-sm resize-none"
+                  placeholder={t("featurePage.content.demo.promptPlaceholder")}
+                />
+              </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-3">
                   {t("featurePage.content.demo.styleLabel")}
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-3 gap-2">
+                  {presets.map((preset) => (
+                    <button
+                      key={preset.key}
+                      onClick={() => {
+                        setSelectedPreset(preset.key);
+                      }}
+                      className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all ${
+                        selectedPreset === preset.key
+                          ? "bg-primary text-white shadow-sm"
+                          : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
+                      }`}
+                    >
+                      {preset.emoji} {t(preset.labelKey)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-3">
+                  {t("featurePage.content.demo.field")}
+                </label>
+                <div className="grid grid-cols-3 gap-2">
                   {styles.map((style) => (
                     <button
                       key={style.key}
@@ -129,37 +257,26 @@ export function AIContentDemoSection() {
                 <label className="block text-sm font-bold text-gray-700 mb-3">
                   {t("featurePage.content.demo.aspectLabel")}
                 </label>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setActiveRatio("square")}
-                    className={`size-8 flex items-center justify-center rounded-lg transition-all ${
-                      activeRatio === "square"
-                        ? "bg-primary text-white"
-                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
-                    }`}
-                  >
-                    <div className="size-3.5 border-2 border-current rounded-sm" />
-                  </button>
-                  <button
-                    onClick={() => setActiveRatio("landscape")}
-                    className={`size-8 flex items-center justify-center rounded-lg transition-all ${
-                      activeRatio === "landscape"
-                        ? "bg-primary text-white"
-                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
-                    }`}
-                  >
-                    <div className="w-4 h-3 border-2 border-current rounded-sm" />
-                  </button>
-                  <button
-                    onClick={() => setActiveRatio("portrait")}
-                    className={`size-8 flex items-center justify-center rounded-lg transition-all ${
-                      activeRatio === "portrait"
-                        ? "bg-primary text-white"
-                        : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
-                    }`}
-                  >
-                    <div className="w-3 h-4 border-2 border-current rounded-sm" />
-                  </button>
+                <div className="grid grid-cols-3 gap-4">
+                  {(["square", "landscape", "portrait"] as const).map((r) => (
+                    <button
+                      key={r}
+                      onClick={() => setActiveRatio(r)}
+                      className={`flex py-5 px-3 items-center justify-center rounded-lg transition-all ${
+                        activeRatio === r
+                          ? "bg-primary text-white"
+                          : "bg-white border border-gray-200 hover:bg-primary hover:text-white"
+                      }`}
+                    >
+                      {r === "square" ? (
+                        <div className="aspect-square w-full border-2  border-current rounded-sm" />
+                      ) : r === "landscape" ? (
+                        <div className="aspect-4/3 w-full border-2  border-current rounded-sm" />
+                      ) : (
+                        <div className="aspect-3/4 w-full border-2  border-current rounded-sm" />
+                      )}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -208,7 +325,7 @@ export function AIContentDemoSection() {
                 <img
                   alt="Generated product image"
                   className="w-full h-full object-cover"
-                  src="/images/demo/generated-preview.jpg"
+                  src={generatedSrc ?? "/images/demo/generated-preview.jpg"}
                 />
                 <div className="absolute top-6 left-6">
                   <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
@@ -222,9 +339,16 @@ export function AIContentDemoSection() {
               {/* Action Buttons */}
               <div className="flex items-center justify-between mt-6 px-2">
                 <div className="flex gap-3">
-                  <Button className="btn-primary-light rounded-xl">
-                    <Download className="size-4" />
-                    {t("featurePage.content.demo.downloadHD")}
+                  <Button className="btn-primary-light rounded-xl" asChild>
+                    <a
+                      href={
+                        generatedSrc ?? "/images/demo/generated-preview.jpg"
+                      }
+                      download
+                    >
+                      <Download className="size-4" />
+                      {t("featurePage.content.demo.downloadHD")}
+                    </a>
                   </Button>
                   <Button
                     variant="outline"
