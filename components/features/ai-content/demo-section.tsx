@@ -23,6 +23,7 @@ export function AIContentDemoSection() {
   const [activeHistory, setActiveHistory] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const [prompt, setPrompt] = useState("");
+  const [promptError, setPromptError] = useState<string | null>(null);
   const [generatedSrc, setGeneratedSrc] = useState<string | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -32,8 +33,14 @@ export function AIContentDemoSection() {
 
   const handleGenerate = async () => {
     if (!prompt || prompt.trim().length === 0) {
-      // Use a default prompt if none provided
+      setPromptError(
+        t("featurePage.content.demo.promptRequired") ||
+          "Please enter a prompt to generate an image.",
+      );
+      return;
     }
+    setPromptError(null);
+
     // Build a final prompt that silently enforces the user's selections
     const defaultPrompt = t("featurePage.content.demo.defaultPrompt");
     const presetObj = styles.find((p) => p.key === selectedPreset);
@@ -215,10 +222,10 @@ export function AIContentDemoSection() {
                     <img
                       src={uploadedImage}
                       alt="upload preview"
-                      className="w-10 h-10 object-cover rounded-full"
+                      className="size-10 object-cover rounded-full"
                     />
                   ) : (
-                    <CloudUpload className="w-6 h-6 text-[#22b5f8]" />
+                    <CloudUpload className="size-6 text-[#22b5f8]" />
                   )}
                 </div>
                 <p className="text-sm font-bold mb-1">
@@ -234,14 +241,21 @@ export function AIContentDemoSection() {
             <div className="flex flex-col gap-4">
               <div className="space-y-3">
                 <label className="block text-sm font-bold text-gray-700">
-                  {t("featurePage.content.demo.promptLabel")}
+                  {t("featurePage.content.demo.promptLabel")}{" "}
+                  <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   value={prompt}
-                  onChange={(e) => setPrompt(e.target.value)}
+                  onChange={(e) => {
+                    setPrompt(e.target.value);
+                    if (promptError) setPromptError(null);
+                  }}
                   className="w-full h-32 p-4 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#22b5f8]/50 focus:border-primary transition-all text-sm resize-none"
                   placeholder={t("featurePage.content.demo.promptPlaceholder")}
                 />
+                {promptError && (
+                  <p className="text-xs text-red-500 mt-2">{promptError}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-3">
@@ -287,7 +301,8 @@ export function AIContentDemoSection() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-3">
-                  {t("featurePage.content.demo.aspectLabel")}
+                  {t("featurePage.content.demo.aspectLabel")}{" "}
+                  <span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-3 gap-4">
                   {(["square", "landscape", "portrait"] as const).map((r) => (
@@ -317,7 +332,7 @@ export function AIContentDemoSection() {
             <div className="space-y-4 pt-4">
               <Button
                 onClick={handleGenerate}
-                disabled={isGenerating}
+                disabled={isGenerating || prompt.trim().length === 0}
                 className="btn-primary-light w-full disabled:opacity-70"
               >
                 {isGenerating ? (
@@ -332,6 +347,7 @@ export function AIContentDemoSection() {
                   </>
                 )}
               </Button>
+              {/* Loading overlay moved to the preview container so it only covers the image area */}
               <div className="space-y-2">
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-gray-500">
                   <span>{t("featurePage.content.demo.freeRemaining")}</span>
@@ -373,6 +389,17 @@ export function AIContentDemoSection() {
                     <CloudUpload className="w-12 h-12 mb-3" />
                     <div className="text-sm font-semibold">
                       {t("featurePage.content.demo.noImage") || "No image yet"}
+                    </div>
+                  </div>
+                )}
+
+                {isGenerating && (
+                  <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/40">
+                    <div className="flex flex-col items-center text-white">
+                      <Loader2 className="w-8 h-8 animate-spin mb-3" />
+                      <div className="text-sm font-semibold">
+                        {t("featurePage.content.demo.generating")}
+                      </div>
                     </div>
                   </div>
                 )}
