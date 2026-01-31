@@ -3032,7 +3032,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Transform your product concepts into high-converting visual assets instantly.",
     "featurePage.content.demo.uploadTitle": "Drop product image here",
     "featurePage.content.demo.uploadDesc": "PNG, JPG up to 10MB",
-    "featurePage.content.demo.4kReady": "HIGH QUALITY READY",
+    "featurePage.content.demo.4kReady": "HIGH QUALITY IMAGE",
     "featurePage.content.demo.promptLabel": "Prompt",
     "featurePage.content.demo.promptPlaceholder":
       "Describe your product scene... e.g. 'A sleek ceramic bottle on a marble pedestal with soft morning light'",

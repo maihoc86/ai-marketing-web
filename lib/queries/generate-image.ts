@@ -2,7 +2,8 @@ export interface GenerateImageOptions {
   prompt: string;
   field?: string | null;
   ratio?: string | null;
-  initImage?: string | null;
+  // support multiple init images (data URLs)
+  initImages?: string[] | null;
   preset?: string | null;
 }
 
@@ -14,7 +15,7 @@ export async function generateImage(opts: GenerateImageOptions) {
       prompt: opts.prompt,
       field: opts.field,
       ratio: opts.ratio,
-      initImage: opts.initImage,
+      initImages: opts.initImages,
       preset: opts.preset,
     }),
   });

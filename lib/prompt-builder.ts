@@ -71,9 +71,28 @@ export function buildFinalPrompt(opts: {
   if (uploadedImages && uploadedImages.length > 0) {
     if (uploadedImages.length === 1) {
       referenceNote =
-        "Use the provided reference image to inform composition, materials and color; prioritize its details where relevant.";
+        "Use the provided reference image to inform composition, materials and color; prioritize its details where relevant and produce a single cohesive result.";
     } else {
-      referenceNote = `Use the provided ${uploadedImages.length} reference images as visual guides. Treat image 1 as primary for composition; blend attributes from other images (color, texture, props) as appropriate.`;
+      // Assign helpful roles to each reference image so the model fuses them rather than producing separate scenes
+      const roles = [
+        "primary composition & main subject",
+        "color palette & materials",
+        "textures & surface details",
+        "context, props & supporting elements",
+        "lighting, mood & atmosphere",
+      ];
+
+      const mappings = uploadedImages
+        .slice(0, 5)
+        .map(
+          (_, i) =>
+            `Image ${i + 1}: ${roles[i] || "supporting visual attributes"}`,
+        )
+        .join("; ");
+
+      referenceNote =
+        `You have provided ${uploadedImages.length} reference images. Fuse these into ONE cohesive composition — do NOT produce separate panels or disconnected scenes. Follow these guidance mappings: ${mappings}. ` +
+        "Seamlessly blend attributes from the references (composition, color, texture, props, and lighting) so the final image reads as a single natural scene. Ensure consistent perspective, matched lighting and shadows, harmonized color grading, and avoid visible seams, collaged cutouts, or repeated frames.";
     }
   }
 

@@ -2,7 +2,8 @@ export async function generateImageWithGemini(opts: {
   prompt: string;
   style?: string;
   ratio?: "square" | "landscape" | "portrait";
-  initImage?: string; // optional base64 data URL for image-to-image
+  // support multiple init images (data URLs)
+  initImages?: string[] | undefined;
 }) {
   const key = process.env.GEMINI_KEY;
   if (!key) throw new Error("GEMINI_KEY not configured");
@@ -30,14 +31,23 @@ export async function generateImageWithGemini(opts: {
   };
 
   // If caller provided an init image (data URL), include it for image-to-image/transform tasks.
-  if (opts.initImage) {
-    // Some endpoints expect raw base64 without the data URL prefix. Strip if present.
-    const dataUrl = opts.initImage;
-    const commaIndex = dataUrl.indexOf(",");
-    const b64 = commaIndex >= 0 ? dataUrl.slice(commaIndex + 1) : dataUrl;
-    body.init_image = b64;
-    // Also include a flag indicating image-to-image intent.
+  // If caller provided init images (data URLs), include them for image-to-image/transform tasks.
+  const imagesToSend: string[] = [];
+  if (
+    opts.initImages &&
+    Array.isArray(opts.initImages) &&
+    opts.initImages.length > 0
+  ) {
+    imagesToSend.push(...opts.initImages.slice(0, 5));
+  }
+
+  if (imagesToSend.length > 0) {
     body.image_transform = true;
+    // for non-generateContent endpoints some APIs accept `init_image` or array; keep first as primary
+    const first = imagesToSend[0];
+    const commaIndex = first.indexOf(",");
+    const b64First = commaIndex >= 0 ? first.slice(commaIndex + 1) : first;
+    body.init_image = b64First;
   }
 
   // If GEMINI_URL is provided, use it. Otherwise default to the v1beta generateContent URL
@@ -54,16 +64,19 @@ export async function generateImageWithGemini(opts: {
     // Build the `contents` payload with parts. First part = text prompt.
     const parts: any[] = [{ text: fullPrompt + base64Instruction }];
 
-    if (opts.initImage) {
-      const dataUrl = opts.initImage;
-      const commaIndex = dataUrl.indexOf(",");
-      const b64 = commaIndex >= 0 ? dataUrl.slice(commaIndex + 1) : dataUrl;
-      parts.push({
-        inline_data: {
-          mime_type: "image/jpeg",
-          data: b64,
-        },
-      });
+    // Attach any provided init images as inline_data parts (support up to 5)
+    if (imagesToSend.length > 0) {
+      for (const img of imagesToSend) {
+        const dataUrl = img;
+        const commaIndex = dataUrl.indexOf(",");
+        const b64 = commaIndex >= 0 ? dataUrl.slice(commaIndex + 1) : dataUrl;
+        parts.push({
+          inline_data: {
+            mime_type: "image/jpeg",
+            data: b64,
+          },
+        });
+      }
     }
 
     fetchBody = { contents: [{ parts }] };

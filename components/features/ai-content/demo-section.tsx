@@ -66,7 +66,7 @@ export function AIContentDemoSection() {
           prompt: finalPrompt,
           field: activeField,
           ratio: activeRatio,
-          initImage: uploadedImages[0] ?? null,
+          initImages: uploadedImages ?? [],
           preset: selectedPreset,
         });
 
@@ -403,7 +403,7 @@ export function AIContentDemoSection() {
                 )}
               </Button>
               {/* Loading overlay moved to the preview container so it only covers the image area */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-gray-500">
                   <span>{t("featurePage.content.demo.freeRemaining")}</span>
                   <span>60%</span>
@@ -411,7 +411,7 @@ export function AIContentDemoSection() {
                 <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[60%] rounded-full" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -432,7 +432,7 @@ export function AIContentDemoSection() {
                       className="w-full h-full object-cover"
                       src={generatedSrc}
                     />
-                    <div className="absolute top-6 left-6">
+                    <div className="absolute top-4 left-4">
                       <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1.5 border border-white/20">
                         <span className="size-1.5 bg-green-400 rounded-full animate-pulse" />
                         {t("featurePage.content.demo.4kReady")}
@@ -502,7 +502,10 @@ export function AIContentDemoSection() {
                   {historyImages.map((image, index) => (
                     <button
                       key={index}
-                      onClick={() => setActiveHistory(index)}
+                      onClick={() => {
+                        setActiveHistory(index);
+                        setGeneratedSrc(image.src);
+                      }}
                       className={`size-20 rounded-xl overflow-hidden transition-all cursor-pointer ${
                         activeHistory === index
                           ? "border-2 border-primary ring-2 ring-[#22b5f8]/20"
