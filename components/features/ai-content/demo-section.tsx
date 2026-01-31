@@ -12,16 +12,6 @@ import { buildFinalPrompt } from "@/lib/prompt-builder";
 export function AIContentDemoSection() {
   const { t } = useI18n();
   const { ref, isInView } = useInView();
-  useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    if (!key) return;
-    if (document.querySelector('script[data-recaptcha="true"]')) return;
-    const s = document.createElement("script");
-    s.src = `https://www.google.com/recaptcha/api.js?render=${key}`;
-    s.async = true;
-    s.setAttribute("data-recaptcha", "true");
-    document.head.appendChild(s);
-  }, []);
   const [activeField, setActiveField] = useState("");
   const [activeRatio, setActiveRatio] = useState("square");
   const [activeHistory, setActiveHistory] = useState(0);
@@ -35,6 +25,17 @@ export function AIContentDemoSection() {
   const [historyImages, setHistoryImages] = useState(
     [] as { src: string; alt: string }[],
   );
+
+  useEffect(() => {
+    const key = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!key) return;
+    if (document.querySelector('script[data-recaptcha="true"]')) return;
+    const s = document.createElement("script");
+    s.src = `https://www.google.com/recaptcha/api.js?render=${key}`;
+    s.async = true;
+    s.setAttribute("data-recaptcha", "true");
+    document.head.appendChild(s);
+  }, []);
 
   const handleGenerate = async () => {
     if (!prompt || prompt.trim().length === 0) {
