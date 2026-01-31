@@ -171,7 +171,7 @@ export function ChatbotIndustriesSection() {
             style={{ animationDelay: "0.3s" }}
             key={`${currentIndustry.id}-stats`}
           >
-            <div className="bg-linear-to-br from-[#1c1c1c] to-[#2d2d2d] rounded-2xl p-8 text-white">
+            <div className="bg-linear-to-br from-white shadow-lg border border-primary to-[#f3f7fb] rounded-2xl p-8 text-gray-900">
               <h3 className="text-2xl font-black mb-8">
                 {t("featurePage.chatbot.industries.readyBoost")}
               </h3>
@@ -183,21 +183,21 @@ export function ChatbotIndustriesSection() {
                     <div className="text-4xl font-black text-[#22b5f8] mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-400 uppercase tracking-wide">
+                    <div className="text-sm text-gray-500 uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 {t("featurePage.chatbot.industries.description")}
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  className="bg-[#ff7900] hover:bg-[#e56b00] text-white font-bold rounded-full"
+                  className="bg-primary hover:bg-primary-hover text-white font-bold rounded-full"
                   asChild
                 >
                   <LocaleLink href="/register">
@@ -206,7 +206,7 @@ export function ChatbotIndustriesSection() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 font-semibold rounded-full bg-transparent"
+                  className="border-2 border-gray-200 text-gray-700 hover:bg-gray-100 font-semibold rounded-full bg-transparent"
                   asChild
                 >
                   <LocaleLink href="/#features">
