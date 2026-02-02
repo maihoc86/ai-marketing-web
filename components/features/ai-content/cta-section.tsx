@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Calendar } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/lib/i18n";
