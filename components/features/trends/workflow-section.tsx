@@ -76,17 +76,10 @@ export function TrendsWorkflowSection() {
           {/* Connecting Line Base */}
           <div className="absolute top-8 left-0 right-0 h-0.5 bg-gray-200 z-0" />
           {/* Connecting Line Active */}
-          <div
-            className={`absolute top-8 left-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary/50 z-0 transition-all duration-1000 ease-out ${
-              isInView ? "w-2/3" : "w-0"
-            }`}
-            style={{ transitionDelay: "0.5s" }}
-          />
 
           <div className="grid grid-cols-6 gap-4 relative z-10">
             {steps.map((step, idx) => {
               const StepIcon = step.icon;
-              const isFirst = idx === 0;
 
               return (
                 <div
@@ -98,26 +91,16 @@ export function TrendsWorkflowSection() {
                   }`}
                   style={{ transitionDelay: `${0.1 * idx}s` }}
                 >
-                  <div
-                    className={`size-16 rounded-full flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-all duration-300 ${
-                      isFirst
-                        ? "bg-white border-2 border-primary text-primary"
-                        : "bg-white border-2 border-gray-200 text-gray-500 group-hover:border-primary group-hover:text-primary"
-                    }`}
-                  >
+                  <div className="size-16 rounded-full flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-all duration-300 bg-white border-2 border-gray-200 text-gray-500 group-hover:border-primary group-hover:text-primary">
                     <StepIcon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col gap-2 px-2">
-                    <span
-                      className={`text-xs font-bold uppercase tracking-wider ${
-                        isFirst
-                          ? "text-primary"
-                          : "text-gray-400 group-hover:text-primary"
-                      } transition-colors`}
-                    >
-                      Step {step.stepNum}
+                    <span className="text-xs group-hover:text-primary font-bold uppercase tracking-wider transition-colors">
+                      {t("featurePage.trends.workflow.stepLabel", {
+                        num: step.stepNum,
+                      })}
                     </span>
-                    <h3 className="text-gray-900 font-bold text-base">
+                    <h3 className="text-gray-900 font-bold text-base group-hover:text-primary">
                       {t(step.titleKey)}
                     </h3>
                     <p className="text-gray-500 text-sm leading-snug">
@@ -131,37 +114,33 @@ export function TrendsWorkflowSection() {
         </div>
 
         {/* Mobile Process Timeline (Vertical) */}
-        <div className="lg:hidden flex flex-col pl-4 border-l-2 border-gray-200 space-y-10">
+        <div className="lg:hidden flex flex-col relative space-y-10">
           {steps.map((step, idx) => {
             const StepIcon = step.icon;
-            const isFirst = idx === 0;
 
             return (
               <div
                 key={idx}
-                className={`relative pl-8 transition-all duration-700 ${
+                className={`relative z-10 flex space-x-4 transition-all duration-700 ${
                   isInView
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4"
                 }`}
                 style={{ transitionDelay: `${0.1 * idx}s` }}
               >
-                <div
-                  className={`absolute -left-[21px] top-0 size-10 rounded-full flex items-center justify-center shadow-md ${
-                    isFirst
-                      ? "bg-primary text-white"
-                      : "bg-white border border-gray-200 text-gray-500"
-                  }`}
-                >
-                  <StepIcon className="w-5 h-5" />
+                <div className="bg-white relative  border border-gray-200 text-gray-500 top-0 size-10 rounded-full flex items-center justify-center shadow-md">
+                  <StepIcon className="size-5" />
                 </div>
-                <h3 className="text-gray-900 font-bold text-lg mb-1">
-                  {t(step.titleKey)}
-                </h3>
-                <p className="text-gray-500 text-sm">{t(step.descKey)}</p>
+                <div>
+                  <h3 className="text-gray-900 font-bold text-lg mb-1">
+                    {t(step.titleKey)}
+                  </h3>
+                  <p className="text-gray-500 text-sm">{t(step.descKey)}</p>
+                </div>
               </div>
             );
           })}
+          <div className="w-px bg-gray-200 absolute top-0 left-5 h-[86%]" />
         </div>
       </div>
     </section>

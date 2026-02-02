@@ -1582,6 +1582,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Từ Tín hiệu đến Chiến lược: Quy trình",
     "featurePage.trends.workflow.subtitle":
       "Vòng lặp liên tục thu thập thông tin, phân tích và thực thi được thiết kế để giữ bạn luôn dẫn đầu.",
+    "featurePage.trends.workflow.stepLabel": "Bước {num}",
     "featurePage.trends.workflow.step1.title": "Quét Toàn cầu",
     "featurePage.trends.workflow.step1.desc":
       "Thu thập hàng triệu điểm dữ liệu từ mạng xã hội và nguồn tin tức.",
@@ -3390,6 +3391,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "From Signal to Strategy: The Workflow",
     "featurePage.trends.workflow.subtitle":
       "A continuous loop of intelligence gathering, analysis, and execution designed to keep you ahead of the curve.",
+    "featurePage.trends.workflow.stepLabel": "Step {num}",
     "featurePage.trends.workflow.step1.title": "Global Scanning",
     "featurePage.trends.workflow.step1.desc":
       "Ingesting millions of data points from social & news sources.",
