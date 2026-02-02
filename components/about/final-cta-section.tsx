@@ -1,7 +1,7 @@
 "use client";
 
 import { LocaleLink } from "@/components/locale-link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 
@@ -62,7 +62,7 @@ export function FinalCtaSection() {
             </LocaleLink>
           </Button>
 
-          <Button
+          {/* <Button
             size="lg"
             variant="outline"
             className="border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl text-base transition-all bg-transparent backdrop-blur-sm"
@@ -75,7 +75,7 @@ export function FinalCtaSection() {
               {t("about.finalCta.cta.roadmap")}
               <Download className="w-5 h-5" />
             </LocaleLink>
-          </Button>
+          </Button> */}
         </div>
 
         {/* Trust indicators */}

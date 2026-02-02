@@ -34,6 +34,7 @@ export function PhilosophySection() {
       descKey: "about.philosophy.benefit1.desc",
       color: "text-[#22b5f8]",
       bgColor: "bg-primary",
+      hoverBorder: "hover:border-primary",
       lightBg: "bg-primary/5",
     },
     {
@@ -42,6 +43,7 @@ export function PhilosophySection() {
       descKey: "about.philosophy.benefit2.desc",
       color: "text-emerald-600",
       bgColor: "bg-emerald-600",
+      hoverBorder: "hover:border-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
@@ -50,6 +52,7 @@ export function PhilosophySection() {
       descKey: "about.philosophy.benefit3.desc",
       color: "text-amber-600",
       bgColor: "bg-amber-600",
+      hoverBorder: "hover:border-amber-600",
       lightBg: "bg-amber-50",
     },
     {
@@ -58,6 +61,7 @@ export function PhilosophySection() {
       descKey: "about.philosophy.benefit4.desc",
       color: "text-rose-600",
       bgColor: "bg-rose-600",
+      hoverBorder: "hover:border-rose-600",
       lightBg: "bg-rose-50",
     },
   ];
@@ -100,6 +104,7 @@ interface BenefitItem {
   descKey: string;
   color: string;
   bgColor: string;
+  hoverBorder: string;
   lightBg: string;
 }
 
@@ -136,7 +141,7 @@ function BenefitCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden",
+        `group relative bg-white border-2 border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden ${benefit.hoverBorder}`,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
