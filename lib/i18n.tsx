@@ -1594,6 +1594,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.package.starterDesc":
       "Trải nghiệm toàn bộ tính năng miễn phí trong 1 tháng",
     "featurePage.content.hero.4kQuality": "Chất lượng 4K",
+    "registration.form.package.business": "Doanh nghiệp",
+    "registration.form.package.businessTitle": "Dành cho tổ chức",
+    "registration.form.package.businessDesc":
+      "Giải pháp tùy chỉnh với quản trị và phân quyền.",
   },
   en: {
     // Navigation
