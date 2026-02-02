@@ -63,7 +63,7 @@ export function ChatbotStepsSection() {
                   style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                 >
                   <div
-                    className="bg-white rounded-2xl border-2 p-8 border-primary transition-all hover:shadow-xl group"
+                    className="bg-white rounded-2xl min-h-75 border-2 p-8 border-primary transition-all hover:shadow-xl group"
                     style={{
                       borderColor: step.colorSolid,
                     }}
