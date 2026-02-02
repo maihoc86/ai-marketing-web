@@ -53,7 +53,7 @@ const features: Feature[] = [
     iconColor: "#22b5f8",
     badge: "24/7",
     badgeColor: "bg-primary/10 text-[#008bff] border-primary/30",
-    image: "/ai-chatbot.png",
+    image: "/ai-chatbot1.png",
     mainFeatures: [
       [
         {
