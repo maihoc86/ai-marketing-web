@@ -1515,6 +1515,154 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.trends.benefit3": "Theo dõi đối thủ cạnh tranh real-time",
     "featurePage.trends.benefit4": "Dự đoán xu hướng sắp tới với AI",
 
+    // Feature Page - Trends (New Detailed Page)
+    "featurePage.trends.hero.badge": "AI-POWERED INTELLIGENCE",
+    "featurePage.trends.hero.title1": "Không bỏ lỡ",
+    "featurePage.trends.hero.title2": "Xu hướng Viral",
+    "featurePage.trends.hero.description":
+      "Phát hiện xu hướng trước đối thủ 48 giờ. AI phân tích hàng triệu dữ liệu để dự đoán content viral với độ chính xác 92%.",
+
+    // Trends Hero Metrics
+    "featurePage.trends.metric.scanning": "Quét Trends",
+    "featurePage.trends.metric.accuracy": "Độ chính xác",
+    "featurePage.trends.metric.earlyDetection": "Phát hiện sớm",
+
+    // Trends Demo Visualization
+    "featurePage.trends.demo.title": "Bảng điều khiển Xu hướng",
+    "featurePage.trends.demo.status": "Đang quét & Phân tích",
+    "featurePage.trends.demo.prediction": "Dự đoán AI",
+    "featurePage.trends.demo.trend1.title": "AI Video Marketing",
+    "featurePage.trends.demo.trend1.category": "Công nghệ",
+    "featurePage.trends.demo.trend2.title": "Bền vững & Xanh",
+    "featurePage.trends.demo.trend2.category": "Lifestyle",
+    "featurePage.trends.demo.aiInsight.label": "Gợi ý AI",
+    "featurePage.trends.demo.aiInsight.text":
+      "Xu hướng 'AI Video' đang tăng mạnh trên TikTok. Đề xuất tạo nội dung trong 24h để đón đầu.",
+
+    // Trends Capabilities
+    "featurePage.trends.capabilities.badge": "Tính năng cốt lõi",
+    "featurePage.trends.capabilities.heading": "Mọi thứ bạn cần",
+    "featurePage.trends.capabilities.bentoDesc":
+      "Triển khai các module AI cấp doanh nghiệp giúp chuyển đổi quy trình làm việc và tăng hiệu quả đến 90%.",
+    "featurePage.trends.capabilities.learnMore": "Tìm hiểu thêm",
+    "featurePage.trends.capabilities.bento.badge1": "+142% Velocity",
+    "featurePage.trends.capabilities.bento.badge2": "Tối ưu AI",
+    "featurePage.trends.capabilities.bento.badge3": "Dự đoán chính xác",
+    "featurePage.trends.capabilities.bento.badge4": "Thời gian thực",
+    "featurePage.trends.capabilities.bento.badge5": "Vô hạn ý tưởng",
+    "featurePage.trends.capabilities.bento.badge6": "Tự động hoá",
+    "featurePage.trends.capabilities.trendDetection.title":
+      "Phát hiện Xu hướng Ngành",
+    "featurePage.trends.capabilities.trendDetection.desc":
+      "Phát hiện tín hiệu mới nổi trước khi chúng đạt đỉnh với công cụ phân tích đường cong tăng trưởng độc quyền.",
+    "featurePage.trends.capabilities.briefOptimizer.title": "Tối ưu hóa Brief",
+    "featurePage.trends.capabilities.briefOptimizer.desc":
+      "Biến ý tưởng mơ hồ thành brief có cấu trúc bằng AI.",
+    "featurePage.trends.capabilities.realTimeScoring.title":
+      "Chấm điểm Thời gian Thực",
+    "featurePage.trends.capabilities.realTimeScoring.desc":
+      "Đánh giá tiềm năng viral trực tiếp.",
+    "featurePage.trends.capabilities.performancePrediction.title":
+      "Dự đoán Hiệu suất",
+    "featurePage.trends.capabilities.performancePrediction.desc":
+      "Dự báo lượt xem với độ chính xác cao dựa trên dữ liệu lịch sử.",
+    "featurePage.trends.capabilities.performancePrediction.accuracy":
+      "Tỷ lệ chính xác",
+    "featurePage.trends.capabilities.ideationEngine.title":
+      "Công cụ Ý tưởng AI",
+    "featurePage.trends.capabilities.ideationEngine.desc":
+      "Vô hạn góc nhìn nội dung từ một chủ đề.",
+    "featurePage.trends.capabilities.campaignBlueprint.title":
+      "Bản thiết kế Chiến dịch",
+    "featurePage.trends.capabilities.campaignBlueprint.desc":
+      "Lịch đăng bài tự động được tạo sẵn.",
+
+    // Trends Workflow
+    "featurePage.trends.workflow.title": "Từ Tín hiệu đến Chiến lược: Quy trình",
+    "featurePage.trends.workflow.subtitle":
+      "Vòng lặp liên tục thu thập thông tin, phân tích và thực thi được thiết kế để giữ bạn luôn dẫn đầu.",
+    "featurePage.trends.workflow.step1.title": "Quét Toàn cầu",
+    "featurePage.trends.workflow.step1.desc":
+      "Thu thập hàng triệu điểm dữ liệu từ mạng xã hội và nguồn tin tức.",
+    "featurePage.trends.workflow.step2.title": "Nhận dạng Mẫu",
+    "featurePage.trends.workflow.step2.desc":
+      "AI xác định các cấu trúc viral lặp lại và điểm bất thường.",
+    "featurePage.trends.workflow.step3.title": "Lọc Liên quan",
+    "featurePage.trends.workflow.step3.desc":
+      "Lọc nhiễu dựa trên ngách thương hiệu của bạn.",
+    "featurePage.trends.workflow.step4.title": "Lập Bản đồ Chiến lược",
+    "featurePage.trends.workflow.step4.desc":
+      "Ánh xạ xu hướng vào các trụ cột nội dung của bạn.",
+    "featurePage.trends.workflow.step5.title": "Tạo Nội dung",
+    "featurePage.trends.workflow.step5.desc":
+      "Soạn nội dung có tác động cao tự động.",
+    "featurePage.trends.workflow.step6.title": "Vòng Tối ưu",
+    "featurePage.trends.workflow.step6.desc":
+      "Học từ hiệu suất để cải thiện các lần quét tiếp theo.",
+
+    // Trends Stats
+    "featurePage.trends.stats.title": "Tác động Thực, Đo bằng Tăng trưởng Viral",
+    "featurePage.trends.stats.subtitle":
+      "Xem cách Uniksmart biến chiến lược nội dung thành công cụ viral có thể dự đoán.",
+    "featurePage.trends.stats.viralIncrease.label": "Tăng Viral",
+    "featurePage.trends.stats.viralIncrease.note":
+      "Trung bình trên người dùng beta",
+    "featurePage.trends.stats.timeReduction.label": "Giảm Thời gian",
+    "featurePage.trends.stats.timeReduction.note":
+      "Từ nghiên cứu đến đăng bài",
+    "featurePage.trends.stats.trendsDetected.label": "Xu hướng Phát hiện",
+    "featurePage.trends.stats.trendsDetected.note":
+      "Hàng ngày trên các nền tảng",
+
+    // Trends Testimonials
+    "featurePage.trends.testimonials.title":
+      "Được Tin dùng bởi Các Nhà Lãnh đạo Ngành",
+    "featurePage.trends.testimonials.review1.name": "Nguyễn Văn A",
+    "featurePage.trends.testimonials.review1.company": "TechFlow",
+    "featurePage.trends.testimonials.review1.role": "VP Marketing",
+    "featurePage.trends.testimonials.review1.quote":
+      "Uniksmart đã hoàn toàn cách mạng hóa chiến lược nội dung của chúng tôi. Dự đoán xu hướng chính xác đáng kinh ngạc.",
+    "featurePage.trends.testimonials.review2.name": "Trần Văn B",
+    "featurePage.trends.testimonials.review2.company": "ViralLoop",
+    "featurePage.trends.testimonials.review2.role": "Growth Lead",
+    "featurePage.trends.testimonials.review2.quote":
+      "Chúng tôi cắt giảm 85% thời gian nghiên cứu và bắt đầu đạt chỉ số viral trong vài tuần. Công cụ không thể thiếu.",
+    "featurePage.trends.testimonials.review3.name": "Lê Thị C",
+    "featurePage.trends.testimonials.review3.company": "NextGen",
+    "featurePage.trends.testimonials.review3.role": "CMO",
+    "featurePage.trends.testimonials.review3.quote":
+      "Cuối cùng, một công cụ thực sự hiểu sắc thái đa nền tảng. Thay đổi cuộc chơi cho các thương hiệu toàn cầu.",
+
+    // Trends Integrations
+    "featurePage.trends.integrations.title": "Tích hợp Liền mạch",
+    "featurePage.trends.integrations.subtitle":
+      "Đẩy nội dung trực tiếp đến các nền tảng yêu thích của bạn.",
+
+    // Trends Tech Specs
+    "featurePage.trends.techSpecs.badge": "Bên trong Hệ thống",
+    "featurePage.trends.techSpecs.title": "Công nghệ Thế hệ Mới cho Nội dung",
+    "featurePage.trends.techSpecs.subtitle":
+      "Được xây dựng cho các nhà phát triển và power user cần hiệu suất và độ chính xác cao nhất.",
+    "featurePage.trends.techSpecs.aiRouting.title": "Định tuyến AI Nâng cao",
+    "featurePage.trends.techSpecs.aiRouting.desc":
+      "Định tuyến động giữa GPT-5, Claude và Gemini để xử lý ngữ cảnh tối ưu.",
+    "featurePage.trends.techSpecs.languages.title": "75+ Ngôn ngữ",
+    "featurePage.trends.techSpecs.languages.desc":
+      "Phát hiện sắc thái văn hóa ở cấp độ bản địa trên các thị trường toàn cầu.",
+    "featurePage.trends.techSpecs.accuracy.title": "92% Độ chính xác Dự đoán",
+    "featurePage.trends.techSpecs.accuracy.desc":
+      "Thuật toán chấm điểm độc quyền được xác thực trên 50M+ bài viral.",
+    "featurePage.trends.techSpecs.apiDocs": "Đọc Tài liệu API",
+
+    // Trends CTA
+    "featurePage.trends.cta.title": "Bắt đầu Dự đoán Xu hướng Ngay",
+    "featurePage.trends.cta.subtitle":
+      "Ngừng đoán xem điều gì sẽ viral. Tham gia 10,000+ creators và brands sử dụng Uniksmart để thống trị feed.",
+    "featurePage.trends.cta.getStarted": "Bắt đầu Miễn phí",
+    "featurePage.trends.cta.viewPricing": "Xem Bảng giá",
+    "featurePage.trends.cta.note":
+      "Không cần thẻ tín dụng • Dùng thử miễn phí 14 ngày",
+
     // Feature Page - Video
     "featurePage.video.feature6.name": "Xuất đa định dạng",
     "featurePage.video.feature6.desc":
@@ -3170,6 +3318,150 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.trends.benefit2": "Get content ideas based on trends",
     "featurePage.trends.benefit3": "Track competitors in real-time",
     "featurePage.trends.benefit4": "Predict upcoming trends with AI",
+
+    // Feature Page - Trends (New Detailed Page)
+    "featurePage.trends.hero.badge": "AI-POWERED INTELLIGENCE",
+    "featurePage.trends.hero.title1": "Never Miss Another",
+    "featurePage.trends.hero.title2": "Viral Trend",
+    "featurePage.trends.hero.description":
+      "Detect trends 48 hours before competitors. AI analyzes millions of data points to predict viral content with 92% accuracy.",
+
+    // Trends Hero Metrics
+    "featurePage.trends.metric.scanning": "Trend Scanning",
+    "featurePage.trends.metric.accuracy": "Accuracy",
+    "featurePage.trends.metric.earlyDetection": "Early Detection",
+
+    // Trends Demo Visualization
+    "featurePage.trends.demo.title": "Trend Dashboard",
+    "featurePage.trends.demo.status": "Scanning & Analyzing",
+    "featurePage.trends.demo.prediction": "AI Prediction",
+    "featurePage.trends.demo.trend1.title": "AI Video Marketing",
+    "featurePage.trends.demo.trend1.category": "Technology",
+    "featurePage.trends.demo.trend2.title": "Sustainable & Green",
+    "featurePage.trends.demo.trend2.category": "Lifestyle",
+    "featurePage.trends.demo.aiInsight.label": "AI Insight",
+    "featurePage.trends.demo.aiInsight.text":
+      "'AI Video' trend is rising fast on TikTok. Recommend creating content within 24h to get ahead.",
+
+    // Trends Capabilities
+    "featurePage.trends.capabilities.badge": "Core Capabilities",
+    "featurePage.trends.capabilities.heading": "Everything You Need",
+    "featurePage.trends.capabilities.bentoDesc":
+      "Deploy enterprise-grade AI modules that transform your workflow and boost efficiency by up to 90%.",
+    "featurePage.trends.capabilities.learnMore": "Learn more",
+    "featurePage.trends.capabilities.bento.badge1": "+142% Velocity",
+    "featurePage.trends.capabilities.bento.badge2": "AI Optimized",
+    "featurePage.trends.capabilities.bento.badge3": "Accurate Prediction",
+    "featurePage.trends.capabilities.bento.badge4": "Real-time",
+    "featurePage.trends.capabilities.bento.badge5": "Unlimited Ideas",
+    "featurePage.trends.capabilities.bento.badge6": "Automated",
+    "featurePage.trends.capabilities.trendDetection.title":
+      "Industry Trend Detection",
+    "featurePage.trends.capabilities.trendDetection.desc":
+      "Spot emerging signals before they peak with our proprietary growth curve analysis engine.",
+    "featurePage.trends.capabilities.briefOptimizer.title": "Brief Optimizer",
+    "featurePage.trends.capabilities.briefOptimizer.desc":
+      "Turn vague ideas into structured briefs using AI.",
+    "featurePage.trends.capabilities.realTimeScoring.title":
+      "Real-Time Scoring",
+    "featurePage.trends.capabilities.realTimeScoring.desc":
+      "Live virality potential assessment.",
+    "featurePage.trends.capabilities.performancePrediction.title":
+      "Performance Prediction",
+    "featurePage.trends.capabilities.performancePrediction.desc":
+      "Forecast views with extreme accuracy based on historical data.",
+    "featurePage.trends.capabilities.performancePrediction.accuracy":
+      "Accuracy Rate",
+    "featurePage.trends.capabilities.ideationEngine.title": "AI Ideation Engine",
+    "featurePage.trends.capabilities.ideationEngine.desc":
+      "Infinite content angles from one topic.",
+    "featurePage.trends.capabilities.campaignBlueprint.title":
+      "Campaign Blueprint",
+    "featurePage.trends.capabilities.campaignBlueprint.desc":
+      "Auto-generated publishing schedules.",
+
+    // Trends Workflow
+    "featurePage.trends.workflow.title":
+      "From Signal to Strategy: The Workflow",
+    "featurePage.trends.workflow.subtitle":
+      "A continuous loop of intelligence gathering, analysis, and execution designed to keep you ahead of the curve.",
+    "featurePage.trends.workflow.step1.title": "Global Scanning",
+    "featurePage.trends.workflow.step1.desc":
+      "Ingesting millions of data points from social & news sources.",
+    "featurePage.trends.workflow.step2.title": "Pattern Recognition",
+    "featurePage.trends.workflow.step2.desc":
+      "AI identifies repeating viral structures and anomalies.",
+    "featurePage.trends.workflow.step3.title": "Relevance Filter",
+    "featurePage.trends.workflow.step3.desc":
+      "Filtering out noise based on your brand niche.",
+    "featurePage.trends.workflow.step4.title": "Strategic Map",
+    "featurePage.trends.workflow.step4.desc":
+      "Mapping trends to your content pillars.",
+    "featurePage.trends.workflow.step5.title": "Generation",
+    "featurePage.trends.workflow.step5.desc":
+      "Drafting high-impact content automatically.",
+    "featurePage.trends.workflow.step6.title": "Optimize Loop",
+    "featurePage.trends.workflow.step6.desc":
+      "Learning from performance to refine future scans.",
+
+    // Trends Stats
+    "featurePage.trends.stats.title": "Real Impact, Measured in Viral Growth",
+    "featurePage.trends.stats.subtitle":
+      "See how Uniksmart transforms content strategies into predictable viral engines.",
+    "featurePage.trends.stats.viralIncrease.label": "Viral Increase",
+    "featurePage.trends.stats.viralIncrease.note": "Average across beta users",
+    "featurePage.trends.stats.timeReduction.label": "Time Reduction",
+    "featurePage.trends.stats.timeReduction.note": "From research to posting",
+    "featurePage.trends.stats.trendsDetected.label": "Trends Detected",
+    "featurePage.trends.stats.trendsDetected.note": "Daily across platforms",
+
+    // Trends Testimonials
+    "featurePage.trends.testimonials.title": "Trusted by Industry Leaders",
+    "featurePage.trends.testimonials.review1.name": "Sarah Jenkins",
+    "featurePage.trends.testimonials.review1.company": "TechFlow",
+    "featurePage.trends.testimonials.review1.role": "VP Marketing",
+    "featurePage.trends.testimonials.review1.quote":
+      "Uniksmart completely revolutionized our content strategy. The trend prediction is scary accurate.",
+    "featurePage.trends.testimonials.review2.name": "Mike Ross",
+    "featurePage.trends.testimonials.review2.company": "ViralLoop",
+    "featurePage.trends.testimonials.review2.role": "Growth Lead",
+    "featurePage.trends.testimonials.review2.quote":
+      "We cut our research time by 85% and started hitting viral metrics within weeks. A must-have.",
+    "featurePage.trends.testimonials.review3.name": "Elena Rodriguez",
+    "featurePage.trends.testimonials.review3.company": "NextGen",
+    "featurePage.trends.testimonials.review3.role": "CMO",
+    "featurePage.trends.testimonials.review3.quote":
+      "Finally, a tool that actually understands cross-platform nuance. A game changer for global brands.",
+
+    // Trends Integrations
+    "featurePage.trends.integrations.title": "Seamless Integrations",
+    "featurePage.trends.integrations.subtitle":
+      "Directly push content to your favorite platforms.",
+
+    // Trends Tech Specs
+    "featurePage.trends.techSpecs.badge": "Under the Hood",
+    "featurePage.trends.techSpecs.title": "Powering the Next Gen of Content",
+    "featurePage.trends.techSpecs.subtitle":
+      "Built for developers and power users who need raw performance and precision.",
+    "featurePage.trends.techSpecs.aiRouting.title": "Advanced AI Routing",
+    "featurePage.trends.techSpecs.aiRouting.desc":
+      "Dynamic routing between GPT-5, Claude, and Gemini for optimal context handling.",
+    "featurePage.trends.techSpecs.languages.title": "75+ Languages",
+    "featurePage.trends.techSpecs.languages.desc":
+      "Native-level cultural nuance detection across global markets.",
+    "featurePage.trends.techSpecs.accuracy.title": "92% Prediction Accuracy",
+    "featurePage.trends.techSpecs.accuracy.desc":
+      "Proprietary scoring algorithms validated against 50M+ viral posts.",
+    "featurePage.trends.techSpecs.apiDocs": "Read the API Docs",
+
+    // Trends CTA
+    "featurePage.trends.cta.title": "Start Predicting Trends Today",
+    "featurePage.trends.cta.subtitle":
+      "Stop guessing what goes viral. Join 10,000+ creators and brands using Uniksmart to dominate the feed.",
+    "featurePage.trends.cta.getStarted": "Get Started Free",
+    "featurePage.trends.cta.viewPricing": "View Pricing",
+    "featurePage.trends.cta.note":
+      "No credit card required • 14-day free trial",
 
     // Feature Page - Video
     "featurePage.video.feature6.name": "Multi-format Export",
