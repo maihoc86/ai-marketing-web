@@ -1598,6 +1598,32 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.package.businessTitle": "Dành cho tổ chức",
     "registration.form.package.businessDesc":
       "Giải pháp tùy chỉnh với quản trị và phân quyền.",
+    "registration.form.package.starterTitle": "Dành cho cá nhân",
+    "registration.form.title": "Đăng ký dùng thử miễn phí",
+    "registration.form.subtitle":
+      "Điền thông tin để bắt đầu trải nghiệm Uniksmart",
+    "registration.form.hero.title": "Nâng tầm Marketing Doanh nghiệp với AI",
+    "registration.form.hero.subtitle":
+      "Hơn 2,500 doanh nghiệp đã thành công chuyển đổi số với Uniksmart. Tham gia ngay để nhận các ưu đãi độc quyền.",
+    "registration.form.benefit1": "Tư vấn trực tiếp với chuyên gia.",
+    "registration.form.benefit2": "Trình bày sản phẩm trực tiếp",
+    "registration.form.benefit3":
+      "Nhận ưu đãi đặc biệt cho doanh nghiệp nhỏ và vừa",
+    "registration.form.rating": "4.9/5 dựa trên đánh giá của người dùng",
+    "registration.form.testimonial":
+      "Uniksmart đã giúp chúng tôi tối ưu hóa quy trình làm việc và tăng tỷ lệ chuyển đổi lên 30% trong 3 tháng đầu tiên.",
+    "registration.form.submit.button": "Bắt đầu dùng thử miễn phí",
+    "registration.form.company.addressPlaceholder":
+      "House number, street, District, City/Province",
+    "registration.form.contact.fullName": "Tên đầy đủ",
+    "registration.form.contact.fullNamePlaceholder": "Nguyễn Hoàng K",
+    "registration.form.login.text": "Đã có tài khoản?",
+    "registration.form.login.link": "Đăng nhập ngay",
+    "registration.form.terms.text": "Bằng cách đăng ký, bạn đồng ý với",
+    "registration.form.terms.service": "Điều khoản dịch vụ",
+    "registration.form.terms.and": "và",
+    "registration.form.terms.privacy": "Chính sách bảo mật",
+    "registration.form.trial": "Bắt đầu dùng thử miễn phí 14 ngày",
   },
   en: {
     // Navigation
@@ -2048,7 +2074,6 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.terms.service": "Terms of Service",
     "registration.form.terms.and": "and",
     "registration.form.terms.privacy": "Privacy Policy",
-    "registration.form.terms.suffix": ".",
 
     "features.schedule.title": "Smart Scheduling",
     "features.schedule.desc":

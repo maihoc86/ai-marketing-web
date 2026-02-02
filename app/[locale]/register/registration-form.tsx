@@ -196,8 +196,8 @@ export function RegistrationForm({
                   className="text-[#22b5f8] hover:underline"
                 >
                   {t("registration.form.terms.privacy")}
-                </Link>{" "}
-                {t("registration.form.terms.suffix")}
+                </Link>
+                .
               </p>
             </form>
           </div>
