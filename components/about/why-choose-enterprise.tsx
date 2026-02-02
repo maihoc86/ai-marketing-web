@@ -34,6 +34,7 @@ export function WhyChooseEnterprise() {
       descKey: "about.whyChoose.expertise1.desc",
       color: "text-[#22b5f8]",
       bgColor: "bg-primary",
+      hoverBorder: "hover:border-primary",
       lightBg: "bg-primary/5",
     },
     {
@@ -42,6 +43,7 @@ export function WhyChooseEnterprise() {
       descKey: "about.whyChoose.expertise2.desc",
       color: "text-emerald-600",
       bgColor: "bg-emerald-600",
+      hoverBorder: "hover:border-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
@@ -50,6 +52,7 @@ export function WhyChooseEnterprise() {
       descKey: "about.whyChoose.expertise3.desc",
       color: "text-purple-600",
       bgColor: "bg-purple-600",
+      hoverBorder: "hover:border-purple-600",
       lightBg: "bg-purple-50",
     },
     {
@@ -58,6 +61,7 @@ export function WhyChooseEnterprise() {
       descKey: "about.whyChoose.expertise4.desc",
       color: "text-orange-600",
       bgColor: "bg-orange-600",
+      hoverBorder: "hover:border-orange-600",
       lightBg: "bg-orange-50",
     },
   ];
@@ -105,6 +109,7 @@ interface ExpertiseItem {
   descKey: string;
   color: string;
   bgColor: string;
+  hoverBorder: string;
   lightBg: string;
 }
 
@@ -141,7 +146,7 @@ function ExpertiseCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden",
+        `group relative bg-white rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-gray-100 overflow-hidden ${item.hoverBorder}`,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
       )}
     >
