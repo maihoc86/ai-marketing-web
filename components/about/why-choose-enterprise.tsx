@@ -141,7 +141,7 @@ function ExpertiseCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100",
+        "group relative bg-white rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
       )}
     >

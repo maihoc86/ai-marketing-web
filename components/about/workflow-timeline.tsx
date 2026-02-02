@@ -150,7 +150,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border-2 rounded-2xl p-6 transition-all duration-500",
+        "group relative bg-white border-2 rounded-2xl overflow-hidden p-6 transition-all duration-500",
         "hover:shadow-xl hover:-translate-y-2",
         step.borderColor,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",

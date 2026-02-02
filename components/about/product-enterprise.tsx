@@ -77,6 +77,7 @@ export function ProductEnterprise() {
       descKey: "about.product.why.allinone.desc",
       color: "text-[#22b5f8]",
       bgColor: "bg-primary",
+      hoverBorder: "hover:border-primary",
       lightBg: "bg-primary/5",
     },
     {
@@ -85,6 +86,7 @@ export function ProductEnterprise() {
       descKey: "about.product.why.cost.desc",
       color: "text-emerald-600",
       bgColor: "bg-emerald-600",
+      hoverBorder: "hover:border-emerald-600",
       lightBg: "bg-emerald-50",
     },
     {
@@ -93,6 +95,7 @@ export function ProductEnterprise() {
       descKey: "about.product.why.multiplatform.desc",
       color: "text-purple-600",
       bgColor: "bg-purple-600",
+      hoverBorder: "hover:border-purple-600",
       lightBg: "bg-purple-50",
     },
     {
@@ -101,6 +104,7 @@ export function ProductEnterprise() {
       descKey: "about.product.why.ai.desc",
       color: "text-amber-600",
       bgColor: "bg-amber-600",
+      hoverBorder: "hover:border-amber-600",
       lightBg: "bg-amber-50",
     },
   ];
@@ -316,6 +320,7 @@ interface WhyUniksmartFeature {
   descKey: string;
   color: string;
   bgColor: string;
+  hoverBorder: string;
   lightBg: string;
 }
 
@@ -349,15 +354,17 @@ function WhyUniksmartCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-primary/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
+        "group relative bg-white border-2 overflow-hidden border-gray-100 rounded-2xl p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
+        // include static hover classes so Tailwind can pick them up during build
+        feature.hoverBorder,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
       )}
     >
       {/* Icon */}
       <div
-        className={`w-14 h-14 ${feature.lightBg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
+        className={`w-14 h-14 ${feature.lightBg} ${feature.color} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
       >
-        <feature.icon className={`w-7 h-7 ${feature.color}`} />
+        <feature.icon className="w-7 h-7 text-current" />
       </div>
 
       {/* Content */}
