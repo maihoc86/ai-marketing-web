@@ -1613,8 +1613,9 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.testimonial":
       "Uniksmart đã giúp chúng tôi tối ưu hóa quy trình làm việc và tăng tỷ lệ chuyển đổi lên 30% trong 3 tháng đầu tiên.",
     "registration.form.submit.button": "Bắt đầu dùng thử miễn phí",
+    "registration.form.company.address": "Địa chỉ công ty",
     "registration.form.company.addressPlaceholder":
-      "House number, street, District, City/Province",
+      "Ví dụ: 123 Đường Lê Lợi, Quận 1, TP.HCM",
     "registration.form.contact.fullName": "Tên đầy đủ",
     "registration.form.contact.fullNamePlaceholder": "Nguyễn Hoàng K",
     "registration.form.login.text": "Đã có tài khoản?",
