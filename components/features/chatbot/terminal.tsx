@@ -70,7 +70,7 @@ export function ChatTerminal() {
                   message.type === "user"
                     ? "bg-primary text-white rounded-tr-none"
                     : message.highlight
-                      ? "bg-gradient-to-r from-[#22b5f8] to-[#008bff] text-white rounded-tl-none"
+                      ? "bg-linear-to-r from-[#22b5f8] to-[#008bff] text-white rounded-tl-none"
                       : "bg-gray-100 text-gray-900 rounded-tl-none"
                 }`}
               >
