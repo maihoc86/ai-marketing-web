@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CloudUpload, Zap, Download, RefreshCw, Loader2 } from "lucide-react";
+import GenerationProgress from "@/components/features/ai-content/generation-progress";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { generateImage } from "@/lib/queries/generate-image";
@@ -450,15 +451,7 @@ export function AIContentDemoSection() {
                 )}
               </Button>
               {/* Loading overlay moved to the preview container so it only covers the image area */}
-              {/* <div className="space-y-2">
-                <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                  <span>{t("featurePage.content.demo.freeRemaining")}</span>
-                  <span>60%</span>
-                </div>
-                <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary w-[60%] rounded-full" />
-                </div>
-              </div> */}
+              <GenerationProgress />
             </div>
           </div>
 

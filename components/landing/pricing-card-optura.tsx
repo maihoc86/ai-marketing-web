@@ -45,7 +45,7 @@ export function PricingCard({
       </h3>
 
       {tier.description && (
-        <p className="text-sm text-gray-600 mb-4 min-h-[40px]">
+        <p className="text-sm text-gray-600 mb-4 min-h-10">
           {tier.description}
         </p>
       )}

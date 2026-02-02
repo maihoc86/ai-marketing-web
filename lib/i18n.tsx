@@ -1578,7 +1578,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Lịch đăng bài tự động được tạo sẵn.",
 
     // Trends Workflow
-    "featurePage.trends.workflow.title": "Từ Tín hiệu đến Chiến lược: Quy trình",
+    "featurePage.trends.workflow.title":
+      "Từ Tín hiệu đến Chiến lược: Quy trình",
     "featurePage.trends.workflow.subtitle":
       "Vòng lặp liên tục thu thập thông tin, phân tích và thực thi được thiết kế để giữ bạn luôn dẫn đầu.",
     "featurePage.trends.workflow.step1.title": "Quét Toàn cầu",
@@ -1601,15 +1602,15 @@ const translations: Record<Locale, Record<string, string>> = {
       "Học từ hiệu suất để cải thiện các lần quét tiếp theo.",
 
     // Trends Stats
-    "featurePage.trends.stats.title": "Tác động Thực, Đo bằng Tăng trưởng Viral",
+    "featurePage.trends.stats.title":
+      "Tác động Thực, Đo bằng Tăng trưởng Viral",
     "featurePage.trends.stats.subtitle":
       "Xem cách Uniksmart biến chiến lược nội dung thành công cụ viral có thể dự đoán.",
     "featurePage.trends.stats.viralIncrease.label": "Tăng Viral",
     "featurePage.trends.stats.viralIncrease.note":
       "Trung bình trên người dùng beta",
     "featurePage.trends.stats.timeReduction.label": "Giảm Thời gian",
-    "featurePage.trends.stats.timeReduction.note":
-      "Từ nghiên cứu đến đăng bài",
+    "featurePage.trends.stats.timeReduction.note": "Từ nghiên cứu đến đăng bài",
     "featurePage.trends.stats.trendsDetected.label": "Xu hướng Phát hiện",
     "featurePage.trends.stats.trendsDetected.note":
       "Hàng ngày trên các nền tảng",
@@ -1773,8 +1774,10 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.terms.and": "và",
     "registration.form.terms.privacy": "Chính sách bảo mật",
     "registration.form.trial": "Bắt đầu dùng thử miễn phí 14 ngày",
+    "featurePage.content.demo.error": "Lỗi khi tải tiến trình tạo ảnh",
   },
   en: {
+    "featurePage.content.demo.error": "Error loading image generation progress",
     // Navigation
     "nav.features": "Features",
     "nav.pricing": "Pricing",
@@ -3224,7 +3227,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.aspectLabel": "Aspect Ratio",
     "featurePage.content.demo.generateBtn": "Generate Image",
     "featurePage.content.demo.generating": "Generating...",
-    "featurePage.content.demo.freeRemaining": "3 free generations remaining",
+    "featurePage.content.demo.freeRemaining":
+      "{value} free generations remaining",
     "featurePage.content.demo.downloadHD": "Download HD",
     "featurePage.content.demo.tryAgain": "Try Again",
     "featurePage.content.demo.history": "History",
@@ -3372,7 +3376,8 @@ const translations: Record<Locale, Record<string, string>> = {
       "Forecast views with extreme accuracy based on historical data.",
     "featurePage.trends.capabilities.performancePrediction.accuracy":
       "Accuracy Rate",
-    "featurePage.trends.capabilities.ideationEngine.title": "AI Ideation Engine",
+    "featurePage.trends.capabilities.ideationEngine.title":
+      "AI Ideation Engine",
     "featurePage.trends.capabilities.ideationEngine.desc":
       "Infinite content angles from one topic.",
     "featurePage.trends.capabilities.campaignBlueprint.title":
