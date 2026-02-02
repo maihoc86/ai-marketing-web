@@ -1401,7 +1401,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.capabilities.characterEngine.description":
       "Đảm bảo mô hình AI của bạn trông giống hệt nhau trong mọi chiến dịch, trang phục và bối cảnh.",
     "featurePage.content.capabilities.characterEngine.cta":
-      "Duy Trì nhận diện Thương Hiệu",
+      "Duy trì nhận diện Thương hiệu",
     "featurePage.content.demo.badge": "Trải Nghiệm Studio",
     "featurePage.content.demo.title": "Thử AI Tạo Hình Ảnh — Miễn Phí",
     "featurePage.content.demo.description":

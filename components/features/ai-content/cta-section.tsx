@@ -48,17 +48,9 @@ export function AIContentCTASection() {
                 asChild
               >
                 <LocaleLink href="/register">
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="size-5" />
                   {t("featurePage.content.cta.startTrial")}
                 </LocaleLink>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20 flex items-center justify-center gap-2"
-              >
-                <Calendar className="w-5 h-5" />
-                {t("featurePage.content.cta.bookDemo")}
               </Button>
             </div>
           </div>
