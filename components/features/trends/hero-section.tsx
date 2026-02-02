@@ -30,9 +30,7 @@ export function TrendsHeroSection() {
                 {t("nav.features")}
               </LocaleLink>
               <ChevronRight className="size-4" />
-              <span className="text-primary">
-                {t("features.trends.title")}
-              </span>
+              <span className="text-primary">{t("features.trends.title")}</span>
             </nav>
 
             {/* Badge */}
@@ -91,7 +89,7 @@ export function TrendsHeroSection() {
             >
               <Button
                 size="lg"
-                className="btn-primary-light rounded-full"
+                className="btn-primary-light w-50 rounded-full"
                 asChild
               >
                 <LocaleLink href="/register">

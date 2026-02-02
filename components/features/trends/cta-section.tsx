@@ -1,6 +1,6 @@
 "use client";
 
-import { Rocket, Sparkles } from "lucide-react";
+import { Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/lib/i18n";
@@ -14,7 +14,7 @@ export function TrendsCtaSection() {
     <section className="py-24 bg-white">
       <div ref={ref} className="container mx-auto px-4">
         <div
-          className={`bg-gradient-to-br from-primary/10 via-[#5fffec]/5 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-16 max-w-4xl mx-auto text-center relative overflow-hidden transition-all duration-700 ${
+          className={`bg-linear-to-br from-primary/10 via-[#5fffec]/5 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-16 max-w-4xl mx-auto text-center relative overflow-hidden transition-all duration-700 ${
             isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
@@ -39,16 +39,6 @@ export function TrendsCtaSection() {
                 <LocaleLink href="/register">
                   {t("featurePage.trends.cta.getStarted")}
                   <Rocket className="w-5 h-5" />
-                </LocaleLink>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-semibold px-8 py-4 rounded-xl text-lg transition-all flex items-center justify-center gap-2"
-                asChild
-              >
-                <LocaleLink href="/#pricing">
-                  {t("featurePage.trends.cta.viewPricing")}
                 </LocaleLink>
               </Button>
             </div>
