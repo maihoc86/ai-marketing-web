@@ -136,7 +136,7 @@ function BenefitCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300",
+        "group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >
