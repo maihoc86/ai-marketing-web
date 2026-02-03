@@ -12,12 +12,68 @@ interface RegistrationData {
   address?: string;
 }
 
+// =============================================================================
+// CSRF PROTECTION - Origin Check
+// Validates that requests come from allowed origins
+// =============================================================================
+function validateOrigin(request: NextRequest): boolean {
+  const origin = request.headers.get("origin");
+  const referer = request.headers.get("referer");
+
+  const allowedOrigins: string[] = [
+    process.env.NEXT_PUBLIC_APP_URL,
+    "https://uniksmart.ai",
+    "https://www.uniksmart.ai",
+  ].filter((o): o is string => Boolean(o));
+
+  // Development: allow localhost
+  if (process.env.NODE_ENV !== "production") {
+    allowedOrigins.push(
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://127.0.0.1:3000"
+    );
+  }
+
+  // Check origin header
+  if (origin && allowedOrigins.includes(origin)) {
+    return true;
+  }
+
+  // Fallback: check referer (some browsers don't send origin for same-origin)
+  if (referer) {
+    try {
+      const refererOrigin = new URL(referer).origin;
+      if (allowedOrigins.includes(refererOrigin)) {
+        return true;
+      }
+    } catch {
+      // Invalid referer URL
+    }
+  }
+
+  // In development, allow requests without origin (e.g., from API clients)
+  if (process.env.NODE_ENV !== "production" && !origin && !referer) {
+    return true;
+  }
+
+  return false;
+}
+
 /**
  * POST /api/users/register-company
  * Handle company registration
  */
 export async function POST(request: NextRequest) {
   try {
+    // CSRF Protection: Validate origin
+    if (!validateOrigin(request)) {
+      return NextResponse.json(
+        { success: false, message: "Invalid request origin" },
+        { status: 403 }
+      );
+    }
+
     // Parse request body
     const data: RegistrationData = await request.json();
 
@@ -75,16 +131,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward to backend API
-    console.log("Forwarding registration to backend:", {
+    // Note: Only log non-PII metadata for debugging (GDPR/PDPA compliant)
+    console.log("[Registration] Forwarding to backend:", {
       registration_type: data.registration_type,
-      name: data.name,
-      email: data.email,
-      phone_number: data.phone_number,
       position: data.position,
-      company_name: data.company_name,
-      tax_code: data.tax_code,
       activity_field: data.activity_field,
-      address: data.address,
+      has_email: Boolean(data.email),
+      has_phone: Boolean(data.phone_number),
+      has_company: Boolean(data.company_name),
+      has_tax_code: Boolean(data.tax_code),
+      has_address: Boolean(data.address),
     });
 
     try {
@@ -101,10 +157,12 @@ export async function POST(request: NextRequest) {
 
       const result = await backendResponse.json();
 
-      console.log("Backend response:", {
+      // Note: Only log response metadata, not full result (may contain PII)
+      console.log("[Registration] Backend response:", {
         status: backendResponse.status,
         ok: backendResponse.ok,
-        result,
+        success: result?.success,
+        hasMessage: Boolean(result?.message),
       });
 
       // If backend returns success (200-299 status codes)
@@ -121,8 +179,12 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Handle error responses
-      console.error("Backend API error:", result);
+      // Handle error responses (log only non-PII error info)
+      console.error("[Registration] Backend API error:", {
+        status: backendResponse.status,
+        errorCode: result?.code,
+        hasMessage: Boolean(result?.message),
+      });
       return NextResponse.json(
         {
           success: false,

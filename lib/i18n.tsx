@@ -1681,6 +1681,152 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.benefit3": "Lip-sync tự động, giọng AI tự nhiên",
     "featurePage.video.benefit4": "Xuất video 4K cho mọi nền tảng",
 
+    // Feature Page - Video (New Sections)
+    "featurePage.video.hero.badge": "AI VIDEO 2.0",
+    "featurePage.video.hero.title1": "Tạo Video Chuyên nghiệp",
+    "featurePage.video.hero.title2": "Từ Scene",
+    "featurePage.video.hero.description":
+      "Biến kịch bản thành video chất lượng điện ảnh chỉ trong vài phút. Chọn từ hơn 100+ avatar AI và giọng đọc siêu thực. Không cần kỹ năng chỉnh sửa.",
+    "featurePage.video.metric.perVideo": "Mỗi video",
+    "featurePage.video.metric.resolution": "Độ phân giải",
+    "featurePage.video.metric.aiVoices": "Giọng AI",
+    "featurePage.video.cta.createFirst": "Tạo Video Đầu Tiên",
+    "featurePage.video.cta.watchDemo": "Xem Demo",
+    "featurePage.video.trust.businesses": "Doanh nghiệp tin dùng",
+    "featurePage.video.trust.videosCreated": "Video đã tạo",
+    "featurePage.video.demo.scenes": "CÁC CẢNH",
+    "featurePage.video.demo.rendering": "Đang Render...",
+
+    // Video Capabilities Section
+    "featurePage.video.capabilities.badge": "TÍNH NĂNG",
+    "featurePage.video.capabilities.heading": "Biến văn bản thành video với AI tiên tiến",
+    "featurePage.video.capabilities.description":
+      "Tất cả những gì bạn cần để tạo video chuyên nghiệp mà không cần máy quay hay ekip.",
+    "featurePage.video.capabilities.aiScripts.title": "Kịch Bản AI",
+    "featurePage.video.capabilities.aiScripts.desc":
+      "Tạo kịch bản sẵn sàng sản xuất trong vài giây. Chỉ cần nhập chủ đề và để AI làm việc nặng.",
+    "featurePage.video.capabilities.voices.title": "Giọng AI Chân Thực",
+    "featurePage.video.capabilities.voices.desc":
+      "Giọng đọc như người thật với hơn 50 ngôn ngữ. Chọn từ các tông giọng, giới tính và giọng điệu khác nhau.",
+    "featurePage.video.capabilities.voices.languages": "ngôn ngữ",
+    "featurePage.video.capabilities.platform.title": "Tối Ưu Đa Nền Tảng",
+    "featurePage.video.capabilities.platform.desc":
+      "Tối ưu hóa cho thuật toán YouTube, TikTok và Instagram. Tự động caption và tỷ lệ khung hình.",
+    "featurePage.video.capabilities.learnMore": "Tìm hiểu thêm",
+
+    // Video Workflow Section
+    "featurePage.video.workflow.title": "Tạo video với DXAI như thế nào?",
+    "featurePage.video.workflow.subtitle":
+      "Biến ý tưởng thành video sẵn sàng sản xuất chỉ với 4 bước đơn giản.",
+    "featurePage.video.workflow.step1.title": "Nhập Prompt",
+    "featurePage.video.workflow.step1.desc":
+      "Mô tả ý tưởng video bằng văn bản thuần. Chi tiết bao nhiêu tùy bạn.",
+    "featurePage.video.workflow.step2.title": "Tạo Tự Động",
+    "featurePage.video.workflow.step2.desc":
+      "AI phân tích prompt và tạo scenes, kịch bản, và giọng đọc.",
+    "featurePage.video.workflow.step3.title": "Chỉnh Sửa",
+    "featurePage.video.workflow.step3.desc":
+      "Tùy chỉnh scenes, đổi media, điều chỉnh timing hoặc thay đổi giọng.",
+    "featurePage.video.workflow.step4.title": "Xuất Bản",
+    "featurePage.video.workflow.step4.desc":
+      "Xuất video 4K và chia sẻ lên YouTube, TikTok hoặc Instagram.",
+    "featurePage.video.workflow.learnMore": "Xem đầy đủ tính năng",
+
+    // Video Testimonials Section
+    "featurePage.video.testimonials.title": "Được tin dùng bởi creators toàn cầu",
+    "featurePage.video.testimonials.subtitle":
+      "Tham gia 20,000+ creators đang tạo video nhanh hơn với Uniksmart",
+    "featurePage.video.testimonials.1.quote":
+      "Công cụ video AI tốt nhất tôi từng dùng. Nó giảm 90% thời gian sản xuất. Giờ tôi có thể đăng bài hàng ngày mà không kiệt sức.",
+    "featurePage.video.testimonials.1.name": "Nguyễn Minh Anh",
+    "featurePage.video.testimonials.1.role": "Content Creator",
+    "featurePage.video.testimonials.2.quote":
+      "Chất lượng giọng đọc đáng kinh ngạc. Thư viện stock khổng lồ, tôi hiếm khi cần tìm B-roll ở nơi khác.",
+    "featurePage.video.testimonials.2.name": "Trần Hoàng Nam",
+    "featurePage.video.testimonials.2.role": "Digital Marketer",
+    "featurePage.video.testimonials.3.quote":
+      "Agency của chúng tôi dùng Uniksmart cho video giải thích của khách hàng. Tính năng cộng tác là game changer cho team remote.",
+    "featurePage.video.testimonials.3.name": "Lê Thị Hương",
+    "featurePage.video.testimonials.3.role": "Agency Founder",
+    "featurePage.video.testimonials.4.quote":
+      "Quy trình text-to-video mượt mà. Tôi chỉ cần dán bài blog và có video sẵn sàng cho social media.",
+    "featurePage.video.testimonials.4.name": "Phạm Đức Minh",
+    "featurePage.video.testimonials.4.role": "Tech Blogger",
+
+    // Video Bento Features Section
+    "featurePage.video.bento.title": "Tính năng AI Video Factory",
+    "featurePage.video.bento.subtitle":
+      "Mọi thứ bạn cần để tạo video chuyên nghiệp mà không cần máy quay hay ekip.",
+    "featurePage.video.bento.ambassador.title": "Video AI Brand Ambassador",
+    "featurePage.video.bento.ambassador.desc":
+      "Tạo video với người đại diện AI chân thực. Chọn từ thư viện avatar hoặc tải lên hình ảnh riêng của bạn để tạo spokesperson thương hiệu độc nhất.",
+    "featurePage.video.bento.learnMore": "Tìm hiểu thêm",
+    "featurePage.video.bento.lipSync.title": "Công nghệ Lip-Sync Siêu Thực",
+    "featurePage.video.bento.lipSync.desc":
+      "Chuyển động môi khớp hoàn hảo với giọng nói AI. Công nghệ deep learning tiên tiến mang lại trải nghiệm video tự nhiên như người thật.",
+    "featurePage.video.bento.lipSync.syncing": "Đang đồng bộ...",
+    "featurePage.video.bento.creationModes.title": "Ba Chế Độ Tạo Video Linh Hoạt",
+    "featurePage.video.bento.creationModes.desc":
+      "Linh hoạt với 3 phương thức: Script-to-Video từ kịch bản có sẵn, Text-to-Video từ văn bản bất kỳ, hoặc Image-to-Video biến hình ảnh thành video sống động.",
+    "featurePage.video.bento.aiVoice.title": "Giọng AI Tự Nhiên Đa Ngôn Ngữ",
+    "featurePage.video.bento.aiVoice.desc":
+      "Hỗ trợ hơn 30 ngôn ngữ với giọng đọc AI siêu thực. Tùy chỉnh tốc độ, âm điệu và phong cách để phù hợp với thương hiệu của bạn.",
+    "featurePage.video.bento.multiScene.title": "Trình Chỉnh Sửa Đa Scene với AI Layout",
+    "featurePage.video.bento.multiScene.desc":
+      "Editor trực quan với đề xuất bố cục thông minh từ AI. Kéo thả scenes, tùy chỉnh transitions và xuất video chất lượng 4K.",
+    "featurePage.video.demo.clickToPlay": "Nhấn để phát video demo",
+
+    // Video Pricing Section
+    "featurePage.video.pricing.title": "Bảng giá phù hợp nhu cầu của bạn",
+    "featurePage.video.pricing.subtitle": "Bắt đầu miễn phí, nâng cấp khi phát triển.",
+    "featurePage.video.pricing.monthly": "Hàng tháng",
+    "featurePage.video.pricing.yearly": "Hàng năm",
+    "featurePage.video.pricing.save": "Tiết kiệm",
+    "featurePage.video.pricing.popular": "Phổ biến nhất",
+    "featurePage.video.pricing.custom": "Tùy chỉnh",
+    "featurePage.video.pricing.mo": "tháng",
+    "featurePage.video.pricing.free.name": "Miễn Phí",
+    "featurePage.video.pricing.free.desc": "Hoàn hảo để trải nghiệm sức mạnh của Uniksmart.",
+    "featurePage.video.pricing.free.feature1": "10 phút/tuần tạo video",
+    "featurePage.video.pricing.free.feature2": "Giọng AI tiêu chuẩn",
+    "featurePage.video.pricing.free.feature3": "Xuất có watermark",
+    "featurePage.video.pricing.free.feature4": "Độ phân giải 720p",
+    "featurePage.video.pricing.free.cta": "Bắt Đầu Miễn Phí",
+    "featurePage.video.pricing.enterprise.name": "Doanh Nghiệp",
+    "featurePage.video.pricing.enterprise.desc": "Cho teams cần sản xuất video có thể mở rộng.",
+    "featurePage.video.pricing.enterprise.feature1": "Tạo không giới hạn",
+    "featurePage.video.pricing.enterprise.feature2": "Giọng Premium siêu thực",
+    "featurePage.video.pricing.enterprise.feature3": "Không watermark & White label",
+    "featurePage.video.pricing.enterprise.feature4": "Xuất độ phân giải 4K",
+    "featurePage.video.pricing.enterprise.feature5": "Full API Access",
+    "featurePage.video.pricing.enterprise.cta": "Liên Hệ Sales",
+    "featurePage.video.pricing.needMore": "Cần thêm thông tin?",
+    "featurePage.video.pricing.contactSales": "Liên hệ với đội ngũ sales của chúng tôi",
+
+    // Video FAQ Section
+    "featurePage.video.faq.title": "Bạn muốn biết thêm?",
+    "featurePage.video.faq.subtitle": "Các câu hỏi thường gặp về AI Video Factory",
+    "featurePage.video.faq.1.question": "Uniksmart có miễn phí không?",
+    "featurePage.video.faq.1.answer":
+      "Có! Chúng tôi cung cấp gói miễn phí với 10 phút tạo video mỗi tuần. Bạn có thể nâng cấp bất cứ lúc nào để có thêm dung lượng và tính năng premium.",
+    "featurePage.video.faq.2.question": "Tôi có thể chỉnh sửa video đã tạo không?",
+    "featurePage.video.faq.2.answer":
+      "Hoàn toàn có thể! Editor của chúng tôi cho phép bạn tùy chỉnh scenes, đổi media, điều chỉnh timing, và thay đổi giọng đọc trước khi xuất.",
+    "featurePage.video.faq.3.question": "Tôi có sở hữu bản quyền video không?",
+    "featurePage.video.faq.3.answer":
+      "Có, bạn sở hữu toàn bộ quyền sử dụng thương mại đối với video bạn tạo với các gói trả phí. Gói miễn phí có một số hạn chế về sử dụng thương mại.",
+    "featurePage.video.faq.4.question": "Hỗ trợ những ngôn ngữ nào?",
+    "featurePage.video.faq.4.answer":
+      "Chúng tôi hỗ trợ hơn 50 ngôn ngữ cho giọng đọc AI bao gồm Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Nhật, Tiếng Hàn và nhiều hơn nữa.",
+
+    // Video CTA Section
+    "featurePage.video.cta.title1": "Biến prompt thành",
+    "featurePage.video.cta.title2": "scenes.",
+    "featurePage.video.cta.subtitle":
+      "Tham gia 5M+ creators đang sử dụng Uniksmart ngay hôm nay.",
+    "featurePage.video.cta.button": "Tạo Video Ngay",
+    "featurePage.video.cta.note": "Không cần thẻ tín dụng cho gói miễn phí.",
+
     // Feature Page - Email
     "featurePage.email.feature6.name": "Phân khúc thông minh",
     "featurePage.email.feature6.desc":
@@ -3485,6 +3631,152 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.benefit2": "No studio, no filming required",
     "featurePage.video.benefit3": "Auto lip-sync, natural AI voice",
     "featurePage.video.benefit4": "Export 4K videos for all platforms",
+
+    // Feature Page - Video (New Sections)
+    "featurePage.video.hero.badge": "AI VIDEO 2.0",
+    "featurePage.video.hero.title1": "Create Professional Videos",
+    "featurePage.video.hero.title2": "Scene by Scene",
+    "featurePage.video.hero.description":
+      "Transform scripts into cinema-quality video productions in minutes. Choose from 100+ AI avatars and ultra-realistic voiceovers. No editing skills required.",
+    "featurePage.video.metric.perVideo": "Per video",
+    "featurePage.video.metric.resolution": "Resolution",
+    "featurePage.video.metric.aiVoices": "AI Voices",
+    "featurePage.video.cta.createFirst": "Create Your First Video",
+    "featurePage.video.cta.watchDemo": "Watch Demo",
+    "featurePage.video.trust.businesses": "Businesses Trusted",
+    "featurePage.video.trust.videosCreated": "Videos Created",
+    "featurePage.video.demo.scenes": "SCENES",
+    "featurePage.video.demo.rendering": "Rendering Preview...",
+
+    // Video Capabilities Section
+    "featurePage.video.capabilities.badge": "CAPABILITIES",
+    "featurePage.video.capabilities.heading": "Turn text into video with advanced AI",
+    "featurePage.video.capabilities.description":
+      "Everything you need to create professional videos without a camera or crew.",
+    "featurePage.video.capabilities.aiScripts.title": "AI Powered Scripts",
+    "featurePage.video.capabilities.aiScripts.desc":
+      "Generate production-ready scripts in seconds. Just type your topic and let our LLM do the heavy lifting.",
+    "featurePage.video.capabilities.voices.title": "Realistic AI Voices",
+    "featurePage.video.capabilities.voices.desc":
+      "Human-sounding voiceovers in 50+ languages. Choose from different tones, genders, and accents.",
+    "featurePage.video.capabilities.voices.languages": "languages",
+    "featurePage.video.capabilities.platform.title": "Set up for success",
+    "featurePage.video.capabilities.platform.desc":
+      "Optimized for YouTube, TikTok, and Instagram algorithms. Auto-captions and aspect ratios handled instantly.",
+    "featurePage.video.capabilities.learnMore": "Learn more",
+
+    // Video Workflow Section
+    "featurePage.video.workflow.title": "How to generate videos with Uniksmart?",
+    "featurePage.video.workflow.subtitle":
+      "Turn your ideas into production-ready videos in four simple steps.",
+    "featurePage.video.workflow.step1.title": "Prompt",
+    "featurePage.video.workflow.step1.desc":
+      "Describe your video idea in plain text. Be as detailed as you like.",
+    "featurePage.video.workflow.step2.title": "Generate",
+    "featurePage.video.workflow.step2.desc":
+      "AI analyzes your prompt and creates scenes, script, and voiceover.",
+    "featurePage.video.workflow.step3.title": "Edit",
+    "featurePage.video.workflow.step3.desc":
+      "Customize scenes, swap media, adjust timing, or change the voice.",
+    "featurePage.video.workflow.step4.title": "Publish",
+    "featurePage.video.workflow.step4.desc":
+      "Export your video in up to 4K resolution and share it with the world.",
+    "featurePage.video.workflow.learnMore": "See full features list",
+
+    // Video Testimonials Section
+    "featurePage.video.testimonials.title": "Trusted by creators worldwide",
+    "featurePage.video.testimonials.subtitle":
+      "Join 20,000+ creators making videos faster with Uniksmart",
+    "featurePage.video.testimonials.1.quote":
+      "The best AI video tool I've used. It literally cut my production time by 90%. I can now publish daily without burnout.",
+    "featurePage.video.testimonials.1.name": "Sarah Jenkins",
+    "featurePage.video.testimonials.1.role": "Content Creator",
+    "featurePage.video.testimonials.2.quote":
+      "Incredible voice quality. The stock library is massive, I rarely need to look elsewhere for B-roll footage.",
+    "featurePage.video.testimonials.2.name": "Mike Thompson",
+    "featurePage.video.testimonials.2.role": "Digital Marketer",
+    "featurePage.video.testimonials.3.quote":
+      "Our agency uses Uniksmart for client explainers. The collaborative features are a game changer for our remote team.",
+    "featurePage.video.testimonials.3.name": "Elena Rodriguez",
+    "featurePage.video.testimonials.3.role": "Agency Founder",
+    "featurePage.video.testimonials.4.quote":
+      "The text-to-video workflow is seamless. I just paste my blog post and get a video ready for social media.",
+    "featurePage.video.testimonials.4.name": "David Kim",
+    "featurePage.video.testimonials.4.role": "Tech Blogger",
+
+    // Video Bento Features Section
+    "featurePage.video.bento.title": "Features of AI Video Factory",
+    "featurePage.video.bento.subtitle":
+      "Everything you need to create professional videos without a camera or crew.",
+    "featurePage.video.bento.ambassador.title": "AI Brand Ambassador Videos",
+    "featurePage.video.bento.ambassador.desc":
+      "Create videos with hyper-realistic AI spokespersons. Choose from our avatar library or upload your own image to create a unique brand spokesperson.",
+    "featurePage.video.bento.learnMore": "Learn More",
+    "featurePage.video.bento.lipSync.title": "Hyper-Realistic Lip Sync Technology",
+    "featurePage.video.bento.lipSync.desc":
+      "Perfect lip movement synced with AI voice. Advanced deep learning technology delivers a natural video experience like a real person.",
+    "featurePage.video.bento.lipSync.syncing": "Syncing...",
+    "featurePage.video.bento.creationModes.title": "Three Flexible Creation Modes",
+    "featurePage.video.bento.creationModes.desc":
+      "Flexibility with 3 methods: Script-to-Video from existing scripts, Text-to-Video from any text, or Image-to-Video to transform images into dynamic videos.",
+    "featurePage.video.bento.aiVoice.title": "Natural AI Voice with Multi-Language Support",
+    "featurePage.video.bento.aiVoice.desc":
+      "Support for 30+ languages with ultra-realistic AI voices. Customize speed, tone, and style to match your brand.",
+    "featurePage.video.bento.multiScene.title": "Multi-Scene Editor with AI Layout Suggestions",
+    "featurePage.video.bento.multiScene.desc":
+      "Intuitive editor with smart AI layout suggestions. Drag and drop scenes, customize transitions, and export 4K quality videos.",
+    "featurePage.video.demo.clickToPlay": "Click to play video demo",
+
+    // Video Pricing Section
+    "featurePage.video.pricing.title": "Pricing tailored to your needs",
+    "featurePage.video.pricing.subtitle": "Start for free, upgrade as you scale.",
+    "featurePage.video.pricing.monthly": "Monthly",
+    "featurePage.video.pricing.yearly": "Yearly",
+    "featurePage.video.pricing.save": "Save",
+    "featurePage.video.pricing.popular": "Most Popular",
+    "featurePage.video.pricing.custom": "Custom",
+    "featurePage.video.pricing.mo": "mo",
+    "featurePage.video.pricing.free.name": "Free",
+    "featurePage.video.pricing.free.desc": "Perfect for trying out the power of Uniksmart.",
+    "featurePage.video.pricing.free.feature1": "10 mins/week generation",
+    "featurePage.video.pricing.free.feature2": "Standard AI voices",
+    "featurePage.video.pricing.free.feature3": "Watermarked exports",
+    "featurePage.video.pricing.free.feature4": "720p resolution",
+    "featurePage.video.pricing.free.cta": "Start Free",
+    "featurePage.video.pricing.enterprise.name": "Enterprise",
+    "featurePage.video.pricing.enterprise.desc": "For teams requiring scalable video production.",
+    "featurePage.video.pricing.enterprise.feature1": "Unlimited generation",
+    "featurePage.video.pricing.enterprise.feature2": "Premium Ultra-realistic voices",
+    "featurePage.video.pricing.enterprise.feature3": "No watermarks & White label",
+    "featurePage.video.pricing.enterprise.feature4": "4K resolution exports",
+    "featurePage.video.pricing.enterprise.feature5": "Full API Access",
+    "featurePage.video.pricing.enterprise.cta": "Contact Sales",
+    "featurePage.video.pricing.needMore": "Need more information?",
+    "featurePage.video.pricing.contactSales": "Contact our sales team",
+
+    // Video FAQ Section
+    "featurePage.video.faq.title": "Want to know more?",
+    "featurePage.video.faq.subtitle": "Frequently asked questions about AI Video Factory",
+    "featurePage.video.faq.1.question": "Is Uniksmart free to use?",
+    "featurePage.video.faq.1.answer":
+      "Yes! We offer a free tier with 10 minutes of video generation per week. You can upgrade anytime for more capacity and premium features.",
+    "featurePage.video.faq.2.question": "Can I edit the generated video?",
+    "featurePage.video.faq.2.answer":
+      "Absolutely! Our editor allows you to customize scenes, swap media, adjust timing, and change the voiceover before exporting.",
+    "featurePage.video.faq.3.question": "Do I own the copyright to the videos?",
+    "featurePage.video.faq.3.answer":
+      "Yes, you own full commercial rights to videos you create with paid plans. Free tier has some limitations on commercial use.",
+    "featurePage.video.faq.4.question": "What languages are supported?",
+    "featurePage.video.faq.4.answer":
+      "We support 50+ languages for AI voiceovers including Vietnamese, English, Chinese, Japanese, Korean, and many more.",
+
+    // Video CTA Section
+    "featurePage.video.cta.title1": "Turn a prompt into",
+    "featurePage.video.cta.title2": "scenes.",
+    "featurePage.video.cta.subtitle":
+      "Join 5M+ creators using Uniksmart today.",
+    "featurePage.video.cta.button": "Generate a video",
+    "featurePage.video.cta.note": "No credit card required for free plan.",
 
     // Feature Page - Email
     "featurePage.email.feature6.name": "Smart Segmentation",

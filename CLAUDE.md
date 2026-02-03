@@ -1,8 +1,8 @@
 # CLAUDE.MD - Uniksmart Marketing Platform Project Documentation
 
 > **Project Guide for AI Assistants and Developers**
-> Last Updated: 2026-01-20
-> Version: 2.0.0
+> Last Updated: 2026-02-03
+> Version: 2.1.0
 
 ---
 
@@ -20,11 +20,12 @@
 10. [Accessibility (a11y)](#accessibility-a11y)
 11. [State Management](#state-management)
 12. [API Integration](#api-integration)
-13. [Testing Guidelines](#testing-guidelines)
-14. [Git Workflow](#git-workflow)
-15. [Deployment](#deployment)
-16. [Troubleshooting](#troubleshooting)
-17. [Common Patterns](#common-patterns)
+13. [Security Best Practices](#security-best-practices) ← **NEW**
+14. [Testing Guidelines](#testing-guidelines)
+15. [Git Workflow](#git-workflow)
+16. [Deployment](#deployment)
+17. [Troubleshooting](#troubleshooting)
+18. [Common Patterns](#common-patterns)
 
 ---
 
@@ -1329,6 +1330,169 @@ async function apiCall() {
 
 ---
 
+## 🔒 SECURITY BEST PRACTICES
+
+> **Last Security Review**: 2026-02-03
+> **Issues Fixed**: 4 Critical, 0 Medium, 0 Low
+
+### API Security Checklist
+
+All API routes MUST implement:
+
+- [ ] **Rate Limiting** - Prevent abuse and DoS
+- [ ] **Origin Validation** - CSRF protection
+- [ ] **Input Validation** - Prevent injection attacks
+- [ ] **PII Protection** - No sensitive data in logs
+
+### 1. Server-Side Rate Limiting
+
+**Location**: `app/api/generate-image/route.ts`
+
+```typescript
+// ✅ CORRECT: Token bucket rate limiting
+interface RateLimitEntry {
+  tokens: number;
+  lastRefill: number;
+}
+
+const rateLimitStore = new Map<string, RateLimitEntry>();
+const RATE_LIMIT_CONFIG = {
+  maxTokens: 5,           // Max requests
+  refillRate: 1,          // Tokens added per interval
+  refillIntervalMs: 12000 // 1 token per 12 seconds
+};
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  // Token bucket implementation...
+}
+
+// Usage in API route
+const rateLimit = checkRateLimit(clientIP);
+if (!rateLimit.allowed) {
+  return NextResponse.json(
+    { error: "Too many requests" },
+    { status: 429, headers: { "Retry-After": "12" } }
+  );
+}
+```
+
+### 2. CSRF Protection (Origin Check)
+
+**Location**: Both API routes
+
+```typescript
+// ✅ CORRECT: Validate request origin
+function validateOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  const referer = request.headers.get("referer");
+
+  const allowedOrigins: string[] = [
+    process.env.NEXT_PUBLIC_APP_URL,
+    "https://uniksmart.ai",
+    "https://www.uniksmart.ai",
+  ].filter((o): o is string => Boolean(o));
+
+  // Development: allow localhost
+  if (process.env.NODE_ENV !== "production") {
+    allowedOrigins.push("http://localhost:3000");
+  }
+
+  // Check origin OR referer
+  if (origin && allowedOrigins.includes(origin)) return true;
+  if (referer) {
+    const refererOrigin = new URL(referer).origin;
+    if (allowedOrigins.includes(refererOrigin)) return true;
+  }
+
+  return false;
+}
+
+// Usage
+if (!validateOrigin(request)) {
+  return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+}
+```
+
+### 3. reCAPTCHA Verification (Production Mandatory)
+
+**Location**: `app/api/generate-image/route.ts`
+
+```typescript
+// ✅ CORRECT: Mandatory in production, optional in development
+const isProduction = process.env.NODE_ENV === "production";
+
+if (isProduction && !recaptchaToken) {
+  return NextResponse.json(
+    { error: "reCAPTCHA verification required" },
+    { status: 403 }
+  );
+}
+
+// Verify with Google
+if (recaptchaToken && RECAPTCHA_SECRET) {
+  const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: recaptchaToken })
+  });
+  const { success, score } = await verifyRes.json();
+
+  if (!success || score < 0.3) {
+    return NextResponse.json({ error: "reCAPTCHA failed" }, { status: 403 });
+  }
+}
+```
+
+### 4. PII-Safe Logging (GDPR/PDPA Compliant)
+
+```typescript
+// ❌ INCORRECT: Logging PII
+console.log("Registration:", {
+  name: data.name,        // PII!
+  email: data.email,      // PII!
+  phone: data.phone,      // PII!
+});
+
+// ✅ CORRECT: Log only metadata
+console.log("[Registration] Request:", {
+  registration_type: data.registration_type,  // OK - not PII
+  position: data.position,                     // OK - job title
+  has_email: Boolean(data.email),             // OK - boolean only
+  has_phone: Boolean(data.phone_number),      // OK - boolean only
+  has_company: Boolean(data.company_name),    // OK - boolean only
+});
+```
+
+### 5. Environment Variables for Secrets
+
+```bash
+# ✅ CORRECT: .env.local (never commit)
+RECAPTCHA_SECRET_KEY=your_secret_key
+GEMINI_API_KEY=your_api_key
+NEXT_PUBLIC_APP_URL=https://uniksmart.ai
+
+# ❌ INCORRECT: Hardcoded in code
+const API_KEY = "sk-1234567890";  // Never do this!
+```
+
+### Security Issues Resolved (2026-02-03)
+
+| Issue | Severity | File | Status |
+|-------|----------|------|--------|
+| No server-side rate limiting | 🔴 Critical | `api/generate-image/route.ts` | ✅ Fixed |
+| reCAPTCHA optional in production | 🔴 Critical | `api/generate-image/route.ts` | ✅ Fixed |
+| PII logged to console | 🔴 Critical | `api/users/register-company/route.ts` | ✅ Fixed |
+| No CSRF protection | 🟠 Medium | Both API routes | ✅ Fixed |
+
+### Pending Security Items
+
+| Issue | Severity | Description |
+|-------|----------|-------------|
+| Prompt injection | 🟠 Medium | Add input sanitization for AI prompts |
+| Image validation | 🟠 Medium | Validate uploaded image data URLs |
+| Hardcoded URLs | 🟡 Low | Move backend URLs to env variables |
+
+---
+
 ## 🧪 TESTING GUIDELINES
 
 ### Unit Testing (To Be Implemented)
@@ -1859,6 +2023,16 @@ export function Accordion({ items }: AccordionProps) {
 ---
 
 ## 📝 CHANGE LOG
+
+### Version 2.1.0 (2026-02-03)
+
+- **NEW**: Security Best Practices section
+- **SECURITY**: Server-side rate limiting (token bucket algorithm)
+- **SECURITY**: CSRF protection via Origin header validation
+- **SECURITY**: reCAPTCHA mandatory in production
+- **SECURITY**: PII-safe logging (GDPR/PDPA compliant)
+- **FIXED**: 4 critical security issues in API routes
+- **UPDATED**: Table of contents with Security section
 
 ### Version 2.0.0 (2026-01-20)
 
