@@ -169,12 +169,37 @@ export function ProductEnterprise() {
   ];
 
   const aiModels = [
-    { name: "OpenAI", icon: SiOpenai, color: "#000000" },
-    { name: "Google Gemini", icon: SiGooglegemini, color: "#4285F4" },
-    { name: "Anthropic Claude", icon: ClaudeIcon, color: "#D97706" },
-    { name: "Meta Llama", icon: SiMeta, color: "#0668E1" },
-    { name: "Mistral AI", icon: MistralIcon, color: "#FF7000" },
-    { name: "DeepSeek", icon: DeepSeekIcon, color: "#4F46E5" },
+    { name: "OpenAI", icon: SiOpenai, color: "#000000", hoverColor: "#000000" },
+    {
+      name: "Google Gemini",
+      icon: SiGooglegemini,
+      color: "#4285F4",
+      hoverColor: "hover:border-[#4285F4]",
+    },
+    {
+      name: "Anthropic Claude",
+      icon: ClaudeIcon,
+      color: "#D97706",
+      hoverColor: "hover:border-[#D97706]",
+    },
+    {
+      name: "Meta Llama",
+      icon: SiMeta,
+      color: "#0668E1",
+      hoverColor: "hover:border-[#0668E1]",
+    },
+    {
+      name: "Mistral AI",
+      icon: MistralIcon,
+      color: "#FF7000",
+      hoverColor: "hover:border-[#FF7000]",
+    },
+    {
+      name: "DeepSeek",
+      icon: DeepSeekIcon,
+      color: "#4F46E5",
+      hoverColor: "hover:border-[#4F46E5]",
+    },
   ];
 
   return (
@@ -569,6 +594,7 @@ interface AIModel {
   name: string;
   icon: React.ElementType;
   color: string;
+  hoverColor: string;
 }
 
 function AIModelCard({
@@ -603,7 +629,7 @@ function AIModelCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative bg-white hover:bg-linear-to-br hover:from-white hover:to-[#22b5f8]/5 border-2 border-gray-100 hover:border-primary/50 rounded-2xl p-5 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300",
+        `group relative bg-white hover:bg-linear-to-br hover:from-white hover:to-[#22b5f8]/5 border-2 border-gray-100 hover:border-primary/50 rounded-2xl p-5 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${model.hoverColor}`,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
     >

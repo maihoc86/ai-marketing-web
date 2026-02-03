@@ -101,12 +101,37 @@ export function ProductSection() {
   ];
 
   const aiModels = [
-    { name: "OpenAI", icon: SiOpenai, color: "#000000" },
-    { name: "Google Gemini", icon: SiGooglegemini, color: "#4285F4" },
-    { name: "Anthropic Claude", icon: ClaudeIcon, color: "#D97706" },
-    { name: "Meta Llama", icon: SiMeta, color: "#0668E1" },
-    { name: "Mistral AI", icon: MistralIcon, color: "#FF7000" },
-    { name: "DeepSeek", icon: DeepSeekIcon, color: "#4F46E5" },
+    { name: "OpenAI", icon: SiOpenai, color: "#000000", hoverColor: "#000000" },
+    {
+      name: "Google Gemini",
+      icon: SiGooglegemini,
+      color: "#4285F4",
+      hoverColor: "hover:border-[#4285F4]",
+    },
+    {
+      name: "Anthropic Claude",
+      icon: ClaudeIcon,
+      color: "#D97706",
+      hoverColor: "hover:border-[#D97706]",
+    },
+    {
+      name: "Meta Llama",
+      icon: SiMeta,
+      color: "#0668E1",
+      hoverColor: "hover:border-[#0668E1]",
+    },
+    {
+      name: "Mistral AI",
+      icon: MistralIcon,
+      color: "#FF7000",
+      hoverColor: "hover:border-[#FF7000]",
+    },
+    {
+      name: "DeepSeek",
+      icon: DeepSeekIcon,
+      color: "#4F46E5",
+      hoverColor: "hover:border-[#4F46E5]",
+    },
   ];
 
   return (
