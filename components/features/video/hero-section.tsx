@@ -137,7 +137,7 @@ export function VideoHeroSection() {
             >
               <Button
                 size="lg"
-                className="btn-primary-light w-50 rounded-full"
+                className="btn-primary-light w-40 rounded-full"
                 asChild
               >
                 <LocaleLink href="/register">
@@ -236,7 +236,7 @@ export function VideoHeroSection() {
                         "w-full text-left rounded-lg p-3 mb-3 transition-all duration-300",
                         activeScene === index
                           ? "bg-white border-l-2 border-primary shadow-sm"
-                          : "bg-white border border-gray-100 hover:border-primary/50 hover:shadow-sm"
+                          : "bg-white border border-gray-100 hover:border-primary/50 hover:shadow-sm",
                       )}
                     >
                       <div className="flex items-center justify-between mb-2">
@@ -303,7 +303,7 @@ export function VideoHeroSection() {
                                 animationDelay: `${idx * 0.1}s`,
                               }}
                             />
-                          )
+                          ),
                         )}
                       </div>
 

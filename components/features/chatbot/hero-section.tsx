@@ -11,7 +11,7 @@ export function ChatbotHeroSection() {
   return (
     <section className="pt-24 pb-16 md:pt-28 md:pb-24 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+        <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
           {/* Left Content */}
           <div>
             {/* Breadcrumb */}
@@ -84,7 +84,7 @@ export function ChatbotHeroSection() {
             >
               <Button
                 size="lg"
-                className="btn-primary-light rounded-full"
+                className="btn-primary-light w-40 rounded-full"
                 asChild
               >
                 <LocaleLink href="/register">
@@ -105,7 +105,7 @@ export function ChatbotHeroSection() {
 
           {/* Right - Chat Demo Mockup */}
           <div
-            className="relative animate-fade-in"
+            className="relative animate-fade-in shrink-0"
             style={{ animationDelay: "0.5s" }}
           >
             {/* Blur background effect */}

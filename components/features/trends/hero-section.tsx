@@ -89,7 +89,7 @@ export function TrendsHeroSection() {
             >
               <Button
                 size="lg"
-                className="btn-primary-light w-50 rounded-full"
+                className="btn-primary-light w-40 rounded-full"
                 asChild
               >
                 <LocaleLink href="/register">
