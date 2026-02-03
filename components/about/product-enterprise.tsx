@@ -169,36 +169,47 @@ export function ProductEnterprise() {
   ];
 
   const aiModels = [
-    { name: "OpenAI", icon: SiOpenai, color: "#000000", hoverColor: "#000000" },
+    {
+      name: "OpenAI",
+      icon: SiOpenai,
+      color: "#000000",
+      hoverColor: "#000000",
+      hoverColorInner: "hover:border-black/30",
+    },
     {
       name: "Google Gemini",
       icon: SiGooglegemini,
       color: "#4285F4",
       hoverColor: "hover:border-[#4285F4]",
+      hoverColorInner: "group-hover:border-[#4285F4]/30",
     },
     {
       name: "Anthropic Claude",
       icon: ClaudeIcon,
       color: "#D97706",
       hoverColor: "hover:border-[#D97706]",
+      hoverColorInner: "group-hover:border-[#D97706]/30",
     },
     {
       name: "Meta Llama",
       icon: SiMeta,
       color: "#0668E1",
       hoverColor: "hover:border-[#0668E1]",
+      hoverColorInner: "group-hover:border-[#0668E1]/30",
     },
     {
       name: "Mistral AI",
       icon: MistralIcon,
       color: "#FF7000",
       hoverColor: "hover:border-[#FF7000]",
+      hoverColorInner: "group-hover:border-[#FF7000]/30",
     },
     {
       name: "DeepSeek",
       icon: DeepSeekIcon,
       color: "#4F46E5",
       hoverColor: "hover:border-[#4F46E5]",
+      hoverColorInner: "group-hover:border-[#4F46E5]/30",
     },
   ];
 
@@ -595,6 +606,7 @@ interface AIModel {
   icon: React.ElementType;
   color: string;
   hoverColor: string;
+  hoverColorInner: string;
 }
 
 function AIModelCard({
@@ -634,7 +646,7 @@ function AIModelCard({
       )}
     >
       <div
-        className="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border-2 border-gray-100 group-hover:border-primary/30 shadow-sm"
+        className={`w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border-2 border-gray-100 shadow-sm ${model.hoverColorInner}`}
         style={{ color: model.color }}
       >
         <model.icon className="w-6 h-6" />

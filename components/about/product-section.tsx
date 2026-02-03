@@ -106,12 +106,14 @@ export function ProductSection() {
       name: "Google Gemini",
       icon: SiGooglegemini,
       color: "#4285F4",
+      hoverColorInner: "group-hover:border-[#4285F4]/30",
       hoverColor: "hover:border-[#4285F4]",
     },
     {
       name: "Anthropic Claude",
       icon: ClaudeIcon,
       color: "#D97706",
+      hoverColorInner: "group-hover:border-[#D97706]/30",
       hoverColor: "hover:border-[#D97706]",
     },
     {
@@ -119,18 +121,21 @@ export function ProductSection() {
       icon: SiMeta,
       color: "#0668E1",
       hoverColor: "hover:border-[#0668E1]",
+      hoverColorInner: "group-hover:border-[#0668E1]/30",
     },
     {
       name: "Mistral AI",
       icon: MistralIcon,
       color: "#FF7000",
       hoverColor: "hover:border-[#FF7000]",
+      hoverColorInner: "group-hover:border-[#FF7000]/30",
     },
     {
       name: "DeepSeek",
       icon: DeepSeekIcon,
       color: "#4F46E5",
       hoverColor: "hover:border-[#4F46E5]",
+      hoverColorInner: "group-hover:border-[#4F46E5]/30",
     },
   ];
 
@@ -296,10 +301,10 @@ export function ProductSection() {
             {aiModels.map((model, index) => (
               <div
                 key={index}
-                className="group bg-gray-50 hover:bg-white border border-gray-100 hover:border-primary/30 rounded-xl p-4 text-center hover:shadow-md transition-all duration-300"
+                className={`group bg-gray-50 hover:bg-white border border-gray-100 hover:border-primary/30 rounded-xl p-4 text-center hover:shadow-md transition-all duration-300 ${model.hoverColor}`}
               >
                 <div
-                  className="w-10 h-10 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform border border-gray-100"
+                  className={`size-10 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform border border-gray-100 ${model.hoverColorInner}`}
                   style={{ color: model.color }}
                 >
                   <model.icon className="w-5 h-5" />
