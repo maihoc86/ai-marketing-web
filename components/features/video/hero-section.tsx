@@ -65,7 +65,7 @@ export function VideoHeroSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-200 bg-purple-100/30 rounded-full blur-3xl" />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+        <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
           {/* Left Content */}
           <div>
             {/* Breadcrumb */}
@@ -137,7 +137,7 @@ export function VideoHeroSection() {
             >
               <Button
                 size="lg"
-                className="btn-primary-light w-40 rounded-full"
+                className="btn-primary-light rounded-full"
                 asChild
               >
                 <LocaleLink href="/register">
@@ -145,7 +145,7 @@ export function VideoHeroSection() {
                   {t("featurePage.video.cta.createFirst")}
                 </LocaleLink>
               </Button>
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 className="rounded-full border-2"
@@ -155,7 +155,7 @@ export function VideoHeroSection() {
                   <Play className="size-5 mr-2" />
                   {t("featurePage.video.cta.watchDemo")}
                 </LocaleLink>
-              </Button>
+              </Button> */}
             </div>
 
             {/* Trust Indicators */}
