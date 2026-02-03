@@ -39,7 +39,7 @@ export function VideoFAQSection() {
   return (
     <section className="py-20 bg-linear-to-b from-white to-gray-50/50 relative overflow-hidden">
       {/* Grid background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,181,248,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,181,248,0.03)_1px,transparent_1px)] bg-size-[40px_40px]" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -69,14 +69,14 @@ export function VideoFAQSection() {
                 openIndex === idx
                   ? "border-l-[3px] border-l-[#ff7900] border-t-gray-200 border-r-gray-200 border-b-gray-200 shadow-lg shadow-[#ff7900]/5"
                   : "border-gray-200 hover:border-primary/50 hover:shadow-md hover:shadow-gray-100",
-                idx % 2 === 1 && openIndex !== idx && "bg-gray-50/50"
+                idx % 2 === 1 && openIndex !== idx && "bg-gray-50/50",
               )}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 className={cn(
                   "w-full flex items-center gap-4 p-5 text-left transition-colors duration-200",
-                  openIndex !== idx && "group-hover:bg-primary/5"
+                  openIndex !== idx && "group-hover:bg-primary/5",
                 )}
                 aria-expanded={openIndex === idx}
               >
@@ -84,7 +84,7 @@ export function VideoFAQSection() {
                   className={cn(
                     "w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0 transition-transform duration-300",
                     badgeColors[idx % badgeColors.length],
-                    openIndex === idx && "scale-110"
+                    openIndex === idx && "scale-110",
                   )}
                 >
                   {idx + 1}
@@ -97,7 +97,7 @@ export function VideoFAQSection() {
                 <ChevronDown
                   className={cn(
                     "w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300",
-                    openIndex === idx && "rotate-180 text-[#ff7900]"
+                    openIndex === idx && "rotate-180 text-[#ff7900]",
                   )}
                 />
               </button>
@@ -107,7 +107,7 @@ export function VideoFAQSection() {
                   "grid transition-all duration-300 ease-in-out",
                   openIndex === idx
                     ? "grid-rows-[1fr] opacity-100"
-                    : "grid-rows-[0fr] opacity-0"
+                    : "grid-rows-[0fr] opacity-0",
                 )}
               >
                 <div className="overflow-hidden">

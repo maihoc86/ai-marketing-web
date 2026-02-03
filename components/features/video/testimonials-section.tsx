@@ -1,8 +1,16 @@
 "use client";
 
-import { Star, StarHalf } from "lucide-react";
+import { Star, StarHalf, ArrowLeft, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import Image from "next/image";
+import { useState, useRef } from "react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
+import { cn } from "@/lib/utils";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const testimonials = [
   {
@@ -55,6 +63,17 @@ function RatingStars({ rating }: { rating: number }) {
 
 export function VideoTestimonialsSection() {
   const { t } = useI18n();
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  const updateNavigationState = () => {
+    if (swiperRef.current?.swiper) {
+      const swiper = swiperRef.current.swiper;
+      setCanPrev(!swiper.isBeginning);
+      setCanNext(!swiper.isEnd);
+    }
+  };
 
   return (
     <section className="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
@@ -69,67 +88,131 @@ export function VideoTestimonialsSection() {
           </p>
         </div>
 
-        {/* Horizontal Scroll Container */}
-        <div className="relative w-full">
-          <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory px-4 md:px-0 scrollbar-hide">
+        {/* Swiper Container */}
+        <div className="relative">
+          <Swiper
+            ref={swiperRef}
+            modules={[Navigation, Autoplay, Pagination]}
+            slidesPerView={1}
+            spaceBetween={24}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: false,
+              el: ".testimonials-pagination",
+            }}
+            onBeforeInit={(swiper) => {
+              swiper.navigation?.init();
+              swiper.navigation?.update();
+            }}
+            speed={500}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            onSlideChange={updateNavigationState}
+            onInit={updateNavigationState}
+          >
             {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="snap-center shrink-0 w-[300px] md:w-[350px] bg-white border border-gray-200 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-lg transition-shadow"
-              >
-                {/* Rating */}
-                <RatingStars rating={testimonial.rating} />
+              <SwiperSlide key={testimonial.id}>
+                <div className="bg-white border border-gray-200 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-lg transition-shadow min-h-61.5 h-full m-2">
+                  {/* Rating */}
+                  <RatingStars rating={testimonial.rating} />
 
-                {/* Quote */}
-                <p className="text-gray-700 text-sm leading-relaxed flex-1">
-                  &ldquo;{t(testimonial.quoteKey)}&rdquo;
-                </p>
+                  {/* Quote */}
+                  <p className="text-gray-700 text-sm leading-relaxed flex-1">
+                    &ldquo;{t(testimonial.quoteKey)}&rdquo;
+                  </p>
 
-                {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <div className="size-10 rounded-full bg-gray-200 overflow-hidden relative">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={t(testimonial.nameKey)}
-                      fill
-                      className="object-cover"
-                      sizes="40px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-gray-900 font-semibold text-sm">
-                      {t(testimonial.nameKey)}
-                    </p>
-                    <p className="text-gray-500 text-xs">
-                      {t(testimonial.roleKey)}
-                    </p>
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <div className="size-10 rounded-full bg-gray-200 overflow-hidden relative">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={t(testimonial.nameKey)}
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-semibold text-sm">
+                        {t(testimonial.nameKey)}
+                      </p>
+                      <p className="text-gray-500 text-xs">
+                        {t(testimonial.roleKey)}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
 
-          {/* Scroll Indicators (Desktop) */}
-          <div className="hidden md:flex justify-center gap-2 mt-4">
-            {testimonials.map((_, idx) => (
-              <div
-                key={idx}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === 0 ? "w-8 bg-primary" : "w-2 bg-gray-300"
-                }`}
-              />
-            ))}
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              aria-label="Previous testimonial"
+              disabled={!canPrev}
+              className={cn(
+                "size-10 rounded-full bg-white shrink-0 shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors",
+                !canPrev && "opacity-40 pointer-events-none",
+              )}
+              onClick={() => {
+                swiperRef.current?.swiper.slidePrev();
+              }}
+            >
+              <ArrowLeft className="size-5" />
+            </button>
+
+            {/* Custom Pagination Container */}
+            <div className="testimonials-pagination flex w-fit items-center gap-2"></div>
+
+            <button
+              aria-label="Next testimonial"
+              disabled={!canNext}
+              className={cn(
+                "size-10 rounded-full shrink-0 bg-white shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors",
+                !canNext && "opacity-40 pointer-events-none",
+              )}
+              onClick={() => {
+                swiperRef.current?.swiper.slideNext();
+              }}
+            >
+              <ArrowRight className="size-5" />
+            </button>
           </div>
         </div>
       </div>
 
       <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+        .testimonials-pagination {
+          display: flex !important;
+          align-items: center;
+          gap: 0.5rem;
         }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+
+        .testimonials-pagination .swiper-pagination-bullet {
+          width: 0.375rem;
+          height: 0.375rem;
+          background: #d1d5db;
+          opacity: 1;
+          margin: 0 !important;
+          transition: all 0.3s ease;
+          border-radius: 9999px;
+        }
+
+        .testimonials-pagination .swiper-pagination-bullet-active {
+          width: 2rem;
+          background: var(--color-primary);
         }
       `}</style>
     </section>
