@@ -1279,21 +1279,80 @@ const translations: Record<Locale, Record<string, string>> = {
     // Feature Page - Chatbot Demo Live
     "featurePage.chatbot.demo.live.heading": "Xem AI Chatbot Hoạt Động",
     "featurePage.chatbot.demo.live.subheading":
-      "Trải nghiệm cách AI của chúng tôi xử lý các truy vấn phức tạp và chuyển đổi liền mạch sang nhân viên khi cần.",
-    "featurePage.chatbot.demo.live.terminal": "UniksMarK AI Support - Demo",
+      "Trải nghiệm cách trợ lý AI giúp khách hàng tư vấn dịch vụ, đặt lịch hẹn và hoàn tất thanh toán liền mạch trong ngành làm đẹp.",
+    "featurePage.chatbot.demo.live.terminal": "DXAI Nails — Trợ Lý Đặt Lịch AI",
     "featurePage.chatbot.demo.live.message1":
-      "Xin chào! Tôi là trợ lý UniksMarK của bạn. Tôi có thể giúp gì cho đơn hàng của bạn hôm nay?",
+      "Xin chào! Tôi là trợ lý DXAI Nails. Tôi có thể giúp bạn chọn dịch vụ, xem mẫu nail và đặt lịch hẹn. Bạn cần gì hôm nay?",
     "featurePage.chatbot.demo.live.message2":
-      "Chào, tôi cần chuyển hướng lô hàng #UK-9283 của mình đến một kho khác, nhưng cổng thông tin cho biết nó đã đang vận chuyển. Bạn có thể ghi đè điều này không?",
+      "Chào! Tôi muốn làm nail cho tiệc sinh nhật tuần sau. Muốn kiểu gì đó sang trọng nhưng không quá lòe loẹt. Ngân sách khoảng $60-80.",
     "featurePage.chatbot.demo.live.message3":
-      "Tôi đã xác định vị trí lô hàng #UK-9283. Hiện tại nó đang ở Trung tâm Phân loại Khu vực. Mặc dù cổng thông tin tiêu chuẩn chặn thay đổi, tôi có thể bắt đầu việc chuyển hướng bị chặn.",
-    "featurePage.chatbot.demo.live.checking":
-      "Đang kiểm tra tính khả dụng của kho...",
+      "Tuyệt vời! Đây là các dịch vụ phù hợp nhất cho tiệc sinh nhật trong tầm giá của bạn:",
+    "featurePage.chatbot.demo.live.message3.cta":
+      "Bạn thích dịch vụ nào, hay tôi gợi ý thêm?",
     "featurePage.chatbot.demo.live.message4":
-      "Bạn có muốn tôi xử lý việc chuyển hướng này hoặc kết nối bạn với Trưởng phòng Logistics để có hướng dẫn xử lý cụ thể không?",
-    "featurePage.chatbot.demo.live.transferring": "Đang chuyển sang nhân viên",
+      "Gel Manicure trông tuyệt! Bạn cho tôi biết thêm chi tiết được không? Thời gian làm bao lâu vậy?",
+    "featurePage.chatbot.demo.live.message5":
+      "Lựa chọn rất phổ biến! Gel Manicure là dịch vụ được yêu thích nhất tại tiệm. Đây là thông tin chi tiết:",
+    "featurePage.chatbot.demo.live.message5.details":
+      "Chi tiết Gel Manicure:\n• Thời gian: 45-60 phút\n• Bền: 2-3 tuần không tróc\n• Bao gồm: Dũa, cắt da, sơn gel 2 lớp, top coat\n• Màu: 200+ màu sắc có sẵn\n• Thêm nail art: +$10-15",
+    "featurePage.chatbot.demo.live.message5.note":
+      "Với tiệc sinh nhật, mình gợi ý thêm nail art đơn giản như kim tuyến hoặc đá nhỏ để thêm phần lấp lánh nhé!",
+    "featurePage.chatbot.demo.live.message6":
+      "Hay quá! Mình muốn Gel Manicure với nail art kim tuyến. Cho mình đặt lịch luôn được không?",
+    "featurePage.chatbot.demo.live.message7":
+      "Tuyệt! Mình đã thêm dịch vụ vào lịch hẹn. Bạn có muốn thêm dịch vụ nào không?",
+    "featurePage.chatbot.demo.live.message7.cart":
+      "Dịch vụ đã chọn:\n• Gel Manicure — $65.00\n• Nail Art Kim Tuyến — $12.00\n• Tổng: $77.00",
+    "featurePage.chatbot.demo.live.message7.cta":
+      "Bạn muốn thêm dịch vụ hay đặt lịch ngay?",
+    "featurePage.chatbot.demo.live.message8":
+      "Thêm Paraffin Hand Treatment nữa nhé. Rồi đặt lịch luôn!",
+    "featurePage.chatbot.demo.live.message9":
+      "Đã thêm Paraffin Hand Treatment! Đây là lịch hẹn trống trong tuần tới:",
+    "featurePage.chatbot.demo.live.message9.summary":
+      "Tóm tắt đặt lịch:\n• Gel Manicure — $65.00\n• Nail Art Kim Tuyến — $12.00\n• Paraffin Hand Treatment — $25.00\n• Tổng thời gian: ~90 phút\n• Tổng cộng: $102.00",
+    "featurePage.chatbot.demo.live.message9.cta":
+      "Chọn thời gian phù hợp với bạn nhé!",
+    "featurePage.chatbot.demo.live.message10":
+      "Mình chọn Thứ 7, 10:00 sáng nhé! Tên mình là Linh Nguyễn, số điện thoại 0901-234-567.",
+    "featurePage.chatbot.demo.live.message11":
+      "Cảm ơn Linh! Mình đang xác nhận lịch hẹn...",
+    "featurePage.chatbot.demo.live.message11.processing": "Đang kiểm tra lịch...",
+    "featurePage.chatbot.demo.live.message11.secure": "Xác nhận với thợ nail",
+    "featurePage.chatbot.demo.live.message11.success": "Đặt lịch thành công!",
+    "featurePage.chatbot.demo.live.message11.order": "Xác nhận lịch hẹn #DXAI-N-2025-0341",
+    "featurePage.chatbot.demo.live.message11.shipping":
+      "Thông tin lịch hẹn:\nLinh Nguyễn\nThứ 7, 25/01/2025 — 10:00 AM\nThợ nail: Jessica T.",
+    "featurePage.chatbot.demo.live.message11.delivery": "Thời gian dự kiến: 90 phút (10:00 - 11:30 AM)",
+    "featurePage.chatbot.demo.live.message11.email": "Xác nhận đã gửi qua SMS đến 0901-234-567",
+    "featurePage.chatbot.demo.live.message11.tracking": "Nhắc nhở tự động trước 24 giờ",
+    "featurePage.chatbot.demo.live.message11.cta": "Mình có thể giúp gì thêm cho Linh?",
+    "featurePage.chatbot.demo.live.message12":
+      "Cảm ơn nhiều! Quá tiện lợi luôn. Mình có thể thanh toán trước không?",
+    "featurePage.chatbot.demo.live.message13":
+      "Dĩ nhiên rồi Linh!",
+    "featurePage.chatbot.demo.live.message13.email":
+      "Mình đã gửi link thanh toán qua SMS. Bạn cũng có thể thanh toán tại tiệm.",
+    "featurePage.chatbot.demo.live.message13.details":
+      "Chi tiết lịch hẹn:\n• Mã: #DXAI-N-2025-0341\n• Dịch vụ: Gel Manicure + Nail Art + Paraffin\n• Tổng: $102.00\n• Thời gian: Thứ 7, 10:00 AM",
+    "featurePage.chatbot.demo.live.message13.ref":
+      "Đến sớm 5 phút để thợ nail chuẩn bị cho bạn nhé. Chúc Linh có bộ nail thật xinh!",
+    "featurePage.chatbot.demo.live.message13.closing":
+      "Chúc tiệc sinh nhật thật vui!",
     "featurePage.chatbot.demo.live.placeholder": "Nhập tin nhắn của bạn...",
     "featurePage.chatbot.demo.live.send": "Gửi",
+    "featurePage.chatbot.demo.live.product1.name": "Classic Manicure",
+    "featurePage.chatbot.demo.live.product1.price": "$35.00",
+    "featurePage.chatbot.demo.live.product2.name": "Gel Manicure",
+    "featurePage.chatbot.demo.live.product2.price": "$65.00",
+    "featurePage.chatbot.demo.live.product3.name": "Acrylic Full Set",
+    "featurePage.chatbot.demo.live.product3.price": "$75.00",
+    "featurePage.chatbot.demo.live.buy": "Đặt lịch",
+    "featurePage.chatbot.demo.live.addToCart": "Thêm dịch vụ",
+    "featurePage.chatbot.demo.live.addon1.name": "Paraffin Hand Treatment",
+    "featurePage.chatbot.demo.live.addon1.price": "$25.00",
+    "featurePage.chatbot.demo.live.addon2.name": "Nail Art Cơ Bản",
+    "featurePage.chatbot.demo.live.addon2.price": "$15.00",
 
     // Feature Page - Chatbot Steps
     "featurePage.chatbot.steps.heading": "Bắt Đầu Với 3 Bước Đơn Giản",
@@ -3235,21 +3294,80 @@ const translations: Record<Locale, Record<string, string>> = {
     // Feature Page - Chatbot Demo Live
     "featurePage.chatbot.demo.live.heading": "See AI Chatbot in Action",
     "featurePage.chatbot.demo.live.subheading":
-      "Experience how our neural engine handles complex logistics queries and seamlessly transitions to human agents when needed.",
-    "featurePage.chatbot.demo.live.terminal": "UniksMarK AI Support - Demo",
+      "Experience how our AI assistant helps customers choose nail services, book appointments, and complete payments seamlessly in the beauty industry.",
+    "featurePage.chatbot.demo.live.terminal": "DXAI Nails — AI Booking Assistant",
     "featurePage.chatbot.demo.live.message1":
-      "Hello! I'm your UniksMarK assistant. How can I help with your order today?",
+      "Hi! I'm your DXAI Nails assistant. I can help you choose nail services, browse designs, and book appointments. What do you need today?",
     "featurePage.chatbot.demo.live.message2":
-      "Hi, I need to redirect my shipment #UK-9283 to a different warehouse, but the portal says it's already in transit. Can you override this?",
+      "Hi! I want to get my nails done for a birthday party next week. Something classy but not too flashy. Budget around $60-80.",
     "featurePage.chatbot.demo.live.message3":
-      "I've located shipment #UK-9283. It is currently at the Regional Sort Center. While the standard portal blocks changes, I can initiate an intercepted reroute.",
-    "featurePage.chatbot.demo.live.checking":
-      "Checking warehouse availability...",
+      "Great! Here are our best services for a birthday party in your budget:",
+    "featurePage.chatbot.demo.live.message3.cta":
+      "Which service interests you, or should I suggest more?",
     "featurePage.chatbot.demo.live.message4":
-      "Would you like me to process this reroute or connect you with a Logistics Manager for specific handling instructions?",
-    "featurePage.chatbot.demo.live.transferring": "Transferring to Human Agent",
+      "Gel Manicure looks great! Can you tell me more? How long does it take?",
+    "featurePage.chatbot.demo.live.message5":
+      "Great pick! Gel Manicure is our most popular service. Here are the details:",
+    "featurePage.chatbot.demo.live.message5.details":
+      "Gel Manicure Details:\n• Duration: 45-60 minutes\n• Lasts: 2-3 weeks chip-free\n• Includes: Filing, cuticle care, 2 coats gel, top coat\n• Colors: 200+ shades available\n• Add nail art: +$10-15",
+    "featurePage.chatbot.demo.live.message5.note":
+      "For a birthday party, I'd suggest adding simple nail art like glitter or small gems for extra sparkle!",
+    "featurePage.chatbot.demo.live.message6":
+      "Love it! I'd like Gel Manicure with glitter nail art. Can I book right now?",
+    "featurePage.chatbot.demo.live.message7":
+      "Added to your appointment! Would you like any add-ons?",
+    "featurePage.chatbot.demo.live.message7.cart":
+      "Selected Services:\n• Gel Manicure — $65.00\n• Glitter Nail Art — $12.00\n• Total: $77.00",
+    "featurePage.chatbot.demo.live.message7.cta":
+      "Want to add more services or book now?",
+    "featurePage.chatbot.demo.live.message8":
+      "Add a Paraffin Hand Treatment too. Then let's book!",
+    "featurePage.chatbot.demo.live.message9":
+      "Paraffin Hand Treatment added! Here are available slots next week:",
+    "featurePage.chatbot.demo.live.message9.summary":
+      "Booking Summary:\n• Gel Manicure — $65.00\n• Glitter Nail Art — $12.00\n• Paraffin Hand Treatment — $25.00\n• Total Duration: ~90 minutes\n• Total: $102.00",
+    "featurePage.chatbot.demo.live.message9.cta":
+      "Pick a time that works for you!",
+    "featurePage.chatbot.demo.live.message10":
+      "I'll take Saturday at 10:00 AM! My name is Linh Nguyen, phone 0901-234-567.",
+    "featurePage.chatbot.demo.live.message11":
+      "Thanks Linh! Confirming your appointment now...",
+    "featurePage.chatbot.demo.live.message11.processing": "Checking availability...",
+    "featurePage.chatbot.demo.live.message11.secure": "Confirming with nail technician",
+    "featurePage.chatbot.demo.live.message11.success": "Booking confirmed!",
+    "featurePage.chatbot.demo.live.message11.order": "Appointment Confirmation #DXAI-N-2025-0341",
+    "featurePage.chatbot.demo.live.message11.shipping":
+      "Appointment Details:\nLinh Nguyen\nSaturday, Jan 25, 2025 — 10:00 AM\nNail Tech: Jessica T.",
+    "featurePage.chatbot.demo.live.message11.delivery": "Estimated duration: 90 min (10:00 - 11:30 AM)",
+    "featurePage.chatbot.demo.live.message11.email": "Confirmation sent via SMS to 0901-234-567",
+    "featurePage.chatbot.demo.live.message11.tracking": "Auto-reminder 24 hours before appointment",
+    "featurePage.chatbot.demo.live.message11.cta": "Anything else I can help with, Linh?",
+    "featurePage.chatbot.demo.live.message12":
+      "Thank you so much! So convenient. Can I prepay?",
+    "featurePage.chatbot.demo.live.message13":
+      "Of course, Linh!",
+    "featurePage.chatbot.demo.live.message13.email":
+      "I've sent a payment link via SMS. You can also pay at the salon.",
+    "featurePage.chatbot.demo.live.message13.details":
+      "Appointment Details:\n• Ref: #DXAI-N-2025-0341\n• Services: Gel Manicure + Nail Art + Paraffin\n• Total: $102.00\n• Time: Saturday, 10:00 AM",
+    "featurePage.chatbot.demo.live.message13.ref":
+      "Please arrive 5 minutes early so your nail tech can prep. Enjoy your beautiful new nails!",
+    "featurePage.chatbot.demo.live.message13.closing":
+      "Have an amazing birthday party!",
     "featurePage.chatbot.demo.live.placeholder": "Type your message...",
     "featurePage.chatbot.demo.live.send": "Send",
+    "featurePage.chatbot.demo.live.product1.name": "Classic Manicure",
+    "featurePage.chatbot.demo.live.product1.price": "$35.00",
+    "featurePage.chatbot.demo.live.product2.name": "Gel Manicure",
+    "featurePage.chatbot.demo.live.product2.price": "$65.00",
+    "featurePage.chatbot.demo.live.product3.name": "Acrylic Full Set",
+    "featurePage.chatbot.demo.live.product3.price": "$75.00",
+    "featurePage.chatbot.demo.live.buy": "Book Now",
+    "featurePage.chatbot.demo.live.addToCart": "Add Service",
+    "featurePage.chatbot.demo.live.addon1.name": "Paraffin Hand Treatment",
+    "featurePage.chatbot.demo.live.addon1.price": "$25.00",
+    "featurePage.chatbot.demo.live.addon2.name": "Basic Nail Art",
+    "featurePage.chatbot.demo.live.addon2.price": "$15.00",
 
     // Feature Page - Chatbot Steps
     "featurePage.chatbot.steps.heading": "Get Started in 3 Simple Steps",
