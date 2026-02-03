@@ -17,7 +17,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
-import { SiOpenai, SiGoogle, SiMeta } from "react-icons/si";
+import { SiOpenai, SiMeta, SiGooglegemini } from "react-icons/si";
 import {
   ClaudeIcon,
   MistralIcon,
@@ -169,8 +169,8 @@ export function ProductEnterprise() {
   ];
 
   const aiModels = [
-    { name: "OpenAI GPT-5.2", icon: SiOpenai, color: "#000000" },
-    { name: "Google Gemini", icon: SiGoogle, color: "#4285F4" },
+    { name: "OpenAI", icon: SiOpenai, color: "#000000" },
+    { name: "Google Gemini", icon: SiGooglegemini, color: "#4285F4" },
     { name: "Anthropic Claude", icon: ClaudeIcon, color: "#D97706" },
     { name: "Meta Llama", icon: SiMeta, color: "#0668E1" },
     { name: "Mistral AI", icon: MistralIcon, color: "#FF7000" },

@@ -59,10 +59,10 @@ export function VideoHeroSection() {
   return (
     <section className="pt-24 pb-16 md:pt-28 md:pb-24 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
+      <div className="absolute inset-0 bg-linear-to-b from-gray-50 to-white" />
       <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-cyan-100/50 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-100/30 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-200 bg-purple-100/30 rounded-full blur-3xl" />
 
       <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
@@ -261,7 +261,7 @@ export function VideoHeroSection() {
                 </div>
 
                 {/* Preview Panel - Video Demo */}
-                <div className="flex-1 bg-[#0a1628] relative min-h-[280px]">
+                <div className="flex-1 bg-[#0a1628] relative min-h-70">
                   {/* Rendering Badge */}
                   <div className="absolute top-4 right-4 z-10 bg-primary/20 border border-primary/30 text-primary text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1.5">
                     <span className="relative flex h-2 w-2">
