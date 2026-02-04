@@ -2148,6 +2148,136 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.multiPlatform.metric1.label": "Nền tảng",
     "featurePage.multiPlatform.metric2.label": "Tiết kiệm thời gian",
     "featurePage.multiPlatform.metric3.label": "Trả lời tự động",
+
+    // ============================================================
+    // ADS FEATURE PAGE
+    // ============================================================
+    "featurePage.ads.hero.badge": "AI Engine v2.0 mới",
+    "featurePage.ads.hero.title": "QUẢN LÝ QUẢNG CÁO AI",
+    "featurePage.ads.hero.titleHighlight": "& PHÂN TÍCH",
+    "featurePage.ads.hero.description":
+      "Tối ưu hóa chi tiêu quảng cáo tự động với công cụ phân tích AI của chúng tôi. Theo dõi, quản lý và mở rộng chiến dịch trên tất cả nền tảng trong một bảng điều khiển thống nhất.",
+    "featurePage.ads.hero.primaryButton": "Dùng thử miễn phí",
+    "featurePage.ads.hero.secondaryButton": "Xem Demo",
+    "featurePage.ads.hero.trustedBy": "Được tin dùng bởi 10,000+ marketers",
+
+    "featurePage.ads.benefits.title":
+      "Tại sao các thương hiệu hàng đầu chọn chúng tôi",
+    "featurePage.ads.benefits.subtitle":
+      "Nền tảng của chúng tôi kết hợp AI mạnh mẽ với thiết kế trực quan để mang lại lợi thế trong quảng cáo số.",
+    "featurePage.ads.benefits.benefit1.title": "Quyết định dựa trên dữ liệu",
+    "featurePage.ads.benefits.benefit1.desc":
+      "Đưa ra quyết định dựa trên dữ liệu thực, không phải cảm tính. Trực quan hóa xu hướng ngay lập tức.",
+    "featurePage.ads.benefits.benefit2.title": "Tối ưu hóa AI",
+    "featurePage.ads.benefits.benefit2.desc":
+      "Để AI tối ưu giá thầu 24/7 cho ROI và hiệu quả tối đa.",
+    "featurePage.ads.benefits.benefit3.title": "Phân tích toàn phễu",
+    "featurePage.ads.benefits.benefit3.desc":
+      "Theo dõi toàn bộ hành trình khách hàng từ lần nhấp đầu tiên đến chuyển đổi cuối cùng.",
+    "featurePage.ads.benefits.benefit4.title": "Cảnh báo thời gian thực",
+    "featurePage.ads.benefits.benefit4.desc":
+      "Nhận thông báo ngay lập tức qua Slack hoặc Email khi chiến dịch hoạt động kém.",
+
+    "featurePage.ads.dashboard.badge": "Chế độ xem thống nhất",
+    "featurePage.ads.dashboard.title": "Tất cả kênh của bạn ở một nơi",
+    "featurePage.ads.dashboard.subtitle":
+      "Ngừng chuyển đổi tab. Giám sát hiệu suất Facebook, Instagram, TikTok và YouTube từ một nguồn duy nhất.",
+    "featurePage.ads.dashboard.cardTitle": "Tổng quan chiến dịch",
+    "featurePage.ads.dashboard.timeRange": "30 ngày qua",
+    "featurePage.ads.dashboard.export": "Xuất",
+    "featurePage.ads.dashboard.metric1.label": "Tổng tiếp cận",
+    "featurePage.ads.dashboard.metric1.value": "2.4M",
+    "featurePage.ads.dashboard.metric1.change": "12% so với tháng trước",
+    "featurePage.ads.dashboard.metric2.label": "Tỷ lệ tương tác",
+    "featurePage.ads.dashboard.metric2.value": "4.8%",
+    "featurePage.ads.dashboard.metric2.change": "0.5% so với tháng trước",
+    "featurePage.ads.dashboard.metric3.label": "Tổng chi tiêu",
+    "featurePage.ads.dashboard.metric3.value": "$12,450",
+    "featurePage.ads.dashboard.metric3.change": "5% so với tháng trước",
+    "featurePage.ads.dashboard.metric4.label": "Chuyển đổi",
+    "featurePage.ads.dashboard.metric4.value": "842",
+    "featurePage.ads.dashboard.metric4.change": "24% so với tháng trước",
+
+    "featurePage.ads.aiEngine.title": "Công cụ AI mạnh mẽ",
+    "featurePage.ads.aiEngine.subtitle":
+      "Thuật toán độc quyền của chúng tôi hoạt động 24/7 để đảm bảo ngân sách của bạn được sử dụng đúng chỗ.",
+    "featurePage.ads.aiEngine.feature1.title": "Tối ưu ngân sách",
+    "featurePage.ads.aiEngine.feature1.desc":
+      "Tự động chuyển ngân sách sang bộ quảng cáo hoạt động tốt nhất.",
+    "featurePage.ads.aiEngine.feature2.title": "Gợi ý đối tượng",
+    "featurePage.ads.aiEngine.feature2.desc":
+      "Khám phá đối tượng có ý định cao ẩn.",
+    "featurePage.ads.aiEngine.feature3.title": "A/B Testing thông minh",
+    "featurePage.ads.aiEngine.feature3.desc":
+      "Kiểm thử đa biến với ý nghĩa thống kê.",
+    "featurePage.ads.aiEngine.feature4.title": "Cảnh báo hiệu suất",
+    "featurePage.ads.aiEngine.feature4.desc":
+      "Thông báo ngay lập tức cho các bất thường.",
+    "featurePage.ads.aiEngine.scanningTitle": "Đang quét chiến dịch...",
+    "featurePage.ads.aiEngine.statusActive": "Hoạt động",
+    "featurePage.ads.aiEngine.suggestion1.title": "Cơ hội tối ưu hóa",
+    "featurePage.ads.aiEngine.suggestion1.desc":
+      'Chuyển $500 từ "Cold Traffic Adset" sang "Retargeting Video" để có khả năng tăng ROAS 15%.',
+    "featurePage.ads.aiEngine.applyButton": "Áp dụng gợi ý",
+    "featurePage.ads.aiEngine.suggestion2.title": "Làm mới nội dung",
+    "featurePage.ads.aiEngine.suggestion2.desc":
+      'Nội dung quảng cáo "Summer_Promo_v2" đã được tự động xoay vòng do CTR cao.',
+
+    "featurePage.ads.metrics.title": "Các chỉ số chính được theo dõi",
+    "featurePage.ads.metrics.ctr.label": "CTR",
+    "featurePage.ads.metrics.ctr.value": "2.4%",
+    "featurePage.ads.metrics.cpa.label": "CPA",
+    "featurePage.ads.metrics.cpa.value": "$12.50",
+    "featurePage.ads.metrics.roas.label": "ROAS",
+    "featurePage.ads.metrics.roas.value": "4.2x",
+    "featurePage.ads.metrics.cpc.label": "CPC",
+    "featurePage.ads.metrics.cpc.value": "$0.85",
+    "featurePage.ads.metrics.cpm.label": "CPM",
+    "featurePage.ads.metrics.cpm.value": "$5.20",
+    "featurePage.ads.metrics.convRate.label": "Tỷ lệ chuyển đổi",
+    "featurePage.ads.metrics.convRate.value": "3.1%",
+    "featurePage.ads.metrics.retention.label": "Giữ chân",
+    "featurePage.ads.metrics.retention.value": "45%",
+    "featurePage.ads.metrics.ltv.label": "LTV",
+    "featurePage.ads.metrics.ltv.value": "$450",
+
+    "featurePage.ads.howItWorks.title": "Cách thức hoạt động",
+    "featurePage.ads.howItWorks.subtitle":
+      "Năm bước đơn giản để thống trị quảng cáo",
+    "featurePage.ads.howItWorks.step1.title": "Kết nối",
+    "featurePage.ads.howItWorks.step1.desc":
+      "Liên kết tài khoản quảng cáo của bạn một cách an toàn.",
+    "featurePage.ads.howItWorks.step2.title": "Phân tích",
+    "featurePage.ads.howItWorks.step2.desc": "AI quét dữ liệu lịch sử.",
+    "featurePage.ads.howItWorks.step3.title": "Tối ưu hóa",
+    "featurePage.ads.howItWorks.step3.desc": "Áp dụng khuyến nghị AI.",
+    "featurePage.ads.howItWorks.step4.title": "Tự động hóa",
+    "featurePage.ads.howItWorks.step4.desc": "Đặt quy tắc cho quản lý 24/7.",
+    "featurePage.ads.howItWorks.step5.title": "Mở rộng",
+    "featurePage.ads.howItWorks.step5.desc":
+      "Tăng ngân sách cho những chiến thắng.",
+
+    "featurePage.ads.useCases.title": "Được xây dựng cho mọi đội nhóm",
+    "featurePage.ads.useCases.case1.title": "Thương hiệu DTC",
+    "featurePage.ads.useCases.case1.desc":
+      "Mở rộng doanh số thương mại điện tử với theo dõi ROAS chính xác.",
+    "featurePage.ads.useCases.case2.title": "Các công ty",
+    "featurePage.ads.useCases.case2.desc":
+      "Quản lý hàng trăm tài khoản khách hàng với một lần đăng nhập.",
+    "featurePage.ads.useCases.case3.title": "B2B SaaS",
+    "featurePage.ads.useCases.case3.desc":
+      "Tối ưu cho khách hàng tiềm năng có chất lượng và giảm CPA của bạn.",
+    "featurePage.ads.useCases.case4.title": "Đội ngũ Marketing",
+    "featurePage.ads.useCases.case4.desc":
+      "Cộng tác về nội dung và báo cáo một cách dễ dàng.",
+
+    "featurePage.ads.cta.title": "Biến Dữ Liệu Quảng Cáo Thành Lợi Nhuận",
+    "featurePage.ads.cta.subtitle":
+      "Tham gia cùng 10,000+ marketers đang tối ưu hơn $500M chi tiêu quảng cáo hàng năm. Bắt đầu dùng thử 14 ngày miễn phí ngay hôm nay.",
+    "featurePage.ads.cta.trial": "Bắt đầu miễn phí",
+    "featurePage.ads.cta.contact": "Đặt lịch Demo",
+    "featurePage.ads.cta.trustNote":
+      "Không cần thẻ tín dụng · Hủy bất cứ lúc nào",
     "featurePage.multiPlatform.metric4.label": "Dashboard duy nhất",
     "featurePage.multiPlatform.benefitsTitle": "Tại sao chọn Multi-Platform?",
     "featurePage.multiPlatform.benefitsDesc":
@@ -4395,12 +4525,138 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.multiPlatform.cta.title.part2": "engagement?",
     "featurePage.multiPlatform.cta.subtitle":
       "Join 10,000+ businesses using Uniksmark to manage social media more effectively every day.",
-    "featurePage.multiPlatform.cta.trial": "Start Free Now",
+    "featurePage.multiPlatform.cta.trial": "Start Free Trial",
     "featurePage.multiPlatform.cta.contact": "Contact Sales",
 
     "featurePage.multiPlatform.metric1.label": "Platforms",
     "featurePage.multiPlatform.metric2.label": "Time Saved",
-    "featurePage.multiPlatform.metric3.label": "Auto Reply",
+    "featurePage.multiPlatform.metric3.label": "Auto Response",
+
+    // ============================================================
+    // ADS FEATURE PAGE (ENGLISH)
+    // ============================================================
+    "featurePage.ads.hero.badge": "New AI Engine v2.0",
+    "featurePage.ads.hero.title": "AI ADS MANAGEMENT",
+    "featurePage.ads.hero.titleHighlight": "& ANALYTICS",
+    "featurePage.ads.hero.description":
+      "Optimize your ad spend automatically with our AI-driven insights engine. Track, manage, and scale your campaigns across all platforms in one unified dashboard.",
+    "featurePage.ads.hero.primaryButton": "Start Free Trial",
+    "featurePage.ads.hero.secondaryButton": "Watch Demo",
+    "featurePage.ads.hero.trustedBy": "Trusted by 10,000+ marketers",
+
+    "featurePage.ads.benefits.title": "Why leading brands choose us",
+    "featurePage.ads.benefits.subtitle":
+      "Our platform combines powerful AI with intuitive design to give you the edge in digital advertising.",
+    "featurePage.ads.benefits.benefit1.title": "Data-Driven Decisions",
+    "featurePage.ads.benefits.benefit1.desc":
+      "Make moves based on hard data, not gut feelings. Visualize trends instantly.",
+    "featurePage.ads.benefits.benefit2.title": "AI Optimization",
+    "featurePage.ads.benefits.benefit2.desc":
+      "Let our AI engine optimize your bids 24/7 for maximum ROI and efficiency.",
+    "featurePage.ads.benefits.benefit3.title": "Full-Funnel Analytics",
+    "featurePage.ads.benefits.benefit3.desc":
+      "Track the entire customer journey from the first click to final conversion.",
+    "featurePage.ads.benefits.benefit4.title": "Realtime Alerts",
+    "featurePage.ads.benefits.benefit4.desc":
+      "Get notified instantly via Slack or Email when campaigns underperform.",
+
+    "featurePage.ads.dashboard.badge": "Unified View",
+    "featurePage.ads.dashboard.title": "All your channels in one place",
+    "featurePage.ads.dashboard.subtitle":
+      "Stop switching tabs. Monitor Facebook, Instagram, TikTok, and YouTube performance from a single source of truth.",
+    "featurePage.ads.dashboard.cardTitle": "Campaign Overview",
+    "featurePage.ads.dashboard.timeRange": "Last 30 Days",
+    "featurePage.ads.dashboard.export": "Export",
+    "featurePage.ads.dashboard.metric1.label": "Total Reach",
+    "featurePage.ads.dashboard.metric1.value": "2.4M",
+    "featurePage.ads.dashboard.metric1.change": "12% vs last month",
+    "featurePage.ads.dashboard.metric2.label": "Engagement Rate",
+    "featurePage.ads.dashboard.metric2.value": "4.8%",
+    "featurePage.ads.dashboard.metric2.change": "0.5% vs last month",
+    "featurePage.ads.dashboard.metric3.label": "Total Spend",
+    "featurePage.ads.dashboard.metric3.value": "$12,450",
+    "featurePage.ads.dashboard.metric3.change": "5% vs last month",
+    "featurePage.ads.dashboard.metric4.label": "Conversions",
+    "featurePage.ads.dashboard.metric4.value": "842",
+    "featurePage.ads.dashboard.metric4.change": "24% vs last month",
+
+    "featurePage.ads.aiEngine.title": "Powerful AI Engine",
+    "featurePage.ads.aiEngine.subtitle":
+      "Our proprietary algorithms work 24/7 to ensure your budget is spent where it matters most.",
+    "featurePage.ads.aiEngine.feature1.title": "Budget Optimization",
+    "featurePage.ads.aiEngine.feature1.desc":
+      "Auto-shift budget to top performing ad sets.",
+    "featurePage.ads.aiEngine.feature2.title": "Audience Suggestions",
+    "featurePage.ads.aiEngine.feature2.desc":
+      "Discover hidden high-intent audiences.",
+    "featurePage.ads.aiEngine.feature3.title": "Smart A/B Testing",
+    "featurePage.ads.aiEngine.feature3.desc":
+      "Multivariate testing with statistical significance.",
+    "featurePage.ads.aiEngine.feature4.title": "Performance Alerts",
+    "featurePage.ads.aiEngine.feature4.desc":
+      "Instant notification for anomalies.",
+    "featurePage.ads.aiEngine.scanningTitle": "Scanning Campaigns...",
+    "featurePage.ads.aiEngine.statusActive": "Active",
+    "featurePage.ads.aiEngine.suggestion1.title": "Optimization Opportunity",
+    "featurePage.ads.aiEngine.suggestion1.desc":
+      'Shift $500 from "Cold Traffic Adset" to "Retargeting Video" to potentially increase ROAS by 15%.',
+    "featurePage.ads.aiEngine.applyButton": "Apply Suggestion",
+    "featurePage.ads.aiEngine.suggestion2.title": "Creative Refreshed",
+    "featurePage.ads.aiEngine.suggestion2.desc":
+      'Ad creative "Summer_Promo_v2" was automatically rotated in due to high CTR.',
+
+    "featurePage.ads.metrics.title": "Key Metrics Tracked",
+    "featurePage.ads.metrics.ctr.label": "CTR",
+    "featurePage.ads.metrics.ctr.value": "2.4%",
+    "featurePage.ads.metrics.cpa.label": "CPA",
+    "featurePage.ads.metrics.cpa.value": "$12.50",
+    "featurePage.ads.metrics.roas.label": "ROAS",
+    "featurePage.ads.metrics.roas.value": "4.2x",
+    "featurePage.ads.metrics.cpc.label": "CPC",
+    "featurePage.ads.metrics.cpc.value": "$0.85",
+    "featurePage.ads.metrics.cpm.label": "CPM",
+    "featurePage.ads.metrics.cpm.value": "$5.20",
+    "featurePage.ads.metrics.convRate.label": "Conv. Rate",
+    "featurePage.ads.metrics.convRate.value": "3.1%",
+    "featurePage.ads.metrics.retention.label": "Retention",
+    "featurePage.ads.metrics.retention.value": "45%",
+    "featurePage.ads.metrics.ltv.label": "LTV",
+    "featurePage.ads.metrics.ltv.value": "$450",
+
+    "featurePage.ads.howItWorks.title": "How it works",
+    "featurePage.ads.howItWorks.subtitle": "Five simple steps to ad domination",
+    "featurePage.ads.howItWorks.step1.title": "Connect",
+    "featurePage.ads.howItWorks.step1.desc": "Link your ad accounts securely.",
+    "featurePage.ads.howItWorks.step2.title": "Analyze",
+    "featurePage.ads.howItWorks.step2.desc": "AI scans historical data.",
+    "featurePage.ads.howItWorks.step3.title": "Optimize",
+    "featurePage.ads.howItWorks.step3.desc": "Apply AI recommendations.",
+    "featurePage.ads.howItWorks.step4.title": "Automate",
+    "featurePage.ads.howItWorks.step4.desc": "Set rules for 24/7 management.",
+    "featurePage.ads.howItWorks.step5.title": "Scale",
+    "featurePage.ads.howItWorks.step5.desc": "Increase budget on winners.",
+
+    "featurePage.ads.useCases.title": "Built for every team",
+    "featurePage.ads.useCases.case1.title": "DTC Brands",
+    "featurePage.ads.useCases.case1.desc":
+      "Scale your e-commerce sales with precise ROAS tracking.",
+    "featurePage.ads.useCases.case2.title": "Agencies",
+    "featurePage.ads.useCases.case2.desc":
+      "Manage hundreds of client accounts with a single login.",
+    "featurePage.ads.useCases.case3.title": "B2B SaaS",
+    "featurePage.ads.useCases.case3.desc":
+      "Optimize for qualified leads and lower your CPA.",
+    "featurePage.ads.useCases.case4.title": "Marketing Teams",
+    "featurePage.ads.useCases.case4.desc":
+      "Collaborate on creatives and reporting effortlessly.",
+
+    "featurePage.ads.cta.title": "Turn Ad Data Into Profit",
+    "featurePage.ads.cta.subtitle":
+      "Join 10,000+ marketers optimizing over $500M in ad spend annually. Start your 14-day free trial today.",
+    "featurePage.ads.cta.trial": "Get Started Free",
+    "featurePage.ads.cta.contact": "Schedule Demo",
+    "featurePage.ads.cta.trustNote": "No credit card required · Cancel anytime",
+
     "featurePage.multiPlatform.metric4.label": "Single Dashboard",
     "featurePage.multiPlatform.benefitsTitle": "Why Choose Multi-Platform?",
     "featurePage.multiPlatform.benefitsDesc":

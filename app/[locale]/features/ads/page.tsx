@@ -1,67 +1,43 @@
 "use client";
 
-import {
-  BarChart3,
-  DollarSign,
-  Users,
-  FlaskConical,
-  Bell,
-  PieChart,
-  TrendingUp,
-  Target,
-} from "lucide-react";
-import { FeaturePageTemplate } from "@/components/features/feature-page-template";
-
-const features = [
-  {
-    icon: DollarSign,
-    nameKey: "features.ads.feature1.name",
-    descKey: "features.ads.feature1.desc",
-  },
-  {
-    icon: Users,
-    nameKey: "features.ads.feature2.name",
-    descKey: "features.ads.feature2.desc",
-  },
-  {
-    icon: FlaskConical,
-    nameKey: "features.ads.feature3.name",
-    descKey: "features.ads.feature3.desc",
-  },
-  {
-    icon: Bell,
-    nameKey: "features.ads.feature4.name",
-    descKey: "features.ads.feature4.desc",
-  },
-  {
-    icon: PieChart,
-    nameKey: "featurePage.ads.feature5.name",
-    descKey: "featurePage.ads.feature5.desc",
-  },
-  {
-    icon: TrendingUp,
-    nameKey: "featurePage.ads.feature6.name",
-    descKey: "featurePage.ads.feature6.desc",
-  },
-];
-
-const metrics = [
-  { value: "8+", labelKey: "featurePage.ads.metric1.label" },
-  { value: "99.9%", labelKey: "featurePage.ads.metric2.label" },
-  { value: "2x", labelKey: "featurePage.ads.metric3.label" },
-  { value: "Auto", labelKey: "featurePage.ads.metric4.label" },
-];
+import { AdsHeroSection } from "@/components/features/ads/hero-section";
+import { AdsBenefitsSection } from "@/components/features/ads/benefits-section";
+import { AdsUnifiedDashboardSection } from "@/components/features/ads/unified-dashboard-section";
+import { AdsAIEngineSection } from "@/components/features/ads/ai-engine-section";
+import { AdsMetricsGridSection } from "@/components/features/ads/metrics-grid-section";
+import { AdsHowItWorksSection } from "@/components/features/ads/how-it-works-section";
+import { AdsUseCasesSection } from "@/components/features/ads/use-cases-section";
+import { FeatureCtaSection } from "@/components/features/common/feature-cta-section";
+import { BarChart3, Sparkles } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
 
 export default function AdsFeaturePage() {
+  const { t } = useI18n();
+
   return (
-    <FeaturePageTemplate
-      featureId="ads"
-      icon={BarChart3}
-      iconBg="bg-blue-100"
-      iconColor="text-blue-600"
-      heroImage="/ai-dashboard.png"
-      features={features}
-      metrics={metrics}
-    />
+    <main className="min-h-screen bg-white">
+      <Navbar />
+      <AdsHeroSection />
+      <AdsBenefitsSection />
+      <AdsUnifiedDashboardSection />
+      <AdsAIEngineSection />
+      <AdsMetricsGridSection />
+      <AdsHowItWorksSection />
+      <AdsUseCasesSection />
+      <FeatureCtaSection
+        icon={BarChart3}
+        title={t("featurePage.ads.cta.title")}
+        subtitle={t("featurePage.ads.cta.subtitle")}
+        primaryButtonText={t("featurePage.ads.cta.trial")}
+        primaryButtonIcon={Sparkles}
+        primaryButtonHref="/register"
+        secondaryButtonText={t("featurePage.ads.cta.contact")}
+        secondaryButtonHref="/contact"
+        trustNote={t("featurePage.ads.cta.trustNote")}
+      />
+      <Footer />
+    </main>
   );
 }
