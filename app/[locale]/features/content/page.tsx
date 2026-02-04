@@ -9,11 +9,15 @@ import { AIContentStepsSection } from "@/components/features/ai-content/steps-se
 import { AIContentMarketingNeedsSection } from "@/components/features/ai-content/marketing-needs-section";
 import { AIContentMetricsSection } from "@/components/features/ai-content/metrics-section";
 import { AIContentComparisonSection } from "@/components/features/ai-content/comparison-section";
-import { AIContentCTASection } from "@/components/features/ai-content/cta-section";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
+import { FeatureCtaSection } from "@/components/features/common/feature-cta-section";
+import { Sparkles, Wand2 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export default function AIContentFeaturePage() {
+  const { t } = useI18n();
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -46,7 +50,13 @@ export default function AIContentFeaturePage() {
       <AIContentStepsSection />
 
       {/* 10. CTA - Final conversion */}
-      <AIContentCTASection />
+      <FeatureCtaSection
+        icon={Wand2}
+        title={t("featurePage.content.cta.title")}
+        subtitle={t("featurePage.content.cta.description")}
+        primaryButtonText={t("featurePage.content.cta.button")}
+        primaryButtonIcon={Sparkles}
+      />
 
       <Footer />
     </main>
