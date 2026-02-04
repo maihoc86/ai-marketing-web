@@ -1317,20 +1317,25 @@ const translations: Record<Locale, Record<string, string>> = {
       "Mình chọn Thứ 7, 10:00 sáng nhé! Tên mình là Linh Nguyễn, số điện thoại 0901-234-567.",
     "featurePage.chatbot.demo.live.message11":
       "Cảm ơn Linh! Mình đang xác nhận lịch hẹn...",
-    "featurePage.chatbot.demo.live.message11.processing": "Đang kiểm tra lịch...",
+    "featurePage.chatbot.demo.live.message11.processing":
+      "Đang kiểm tra lịch...",
     "featurePage.chatbot.demo.live.message11.secure": "Xác nhận với thợ nail",
     "featurePage.chatbot.demo.live.message11.success": "Đặt lịch thành công!",
-    "featurePage.chatbot.demo.live.message11.order": "Xác nhận lịch hẹn #DXAI-N-2025-0341",
+    "featurePage.chatbot.demo.live.message11.order":
+      "Xác nhận lịch hẹn #DXAI-N-2025-0341",
     "featurePage.chatbot.demo.live.message11.shipping":
       "Thông tin lịch hẹn:\nLinh Nguyễn\nThứ 7, 25/01/2025 — 10:00 AM\nThợ nail: Jessica T.",
-    "featurePage.chatbot.demo.live.message11.delivery": "Thời gian dự kiến: 90 phút (10:00 - 11:30 AM)",
-    "featurePage.chatbot.demo.live.message11.email": "Xác nhận đã gửi qua SMS đến 0901-234-567",
-    "featurePage.chatbot.demo.live.message11.tracking": "Nhắc nhở tự động trước 24 giờ",
-    "featurePage.chatbot.demo.live.message11.cta": "Mình có thể giúp gì thêm cho Linh?",
+    "featurePage.chatbot.demo.live.message11.delivery":
+      "Thời gian dự kiến: 90 phút (10:00 - 11:30 AM)",
+    "featurePage.chatbot.demo.live.message11.email":
+      "Xác nhận đã gửi qua SMS đến 0901-234-567",
+    "featurePage.chatbot.demo.live.message11.tracking":
+      "Nhắc nhở tự động trước 24 giờ",
+    "featurePage.chatbot.demo.live.message11.cta":
+      "Mình có thể giúp gì thêm cho Linh?",
     "featurePage.chatbot.demo.live.message12":
       "Cảm ơn nhiều! Quá tiện lợi luôn. Mình có thể thanh toán trước không?",
-    "featurePage.chatbot.demo.live.message13":
-      "Dĩ nhiên rồi Linh!",
+    "featurePage.chatbot.demo.live.message13": "Dĩ nhiên rồi Linh!",
     "featurePage.chatbot.demo.live.message13.email":
       "Mình đã gửi link thanh toán qua SMS. Bạn cũng có thể thanh toán tại tiệm.",
     "featurePage.chatbot.demo.live.message13.details":
@@ -1758,7 +1763,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Video Capabilities Section
     "featurePage.video.capabilities.badge": "TÍNH NĂNG",
-    "featurePage.video.capabilities.heading": "Biến văn bản thành video với AI tiên tiến",
+    "featurePage.video.capabilities.heading":
+      "Biến văn bản thành video với AI tiên tiến",
     "featurePage.video.capabilities.description":
       "Tất cả những gì bạn cần để tạo video chuyên nghiệp mà không cần máy quay hay ekip.",
     "featurePage.video.capabilities.aiScripts.title": "Kịch Bản AI",
@@ -1792,7 +1798,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.workflow.learnMore": "Xem đầy đủ tính năng",
 
     // Video Testimonials Section
-    "featurePage.video.testimonials.title": "Được tin dùng bởi creators toàn cầu",
+    "featurePage.video.testimonials.title":
+      "Được tin dùng bởi creators toàn cầu",
     "featurePage.video.testimonials.subtitle":
       "Tham gia 20,000+ creators đang tạo video nhanh hơn với Uniksmart",
     "featurePage.video.testimonials.1.quote":
@@ -1824,20 +1831,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.bento.lipSync.desc":
       "Chuyển động môi khớp hoàn hảo với giọng nói AI. Công nghệ deep learning tiên tiến mang lại trải nghiệm video tự nhiên như người thật.",
     "featurePage.video.bento.lipSync.syncing": "Đang đồng bộ...",
-    "featurePage.video.bento.creationModes.title": "Ba Chế Độ Tạo Video Linh Hoạt",
+    "featurePage.video.bento.creationModes.title":
+      "Ba Chế Độ Tạo Video Linh Hoạt",
     "featurePage.video.bento.creationModes.desc":
       "Linh hoạt với 3 phương thức: Script-to-Video từ kịch bản có sẵn, Text-to-Video từ văn bản bất kỳ, hoặc Image-to-Video biến hình ảnh thành video sống động.",
     "featurePage.video.bento.aiVoice.title": "Giọng AI Tự Nhiên Đa Ngôn Ngữ",
     "featurePage.video.bento.aiVoice.desc":
       "Hỗ trợ hơn 30 ngôn ngữ với giọng đọc AI siêu thực. Tùy chỉnh tốc độ, âm điệu và phong cách để phù hợp với thương hiệu của bạn.",
-    "featurePage.video.bento.multiScene.title": "Trình Chỉnh Sửa Đa Scene với AI Layout",
+    "featurePage.video.bento.multiScene.title":
+      "Trình Chỉnh Sửa Đa Scene với AI Layout",
     "featurePage.video.bento.multiScene.desc":
       "Editor trực quan với đề xuất bố cục thông minh từ AI. Kéo thả scenes, tùy chỉnh transitions và xuất video chất lượng 4K.",
     "featurePage.video.demo.clickToPlay": "Nhấn để phát video demo",
 
     // Video Pricing Section
     "featurePage.video.pricing.title": "Bảng giá phù hợp nhu cầu của bạn",
-    "featurePage.video.pricing.subtitle": "Bắt đầu miễn phí, nâng cấp khi phát triển.",
+    "featurePage.video.pricing.subtitle":
+      "Bắt đầu miễn phí, nâng cấp khi phát triển.",
     "featurePage.video.pricing.monthly": "Hàng tháng",
     "featurePage.video.pricing.yearly": "Hàng năm",
     "featurePage.video.pricing.save": "Tiết kiệm",
@@ -1845,30 +1855,36 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.pricing.custom": "Tùy chỉnh",
     "featurePage.video.pricing.mo": "tháng",
     "featurePage.video.pricing.free.name": "Miễn Phí",
-    "featurePage.video.pricing.free.desc": "Hoàn hảo để trải nghiệm sức mạnh của Uniksmart.",
+    "featurePage.video.pricing.free.desc":
+      "Hoàn hảo để trải nghiệm sức mạnh của Uniksmart.",
     "featurePage.video.pricing.free.feature1": "10 phút/tuần tạo video",
     "featurePage.video.pricing.free.feature2": "Giọng AI tiêu chuẩn",
     "featurePage.video.pricing.free.feature3": "Xuất có watermark",
     "featurePage.video.pricing.free.feature4": "Độ phân giải 720p",
     "featurePage.video.pricing.free.cta": "Bắt Đầu Miễn Phí",
     "featurePage.video.pricing.enterprise.name": "Doanh Nghiệp",
-    "featurePage.video.pricing.enterprise.desc": "Cho teams cần sản xuất video có thể mở rộng.",
+    "featurePage.video.pricing.enterprise.desc":
+      "Cho teams cần sản xuất video có thể mở rộng.",
     "featurePage.video.pricing.enterprise.feature1": "Tạo không giới hạn",
     "featurePage.video.pricing.enterprise.feature2": "Giọng Premium siêu thực",
-    "featurePage.video.pricing.enterprise.feature3": "Không watermark & White label",
+    "featurePage.video.pricing.enterprise.feature3":
+      "Không watermark & White label",
     "featurePage.video.pricing.enterprise.feature4": "Xuất độ phân giải 4K",
     "featurePage.video.pricing.enterprise.feature5": "Full API Access",
     "featurePage.video.pricing.enterprise.cta": "Liên Hệ Sales",
     "featurePage.video.pricing.needMore": "Cần thêm thông tin?",
-    "featurePage.video.pricing.contactSales": "Liên hệ với đội ngũ sales của chúng tôi",
+    "featurePage.video.pricing.contactSales":
+      "Liên hệ với đội ngũ sales của chúng tôi",
 
     // Video FAQ Section
     "featurePage.video.faq.title": "Bạn muốn biết thêm?",
-    "featurePage.video.faq.subtitle": "Các câu hỏi thường gặp về AI Video Factory",
+    "featurePage.video.faq.subtitle":
+      "Các câu hỏi thường gặp về AI Video Factory",
     "featurePage.video.faq.1.question": "Uniksmart có miễn phí không?",
     "featurePage.video.faq.1.answer":
       "Có! Chúng tôi cung cấp gói miễn phí với 10 phút tạo video mỗi tuần. Bạn có thể nâng cấp bất cứ lúc nào để có thêm dung lượng và tính năng premium.",
-    "featurePage.video.faq.2.question": "Tôi có thể chỉnh sửa video đã tạo không?",
+    "featurePage.video.faq.2.question":
+      "Tôi có thể chỉnh sửa video đã tạo không?",
     "featurePage.video.faq.2.answer":
       "Hoàn toàn có thể! Editor của chúng tôi cho phép bạn tùy chỉnh scenes, đổi media, điều chỉnh timing, và thay đổi giọng đọc trước khi xuất.",
     "featurePage.video.faq.3.question": "Tôi có sở hữu bản quyền video không?",
@@ -2294,7 +2310,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "features.multiPlatform.metric3.name": "Auto reply cost",
     "features.multiPlatform.metric3.value": "1 Credit/reply",
     "features.multiPlatform.metric3.note": "Automatic comment reply",
-    "features.ads.title": "ADS Management & AI Analytics",
+    "features.ads.title": "Advertising Management & AI Analytics",
     "features.ads.desc":
       "A data-driven advertising optimization system that helps businesses measure campaign performance accurately and maximize ROI in real-time using advanced AI analytics.",
     "features.ads.stats":
@@ -3295,7 +3311,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.live.heading": "See AI Chatbot in Action",
     "featurePage.chatbot.demo.live.subheading":
       "Experience how our AI assistant helps customers choose nail services, book appointments, and complete payments seamlessly in the beauty industry.",
-    "featurePage.chatbot.demo.live.terminal": "DXAI Nails — AI Booking Assistant",
+    "featurePage.chatbot.demo.live.terminal":
+      "DXAI Nails — AI Booking Assistant",
     "featurePage.chatbot.demo.live.message1":
       "Hi! I'm your DXAI Nails assistant. I can help you choose nail services, browse designs, and book appointments. What do you need today?",
     "featurePage.chatbot.demo.live.message2":
@@ -3332,20 +3349,26 @@ const translations: Record<Locale, Record<string, string>> = {
       "I'll take Saturday at 10:00 AM! My name is Linh Nguyen, phone 0901-234-567.",
     "featurePage.chatbot.demo.live.message11":
       "Thanks Linh! Confirming your appointment now...",
-    "featurePage.chatbot.demo.live.message11.processing": "Checking availability...",
-    "featurePage.chatbot.demo.live.message11.secure": "Confirming with nail technician",
+    "featurePage.chatbot.demo.live.message11.processing":
+      "Checking availability...",
+    "featurePage.chatbot.demo.live.message11.secure":
+      "Confirming with nail technician",
     "featurePage.chatbot.demo.live.message11.success": "Booking confirmed!",
-    "featurePage.chatbot.demo.live.message11.order": "Appointment Confirmation #DXAI-N-2025-0341",
+    "featurePage.chatbot.demo.live.message11.order":
+      "Appointment Confirmation #DXAI-N-2025-0341",
     "featurePage.chatbot.demo.live.message11.shipping":
       "Appointment Details:\nLinh Nguyen\nSaturday, Jan 25, 2025 — 10:00 AM\nNail Tech: Jessica T.",
-    "featurePage.chatbot.demo.live.message11.delivery": "Estimated duration: 90 min (10:00 - 11:30 AM)",
-    "featurePage.chatbot.demo.live.message11.email": "Confirmation sent via SMS to 0901-234-567",
-    "featurePage.chatbot.demo.live.message11.tracking": "Auto-reminder 24 hours before appointment",
-    "featurePage.chatbot.demo.live.message11.cta": "Anything else I can help with, Linh?",
+    "featurePage.chatbot.demo.live.message11.delivery":
+      "Estimated duration: 90 min (10:00 - 11:30 AM)",
+    "featurePage.chatbot.demo.live.message11.email":
+      "Confirmation sent via SMS to 0901-234-567",
+    "featurePage.chatbot.demo.live.message11.tracking":
+      "Auto-reminder 24 hours before appointment",
+    "featurePage.chatbot.demo.live.message11.cta":
+      "Anything else I can help with, Linh?",
     "featurePage.chatbot.demo.live.message12":
       "Thank you so much! So convenient. Can I prepay?",
-    "featurePage.chatbot.demo.live.message13":
-      "Of course, Linh!",
+    "featurePage.chatbot.demo.live.message13": "Of course, Linh!",
     "featurePage.chatbot.demo.live.message13.email":
       "I've sent a payment link via SMS. You can also pay at the salon.",
     "featurePage.chatbot.demo.live.message13.details":
@@ -3768,7 +3791,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Video Capabilities Section
     "featurePage.video.capabilities.badge": "CAPABILITIES",
-    "featurePage.video.capabilities.heading": "Turn text into video with advanced AI",
+    "featurePage.video.capabilities.heading":
+      "Turn text into video with advanced AI",
     "featurePage.video.capabilities.description":
       "Everything you need to create professional videos without a camera or crew.",
     "featurePage.video.capabilities.aiScripts.title": "AI Powered Scripts",
@@ -3784,7 +3808,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.capabilities.learnMore": "Learn more",
 
     // Video Workflow Section
-    "featurePage.video.workflow.title": "How to generate videos with Uniksmart?",
+    "featurePage.video.workflow.title":
+      "How to generate videos with Uniksmart?",
     "featurePage.video.workflow.subtitle":
       "Turn your ideas into production-ready videos in four simple steps.",
     "featurePage.video.workflow.step1.title": "Prompt",
@@ -3830,24 +3855,29 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.bento.ambassador.desc":
       "Create videos with hyper-realistic AI spokespersons. Choose from our avatar library or upload your own image to create a unique brand spokesperson.",
     "featurePage.video.bento.learnMore": "Learn More",
-    "featurePage.video.bento.lipSync.title": "Hyper-Realistic Lip Sync Technology",
+    "featurePage.video.bento.lipSync.title":
+      "Hyper-Realistic Lip Sync Technology",
     "featurePage.video.bento.lipSync.desc":
       "Perfect lip movement synced with AI voice. Advanced deep learning technology delivers a natural video experience like a real person.",
     "featurePage.video.bento.lipSync.syncing": "Syncing...",
-    "featurePage.video.bento.creationModes.title": "Three Flexible Creation Modes",
+    "featurePage.video.bento.creationModes.title":
+      "Three Flexible Creation Modes",
     "featurePage.video.bento.creationModes.desc":
       "Flexibility with 3 methods: Script-to-Video from existing scripts, Text-to-Video from any text, or Image-to-Video to transform images into dynamic videos.",
-    "featurePage.video.bento.aiVoice.title": "Natural AI Voice with Multi-Language Support",
+    "featurePage.video.bento.aiVoice.title":
+      "Natural AI Voice with Multi-Language Support",
     "featurePage.video.bento.aiVoice.desc":
       "Support for 30+ languages with ultra-realistic AI voices. Customize speed, tone, and style to match your brand.",
-    "featurePage.video.bento.multiScene.title": "Multi-Scene Editor with AI Layout Suggestions",
+    "featurePage.video.bento.multiScene.title":
+      "Multi-Scene Editor with AI Layout Suggestions",
     "featurePage.video.bento.multiScene.desc":
       "Intuitive editor with smart AI layout suggestions. Drag and drop scenes, customize transitions, and export 4K quality videos.",
     "featurePage.video.demo.clickToPlay": "Click to play video demo",
 
     // Video Pricing Section
     "featurePage.video.pricing.title": "Pricing tailored to your needs",
-    "featurePage.video.pricing.subtitle": "Start for free, upgrade as you scale.",
+    "featurePage.video.pricing.subtitle":
+      "Start for free, upgrade as you scale.",
     "featurePage.video.pricing.monthly": "Monthly",
     "featurePage.video.pricing.yearly": "Yearly",
     "featurePage.video.pricing.save": "Save",
@@ -3855,17 +3885,21 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.pricing.custom": "Custom",
     "featurePage.video.pricing.mo": "mo",
     "featurePage.video.pricing.free.name": "Free",
-    "featurePage.video.pricing.free.desc": "Perfect for trying out the power of Uniksmart.",
+    "featurePage.video.pricing.free.desc":
+      "Perfect for trying out the power of Uniksmart.",
     "featurePage.video.pricing.free.feature1": "10 mins/week generation",
     "featurePage.video.pricing.free.feature2": "Standard AI voices",
     "featurePage.video.pricing.free.feature3": "Watermarked exports",
     "featurePage.video.pricing.free.feature4": "720p resolution",
     "featurePage.video.pricing.free.cta": "Start Free",
     "featurePage.video.pricing.enterprise.name": "Enterprise",
-    "featurePage.video.pricing.enterprise.desc": "For teams requiring scalable video production.",
+    "featurePage.video.pricing.enterprise.desc":
+      "For teams requiring scalable video production.",
     "featurePage.video.pricing.enterprise.feature1": "Unlimited generation",
-    "featurePage.video.pricing.enterprise.feature2": "Premium Ultra-realistic voices",
-    "featurePage.video.pricing.enterprise.feature3": "No watermarks & White label",
+    "featurePage.video.pricing.enterprise.feature2":
+      "Premium Ultra-realistic voices",
+    "featurePage.video.pricing.enterprise.feature3":
+      "No watermarks & White label",
     "featurePage.video.pricing.enterprise.feature4": "4K resolution exports",
     "featurePage.video.pricing.enterprise.feature5": "Full API Access",
     "featurePage.video.pricing.enterprise.cta": "Contact Sales",
@@ -3874,7 +3908,8 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Video FAQ Section
     "featurePage.video.faq.title": "Want to know more?",
-    "featurePage.video.faq.subtitle": "Frequently asked questions about AI Video Factory",
+    "featurePage.video.faq.subtitle":
+      "Frequently asked questions about AI Video Factory",
     "featurePage.video.faq.1.question": "Is Uniksmart free to use?",
     "featurePage.video.faq.1.answer":
       "Yes! We offer a free tier with 10 minutes of video generation per week. You can upgrade anytime for more capacity and premium features.",
