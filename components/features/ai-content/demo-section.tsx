@@ -9,6 +9,8 @@ import { useI18n } from "@/lib/i18n";
 import { generateImage } from "@/lib/queries/generate-image";
 import { useInView } from "@/hooks/use-in-view";
 import { buildFinalPrompt } from "@/lib/prompt-builder";
+import { useQuery } from "@tanstack/react-query";
+import { rateLimitsQueryOptions } from "@/lib/queries/rate-limits";
 
 export function AIContentDemoSection() {
   const { t } = useI18n();
@@ -18,6 +20,14 @@ export function AIContentDemoSection() {
   const [activeHistory, setActiveHistory] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const [prompt, setPrompt] = useState("");
+  const [rateLimitError, setRateLimitError] = useState<string | null>(null);
+
+  // Fetch rate limits
+  const {
+    data: rateLimitData,
+    error: rateLimitQueryError,
+    isLoading: isLoadingRateLimits,
+  } = useQuery(rateLimitsQueryOptions);
   const [promptError, setPromptError] = useState<string | null>(null);
   const [generatedSrc, setGeneratedSrc] = useState<string | null>(null);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
@@ -39,6 +49,33 @@ export function AIContentDemoSection() {
   }, []);
 
   const handleGenerate = async () => {
+    // Check rate limits first
+    if (rateLimitQueryError) {
+      setRateLimitError(
+        t("featurePage.content.demo.rateLimitError") ||
+          "Unable to check rate limits. Please try again.",
+      );
+      return;
+    }
+
+    if (!rateLimitData) {
+      setRateLimitError(
+        t("featurePage.content.demo.rateLimitLoading") ||
+          "Loading rate limits...",
+      );
+      return;
+    }
+
+    if (rateLimitData.remaining <= 0) {
+      setRateLimitError(
+        t("featurePage.content.demo.noCreditsRemaining") ||
+          "You have no free generation credits remaining. Please upgrade your plan.",
+      );
+      return;
+    }
+
+    setRateLimitError(null);
+
     if (!prompt || prompt.trim().length === 0) {
       setPromptError(
         t("featurePage.content.demo.promptRequired") ||
@@ -429,27 +466,46 @@ export function AIContentDemoSection() {
 
             {/* Generate Button & Progress */}
             <div className="space-y-4 pt-4">
-              <Button
-                onClick={handleGenerate}
-                disabled={
-                  isGenerating ||
-                  prompt.trim().length === 0 ||
-                  uploadedImages.length === 0
-                }
-                className="btn-primary-light w-full disabled:opacity-70"
-              >
-                {isGenerating ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    {t("featurePage.content.demo.generating")}
-                  </>
-                ) : (
-                  <>
-                    {t("featurePage.content.demo.generateBtn")}
-                    <Zap className="w-5 h-5" />
-                  </>
+              <div className="relative">
+                <Button
+                  onClick={handleGenerate}
+                  disabled={
+                    isGenerating ||
+                    prompt.trim().length === 0 ||
+                    uploadedImages.length === 0 ||
+                    isLoadingRateLimits ||
+                    !rateLimitData ||
+                    rateLimitData.remaining <= 0
+                  }
+                  className="btn-primary-light w-full disabled:opacity-70"
+                >
+                  {isGenerating ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      {t("featurePage.content.demo.generating")}
+                    </>
+                  ) : (
+                    <>
+                      {t("featurePage.content.demo.generateBtn")}
+                      <Zap className="w-5 h-5" />
+                      {rateLimitData && (
+                        <span className="ml-2 text-xs opacity-70">
+                          ({rateLimitData.remaining}/{rateLimitData.limit})
+                        </span>
+                      )}
+                    </>
+                  )}
+                </Button>
+                {rateLimitError && (
+                  <div className="absolute -top-16 left-0 right-0 bg-red-500 text-white text-xs font-medium px-4 py-2 rounded-lg shadow-lg z-10">
+                    <div className="flex items-start gap-2">
+                      <span className="flex-shrink-0 mt-0.5">⚠️</span>
+                      <span>{rateLimitError}</span>
+                    </div>
+                    <div className="absolute -bottom-1 left-8 w-2 h-2 bg-red-500 transform rotate-45"></div>
+                  </div>
                 )}
-              </Button>
+              </div>
               {/* Loading overlay moved to the preview container so it only covers the image area */}
               <GenerationProgress />
             </div>

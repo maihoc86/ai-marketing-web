@@ -1493,6 +1493,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.viewAll": "Xem tất cả",
     "featurePage.content.demo.field": "Lĩnh vực",
     "featurePage.content.demo.noImage": "Chưa có hình ảnh được thực hiện",
+    "featurePage.content.demo.rateLimitError":
+      "Không thể kiểm tra giới hạn sử dụng. Vui lòng thử lại.",
+    "featurePage.content.demo.rateLimitLoading":
+      "Đang tải thông tin giới hạn...",
+    "featurePage.content.demo.noCreditsRemaining":
+      "Bạn đã hết lượt tạo hình ảnh miễn phí. Vui lòng nâng cấp gói để tiếp tục.",
+    "featurePage.content.demo.promptRequired":
+      "Vui lòng nhập mô tả để tạo hình ảnh.",
+    "featurePage.content.demo.uploadRequired":
+      "Vui lòng tải lên ít nhất một hình ảnh.",
+    "featurePage.content.demo.recaptchaFailed":
+      "Xác minh reCAPTCHA thất bại. Vui lòng thử lại.",
+    "featurePage.content.demo.defaultPrompt":
+      "Tạo hình ảnh sản phẩm chất lượng cao",
     "featurePage.content.gallery.title": "Được Tạo Với AI của Uniksmart",
     "featurePage.content.gallery.subtitle":
       "Khám phá cách các thương hiệu hàng đầu mở rộng sản xuất sáng tạo.",
@@ -3878,6 +3892,19 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.content.demo.viewAll": "View All",
     "featurePage.content.demo.field": "Fields",
     "featurePage.content.demo.noImage": "No image have generated yet",
+    "featurePage.content.demo.rateLimitError":
+      "Unable to check rate limits. Please try again.",
+    "featurePage.content.demo.rateLimitLoading": "Loading rate limits...",
+    "featurePage.content.demo.noCreditsRemaining":
+      "You have no free generation credits remaining. Please upgrade your plan to continue.",
+    "featurePage.content.demo.promptRequired":
+      "Please enter a prompt to generate an image.",
+    "featurePage.content.demo.uploadRequired":
+      "Please upload at least one image.",
+    "featurePage.content.demo.recaptchaFailed":
+      "reCAPTCHA verification failed. Please try again.",
+    "featurePage.content.demo.defaultPrompt":
+      "Generate high-quality product image",
     "featurePage.content.gallery.title": "Created with Uniksmart AI",
     "featurePage.content.gallery.subtitle":
       "Discover how top brands are scaling their creative output.",
