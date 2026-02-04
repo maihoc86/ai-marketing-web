@@ -2021,6 +2021,130 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.email.benefit4": "Báo cáo chi tiết hiệu quả chiến dịch",
 
     // Feature Page - Multi Platform
+    "featurePage.multiPlatform.hero.badge": "Nền tảng quản lý #1",
+    "featurePage.multiPlatform.hero.title.part1": "QUẢN LÝ MẠNG XÃ HỘI",
+    "featurePage.multiPlatform.hero.title.part2": "ĐA NỀN TẢNG",
+    "featurePage.multiPlatform.hero.description":
+      "Tối ưu hóa quy trình, tiết kiệm thời gian và tăng trưởng doanh thu với nền tảng quản lý tập trung tất cả các kênh xã hội của bạn từ Facebook, TikTok đến Zalo.",
+    "featurePage.multiPlatform.hero.cta.trial": "Dùng thử miễn phí",
+    "featurePage.multiPlatform.hero.cta.demo": "Xem demo",
+    "featurePage.multiPlatform.hero.feature1": "Không cần thẻ tín dụng",
+    "featurePage.multiPlatform.hero.feature2": "Hủy bất kỳ lúc nào",
+    "featurePage.multiPlatform.hero.dashboardAlt":
+      "Giao diện dashboard hiển thị biểu đồ phân tích và chỉ số mạng xã hội",
+    "featurePage.multiPlatform.hero.facebook.metric": "+124% Reach",
+    "featurePage.multiPlatform.hero.facebook.label": "Facebook Campaign",
+    "featurePage.multiPlatform.hero.tiktok.metric": "Viral Video",
+    "featurePage.multiPlatform.hero.tiktok.label": "Trending #Marketing",
+
+    "featurePage.multiPlatform.benefits.title": "Tại sao chọn chúng tôi?",
+    "featurePage.multiPlatform.benefits.subtitle":
+      "Giải pháp toàn diện giúp doanh nghiệp của bạn bứt phá trên mọi nền tảng số với công nghệ hiện đại.",
+    "featurePage.multiPlatform.benefits.1.name": "Quản lý đa nền tảng",
+    "featurePage.multiPlatform.benefits.1.desc":
+      "Kết nối Facebook, Instagram, TikTok và Zalo vào một giao diện duy nhất.",
+    "featurePage.multiPlatform.benefits.2.name": "Giảm 90% thao tác",
+    "featurePage.multiPlatform.benefits.2.desc":
+      "Tự động hóa các tác vụ lặp lại, đăng bài hàng loạt chỉ với một cú nhấp chuột.",
+    "featurePage.multiPlatform.benefits.3.name": "Kiểm soát nội dung",
+    "featurePage.multiPlatform.benefits.3.desc":
+      "Quy trình duyệt bài chặt chẽ, đảm bảo chất lượng nội dung trước khi xuất bản.",
+    "featurePage.multiPlatform.benefits.4.name": "Tương tác 24/7 bằng AI",
+    "featurePage.multiPlatform.benefits.4.desc":
+      "Chatbot thông minh tự động trả lời bình luận và tin nhắn khách hàng mọi lúc.",
+
+    "featurePage.multiPlatform.unifiedInbox.badge": "Hộp thư xã hội thống nhất",
+    "featurePage.multiPlatform.unifiedInbox.title":
+      "Không bao giờ bỏ lỡ tin nhắn khách hàng",
+    "featurePage.multiPlatform.unifiedInbox.description":
+      "Quản lý tất cả bình luận và tin nhắn từ mọi kênh trong một giao diện sạch sẽ, trực quan. Gắn thẻ hội thoại, phân công cho nhân viên và theo dõi lịch sử tương tác dễ dàng.",
+    "featurePage.multiPlatform.unifiedInbox.feature1":
+      "Tập trung tin nhắn từ Facebook, Instagram, Zalo, TikTok Shop",
+    "featurePage.multiPlatform.unifiedInbox.feature2":
+      "Bộ lọc thông minh phân loại tin nhắn spam, hỏi giá, khiếu nại",
+    "featurePage.multiPlatform.unifiedInbox.feature3":
+      "Lưu mẫu câu trả lời nhanh (Saved Replies)",
+    "featurePage.multiPlatform.unifiedInbox.cta":
+      "Tìm hiểu thêm về Unified Inbox",
+
+    "featurePage.multiPlatform.contentPlanning.badge": "Content Planning",
+    "featurePage.multiPlatform.contentPlanning.title":
+      "Lên lịch nội dung trực quan",
+    "featurePage.multiPlatform.contentPlanning.subtitle":
+      "Kéo thả để sắp xếp bài đăng. Xem trước giao diện trên từng nền tảng trước khi xuất bản.",
+    "featurePage.multiPlatform.contentPlanning.post1.title":
+      "New Product Launch",
+    "featurePage.multiPlatform.contentPlanning.post1.time": "09:00 AM",
+    "featurePage.multiPlatform.contentPlanning.post2.title":
+      "Sale Announcement",
+    "featurePage.multiPlatform.contentPlanning.post2.time": "14:30 PM",
+    "featurePage.multiPlatform.contentPlanning.post3.title": "Review Recap",
+
+    "featurePage.multiPlatform.aiAssistant.badge": "AI Assistant",
+    "featurePage.multiPlatform.aiAssistant.title": "Smart Auto-Reply với AI",
+    "featurePage.multiPlatform.aiAssistant.description":
+      "Tự động phát hiện ngữ cảnh bình luận và phản hồi khách hàng thông minh. AI giúp bạn giữ tương tác cao mà không cần tốn nhân sự trực page 24/7.",
+    "featurePage.multiPlatform.aiAssistant.feature1.name": "Sentiment Analysis",
+    "featurePage.multiPlatform.aiAssistant.feature1.desc":
+      "Phân tích cảm xúc tích cực/tiêu cực.",
+    "featurePage.multiPlatform.aiAssistant.feature2.name": "Auto-Hide Spam",
+    "featurePage.multiPlatform.aiAssistant.feature2.desc":
+      "Tự động ẩn bình luận chứa từ khóa xấu.",
+    "featurePage.multiPlatform.aiAssistant.userComment":
+      "Sản phẩm này có size XL không shop ơi? Mình cần gấp ạ.",
+    "featurePage.multiPlatform.aiAssistant.justNow": "Vừa xong",
+    "featurePage.multiPlatform.aiAssistant.processing": "AI đang phân tích...",
+    "featurePage.multiPlatform.aiAssistant.botLabel": "AI Bot trả lời",
+    "featurePage.multiPlatform.aiAssistant.botReply":
+      "Chào bạn! Dạ hiện tại mẫu này bên mình còn sẵn size XL ạ. Bạn kiểm tra tin nhắn chờ để shop tư vấn kỹ hơn nhé! ❤️",
+    "featurePage.multiPlatform.aiAssistant.autoSent":
+      "Gửi tự động • Ngay lập tức",
+
+    "featurePage.multiPlatform.howItWorks.title": "Quy trình đơn giản",
+    "featurePage.multiPlatform.howItWorks.step1.number": "1",
+    "featurePage.multiPlatform.howItWorks.step1.title": "1. Kết nối",
+    "featurePage.multiPlatform.howItWorks.step1.desc":
+      "Liên kết các tài khoản MXH của bạn.",
+    "featurePage.multiPlatform.howItWorks.step2.number": "2",
+    "featurePage.multiPlatform.howItWorks.step2.title": "2. Thiết lập",
+    "featurePage.multiPlatform.howItWorks.step2.desc":
+      "Cài đặt mẫu câu trả lời và quy tắc.",
+    "featurePage.multiPlatform.howItWorks.step3.number": "3",
+    "featurePage.multiPlatform.howItWorks.step3.title": "3. Lên lịch",
+    "featurePage.multiPlatform.howItWorks.step3.desc":
+      "Soạn thảo và đặt lịch đăng bài.",
+    "featurePage.multiPlatform.howItWorks.step4.number": "4",
+    "featurePage.multiPlatform.howItWorks.step4.title": "4. Xuất bản",
+    "featurePage.multiPlatform.howItWorks.step4.desc":
+      "Hệ thống tự động đăng tải nội dung.",
+    "featurePage.multiPlatform.howItWorks.step5.number": "5",
+    "featurePage.multiPlatform.howItWorks.step5.title": "5. Phân tích",
+    "featurePage.multiPlatform.howItWorks.step5.desc":
+      "Theo dõi hiệu quả và tối ưu hóa.",
+
+    "featurePage.multiPlatform.useCases.title":
+      "Dành cho mọi quy mô doanh nghiệp",
+    "featurePage.multiPlatform.useCases.1.title": "SME & Startups",
+    "featurePage.multiPlatform.useCases.1.desc":
+      "Tiết kiệm nhân sự, tập trung phát triển kinh doanh cốt lõi.",
+    "featurePage.multiPlatform.useCases.2.title": "Marketing Agencies",
+    "featurePage.multiPlatform.useCases.2.desc":
+      "Quản lý hàng chục khách hàng trên một tài khoản duy nhất.",
+    "featurePage.multiPlatform.useCases.3.title": "Enterprise Brands",
+    "featurePage.multiPlatform.useCases.3.desc":
+      "Quy trình duyệt bài chặt chẽ, bảo mật dữ liệu cấp cao.",
+    "featurePage.multiPlatform.useCases.4.title": "E-commerce",
+    "featurePage.multiPlatform.useCases.4.desc":
+      "Chốt đơn nhanh chóng từ tin nhắn, đồng bộ tồn kho (tích hợp).",
+
+    "featurePage.multiPlatform.cta.title.part1": "Sẵn sàng tăng trưởng",
+    "featurePage.multiPlatform.cta.title.highlight": "300%",
+    "featurePage.multiPlatform.cta.title.part2": "tương tác?",
+    "featurePage.multiPlatform.cta.subtitle":
+      "Tham gia cùng 10,000+ doanh nghiệp đang sử dụng Uniksmark để quản lý mạng xã hội hiệu quả hơn mỗi ngày.",
+    "featurePage.multiPlatform.cta.trial": "Bắt đầu miễn phí ngay",
+    "featurePage.multiPlatform.cta.contact": "Liên hệ tư vấn",
+
     "featurePage.multiPlatform.metric1.label": "Nền tảng",
     "featurePage.multiPlatform.metric2.label": "Tiết kiệm thời gian",
     "featurePage.multiPlatform.metric3.label": "Trả lời tự động",
@@ -4151,6 +4275,129 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.email.benefit4": "Detailed campaign performance reports",
 
     // Feature Page - Multi Platform
+    "featurePage.multiPlatform.hero.badge": "#1 Management Platform",
+    "featurePage.multiPlatform.hero.title.part1": "SOCIAL MEDIA MANAGEMENT",
+    "featurePage.multiPlatform.hero.title.part2": "MULTI-PLATFORM",
+    "featurePage.multiPlatform.hero.description":
+      "Streamline workflows, save time, and grow revenue with a centralized platform managing all your social channels from Facebook and TikTok to Zalo.",
+    "featurePage.multiPlatform.hero.cta.trial": "Start Free Trial",
+    "featurePage.multiPlatform.hero.cta.demo": "Watch Demo",
+    "featurePage.multiPlatform.hero.feature1": "No credit card required",
+    "featurePage.multiPlatform.hero.feature2": "Cancel anytime",
+    "featurePage.multiPlatform.hero.dashboardAlt":
+      "Dashboard interface showing analytics graphs and social media metrics",
+    "featurePage.multiPlatform.hero.facebook.metric": "+124% Reach",
+    "featurePage.multiPlatform.hero.facebook.label": "Facebook Campaign",
+    "featurePage.multiPlatform.hero.tiktok.metric": "Viral Video",
+    "featurePage.multiPlatform.hero.tiktok.label": "Trending #Marketing",
+
+    "featurePage.multiPlatform.benefits.title": "Why choose us?",
+    "featurePage.multiPlatform.benefits.subtitle":
+      "Comprehensive solution helping your business break through on every digital platform with modern technology.",
+    "featurePage.multiPlatform.benefits.1.name": "Multi-platform Management",
+    "featurePage.multiPlatform.benefits.1.desc":
+      "Connect Facebook, Instagram, TikTok and Zalo into one unified interface.",
+    "featurePage.multiPlatform.benefits.2.name": "90% Less Manual Work",
+    "featurePage.multiPlatform.benefits.2.desc":
+      "Automate repetitive tasks, bulk post with just one click.",
+    "featurePage.multiPlatform.benefits.3.name": "Content Control",
+    "featurePage.multiPlatform.benefits.3.desc":
+      "Strict approval workflow ensuring content quality before publication.",
+    "featurePage.multiPlatform.benefits.4.name": "24/7 AI Engagement",
+    "featurePage.multiPlatform.benefits.4.desc":
+      "Smart chatbot automatically responds to comments and customer messages anytime.",
+
+    "featurePage.multiPlatform.unifiedInbox.badge": "Unified Social Inbox",
+    "featurePage.multiPlatform.unifiedInbox.title":
+      "Never miss a customer message",
+    "featurePage.multiPlatform.unifiedInbox.description":
+      "Manage all comments and messages from every channel in one clean, intuitive interface. Tag conversations, assign to team members, and track interaction history easily.",
+    "featurePage.multiPlatform.unifiedInbox.feature1":
+      "Centralize messages from Facebook, Instagram, Zalo, TikTok Shop",
+    "featurePage.multiPlatform.unifiedInbox.feature2":
+      "Smart filters categorize spam, pricing inquiries, and complaints",
+    "featurePage.multiPlatform.unifiedInbox.feature3":
+      "Save quick reply templates (Saved Replies)",
+    "featurePage.multiPlatform.unifiedInbox.cta":
+      "Learn more about Unified Inbox",
+
+    "featurePage.multiPlatform.contentPlanning.badge": "Content Planning",
+    "featurePage.multiPlatform.contentPlanning.title":
+      "Visual content scheduling",
+    "featurePage.multiPlatform.contentPlanning.subtitle":
+      "Drag and drop to organize posts. Preview layout on each platform before publishing.",
+    "featurePage.multiPlatform.contentPlanning.post1.title":
+      "New Product Launch",
+    "featurePage.multiPlatform.contentPlanning.post1.time": "09:00 AM",
+    "featurePage.multiPlatform.contentPlanning.post2.title":
+      "Sale Announcement",
+    "featurePage.multiPlatform.contentPlanning.post2.time": "14:30 PM",
+    "featurePage.multiPlatform.contentPlanning.post3.title": "Review Recap",
+
+    "featurePage.multiPlatform.aiAssistant.badge": "AI Assistant",
+    "featurePage.multiPlatform.aiAssistant.title": "Smart Auto-Reply with AI",
+    "featurePage.multiPlatform.aiAssistant.description":
+      "Automatically detect comment context and respond intelligently. AI helps you maintain high engagement without needing staff to monitor 24/7.",
+    "featurePage.multiPlatform.aiAssistant.feature1.name": "Sentiment Analysis",
+    "featurePage.multiPlatform.aiAssistant.feature1.desc":
+      "Analyze positive/negative sentiment.",
+    "featurePage.multiPlatform.aiAssistant.feature2.name": "Auto-Hide Spam",
+    "featurePage.multiPlatform.aiAssistant.feature2.desc":
+      "Automatically hide comments with bad keywords.",
+    "featurePage.multiPlatform.aiAssistant.userComment":
+      "Do you have size XL? I need it urgently.",
+    "featurePage.multiPlatform.aiAssistant.justNow": "Just now",
+    "featurePage.multiPlatform.aiAssistant.processing": "AI analyzing...",
+    "featurePage.multiPlatform.aiAssistant.botLabel": "AI Bot Reply",
+    "featurePage.multiPlatform.aiAssistant.botReply":
+      "Hello! Yes, we currently have size XL available. Please check your inbox for detailed consultation! ❤️",
+    "featurePage.multiPlatform.aiAssistant.autoSent": "Auto sent • Instantly",
+
+    "featurePage.multiPlatform.howItWorks.title": "Simple workflow",
+    "featurePage.multiPlatform.howItWorks.step1.number": "1",
+    "featurePage.multiPlatform.howItWorks.step1.title": "1. Connect",
+    "featurePage.multiPlatform.howItWorks.step1.desc":
+      "Link your social media accounts.",
+    "featurePage.multiPlatform.howItWorks.step2.number": "2",
+    "featurePage.multiPlatform.howItWorks.step2.title": "2. Set Up",
+    "featurePage.multiPlatform.howItWorks.step2.desc":
+      "Configure reply templates and rules.",
+    "featurePage.multiPlatform.howItWorks.step3.number": "3",
+    "featurePage.multiPlatform.howItWorks.step3.title": "3. Schedule",
+    "featurePage.multiPlatform.howItWorks.step3.desc":
+      "Compose and schedule posts.",
+    "featurePage.multiPlatform.howItWorks.step4.number": "4",
+    "featurePage.multiPlatform.howItWorks.step4.title": "4. Publish",
+    "featurePage.multiPlatform.howItWorks.step4.desc":
+      "System auto-publishes content.",
+    "featurePage.multiPlatform.howItWorks.step5.number": "5",
+    "featurePage.multiPlatform.howItWorks.step5.title": "5. Analyze",
+    "featurePage.multiPlatform.howItWorks.step5.desc":
+      "Track performance and optimize.",
+
+    "featurePage.multiPlatform.useCases.title":
+      "Built for businesses of all sizes",
+    "featurePage.multiPlatform.useCases.1.title": "SME & Startups",
+    "featurePage.multiPlatform.useCases.1.desc":
+      "Save on headcount, focus on core business development.",
+    "featurePage.multiPlatform.useCases.2.title": "Marketing Agencies",
+    "featurePage.multiPlatform.useCases.2.desc":
+      "Manage dozens of clients from one unified account.",
+    "featurePage.multiPlatform.useCases.3.title": "Enterprise Brands",
+    "featurePage.multiPlatform.useCases.3.desc":
+      "Strict approval workflows, enterprise-grade data security.",
+    "featurePage.multiPlatform.useCases.4.title": "E-commerce",
+    "featurePage.multiPlatform.useCases.4.desc":
+      "Close deals quickly from messages, sync inventory (integration).",
+
+    "featurePage.multiPlatform.cta.title.part1": "Ready to grow",
+    "featurePage.multiPlatform.cta.title.highlight": "300%",
+    "featurePage.multiPlatform.cta.title.part2": "engagement?",
+    "featurePage.multiPlatform.cta.subtitle":
+      "Join 10,000+ businesses using Uniksmark to manage social media more effectively every day.",
+    "featurePage.multiPlatform.cta.trial": "Start Free Now",
+    "featurePage.multiPlatform.cta.contact": "Contact Sales",
+
     "featurePage.multiPlatform.metric1.label": "Platforms",
     "featurePage.multiPlatform.metric2.label": "Time Saved",
     "featurePage.multiPlatform.metric3.label": "Auto Reply",
