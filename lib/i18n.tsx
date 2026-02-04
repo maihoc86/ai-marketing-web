@@ -1903,6 +1903,107 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.cta.note": "Không cần thẻ tín dụng cho gói miễn phí.",
 
     // Feature Page - Email
+    "featurePage.email.hero.badge": "Module v2.0 Mới",
+    "featurePage.email.hero.title.part1": "Email Marketing",
+    "featurePage.email.hero.title.part2": "Tự động hóa",
+    "featurePage.email.hero.description":
+      "Hệ thống Chăm sóc Khách hàng Tự động 100%. Xây dựng mối quan hệ tự động với module email cấp doanh nghiệp mở rộng cùng sự phát triển của bạn.",
+    "featurePage.email.hero.cta.demo": "Yêu cầu Demo",
+    "featurePage.email.hero.cta.video": "Xem Cách Hoạt động",
+    "featurePage.email.hero.workflow.status": "Workflow Đang hoạt động",
+    "featurePage.email.hero.workflow.lastRun": "Chạy lần cuối: 2 phút trước",
+    "featurePage.email.hero.workflow.step1": "Email Chào mừng",
+    "featurePage.email.hero.workflow.sent": "Đã gửi",
+    "featurePage.email.hero.workflow.step2": "Chờ 2 Ngày",
+    "featurePage.email.hero.workflow.completed": "Hoàn tất",
+
+    "featurePage.email.benefits.title":
+      "Thúc đẩy tăng trưởng mà không tăng nhân sự",
+    "featurePage.email.benefits.subtitle":
+      "Mở rộng giao tiếp hiệu quả với các công cụ được thiết kế để xử lý hàng triệu tương tác mà không cần giám sát thủ công.",
+    "featurePage.email.benefits.1.name": "Hành trình Hoàn toàn Tự động",
+    "featurePage.email.benefits.1.desc":
+      "Cài đặt và quên đi workflows phản ứng ngay lập tức với hành vi người dùng.",
+    "featurePage.email.benefits.2.name": "Cá nhân hóa theo Quy mô",
+    "featurePage.email.benefits.2.desc":
+      "Chèn nội dung động cho mọi người dùng dựa trên dữ liệu.",
+    "featurePage.email.benefits.3.name": "Tương tác Cao hơn",
+    "featurePage.email.benefits.3.desc":
+      "Thuật toán gửi đúng thời điểm đảm bảo email của bạn đến khi người dùng đang hoạt động.",
+    "featurePage.email.benefits.4.name": "Không Công việc Thủ công",
+    "featurePage.email.benefits.4.desc":
+      "Loại bỏ các tác vụ lặp đi lặp lại và để AI xử lý lập lịch.",
+
+    "featurePage.email.journey.title": "Dòng Thời gian Hành trình Khách hàng",
+    "featurePage.email.journey.subtitle":
+      "Hình dung cách hệ thống của chúng tôi nuôi dưỡng khách hàng tiềm năng từ liên hệ đầu tiên đến người ủng hộ trung thành.",
+    "featurePage.email.journey.viewDocs": "Xem tài liệu đầy đủ",
+    "featurePage.email.journey.step1.name": "Series Chào mừng",
+    "featurePage.email.journey.step1.item1": "Kích hoạt Ngay lập tức",
+    "featurePage.email.journey.step1.item2": "Câu chuyện Thương hiệu",
+    "featurePage.email.journey.step2.name": "Nhắc nhở Thông minh",
+    "featurePage.email.journey.step2.item1": "Chờ 2 Ngày",
+    "featurePage.email.journey.step2.item2": "Lời kêu gọi Hành động",
+    "featurePage.email.journey.step3.name": "Vòng Phản hồi",
+    "featurePage.email.journey.step3.item1": "Sau Mua hàng",
+    "featurePage.email.journey.step3.item2": "Khảo sát NPS",
+    "featurePage.email.journey.step4.name": "Tái Tiếp thị",
+    "featurePage.email.journey.step4.item1": "Thu hồi",
+    "featurePage.email.journey.step4.item2": "Ưu đãi Động",
+
+    "featurePage.email.howItWorks.title": "Cách tự động hóa hoạt động",
+    "featurePage.email.howItWorks.step1.title": "Kết nối CRM của bạn",
+    "featurePage.email.howItWorks.step1.desc":
+      "Tích hợp một cú nhấp chuột với Salesforce, HubSpot, hoặc nguồn API tùy chỉnh để đồng bộ liên hệ ngay lập tức.",
+    "featurePage.email.howItWorks.step2.title": "Xác định Triggers Thông minh",
+    "featurePage.email.howItWorks.step2.desc":
+      "Đặt điều kiện dựa trên hoạt động người dùng, không hoạt động, lịch sử mua hàng, hoặc sự kiện tùy chỉnh.",
+    "featurePage.email.howItWorks.step3.title": "Tự động tạo Nội dung",
+    "featurePage.email.howItWorks.step3.desc":
+      "Sử dụng công cụ template của chúng tôi để điền tên cá nhân, sản phẩm và gợi ý.",
+    "featurePage.email.howItWorks.step4.title": "Theo dõi & Tối ưu",
+    "featurePage.email.howItWorks.step4.desc":
+      "Dashboard phân tích thời gian thực hiển thị tỷ lệ mở, click-through và doanh thu.",
+    "featurePage.email.howItWorks.imageAlt": "Dashboard phân tích dữ liệu",
+    "featurePage.email.howItWorks.badge.title": "Tối ưu Hệ thống Hoàn tất",
+    "featurePage.email.howItWorks.badge.subtitle": "ROI Chiến dịch tăng 24%",
+
+    "featurePage.email.technical.title": "Khả năng Kỹ thuật",
+    "featurePage.email.technical.1.name": "Thiết kế Responsive",
+    "featurePage.email.technical.1.desc":
+      "Templates trông hoàn hảo trên mọi thiết bị tự động.",
+    "featurePage.email.technical.2.name": "Theo dõi Thông minh",
+    "featurePage.email.technical.2.desc":
+      "Khả năng theo dõi mở và click chính xác từng pixel.",
+    "featurePage.email.technical.3.name": "Tích hợp CRM",
+    "featurePage.email.technical.3.desc":
+      "Đồng bộ hai chiều với tất cả các CRM cấp doanh nghiệp chính.",
+    "featurePage.email.technical.4.name": "A/B Testing",
+    "featurePage.email.technical.4.desc":
+      "Test tiêu đề và biến thể nội dung dễ dàng.",
+
+    "featurePage.email.useCases.title":
+      "Được xây dựng cho mọi trường hợp sử dụng",
+    "featurePage.email.useCases.1.badge": "SaaS Onboarding",
+    "featurePage.email.useCases.1.title": "Kích hoạt Người dùng",
+    "featurePage.email.useCases.1.desc":
+      "Hướng dẫn người đăng ký mới qua các tính năng sản phẩm trong 14 ngày đầu tiên để tăng tỷ lệ giữ chân.",
+    "featurePage.email.useCases.2.badge": "E-commerce",
+    "featurePage.email.useCases.2.title": "Giỏ hàng Bị bỏ rơi",
+    "featurePage.email.useCases.2.desc":
+      "Tự động thu hồi doanh số bị mất bằng cách gửi nhắc nhở 1 giờ sau khi giỏ hàng bị bỏ lại.",
+    "featurePage.email.useCases.3.badge": "Gia hạn Dịch vụ",
+    "featurePage.email.useCases.3.title": "Tiết kiệm Subscription",
+    "featurePage.email.useCases.3.desc":
+      "Chủ động thông báo cho khách hàng về ngày hết hạn sắp tới để ngăn churn trước khi xảy ra.",
+
+    "featurePage.email.cta.title":
+      "Biến Mọi Email Thành Kênh Doanh thu Tự động",
+    "featurePage.email.cta.subtitle":
+      "Tham gia 5,000+ doanh nghiệp đang mở rộng mối quan hệ khách hàng với nền tảng của chúng tôi.",
+    "featurePage.email.cta.trial": "Bắt đầu Dùng thử Miễn phí",
+    "featurePage.email.cta.sales": "Nói chuyện với Sales",
+
     "featurePage.email.feature6.name": "Phân khúc thông minh",
     "featurePage.email.feature6.desc":
       "Tự động phân loại khách hàng theo hành vi và tương tác",
@@ -3932,6 +4033,108 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.video.cta.note": "No credit card required for free plan.",
 
     // Feature Page - Email
+    "featurePage.email.hero.badge": "New Module v2.0",
+    "featurePage.email.hero.title.part1": "Email Marketing",
+    "featurePage.email.hero.title.part2": "Automation",
+    "featurePage.email.hero.description":
+      "100% Automated Customer Care System. Build relationships on autopilot with our enterprise-grade email module that scales with your growth.",
+    "featurePage.email.hero.cta.demo": "Request Demo",
+    "featurePage.email.hero.cta.video": "See How It Works",
+    "featurePage.email.hero.workflow.status": "Workflow Active",
+    "featurePage.email.hero.workflow.lastRun": "Last run: 2 mins ago",
+    "featurePage.email.hero.workflow.step1": "Welcome Email",
+    "featurePage.email.hero.workflow.sent": "Sent",
+    "featurePage.email.hero.workflow.step2": "Wait 2 Days",
+    "featurePage.email.hero.workflow.completed": "Completed",
+
+    "featurePage.email.benefits.title":
+      "Drive growth without increasing headcount",
+    "featurePage.email.benefits.subtitle":
+      "Scale your communication effectively with tools designed to handle millions of interactions with zero manual oversight.",
+    "featurePage.email.benefits.1.name": "Fully Automated Journey",
+    "featurePage.email.benefits.1.desc":
+      "Set it and forget it workflows that react to user behavior instantly.",
+    "featurePage.email.benefits.2.name": "Personalized at Scale",
+    "featurePage.email.benefits.2.desc":
+      "Dynamic content injection for every single user based on data.",
+    "featurePage.email.benefits.3.name": "Higher Engagement",
+    "featurePage.email.benefits.3.desc":
+      "Timely delivery algorithms ensure your emails land when users are active.",
+    "featurePage.email.benefits.4.name": "Zero Manual Work",
+    "featurePage.email.benefits.4.desc":
+      "Eliminate repetitive tasks and let the AI handle the scheduling.",
+
+    "featurePage.email.journey.title": "Customer Journey Timeline",
+    "featurePage.email.journey.subtitle":
+      "Visualize how our system nurtures your leads from first contact to loyal advocate.",
+    "featurePage.email.journey.viewDocs": "View full documentation",
+    "featurePage.email.journey.step1.name": "Welcome Series",
+    "featurePage.email.journey.step1.item1": "Instant Trigger",
+    "featurePage.email.journey.step1.item2": "Brand Story",
+    "featurePage.email.journey.step2.name": "Smart Reminders",
+    "featurePage.email.journey.step2.item1": "2 Day Delay",
+    "featurePage.email.journey.step2.item2": "Action Prompt",
+    "featurePage.email.journey.step3.name": "Feedback Loops",
+    "featurePage.email.journey.step3.item1": "Post-Purchase",
+    "featurePage.email.journey.step3.item2": "NPS Survey",
+    "featurePage.email.journey.step4.name": "Re-marketing",
+    "featurePage.email.journey.step4.item1": "Win-back",
+    "featurePage.email.journey.step4.item2": "Dynamic Offer",
+
+    "featurePage.email.howItWorks.title": "How automation works",
+    "featurePage.email.howItWorks.step1.title": "Connect Your CRM",
+    "featurePage.email.howItWorks.step1.desc":
+      "One-click integration with Salesforce, HubSpot, or custom API sources to sync contacts instantly.",
+    "featurePage.email.howItWorks.step2.title": "Define Smart Triggers",
+    "featurePage.email.howItWorks.step2.desc":
+      "Set conditions based on user activity, inactivity, purchase history, or custom events.",
+    "featurePage.email.howItWorks.step3.title": "Auto-generate Content",
+    "featurePage.email.howItWorks.step3.desc":
+      "Use our template engine to populate personalized names, products, and suggestions.",
+    "featurePage.email.howItWorks.step4.title": "Track & Optimize",
+    "featurePage.email.howItWorks.step4.desc":
+      "Real-time analytics dashboard shows you open rates, click-throughs, and revenue attribution.",
+    "featurePage.email.howItWorks.imageAlt":
+      "Data analytics dashboard visualization",
+    "featurePage.email.howItWorks.badge.title": "System Optimization Complete",
+    "featurePage.email.howItWorks.badge.subtitle":
+      "Campaign ROI increased by 24%",
+
+    "featurePage.email.technical.title": "Technical Capabilities",
+    "featurePage.email.technical.1.name": "Responsive Design",
+    "featurePage.email.technical.1.desc":
+      "Templates look perfect on any device automatically.",
+    "featurePage.email.technical.2.name": "Smart Tracking",
+    "featurePage.email.technical.2.desc":
+      "Pixel-perfect open and click tracking capabilities.",
+    "featurePage.email.technical.3.name": "CRM Integration",
+    "featurePage.email.technical.3.desc":
+      "Two-way sync with all major enterprise CRMs.",
+    "featurePage.email.technical.4.name": "A/B Testing",
+    "featurePage.email.technical.4.desc":
+      "Test subject lines and content variants easily.",
+
+    "featurePage.email.useCases.title": "Built for every use case",
+    "featurePage.email.useCases.1.badge": "SaaS Onboarding",
+    "featurePage.email.useCases.1.title": "User Activation",
+    "featurePage.email.useCases.1.desc":
+      "Guide new signups through your product features over their first 14 days to increase retention.",
+    "featurePage.email.useCases.2.badge": "E-commerce",
+    "featurePage.email.useCases.2.title": "Cart Abandonment",
+    "featurePage.email.useCases.2.desc":
+      "Automatically recover lost sales by sending reminders 1 hour after a cart is left behind.",
+    "featurePage.email.useCases.3.badge": "Service Renewals",
+    "featurePage.email.useCases.3.title": "Subscription Saver",
+    "featurePage.email.useCases.3.desc":
+      "Proactively notify customers about upcoming expirations to prevent churn before it happens.",
+
+    "featurePage.email.cta.title":
+      "Turn Every Email Into an Automated Revenue Channel",
+    "featurePage.email.cta.subtitle":
+      "Join 5,000+ enterprise companies scaling their customer relationships with our platform.",
+    "featurePage.email.cta.trial": "Start Your Free Trial",
+    "featurePage.email.cta.sales": "Talk to Sales",
+
     "featurePage.email.feature6.name": "Smart Segmentation",
     "featurePage.email.feature6.desc":
       "Auto-categorize customers by behavior and engagement",
