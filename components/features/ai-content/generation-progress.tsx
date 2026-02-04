@@ -31,7 +31,7 @@ export default function GenerationProgress() {
   return (
     !isLoading && (
       <div className="space-y-2">
-        <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-gray-500">
+        <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
           {t("featurePage.content.demo.freeRemaining", {
             value: displayText || "",
           })}
