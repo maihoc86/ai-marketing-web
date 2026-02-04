@@ -13,6 +13,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   rateLimitsQueryOptions,
   rateLimitsQueryKey,
+  incrementRateLimit,
 } from "@/lib/queries/rate-limits";
 import { loadRecaptchaScript, getRecaptchaToken } from "@/lib/recaptcha";
 
@@ -136,7 +137,14 @@ export function AIContentDemoSection() {
             ].slice(0, 6),
           );
 
-          // Revalidate rate limits after successful generation
+          // Increment rate limit usage after successful generation
+          try {
+            await incrementRateLimit();
+          } catch (err) {
+            console.error("Failed to increment rate limit:", err);
+          }
+
+          // Revalidate rate limits to get updated remaining count
           queryClient.invalidateQueries({ queryKey: rateLimitsQueryKey });
           setActiveHistory(0);
         } else {

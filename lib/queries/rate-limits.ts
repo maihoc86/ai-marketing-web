@@ -32,6 +32,23 @@ export async function getRateLimits(): Promise<RateLimitData> {
   return result.data;
 }
 
+export async function incrementRateLimit(): Promise<void> {
+  // Call Next.js API route to increment rate limit usage
+  const response = await fetch("/api/rate-limits/increment", {
+    method: "POST",
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const result: RateLimitResponse = await response.json();
+
+  if (result.status !== "success") {
+    throw new Error(result.message || "Failed to increment rate limit");
+  }
+}
+
 // React Query options
 export const rateLimitsQueryKey = ["rateLimits", "ai_image_generate"];
 
