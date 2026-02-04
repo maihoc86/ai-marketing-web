@@ -9,12 +9,16 @@ import { useI18n } from "@/lib/i18n";
 import { generateImage } from "@/lib/queries/generate-image";
 import { useInView } from "@/hooks/use-in-view";
 import { buildFinalPrompt } from "@/lib/prompt-builder";
-import { useQuery } from "@tanstack/react-query";
-import { rateLimitsQueryOptions } from "@/lib/queries/rate-limits";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  rateLimitsQueryOptions,
+  rateLimitsQueryKey,
+} from "@/lib/queries/rate-limits";
 
 export function AIContentDemoSection() {
   const { t } = useI18n();
   const { ref, isInView } = useInView();
+  const queryClient = useQueryClient();
   const [activeField, setActiveField] = useState("");
   const [activeRatio, setActiveRatio] = useState("square");
   const [activeHistory, setActiveHistory] = useState(0);
@@ -163,6 +167,9 @@ export function AIContentDemoSection() {
               ...prev,
             ].slice(0, 6),
           );
+
+          // Revalidate rate limits after successful generation
+          queryClient.invalidateQueries({ queryKey: rateLimitsQueryKey });
           setActiveHistory(0);
         } else {
           console.error("Generation error", json);
