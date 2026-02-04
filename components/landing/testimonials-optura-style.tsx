@@ -109,7 +109,7 @@ export function TestimonialsOpturaStyle() {
         </div>
 
         {/* Testimonials carousel */}
-        <div className="relative container mx-auto max-w-5xl">
+        <div className="relative container mx-auto w-full">
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectFade]}
             spaceBetween={30}
@@ -140,7 +140,7 @@ export function TestimonialsOpturaStyle() {
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <div className="glass-card-strong rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div className="glass-card-strong max-w-5xl mx-auto rounded-3xl p-8 md:p-12 relative overflow-hidden">
                   {/* Quote icon */}
                   <div className="absolute top-8 right-8 opacity-10">
                     <Quote className="w-24 h-24 text-blue-600" />
@@ -193,11 +193,11 @@ export function TestimonialsOpturaStyle() {
 
           {/* Custom Navigation Buttons */}
           <button
-            className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 floating-label w-12 h-12 rounded-full flex items-center justify-center hover:shadow-optura transition-all group z-10"
+            className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 floating-label size-12 rounded-full flex items-center justify-center hover:shadow-optura transition-all group z-10"
             aria-label="Previous testimonial"
           >
             <svg
-              className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors"
+              className="size-6 text-gray-700 group-hover:text-blue-600 transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -212,11 +212,11 @@ export function TestimonialsOpturaStyle() {
           </button>
 
           <button
-            className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 floating-label w-12 h-12 rounded-full flex items-center justify-center hover:shadow-optura transition-all group z-10"
+            className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 floating-label size-12 rounded-full flex items-center justify-center hover:shadow-optura transition-all group z-10"
             aria-label="Next testimonial"
           >
             <svg
-              className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors"
+              className="size-6 text-gray-700 group-hover:text-blue-600 transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

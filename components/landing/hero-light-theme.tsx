@@ -457,7 +457,7 @@ export function HeroLightTheme() {
             {/* Key Value Props - Quick Stats */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div className="flex items-start gap-2">
-                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 size-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -478,7 +478,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 size-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -500,7 +500,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 size-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -522,7 +522,7 @@ export function HeroLightTheme() {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <div className="shrink-0 size-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                   <svg
                     className="w-3 h-3 text-green-600"
                     fill="currentColor"
@@ -550,9 +550,9 @@ export function HeroLightTheme() {
               <div className="flex flex-wrap gap-4">
                 <LocaleLink
                   href="/register"
-                  className="bg-primary hover:bg-[#1a9fd8] text-white flex items-center gap-2 group shadow-lg hover:shadow-xl transition-all rounded-full px-6 py-3 font-semibold"
+                  className="btn-primary-light text-white flex items-center gap-2 group transition-all rounded-full px-6 py-3 font-semibold"
                 >
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="size-5" />
                   {t("hero.cta.trial")}
                   <span className="ml-1 transition-transform group-hover:translate-x-1">
                     →
@@ -562,7 +562,7 @@ export function HeroLightTheme() {
                   onClick={() => setIsModalOpen(true)}
                   className="btn-secondary-light flex items-center gap-2 group rounded-full px-6 py-3"
                 >
-                  <Play className="w-5 h-5" />
+                  <Play className="size-5" />
                   {t("hero.cta.demo")}
                 </button>
               </div>
