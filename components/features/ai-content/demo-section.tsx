@@ -14,6 +14,7 @@ import {
   rateLimitsQueryOptions,
   rateLimitsQueryKey,
 } from "@/lib/queries/rate-limits";
+import { loadRecaptchaScript, getRecaptchaToken } from "@/lib/recaptcha";
 
 export function AIContentDemoSection() {
   const { t } = useI18n();
@@ -42,14 +43,7 @@ export function AIContentDemoSection() {
   );
 
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    if (!key) return;
-    if (document.querySelector('script[data-recaptcha="true"]')) return;
-    const s = document.createElement("script");
-    s.src = `https://www.google.com/recaptcha/api.js?render=${key}`;
-    s.async = true;
-    s.setAttribute("data-recaptcha", "true");
-    document.head.appendChild(s);
+    loadRecaptchaScript();
   }, []);
 
   const handleGenerate = async () => {
@@ -113,32 +107,7 @@ export function AIContentDemoSection() {
 
     setIsGenerating(true);
 
-    // If reCAPTCHA site key is configured, obtain a token before sending.
-    const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    const getRecaptchaToken = async () => {
-      if (!RECAPTCHA_SITE_KEY) return null;
-      // wait until grecaptcha is available
-      if (!(window as any).grecaptcha) {
-        await new Promise<void>((resolve) => {
-          const interval = setInterval(() => {
-            if ((window as any).grecaptcha) {
-              clearInterval(interval);
-              resolve();
-            }
-          }, 100);
-        });
-      }
-      try {
-        return await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, {
-          action: "generate",
-        });
-      } catch (err) {
-        return null;
-      }
-    };
-
-    // execute reCAPTCHA if configured
-    const recaptchaToken = await getRecaptchaToken();
+    const recaptchaToken = await getRecaptchaToken("generate");
     if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !recaptchaToken) {
       setUploadError(
         t("featurePage.content.demo.recaptchaFailed") ||
@@ -156,7 +125,6 @@ export function AIContentDemoSection() {
           ratio: activeRatio,
           initImages: uploadedImages ?? [],
           preset: selectedPreset,
-          recaptchaToken: recaptchaToken ?? undefined,
         });
 
         if (json?.image) {
