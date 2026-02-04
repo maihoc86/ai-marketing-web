@@ -64,7 +64,7 @@ export function AIContentComparisonSection() {
         {/* Before/After Comparison Slider */}
         <div
           ref={containerRef}
-          className={`relative aspect-video md:aspect-21/9 rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white cursor-col-resize select-none transition-all duration-700 ${
+          className={`relative aspect-video md:aspect-17/10 rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white cursor-col-resize select-none transition-all duration-700 ${
             isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
           style={{ transitionDelay: "0.2s" }}
@@ -76,12 +76,12 @@ export function AIContentComparisonSection() {
         >
           {/* Standard AI Side (Full Background) */}
           <div className="absolute inset-0">
-            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+            <div className="size-full bg-gray-300 flex items-center justify-center">
               <div className="absolute inset-0 bg-linear-to-br from-gray-300 to-gray-400 opacity-60" />
               <img
-                src="/images/comparison/standard-ai.jpg"
+                src="/images/compare/before.jpeg"
                 alt="Standard AI output"
-                className="w-full h-full object-cover grayscale opacity-50"
+                className="size-full object-cover object-top grayscale opacity-50"
               />
             </div>
             <span className="absolute top-4 left-6 px-3 py-1 bg-black/50 text-white text-xs font-bold rounded-full backdrop-blur-sm uppercase tracking-widest">
@@ -94,11 +94,11 @@ export function AIContentComparisonSection() {
             className="absolute inset-0 overflow-hidden"
             style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
           >
-            <div className="w-full h-full">
+            <div className="size-full">
               <img
-                src="/images/comparison/Uniksmart-pro.jpg"
+                src="/images/compare/after.jpeg"
                 alt="Uniksmart Pro output"
-                className="w-full h-full object-cover"
+                className="size-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-linear-to-r from-[#22b5f8]/10 to-[#008bff]/10" />
             </div>
