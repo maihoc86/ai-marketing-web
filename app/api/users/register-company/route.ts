@@ -117,10 +117,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Phone validation (9-10 digits)
-    const cleanPhone = data.phone_number.replace(/\s/g, "");
-    const phoneRegex = /^(0\d{9}|\d{9})$/;
-    if (!phoneRegex.test(cleanPhone)) {
+    // Phone validation (Vietnam: 0xxxxxxxxx or xxxxxxxxx, US: +1xxxxxxxxxx or 10 digits)
+    const cleanPhone = data.phone_number.replace(/[\s\-().]/g, "");
+
+    // Vietnam format: 0xxxxxxxxx (10 digits) or xxxxxxxxx (9 digits)
+    const vnPhoneRegex = /^(0[3|5|7|8|9]\d{8}|\d{9})$/;
+
+    // US format: +1xxxxxxxxxx, 1xxxxxxxxxx, or xxxxxxxxxx (10 digits)
+    const usPhoneRegex = /^(\+?1)?[2-9]\d{9}$/;
+
+    const isValidPhone =
+      vnPhoneRegex.test(cleanPhone) || usPhoneRegex.test(cleanPhone);
+
+    if (!isValidPhone) {
       return NextResponse.json(
         {
           success: false,
