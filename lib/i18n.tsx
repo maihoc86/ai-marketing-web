@@ -2371,6 +2371,30 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.trial": "Bắt đầu dùng thử miễn phí 14 ngày",
     "featurePage.content.demo.error": "Lỗi khi tải tiến trình tạo ảnh",
     "featurePage.content.cta.button": "Tạo nội dung của riêng bạn",
+
+    // Registration Success
+    "registration.skipLink": "Bỏ qua đến nội dung chính",
+    "registration.successIcon": "Biểu tượng thành công",
+    "registration.successTitle": "Đăng ký thành công!",
+    "registration.successMessage":
+      "Cảm ơn bạn đã quan tâm đến Uniksmart. Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.",
+    "registration.loginLabel": "Đăng nhập vào hệ thống",
+    "registration.loginButton": "Đăng nhập ngay",
+    "registration.registerAnotherLabel": "Đăng ký người khác",
+    "registration.registerAnotherButton": "Đăng ký tài khoản khác",
+    "registration.backToHome": "Quay về trang chủ",
+    "registration.form.jobPosition.cmo": "CMO",
+    "registration.form.jobPosition.growthHacker": "Growth Hacker",
+    "registration.form.submit.processing": "Đang xử lý...",
+
+    // Features Table
+    "features.table.mainFeatures": "Tính năng chính",
+    "features.table.featureName": "Tên tính năng",
+    "features.table.description": "Mô tả",
+    "features.table.performance": "Hiệu suất",
+    "features.table.metric": "Chỉ số",
+    "features.table.value": "Giá trị",
+    "features.table.note": "Ghi chú",
   },
   en: {
     "featurePage.content.demo.error": "Error loading image generation progress",
