@@ -6,10 +6,10 @@ import {
   Building2,
   GraduationCap,
   Heart,
+  ArrowDown,
   ArrowRight,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { Button } from "@/components/ui/button";
 import { LocaleLink } from "@/components/locale-link";
 
 export function ChatbotIndustriesSection() {
@@ -103,20 +103,22 @@ export function ChatbotIndustriesSection() {
     industryContent[currentIndustry.id as keyof typeof industryContent];
 
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
-      <div className="container mx-auto">
+    <section className="bg-slate-50 py-16 md:py-24">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-black mb-4">
-            {t("featurePage.chatbot.industries.heading")}
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            <span className="gradient-underline">
+              {t("featurePage.chatbot.industries.heading")}
+            </span>
           </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg font-light">
+            {t("featurePage.chatbot.industries.description")}
+          </p>
         </div>
 
         {/* Industry Tabs */}
-        <div
-          className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in"
-          style={{ animationDelay: "0.1s" }}
-        >
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             const isActive = activeTab === index;
@@ -125,104 +127,175 @@ export function ChatbotIndustriesSection() {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all flex items-center gap-2 ${
+                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
                   isActive
-                    ? "bg-primary text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                    ? "bg-primary text-white shadow-glow transform -translate-y-1"
+                    : "bg-white border border-gray-200 text-slate-600 hover:text-primary hover:border-primary/30 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
                 }`}
               >
                 <Icon className="w-4 h-4" />
-                {industry.name}
+                <span>{industry.name}</span>
               </button>
             );
           })}
         </div>
 
         {/* Content Area */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Use Case */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {/* Left: Glass Panel - Use Case */}
           <div
-            className="animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
+            className="glass-panel rounded-3xl p-8 lg:p-10 shadow-glass flex flex-col h-full relative overflow-hidden group"
             key={currentIndustry.id}
           >
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider mb-4 block">
+            {/* Background Glow */}
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500" />
+
+            <div className="relative z-10 mb-8">
+              <h3 className="text-sm font-bold tracking-widest text-primary uppercase mb-1">
                 {t("featurePage.chatbot.industries.commonQuery")}
-              </span>
-              <p className="text-lg italic text-gray-700 mb-6 leading-relaxed">
-                &quot;{currentContent.query}&quot;
+              </h3>
+              <p className="text-2xl font-semibold text-slate-900">
+                {t("featurePage.chatbot.industries.heading")}
               </p>
+            </div>
 
-              <div className="h-px bg-gray-200 my-6" />
+            <div className="flex-grow space-y-6">
+              {/* Query Bubble */}
+              <div className="bg-white border border-gray-100 p-5 rounded-2xl rounded-tl-none shadow-sm max-w-md animate-fade-in-up">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
+                    {t("featurePage.chatbot.industries.commonQuery")}
+                  </span>
+                </div>
+                <p className="text-lg font-medium italic text-slate-900">
+                  &quot;{currentContent.query}&quot;
+                </p>
+              </div>
 
-              <span className="text-xs font-bold text-green-600 uppercase tracking-wider mb-4 block">
-                {t("featurePage.chatbot.industries.aiResponse")}
-              </span>
-              <p className="text-gray-600 leading-relaxed">
-                {currentContent.response}
-              </p>
+              {/* Arrow Indicator */}
+              <div className="pl-8 text-gray-300">
+                <ArrowDown className="w-5 h-5" />
+              </div>
+
+              {/* Response Bubble */}
+              <div className="bg-blue-50 border border-blue-100 p-5 rounded-2xl rounded-br-none shadow-sm ml-auto max-w-md">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded uppercase">
+                    {t("featurePage.chatbot.industries.aiResponse")}
+                  </span>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  {currentContent.response}
+                  <span className="typing-cursor text-primary" />
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Right: Stats & CTA */}
+          {/* Right: Stats Panel */}
           <div
-            className="animate-fade-in"
-            style={{ animationDelay: "0.3s" }}
+            className="bg-blue-50/50 border border-blue-100 rounded-3xl p-8 lg:p-10 shadow-glass flex flex-col h-full relative"
             key={`${currentIndustry.id}-stats`}
           >
-            <div className="bg-linear-to-br from-white shadow-lg border border-primary to-[#f3f7fb] rounded-2xl p-8 text-gray-900">
-              <h3 className="text-2xl font-black mb-8">
+            <div className="absolute inset-0 border border-primary/20 rounded-3xl pointer-events-none" />
+
+            <div className="mb-10">
+              <h3 className="text-3xl font-bold text-slate-900 mb-8">
                 {t("featurePage.chatbot.industries.readyBoost")}
               </h3>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-8">
                 {currentContent.stats.map((stat, idx) => (
-                  <div key={idx} className="text-center">
-                    <div className="text-4xl font-black text-[#22b5f8] mb-2">
+                  <div
+                    key={idx}
+                    className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 transition-transform hover:scale-105 duration-300"
+                    style={{ transitionDelay: idx === 1 ? "75ms" : "0ms" }}
+                  >
+                    <div className="text-5xl font-black text-primary mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-500 uppercase tracking-wide">
+                    <div className="text-xs font-bold tracking-widest text-slate-600 uppercase">
                       {stat.label}
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              <p className="text-gray-600 mb-6 leading-relaxed">
+            <div className="mt-auto">
+              <p className="text-slate-600 mb-8 text-lg leading-relaxed">
                 {t("featurePage.chatbot.industries.description")}
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  className="bg-primary hover:bg-primary-hover text-white font-bold rounded-full"
-                  asChild
-                >
-                  <LocaleLink href="/register">
+                <LocaleLink href="/register" className="flex-1">
+                  <button className="w-full bg-primary hover:bg-sky-400 text-white font-semibold py-3.5 px-8 rounded-full shadow-lg shadow-blue-500/30 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
                     {t("featurePage.chatbot.industries.cta.start")}
-                  </LocaleLink>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-2 border-gray-200 text-gray-700 hover:bg-gray-100 font-semibold rounded-full bg-transparent"
-                  asChild
-                >
-                  <LocaleLink href="/#features">
+                  </button>
+                </LocaleLink>
+                <LocaleLink href="/#features" className="flex-1">
+                  <button className="w-full group bg-transparent hover:bg-white text-slate-900 font-medium py-3.5 px-8 rounded-full border border-gray-200 hover:border-transparent hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2">
                     {t("featurePage.chatbot.industries.cta.view")}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </LocaleLink>
-                </Button>
+                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </LocaleLink>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Animation Styles */}
+      {/* Global Styles */}
       <style jsx global>{`
-        @keyframes fade-in {
+        .gradient-underline {
+          position: relative;
+          display: inline-block;
+        }
+        .gradient-underline::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, #22b5f8 0%, #a855f7 100%);
+          border-radius: 2px;
+          opacity: 0.7;
+        }
+
+        .typing-cursor::after {
+          content: "|";
+          animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+
+        .glass-panel {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .shadow-glow {
+          box-shadow: 0 0 20px -5px rgba(34, 181, 248, 0.4);
+        }
+
+        .shadow-glass {
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        @keyframes fade-in-up {
           from {
             opacity: 0;
             transform: translateY(10px);
@@ -233,9 +306,8 @@ export function ChatbotIndustriesSection() {
           }
         }
 
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
-          opacity: 0;
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out forwards;
         }
       `}</style>
     </section>

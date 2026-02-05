@@ -5,8 +5,8 @@ export async function generateImageWithGemini(opts: {
   // support multiple init images (data URLs)
   initImages?: string[] | undefined;
 }) {
-  const key = process.env.GEMINI_API_KEY;
-  if (!key) throw new Error("GEMINI_API_KEY not configured");
+  const key = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  if (!key) throw new Error("NEXT_PUBLIC_GEMINI_API_KEY not configured");
 
   const { prompt, style, ratio } = opts;
   const size =
@@ -87,10 +87,9 @@ export async function generateImageWithGemini(opts: {
   };
 
   if (isGenerateContent) {
-    // prefer GEMINI_API_KEY env var name for clarity, fall back to GEMINI_API_KEY
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY;
-    if (!apiKey)
-      throw new Error("GEMINI_API_KEY (or GEMINI_API_KEY) not configured");
+    // prefer NEXT_PUBLIC_GEMINI_API_KEY env var name for clarity
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    if (!apiKey) throw new Error("NEXT_PUBLIC_GEMINI_API_KEY not configured");
     headers["x-goog-api-key"] = apiKey;
   } else {
     headers["Authorization"] = `Bearer ${key}`;
@@ -107,7 +106,7 @@ export async function generateImageWithGemini(opts: {
     if (res.status === 404) {
       throw new Error(
         `Gemini image generation failed: ${res.status} ${text}\n` +
-          `Received 404 — the endpoint URL may be incorrect. Set the GEMINI_URL environment variable to your provider's image endpoint (for example, the correct Google Generative API image endpoint) and ensure the API key in GEMINI_API_KEY (or GEMINI_API_KEY) is valid.`,
+          `Received 404 — the endpoint URL may be incorrect. Set the GEMINI_URL environment variable to your provider's image endpoint (for example, the correct Google Generative API image endpoint) and ensure the API key in NEXT_PUBLIC_GEMINI_API_KEY is valid.`,
       );
     }
     throw new Error(`Gemini image generation failed: ${res.status} ${text}`);
