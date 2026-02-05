@@ -108,23 +108,15 @@ export function AIContentDemoSection() {
 
     setIsGenerating(true);
 
-    // Skip reCAPTCHA in development environment
-    const isDevelopment = process.env.NODE_ENV === "development";
-    const recaptchaToken = !isDevelopment
-      ? await getRecaptchaToken("generate")
-      : null;
-    if (
-      !isDevelopment &&
-      process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY &&
-      !recaptchaToken
-    ) {
-      setUploadError(
-        t("featurePage.content.demo.recaptchaFailed") ||
-          "reCAPTCHA verification failed. Please try again.",
-      );
-      setIsGenerating(false);
-      return;
-    }
+    // const recaptchaToken = await getRecaptchaToken("generate");
+    // if (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && !recaptchaToken) {
+    //   setUploadError(
+    //     t("featurePage.content.demo.recaptchaFailed") ||
+    //       "reCAPTCHA verification failed. Please try again.",
+    //   );
+    //   setIsGenerating(false);
+    //   return;
+    // }
 
     try {
       try {

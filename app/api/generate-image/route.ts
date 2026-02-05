@@ -166,67 +166,67 @@ export async function POST(request: Request) {
     // Production: MANDATORY - Client must send token
     // Development: OPTIONAL - For easier local testing
     // =========================================================================
-    const isProduction = process.env.NODE_ENV === "production";
-    const RECAPTCHA_SECRET = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
+    // const isProduction = process.env.NODE_ENV === "production";
+    // const RECAPTCHA_SECRET = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
 
-    if (isProduction) {
-      // Production: Warn if server not configured
-      if (!RECAPTCHA_SECRET) {
-        console.warn(
-          "[SECURITY] NEXT_PUBLIC_RECAPTCHA_SECRET_KEY not configured in production",
-        );
-      }
+    // if (isProduction) {
+    //   // Production: Warn if server not configured
+    //   if (!RECAPTCHA_SECRET) {
+    //     console.warn(
+    //       "[SECURITY] NEXT_PUBLIC_RECAPTCHA_SECRET_KEY not configured in production",
+    //     );
+    //   }
 
-      // Production: REQUIRE client to send reCAPTCHA token
-      if (!recaptchaToken) {
-        return NextResponse.json(
-          { error: "reCAPTCHA verification required" },
-          { status: 403 },
-        );
-      }
-    }
+    //   // Production: REQUIRE client to send reCAPTCHA token
+    //   if (!recaptchaToken) {
+    //     return NextResponse.json(
+    //       { error: "reCAPTCHA verification required" },
+    //       { status: 403 },
+    //     );
+    //   }
+    // }
 
     // Verify token if provided (production: required, development: optional)
-    if (recaptchaToken && RECAPTCHA_SECRET) {
-      try {
-        const params = new URLSearchParams();
-        params.append("secret", RECAPTCHA_SECRET);
-        params.append("response", String(recaptchaToken));
+    // if (recaptchaToken && RECAPTCHA_SECRET) {
+    //   try {
+    //     const params = new URLSearchParams();
+    //     params.append("secret", RECAPTCHA_SECRET);
+    //     params.append("response", String(recaptchaToken));
 
-        const verifyRes = await fetch(
-          "https://www.google.com/recaptcha/api/siteverify",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: params.toString(),
-          },
-        );
-        const verifyJson = await verifyRes.json();
-        const success = verifyJson?.success;
-        const score = verifyJson?.score;
+    //     const verifyRes = await fetch(
+    //       "https://www.google.com/recaptcha/api/siteverify",
+    //       {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: params.toString(),
+    //       },
+    //     );
+    //     const verifyJson = await verifyRes.json();
+    //     const success = verifyJson?.success;
+    //     const score = verifyJson?.score;
 
-        if (!success || (typeof score === "number" && score < 0.3)) {
-          return NextResponse.json(
-            { error: "reCAPTCHA verification failed" },
-            { status: 403 },
-          );
-        }
-      } catch {
-        return NextResponse.json(
-          { error: "reCAPTCHA verification error" },
-          { status: 500 },
-        );
-      }
-    } else if (isProduction && recaptchaToken && !RECAPTCHA_SECRET) {
-      // Production: Client sent token but server can't verify (missing secret)
-      console.error(
-        "[SECURITY] Cannot verify reCAPTCHA - NEXT_PUBLIC_RECAPTCHA_SECRET_KEY missing",
-      );
-      return NextResponse.json(
-        { error: "Server configuration error" },
-        { status: 500 },
-      );
-    }
+    //     if (!success || (typeof score === "number" && score < 0.3)) {
+    //       return NextResponse.json(
+    //         { error: "reCAPTCHA verification failed" },
+    //         { status: 403 },
+    //       );
+    //     }
+    //   } catch {
+    //     return NextResponse.json(
+    //       { error: "reCAPTCHA verification error" },
+    //       { status: 500 },
+    //     );
+    //   }
+    // } else if (isProduction && recaptchaToken && !RECAPTCHA_SECRET) {
+    //   // Production: Client sent token but server can't verify (missing secret)
+    //   console.error(
+    //     "[SECURITY] Cannot verify reCAPTCHA - NEXT_PUBLIC_RECAPTCHA_SECRET_KEY missing",
+    //   );
+    //   return NextResponse.json(
+    //     { error: "Server configuration error" },
+    //     { status: 500 },
+    //   );
+    // }
 
     const imageDataUrl = await generateImageWithGemini({
       prompt,
