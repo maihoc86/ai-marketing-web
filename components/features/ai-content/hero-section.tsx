@@ -87,24 +87,27 @@ export function AIContentHeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div
+              className="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-in"
+              style={{ animationDelay: "0.4s" }}
+            >
               <Button
                 size="lg"
-                className="w-40 py-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                className="btn-primary-light w-40 rounded-full"
                 asChild
               >
-                <LocaleLink href="/features/content#demo-generator">
-                  {t("featurePage.content.cta.generate")}
-                  <Zap className="size-5" />
+                <LocaleLink href="/register">
+                  <Sparkles className="size-5 mr-2" />
+                  {t("featurePage.tryFree")}
                 </LocaleLink>
               </Button>
+
               {/* <Button
                 size="lg"
                 variant="outline"
-                className="px-10 py-5 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
+                className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all"
               >
-                {t("featurePage.content.cta.viewGallery")}
-                <ImageIcon className="w-5 h-5" />
+                {t("featurePage.chatbot.cta.watchDemo")}
               </Button> */}
             </div>
           </div>

@@ -671,12 +671,12 @@
 /* Button Styles - UNIKSMART Brand */
 @layer components {
   .btn-primary-light {
-    background: var(--primary);
-    color: white;
+    background: var(--primary) !important;
+    color: white !important;
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
     font-weight: bold !important;
-    box-shadow: 0 0 10px var(--primary);
+    box-shadow: 0 0 10px var(--primary) !important;
     transition: all 0.3s ease;
   }
 
