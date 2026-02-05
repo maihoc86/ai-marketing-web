@@ -1360,19 +1360,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.live.addon2.price": "$15.00",
 
     // Feature Page - Chatbot Steps
-    "featurePage.chatbot.steps.heading": "Bắt Đầu Với 3 Bước Đơn Giản",
+    "featurePage.chatbot.steps.heading": "Bắt Đầu Với",
+    "featurePage.chatbot.steps.headingHighlight": "3 Bước Đơn Giản",
     "featurePage.chatbot.steps.subheading":
       "Nền tảng của chúng tôi được thiết kế để triển khai nhanh chóng mà không làm giảm độ sâu.",
     "featurePage.chatbot.steps.badge": "Thời gian thiết lập tổng: Dưới 1 giờ",
     "featurePage.chatbot.steps.step1.title": "Huấn Luyện",
     "featurePage.chatbot.steps.step1.desc":
-      "Kết nối trung tâm trợ giúp, tài liệu hoặc URL trang web của bạn. AI của chúng tôi lập chỉ mục dữ liệu của bạn trong vài phút.",
+      "Kết nối trung tâm trợ giúp, tài liệu hoặc URL trang web của bạn. AI của chúng tôi lập chỉ mục dữ liệu của bạn trong vài phút, xây dựng cơ sở kiến thức toàn diện tự động.",
+    "featurePage.chatbot.steps.step1.link": "Tìm hiểu về thu thập dữ liệu",
     "featurePage.chatbot.steps.step2.title": "Tùy Chỉnh",
     "featurePage.chatbot.steps.step2.desc":
-      "Xác định giọng điệu thương hiệu, cá tính và quy tắc xử lý. Thiết kế giao diện để phù hợp hoàn hảo với thương hiệu của bạn.",
+      "Xác định giọng điệu thương hiệu, cá tính và quy tắc xử lý. Thiết kế giao diện để phù hợp hoàn hảo với thương hiệu của bạn bằng trình chỉnh sửa trực quan với xem trước theo thời gian thực.",
+    "featurePage.chatbot.steps.step2.link": "Khám phá tùy chỉnh",
     "featurePage.chatbot.steps.step3.title": "Triển Khai",
     "featurePage.chatbot.steps.step3.desc":
-      "Thêm một dòng mã vào trang web của bạn hoặc kết nối qua API để bắt đầu giải quyết các yêu cầu ngay lập tức.",
+      "Thêm một dòng mã vào trang web của bạn hoặc kết nối qua API để bắt đầu giải quyết các yêu cầu ngay lập tức. Xem khối lượng hỗ trợ giảm ngay lập tức.",
+    "featurePage.chatbot.steps.step3.link": "Xem hướng dẫn tích hợp",
 
     // Feature Page - Chatbot Industries
     "featurePage.chatbot.industries.heading": "Xây Dựng Cho Mọi Ngành",
@@ -3762,19 +3766,23 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.live.addon2.price": "$15.00",
 
     // Feature Page - Chatbot Steps
-    "featurePage.chatbot.steps.heading": "Get Started in 3 Simple Steps",
+    "featurePage.chatbot.steps.heading": "Get Started in",
+    "featurePage.chatbot.steps.headingHighlight": "3 Simple Steps",
     "featurePage.chatbot.steps.subheading":
       "Our platform is designed for rapid deployment without sacrificing depth.",
     "featurePage.chatbot.steps.badge": "Total setup time: Under 1 hour",
     "featurePage.chatbot.steps.step1.title": "Train",
     "featurePage.chatbot.steps.step1.desc":
-      "Connect your help center, docs, or website URL. Our AI indexes your data in minutes.",
+      "Connect your help center, docs, or website URL. Our AI indexes your data in minutes, building a comprehensive knowledge base automatically.",
+    "featurePage.chatbot.steps.step1.link": "Learn about ingestion",
     "featurePage.chatbot.steps.step2.title": "Customize",
     "featurePage.chatbot.steps.step2.desc":
-      "Define brand voice, persona, and handoff rules. Design the UI to match your brand perfectly.",
+      "Define brand voice, persona, and handoff rules. Design the UI to match your brand perfectly using our visual editor with real-time preview.",
+    "featurePage.chatbot.steps.step2.link": "Explore customization",
     "featurePage.chatbot.steps.step3.title": "Deploy",
     "featurePage.chatbot.steps.step3.desc":
-      "Add a single line of code to your site or connect via API to start resolving tickets instantly.",
+      "Add a single line of code to your site or connect via API to start resolving tickets instantly. Watch as support volume drops immediately.",
+    "featurePage.chatbot.steps.step3.link": "View integration guide",
 
     // Feature Page - Chatbot Industries
     "featurePage.chatbot.industries.heading": "Built for Every Industry",
