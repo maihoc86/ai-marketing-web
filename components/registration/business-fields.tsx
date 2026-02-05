@@ -42,7 +42,7 @@ export function BusinessFields({
             id="company_name"
             name="company_name"
             type="text"
-            value={formData.company_name}
+            value={formData.company_name || ""}
             onChange={onInputChange}
             placeholder={t("registration.form.company.namePlaceholder")}
             className={`w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all ${errors.company_name ? "border-red-500" : "border-gray-200"}`}
@@ -70,7 +70,7 @@ export function BusinessFields({
             id="tax_code"
             name="tax_code"
             type="text"
-            value={formData.tax_code}
+            value={formData.tax_code || ""}
             onChange={onInputChange}
             placeholder={t("registration.form.company.taxCodePlaceholder")}
             className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all"
@@ -99,7 +99,7 @@ export function BusinessFields({
           id="address"
           name="address"
           type="text"
-          value={formData.address}
+          value={formData.address || ""}
           onChange={onInputChange}
           placeholder={t("registration.form.company.addressPlaceholder")}
           className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#22b5f8] focus:border-primary outline-none transition-all"
