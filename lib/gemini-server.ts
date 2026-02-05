@@ -51,7 +51,8 @@ export async function generateImageWithGemini(opts: {
   }
 
   // If GEMINI_URL is provided, use it. Otherwise default to the v1beta generateContent URL
-  const model = process.env.GEMINI_MODEL || "gemini-2.5-flash-image";
+  const model =
+    process.env.NEXT_PUBLIC_GEMINI_MODEL || "gemini-2.5-flash-image";
   const defaultUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
   const url = process.env.GEMINI_URL || defaultUrl;
 

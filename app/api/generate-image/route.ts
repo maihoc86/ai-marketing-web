@@ -22,9 +22,11 @@ function getClientIP(request: Request): string {
   if (forwardedFor) {
     return forwardedFor.split(",")[0].trim();
   }
-  return request.headers.get("x-real-ip") ||
-         request.headers.get("cf-connecting-ip") ||
-         "unknown";
+  return (
+    request.headers.get("x-real-ip") ||
+    request.headers.get("cf-connecting-ip") ||
+    "unknown"
+  );
 }
 
 function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
@@ -39,10 +41,15 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
 
   // Refill tokens based on elapsed time
   const elapsed = now - entry.lastRefill;
-  const tokensToAdd = Math.floor(elapsed / RATE_LIMIT_CONFIG.refillIntervalMs) * RATE_LIMIT_CONFIG.refillRate;
+  const tokensToAdd =
+    Math.floor(elapsed / RATE_LIMIT_CONFIG.refillIntervalMs) *
+    RATE_LIMIT_CONFIG.refillRate;
 
   if (tokensToAdd > 0) {
-    entry.tokens = Math.min(RATE_LIMIT_CONFIG.maxTokens, entry.tokens + tokensToAdd);
+    entry.tokens = Math.min(
+      RATE_LIMIT_CONFIG.maxTokens,
+      entry.tokens + tokensToAdd,
+    );
     entry.lastRefill = now;
   }
 
@@ -84,7 +91,7 @@ function validateOrigin(request: Request): boolean {
     allowedOrigins.push(
       "http://localhost:3000",
       "http://localhost:3001",
-      "http://127.0.0.1:3000"
+      "http://127.0.0.1:3000",
     );
   }
 
@@ -122,7 +129,7 @@ export async function POST(request: Request) {
     if (!validateOrigin(request)) {
       return NextResponse.json(
         { error: "Invalid request origin" },
-        { status: 403 }
+        { status: 403 },
       );
     }
 
@@ -138,9 +145,11 @@ export async function POST(request: Request) {
           headers: {
             "X-RateLimit-Limit": String(RATE_LIMIT_CONFIG.maxTokens),
             "X-RateLimit-Remaining": "0",
-            "Retry-After": String(Math.ceil(RATE_LIMIT_CONFIG.refillIntervalMs / 1000)),
-          }
-        }
+            "Retry-After": String(
+              Math.ceil(RATE_LIMIT_CONFIG.refillIntervalMs / 1000),
+            ),
+          },
+        },
       );
     }
 
@@ -158,19 +167,21 @@ export async function POST(request: Request) {
     // Development: OPTIONAL - For easier local testing
     // =========================================================================
     const isProduction = process.env.NODE_ENV === "production";
-    const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY;
+    const RECAPTCHA_SECRET = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
 
     if (isProduction) {
       // Production: Warn if server not configured
       if (!RECAPTCHA_SECRET) {
-        console.warn("[SECURITY] RECAPTCHA_SECRET_KEY not configured in production");
+        console.warn(
+          "[SECURITY] NEXT_PUBLIC_RECAPTCHA_SECRET_KEY not configured in production",
+        );
       }
 
       // Production: REQUIRE client to send reCAPTCHA token
       if (!recaptchaToken) {
         return NextResponse.json(
           { error: "reCAPTCHA verification required" },
-          { status: 403 }
+          { status: 403 },
         );
       }
     }
@@ -208,10 +219,12 @@ export async function POST(request: Request) {
       }
     } else if (isProduction && recaptchaToken && !RECAPTCHA_SECRET) {
       // Production: Client sent token but server can't verify (missing secret)
-      console.error("[SECURITY] Cannot verify reCAPTCHA - RECAPTCHA_SECRET_KEY missing");
+      console.error(
+        "[SECURITY] Cannot verify reCAPTCHA - NEXT_PUBLIC_RECAPTCHA_SECRET_KEY missing",
+      );
       return NextResponse.json(
         { error: "Server configuration error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -233,14 +246,11 @@ export async function POST(request: Request) {
         headers: {
           "X-RateLimit-Limit": String(RATE_LIMIT_CONFIG.maxTokens),
           "X-RateLimit-Remaining": String(rateLimit.remaining),
-        }
-      }
+        },
+      },
     );
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
-    return NextResponse.json(
-      { error: message },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

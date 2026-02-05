@@ -1357,9 +1357,9 @@ interface RateLimitEntry {
 
 const rateLimitStore = new Map<string, RateLimitEntry>();
 const RATE_LIMIT_CONFIG = {
-  maxTokens: 5,           // Max requests
-  refillRate: 1,          // Tokens added per interval
-  refillIntervalMs: 12000 // 1 token per 12 seconds
+  maxTokens: 5, // Max requests
+  refillRate: 1, // Tokens added per interval
+  refillIntervalMs: 12000, // 1 token per 12 seconds
 };
 
 function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
@@ -1371,7 +1371,7 @@ const rateLimit = checkRateLimit(clientIP);
 if (!rateLimit.allowed) {
   return NextResponse.json(
     { error: "Too many requests" },
-    { status: 429, headers: { "Retry-After": "12" } }
+    { status: 429, headers: { "Retry-After": "12" } },
   );
 }
 ```
@@ -1424,16 +1424,22 @@ const isProduction = process.env.NODE_ENV === "production";
 if (isProduction && !recaptchaToken) {
   return NextResponse.json(
     { error: "reCAPTCHA verification required" },
-    { status: 403 }
+    { status: 403 },
   );
 }
 
 // Verify with Google
 if (recaptchaToken && RECAPTCHA_SECRET) {
-  const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-    method: "POST",
-    body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: recaptchaToken })
-  });
+  const verifyRes = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      body: new URLSearchParams({
+        secret: RECAPTCHA_SECRET,
+        response: recaptchaToken,
+      }),
+    },
+  );
   const { success, score } = await verifyRes.json();
 
   if (!success || score < 0.3) {
@@ -1447,18 +1453,18 @@ if (recaptchaToken && RECAPTCHA_SECRET) {
 ```typescript
 // ❌ INCORRECT: Logging PII
 console.log("Registration:", {
-  name: data.name,        // PII!
-  email: data.email,      // PII!
-  phone: data.phone,      // PII!
+  name: data.name, // PII!
+  email: data.email, // PII!
+  phone: data.phone, // PII!
 });
 
 // ✅ CORRECT: Log only metadata
 console.log("[Registration] Request:", {
-  registration_type: data.registration_type,  // OK - not PII
-  position: data.position,                     // OK - job title
-  has_email: Boolean(data.email),             // OK - boolean only
-  has_phone: Boolean(data.phone_number),      // OK - boolean only
-  has_company: Boolean(data.company_name),    // OK - boolean only
+  registration_type: data.registration_type, // OK - not PII
+  position: data.position, // OK - job title
+  has_email: Boolean(data.email), // OK - boolean only
+  has_phone: Boolean(data.phone_number), // OK - boolean only
+  has_company: Boolean(data.company_name), // OK - boolean only
 });
 ```
 
@@ -1466,7 +1472,7 @@ console.log("[Registration] Request:", {
 
 ```bash
 # ✅ CORRECT: .env.local (never commit)
-RECAPTCHA_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_RECAPTCHA_SECRET_KEY=your_secret_key
 GEMINI_API_KEY=your_api_key
 NEXT_PUBLIC_APP_URL=https://uniksmart.ai
 
@@ -1476,20 +1482,20 @@ const API_KEY = "sk-1234567890";  // Never do this!
 
 ### Security Issues Resolved (2026-02-03)
 
-| Issue | Severity | File | Status |
-|-------|----------|------|--------|
-| No server-side rate limiting | 🔴 Critical | `api/generate-image/route.ts` | ✅ Fixed |
-| reCAPTCHA optional in production | 🔴 Critical | `api/generate-image/route.ts` | ✅ Fixed |
-| PII logged to console | 🔴 Critical | `api/users/register-company/route.ts` | ✅ Fixed |
-| No CSRF protection | 🟠 Medium | Both API routes | ✅ Fixed |
+| Issue                            | Severity    | File                                  | Status   |
+| -------------------------------- | ----------- | ------------------------------------- | -------- |
+| No server-side rate limiting     | 🔴 Critical | `api/generate-image/route.ts`         | ✅ Fixed |
+| reCAPTCHA optional in production | 🔴 Critical | `api/generate-image/route.ts`         | ✅ Fixed |
+| PII logged to console            | 🔴 Critical | `api/users/register-company/route.ts` | ✅ Fixed |
+| No CSRF protection               | 🟠 Medium   | Both API routes                       | ✅ Fixed |
 
 ### Pending Security Items
 
-| Issue | Severity | Description |
-|-------|----------|-------------|
+| Issue            | Severity  | Description                           |
+| ---------------- | --------- | ------------------------------------- |
 | Prompt injection | 🟠 Medium | Add input sanitization for AI prompts |
-| Image validation | 🟠 Medium | Validate uploaded image data URLs |
-| Hardcoded URLs | 🟡 Low | Move backend URLs to env variables |
+| Image validation | 🟠 Medium | Validate uploaded image data URLs     |
+| Hardcoded URLs   | 🟡 Low    | Move backend URLs to env variables    |
 
 ---
 
