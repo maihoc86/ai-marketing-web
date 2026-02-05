@@ -39,7 +39,7 @@ export interface RegistrationFormErrors {
  * Password Strength Levels
  */
 export type PasswordStrength = "weak" | "medium" | "strong" | "very_strong";
-export type PackageType = "professional" | "business";
+export type PackageType = "starter" | "business";
 /**
  * Hook Configuration
  */
@@ -138,7 +138,7 @@ function calculatePasswordStrength(password: string): PasswordStrength {
 export function useRegistrationForm(
   config: UseRegistrationFormConfig = {},
 ): UseRegistrationFormReturn {
-  const { initialPackage = "professional", onSuccess, onError } = config;
+  const { initialPackage = "starter", onSuccess, onError } = config;
 
   // Form State
   const [formData, setFormData] = useState<RegistrationFormData>({

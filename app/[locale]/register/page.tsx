@@ -16,7 +16,7 @@ import { useI18n } from "@/lib/i18n";
 function RegisterFormContent() {
   const { t } = useI18n();
   const searchParams = useSearchParams();
-  const packageFromUrl = searchParams.get("package") || "professional";
+  const packageFromUrl = searchParams.get("package") || "starter";
 
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
 

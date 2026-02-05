@@ -54,7 +54,7 @@ export const jobPositions = [
 
 export const packageOptions = [
   {
-    id: "professional",
+    id: "starter",
     labelKey: "form.package.startup.name",
     priceKey: "form.package.startup.price",
     popular: false,

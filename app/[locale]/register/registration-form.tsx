@@ -81,7 +81,7 @@ export function RegistrationForm({
             <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <PackageOption
-                  id="professional"
+                  id="starter"
                   selected={formData.selected_package}
                   onSelect={onPackageSelect}
                   titleKey="registration.form.package.starter"
@@ -112,6 +112,7 @@ export function RegistrationForm({
               )}
 
               <BusinessFields
+                selectedPackage={formData.selected_package}
                 formData={formData}
                 errors={errors}
                 onInputChange={onInputChange}

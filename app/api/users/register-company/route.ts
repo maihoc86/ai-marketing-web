@@ -31,7 +31,7 @@ function validateOrigin(request: NextRequest): boolean {
     allowedOrigins.push(
       "http://localhost:3000",
       "http://localhost:3001",
-      "http://127.0.0.1:3000"
+      "http://127.0.0.1:3000",
     );
   }
 
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
     if (!validateOrigin(request)) {
       return NextResponse.json(
         { success: false, message: "Invalid request origin" },
-        { status: 403 }
+        { status: 403 },
       );
     }
 

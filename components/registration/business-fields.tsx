@@ -12,6 +12,7 @@ export function BusinessFields({
   errors,
   onInputChange,
   onBusinessTypeChange,
+  selectedPackage,
   t,
 }: {
   formData: RegistrationFormData;
@@ -20,10 +21,12 @@ export function BusinessFields({
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
   onBusinessTypeChange: (type: string) => void;
+  selectedPackage: string;
   activityFields: Array<{ id: string; name: string }>;
   isLoadingFields: boolean;
   t: (k: string) => string;
 }) {
+  const isBusinessPackage = selectedPackage === "business";
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -33,7 +36,7 @@ export function BusinessFields({
             className="text-sm font-semibold text-gray-900"
           >
             {t("registration.form.company.name")}{" "}
-            {/* <span className="text-red-500">*</span> */}
+            {isBusinessPackage && <span className="text-red-500">*</span>}
           </label>
           <input
             id="company_name"
@@ -61,6 +64,7 @@ export function BusinessFields({
             className="text-sm font-semibold text-gray-900"
           >
             {t("registration.form.company.taxCode")}
+            {isBusinessPackage && <span className="text-red-500"> *</span>}
           </label>
           <input
             id="tax_code"
@@ -79,6 +83,7 @@ export function BusinessFields({
           onChange={onBusinessTypeChange}
           disabled={false}
           className="w-full"
+          required={isBusinessPackage}
         />
       </div>
 
@@ -88,6 +93,7 @@ export function BusinessFields({
           className="text-sm font-semibold text-gray-900"
         >
           {t("registration.form.company.address")}
+          {isBusinessPackage && <span className="text-red-500"> *</span>}
         </label>
         <input
           id="address"

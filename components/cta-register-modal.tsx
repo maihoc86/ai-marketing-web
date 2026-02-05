@@ -40,7 +40,7 @@ export function CtaRegisterModal() {
     handleBusinessTypeChange,
     handleSubmit,
   } = useRegistrationForm({
-    initialPackage: "professional",
+    initialPackage: "starter",
     onSuccess: () => {
       // Store dismissed state on success
       localStorage.setItem(STORAGE_KEY, "true");

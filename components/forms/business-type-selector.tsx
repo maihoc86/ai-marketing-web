@@ -10,12 +10,14 @@ interface BusinessTypeSelectorProps {
   onChange: (value: string) => void;
   disabled?: boolean;
   className?: string;
+  required?: boolean;
 }
 
 export const BusinessTypeSelector = memo(
   ({
     value,
     onChange,
+    required,
     disabled = false,
     className = "",
   }: BusinessTypeSelectorProps) => {
@@ -41,6 +43,7 @@ export const BusinessTypeSelector = memo(
       <div className={`space-y-2 ${className}`}>
         <Label className="text-sm font-medium text-gray-900">
           {t("registration.form.company.type")}
+          {required && <span className="text-red-500"> *</span>}
         </Label>
         <div>
           <select
