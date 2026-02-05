@@ -14,32 +14,32 @@ export function AIContentGallerySection() {
 
   const galleryImages = [
     {
-      src: "/images/gallery/product-1.jpg",
+      src: "/images/product-1.png",
       alt: "Product AI Generation",
       category: "product",
     },
     {
-      src: "/images/gallery/lifestyle-1.jpg",
+      src: "/images/lifestyle-1.jpeg",
       alt: "Lifestyle AI Generation",
       category: "lifestyle",
     },
     {
-      src: "/images/gallery/social-1.jpg",
+      src: "/images/social-1.png",
       alt: "Social Media Content",
       category: "social",
     },
     {
-      src: "/images/gallery/product-2.jpg",
+      src: "/images/product-2.jpeg",
       alt: "High Quality Audio Visuals",
       category: "product",
     },
     {
-      src: "/images/gallery/lifestyle-2.jpg",
+      src: "/images/lifestyle-2.jpeg",
       alt: "Style Transfer AI",
       category: "lifestyle",
     },
     {
-      src: "/images/gallery/social-2.jpg",
+      src: "/images/social-2.jpeg",
       alt: "Creative AI Art",
       category: "social",
     },

@@ -2370,6 +2370,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "registration.form.terms.privacy": "Chính sách bảo mật",
     "registration.form.trial": "Bắt đầu dùng thử miễn phí 14 ngày",
     "featurePage.content.demo.error": "Lỗi khi tải tiến trình tạo ảnh",
+    "featurePage.content.cta.button": "Tạo nội dung của riêng bạn",
   },
   en: {
     "featurePage.content.demo.error": "Error loading image generation progress",
@@ -3764,6 +3765,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "featurePage.chatbot.demo.live.addon1.price": "$25.00",
     "featurePage.chatbot.demo.live.addon2.name": "Basic Nail Art",
     "featurePage.chatbot.demo.live.addon2.price": "$15.00",
+    "featurePage.content.cta.button": "Create your content",
 
     // Feature Page - Chatbot Steps
     "featurePage.chatbot.steps.heading": "Get Started in",
