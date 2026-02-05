@@ -123,7 +123,7 @@ export function AIContentHeroSection() {
                 <img
                   alt="Product flat lay"
                   className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
-                  src="/images/gallery/product-flatlay-1.jpg"
+                  src="/images/product-flatlay-1.jpg"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">
                   #ProductFlatlay
@@ -133,7 +133,7 @@ export function AIContentHeroSection() {
                 <img
                   alt="Abstract 3D"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  src="/images/gallery/abstract-3d.jpg"
+                  src="/images/abstract-3d.jpg"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">
                   #ModernAbstract
@@ -147,7 +147,7 @@ export function AIContentHeroSection() {
                 <img
                   alt="Lifestyle shot"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  src="/images/gallery/lifestyle-model.jpg"
+                  src="/images/lifestyle-model.png"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">
                   #LifestyleModel
@@ -157,7 +157,7 @@ export function AIContentHeroSection() {
                 <img
                   alt="Tech device"
                   className="w-full h-full object-cover group-hover:rotate-1 transition-transform duration-700"
-                  src="/images/gallery/tech-minimal.jpg"
+                  src="/images/tech-minimal.jpg"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">
                   #TechMinimal
