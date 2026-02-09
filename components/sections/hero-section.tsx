@@ -182,7 +182,7 @@ export default function HeroSection() {
                   </div>
                   <div className="flex items-end gap-6 h-24 w-full px-4">
                     <div className="flex flex-col items-center gap-2 w-1/2 h-full justify-end group cursor-pointer">
-                      <span className="text-xs font-bold text-text-muted mb-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-bold text-text-muted mb-1">
                         $50
                       </span>
                       <div className="w-full bg-gray-200 rounded-t-sm h-[20%] relative group-hover:bg-gray-300 transition-colors" />
