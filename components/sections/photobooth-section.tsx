@@ -72,7 +72,7 @@ export default function PhotoboothSection() {
       id="photobooth"
     >
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-6 relative z-10">
@@ -90,6 +90,22 @@ export default function PhotoboothSection() {
                 unoptimized
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/20" />
+
+              {/* Style selection bubbles */}
+              <div className="absolute right-8 top-[35%] -translate-y-1/2 flex flex-col gap-4 z-20">
+                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-[10px] font-sans font-semibold text-white uppercase tracking-wider">
+                    Halloween Style
+                  </span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <Zap className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-[10px] font-sans font-semibold text-white uppercase tracking-wider">
+                    Pointed Nails Style
+                  </span>
+                </div>
+              </div>
 
               {/* Scanning frame with animation */}
               <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -116,7 +132,7 @@ export default function PhotoboothSection() {
                   </p>
                 </div>
                 <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
-                  HD
+                  4K Ultra HD
                 </div>
               </div>
             </div>
@@ -180,7 +196,7 @@ export default function PhotoboothSection() {
                 return (
                   <div key={index} className="flex flex-col gap-3 group">
                     <div className="flex items-center gap-4">
-                      <div className="p-2.5 bg-primary/10 rounded-lg text-primary transition-all duration-300">
+                      <div className="p-2.5 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
                       <h4 className="text-sm font-bold uppercase tracking-wider text-text-main">
