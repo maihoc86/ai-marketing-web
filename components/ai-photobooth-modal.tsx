@@ -1,7 +1,8 @@
 "use client";
 
-import { X, Sparkles, Hand } from "lucide-react";
+import { X, Sparkles, Hand, Camera, Upload } from "lucide-react";
 import Image from "next/image";
+import { useRef, useState, useEffect } from "react";
 
 interface AIPhotoboothModalProps {
   isOpen: boolean;
@@ -65,6 +66,121 @@ export default function AIPhotoboothModal({
   isOpen,
   onClose,
 }: AIPhotoboothModalProps) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [hasCameraSupport, setHasCameraSupport] = useState(false);
+  const [isCameraActive, setIsCameraActive] = useState(false);
+  const [stream, setStream] = useState<MediaStream | null>(null);
+
+  useEffect(() => {
+    // Check if device supports camera
+    const checkCamera = async () => {
+      try {
+        // Check if mediaDevices API is available
+        if (
+          navigator.mediaDevices &&
+          typeof navigator.mediaDevices.getUserMedia === "function"
+        ) {
+          // Try to enumerate devices to see if there's a camera
+          const devices = await navigator.mediaDevices.enumerateDevices();
+          const hasCamera = devices.some(
+            (device) => device.kind === "videoinput",
+          );
+          setHasCameraSupport(hasCamera);
+        } else {
+          setHasCameraSupport(false);
+        }
+      } catch (error) {
+        // If there's an error, assume no camera support
+        setHasCameraSupport(false);
+      }
+    };
+
+    checkCamera();
+  }, []);
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleCameraClick = async () => {
+    try {
+      // Request camera access
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment" },
+        audio: false,
+      });
+      setStream(mediaStream);
+      setIsCameraActive(true);
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+      // Fallback to file input if camera access fails
+      cameraInputRef.current?.click();
+    }
+  };
+
+  const handleCapture = () => {
+    if (videoRef.current) {
+      // Create canvas to capture image
+      const canvas = document.createElement("canvas");
+      canvas.width = videoRef.current.videoWidth;
+      canvas.height = videoRef.current.videoHeight;
+      const ctx = canvas.getContext("2d");
+
+      if (ctx) {
+        ctx.drawImage(videoRef.current, 0, 0);
+        const imageData = canvas.toDataURL("image/jpeg");
+        setSelectedImage(imageData);
+        stopCamera();
+      }
+    }
+  };
+
+  const stopCamera = () => {
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
+      setStream(null);
+    }
+    setIsCameraActive(false);
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleRemoveImage = () => {
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    if (cameraInputRef.current) {
+      cameraInputRef.current.value = "";
+    }
+  };
+
+  // Cleanup camera stream when modal closes
+  useEffect(() => {
+    if (!isOpen) {
+      stopCamera();
+    }
+  }, [isOpen]);
+
+  // Set video stream when camera becomes active
+  useEffect(() => {
+    if (isCameraActive && stream && videoRef.current) {
+      videoRef.current.srcObject = stream;
+    }
+  }, [isCameraActive, stream]);
+
   if (!isOpen) return null;
 
   return (
@@ -96,17 +212,126 @@ export default function AIPhotoboothModal({
         {/* Content */}
         <div className="px-8 pt-2 pb-8 flex flex-col h-full overflow-y-auto no-scrollbar">
           {/* Scan Area */}
-          <div className="w-full aspect-[16/9] rounded-[24px] flex flex-col items-center justify-center gap-4 group cursor-pointer transition-all duration-500 hover:bg-charcoal/80 mb-6 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
-            <div className="relative z-10 flex flex-col items-center justify-center">
-              <div className="relative">
-                <Hand className="w-16 h-16 text-primary/70 group-hover:text-primary transition-colors duration-500 drop-shadow-[0_0_12px_rgba(34,181,248,0.25)]" />
-                <div className="absolute -inset-6 border border-primary/10 rounded-full"></div>
-              </div>
-              <p className="mt-4 text-white/60 font-display font-light text-base tracking-[0.05em] group-hover:text-white transition-colors duration-500">
-                Place your hand here to scan
-              </p>
-            </div>
-            <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+          {/* Camera input - opens camera directly */}
+          <input
+            ref={cameraInputRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            className="hidden"
+            onChange={handleImageSelect}
+          />
+          {/* File upload input - choose from device */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleImageSelect}
+          />
+          <div className="w-full aspect-[16/9] rounded-3xl flex flex-col items-center justify-center gap-4 group transition-all duration-500 mb-6 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
+            {isCameraActive ? (
+              <>
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  muted
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-4 z-10">
+                  <button
+                    onClick={handleCapture}
+                    className="px-6 py-3 bg-primary rounded-lg text-charcoal font-bold text-sm uppercase tracking-wider hover:bg-primary-dark transition-colors flex items-center gap-2 shadow-lg"
+                  >
+                    <Camera className="w-5 h-5" />
+                    Capture Photo
+                  </button>
+                  <button
+                    onClick={stopCamera}
+                    className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-2"
+                  >
+                    <X className="w-5 h-5" />
+                    Cancel
+                  </button>
+                </div>
+              </>
+            ) : selectedImage ? (
+              <>
+                <Image
+                  src={selectedImage}
+                  alt="Selected hand image"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  {hasCameraSupport && (
+                    <button
+                      onClick={handleCameraClick}
+                      className="px-4 py-2 bg-primary rounded-lg text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-primary-dark transition-colors flex items-center gap-2"
+                    >
+                      <Camera className="w-4 h-4" />
+                      Take Photo
+                    </button>
+                  )}
+                  <button
+                    onClick={handleUploadClick}
+                    className="px-4 py-2 bg-primary/80 rounded-lg text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-primary transition-colors flex items-center gap-2"
+                  >
+                    <Upload className="w-4 h-4" />
+                    Upload
+                  </button>
+                  <button
+                    onClick={handleRemoveImage}
+                    className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-2"
+                  >
+                    <X className="w-4 h-4" />
+                    Remove
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="relative z-10 flex flex-col items-center justify-center">
+                  <div className="relative">
+                    <Hand className="w-16 h-16 text-primary/70 group-hover:text-primary transition-colors duration-500 drop-shadow-[0_0_12px_rgba(34,181,248,0.25)]" />
+                    <div className="absolute -inset-6 border border-primary/10 rounded-full"></div>
+                  </div>
+                  <p className="mt-4 text-white/60 font-display font-light text-base tracking-[0.05em] group-hover:text-white transition-colors duration-500">
+                    Place your hand here to scan
+                  </p>
+                  <div className="mt-6 flex items-center gap-4">
+                    {hasCameraSupport && (
+                      <>
+                        <button
+                          onClick={handleCameraClick}
+                          className="flex items-center gap-2 px-4 py-2.5 bg-primary hover:bg-primary-dark rounded-lg border border-primary transition-all hover:scale-105"
+                        >
+                          <Camera className="w-4 h-4 text-charcoal" />
+                          <span className="text-xs text-charcoal font-bold uppercase tracking-wider">
+                            Take Photo
+                          </span>
+                        </button>
+                        <span className="text-white/30 text-xs font-bold">
+                          or
+                        </span>
+                      </>
+                    )}
+                    <button
+                      onClick={handleUploadClick}
+                      className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg border border-white/20 transition-all hover:scale-105"
+                    >
+                      <Upload className="w-4 h-4 text-primary" />
+                      <span className="text-xs text-white/70 font-bold uppercase tracking-wider">
+                        Upload Image
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+              </>
+            )}
           </div>
 
           {/* Style Selection */}
