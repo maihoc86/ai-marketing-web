@@ -201,7 +201,7 @@ export default function PhotoboothSection() {
                 onClick={() => setIsModalOpen(true)}
                 className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-sm font-extrabold py-4 px-12 transition-all shadow-[0_10px_20px_-10px_rgba(34,181,248,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(34,181,248,0.6)] tracking-[0.2em] flex items-center justify-center gap-3 group rounded-md"
               >
-                START FREE TRIAL
+                Try AI Photobooth
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="flex items-center gap-2 py-2">
