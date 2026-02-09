@@ -11,9 +11,9 @@ const contentTypes = [
 
 export default function ContentStrategySection() {
   return (
-    <section className="py-24 bg-[#FAF9F6] border-t border-primary/10">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl lg:text-4xl font-display font-light text-text-main mb-12">
+    <section className="py-20 bg-[#FAF9F6] border-t border-primary/10">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-2xl lg:text-3xl font-display font-light text-text-main mb-10">
           Nail-first{" "}
           <span className="font-bold text-primary">content strategy</span>
         </h2>

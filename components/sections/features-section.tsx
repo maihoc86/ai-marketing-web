@@ -19,17 +19,17 @@ function FeatureBlock({
   reverse = false,
 }: FeatureBlockProps) {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
       <div
         className={`flex flex-col justify-center ${reverse ? "order-1 lg:order-2" : "order-1"}`}
       >
-        <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-accent-champagne border border-primary/20 text-primary">
+        <div className="w-14 h-14 mb-4 flex items-center justify-center rounded-full bg-accent-champagne border border-primary/20 text-primary">
           {icon}
         </div>
-        <h3 className="text-3xl font-display font-bold text-text-main mb-6">
+        <h3 className="text-2xl font-display font-bold text-text-main mb-4">
           {title}
         </h3>
-        <p className="text-lg text-text-muted font-light leading-relaxed">
+        <p className="text-base text-text-muted font-light leading-relaxed">
           {description}
         </p>
       </div>
@@ -47,17 +47,17 @@ function FeatureBlock({
 
 export default function FeaturesSection() {
   return (
-    <section className="py-32 bg-white relative">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-24">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold text-text-main mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-display font-bold text-text-main mb-3">
             Features you&apos;ll actually use
           </h2>
-          <div className="h-1 w-24 bg-primary mx-auto mt-6 rounded-full" />
+          <div className="h-1 w-20 bg-primary mx-auto mt-4 rounded-full" />
         </div>
 
-        <div className="space-y-24 lg:space-y-32">
+        <div className="space-y-16 lg:space-y-24">
           {/* Feature 1: Social Content & Growth */}
           <FeatureBlock
             icon={<Edit className="w-8 h-8" />}

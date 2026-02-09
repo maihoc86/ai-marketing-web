@@ -64,15 +64,15 @@ export default function PhotoboothSection() {
 
   return (
     <section
-      className="w-full py-16 lg:py-24 bg-white relative overflow-hidden"
+      className="w-full py-12 lg:py-20 bg-white relative overflow-hidden"
       id="photobooth"
     >
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-[1280px] mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Scanning interface & design samples */}
           <div className="flex flex-col gap-6">
             {/* Main scanning display */}
@@ -128,7 +128,7 @@ export default function PhotoboothSection() {
                   </p>
                 </div>
                 <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
-                  4K Ultra HD
+                  HD
                 </div>
               </div>
             </div>
@@ -170,15 +170,15 @@ export default function PhotoboothSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-display font-extrabold mb-2 text-text-main leading-tight uppercase tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-display font-extrabold mb-2 text-text-main leading-tight uppercase tracking-tight">
               Spotlight: <span className="text-primary">Photobooth</span>
             </h2>
-            <h3 className="text-xl lg:text-2xl font-light text-text-muted mb-8 tracking-wide">
+            <h3 className="text-lg lg:text-xl font-light text-text-muted mb-6 tracking-wide">
               Sell More at the Chair
             </h3>
 
             {/* Description */}
-            <p className="text-text-muted text-lg leading-relaxed mb-10 font-light border-l-4 border-primary pl-6">
+            <p className="text-text-muted text-base leading-relaxed mb-8 font-light border-l-4 border-primary pl-6">
               Revolutionize your consultation process. Our AI-powered Photobooth
               allows customers to instantly visualize colors and intricate
               designs on their own hands before a single drop of polish is
@@ -186,7 +186,7 @@ export default function PhotoboothSection() {
             </p>
 
             {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-y-10 gap-x-8 mb-12">
+            <div className="grid sm:grid-cols-2 gap-y-8 gap-x-6 mb-10">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -208,10 +208,10 @@ export default function PhotoboothSection() {
             </div>
 
             {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-sm font-extrabold py-4 px-12 transition-all shadow-[0_10px_20px_-10px_rgba(34,181,248,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(34,181,248,0.6)] tracking-[0.2em] flex items-center justify-center gap-3 group rounded-md"
+                className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-xs font-extrabold py-3 px-10 transition-all shadow-[0_10px_20px_-10px_rgba(34,181,248,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(34,181,248,0.6)] tracking-[0.2em] flex items-center justify-center gap-2 group rounded-md"
               >
                 Try AI Photobooth
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

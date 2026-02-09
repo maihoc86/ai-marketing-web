@@ -38,19 +38,19 @@ const benefits = [
 
 export default function WhySection() {
   return (
-    <section className="py-24 bg-primary-light/10" id="why-uniksmart">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-primary-light/10" id="why-uniksmart">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display font-light text-text-main mb-3">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl lg:text-3xl font-display font-light text-text-main mb-2">
             Why Uniksmart works for{" "}
             <span className="text-primary font-bold">nail salons</span>
           </h2>
-          <div className="h-1 w-16 bg-primary mx-auto mt-6 rounded-full" />
+          <div className="h-1 w-14 bg-primary mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}

@@ -9,25 +9,25 @@ export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 overflow-hidden bg-white">
+    <section className="relative pt-24 pb-16 lg:pt-36 lg:pb-24 px-4 overflow-hidden bg-white">
       {/* Background gradient */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Content */}
-        <div className="flex flex-col gap-8 text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold tracking-tight leading-[1.1] text-text-main uppercase">
+        <div className="flex flex-col gap-6 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight leading-[1.1] text-text-main uppercase">
             BOOST NAIL <br />
             <span className="text-gradient-blue whitespace-nowrap">
               SALON REVENUE
             </span>
           </h1>
 
-          <div className="space-y-6">
-            <h2 className="text-xl sm:text-2xl font-light text-text-main tracking-wide">
+          <div className="space-y-4">
+            <h2 className="text-lg sm:text-xl font-light text-text-main tracking-wide">
               Smart, hands-on marketing for nail shops and salon chains
             </h2>
-            <p className="text-base sm:text-lg text-text-muted leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed font-light">
               Uniksmart helps nail salon owners grow foot traffic, fill
               appointment slots, and increase average spend — without you
               needing to learn marketing tools or spend hours on posts. We work

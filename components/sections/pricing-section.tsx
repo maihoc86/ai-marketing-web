@@ -50,43 +50,43 @@ const businessBenefits = [
 
 export default function PricingSection() {
   return (
-    <section className="py-28 bg-white relative" id="pricing">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-24 bg-white relative" id="pricing">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-display font-light text-text-main mb-4 uppercase tracking-tighter">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-light text-text-main mb-3 uppercase tracking-tighter">
             Investment in <span className="font-bold text-primary">Growth</span>
           </h2>
-          <p className="text-text-muted text-lg">
+          <p className="text-text-muted text-base">
             Simple, transparent pricing to scale your salon.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start max-w-5xl mx-auto">
           {/* Professional Plan */}
-          <div className="bg-background-light border border-primary/20 p-8 flex flex-col artisanal-shadow relative group rounded-lg">
-            <div className="mb-8 border-b border-primary/10 pb-8">
-              <h3 className="text-sm font-bold text-primary mb-4 uppercase tracking-[0.3em]">
+          <div className="bg-background-light border border-primary/20 p-6 flex flex-col artisanal-shadow relative group rounded-lg">
+            <div className="mb-6 border-b border-primary/10 pb-6">
+              <h3 className="text-xs font-bold text-primary mb-3 uppercase tracking-[0.3em]">
                 Professional
               </h3>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-bold text-text-main tracking-tighter">
+                <span className="text-4xl font-bold text-text-main tracking-tighter">
                   $499
                 </span>
                 <span className="text-text-muted font-light">/mo</span>
               </div>
-              <p className="text-text-muted text-sm mt-4 font-light leading-relaxed">
+              <p className="text-text-muted text-xs mt-3 font-light leading-relaxed">
                 For salons ready to grow their client base and online presence.
               </p>
             </div>
 
-            <div className="space-y-6 mb-8 flex-grow">
+            <div className="space-y-4 mb-6 flex-grow">
               <div>
-                <p className="text-xs font-bold text-text-main uppercase tracking-widest mb-4">
+                <p className="text-[10px] font-bold text-text-main uppercase tracking-widest mb-3">
                   What we do for you
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {professionalFeatures.map((feature, index) => (
                     <li
                       key={index}
@@ -118,16 +118,16 @@ export default function PricingSection() {
             </div>
 
             <Link href="/trial?package=starter" className="block">
-              <button className="w-full py-4 px-8 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-xs rounded-md">
+              <button className="w-full py-3 px-6 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-[10px] rounded-md">
                 Start Free Trial
               </button>
             </Link>
           </div>
 
           {/* Business Plan */}
-          <div className="bg-white border-2 border-primary p-8 flex flex-col relative shadow-2xl lg:-mt-4 lg:mb-4 z-10 scale-100 lg:scale-105 origin-top rounded-lg">
+          <div className="bg-white border-2 border-primary p-6 flex flex-col relative shadow-2xl lg:-mt-4 lg:mb-4 z-10 scale-100 lg:scale-105 origin-top rounded-lg">
             {/* Recommended Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold uppercase py-2 px-6 tracking-[0.2em] shadow-lg rounded-full">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[9px] font-bold uppercase py-1.5 px-4 tracking-[0.2em] shadow-lg rounded-full">
               Recommended
             </div>
 

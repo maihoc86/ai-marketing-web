@@ -41,13 +41,13 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section
-      className="py-24 bg-primary-light/10 border-t border-primary/10"
+      className="py-20 bg-primary-light/10 border-t border-primary/10"
       id="faq"
     >
-      <div className="max-w-[800px] mx-auto px-6">
+      <div className="max-w-[800px] mx-auto px-4">
         {/* Ready-to-launch campaigns */}
-        <div className="mb-20 text-center">
-          <h3 className="text-xl font-display font-bold text-text-main uppercase tracking-widest mb-10">
+        <div className="mb-16 text-center">
+          <h3 className="text-lg font-display font-bold text-text-main uppercase tracking-widest mb-8">
             Ready-to-launch campaigns
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -66,11 +66,11 @@ export default function FAQSection() {
         </div>
 
         {/* FAQ */}
-        <h2 className="text-3xl font-display font-light text-text-main text-center mb-16 uppercase tracking-widest">
+        <h2 className="text-2xl font-display font-light text-text-main text-center mb-12 uppercase tracking-widest">
           Common Questions
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <details
               key={index}
