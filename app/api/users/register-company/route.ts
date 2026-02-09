@@ -118,36 +118,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Phone validation based on locale
+    // Phone validation
     const cleanPhone = data.phone_number.replace(/[\s\-().]/g, "");
-    const locale = data.locale || "vi"; // Default to Vietnam
 
-    let isValidPhone = false;
+    // Vietnam format: 0xxxxxxxxx (10 digits starting with 03/05/07/08/09)
+    const vnPhoneRegex = /^0[3|5|7|8|9]\d{8}$/;
 
-    if (locale === "vi") {
-      // Vietnam format: 0xxxxxxxxx (10 digits starting with 03/05/07/08/09)
-      const vnPhoneRegex = /^0[3|5|7|8|9]\d{8}$/;
-      isValidPhone = vnPhoneRegex.test(cleanPhone);
-    } else if (locale === "en") {
-      // US format: +1xxxxxxxxxx, 1xxxxxxxxxx, or xxxxxxxxxx (10 digits)
-      const usPhoneRegex = /^(\+?1)?[2-9]\d{9}$/;
-      isValidPhone = usPhoneRegex.test(cleanPhone);
-    } else {
-      // Fallback: accept both formats
-      const vnPhoneRegex = /^0[3|5|7|8|9]\d{8}$/;
-      const usPhoneRegex = /^(\+?1)?[2-9]\d{9}$/;
-      isValidPhone =
-        vnPhoneRegex.test(cleanPhone) || usPhoneRegex.test(cleanPhone);
-    }
+    // US format: 10 digits starting with 2-9
+    const usPhoneRegex = /^[2-9]\d{9}$/;
+
+    const isValidPhone =
+      vnPhoneRegex.test(cleanPhone) || usPhoneRegex.test(cleanPhone);
 
     if (!isValidPhone) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            locale === "vi"
-              ? "Số điện thoại không hợp lệ (phải là 10 số bắt đầu bằng 03, 05, 07, 08 hoặc 09)"
-              : "Invalid phone number (must be a valid US phone number)",
+          message: "Phone number is invalid (VN or US formats only)",
         },
         { status: 400 },
       );
