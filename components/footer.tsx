@@ -49,10 +49,16 @@ export default function Footer() {
             © 2026 Uniksmart. All rights reserved.
           </p>
           <div className="flex gap-8 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link
+              href="/privacy"
+              className="hover:text-primary transition-colors"
+            >
               Privacy
             </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link
+              href="/terms"
+              className="hover:text-primary transition-colors"
+            >
               Terms
             </Link>
           </div>
