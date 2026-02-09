@@ -104,7 +104,7 @@ export default function PhotoboothSection() {
               </div>
 
               {/* Scanning frame with animation */}
-              <div className="absolute inset-0 flex items-center justify-center p-8">
+              <div className="absolute inset-0 flex items-center justify-center p-4 md-6 lg:p-8">
                 <div className="w-full h-full border-2 border-primary/30 rounded-lg relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-primary shadow-[0_0_15px_rgba(34,181,248,1)] animate-pulse" />
                   <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
