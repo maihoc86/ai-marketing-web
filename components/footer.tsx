@@ -2,20 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
-
-const Logo = () => (
-  <svg
-    fill="none"
-    viewBox="0 0 48 48"
-    xmlns="http://www.w3.org/2000/svg"
-    className="size-8 text-primary"
-  >
-    <path
-      d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
-      fill="currentColor"
-    />
-  </svg>
-);
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -38,12 +25,11 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="md:text-right flex flex-col md:items-end justify-center">
-            <div className="flex items-center gap-3 mb-6 md:justify-end">
-              <Logo />
-              <span className="text-white font-bold tracking-[0.2em] uppercase text-sm">
-                Uniksmart
-              </span>
-            </div>
+            <img
+              className="h-40 -mr-7.5"
+              src="/logo-dark.png"
+              alt="Uniksmart"
+            />
             <div className="space-y-2 text-sm text-gray-400">
               <p className="flex items-center gap-2 md:justify-end">
                 <Mail className="w-4 h-4 text-primary" />

@@ -85,7 +85,7 @@ export default function AIPhotoboothModal({
           >
             <X className="w-6 h-6" />
           </button>
-          <div className="px-4 py-1.5 rounded-full flex items-center gap-2 bg-gradient-to-br from-primary to-primary-dark shadow-[0_0_15px_rgba(34,181,248,0.2)]">
+          <div className="px-4 py-1.5 rounded-full flex items-center gap-2 bg-linear-to-br from-primary to-primary-dark shadow-[0_0_15px_rgba(34,181,248,0.2)]">
             <span className="text-[11px] text-charcoal font-display font-bold tracking-[0.2em] flex items-center gap-1.5 uppercase">
               <Sparkles className="w-3.5 h-3.5" />
               AI POWERED
@@ -129,7 +129,7 @@ export default function AIPhotoboothModal({
                       height={150}
                       unoptimized
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
                   </div>
                   <span className="text-center text-[11px] font-display uppercase tracking-wider text-white/50 group-hover:text-primary transition-colors font-bold">
                     {style.name}
@@ -159,7 +159,7 @@ export default function AIPhotoboothModal({
                       height={150}
                       unoptimized
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
                   </div>
                   <span className="text-center text-[11px] font-display uppercase tracking-wider text-white/50 group-hover:text-primary transition-colors font-bold">
                     {item.name}
@@ -170,7 +170,7 @@ export default function AIPhotoboothModal({
           </div>
 
           {/* Generate Button */}
-          <button className="w-full bg-gradient-to-br from-primary to-primary-dark py-4 rounded-xl text-charcoal font-display font-bold tracking-[0.15em] uppercase text-sm flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-transform duration-200 mb-8 shrink-0 shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]">
+          <button className="w-full bg-linear-to-br from-primary to-primary-dark py-4 rounded-xl text-charcoal font-display font-bold tracking-[0.15em] uppercase text-sm flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-transform duration-200 mb-8 shrink-0 shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]">
             <Sparkles className="w-4 h-4" />
             GENERATE DESIGN
           </button>

@@ -59,7 +59,7 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full translate-x-10" />
 
           {/* Dashboard Card */}
-          <div className="relative w-full max-w-lg h-auto p-1 bg-gradient-to-br from-primary to-primary-dark shadow-2xl rounded-xl">
+          <div className="relative w-full max-w-lg h-auto p-1 bg-linear-to-br from-primary to-primary-dark shadow-2xl rounded-xl">
             <div className="bg-white rounded-[10px] h-full overflow-hidden">
               {/* Window Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gray-50/50">

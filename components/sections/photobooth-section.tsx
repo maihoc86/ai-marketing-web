@@ -89,7 +89,7 @@ export default function PhotoboothSection() {
                 height={380}
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/20" />
 
               {/* Scanning frame with animation */}
               <div className="absolute inset-0 flex items-center justify-center p-8">

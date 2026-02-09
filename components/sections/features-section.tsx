@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                   unoptimized
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-white via-white/80 to-transparent" />
               <div className="relative w-[55%] bg-white shadow-2xl rounded-[2rem] border-4 border-gray-100 transform -rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-5 bg-gray-100 rounded-b-xl z-20" />
                 <div className="pt-8 pb-4 px-4 bg-white h-full flex flex-col">
@@ -130,7 +130,7 @@ export default function FeaturesSection() {
           >
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
               <div className="absolute inset-0 bg-gray-100 opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background-light via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background-light via-transparent to-transparent" />
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
                   <div className="relative">
@@ -176,7 +176,7 @@ export default function FeaturesSection() {
             description="Automated confirmations and reminders so fewer clients forget their appointments. Reduce no-shows by up to 40% with gentle, perfectly timed nudges sent via SMS and Email."
           >
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-champagne to-white opacity-60" />
+              <div className="absolute inset-0 bg-linear-to-br from-accent-champagne to-white opacity-60" />
               <div className="relative w-[70%] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
                 <div className="bg-gray-50 px-4 py-3 border-b border-gray-100 flex items-center gap-3">
                   <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-display font-bold">
@@ -294,7 +294,7 @@ export default function FeaturesSection() {
                   height={400}
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
               </div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <div className="w-[80%] h-[70%] border border-primary/50 rounded-lg relative overflow-hidden">
