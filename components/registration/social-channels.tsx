@@ -4,6 +4,9 @@ import type {
   RegistrationFormData,
   RegistrationFormErrors,
 } from "@/types/registration";
+import IG from "../common/icons/IG";
+import Facebook from "../common/icons/Facebook";
+import TikTok from "../common/icons/TikTok";
 
 interface SocialChannelsProps {
   formData: RegistrationFormData;
@@ -40,7 +43,7 @@ function SocialItem({
   onInputChange,
 }: SocialItemProps) {
   return (
-    <div className="border border-gray-200 rounded-sm p-5 bg-gray-50/50 transition-colors hover:bg-white hover:border-primary/40">
+    <div className="border border-gray-200 rounded-sm py-3 px-5 bg-gray-50/50 transition-colors hover:bg-white hover:border-primary/40">
       <div className="flex items-center flex-wrap">
         <input
           type="checkbox"
@@ -51,7 +54,7 @@ function SocialItem({
         />
         <label
           htmlFor={`social-${id}`}
-          className="ml-4 flex items-center gap-3 text-sm font-bold text-text-main cursor-pointer select-none flex-1"
+          className="ml-2 flex items-center gap-2 text-sm font-bold text-text-main cursor-pointer select-none flex-1"
         >
           {icon}
           {name}
@@ -88,18 +91,14 @@ export function SocialChannels({
   return (
     <section className="mb-16">
       <h3 className="text-sm font-extrabold uppercase tracking-widest text-text-main mb-8 flex items-center gap-4">
-        <span className="w-8 h-[2px] bg-primary" /> Promotion Channels
+        <span className="w-8 h-0.5 bg-primary" /> Promotion Channels
       </h3>
       <div className="space-y-5">
         {/* Facebook */}
         <SocialItem
           id="facebook"
           name="Facebook"
-          icon={
-            <div className="size-7 bg-[#1877F2] text-white flex items-center justify-center rounded-sm font-bold text-lg">
-              f
-            </div>
-          }
+          icon={<Facebook className="w-8" />}
           checked={formData.socials.facebook}
           urlValue={formData.facebook_url}
           urlName="facebook_url"
@@ -114,11 +113,7 @@ export function SocialChannels({
         <SocialItem
           id="instagram"
           name="Instagram"
-          icon={
-            <div className="size-7 bg-linear-to-tr from-[#FFD600] via-[#FF0069] to-[#D300C5] text-white flex items-center justify-center rounded-sm text-xs font-bold">
-              IG
-            </div>
-          }
+          icon={<IG className="w-8" />}
           checked={formData.socials.instagram}
           urlValue={formData.instagram_url}
           urlName="instagram_url"
@@ -133,11 +128,7 @@ export function SocialChannels({
         <SocialItem
           id="tiktok"
           name="TikTok"
-          icon={
-            <div className="size-7 bg-black text-white flex items-center justify-center rounded-sm text-xs font-bold">
-              TT
-            </div>
-          }
+          icon={<TikTok className="w-8" />}
           checked={formData.socials.tiktok}
           urlValue={formData.tiktok_url}
           urlName="tiktok_url"
