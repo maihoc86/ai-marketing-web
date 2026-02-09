@@ -50,7 +50,7 @@ const businessBenefits = [
 export default function PricingSection() {
   return (
     <section className="py-28 bg-white relative" id="pricing">
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-display font-light text-text-main mb-4 uppercase tracking-tighter">

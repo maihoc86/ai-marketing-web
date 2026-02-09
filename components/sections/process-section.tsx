@@ -34,7 +34,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="py-24 bg-white border-t border-primary/5" id="process">
-      <div className="max-w-[1280px] mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-3xl lg:text-4xl font-display font-light text-text-main mb-16">
           How we support your shop — <br />
           <span className="text-primary font-bold">

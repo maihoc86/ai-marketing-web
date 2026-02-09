@@ -48,7 +48,7 @@ function FeatureBlock({
 export default function FeaturesSection() {
   return (
     <section className="py-32 bg-white relative">
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-24">
           <h2 className="text-4xl lg:text-5xl font-display font-bold text-text-main mb-4">
@@ -246,7 +246,7 @@ export default function FeaturesSection() {
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
               <div className="absolute inset-0 bg-[#F9F7F5]" />
               <div className="relative w-3/4 bg-white shadow-2xl rounded-sm border border-gray-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <div className="h-1.5 w-full bg-gradient-to-r from-primary to-primary-light" />
+                <div className="h-1.5 w-full bg-linear-to-r from-primary to-primary-light" />
                 <div className="p-6 md:p-8 text-center relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-16 h-16 bg-primary/5 rounded-br-[40px] -z-10" />
                   <div className="absolute bottom-0 right-0 w-16 h-16 bg-primary/5 rounded-tl-[40px] -z-10" />

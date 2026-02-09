@@ -206,7 +206,7 @@ export default function AIPhotoboothModal({
         </div>
 
         {/* Bottom Gradient Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-linear-to-r from-transparent via-primary/30 to-transparent"></div>
       </div>
     </div>
   );

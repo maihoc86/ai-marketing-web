@@ -20,7 +20,7 @@ const Logo = () => (
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-white pt-20 pb-10 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
           {/* CTA */}
           <div>
