@@ -140,7 +140,7 @@ export default function AIPhotoboothModal({
           </div>
 
           {/* Trending */}
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <h4 className="font-display text-primary text-xs font-bold tracking-[0.25em] mb-4 uppercase opacity-90">
               Trending
             </h4>
@@ -167,7 +167,7 @@ export default function AIPhotoboothModal({
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Generate Button */}
           <button className="w-full bg-linear-to-br from-primary to-primary-dark py-4 rounded-xl text-charcoal font-display font-bold tracking-[0.15em] uppercase text-sm flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-transform duration-200 mb-8 shrink-0 shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]">
