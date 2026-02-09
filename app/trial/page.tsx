@@ -86,7 +86,7 @@ function TrialFormContent() {
           </div>
 
           {/* Form Card */}
-          <div className="bg-white border border-gray-100 p-6 md:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative rounded-sm">
+          <div className="bg-white border border-gray-100 p-6 max-sm:px-0 md:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative max-sm:border-0 max-sm:shadow-none rounded-sm">
             {/* Top accent line */}
             <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/20 via-primary to-primary/20" />
 
