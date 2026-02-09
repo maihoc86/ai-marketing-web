@@ -17,6 +17,7 @@ import {
   type RateLimitData,
 } from "@/lib/queries/rate-limits";
 import { generateImage } from "@/lib/queries/generate-image";
+import { cn } from "@/lib/utils";
 
 interface AIPhotoboothModalProps {
   isOpen: boolean;
@@ -317,7 +318,7 @@ export default function AIPhotoboothModal({
       {/* Modal Container */}
       <div className="relative w-full max-w-160 h-[90vh] bg-charcoal rounded-2xl border border-primary/25 shadow-[inset_0_0_20px_rgba(34,181,248,0.03),0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col my-auto overflow-hidden">
         {/* Header */}
-        <div className="relative flex items-center justify-between px-6 pt-6 pb-3 shrink-0">
+        <div className="relative flex items-center justify-between px-3 md:px-4 pb-2 lg:px-6 pt-3 md:pt-4 lg:pt-6 shrink-0">
           <button
             onClick={onClose}
             className="flex items-center justify-center size-8 rounded-full hover:bg-white/5 transition-colors text-white/40 hover:text-white"
@@ -333,7 +334,7 @@ export default function AIPhotoboothModal({
         </div>
 
         {/* Content */}
-        <div className="px-6 pt-2 pb-6 flex flex-col h-full overflow-y-auto no-scrollbar">
+        <div className="px-3 md:px-4 lg:px-6 pt-2 pb-3 md:pb-4 lg:pb-6 flex flex-col h-full overflow-y-auto no-scrollbar">
           {/* Scan Area */}
           {/* Camera input - opens camera directly */}
           <input
@@ -352,7 +353,7 @@ export default function AIPhotoboothModal({
             className="hidden"
             onChange={handleImageSelect}
           />
-          <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 group transition-all duration-500 mb-4 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
+          <div className="w-full p-3 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-3 group transition-all duration-500 mb-4 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
             {isCameraActive ? (
               <>
                 <video
@@ -367,14 +368,14 @@ export default function AIPhotoboothModal({
                     onClick={handleCapture}
                     className="px-4 py-2 bg-primary rounded-lg text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-primary-dark transition-colors flex items-center gap-2 shadow-lg"
                   >
-                    <Camera className="w-4 h-4" />
+                    <Camera className="size-4 shrink-0" />
                     Capture Photo
                   </button>
                   <button
                     onClick={stopCamera}
                     className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-2"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="size-4 shrink-0" />
                     Cancel
                   </button>
                 </div>
@@ -402,14 +403,14 @@ export default function AIPhotoboothModal({
                     onClick={handleUploadClick}
                     className="px-3 py-1.5 bg-primary/80 rounded-lg text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-primary transition-colors flex items-center gap-1.5"
                   >
-                    <Upload className="w-3.5 h-3.5" />
+                    <Upload className="size-3.5" />
                     Upload
                   </button>
                   <button
                     onClick={handleRemoveImage}
                     className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-1.5"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="size-3.5" />
                     Remove
                   </button>
                 </div>
@@ -417,22 +418,21 @@ export default function AIPhotoboothModal({
             ) : (
               <>
                 <div className="relative z-10 flex flex-col items-center justify-center">
-                  <div className="relative">
-                    <Hand className="w-12 h-12 text-primary/70 group-hover:text-primary transition-colors duration-500 drop-shadow-[0_0_12px_rgba(34,181,248,0.25)]" />
-                    <div className="absolute -inset-6 border border-primary/10 rounded-full"></div>
+                  <div className="relative p-6 border border-primary/10 rounded-full">
+                    <Hand className="size-12 text-primary/70 group-hover:text-primary transition-colors duration-500 drop-shadow-[0_0_12px_rgba(34,181,248,0.25)]" />
                   </div>
                   <p className="mt-3 text-white/60 font-display font-light text-sm tracking-[0.05em] group-hover:text-white transition-colors duration-500">
                     Place your hand here to scan
                   </p>
-                  <div className="mt-4 flex items-center gap-3">
+                  <div className="mt-4 flex items-center gap-2 lg:gap-3">
                     {hasCameraSupport && (
                       <>
                         <button
                           onClick={handleCameraClick}
-                          className="flex items-center gap-2 px-4 py-2.5 bg-primary hover:bg-primary-dark rounded-lg border border-primary transition-all hover:scale-105"
+                          className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2.5 bg-primary hover:bg-primary-dark rounded-lg border border-primary transition-all hover:scale-105"
                         >
                           <Camera className="w-4 h-4 text-charcoal" />
-                          <span className="text-xs text-charcoal font-bold uppercase tracking-wider">
+                          <span className="text-[10px] sm:text-xs text-charcoal font-bold uppercase tracking-wider">
                             Take Photo
                           </span>
                         </button>
@@ -443,10 +443,10 @@ export default function AIPhotoboothModal({
                     )}
                     <button
                       onClick={handleUploadClick}
-                      className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg border border-white/20 transition-all hover:scale-105"
+                      className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg border border-white/20 transition-all hover:scale-105"
                     >
                       <Upload className="w-4 h-4 text-primary" />
-                      <span className="text-xs text-white/70 font-bold uppercase tracking-wider">
+                      <span className="text-[10px] sm:text-xs text-white/70 font-bold uppercase tracking-wider">
                         Upload Image
                       </span>
                     </button>
@@ -492,7 +492,7 @@ export default function AIPhotoboothModal({
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
                     {selectedStyle === style.name && (
-                      <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                      <div className="absolute top-1 right-1 sm:top-2 sm:right-2 size-3 sm:size-5 bg-primary rounded-full flex items-center justify-center">
                         <svg
                           className="w-3 h-3 text-charcoal"
                           fill="none"
@@ -510,7 +510,7 @@ export default function AIPhotoboothModal({
                     )}
                   </div>
                   <span
-                    className={`text-center text-[11px] font-display uppercase tracking-wider transition-colors font-bold ${
+                    className={`text-center text-[10px] font-display uppercase tracking-wider transition-colors font-bold ${
                       selectedStyle === style.name
                         ? "text-primary"
                         : "text-white/50 group-hover:text-primary"
@@ -533,35 +533,52 @@ export default function AIPhotoboothModal({
           )}
 
           {/* Generate Button */}
-          <button
-            onClick={handleGenerate}
-            disabled={!canGenerate}
-            className={`w-full py-3 rounded-lg font-display font-bold tracking-[0.15em] uppercase text-xs flex items-center justify-center gap-2 transition-all duration-200 mb-6 shrink-0 ${
-              canGenerate
-                ? "bg-linear-to-br from-primary to-primary-dark text-charcoal hover:scale-[1.01] active:scale-[0.99] shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]"
-                : "bg-white/10 text-white/30 cursor-not-allowed"
-            }`}
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                GENERATING...
-              </>
-            ) : isLimitReached ? (
-              <>
-                <X className="w-3.5 h-3.5" />
-                FREE TRIAL LIMIT REACHED ({used}/{limit})
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-3.5 h-3.5" />
-                GENERATE DESIGN ({rateLimitLoading
-                  ? "..."
-                  : `${used}/${limit}`}{" "}
-                FREE TRIALS)
-              </>
+          <div className="mb-6 shrink-0">
+            <button
+              onClick={handleGenerate}
+              disabled={!canGenerate}
+              className={`w-full py-3 px-2 rounded-lg font-display font-bold tracking-[0.15em] uppercase md:text-xs text-[10px] flex items-center justify-center gap-2 transition-all duration-200 ${
+                canGenerate
+                  ? "bg-linear-to-br from-primary to-primary-dark text-charcoal hover:scale-[1.01] active:scale-[0.99] shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]"
+                  : "bg-white/10 text-white/30 cursor-not-allowed"
+              }`}
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="size-3.5 shrink-0 animate-spin" />
+                  GENERATING...
+                </>
+              ) : isLimitReached ? (
+                <>
+                  <X className="size-3.5 shrink-0" />
+                  FREE TRIAL LIMIT REACHED
+                </>
+              ) : (
+                <>
+                  <Sparkles className="size-3.5 shrink-0" />
+                  GENERATE DESIGN
+                </>
+              )}
+            </button>
+            {!isGenerating && (
+              <p
+                className={cn(
+                  "text-center mt-2 text-[10px] md:text-xs text-white/50",
+                  {
+                    "text-red-500": used >= limit,
+                  },
+                )}
+              >
+                {rateLimitLoading ? (
+                  "..."
+                ) : (
+                  <>
+                    {used}/{limit} FREE TRIALS USED
+                  </>
+                )}
+              </p>
             )}
-          </button>
+          </div>
 
           {/* Results */}
           {generatedResults.length > 0 && (

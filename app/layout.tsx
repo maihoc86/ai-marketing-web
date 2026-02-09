@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Uniksmart" }],
   openGraph: {
     title: "Uniksmart - Boost Nail Salon Revenue",
-    description:
-      "Smart, hands-on marketing for nail shops and salon chains.",
+    description: "Smart, hands-on marketing for nail shops and salon chains.",
     type: "website",
   },
 };
@@ -41,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="light scroll-smooth">
       <body
         className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}
       >
