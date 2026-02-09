@@ -68,15 +68,15 @@ export default function AIPhotoboothModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-[4px] z-[-1]"
+        className="absolute inset-0 bg-black/60 backdrop-blur-xs z-[-1]"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-[640px] h-[90vh] bg-charcoal rounded-[2.5rem] border border-primary/25 shadow-[inset_0_0_20px_rgba(34,181,248,0.03),0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col my-auto overflow-hidden">
+      <div className="relative w-full max-w-160 h-[90vh] bg-charcoal rounded-[2.5rem] border border-primary/25 shadow-[inset_0_0_20px_rgba(34,181,248,0.03),0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col my-auto overflow-hidden">
         {/* Header */}
         <div className="relative flex items-center justify-between px-8 pt-8 pb-4 shrink-0">
           <button
