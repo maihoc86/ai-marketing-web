@@ -1,5 +1,5 @@
-import { FileText } from "lucide-react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import LegalPageHeader from "@/components/legal-page-header";
 
 export const metadata: Metadata = {
   title: "Terms of Service | DSP.ONE - Uniksmart",
@@ -10,25 +10,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <FileText className="w-8 h-8 text-[#22b5f8]" />
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                UNIKSMART Terms of Service
-              </h1>
-              <p className="text-sm text-gray-500">
-                Effective Date: 24 March 2025
-              </p>
-              <p className="text-sm text-gray-500 mt-1">
-                Last Updated: 24 November 2025
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <LegalPageHeader title="UNIKSMART Terms of Service" />
 
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col gap-12">
