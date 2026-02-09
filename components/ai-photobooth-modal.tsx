@@ -400,14 +400,14 @@ export default function AIPhotoboothModal({
                   )}
                   <button
                     onClick={handleUploadClick}
-                    className="px-3 py-1.5 bg-primary/80 rounded-lg text-charcoal font-bold text-[10px] uppercase tracking-wider hover:bg-primary transition-colors flex items-center gap-1.5"
+                    className="px-3 py-1.5 bg-primary/80 rounded-lg text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-primary transition-colors flex items-center gap-1.5"
                   >
                     <Upload className="w-3.5 h-3.5" />
                     Upload
                   </button>
                   <button
                     onClick={handleRemoveImage}
-                    className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-[10px] uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-1.5"
+                    className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-colors flex items-center gap-1.5"
                   >
                     <X className="w-3.5 h-3.5" />
                     Remove
@@ -459,7 +459,7 @@ export default function AIPhotoboothModal({
 
           {/* Style Selection */}
           <div className="mb-6">
-            <h3 className="font-display text-primary text-[10px] font-bold tracking-[0.25em] mb-3 flex items-center gap-2 opacity-90 uppercase">
+            <h3 className="font-display text-primary text-xs font-bold tracking-[0.25em] mb-3 flex items-center gap-2 opacity-90 uppercase">
               <span className="text-sm">✨</span> Select your style
             </h3>
             <div className="grid grid-cols-4 gap-3">
@@ -526,7 +526,7 @@ export default function AIPhotoboothModal({
           {/* Error message */}
           {generateError && (
             <div className="mb-3 p-2 bg-red-500/10 border border-red-500/30 rounded-lg">
-              <p className="text-[10px] text-red-400 font-medium">
+              <p className="text-xs text-red-400 font-medium">
                 {generateError}
               </p>
             </div>
@@ -567,7 +567,7 @@ export default function AIPhotoboothModal({
           {generatedResults.length > 0 && (
             <div className="mb-2">
               <div className="flex items-center justify-between mb-3">
-                <h4 className="font-display font-bold text-primary text-[10px] tracking-[0.25em] uppercase opacity-90">
+                <h4 className="font-display font-bold text-primary text-xs tracking-[0.25em] uppercase opacity-90">
                   Results
                   <span className="ml-2 text-white/40">
                     ({generatedResults.length})
@@ -590,7 +590,7 @@ export default function AIPhotoboothModal({
                       unoptimized
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                      <span className="text-[10px] text-white font-bold uppercase tracking-wider">
+                      <span className="text-xs text-white font-bold uppercase tracking-wider">
                         Preview
                       </span>
                     </div>

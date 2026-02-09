@@ -143,7 +143,7 @@ export default function FeaturesSection() {
                     <p className="font-display font-bold text-primary-dark">
                       Uniksmart Salon
                     </p>
-                    <p className="text-[10px] text-gray-500">
+                    <p className="text-xs text-gray-500">
                       2.5mi Radius Targeted
                     </p>
                   </div>
@@ -154,14 +154,14 @@ export default function FeaturesSection() {
                 <div className="absolute bottom-8 right-8 bg-white p-4 rounded-lg shadow-xl border border-primary/10 max-w-[180px] z-30 transform transition-transform hover:scale-105">
                   <div className="flex items-center gap-2 mb-2">
                     📢
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted">
+                    <span className="text-xs font-bold uppercase tracking-wider text-text-muted">
                       Ad Live
                     </span>
                   </div>
                   <p className="text-xs font-bold text-text-main leading-tight mb-2">
                     &quot;Get 20% off your first Gel Set!&quot;
                   </p>
-                  <button className="w-full py-1.5 bg-primary hover:bg-primary-dark text-white text-[10px] font-bold uppercase tracking-widest rounded transition-colors">
+                  <button className="w-full py-1.5 bg-primary hover:bg-primary-dark text-white text-xs font-bold uppercase tracking-widest rounded transition-colors">
                     Book Now
                   </button>
                 </div>
@@ -227,7 +227,7 @@ export default function FeaturesSection() {
                     <span className="bg-green-100 text-green-600 rounded-full p-0.5">
                       ✓
                     </span>
-                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-wider">
+                    <span className="text-xs font-bold text-green-700 uppercase tracking-wider">
                       Booking Confirmed
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export default function FeaturesSection() {
                     luxury spa pedicure this month.
                   </p>
                   <div className="border-2 border-dashed border-primary/30 bg-accent-champagne/30 p-3 rounded mb-4 relative">
-                    <p className="text-[10px] uppercase tracking-widest text-primary-dark font-bold mb-1">
+                    <p className="text-xs uppercase tracking-widest text-primary-dark font-bold mb-1">
                       Your Gift
                     </p>
                     <p className="text-2xl font-display font-bold text-text-main">
@@ -270,7 +270,7 @@ export default function FeaturesSection() {
                     <div className="absolute -left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full border-r border-gray-200" />
                     <div className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full border-l border-gray-200" />
                   </div>
-                  <button className="bg-primary text-white text-[10px] font-bold py-2 px-6 rounded uppercase tracking-widest hover:bg-primary-dark transition-colors">
+                  <button className="bg-primary text-white text-xs font-bold py-2 px-6 rounded uppercase tracking-widest hover:bg-primary-dark transition-colors">
                     Claim Gift
                   </button>
                 </div>
@@ -310,7 +310,7 @@ export default function FeaturesSection() {
                 <div className="absolute bottom-6 w-full px-8 flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <div className="size-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-[10px] text-white font-mono uppercase tracking-widest">
+                    <span className="text-xs text-white font-mono uppercase tracking-widest">
                       Tracking Hand
                     </span>
                   </div>

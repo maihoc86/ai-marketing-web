@@ -24,18 +24,14 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="md:text-right flex flex-col md:items-end justify-center">
-            <img
-              className="h-32 -mr-7.5"
-              src="/logo-dark.png"
-              alt="Uniksmart"
-            />
-            <div className="space-y-1.5 text-xs text-gray-400">
+            <img className="h-32" src="/logo-dark.png" alt="Uniksmart" />
+            <div className="space-y-1.5 text-sm text-gray-400">
               <p className="flex items-center gap-2 md:justify-end">
-                <Mail className="w-3.5 h-3.5 text-primary" />
+                <Mail className="size-3.5 text-primary" />
                 salesmarketing@tienphongcds.com
               </p>
               <p className="flex items-center gap-2 md:justify-end">
-                <Phone className="w-3.5 h-3.5 text-primary" />
+                <Phone className="size-3.5 text-primary" />
                 0798 089 717
               </p>
             </div>
@@ -44,10 +40,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] text-gray-500 font-medium tracking-widest uppercase">
+          <p className="text-xs text-gray-500 font-medium tracking-widest uppercase">
             © 2026 Uniksmart. All rights reserved.
           </p>
-          <div className="flex gap-6 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
+          <div className="flex gap-6 text-xs text-gray-500 font-bold uppercase tracking-[0.2em]">
             <Link
               href="/privacy"
               className="hover:text-primary transition-colors"

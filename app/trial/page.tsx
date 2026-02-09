@@ -50,7 +50,7 @@ function TrialFormContent() {
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Uniksmart" width={156} height={36} />
           </Link>
-          <div className="hidden sm:block text-[10px] font-bold tracking-widest text-text-muted">
+          <div className="hidden sm:block text-xs font-bold tracking-widest text-text-muted">
             ALREADY A MEMBER?{" "}
             <a
               className="text-primary hover:text-primary-dark ml-2 underline underline-offset-4 transition-colors font-extrabold"

@@ -58,7 +58,7 @@ export default function HeroSection() {
           {/* Trust badge */}
           <div className="flex items-center justify-center lg:justify-start gap-2">
             <ShieldCheck className="w-4 h-4 text-primary" />
-            <p className="text-[10px] text-text-muted uppercase tracking-[0.2em] font-bold">
+            <p className="text-xs text-text-muted uppercase tracking-[0.2em] font-bold">
               Try risk-free: 10-day free trial — no credit card required.
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function HeroSection() {
                   <div className="size-3 rounded-full bg-yellow-400" />
                   <div className="size-3 rounded-full bg-green-400" />
                 </div>
-                <div className="text-[10px] text-text-muted font-bold tracking-wider uppercase flex items-center gap-2">
+                <div className="text-xs text-text-muted font-bold tracking-wider uppercase flex items-center gap-2">
                   <span className="size-2 rounded-full bg-green-500 animate-pulse" />
                   Live Analytics Dashboard
                 </div>
@@ -91,7 +91,7 @@ export default function HeroSection() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="bg-white p-5 rounded border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start mb-2">
-                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-bold">
+                      <p className="text-xs text-text-muted uppercase tracking-wider font-bold">
                         Local Reach
                       </p>
                       <span className="text-primary text-sm">📍</span>
@@ -99,7 +99,7 @@ export default function HeroSection() {
                     <p className="text-2xl lg:text-3xl font-display font-bold text-text-main">
                       15,200
                     </p>
-                    <p className="mt-2 text-[10px] text-text-muted leading-tight">
+                    <p className="mt-2 text-xs text-text-muted leading-tight">
                       High visibility in{" "}
                       <span className="text-primary font-semibold">
                         Downtown Area
@@ -108,7 +108,7 @@ export default function HeroSection() {
                   </div>
                   <div className="bg-white p-5 rounded border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start mb-2">
-                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-bold">
+                      <p className="text-xs text-text-muted uppercase tracking-wider font-bold">
                         Content
                       </p>
                       <span className="text-primary text-sm">🖼️</span>
@@ -116,7 +116,7 @@ export default function HeroSection() {
                     <p className="text-2xl lg:text-3xl font-display font-bold text-text-main">
                       24 Posts
                     </p>
-                    <p className="mt-2 text-[10px] text-text-muted leading-tight">
+                    <p className="mt-2 text-xs text-text-muted leading-tight">
                       Images & Short Videos created
                     </p>
                   </div>
@@ -128,7 +128,7 @@ export default function HeroSection() {
                     <div className="flex justify-between items-center mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-primary text-sm">📢</span>
-                        <p className="text-[10px] text-text-muted uppercase tracking-wider font-bold">
+                        <p className="text-xs text-text-muted uppercase tracking-wider font-bold">
                           Promo
                         </p>
                       </div>
@@ -139,13 +139,13 @@ export default function HeroSection() {
                     <p className="text-lg font-bold text-text-main mb-1">
                       Weekend Walk-in Special
                     </p>
-                    <button className="mt-3 text-[10px] font-bold text-primary hover:text-primary-dark uppercase tracking-widest flex items-center gap-1 transition-colors">
+                    <button className="mt-3 text-xs font-bold text-primary hover:text-primary-dark uppercase tracking-widest flex items-center gap-1 transition-colors">
                       🚀 Boost Now
                     </button>
                   </div>
                   <div className="bg-white p-5 rounded border border-gray-100 shadow-sm flex flex-col justify-between">
                     <div className="flex justify-between items-start mb-1">
-                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-bold">
+                      <p className="text-xs text-text-muted uppercase tracking-wider font-bold">
                         Est. Bookings
                       </p>
                       <span className="text-green-500 text-sm">📈</span>
@@ -154,11 +154,9 @@ export default function HeroSection() {
                       <p className="text-2xl font-display font-bold text-text-main">
                         +18
                       </p>
-                      <span className="text-[10px] text-text-muted">
-                        this week
-                      </span>
+                      <span className="text-xs text-text-muted">this week</span>
                     </div>
-                    <p className="mt-1 text-[10px] text-green-600 font-medium bg-green-50 w-fit px-1.5 py-0.5 rounded">
+                    <p className="mt-1 text-xs text-green-600 font-medium bg-green-50 w-fit px-1.5 py-0.5 rounded">
                       Campaign is working well.
                     </p>
                   </div>
@@ -171,11 +169,11 @@ export default function HeroSection() {
                       <h3 className="text-xs font-bold text-text-main uppercase tracking-wider">
                         Ad Spend vs. ROI
                       </h3>
-                      <p className="text-[10px] text-text-muted">
+                      <p className="text-xs text-text-muted">
                         Last 7 days performance
                       </p>
                     </div>
-                    <div className="flex items-center gap-1 text-primary text-[10px] font-bold bg-accent-champagne px-2 py-1 rounded border border-primary/10">
+                    <div className="flex items-center gap-1 text-primary text-xs font-bold bg-accent-champagne px-2 py-1 rounded border border-primary/10">
                       👍
                       <span>Keep running this ad</span>
                     </div>
@@ -186,7 +184,7 @@ export default function HeroSection() {
                         $50
                       </span>
                       <div className="w-full bg-gray-200 rounded-t-sm h-[20%] relative group-hover:bg-gray-300 transition-colors" />
-                      <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider mt-1">
+                      <span className="text-xs font-bold text-text-muted uppercase tracking-wider mt-1">
                         Spent
                       </span>
                     </div>
@@ -195,7 +193,7 @@ export default function HeroSection() {
                         $450
                       </span>
                       <div className="w-full bg-primary rounded-t-sm h-[85%] relative shadow-lg shadow-primary/20 group-hover:bg-primary-dark transition-colors" />
-                      <span className="text-[10px] font-bold text-primary-dark uppercase tracking-wider mt-1">
+                      <span className="text-xs font-bold text-primary-dark uppercase tracking-wider mt-1">
                         Booked
                       </span>
                     </div>

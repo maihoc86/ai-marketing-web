@@ -91,13 +91,13 @@ export default function PhotoboothSection() {
               <div className="absolute right-8 top-[35%] -translate-y-1/2 flex flex-col gap-4 z-20">
                 <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-[10px] font-sans font-semibold text-white uppercase tracking-wider">
+                  <span className="text-xs font-sans font-semibold text-white uppercase tracking-wider">
                     Halloween Style
                   </span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
                   <Zap className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-[10px] font-sans font-semibold text-white uppercase tracking-wider">
+                  <span className="text-xs font-sans font-semibold text-white uppercase tracking-wider">
                     Pointed Nails Style
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export default function PhotoboothSection() {
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-[10px] font-mono text-primary uppercase tracking-[0.2em] font-bold">
+                    <p className="text-xs font-mono text-primary uppercase tracking-[0.2em] font-bold">
                       Live Scanning
                     </p>
                   </div>
@@ -127,7 +127,7 @@ export default function PhotoboothSection() {
                     Detecting Skin Tone & Nail Bed...
                   </p>
                 </div>
-                <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
+                <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded border border-white/20 text-xs font-bold text-white uppercase tracking-widest">
                   HD
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function PhotoboothSection() {
                       AI Gen
                     </div>
                   </div>
-                  <p className="text-[10px] font-bold text-text-main text-center uppercase tracking-wider">
+                  <p className="text-xs font-bold text-text-main text-center uppercase tracking-wider">
                     {design.title}
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export default function PhotoboothSection() {
           {/* Right: Content */}
           <div className="flex flex-col">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-[0.2em] rounded-full bg-primary/5 w-fit">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border border-primary/20 text-primary text-xs font-bold uppercase tracking-[0.2em] rounded-full bg-primary/5 w-fit">
               <Sparkles className="w-3.5 h-3.5" />
               Exclusive Feature
             </div>
@@ -211,14 +211,14 @@ export default function PhotoboothSection() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-xs font-extrabold py-3 px-10 transition-all shadow-[0_10px_20px_-10px_rgba(34,181,248,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(34,181,248,0.6)] tracking-[0.2em] flex items-center justify-center gap-2 group rounded-md"
+                className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-sm font-extrabold py-3 px-10 transition-all shadow-[0_10px_20px_-10px_rgba(34,181,248,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(34,181,248,0.6)] tracking-[0.2em] flex items-center justify-center gap-2 group rounded-md"
               >
                 Try AI Photobooth
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="flex items-center gap-2 py-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <p className="text-[10px] text-text-muted font-bold uppercase tracking-widest whitespace-nowrap">
+                <p className="text-xs text-text-muted font-bold uppercase tracking-widest whitespace-nowrap">
                   Compatible with iOS & Android
                 </p>
               </div>

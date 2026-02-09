@@ -59,10 +59,10 @@ export default function WhySection() {
               <div className="size-12 mx-auto mb-4 bg-primary/5 rounded-full flex items-center justify-center border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <benefit.icon className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-text-main text-sm uppercase tracking-wider mb-2">
+              <h3 className="font-bold text-text-main text-base uppercase tracking-wider mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-text-muted text-xs leading-relaxed">
+              <p className="text-text-muted text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </div>

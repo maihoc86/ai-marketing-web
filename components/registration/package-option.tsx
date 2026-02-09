@@ -64,7 +64,7 @@ export function PackageOption({ id, selected, onSelect }: PackageOptionProps) {
         <h4 className="text-lg font-bold text-text-main tracking-tight mb-1">
           {config.title}
         </h4>
-        <p className="text-[10px] text-primary-dark font-extrabold uppercase tracking-widest mb-4">
+        <p className="text-xs text-primary-dark font-extrabold uppercase tracking-widest mb-4">
           {config.subtitle}
         </p>
         <p className="text-sm text-text-muted leading-relaxed font-medium">

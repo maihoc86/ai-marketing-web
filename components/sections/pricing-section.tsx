@@ -83,7 +83,7 @@ export default function PricingSection() {
 
             <div className="space-y-4 mb-6 flex-grow">
               <div>
-                <p className="text-[10px] font-bold text-text-main uppercase tracking-widest mb-3">
+                <p className="text-xs font-bold text-text-main uppercase tracking-widest mb-3">
                   What we do for you
                 </p>
                 <ul className="space-y-2">
@@ -118,7 +118,7 @@ export default function PricingSection() {
             </div>
 
             <Link href="/trial?package=starter" className="block">
-              <button className="w-full py-3 px-6 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-[10px] rounded-md">
+              <button className="w-full py-3 px-6 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-xs rounded-md">
                 Start Free Trial
               </button>
             </Link>
