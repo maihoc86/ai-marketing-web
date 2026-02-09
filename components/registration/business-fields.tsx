@@ -5,7 +5,7 @@ import type {
   RegistrationFormData,
   RegistrationFormErrors,
 } from "@/types/registration";
-import { businessTypes } from "@/types/registration";
+import { useActivityFields } from "@/lib/queries/activity-fields";
 
 interface BusinessFieldsProps {
   formData: RegistrationFormData;
@@ -21,6 +21,7 @@ export function BusinessFields({
   onInputChange,
 }: BusinessFieldsProps) {
   const isBusinessPackage = formData.selected_package === "business";
+  const { data: activityFields, isLoading } = useActivityFields("en");
 
   return (
     <section className="mb-14">
@@ -79,11 +80,15 @@ export function BusinessFields({
               value={formData.business_type}
               onChange={onInputChange}
               required={isBusinessPackage}
-              className="w-full bg-white border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary/50 text-text-main py-3.5 px-4 outline-none transition-all text-sm rounded-sm font-medium appearance-none cursor-pointer pr-10"
+              disabled={isLoading}
+              className="w-full bg-white border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary/50 text-text-main py-3.5 px-4 outline-none transition-all text-sm rounded-sm font-medium appearance-none cursor-pointer pr-10 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {businessTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
+              <option value="">
+                {isLoading ? "Loading..." : "Select business type"}
+              </option>
+              {activityFields?.map((field) => (
+                <option key={field.id} value={field.id}>
+                  {field.name}
                 </option>
               ))}
             </select>
