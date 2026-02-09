@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { RegistrationForm, SuccessScreen } from "@/components/registration";
 import { useRegistrationForm } from "@/hooks/use-registration-form";
+import Footer from "@/components/footer";
 import type { PackageType } from "@/types/registration";
 
 const AI_DSP_URL =
@@ -103,31 +104,7 @@ function TrialFormContent() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
-          <Link
-            href="/"
-            className="flex items-center gap-3 mb-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
-          >
-            <Image src="/logo.png" alt="Uniksmart" width={120} height={28} />
-          </Link>
-          <div className="flex gap-8 text-[11px] text-text-muted font-bold uppercase tracking-widest mb-8">
-            <a className="hover:text-primary-dark transition-colors" href="#">
-              Privacy
-            </a>
-            <a className="hover:text-primary-dark transition-colors" href="#">
-              Terms
-            </a>
-            <a className="hover:text-primary-dark transition-colors" href="#">
-              Contact
-            </a>
-          </div>
-          <p className="text-[10px] text-gray-400 font-bold tracking-widest uppercase">
-            © 2024 Uniksmart. THE ART OF DIGITAL BEAUTY.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
