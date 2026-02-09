@@ -1,15 +1,52 @@
-import type React from "react";
+import type { Metadata } from "next";
+import { Inter, Montserrat } from "next/font/google";
+import "./globals.css";
 
-/**
- * Root Layout
- *
- * This minimal layout passes children to the locale-specific layout.
- * The actual HTML structure and providers are in app/[locale]/layout.tsx
- */
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Uniksmart - Boost Nail Salon Revenue",
+  description:
+    "Smart, hands-on marketing for nail shops and salon chains. We help nail salon owners grow foot traffic, fill appointment slots, and increase average spend.",
+  keywords: [
+    "nail salon marketing",
+    "salon marketing",
+    "nail shop",
+    "photobooth",
+    "local ads",
+    "booking system",
+  ],
+  authors: [{ name: "Uniksmart" }],
+  openGraph: {
+    title: "Uniksmart - Boost Nail Salon Revenue",
+    description:
+      "Smart, hands-on marketing for nail shops and salon chains.",
+    type: "website",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <html lang="en" className="light">
+      <body
+        className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
 }
