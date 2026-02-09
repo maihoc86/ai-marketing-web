@@ -1,8 +1,22 @@
 "use client";
 
-import { X, Sparkles, Hand, Camera, Upload } from "lucide-react";
+import {
+  X,
+  Sparkles,
+  Hand,
+  Camera,
+  Upload,
+  Loader2,
+  Download,
+} from "lucide-react";
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+import {
+  getRateLimits,
+  incrementRateLimit,
+  type RateLimitData,
+} from "@/lib/queries/rate-limits";
+import { generateImage } from "@/lib/queries/generate-image";
 
 interface AIPhotoboothModalProps {
   isOpen: boolean;
@@ -12,54 +26,32 @@ interface AIPhotoboothModalProps {
 const styles = [
   {
     name: "Classic",
+    prompt:
+      "Apply a classic elegant nail art style: solid rich colors, clean lines, timeless French manicure or single-tone glossy finish. Keep the hand exactly as-is.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC_Z8EPlBfqn7KDCVTpbIoTRpMgSt_Q3t-UjMQv6rLsgRo2K456Y3bK1YX__2UDW36epdQaRUtW8exj2YFeyG3rwCmjJQK8s4PGzJOUOaocSg_dJwP7WVn8mI587V8mZAB_K6rKHPSKFtOsJ0jPa6W2DwVwFJFQ39-S60QQDnIerwgkHPtJdu9d4VEgfrMztXSBcJ6MyhEKUiFHiWH8ZGFXAmPUBNTm9VJj5av7qCC1ePxBWRIT1sp8q1NZ99nV8_Jd5_CBKFQS1_RZ",
   },
   {
     name: "Modern",
+    prompt:
+      "Apply a modern trendy nail art style: geometric patterns, abstract designs, negative-space art, or minimalist lines with bold accent colors. Keep the hand exactly as-is.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD3k01TyKpOvsWwYqRA6AAat4ZsPSPbiDcTdrvZid-rY-B9Z93BTWB-mAOIckT9r1vCqImVXUnEyyWcmo2UUSAf7h19547mOs9jnGpCf7Iivw6H0HNtjtBg51TCffxblCjJr3yL_HwYsi4_IZhjrjGi1Mm1OiAdeFgBYyCj9--usfE12cEPG69HFW5_9gRcjyuYV_XK0I54d3OYfZ8DoIXgVhwzT_9bFF3AH-cIru0sGj8U3X9U95wb7w7tRb5XwwFVg6IOrQUCmllw",
   },
   {
     name: "Cartoon",
+    prompt:
+      "Apply a fun cartoon-inspired nail art style: bright vivid colors, playful character designs, comic-book outlines, pop-art dots, and whimsical patterns on the nails only. Keep the hand exactly as-is.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDv0XdZPUtOS5xluWpG-zmNF3NUPdvk6vqnX4FIKG3D6kxU5y6DqeAvNdYrPGZR2cpxvAl7ntSsI0BzfDsMFFqLMtjVlQHB-2OVhlpnHLmdBETz2ksTstdJ5mxcQjaJUCshEcP1wPvAfBwAPOKkrUvc-2cyEhfUfaPcXVMIRZFe03oiG-iJwZzUG6JeIXzo45OtTL43ZwD_Ahqr6yc59nArTDNyT9xXMsIsCm0WKt2PWyqaWepJ0meTm9SG31KvO7KEyf4gB-ViPT-P",
   },
   {
     name: "Cute",
+    prompt:
+      "Apply a cute kawaii nail art style: pastel colors, tiny hearts, stars, bows, flowers, and adorable mini illustrations on the nails only. Keep the hand exactly as-is.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCLV0XPy7ol7vdxPaaAjWs9mf-YgWDrdk2gnyUIX7B2LndIMOYqgL0v3gZNamdwxI74R_k05Be9akOzsOOVnnMAOlzOCbcNMsFGi-ok_MC7bacqci0YSIo4U2I7wYNp-0YLNYMOLUkXr_4pO_gktyLLXakyM464rbOjKrOe8_pHL3lNRADn78MIS2wE6LxH130NWoxceQ-Gc2J1ibCQSZ5UUzmm-AdZlTgD6tS80uz8y9VSSOe_phVNprcZUy1abIYSA8k9cHRshUGO",
   },
-];
-
-const trending = [
-  {
-    name: "Zootopia",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDQYkjdS47my0_ZRCd7nOKldZ205vOfnPzxPSDBF8XtWw9J7Vr1NnaTfQqSbR7Irk8JlntHRjUUVNFXRU4vmjDPJhoudn3MK_PFTNQwyKVhEcIjdI7BmpjCJ4TSNPOtGtd8Ls5Ry-Amb4cSGdSRZWn-dNnykeoMcufDE77PebakXOka_pwCcsOkOrvFZC7MNYyvnsfJfRcraCcMb4LNHrttakGY_8qshc-YazJEI-CnaZe2IURkmZr8clRcWXmzykVWhbIHR0_mSQOT",
-  },
-  {
-    name: "Halloween",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCN4G9J8FasvbslK4oTYzfEnmYGgOkoIGCVuNnsnXv-WREPKKy1GY_CJepe3-pMQe1DFwmpw7fdBz1WweJLmkTLtnMWV76FzNV-LkMbxM39CCRoBgYNWgnCSRj5ntI8pQFJ2F5zyULymUPr8KEA6HD8KGy2kqe6S7Kwtd1gMDyBcnA4T9LipPVbgrYt78sVVnHcUW-8x_ERz1sWM6v3UcgmvMF4O2RIXayMTSMtsXeUlboYyIf5U5U9UW2cLDqexa2ulCrw5MH7WeBN",
-  },
-  {
-    name: "Tet Holiday",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDUGCdIo53wdYqZK47Aor6OmUi5hvZ6KSAkYwQbYzLBcomGD6xgKjWtCRIqnJltQCxzYsbaqZz4zYOtvkhkMQwzMVJH1sp4ombm_HaTctT9KKl-XkGDOlLvtWPagffCInJFIAjXa5LjJbyo6uUgrXIFxvtanu2ldvS9KZnGx_D0Y20Z8LtbatWun4al2mbxMc1fDszKVXc9h-WAKWWWYm4MsLzRfsZgVPPJnluFd9LCVrXHmgaXKoP7w9Yo0vgo6wsruKB7ZjESXOJU",
-  },
-  {
-    name: "Trends",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCd6ZQ6O0vQz0kRRzu2zx8lemZTif9194RhQtYfrIKfv-gzeu-KJhF5-GWiqGRwEbNsEadRu3BGfAd7Oz8pwj1s3xSVvtv0y8nQBrDFaLv9irFn4xZOc88Fc1fGN4jETTRkpxpnHNc_pnYltH_lFkEf5BoALiCbZoIAKfJRTpMXMmsyCoaR3G176Wws7AKBvh2a8N58USeuLnL9MeypSVxXxJu-65uyfAaov1_NAYrEgBQA6NH3o7xtPwyGo8aitlHCRpDtGlAx6VGt",
-  },
-];
-
-const results = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuA_8f1zhaL6MH9ixGGenVJJMaapGQBc9kzvsmuGZQ_uc2yef8gLVxNX9Ti-43jY9eoAi3JgTZeuqt971sX9b2JUS-jGBiQlpLm7j1uDxa8N-rkklrQvPPRVLChXDVVhWJdcseDVui36s6Hx54zdLBf3oU4K1jVVAtUk4QvIW26MntzOaFoip74CUbQewQV-fJD9pJwmIysCbxVgsxVY6BWXxtrz0K6yTn97QC4lsM0_sSYO5BaReP1K-xZa-X_iOQ65Ob4pSp1nDNtl",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuD09TkRATkob0_8HHSN0u5oQmvAsdOdfZXOs0m-N_ylYH0txk0w1NcDiXov8uvnkTbS_TZT2oWC5jFWD7qBZcnPn8J-s8dPva24VNVIMFM8nuDMHRfL8MNcqLrX1XNb2CJLMQ8EBntCThQrxX-xU6x0Io-_iEfrjtIsx2XFtaEIab4TwlJ6CzfwgIFo-HrNzGR-AnTYaw6MCnmjlFrAm2j8SsgDQn25lYDv6mK6SDdJogjZ9kLzoPNigJ4SRabOlxD7shQguPHpIV9W",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAkch1yi2nGaddcxnz1aqfC-fjtoO892071v77RGiIQecAtZUb05xgO4rmUe2LDQfoz1fbSTxKrxEMBbsFeEXNOrZNl_qk6GJBxCv9nPZkSZe78QZgprlmTus5l4H_0WrhZ36i_ZnvPFtzm9_PBMe5uoYzfUAIZ76rBzzGToj27uuv58ozwrMHLx6cWramN2l2pdEGWSG_uOqPoUezifeVZ0UNhPMa79C_yjGQONhRsGb6dfW7sJujOZUamj2gKLg4rgoDcM-M-U-b6",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBZmmgLaDXVTXoMZUc1MLS2fVgMwG2wBNn0ufE8KRhqo5QAqQmt5mNfuOCE2a5By1bbl61Q2fcyrmvZn3JSkG4FfQGrYTDa2i53fgawHAlkPBunXo_F6a5ibPW_mZu0oMjmMztwVTEtKdwpENeVe0Mohc9x6hKtH6aVITgBNN7MbdO5GTi2gOrHWvElU8QLpYiV0OLGp4CzKzcP9nePfk0EIqAmKkD5Jr_fzTss9jV6S8avqmzCbn6oMEKOhDlcuSSgAECBVAiYv5b7",
 ];
 
 export default function AIPhotoboothModal({
@@ -74,16 +66,50 @@ export default function AIPhotoboothModal({
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [stream, setStream] = useState<MediaStream | null>(null);
 
+  // Style selection
+  const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+
+  // Rate limits
+  const [rateLimit, setRateLimit] = useState<RateLimitData | null>(null);
+  const [rateLimitLoading, setRateLimitLoading] = useState(true);
+
+  // Generation
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generatedResults, setGeneratedResults] = useState<string[]>([]);
+  const [generateError, setGenerateError] = useState<string | null>(null);
+
+  // Preview modal
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+
+  // Fetch rate limits
+  const fetchRateLimits = useCallback(async () => {
+    try {
+      setRateLimitLoading(true);
+      const data = await getRateLimits();
+      setRateLimit(data);
+    } catch (error) {
+      console.error("Failed to fetch rate limits:", error);
+    } finally {
+      setRateLimitLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      fetchRateLimits();
+    }
+  }, [isOpen, fetchRateLimits]);
+
+  const isLimitReached = rateLimit ? rateLimit.remaining <= 0 : false;
+
   useEffect(() => {
     // Check if device supports camera
     const checkCamera = async () => {
       try {
-        // Check if mediaDevices API is available
         if (
           navigator.mediaDevices &&
           typeof navigator.mediaDevices.getUserMedia === "function"
         ) {
-          // Try to enumerate devices to see if there's a camera
           const devices = await navigator.mediaDevices.enumerateDevices();
           const hasCamera = devices.some(
             (device) => device.kind === "videoinput",
@@ -92,8 +118,7 @@ export default function AIPhotoboothModal({
         } else {
           setHasCameraSupport(false);
         }
-      } catch (error) {
-        // If there's an error, assume no camera support
+      } catch {
         setHasCameraSupport(false);
       }
     };
@@ -114,7 +139,6 @@ export default function AIPhotoboothModal({
 
   const handleCameraClick = async () => {
     try {
-      // Request camera access
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
         audio: false,
@@ -123,14 +147,12 @@ export default function AIPhotoboothModal({
       setIsCameraActive(true);
     } catch (error) {
       console.error("Error accessing camera:", error);
-      // Fallback to file input if camera access fails
       cameraInputRef.current?.click();
     }
   };
 
   const handleCapture = () => {
     if (videoRef.current) {
-      // Create canvas to capture image
       const canvas = document.createElement("canvas");
       canvas.width = videoRef.current.videoWidth;
       canvas.height = videoRef.current.videoHeight;
@@ -145,13 +167,13 @@ export default function AIPhotoboothModal({
     }
   };
 
-  const stopCamera = () => {
+  const stopCamera = useCallback(() => {
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
       setStream(null);
     }
     setIsCameraActive(false);
-  };
+  }, [stream]);
 
   const handleUploadClick = () => {
     fileInputRef.current?.click();
@@ -167,12 +189,72 @@ export default function AIPhotoboothModal({
     }
   };
 
+  // Generate nail art
+  const handleGenerate = async () => {
+    if (!selectedImage || !selectedStyle || isLimitReached || isGenerating)
+      return;
+
+    const style = styles.find((s) => s.name === selectedStyle);
+    if (!style) return;
+
+    setIsGenerating(true);
+    setGenerateError(null);
+
+    try {
+      // Build optimized prompt for hand preservation
+      const prompt = [
+        "You are a professional nail art designer AI.",
+        "I am providing a photo of a real human hand.",
+        "Your task: ONLY modify the fingernails/toenails in the image.",
+        "DO NOT alter the hand shape, skin tone, skin texture, fingers, palm, background, or any other part of the image.",
+        "The hand, wrist, fingers, and background must remain pixel-perfect identical to the original photo.",
+        "Only paint/design the nail surface area.",
+        "",
+        `Nail art style to apply: ${style.prompt}`,
+        "",
+        "Output: A single photorealistic image of the SAME hand with ONLY the nails changed to match the requested style.",
+      ].join("\n");
+
+      const result = await generateImage({
+        prompt,
+        initImages: [selectedImage],
+        preset: "nail_art",
+      });
+
+      if (result?.image) {
+        setGeneratedResults((prev) => [result.image, ...prev]);
+
+        // Increment rate limit after successful generation
+        await incrementRateLimit();
+        await fetchRateLimits();
+      }
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Generation failed. Please try again.";
+      setGenerateError(message);
+      console.error("Generate error:", error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleDownload = (imageUrl: string) => {
+    const link = document.createElement("a");
+    link.href = imageUrl;
+    link.download = `nail-art-${Date.now()}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   // Cleanup camera stream when modal closes
   useEffect(() => {
     if (!isOpen) {
       stopCamera();
     }
-  }, [isOpen]);
+  }, [isOpen, stopCamera]);
 
   // Set video stream when camera becomes active
   useEffect(() => {
@@ -183,6 +265,11 @@ export default function AIPhotoboothModal({
 
   if (!isOpen) return null;
 
+  const used = rateLimit?.used ?? 0;
+  const limit = rateLimit?.limit ?? 5;
+  const canGenerate =
+    selectedImage && selectedStyle && !isLimitReached && !isGenerating;
+
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
       {/* Backdrop */}
@@ -190,6 +277,42 @@ export default function AIPhotoboothModal({
         className="absolute inset-0 bg-black/60 backdrop-blur-xs z-[-1]"
         onClick={onClose}
       />
+
+      {/* Image Preview Modal */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-200 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div
+            className="relative max-w-3xl max-h-[85vh] w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={previewImage}
+              alt="Preview"
+              width={800}
+              height={800}
+              className="w-full h-auto max-h-[85vh] object-contain rounded-2xl"
+              unoptimized
+            />
+            <div className="absolute top-4 right-4 flex gap-2">
+              <button
+                onClick={() => handleDownload(previewImage)}
+                className="p-2.5 bg-primary rounded-full text-charcoal hover:bg-primary-dark transition-colors shadow-lg"
+              >
+                <Download className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => setPreviewImage(null)}
+                className="p-2.5 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors shadow-lg"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal Container */}
       <div className="relative w-full max-w-160 h-[90vh] bg-charcoal rounded-[2.5rem] border border-primary/25 shadow-[inset_0_0_20px_rgba(34,181,248,0.03),0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col my-auto overflow-hidden">
@@ -229,7 +352,7 @@ export default function AIPhotoboothModal({
             className="hidden"
             onChange={handleImageSelect}
           />
-          <div className="w-full aspect-[16/9] rounded-3xl flex flex-col items-center justify-center gap-4 group transition-all duration-500 mb-6 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
+          <div className="w-full aspect-video rounded-3xl flex flex-col items-center justify-center gap-4 group transition-all duration-500 mb-6 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
             {isCameraActive ? (
               <>
                 <video
@@ -329,7 +452,7 @@ export default function AIPhotoboothModal({
                     </button>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
               </>
             )}
           </div>
@@ -343,20 +466,56 @@ export default function AIPhotoboothModal({
               {styles.map((style) => (
                 <div
                   key={style.name}
-                  className="flex flex-col gap-2 group cursor-pointer"
+                  onClick={() => setSelectedStyle(style.name)}
+                  className={`flex flex-col gap-2 group cursor-pointer transition-all duration-200 ${
+                    selectedStyle === style.name ? "scale-[1.02]" : ""
+                  }`}
                 >
-                  <div className="aspect-square bg-[#0a1628] rounded-xl border border-white/5 group-hover:border-primary/40 transition-all duration-300 overflow-hidden shadow-xl relative">
+                  <div
+                    className={`aspect-square bg-[#0a1628] rounded-xl border-2 transition-all duration-300 overflow-hidden shadow-xl relative ${
+                      selectedStyle === style.name
+                        ? "border-primary shadow-[0_0_20px_rgba(34,181,248,0.3)]"
+                        : "border-white/5 group-hover:border-primary/40"
+                    }`}
+                  >
                     <Image
                       alt={`${style.name} Style Nail Art`}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                      className={`w-full h-full object-cover transition-opacity duration-300 ${
+                        selectedStyle === style.name
+                          ? "opacity-100"
+                          : "opacity-80 group-hover:opacity-100"
+                      }`}
                       src={style.image}
                       width={150}
                       height={150}
                       unoptimized
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
+                    {selectedStyle === style.name && (
+                      <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-3 h-3 text-charcoal"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={3}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
                   </div>
-                  <span className="text-center text-[11px] font-display uppercase tracking-wider text-white/50 group-hover:text-primary transition-colors font-bold">
+                  <span
+                    className={`text-center text-[11px] font-display uppercase tracking-wider transition-colors font-bold ${
+                      selectedStyle === style.name
+                        ? "text-primary"
+                        : "text-white/50 group-hover:text-primary"
+                    }`}
+                  >
                     {style.name}
                   </span>
                 </div>
@@ -364,74 +523,86 @@ export default function AIPhotoboothModal({
             </div>
           </div>
 
-          {/* Trending */}
-          {/* <div className="mb-8">
-            <h4 className="font-display text-primary text-xs font-bold tracking-[0.25em] mb-4 uppercase opacity-90">
-              Trending
-            </h4>
-            <div className="grid grid-cols-4 gap-4">
-              {trending.map((item) => (
-                <div
-                  key={item.name}
-                  className="flex flex-col gap-2 group cursor-pointer"
-                >
-                  <div className="aspect-square bg-[#0a1628] rounded-xl border border-white/5 group-hover:border-primary/40 transition-all duration-300 overflow-hidden shadow-xl relative">
+          {/* Error message */}
+          {generateError && (
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-xl">
+              <p className="text-xs text-red-400 font-medium">
+                {generateError}
+              </p>
+            </div>
+          )}
+
+          {/* Generate Button */}
+          <button
+            onClick={handleGenerate}
+            disabled={!canGenerate}
+            className={`w-full py-4 rounded-xl font-display font-bold tracking-[0.15em] uppercase text-sm flex items-center justify-center gap-2 transition-all duration-200 mb-8 shrink-0 ${
+              canGenerate
+                ? "bg-linear-to-br from-primary to-primary-dark text-charcoal hover:scale-[1.01] active:scale-[0.99] shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]"
+                : "bg-white/10 text-white/30 cursor-not-allowed"
+            }`}
+          >
+            {isGenerating ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                GENERATING...
+              </>
+            ) : isLimitReached ? (
+              <>
+                <X className="w-4 h-4" />
+                FREE TRIAL LIMIT REACHED ({used}/{limit})
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4" />
+                GENERATE DESIGN ({rateLimitLoading
+                  ? "..."
+                  : `${used}/${limit}`}{" "}
+                FREE TRIALS)
+              </>
+            )}
+          </button>
+
+          {/* Results */}
+          {generatedResults.length > 0 && (
+            <div className="mb-2">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="font-display font-bold text-primary text-xs tracking-[0.25em] uppercase opacity-90">
+                  Results
+                  <span className="ml-2 text-white/40">
+                    ({generatedResults.length})
+                  </span>
+                </h4>
+              </div>
+              <div className="grid grid-cols-4 gap-4">
+                {generatedResults.map((src, index) => (
+                  <div
+                    key={`${src.slice(-20)}-${index}`}
+                    onClick={() => setPreviewImage(src)}
+                    className="aspect-square rounded-xl border border-white/10 bg-[#0a1628]/50 flex items-center justify-center hover:border-primary/50 transition-colors cursor-pointer group overflow-hidden relative"
+                  >
                     <Image
-                      alt={`${item.name} Nails`}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                      src={item.image}
+                      alt={`Generated Nail Art ${index + 1}`}
+                      className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity"
+                      src={src}
                       width={150}
                       height={150}
                       unoptimized
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                      <span className="text-[10px] text-white font-bold uppercase tracking-wider">
+                        Preview
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-center text-[11px] font-display uppercase tracking-wider text-white/50 group-hover:text-primary transition-colors font-bold">
-                    {item.name}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div> */}
-
-          {/* Generate Button */}
-          <button className="w-full bg-linear-to-br from-primary to-primary-dark py-4 rounded-xl text-charcoal font-display font-bold tracking-[0.15em] uppercase text-sm flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-transform duration-200 mb-8 shrink-0 shadow-[0_4px_20px_rgba(34,181,248,0.25)] hover:shadow-[0_6px_25px_rgba(34,181,248,0.35)]">
-            <Sparkles className="w-4 h-4" />
-            GENERATE DESIGN
-          </button>
-
-          {/* Results */}
-          <div className="mb-2">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="font-display font-bold text-primary text-xs tracking-[0.25em] uppercase opacity-90">
-                Results
-              </h4>
-              <span className="text-[10px] text-primary/60 uppercase tracking-widest font-bold cursor-pointer hover:text-primary transition-colors font-display">
-                View All
-              </span>
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {results.map((src, index) => (
-                <div
-                  key={index}
-                  className="aspect-square rounded-xl border border-white/10 bg-[#0a1628]/50 flex items-center justify-center hover:border-primary/50 transition-colors cursor-pointer group overflow-hidden relative"
-                >
-                  <Image
-                    alt={`Generated Nail Art ${index + 1}`}
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity"
-                    src={src}
-                    width={150}
-                    height={150}
-                    unoptimized
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Bottom Gradient Line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-linear-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary/30 to-transparent"></div>
       </div>
     </div>
   );
