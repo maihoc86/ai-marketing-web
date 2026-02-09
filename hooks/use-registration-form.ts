@@ -8,7 +8,7 @@ import type {
   RegistrationFormData,
   RegistrationFormErrors,
 } from "@/types/registration";
-import { initialFormData } from "@/types/registration";
+import { initialFormData, phoneCodes } from "@/types/registration";
 
 interface UseRegistrationFormOptions {
   initialPackage?: PackageType;
@@ -78,6 +78,28 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
 
     if (!formData.phone_number.trim()) {
       newErrors.phone_number = "Phone number is required";
+    } else {
+      // Validate phone number format based on selected phone code
+      const selectedPhoneCode = phoneCodes.find(
+        (pc) => pc.code === formData.phone_code,
+      );
+
+      if (selectedPhoneCode) {
+        // Remove all non-digit characters for validation
+        const cleanedPhone = formData.phone_number.replace(/\D/g, "");
+
+        // Check length
+        if (
+          cleanedPhone.length < selectedPhoneCode.minLength ||
+          cleanedPhone.length > selectedPhoneCode.maxLength
+        ) {
+          newErrors.phone_number = `Phone number must be ${selectedPhoneCode.minLength}-${selectedPhoneCode.maxLength} digits for ${selectedPhoneCode.country}`;
+        }
+        // Check pattern
+        else if (!selectedPhoneCode.pattern.test(formData.phone_number)) {
+          newErrors.phone_number = `Invalid format. ${selectedPhoneCode.description}`;
+        }
+      }
     }
 
     if (!formData.job_position) {

@@ -83,10 +83,24 @@ export const businessTypes = [
 ];
 
 export const phoneCodes = [
-  { code: "+1", country: "US" },
-  { code: "+44", country: "UK" },
-  { code: "+81", country: "JP" },
-  { code: "+84", country: "VN" },
+  {
+    code: "+1",
+    country: "US",
+    placeholder: "(555) 000-0000",
+    pattern: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
+    minLength: 10,
+    maxLength: 14,
+    description: "10 digits, format: (555) 000-0000",
+  },
+  {
+    code: "+84",
+    country: "VN",
+    placeholder: "091 234 5678",
+    pattern: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}$/,
+    minLength: 9,
+    maxLength: 10,
+    description: "9-10 digits, Vietnamese mobile format",
+  },
 ];
 
 export const jobPositions = [

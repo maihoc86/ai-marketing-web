@@ -117,7 +117,7 @@ export function RegistrationForm({
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full md:w-auto min-w-[320px] py-4 px-10 bg-charcoal hover:bg-charcoal/90 text-white font-extrabold tracking-widest text-xs uppercase shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+          className="w-full md:w-auto min-w-[320px] py-4 px-10 bg-secondary hover:bg-secondary/90 text-white font-extrabold tracking-widest text-xs uppercase shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>

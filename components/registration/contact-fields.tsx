@@ -23,7 +23,7 @@ export function ContactFields({
   return (
     <section className="mb-14">
       <h3 className="text-sm font-extrabold uppercase tracking-widest text-text-main mb-8 flex items-center gap-4">
-        <span className="w-8 h-[2px] bg-primary" /> Personal Information
+        <span className="w-8 h-0.5 bg-primary" /> Personal Information
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
         <div>
@@ -89,7 +89,10 @@ export function ContactFields({
               name="phone_number"
               value={formData.phone_number}
               onChange={onInputChange}
-              placeholder="(555) 000-0000"
+              placeholder={
+                phoneCodes.find((pc) => pc.code === formData.phone_code)
+                  ?.placeholder || "(555) 000-0000"
+              }
               required
               className={`flex-1 bg-white border focus:border-primary focus:ring-1 focus:ring-primary/50 placeholder-gray-400 text-text-main py-3.5 px-4 outline-none transition-all text-sm rounded-sm font-medium ${
                 errors.phone_number ? "border-red-500" : "border-gray-200"

@@ -49,6 +49,8 @@
   --primary-light: #e0f2fe;
   --primary-foreground: #ffffff;
 
+  --secondary: #ff7900;
+
   /* Accent Colors */
   --accent-champagne: #f0f9ff;
   --accent-rose: #f8fafc;
@@ -67,7 +69,6 @@
   /* Legacy support */
   --color-primary: #22b5f8;
   --color-primary-hover: #0ea5e9;
-  --secondary: #0ea5e9;
 
   /* Neutral colors */
   --background: #ffffff;
@@ -94,6 +95,8 @@
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
   --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
 
   --color-accent-champagne: var(--accent-champagne);
   --color-accent-rose: var(--accent-rose);
