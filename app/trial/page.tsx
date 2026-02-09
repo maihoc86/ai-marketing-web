@@ -46,11 +46,11 @@ function TrialFormContent() {
     <div className="min-h-screen flex flex-col bg-background-light">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 glass-panel transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Uniksmart" width={208} height={48} />
+            <Image src="/logo.png" alt="Uniksmart" width={156} height={36} />
           </Link>
-          <div className="hidden sm:block text-xs font-bold tracking-widest text-text-muted">
+          <div className="hidden sm:block text-[10px] font-bold tracking-widest text-text-muted">
             ALREADY A MEMBER?{" "}
             <a
               className="text-primary hover:text-primary-dark ml-2 underline underline-offset-4 transition-colors font-extrabold"
@@ -65,28 +65,28 @@ function TrialFormContent() {
       </header>
 
       {/* Main Content */}
-      <main className="grow pt-32 pb-24 px-6 relative overflow-hidden">
+      <main className="grow pt-24 pb-16 px-4 relative overflow-hidden">
         {/* Background decorations */}
-        <div className="absolute top-0 left-0 w-full h-[800px] bg-linear-to-b from-primary/5 to-transparent pointer-events-none -z-10" />
-        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+        <div className="absolute top-0 left-0 w-full h-[600px] bg-linear-to-b from-primary/5 to-transparent pointer-events-none -z-10" />
+        <div className="absolute -top-20 -right-20 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
         <div className="max-w-[900px] mx-auto relative z-10">
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 border border-primary/30 bg-white/60 text-[11px] font-extrabold text-primary-dark tracking-[0.15em] uppercase mb-6 rounded-sm">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary/30 bg-white/60 text-[9px] font-extrabold text-primary-dark tracking-[0.15em] uppercase mb-4 rounded-sm">
               10-Day Free Trial
             </span>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-text-main mb-6 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-text-main mb-4 tracking-tight leading-tight">
               Begin Your <span className="text-primary">Legacy</span>
             </h1>
-            <p className="text-text-muted text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="text-text-muted text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
               Join the artisanal revolution. Experience the gold standard of
               digital boutique management.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="bg-white border border-gray-100 p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative rounded-sm">
+          <div className="bg-white border border-gray-100 p-6 md:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative rounded-sm">
             {/* Top accent line */}
             <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/20 via-primary to-primary/20" />
 
@@ -115,7 +115,7 @@ export default function TrialPage() {
       <Suspense
         fallback={
           <div className="min-h-screen flex items-center justify-center bg-background-light">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <Loader2 className="w-6 h-6 animate-spin text-primary" />
           </div>
         }
       >
