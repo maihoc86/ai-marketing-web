@@ -10,7 +10,7 @@ interface PackageOptionProps {
 }
 
 const packageConfig = {
-  professional: {
+  starter: {
     icon: User,
     title: "Professional",
     subtitle: "For Individuals",
@@ -27,8 +27,6 @@ const packageConfig = {
 };
 
 export function PackageOption({ id, selected, onSelect }: PackageOptionProps) {
-  if (id === "") return null;
-
   const config = packageConfig[id];
   const Icon = config.icon;
   const isSelected = selected === id;
@@ -45,7 +43,7 @@ export function PackageOption({ id, selected, onSelect }: PackageOptionProps) {
       <div
         className={`h-full border p-8 transition-all duration-300 hover:border-primary/60 hover:shadow-lg bg-white flex flex-col rounded-sm ${
           isSelected
-            ? "bg-primary/[0.03] border-primary ring-1 ring-primary/50"
+            ? "bg-primary/3 border-primary ring-1 ring-primary/50"
             : "border-gray-200"
         }`}
       >

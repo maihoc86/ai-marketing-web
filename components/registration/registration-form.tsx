@@ -46,7 +46,7 @@ export function RegistrationForm({
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
           <PackageOption
-            id="professional"
+            id="starter"
             selected={formData.selected_package}
             onSelect={onPackageSelect}
           />

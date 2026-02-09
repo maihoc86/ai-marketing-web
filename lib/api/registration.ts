@@ -4,8 +4,7 @@ import type {
   RegistrationResponse,
 } from "@/types/registration";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.uniksmart.com";
+const API_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -50,30 +49,38 @@ apiClient.interceptors.response.use(
 export async function registerTrial(
   data: RegistrationFormData,
 ): Promise<RegistrationResponse> {
-  // Transform form data to API format
+  // Process phone number: add leading 0 for Vietnam numbers if needed
+  let phoneNumber = data.phone_number;
+  if (data.phone_code === "+84") {
+    // Remove all non-digit characters
+    const digits = phoneNumber.replace(/\D/g, "");
+
+    // If user entered 9 digits without leading 0, add 0 at the beginning
+    if (digits.length === 9 && !digits.startsWith("0")) {
+      phoneNumber = "0" + digits;
+    } else {
+      phoneNumber = digits;
+    }
+  }
+
+  // Transform form data to Next.js API format
   const payload = {
-    account_type: data.selected_package,
-    company: {
-      name: data.company_name,
-      tax_id: data.tax_id,
-      business_type: data.business_type,
+    registration_type: data.selected_package, // "business" | "starter"
+    name: data.full_name,
+    email: data.email,
+    phone_number: phoneNumber, // Send phone number without country code
+    position: data.job_position,
+    locale: "vi", // Default to Vietnamese
+    ...(data.selected_package === "business" && {
+      company_name: data.company_name,
+      tax_code: data.tax_id,
+      activity_field: data.business_type,
       address: data.office_address,
-    },
-    contact: {
-      full_name: data.full_name,
-      email: data.email,
-      phone: `${data.phone_code}${data.phone_number}`,
-      job_position: data.job_position,
-    },
-    social_channels: {
-      facebook: data.socials.facebook ? data.facebook_url : null,
-      instagram: data.socials.instagram ? data.instagram_url : null,
-      tiktok: data.socials.tiktok ? data.tiktok_url : null,
-    },
+    }),
   };
 
   const response = await apiClient.post<RegistrationResponse>(
-    "/api/v1/trial/register",
+    "/api/users/register-company",
     payload,
   );
 

@@ -1,4 +1,4 @@
-export type PackageType = "professional" | "business" | "";
+export type PackageType = "starter" | "business";
 
 export interface RegistrationFormData {
   // Account type
@@ -54,7 +54,7 @@ export interface RegistrationResponse {
 }
 
 export const initialFormData: RegistrationFormData = {
-  selected_package: "professional",
+  selected_package: "starter",
   company_name: "",
   tax_id: "",
   business_type: "Beauty Salon",

@@ -16,7 +16,7 @@ interface UseRegistrationFormOptions {
 }
 
 export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
-  const { initialPackage = "professional", onSuccess } = options;
+  const { initialPackage = "starter", onSuccess } = options;
 
   const [formData, setFormData] = useState<RegistrationFormData>({
     ...initialFormData,
