@@ -106,7 +106,7 @@ export default function AIPhotoboothModal({
                 Place your hand here to scan
               </p>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
           </div>
 
           {/* Style Selection */}
