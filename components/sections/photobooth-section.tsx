@@ -116,7 +116,7 @@ export default function PhotoboothSection() {
                   </p>
                 </div>
                 <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
-                  4K Ultra HD
+                  HD
                 </div>
               </div>
             </div>
