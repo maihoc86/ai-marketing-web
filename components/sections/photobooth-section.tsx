@@ -18,24 +18,20 @@ export default function PhotoboothSection() {
 
   const designs = [
     {
-      title: "Chrome Finish",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDI23rgFBitscVnpXAK8eC750INr8sGich89cer-eE-hyWar2tdweskhhYgL4ON9kX4OgUa_n0WpipYUQIZTO9vFsu9-d0pa3iOU2u7yWVaB0fcuL5QeSaSbErK1g3NtQBCbg6a0S0C6jvQz4HdssibINchuXb8SjKiRYyqLVL2MWeWNFd1AX65Zr46ha5TSsWJXP-w_WSBfSwbvjPsLpNXDeFSnCz4TGS5w1NfFWopgmZgjHMDNw0J0pgrFGnZlHeyzrWn2KyjfS3T",
+      title: "Halloween",
+      image: "/nails-style/1.jpeg",
     },
     {
-      title: "Matte Ombre",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCLyZmg8CPyu0x4vxgCJRCf7Dn-vPfEI1OM7bYU3enX4hDG7Cq9AcsrbzlBkp6F8FJbEzcKYGHPhiCHLLja6S7HZqjDp2eFt9ivlpI3xdy0kDXjS8ONCmraGRQV2xQVmEBDp5PSNEmxV5WD4smRy8x0Nlj8h0p6cRvovYev_NCw2sgHANvrPlE_BJpWOhsE2JgfeSCgAov6L1ZS08zk6HQppayvMDnPtsNWMvb6WxKsgliNAJoOkB3TdFm3IGRBCAfscjnglkHHHya3",
+      title: "Pointed",
+      image: "/nails-style/2.jpeg",
     },
     {
-      title: "3D Floral",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuACXmi1opyOrxB8bxc1_Zn6Wfbq2TERW0H8K7f7hKVuLf6FbIkQVGNqLUIifrXcwFMg040L4_bWNbUGBCRbv_11Up0F2cyviZM6CusIL8__9wUzO7ESS9ryYDklNBSD_gAytppvmAk5eLKkXKTQ9xRe3L3u7ddzNYVctLjKh7__xJss4ltep7jGVCOcrXfM3ipsQpygQiVFkH8g6lsb1r8yOpsnZYtK99eThANnfS8WmdjnXjKQBaSHdAP27n6BeEAN3viGlcuXB8Tr",
+      title: "Cute",
+      image: "/nails-style/3.jpeg",
     },
     {
-      title: "French Tip",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAl3F24txjiGf33EPPcGQ5XZ29QLehDcY3e_HKR2Xi04vU3QhomceKjitLP4iiC98hwIhg4sweQfKTNOWgn341BVwH6vPIl0V6tK_fV6TT8n2ykoAM0uSHRjy7r3LX9rn-3bQg0o-mziseNb5mVXveOVZIG3sbJWagvw061aPhrpn54j0kSwA-dwYisxm-XocX2X1wSOM-PSRG9c22qP0O72906cizIZPavzAZVpUyf3KTAzyHm8DeKw425ChrCFoEh3ScI274MsNgB",
+      title: "Flower",
+      image: "/nails-style/4.jpeg",
     },
   ];
 
