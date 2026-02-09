@@ -1,12 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { Play, ArrowRight, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import YouTubeModal from "../common/YouTubeModal";
 
 export default function HeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 overflow-hidden bg-white">
       {/* Background gradient */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
         {/* Left Content */}
@@ -34,11 +39,17 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-4">
-            <button className="w-full sm:w-auto h-14 px-10 bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group tracking-widest text-sm rounded-md">
+            <Link
+              href="/trial"
+              className="w-full sm:w-auto h-14 px-10 bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group tracking-widest text-sm rounded-md"
+            >
               START TRIAL
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="w-full sm:w-auto h-14 px-10 bg-transparent border border-primary/40 text-primary font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2 tracking-widest text-sm rounded-md">
+            </Link>
+            <button
+              className="w-full sm:w-auto h-14 px-10 bg-transparent border border-primary/40 text-primary font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2 tracking-widest text-sm rounded-md"
+              onClick={() => setIsModalOpen(true)}
+            >
               <Play className="w-5 h-5" />
               WATCH 3-MINUTE DEMO
             </button>
@@ -195,6 +206,11 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <YouTubeModal
+        videoId="R5RuHV_JrMM"
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }
