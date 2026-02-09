@@ -31,12 +31,12 @@ const professionalBenefits = [
 
 const businessFeatures = [
   "Paid ad campaigns",
-  "Virtual Photobooth image service",
-  "Website design & launch included",
   "24/7 AI-driven assistant",
   "Email & SMS loyalty",
   "Multi-location support",
   "Dedicated manager",
+  "Virtual Photobooth image service",
+  "Website design & launch included",
 ];
 
 const businessBenefits = [
@@ -144,7 +144,7 @@ export default function PricingSection() {
               </p>
             </div>
 
-            <div className="space-y-6 mb-8 flex-grow">
+            <div className="space-y-6 mb-8 grow">
               <div>
                 <p className="text-xs font-bold text-text-main uppercase tracking-widest mb-4">
                   Everything in Professional, plus:
@@ -153,9 +153,9 @@ export default function PricingSection() {
                   {businessFeatures.map((feature, index) => (
                     <li
                       key={index}
-                      className={`flex items-start gap-3 text-sm ${index === 1 || index === 2 ? "text-text-main font-bold" : "text-text-main"}`}
+                      className={`flex items-start gap-3 text-sm ${index === 5 || index === 6 ? "text-text-main font-bold" : "text-text-main"}`}
                     >
-                      <CheckCircle className="w-[18px] h-[18px] text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="size-4.5 text-primary mt-0.5 shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
