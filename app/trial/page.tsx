@@ -1,17 +1,28 @@
 "use client";
 
 import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { RegistrationForm, SuccessScreen } from "@/components/registration";
 import { useRegistrationForm } from "@/hooks/use-registration-form";
+import type { PackageType } from "@/types/registration";
 
 const AI_DSP_URL =
   process.env.NEXT_PUBLIC_AI_DSP_URL || "https://admin.dsp.one/login";
 
 function TrialFormContent() {
+  const searchParams = useSearchParams();
+  const packageParam = searchParams.get("package");
+
+  // Validate and set initial package from URL
+  const initialPackage: PackageType =
+    packageParam === "business" || packageParam === "starter"
+      ? packageParam
+      : "starter";
+
   const {
     formData,
     errors,
@@ -23,7 +34,7 @@ function TrialFormContent() {
     handleSocialToggle,
     handleSubmit,
     resetForm,
-  } = useRegistrationForm();
+  } = useRegistrationForm({ initialPackage });
 
   // Show success screen after successful registration
   if (isSubmitted) {

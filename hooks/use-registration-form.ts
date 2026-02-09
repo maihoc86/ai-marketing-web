@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { registerTrial } from "@/lib/api/registration";
 import type {
@@ -17,6 +18,8 @@ interface UseRegistrationFormOptions {
 
 export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
   const { initialPackage = "starter", onSuccess } = options;
+  const router = useRouter();
+  const pathname = usePathname();
 
   const [formData, setFormData] = useState<RegistrationFormData>({
     ...initialFormData,
@@ -158,16 +161,22 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
   );
 
   // Handle package selection
-  const handlePackageSelect = useCallback((packageId: PackageType) => {
-    setFormData((prev) => ({
-      ...prev,
-      selected_package: packageId,
-    }));
-    setErrors((prev) => ({
-      ...prev,
-      selected_package: undefined,
-    }));
-  }, []);
+  const handlePackageSelect = useCallback(
+    (packageId: PackageType) => {
+      setFormData((prev) => ({
+        ...prev,
+        selected_package: packageId,
+      }));
+      setErrors((prev) => ({
+        ...prev,
+        selected_package: undefined,
+      }));
+
+      // Update URL params
+      router.push(`${pathname}?package=${packageId}`, { scroll: false });
+    },
+    [router, pathname],
+  );
 
   // Handle social toggle
   const handleSocialToggle = useCallback(

@@ -13,6 +13,7 @@ import {
   Store,
   Handshake,
 } from "lucide-react";
+import Link from "next/link";
 
 const professionalFeatures = [
   "Manage & post content (Facebook/Instagram/TikTok)",
@@ -116,9 +117,11 @@ export default function PricingSection() {
               </ul>
             </div>
 
-            <button className="w-full py-4 px-8 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-xs rounded-md">
-              Start Free Trial
-            </button>
+            <Link href="/trial?package=starter" className="block">
+              <button className="w-full py-4 px-8 border border-primary text-primary hover:bg-primary/5 font-bold transition-all uppercase tracking-[0.2em] text-xs rounded-md">
+                Start Free Trial
+              </button>
+            </Link>
           </div>
 
           {/* Business Plan */}
@@ -180,9 +183,11 @@ export default function PricingSection() {
               </ul>
             </div>
 
-            <button className="w-full py-4 px-8 bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg uppercase tracking-[0.2em] text-xs rounded-md">
-              Start Free Trial
-            </button>
+            <Link href="/trial?package=business" className="block">
+              <button className="w-full py-4 px-8 bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg uppercase tracking-[0.2em] text-xs rounded-md">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>
