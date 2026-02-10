@@ -18,6 +18,7 @@ import {
 } from "@/lib/queries/rate-limits";
 import { generateImage } from "@/lib/queries/generate-image";
 import { cn } from "@/lib/utils";
+import StyleCarousel from "./style-carousel";
 
 interface AIPhotoboothModalProps {
   isOpen: boolean;
@@ -26,32 +27,40 @@ interface AIPhotoboothModalProps {
 
 const styles = [
   {
-    name: "Classic",
+    name: "halloween",
     prompt:
-      "Apply a classic elegant nail art style: solid rich colors, clean lines, timeless French manicure or single-tone glossy finish. Keep the hand exactly as-is.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC_Z8EPlBfqn7KDCVTpbIoTRpMgSt_Q3t-UjMQv6rLsgRo2K456Y3bK1YX__2UDW36epdQaRUtW8exj2YFeyG3rwCmjJQK8s4PGzJOUOaocSg_dJwP7WVn8mI587V8mZAB_K6rKHPSKFtOsJ0jPa6W2DwVwFJFQ39-S60QQDnIerwgkHPtJdu9d4VEgfrMztXSBcJ6MyhEKUiFHiWH8ZGFXAmPUBNTm9VJj5av7qCC1ePxBWRIT1sp8q1NZ99nV8_Jd5_CBKFQS1_RZ",
+      "Apply a spooky Halloween nail art style: dark colors, eerie patterns like bats, pumpkins, ghosts, spider webs, and other Halloween-themed designs on the nails only. Keep the hand exactly as-is.",
+    image: "/images/halloween.jpeg",
   },
   {
     name: "Modern",
     prompt:
       "Apply a modern trendy nail art style: geometric patterns, abstract designs, negative-space art, or minimalist lines with bold accent colors. Keep the hand exactly as-is.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD3k01TyKpOvsWwYqRA6AAat4ZsPSPbiDcTdrvZid-rY-B9Z93BTWB-mAOIckT9r1vCqImVXUnEyyWcmo2UUSAf7h19547mOs9jnGpCf7Iivw6H0HNtjtBg51TCffxblCjJr3yL_HwYsi4_IZhjrjGi1Mm1OiAdeFgBYyCj9--usfE12cEPG69HFW5_9gRcjyuYV_XK0I54d3OYfZ8DoIXgVhwzT_9bFF3AH-cIru0sGj8U3X9U95wb7w7tRb5XwwFVg6IOrQUCmllw",
+    image: "/images/modern.jpeg",
   },
   {
     name: "Cartoon",
     prompt:
       "Apply a fun cartoon-inspired nail art style: bright vivid colors, playful character designs, comic-book outlines, pop-art dots, and whimsical patterns on the nails only. Keep the hand exactly as-is.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDv0XdZPUtOS5xluWpG-zmNF3NUPdvk6vqnX4FIKG3D6kxU5y6DqeAvNdYrPGZR2cpxvAl7ntSsI0BzfDsMFFqLMtjVlQHB-2OVhlpnHLmdBETz2ksTstdJ5mxcQjaJUCshEcP1wPvAfBwAPOKkrUvc-2cyEhfUfaPcXVMIRZFe03oiG-iJwZzUG6JeIXzo45OtTL43ZwD_Ahqr6yc59nArTDNyT9xXMsIsCm0WKt2PWyqaWepJ0meTm9SG31KvO7KEyf4gB-ViPT-P",
+    image: "/images/cartoon.jpeg",
   },
   {
     name: "Cute",
     prompt:
       "Apply a cute kawaii nail art style: pastel colors, tiny hearts, stars, bows, flowers, and adorable mini illustrations on the nails only. Keep the hand exactly as-is.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCLV0XPy7ol7vdxPaaAjWs9mf-YgWDrdk2gnyUIX7B2LndIMOYqgL0v3gZNamdwxI74R_k05Be9akOzsOOVnnMAOlzOCbcNMsFGi-ok_MC7bacqci0YSIo4U2I7wYNp-0YLNYMOLUkXr_4pO_gktyLLXakyM464rbOjKrOe8_pHL3lNRADn78MIS2wE6LxH130NWoxceQ-Gc2J1ibCQSZ5UUzmm-AdZlTgD6tS80uz8y9VSSOe_phVNprcZUy1abIYSA8k9cHRshUGO",
+    image: "/images/cute.jpeg",
+  },
+  {
+    name: "Vintage",
+    prompt:
+      "Apply a vintage nail art style: muted tones, classic floral patterns, lace designs, and retro-inspired details on the nails only. Keep the hand exactly as-is.",
+    image: "/images/vintage.jpeg",
+  },
+  {
+    name: "Geometric lines",
+    prompt:
+      "Apply a geometric lines nail art style: clean lines, shapes, and patterns using contrasting colors on the nails only. Keep the hand exactly as-is.",
+    image: "/images/geometric.jpeg",
   },
 ];
 
@@ -492,70 +501,11 @@ export default function AIPhotoboothModal({
           </div>
 
           {/* Style Selection */}
-          <div className="mb-6">
-            <h3 className="font-display text-primary text-xs font-bold tracking-[0.25em] mb-3 flex items-center gap-2 opacity-90 uppercase">
-              <span className="text-sm">✨</span> Select your style
-            </h3>
-            <div className="grid grid-cols-4 gap-3">
-              {styles.map((style) => (
-                <div
-                  key={style.name}
-                  onClick={() => setSelectedStyle(style.name)}
-                  className={`flex flex-col gap-1.5 group cursor-pointer transition-all duration-200 ${
-                    selectedStyle === style.name ? "scale-[1.02]" : ""
-                  }`}
-                >
-                  <div
-                    className={`aspect-square bg-[#0a1628] rounded-lg border-2 transition-all duration-300 overflow-hidden shadow-xl relative ${
-                      selectedStyle === style.name
-                        ? "border-primary shadow-[0_0_20px_rgba(34,181,248,0.3)]"
-                        : "border-white/5 group-hover:border-primary/40"
-                    }`}
-                  >
-                    <Image
-                      alt={`${style.name} Style Nail Art`}
-                      className={`w-full h-full object-cover transition-opacity duration-300 ${
-                        selectedStyle === style.name
-                          ? "opacity-100"
-                          : "opacity-80 group-hover:opacity-100"
-                      }`}
-                      src={style.image}
-                      width={150}
-                      height={150}
-                      unoptimized
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 to-transparent opacity-60"></div>
-                    {selectedStyle === style.name && (
-                      <div className="absolute top-1 right-1 sm:top-2 sm:right-2 size-3 sm:size-5 bg-primary rounded-full flex items-center justify-center">
-                        <svg
-                          className="w-3 h-3 text-charcoal"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={3}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  <span
-                    className={`text-center text-[10px] font-display uppercase tracking-wider transition-colors font-bold ${
-                      selectedStyle === style.name
-                        ? "text-primary"
-                        : "text-white/50 group-hover:text-primary"
-                    }`}
-                  >
-                    {style.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <StyleCarousel
+            styles={styles}
+            selectedStyle={selectedStyle}
+            onStyleSelect={setSelectedStyle}
+          />
 
           {/* Error message */}
           {generateError && (
