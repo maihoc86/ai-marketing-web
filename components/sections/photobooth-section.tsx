@@ -216,12 +216,6 @@ export default function PhotoboothSection() {
                 Try AI Photobooth
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <div className="flex items-center gap-2 py-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <p className="text-xs text-text-muted font-bold uppercase tracking-widest whitespace-nowrap">
-                  Compatible with iOS & Android
-                </p>
-              </div>
             </div>
           </div>
         </div>
