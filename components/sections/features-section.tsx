@@ -60,8 +60,8 @@ export default function FeaturesSection() {
         <div className="space-y-16 lg:space-y-24">
           {/* Feature 1: Social Content & Growth */}
           <FeatureBlock
-            icon={<Edit className="w-8 h-8" />}
-            title="Social Content & Growth"
+            icon={<Edit className="size-8" />}
+            title="Social Posts"
             description="We make scroll-stopping posts: before/after shots, nail art highlights, short videos and captions written for local customers. Our AI analyzes what's trending nearby to ensure maximum engagement."
           >
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
@@ -123,8 +123,8 @@ export default function FeaturesSection() {
 
           {/* Feature 2: Local Ads */}
           <FeatureBlock
-            icon={<MapPin className="w-8 h-8" />}
-            title="Local Ads that bring bookings"
+            icon={<MapPin className="size-8" />}
+            title="Local Advertising"
             description="We run simple, targeted ads to people near your salon — ads built to get calls and bookings, not just likes. Our geo-fencing technology ensures you're only spending budget on potential clients within driving distance."
             reverse
           >
@@ -171,8 +171,8 @@ export default function FeaturesSection() {
 
           {/* Feature 3: Customer follow-ups */}
           <FeatureBlock
-            icon={<Bell className="w-8 h-8" />}
-            title="Customer follow-ups & reminders"
+            icon={<Bell className="size-8" />}
+            title="Appointment reminders"
             description="Automated confirmations and reminders so fewer clients forget their appointments. Reduce no-shows by up to 40% with gentle, perfectly timed nudges sent via SMS and Email."
           >
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
@@ -236,10 +236,10 @@ export default function FeaturesSection() {
             </div>
           </FeatureBlock>
 
-          {/* Feature 4: Email & SMS re-engagement */}
+          {/* Feature 4: Email & text offers */}
           <FeatureBlock
-            icon={<Mail className="w-8 h-8" />}
-            title="Email & SMS re-engagement"
+            icon={<Mail className="size-8" />}
+            title="Email & Text offers"
             description="Birthday offers, loyalty notes, and rebook reminders — run automatically so your clients come back. We turn your one-time visitors into loyal regulars without you lifting a finger."
             reverse
           >
@@ -280,7 +280,7 @@ export default function FeaturesSection() {
 
           {/* Feature 5: Virtual Photobooth */}
           <FeatureBlock
-            icon={<Camera className="w-8 h-8" />}
+            icon={<Camera className="size-8" />}
             title="Virtual Photobooth image service"
             description="We deliver realistic hand photos and color/design previews that look like in-salon photos. Use them to preview styles for clients, create gallery images, and make ads that convert. (No machine to buy)."
           >
@@ -332,8 +332,8 @@ export default function FeaturesSection() {
 
           {/* Feature 6: Website design */}
           <FeatureBlock
-            icon={<Globe className="w-8 h-8" />}
-            title="Website design (Business plan)"
+            icon={<Globe className="size-8" />}
+            title="Website design"
             description="A clean, mobile-friendly site to help people find your salon and book. Built to convert: clear booking button, service pages, and a gallery with your best photos."
             reverse
           >
