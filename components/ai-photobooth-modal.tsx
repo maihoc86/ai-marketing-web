@@ -218,7 +218,7 @@ export default function AIPhotoboothModal({
 
       const result = await generateImage({
         prompt,
-        initImages: [selectedImage],
+        initImages: selectedImage ? [selectedImage] : undefined,
         preset: "nail_art",
       });
 
