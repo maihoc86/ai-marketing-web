@@ -43,8 +43,8 @@ export default function WhySection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-2xl lg:text-3xl font-display font-light text-text-main mb-2">
-            Why Uniksmart works for{" "}
-            <span className="text-primary font-bold">nail salons</span>
+            Why choose <span className="text-primary font-bold">Uniksmart</span>{" "}
+            for nails salon?
           </h2>
           <div className="h-1 w-14 bg-primary mx-auto mt-4 rounded-full" />
         </div>

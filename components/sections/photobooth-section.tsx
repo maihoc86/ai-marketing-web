@@ -192,7 +192,7 @@ export default function PhotoboothSection() {
                 return (
                   <div key={index} className="flex flex-col gap-3 group">
                     <div className="flex items-center gap-4">
-                      <div className="p-2.5 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <div className="p-2.5 bg-primary/10 rounded-lg text-primary transition-all duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
                       <h4 className="text-sm font-bold uppercase tracking-wider text-text-main">

@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Background gradient */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Content */}
         <div className="flex flex-col gap-6 text-center lg:text-left">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight leading-[1.1] text-text-main uppercase">
@@ -23,18 +23,81 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <div className="space-y-4">
-            <h2 className="text-lg sm:text-xl font-light text-text-main tracking-wide">
-              Smart, hands-on marketing for nail shops and salon chains
-            </h2>
+          <div className="space-y-6">
             <p className="text-sm sm:text-base text-text-muted leading-relaxed font-light">
-              Uniksmart helps nail salon owners grow foot traffic, fill
-              appointment slots, and increase average spend — without you
-              needing to learn marketing tools or spend hours on posts. We work
-              as your external marketing team: we create content, run local
-              promotions, manage basic customer messages, and deliver clear
-              weekly results so you can focus on clients.
+              Uniksmart helps nail salons get more local clients, fill
+              appointments and boost sales. Done-for-you social posts, local
+              ads, booking reminders, realistic nail preview images, and an easy
+              website (Business plan). Start a 10-day free trial.
             </p>
+
+            {/* Key Benefits */}
+            <div className="space-y-4 pr-0 bg-linear-to-r from-primary/5 to-transparent p-6 rounded-lg border-l-4 border-primary">
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="size-5 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white">
+                        1
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-text-main leading-relaxed font-medium text-start">
+                    We help salons get found locally and fill chairs.
+                  </p>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="size-5 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white">
+                        2
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-text-main leading-relaxed font-medium text-start">
+                    We do the marketing work: posts, ads, booking follow-ups,
+                    and review management.
+                  </p>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="size-5 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white">
+                        3
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-text-main leading-relaxed font-medium text-start">
+                    We provide realistic nail preview images to boost upsells
+                    and social shares.
+                  </p>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="size-5 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white">
+                        4
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-text-main leading-relaxed font-medium text-start">
+                    Business plan includes a mobile-friendly website.
+                  </p>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="size-5 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-[10px] font-bold text-white">
+                        5
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-text-main leading-relaxed font-medium text-start">
+                    No tech skills required and no hardware to buy.
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* CTA Buttons */}
@@ -50,7 +113,7 @@ export default function HeroSection() {
               className="w-full sm:w-auto h-14 px-10 bg-transparent border border-primary/40 text-primary font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2 tracking-widest text-sm rounded-md"
               onClick={() => setIsModalOpen(true)}
             >
-              <Play className="w-5 h-5" />
+              <Play className="size-5" />
               WATCH 3-MINUTE DEMO
             </button>
           </div>
