@@ -207,7 +207,7 @@ export default function PhotoboothSection() {
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={index} className="flex flex-col gap-3 group">
+                  <div key={index} className="flex flex-col gap-1.5 group">
                     <div className="flex items-center gap-4">
                       <div className="p-2.5 bg-primary/10 rounded-lg text-primary transition-all duration-300">
                         <Icon className="w-6 h-6" />
