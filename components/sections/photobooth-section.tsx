@@ -89,13 +89,13 @@ export default function PhotoboothSection() {
 
               {/* Style selection bubbles */}
               <div className="absolute right-8 top-[35%] -translate-y-1/2 flex flex-col gap-4 z-20">
-                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform-gpu">
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-sans font-semibold text-white uppercase tracking-wider">
                     Halloween Style
                   </span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                <div className="bg-white/10 backdrop-blur-md border border-primary/40 shadow-lg px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform-gpu">
                   <Zap className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-sans font-semibold text-white uppercase tracking-wider">
                     Pointed Nails Style
