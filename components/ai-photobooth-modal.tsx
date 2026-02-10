@@ -353,7 +353,7 @@ export default function AIPhotoboothModal({
             className="hidden"
             onChange={handleImageSelect}
           />
-          <div className="w-full p-3 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-3 group transition-all duration-500 mb-4 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
+          <div className="w-full min-h-125 p-3 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-3 group transition-all duration-500 mb-4 relative overflow-hidden shrink-0 border border-dashed border-primary/30 bg-[#0a1628] shadow-[inset_0_0_40px_rgba(34,181,248,0.08)]">
             {isCameraActive ? (
               <>
                 <video
