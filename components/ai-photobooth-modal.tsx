@@ -363,6 +363,36 @@ export default function AIPhotoboothModal({
                   muted
                   className="absolute inset-0 w-full h-full object-cover"
                 />
+
+                {/* Scanning frame overlay */}
+                <div className="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
+                  <div className="w-full h-full border-2 border-primary/40 rounded-lg relative overflow-hidden">
+                    {/* Scanning line moving up and down */}
+                    <div
+                      className="absolute left-0 w-full h-1 bg-primary shadow-[0_0_15px_rgba(34,181,248,1)]"
+                      style={{
+                        animation: "scan 3s ease-in-out infinite",
+                      }}
+                    />
+                    <style jsx>{`
+                      @keyframes scan {
+                        0%,
+                        100% {
+                          top: 0;
+                        }
+                        50% {
+                          top: calc(100% - 4px);
+                        }
+                      }
+                    `}</style>
+                    {/* Corner brackets */}
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+                  </div>
+                </div>
+
                 <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-3 z-10">
                   <button
                     onClick={handleCapture}
