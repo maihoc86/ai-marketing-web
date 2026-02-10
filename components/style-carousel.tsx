@@ -148,7 +148,7 @@ export default function StyleCarousel({
         {canScrollRight && (
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center size-8 bg-charcoal/90 backdrop-blur-sm rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-charcoal transition-all shadow-lg opacity-0 group-hover/carousel:opacity-100"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center size-8 bg-charcoal/90 backdrop-blur-sm rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-charcoal transition-all shadow-lg "
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5" />
