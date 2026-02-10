@@ -211,9 +211,13 @@ export default function AIPhotoboothModal({
         "The hand, wrist, fingers, and background must remain pixel-perfect identical to the original photo.",
         "Only paint/design the nail surface area.",
         "",
+        "IMPORTANT: Analyze the skin tone and nail bed color carefully.",
+        "The nail art design must complement and harmonize with the person's natural skin tone and nail bed undertones.",
+        "Choose colors and patterns that enhance the natural beauty of their hands.",
+        "",
         `Nail art style to apply: ${style.prompt}`,
         "",
-        "Output: A single photorealistic image of the SAME hand with ONLY the nails changed to match the requested style.",
+        "Output: A single photorealistic image of the SAME hand with ONLY the nails changed to match the requested style, perfectly suited to their skin tone and nail bed.",
       ].join("\n");
 
       const result = await generateImage({
