@@ -106,7 +106,24 @@ export default function PhotoboothSection() {
               {/* Scanning frame with animation */}
               <div className="absolute inset-0 flex items-center justify-center p-4 md-6 lg:p-8">
                 <div className="w-full h-full border-2 border-primary/30 rounded-lg relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-primary shadow-[0_0_15px_rgba(34,181,248,1)] animate-pulse" />
+                  {/* Scanning line moving up and down */}
+                  <div
+                    className="absolute left-0 w-full h-1 bg-primary shadow-[0_0_15px_rgba(34,181,248,1)]"
+                    style={{
+                      animation: "scan 3.5s ease-in-out infinite",
+                    }}
+                  />
+                  <style jsx>{`
+                    @keyframes scan {
+                      0%,
+                      100% {
+                        top: 0;
+                      }
+                      50% {
+                        top: calc(100% - 4px);
+                      }
+                    }
+                  `}</style>
                   <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
                   <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary" />
                   <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary" />
