@@ -24,7 +24,11 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="md:text-right flex flex-col md:items-end justify-center">
-            <img className="h-32" src="/logo-dark.png" alt="Uniksmart" />
+            <img
+              className="h-32 object-contain"
+              src="/logo-dark.png"
+              alt="Uniksmart"
+            />
             <div className="space-y-1.5 text-sm text-gray-400">
               <p className="flex items-center gap-2 md:justify-end">
                 <Mail className="size-3.5 text-primary" />
