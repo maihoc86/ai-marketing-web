@@ -88,7 +88,7 @@ export default function FeaturesSection() {
             <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
               <div className="absolute inset-0 bg-gray-100 opacity-30" />
               <div className="absolute inset-0 bg-linear-to-t from-background-light via-transparent to-transparent" />
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative size-full flex items-center justify-center">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
                   <div className="relative">
                     <div className="size-16 bg-primary rounded-full flex items-center justify-center shadow-2xl border-4 border-white animate-pulse">
@@ -245,7 +245,7 @@ export default function FeaturesSection() {
               <div className="absolute inset-0">
                 <Image
                   alt="Hand being scanned"
-                  className="w-full h-full object-cover opacity-60"
+                  className="size-full object-cover opacity-60"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwnXbx59PF5B76rr11A83eMD5PpPwGdbN9dYe0mD1ux3Uh69M1s6R5zAKRme9T5n1mJpt9zlTuZPKNyaMUeEV34_2q2HhlquH859D8VuAzu0we6V3W2DTMXEBz0IgVKmjE-61GfHAU_Nn6ejhiL7kXKUMFIe9LwaLWXVJu4lC0lRf2ZqSofXoqnpvCPHAO44GAciX9M1HCL3XFst0E1YJD8D20FKoip3IfVPunQjfeVX2JlK6Pl3N3Atv5Y8Rb6TTByApQDqPus_s4"
                   width={600}
                   height={400}
@@ -273,13 +273,13 @@ export default function FeaturesSection() {
                   </div>
                   <div className="flex gap-2">
                     <div className="size-10 rounded border border-white/20 bg-black/50 backdrop-blur-sm p-1">
-                      <div className="w-full h-full bg-primary/80 rounded-sm" />
+                      <div className="size-full bg-primary/80 rounded-sm" />
                     </div>
                     <div className="size-10 rounded border border-white/20 bg-black/50 backdrop-blur-sm p-1">
-                      <div className="w-full h-full bg-rose-400 rounded-sm" />
+                      <div className="size-full bg-rose-400 rounded-sm" />
                     </div>
                     <div className="size-10 rounded border border-white/20 bg-black/50 backdrop-blur-sm p-1">
-                      <div className="w-full h-full bg-slate-400 rounded-sm" />
+                      <div className="size-full bg-slate-400 rounded-sm" />
                     </div>
                   </div>
                 </div>
@@ -318,7 +318,7 @@ export default function FeaturesSection() {
                     <div className="absolute right-0 top-0 w-1/2 h-full">
                       <Image
                         alt="Salon Interior"
-                        className="w-full h-full object-cover"
+                        className="size-full object-cover"
                         src="/images/web-design.png"
                         width={300}
                         height={200}
