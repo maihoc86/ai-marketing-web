@@ -319,7 +319,7 @@ export default function FeaturesSection() {
                       <Image
                         alt="Salon Interior"
                         className="w-full h-full object-cover"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVLLF2LeJpH2vFO1y03hscdT5MeUsuPDkoURCZw2a9cszKVJrmWt86Rajn2FywidsQN3oiF2a8ZOia0VySrZTOq41OO6PpfHzcpgo7ejPoG5eT_26TTmL4Gn4SGGLCuITlAW3NJZoij6gpk4uC-lxKGaJ7IA7mdue-xI-mCtWDkQPkVrSUY0yCpiZz6Mrs5au2hOOZPGQjdXgy97q35_QSzSSOcW7z2w27RMD-4Dohtip41tpABntWK0loCEdsOP67174sD89WSPnX"
+                        src="/images/web-design.png"
                         width={300}
                         height={200}
                         unoptimized
