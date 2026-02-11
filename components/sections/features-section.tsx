@@ -64,59 +64,16 @@ export default function FeaturesSection() {
             title="Social Posts"
             description="We make scroll-stopping posts: before/after shots, nail art highlights, short videos and captions written for local customers. Our AI analyzes what's trending nearby to ensure maximum engagement."
           >
-            <div className="relative bg-background-light p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+            <div className="relative p-2 border border-primary/10 rounded-lg shadow-xl overflow-hidden aspect-4/3 flex items-center justify-center">
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   alt="Manicured hands holding phone with social feed"
-                  className="w-full h-full object-cover opacity-20"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU7RuNVAkpzLVJx6oTDdFR7V8a3m5Cy3sd-dfQ8uQZX6bYRVPwu_7JnSTDwe2BobJdxz6OLMB5czJbu88WploObCnH2ajnyk5hWfSBhSxHYKIwZXI4dhx0WYf2bB1pu7EK5Hb-r3m9BOq9O9b87EkYDGTP_W96Yshmjlh3zTJXOIZTzew-oLcPGoAxuAE5ZNRxjCIYjqqop99y3uCEFwxAzdiBnAdZeRMjCXo4nWgBLWFsY_RiLXXYP6vVJGX0MM-uo-_d4dg6-vNb"
+                  className="size-full object-cover"
+                  src="/images/social-posts.png"
                   width={600}
                   height={400}
                   unoptimized
                 />
-              </div>
-              <div className="absolute inset-0 bg-linear-to-t from-white via-white/80 to-transparent" />
-              <div className="relative w-[55%] bg-white shadow-2xl rounded-[2rem] border-4 border-gray-100 transform -rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-5 bg-gray-100 rounded-b-xl z-20" />
-                <div className="pt-8 pb-4 px-4 bg-white h-full flex flex-col">
-                  <div className="flex items-center justify-between mb-4 border-b border-gray-50 pb-2">
-                    <span className="font-display font-bold text-text-main text-xs">
-                      UnikNails
-                    </span>
-                    <span className="text-gray-400 text-sm">☰</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1 flex-1">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
-                      <div
-                        key={i}
-                        className="aspect-square bg-gray-100 rounded-sm overflow-hidden"
-                      >
-                        <Image
-                          alt={`Nail art ${i}`}
-                          className="w-full h-full object-cover"
-                          src={`https://lh3.googleusercontent.com/aida-public/AB6AXuDI23rgFBitscVnpXAK8eC750INr8sGich89cer-eE-hyWar2tdweskhhYgL4ON9kX4OgUa_n0WpipYUQIZTO9vFsu9-d0pa3iOU2u7yWVaB0fcuL5QeSaSbErK1g3NtQBCbg6a0S0C6jvQz4HdssibINchuXb8SjKiRYyqLVL2MWeWNFd1AX65Zr46ha5TSsWJXP-w_WSBfSwbvjPsLpNXDeFSnCz4TGS5w1NfFWopgmZgjHMDNw0J0pgrFGnZlHeyzrWn2KyjfS3T`}
-                          width={100}
-                          height={100}
-                          unoptimized
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="absolute bottom-8 -right-2 bg-white p-3 rounded-lg shadow-xl border border-primary/10 flex items-center gap-3 z-10 animate-bounce"
-                style={{ animationDuration: "3s" }}
-              >
-                <div className="bg-primary/10 text-primary p-1.5 rounded-full">
-                  ❤️
-                </div>
-                <div>
-                  <div className="text-[9px] text-gray-400 uppercase tracking-wider">
-                    Reach
-                  </div>
-                  <div className="text-sm font-bold text-text-main">+2.4k</div>
-                </div>
               </div>
             </div>
           </FeatureBlock>
@@ -223,11 +180,11 @@ export default function FeaturesSection() {
                       10:05 AM
                     </span>
                   </div>
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-4 py-1.5 rounded-full shadow-lg border border-green-100 flex items-center gap-2 z-10 animate-fade-in-up">
-                    <span className="bg-green-100 text-green-600 rounded-full p-0.5">
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-full shadow-lg border border-green-100 flex items-center gap-2 z-10 animate-fade-in-up">
+                    <span className="bg-green-100 shrink-0 text-green-600 aspect-square size-6 flex items-center justify-center rounded-full p-0.5">
                       ✓
                     </span>
-                    <span className="text-xs font-bold text-green-700 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-green-700 uppercase tracking-wider">
                       Booking Confirmed
                     </span>
                   </div>
