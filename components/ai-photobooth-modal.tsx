@@ -212,22 +212,26 @@ export default function AIPhotoboothModal({
 
     try {
       // Build optimized prompt for hand preservation
-      const prompt = [
-        "You are a professional nail art designer AI.",
-        "I am providing a photo of a real human hand.",
-        "Your task: ONLY modify the fingernails/toenails in the image.",
-        "DO NOT alter the hand shape, skin tone, skin texture, fingers, palm, background, or any other part of the image.",
-        "The hand, wrist, fingers, and background must remain pixel-perfect identical to the original photo.",
-        "Only paint/design the nail surface area.",
-        "",
-        "IMPORTANT: Analyze the skin tone and nail bed color carefully.",
-        "The nail art design must complement and harmonize with the person's natural skin tone and nail bed undertones.",
-        "Choose colors and patterns that enhance the natural beauty of their hands.",
-        "",
-        `Nail art style to apply: ${style.prompt}`,
-        "",
-        "Output: A single photorealistic image of the SAME hand with ONLY the nails changed to match the requested style, perfectly suited to their skin tone and nail bed.",
-      ].join("\n");
+      const prompt = `You are a professional nail technician AI specializing in precision digital overlay.
+
+      TASK:
+      Apply a digital nail overlay onto the provided image. You must treat the original hand as an untouchable base layer.
+
+      STRICT CONSTRAINTS:
+      1. IMAGE INTEGRITY: Maintain 100% pixel-level identity for the skin, anatomy, wrinkles, hand pose, and background. Zero modifications allowed outside the nail plate boundaries.
+      2. NAIL MORPHOLOGY: Keep the original nail shape and length. Only change the surface texture, color, and pattern.
+      3. PHOTOREALISM: The design must inherit the original photo's lighting, highlights, and shadows. The nail pattern must look like it's UNDER a clear glossy top coat, showing realistic depth and micro-reflections.
+      4. HARMONIC ADAPTATION: Automatically adjust the saturation, depth, and undertone of the requested style to flawlessly complement the specific skin tone of the hand.
+      5. REAL-WORLD VIABILITY: The design must be physically achievable in a real salon. Avoid impossible physics or floating elements.
+      6. UNIVERSAL APPROPRIATENESS: Ensure the style is sophisticated and respectful, suitable for any culture, custom, or professional setting.
+
+      DESIGN GUIDELINES:
+      - Style: ${style.prompt}
+      - Harmony: Calibrate color saturation and undertones to blend seamlessly with the detected skin tone (warm/cool/neutral).
+      - Finish: Ensure the edges where the nail meets the cuticle are clean, sharp, and anatomically correct.
+
+      OUTPUT:
+      A hyper-realistic photo where the hand remains identical to the source, but with a culturally refined and skin-tone-optimized nail design.`;
 
       const result = await generateImage({
         prompt,
