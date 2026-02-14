@@ -3,6 +3,7 @@ import type {
   RegistrationFormData,
   RegistrationResponse,
 } from "@/types/registration";
+import { getFingerprint } from "@/lib/fingerprint";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -14,9 +15,15 @@ const apiClient = axios.create({
   timeout: 30000,
 });
 
-// Request interceptor for logging
+// Request interceptor for fingerprint & logging
 apiClient.interceptors.request.use(
-  (config) => {
+  async (config) => {
+    // Attach device fingerprint if available
+    const fingerprint = await getFingerprint();
+    if (fingerprint) {
+      config.headers["X-Fingerprint"] = fingerprint;
+    }
+
     if (process.env.NODE_ENV === "development") {
       console.log(`[API] ${config.method?.toUpperCase()} ${config.url}`);
     }

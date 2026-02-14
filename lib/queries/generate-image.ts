@@ -7,10 +7,21 @@ export interface GenerateImageOptions {
   preset?: string | null;
 }
 
+import { getFingerprint } from "@/lib/fingerprint";
+
 export async function generateImage(opts: GenerateImageOptions) {
+  const fingerprint = await getFingerprint();
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+  if (fingerprint) {
+    headers["X-Fingerprint"] = fingerprint;
+  }
+
   const res = await fetch("/api/generate-image", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({
       prompt: opts.prompt,
       field: opts.field,

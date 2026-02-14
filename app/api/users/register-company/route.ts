@@ -166,13 +166,20 @@ export async function POST(request: NextRequest) {
     });
 
     try {
+      const fingerprint = request.headers.get("x-fingerprint");
+
+      const backendHeaders: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (fingerprint) {
+        backendHeaders["X-Fingerprint"] = fingerprint;
+      }
+
       const backendResponse = await fetch(
         "https://api-ai-code.dsp.one/api/users/register-company",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: backendHeaders,
           body: JSON.stringify(data),
         },
       );

@@ -13,10 +13,20 @@ export interface RateLimitResponse {
   data: RateLimitData;
 }
 
+import { getFingerprint } from "@/lib/fingerprint";
+
 export async function getRateLimits(): Promise<RateLimitData> {
+  const fingerprint = await getFingerprint();
+
+  const headers: Record<string, string> = {};
+  if (fingerprint) {
+    headers["X-Fingerprint"] = fingerprint;
+  }
+
   // Call Next.js API route instead of external API directly to avoid CORS issues
   const response = await fetch("/api/rate-limits", {
     method: "GET",
+    headers,
   });
 
   if (!response.ok) {
@@ -33,9 +43,17 @@ export async function getRateLimits(): Promise<RateLimitData> {
 }
 
 export async function incrementRateLimit(): Promise<void> {
+  const fingerprint = await getFingerprint();
+
+  const headers: Record<string, string> = {};
+  if (fingerprint) {
+    headers["X-Fingerprint"] = fingerprint;
+  }
+
   // Call Next.js API route to increment rate limit usage
   const response = await fetch("/api/rate-limits/increment", {
     method: "POST",
+    headers,
   });
 
   if (!response.ok) {
