@@ -78,7 +78,7 @@ export function RegistrationForm({
         onInputChange={onInputChange}
       />
 
-      {/* Promotion Channels */}
+      {/* Additional Information */}
       <SocialChannels
         formData={formData}
         errors={errors}

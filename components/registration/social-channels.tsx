@@ -91,7 +91,7 @@ export function SocialChannels({
   return (
     <section className="mb-16">
       <h3 className="text-sm font-extrabold uppercase tracking-widest text-text-main mb-8 flex items-center gap-4">
-        <span className="w-8 h-0.5 bg-primary" /> Promotion Channels
+        <span className="w-8 h-0.5 bg-primary" /> Addition Information
       </h3>
       <div className="space-y-5">
         {/* Facebook */}
