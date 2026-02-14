@@ -5,7 +5,7 @@ interface IGProps {
   className?: string;
 }
 
-const IG = ({ size = 100, className = "" }: IGProps) => {
+const IG = ({ size = 32, className = "" }: IGProps) => {
   return (
     <BaseIcon size={size} className={className}>
       <path

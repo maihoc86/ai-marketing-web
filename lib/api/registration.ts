@@ -92,6 +92,12 @@ export async function registerTrial(
         (url) => url.trim() !== "",
       ),
       tiktok_urls: (data.tiktok_urls || []).filter((url) => url.trim() !== ""),
+      google_maps_urls: (data.google_maps_urls || []).filter(
+        (url) => url.trim() !== "",
+      ),
+      website_urls: (data.website_urls || []).filter(
+        (url) => url.trim() !== "",
+      ),
     },
   };
 

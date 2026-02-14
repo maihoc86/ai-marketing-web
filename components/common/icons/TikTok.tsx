@@ -5,7 +5,7 @@ interface TikTokProps {
   className?: string;
 }
 
-const TikTok = ({ size = 100, className = "" }: TikTokProps) => {
+const TikTok = ({ size = 32, className = "" }: TikTokProps) => {
   return (
     <BaseIcon size={size} className={className}>
       <path

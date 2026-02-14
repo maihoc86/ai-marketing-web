@@ -4,12 +4,13 @@ import { Loader2, AlertCircle, CheckCircle } from "lucide-react";
 import { PackageOption } from "./package-option";
 import { BusinessFields } from "./business-fields";
 import { ContactFields } from "./contact-fields";
-import { SocialChannels } from "./social-channels";
+import { PromotionChannels } from "./promotion-channels";
 import type {
   PackageType,
   RegistrationFormData,
   RegistrationFormErrors,
 } from "@/types/registration";
+import { AdditionInformation } from "./addition-information";
 
 const AI_DSP_URL =
   process.env.NEXT_PUBLIC_AI_DSP_URL || "https://admin.dsp.one/login";
@@ -24,13 +25,18 @@ interface RegistrationFormProps {
   ) => void;
   onPackageSelect: (packageId: PackageType) => void;
   onSocialToggle: (social: keyof RegistrationFormData["socials"]) => void;
-  onAddUrl: (social: "facebook" | "instagram" | "tiktok") => void;
+  onAdditionalInfoToggle: (
+    field: keyof RegistrationFormData["additionalInfo"],
+  ) => void;
+  onAddUrl: (
+    social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
+  ) => void;
   onRemoveUrl: (
-    social: "facebook" | "instagram" | "tiktok",
+    social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
     index: number,
   ) => void;
   onUrlChange: (
-    social: "facebook" | "instagram" | "tiktok",
+    social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
     index: number,
     value: string,
   ) => void;
@@ -45,6 +51,7 @@ export function RegistrationForm({
   onInputChange,
   onPackageSelect,
   onSocialToggle,
+  onAdditionalInfoToggle,
   onAddUrl,
   onRemoveUrl,
   onUrlChange,
@@ -92,10 +99,19 @@ export function RegistrationForm({
       />
 
       {/* Additional Information */}
-      <SocialChannels
+      <PromotionChannels
         formData={formData}
         errors={errors}
         onSocialToggle={onSocialToggle}
+        onAddUrl={onAddUrl}
+        onRemoveUrl={onRemoveUrl}
+        onUrlChange={onUrlChange}
+      />
+
+      <AdditionInformation
+        formData={formData}
+        errors={errors}
+        onToggle={onAdditionalInfoToggle}
         onAddUrl={onAddUrl}
         onRemoveUrl={onRemoveUrl}
         onUrlChange={onUrlChange}

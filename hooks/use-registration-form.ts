@@ -207,9 +207,25 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     [],
   );
 
-  // Handle adding a new URL input for a social platform
+  // Handle additional info toggle
+  const handleAdditionalInfoToggle = useCallback(
+    (field: keyof RegistrationFormData["additionalInfo"]) => {
+      setFormData((prev) => ({
+        ...prev,
+        additionalInfo: {
+          ...prev.additionalInfo,
+          [field]: !prev.additionalInfo[field],
+        },
+      }));
+    },
+    [],
+  );
+
+  // Handle adding a new URL input for a platform
   const handleAddUrl = useCallback(
-    (social: "facebook" | "instagram" | "tiktok") => {
+    (
+      social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
+    ) => {
       const urlKey = `${social}_urls` as keyof RegistrationFormData;
       setFormData((prev) => ({
         ...prev,
@@ -219,9 +235,12 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     [],
   );
 
-  // Handle removing a URL input for a social platform
+  // Handle removing a URL input for a platform
   const handleRemoveUrl = useCallback(
-    (social: "facebook" | "instagram" | "tiktok", index: number) => {
+    (
+      social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
+      index: number,
+    ) => {
       const urlKey = `${social}_urls` as keyof RegistrationFormData;
       setFormData((prev) => ({
         ...prev,
@@ -234,7 +253,7 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
   // Handle URL input changes
   const handleUrlChange = useCallback(
     (
-      social: "facebook" | "instagram" | "tiktok",
+      social: "facebook" | "instagram" | "tiktok" | "google_maps" | "website",
       index: number,
       value: string,
     ) => {
@@ -296,6 +315,7 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     handleInputChange,
     handlePackageSelect,
     handleSocialToggle,
+    handleAdditionalInfoToggle,
     handleAddUrl,
     handleRemoveUrl,
     handleUrlChange,

@@ -26,6 +26,14 @@ export interface RegistrationFormData {
   facebook_urls: string[];
   instagram_urls: string[];
   tiktok_urls: string[];
+
+  // Additional information
+  additionalInfo: {
+    google_maps: boolean;
+    website: boolean;
+  };
+  google_maps_urls: string[];
+  website_urls: string[];
 }
 
 export interface RegistrationFormErrors {
@@ -41,6 +49,8 @@ export interface RegistrationFormErrors {
   facebook_urls?: string[];
   instagram_urls?: string[];
   tiktok_urls?: string[];
+  google_maps_urls?: string[];
+  website_urls?: string[];
   general?: string;
 }
 
@@ -72,6 +82,12 @@ export const initialFormData: RegistrationFormData = {
   facebook_urls: [""],
   instagram_urls: [""],
   tiktok_urls: [""],
+  additionalInfo: {
+    google_maps: false,
+    website: false,
+  },
+  google_maps_urls: [""],
+  website_urls: [""],
 };
 
 export const businessTypes = [

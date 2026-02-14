@@ -25,7 +25,7 @@ interface SocialChannelsProps {
   ) => void;
 }
 
-export function SocialChannels({
+export function PromotionChannels({
   formData,
   errors,
   onSocialToggle,
@@ -36,7 +36,7 @@ export function SocialChannels({
   return (
     <section className="mb-16">
       <h3 className="text-sm font-extrabold uppercase tracking-widest text-text-main mb-8 flex items-center gap-4">
-        <span className="w-8 h-0.5 bg-primary" /> Social Channels
+        <span className="w-8 h-0.5 bg-primary" /> Promotions Channels
       </h3>
       <div className="space-y-5">
         {/* Facebook */}

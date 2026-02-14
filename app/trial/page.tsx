@@ -33,6 +33,7 @@ function TrialFormContent() {
     handleInputChange,
     handlePackageSelect,
     handleSocialToggle,
+    handleAdditionalInfoToggle,
     handleAddUrl,
     handleRemoveUrl,
     handleUrlChange,
@@ -101,6 +102,7 @@ function TrialFormContent() {
               onInputChange={handleInputChange}
               onPackageSelect={handlePackageSelect}
               onSocialToggle={handleSocialToggle}
+              onAdditionalInfoToggle={handleAdditionalInfoToggle}
               onAddUrl={handleAddUrl}
               onRemoveUrl={handleRemoveUrl}
               onUrlChange={handleUrlChange}

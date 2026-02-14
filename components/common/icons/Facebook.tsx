@@ -5,7 +5,7 @@ interface FacebookProps {
   className?: string;
 }
 
-const Facebook = ({ size = 100, className = "" }: FacebookProps) => {
+const Facebook = ({ size = 32, className = "" }: FacebookProps) => {
   return (
     <BaseIcon size={size} className={className}>
       <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
