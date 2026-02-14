@@ -110,30 +110,45 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     }
 
     // Social URL validation (only if enabled)
-    if (formData.socials.facebook && formData.facebook_url) {
-      if (
-        !formData.facebook_url.includes("facebook.com") &&
-        !formData.facebook_url.startsWith("https://")
-      ) {
-        newErrors.facebook_url = "Please enter a valid Facebook URL";
+    if (formData.socials.facebook) {
+      const invalidUrls = formData.facebook_urls.filter(
+        (url) =>
+          url.trim() &&
+          !url.includes("facebook.com") &&
+          !url.startsWith("https://"),
+      );
+      if (invalidUrls.length > 0) {
+        newErrors.facebook_urls = invalidUrls.map(
+          () => "Please enter a valid Facebook URL",
+        );
       }
     }
 
-    if (formData.socials.instagram && formData.instagram_url) {
-      if (
-        !formData.instagram_url.includes("instagram.com") &&
-        !formData.instagram_url.startsWith("https://")
-      ) {
-        newErrors.instagram_url = "Please enter a valid Instagram URL";
+    if (formData.socials.instagram) {
+      const invalidUrls = formData.instagram_urls.filter(
+        (url) =>
+          url.trim() &&
+          !url.includes("instagram.com") &&
+          !url.startsWith("https://"),
+      );
+      if (invalidUrls.length > 0) {
+        newErrors.instagram_urls = invalidUrls.map(
+          () => "Please enter a valid Instagram URL",
+        );
       }
     }
 
-    if (formData.socials.tiktok && formData.tiktok_url) {
-      if (
-        !formData.tiktok_url.includes("tiktok.com") &&
-        !formData.tiktok_url.startsWith("https://")
-      ) {
-        newErrors.tiktok_url = "Please enter a valid TikTok URL";
+    if (formData.socials.tiktok) {
+      const invalidUrls = formData.tiktok_urls.filter(
+        (url) =>
+          url.trim() &&
+          !url.includes("tiktok.com") &&
+          !url.startsWith("https://"),
+      );
+      if (invalidUrls.length > 0) {
+        newErrors.tiktok_urls = invalidUrls.map(
+          () => "Please enter a valid TikTok URL",
+        );
       }
     }
 
@@ -192,6 +207,59 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     [],
   );
 
+  // Handle adding a new URL input for a social platform
+  const handleAddUrl = useCallback(
+    (social: "facebook" | "instagram" | "tiktok") => {
+      const urlKey = `${social}_urls` as keyof RegistrationFormData;
+      setFormData((prev) => ({
+        ...prev,
+        [urlKey]: [...(prev[urlKey] as string[]), ""],
+      }));
+    },
+    [],
+  );
+
+  // Handle removing a URL input for a social platform
+  const handleRemoveUrl = useCallback(
+    (social: "facebook" | "instagram" | "tiktok", index: number) => {
+      const urlKey = `${social}_urls` as keyof RegistrationFormData;
+      setFormData((prev) => ({
+        ...prev,
+        [urlKey]: (prev[urlKey] as string[]).filter((_, i) => i !== index),
+      }));
+    },
+    [],
+  );
+
+  // Handle URL input changes
+  const handleUrlChange = useCallback(
+    (
+      social: "facebook" | "instagram" | "tiktok",
+      index: number,
+      value: string,
+    ) => {
+      const urlKey = `${social}_urls` as keyof RegistrationFormData;
+      setFormData((prev) => {
+        const urls = [...(prev[urlKey] as string[])];
+        urls[index] = value;
+        return {
+          ...prev,
+          [urlKey]: urls,
+        };
+      });
+
+      // Clear error for this field
+      const errorKey = `${social}_urls` as keyof RegistrationFormErrors;
+      if (errors[errorKey]) {
+        setErrors((prev) => ({
+          ...prev,
+          [errorKey]: undefined,
+        }));
+      }
+    },
+    [errors],
+  );
+
   // Handle form submission
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -228,6 +296,9 @@ export function useRegistrationForm(options: UseRegistrationFormOptions = {}) {
     handleInputChange,
     handlePackageSelect,
     handleSocialToggle,
+    handleAddUrl,
+    handleRemoveUrl,
+    handleUrlChange,
     handleSubmit,
     resetForm,
   };

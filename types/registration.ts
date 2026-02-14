@@ -23,9 +23,9 @@ export interface RegistrationFormData {
     instagram: boolean;
     tiktok: boolean;
   };
-  facebook_url: string;
-  instagram_url: string;
-  tiktok_url: string;
+  facebook_urls: string[];
+  instagram_urls: string[];
+  tiktok_urls: string[];
 }
 
 export interface RegistrationFormErrors {
@@ -38,9 +38,9 @@ export interface RegistrationFormErrors {
   email?: string;
   phone_number?: string;
   job_position?: string;
-  facebook_url?: string;
-  instagram_url?: string;
-  tiktok_url?: string;
+  facebook_urls?: string[];
+  instagram_urls?: string[];
+  tiktok_urls?: string[];
   general?: string;
 }
 
@@ -69,9 +69,9 @@ export const initialFormData: RegistrationFormData = {
     instagram: false,
     tiktok: false,
   },
-  facebook_url: "",
-  instagram_url: "",
-  tiktok_url: "",
+  facebook_urls: [""],
+  instagram_urls: [""],
+  tiktok_urls: [""],
 };
 
 export const businessTypes = [

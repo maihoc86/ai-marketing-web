@@ -24,6 +24,16 @@ interface RegistrationFormProps {
   ) => void;
   onPackageSelect: (packageId: PackageType) => void;
   onSocialToggle: (social: keyof RegistrationFormData["socials"]) => void;
+  onAddUrl: (social: "facebook" | "instagram" | "tiktok") => void;
+  onRemoveUrl: (
+    social: "facebook" | "instagram" | "tiktok",
+    index: number,
+  ) => void;
+  onUrlChange: (
+    social: "facebook" | "instagram" | "tiktok",
+    index: number,
+    value: string,
+  ) => void;
   onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 
@@ -35,6 +45,9 @@ export function RegistrationForm({
   onInputChange,
   onPackageSelect,
   onSocialToggle,
+  onAddUrl,
+  onRemoveUrl,
+  onUrlChange,
   onSubmit,
 }: RegistrationFormProps) {
   return (
@@ -83,7 +96,9 @@ export function RegistrationForm({
         formData={formData}
         errors={errors}
         onSocialToggle={onSocialToggle}
-        onInputChange={onInputChange}
+        onAddUrl={onAddUrl}
+        onRemoveUrl={onRemoveUrl}
+        onUrlChange={onUrlChange}
       />
 
       {/* Success Message */}

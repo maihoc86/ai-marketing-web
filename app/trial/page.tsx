@@ -33,6 +33,9 @@ function TrialFormContent() {
     handleInputChange,
     handlePackageSelect,
     handleSocialToggle,
+    handleAddUrl,
+    handleRemoveUrl,
+    handleUrlChange,
     handleSubmit,
     resetForm,
   } = useRegistrationForm({ initialPackage });
@@ -98,6 +101,9 @@ function TrialFormContent() {
               onInputChange={handleInputChange}
               onPackageSelect={handlePackageSelect}
               onSocialToggle={handleSocialToggle}
+              onAddUrl={handleAddUrl}
+              onRemoveUrl={handleRemoveUrl}
+              onUrlChange={handleUrlChange}
               onSubmit={handleSubmit}
             />
           </div>
