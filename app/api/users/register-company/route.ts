@@ -11,6 +11,12 @@ interface RegistrationData {
   tax_code?: string;
   activity_field?: string;
   address?: string;
+  additional_information?: {
+    facebook_urls?: string[];
+    instagram_urls?: string[];
+    tiktok_urls?: string[];
+    [key: string]: any; // Allow dynamic fields
+  };
 }
 
 // =============================================================================
@@ -151,6 +157,12 @@ export async function POST(request: NextRequest) {
       has_company: Boolean(data.company_name),
       has_tax_code: Boolean(data.tax_code),
       has_address: Boolean(data.address),
+      has_additional_info: Boolean(data.additional_information),
+      facebook_urls_count:
+        data.additional_information?.facebook_urls?.length || 0,
+      instagram_urls_count:
+        data.additional_information?.instagram_urls?.length || 0,
+      tiktok_urls_count: data.additional_information?.tiktok_urls?.length || 0,
     });
 
     try {

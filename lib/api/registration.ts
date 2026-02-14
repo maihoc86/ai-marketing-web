@@ -77,6 +77,15 @@ export async function registerTrial(
       activity_field: data.business_type,
       address: data.office_address,
     }),
+    additional_information: {
+      facebook_urls: (data.facebook_urls || []).filter(
+        (url) => url.trim() !== "",
+      ),
+      instagram_urls: (data.instagram_urls || []).filter(
+        (url) => url.trim() !== "",
+      ),
+      tiktok_urls: (data.tiktok_urls || []).filter((url) => url.trim() !== ""),
+    },
   };
 
   const response = await apiClient.post<RegistrationResponse>(
