@@ -11,11 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
-import {
-  getRateLimits,
-  incrementRateLimit,
-  type RateLimitData,
-} from "@/lib/queries/rate-limits";
+import { getRateLimits, type RateLimitData } from "@/lib/queries/rate-limits";
 import { generateImage } from "@/lib/queries/generate-image";
 import { cn } from "@/lib/utils";
 import StyleCarousel from "./style-carousel";
@@ -242,8 +238,7 @@ export default function AIPhotoboothModal({
       if (result?.image) {
         setGeneratedResults((prev) => [result.image, ...prev]);
 
-        // Increment rate limit after successful generation
-        await incrementRateLimit();
+        // Refresh rate limit display after successful generation
         await fetchRateLimits();
       }
     } catch (error: unknown) {

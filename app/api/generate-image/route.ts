@@ -240,6 +240,29 @@ export async function POST(request: Request) {
           : undefined,
     });
 
+    // Increment rate limit after successful generation
+    const fingerprint = request.headers.get("x-fingerprint");
+    try {
+      const incrementHeaders: Record<string, string> = {
+        "x-api-key":
+          "7e7a0271c6f5482e886a8cd47f0d41e36fb0a2258fabfd2f01bb8ea4a1db743e",
+        "Content-Type": "application/json",
+      };
+      if (fingerprint) {
+        incrementHeaders["X-Fingerprint"] = fingerprint;
+      }
+      await fetch(
+        "https://api-ai-code.dsp.one/api/rate-limits/increment/ai_image_generate",
+        {
+          method: "POST",
+          headers: incrementHeaders,
+          body: JSON.stringify({}),
+        },
+      );
+    } catch (incrementErr) {
+      console.error("Failed to increment rate limit:", incrementErr);
+    }
+
     return NextResponse.json(
       { image: imageDataUrl },
       {
