@@ -237,6 +237,7 @@ export default function AIPhotoboothModal({
 
       if (result?.image) {
         setGeneratedResults((prev) => [result.image, ...prev]);
+        setPreviewImage(result.image);
 
         // Refresh rate limit display after successful generation
         await fetchRateLimits();
