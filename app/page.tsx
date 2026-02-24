@@ -23,7 +23,7 @@ export default function Home() {
       <PricingSection />
       <FAQSection />*/}
       <TrialPage />
-      <Footer />
+      {/*<Footer />*/}
     </main>
   );
 }
