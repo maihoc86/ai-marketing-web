@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BusinessIdentityCard } from "@/components/legal/business-identity-card";
 import {
   ArrowLeft,
   Shield,
@@ -45,6 +46,8 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
           <div className="prose prose-lg max-w-none">
+            <BusinessIdentityCard locale="vi" />
+
             {/* Introduction */}
             <p className="text-gray-600 leading-relaxed mb-8">
               Chính sách Bảo mật Tổng thể này (&quot;Chính sách&quot;) giải

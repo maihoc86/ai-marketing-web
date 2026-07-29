@@ -24,6 +24,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // Resolves relative canonical/alternate URLs (e.g. on the legal pages) to
+  // absolute ones — required by crawlers such as Meta's App Review reviewer.
+  metadataBase: new URL("https://dsp.one"),
   title:
     "DXAI Marketing Platform - Giải pháp Marketing Tự động cho Doanh nghiệp | Tiên Phong CDS",
   description:

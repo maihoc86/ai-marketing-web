@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { BusinessIdentityCard } from "@/components/legal/business-identity-card";
 
 export const metadata: Metadata = {
   title: "Điều Khoản Sử Dụng | DSP.ONE - DXAI Marketing Platform",
@@ -33,6 +34,8 @@ export default function TermsPage() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
           {/* Introduction */}
           <div className="prose prose-lg max-w-none">
+            <BusinessIdentityCard locale="vi" />
+
             <p className="text-gray-600 leading-relaxed mb-8">
               Các Điều khoản Sử dụng Dịch vụ này (&quot;Điều khoản&quot;) điều
               chỉnh việc truy cập và sử dụng nền tảng DSP.one và các dịch vụ

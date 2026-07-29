@@ -25,8 +25,16 @@ const contactInfo = [
   },
 ];
 
+// Legal pages exist in both languages — serve the one matching the active locale
+const LEGAL_HREFS = {
+  vi: { terms: "/dieu-khoan", privacy: "/chinh-sach-bao-mat" },
+  en: { terms: "/terms", privacy: "/privacy" },
+} as const;
+
 export function Footer() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+
+  const legalHrefs = LEGAL_HREFS[locale] ?? LEGAL_HREFS.vi;
 
   const productLinks = [
     { labelKey: "footer.product.overview", href: "/" },
@@ -39,7 +47,7 @@ export function Footer() {
     { labelKey: "footer.support.guide", href: "#" },
     { labelKey: "footer.support.faq", href: "#faq" },
     { labelKey: "footer.support.contact", href: "#contact" },
-    { labelKey: "footer.support.privacy", href: "#" },
+    { labelKey: "footer.support.privacy", href: legalHrefs.privacy },
   ];
 
   return (
@@ -151,13 +159,13 @@ export function Footer() {
           </p>
           <div className="flex gap-6 text-sm">
             <Link
-              href="#"
+              href={legalHrefs.terms}
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.terms")}
             </Link>
             <Link
-              href="#"
+              href={legalHrefs.privacy}
               className="text-white/40 hover:text-[#22b5f8] transition-colors"
             >
               {t("footer.privacy")}
